@@ -61,6 +61,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   // Selected book for the chapter picker grid
   late BibleBook _selectedBookForPicker;
+  late final ValueNotifier<BibleBook> _selectedBookForPickerNotifier;
+
+  @visibleForTesting
+  BibleBook get selectedBookForPicker => _selectedBookForPicker;
 
   // TabController inside bottom sheet
   late TabController _sheetTabController;
@@ -141,6 +145,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       controller.dispose();
     }
     _currentPageIndexNotifier.dispose();
+    _selectedBookForPickerNotifier.dispose();
     _translationSelectorAnimationController.dispose();
     _panelController.dispose();
     _pageController.dispose();
@@ -152,6 +157,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _currentPageIndexNotifier = ValueNotifier<int>(_currentPageIndex);
+    _selectedBookForPicker = catholicBooks.first;
+    _selectedBookForPickerNotifier = ValueNotifier<BibleBook>(
+      _selectedBookForPicker,
+    );
     _translationSelectorAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 300),
@@ -167,7 +176,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     );
 
     _pageController = PageController(initialPage: 0);
-    _selectedBookForPicker = catholicBooks.first;
 
     // Panel controller
     _panelController = AnimationController(
@@ -208,6 +216,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           }
           _currentPageIndex = initialIndex;
           _selectedBookForPicker = _allChapters[initialIndex].book;
+          _selectedBookForPickerNotifier.value = _selectedBookForPicker;
           _currentPageIndexNotifier.value = initialIndex;
         }
 
@@ -394,6 +403,21 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
+  void _jumpToPageAndSync(int pageIndex) {
+    final book = _allChapters[pageIndex].book;
+    _selectedBookForPicker = book;
+    _selectedBookForPickerNotifier.value = book;
+    final previousPageIndex = _currentPageIndex;
+    if (_pageController.hasClients) {
+      _pageController.jumpToPage(pageIndex);
+    }
+    if (_currentPageIndex == previousPageIndex) {
+      _currentPageIndex = pageIndex;
+      _currentPageIndexNotifier.value = pageIndex;
+      _saveReadingPosition(pageIndex);
+    }
+  }
+
   @visibleForTesting
   void navigateToChapter(BibleBook book, int chapterNum) =>
       _navigateToChapter(book, chapterNum);
@@ -401,9 +425,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   void _navigateToChapter(BibleBook book, int chapterNum) {
     final pageIndex = getCanonicalChapterIndex(book.bookNumber, chapterNum);
     if (pageIndex != -1) {
-      _pageController.jumpToPage(pageIndex);
+      _jumpToPageAndSync(pageIndex);
       _collapsePanel();
-      _saveReadingPosition(pageIndex);
     }
   }
 
@@ -418,9 +441,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         _highlightEndVerse = fav.endVerse;
         _navigationSessionId = DateTime.now().millisecondsSinceEpoch.toString();
       });
-      _pageController.jumpToPage(pageIndex);
+      _jumpToPageAndSync(pageIndex);
       _collapsePanel();
-      _saveReadingPosition(pageIndex);
     }
   }
 
@@ -442,9 +464,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         _highlightEndVerse = verseNum;
         _navigationSessionId = DateTime.now().millisecondsSinceEpoch.toString();
       });
-      _pageController.jumpToPage(pageIndex);
+      _jumpToPageAndSync(pageIndex);
       _collapsePanel();
-      _saveReadingPosition(pageIndex);
     }
   }
 
@@ -477,9 +498,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       final book =
           catholicBooksByNumber[bookmark.bookNumber] ?? catholicBooks.first;
       _navigateToChapter(book, bookmark.chapter);
-      setState(() {
-        _selectedBookForPicker = book;
-      });
     } else {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
@@ -604,8 +622,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             controller: _pageController,
             itemCount: _allChapters.length,
             onPageChanged: (index) {
+              final book = _allChapters[index].book;
               _currentPageIndex = index;
-              _selectedBookForPicker = _allChapters[index].book;
+              _selectedBookForPicker = book;
+              _selectedBookForPickerNotifier.value = book;
               _currentPageIndexNotifier.value = index;
               _saveReadingPosition(index);
             },
@@ -684,10 +704,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             left: 0,
             right: 0,
             bottom: 0,
-            child: ValueListenableBuilder<int>(
-              valueListenable: _currentPageIndexNotifier,
-              builder: (context, currentIndex, _) {
-                final currentRef = _allChapters[currentIndex];
+            child: ListenableBuilder(
+              listenable: Listenable.merge([
+                _currentPageIndexNotifier,
+                _selectedBookForPickerNotifier,
+              ]),
+              builder: (context, _) {
+                final currentRef =
+                    _allChapters[_currentPageIndexNotifier.value];
                 return BibleBottomNavigationPanel(
                   panelHeightAnimation: _panelHeightAnimation,
                   isPanelExpanded: _isPanelExpanded,
@@ -697,11 +721,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                       _settings?.bibleNumberingSystem ??
                       BibleNumberingSystem.vulgate,
                   sheetTabController: _sheetTabController,
-                  selectedBookForPicker: _selectedBookForPicker,
+                  selectedBookForPicker: _selectedBookForPickerNotifier.value,
                   onBookSelectedForPicker: (book) {
-                    setState(() {
-                      _selectedBookForPicker = book;
-                    });
+                    _selectedBookForPicker = book;
+                    _selectedBookForPickerNotifier.value = book;
                   },
                   onChapterSelected: _navigateToChapter,
                   onTogglePanel: _togglePanel,
