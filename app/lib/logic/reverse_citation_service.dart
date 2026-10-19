@@ -136,8 +136,11 @@ class ReverseCitationService {
   static final Map<int, Map<int, Map<int, List<ReverseCitation>>>> _verseIndex =
       {};
   static Future<void>? _inFlightIndexing;
+  static bool _isCatalogFullyIndexed = false;
+  static int _generation = 0;
 
   static int get indexedSourcesCount => _indexedSources.length;
+  static bool get isCatalogFullyIndexed => _isCatalogFullyIndexed;
 
   static final RegExp _digitRegex = RegExp(r'\d');
   static final RegExp _wordBoundaryRegex = RegExp(
@@ -446,10 +449,12 @@ class ReverseCitationService {
 
   @visibleForTesting
   static void clear() {
+    _generation++;
     _indexedSources.clear();
     _chapterIndex.clear();
     _verseIndex.clear();
     _inFlightIndexing = null;
+    _isCatalogFullyIndexed = false;
   }
 
   static void prune() {
@@ -459,6 +464,7 @@ class ReverseCitationService {
       changed = true;
     }
     if (changed) {
+      _isCatalogFullyIndexed = false;
       _rebuildIndices();
     }
   }
@@ -466,7 +472,9 @@ class ReverseCitationService {
   static Future<void> ensureIndexed({
     int concurrency = indexingConcurrencyLimit,
   }) {
+    if (_isCatalogFullyIndexed) return Future<void>.value();
     if (_inFlightIndexing != null) return _inFlightIndexing!;
+    final runGeneration = _generation;
     final future = () async {
       try {
         final catalogPaths = ReverseCitationService.catalogPaths;
@@ -485,10 +493,18 @@ class ReverseCitationService {
           await _indexPathsConcurrently(
             unindexedPaths,
             concurrency: concurrency,
+            runGeneration: runGeneration,
           );
         }
+        if (runGeneration != _generation) return;
+        if (catalogPaths.isNotEmpty &&
+            catalogPaths.every(_indexedSources.containsKey)) {
+          _isCatalogFullyIndexed = true;
+        }
       } finally {
-        _inFlightIndexing = null;
+        if (_generation == runGeneration) {
+          _inFlightIndexing = null;
+        }
       }
     }();
     _inFlightIndexing = future;
@@ -498,6 +514,7 @@ class ReverseCitationService {
   static Future<void> _indexPathsConcurrently(
     List<String> paths, {
     required int concurrency,
+    required int runGeneration,
   }) async {
     if (paths.isEmpty) return;
 
@@ -506,6 +523,7 @@ class ReverseCitationService {
 
     Future<void> worker() async {
       while (index < paths.length) {
+        if (runGeneration != _generation) break;
         final pathIndex = index++;
         if (pathIndex >= paths.length) break;
         final path = paths[pathIndex];
@@ -527,6 +545,7 @@ class ReverseCitationService {
     final workers = List.generate(workerCount, (_) => worker());
     await Future.wait(workers);
 
+    if (runGeneration != _generation) return;
     for (int i = 0; i < paths.length; i++) {
       final citations = results[i];
       if (citations != null) {
@@ -607,6 +626,7 @@ class ReverseCitationService {
       needsFullRebuild = true;
     } else if (_indexedSources.length >= maxIndexedSources) {
       _indexedSources.remove(_indexedSources.keys.first);
+      _isCatalogFullyIndexed = false;
       needsFullRebuild = true;
     }
 

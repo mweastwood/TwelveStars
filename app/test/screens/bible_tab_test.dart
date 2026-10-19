@@ -9,6 +9,7 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
+import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
@@ -1991,6 +1992,169 @@ void main() {
         expect(
           find.text('Long press this ribbon to bookmark the current chapter'),
           findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'swiping horizontally updates BibleBottomNavigationPanel without rebuilding kept-alive BibleChapterView',
+      (tester) async {
+        // Pre-populate Genesis 50 (last chapter of Genesis) and Exodus 1 (first chapter of Exodus)
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 50,
+                verseNumber: 1,
+                verseText: 'Genesis 50 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 2,
+                bookName: 'Exodus',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Exodus 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final settings = UserSettings(
+          lastBibleBookNumber: 1,
+          lastBibleChapter: 50,
+        );
+        await testDb.saveUserSettings(settings);
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final gen50ViewBefore = tester.widget<BibleChapterView>(
+          find.byWidgetPredicate(
+            (w) =>
+                w is BibleChapterView &&
+                w.book.bookNumber == 1 &&
+                w.chapter == 50,
+          ),
+        );
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.selectedBookForPicker.bookNumber, equals(1));
+
+        // Swipe left to transition from Genesis 50 to Exodus 1
+        await tester.drag(
+          find.text('Genesis 50 Verse 1'),
+          const Offset(-400.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        // Bottom navigation panel should be updated to Exodus 1 and selectedBookForPicker to Exodus
+        final panel = tester.widget<BibleBottomNavigationPanel>(
+          find.byType(BibleBottomNavigationPanel),
+        );
+        expect(panel.currentBook.bookNumber, equals(2));
+        expect(panel.currentChapter, equals(1));
+        expect(panel.selectedBookForPicker.bookNumber, equals(2));
+        expect(state.selectedBookForPicker.bookNumber, equals(2));
+
+        // Swipe right back to Genesis 50 and verify the kept-alive BibleChapterView widget instance was not recreated by a parent setState
+        await tester.drag(
+          find.text('Exodus 1 Verse 1'),
+          const Offset(400.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        final gen50ViewAfter = tester.widget<BibleChapterView>(
+          find.byWidgetPredicate(
+            (w) =>
+                w is BibleChapterView &&
+                w.book.bookNumber == 1 &&
+                w.chapter == 50,
+          ),
+        );
+        expect(identical(gen50ViewBefore, gen50ViewAfter), isTrue);
+      },
+    );
+
+    testWidgets(
+      'selecting a different book in picker and navigating back to already-active chapter via ribbon resets selectedBookForPicker',
+      (tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Genesis 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final settings = UserSettings(
+          lastBibleBookNumber: 1,
+          lastBibleChapter: 1,
+          bibleRibbons: const [
+            BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+          ],
+        );
+        await testDb.saveUserSettings(settings);
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.selectedBookForPicker.bookNumber, equals(1));
+
+        // Expand the bottom navigation panel
+        await tester.drag(
+          find.text('Genesis 1').last,
+          const Offset(0.0, -300.0),
+        );
+        await tester.pumpAndSettle();
+
+        // Select "Exodus" in the picker without selecting a chapter
+        await tester.tap(find.text('Exodus'));
+        await tester.pumpAndSettle();
+
+        expect(state.selectedBookForPicker.bookNumber, equals(2));
+        expect(
+          tester
+              .widget<BibleBottomNavigationPanel>(
+                find.byType(BibleBottomNavigationPanel),
+              )
+              .selectedBookForPicker
+              .bookNumber,
+          equals(2),
+        );
+
+        // Collapse the panel first (since the backdrop barrier covers the screen while expanded)
+        await tester.tapAt(const Offset(100, 100));
+        await tester.pumpAndSettle();
+
+        // Tap ribbon 0 (which points to the already-active Genesis 1 chapter)
+        await tester.tap(find.byKey(const Key('bible_ribbon_0')));
+        await tester.pumpAndSettle();
+
+        // selectedBookForPicker should be synced back to Genesis (bookNumber 1)
+        expect(state.selectedBookForPicker.bookNumber, equals(1));
+        expect(
+          tester
+              .widget<BibleBottomNavigationPanel>(
+                find.byType(BibleBottomNavigationPanel),
+              )
+              .selectedBookForPicker
+              .bookNumber,
+          equals(1),
         );
       },
     );

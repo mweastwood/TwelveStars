@@ -67,6 +67,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
   Timer? _highlightTimer;
 
   final Map<int, GlobalKey> _verseKeys = {};
+  int _loadGeneration = 0;
+  bool _isSubscribedToIndexing = false;
 
   @override
   bool get wantKeepAlive => true; // Cache adjacent chapters in memory
@@ -86,8 +88,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
   @override
   void didUpdateWidget(BibleChapterView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.book.bookNumber != widget.book.bookNumber ||
-        oldWidget.chapter != widget.chapter ||
+    final chapterChanged =
+        oldWidget.book.bookNumber != widget.book.bookNumber ||
+        oldWidget.chapter != widget.chapter;
+    if (chapterChanged ||
         oldWidget.primaryTranslation != widget.primaryTranslation ||
         oldWidget.compareTranslation != widget.compareTranslation) {
       if (_firstSelectedVerseNumber != null) {
@@ -95,13 +99,18 @@ class _BibleChapterViewState extends State<BibleChapterView>
       }
       _firstSelectedVerseNumber = null;
       _lastSelectedVerseNumber = null;
+      if (chapterChanged) {
+        _verseKeys.clear();
+        _favoritesByVerse = {};
+        _commentsByNodeId = {};
+      }
       _loadChapterData();
     } else if (widget.navigationSessionId != oldWidget.navigationSessionId) {
       _scrollToAndHighlightTarget();
     }
   }
 
-  Future<void> _loadFavorites() async {
+  Future<Map<int, List<FavoritePassage>>> _fetchFavoritesByVerse() async {
     try {
       final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
         widget.book.bookNumber,
@@ -113,15 +122,22 @@ class _BibleChapterViewState extends State<BibleChapterView>
           byVerse.putIfAbsent(v, () => []).add(fav);
         }
       }
-      if (mounted) {
-        setState(() {
-          _favoritesByVerse = byVerse;
-        });
-      }
-    } catch (_) {}
+      return byVerse;
+    } catch (_) {
+      return _favoritesByVerse;
+    }
   }
 
-  Future<void> _loadComments() async {
+  Future<void> _loadFavorites() async {
+    final byVerse = await _fetchFavoritesByVerse();
+    if (mounted) {
+      setState(() {
+        _favoritesByVerse = byVerse;
+      });
+    }
+  }
+
+  Future<Map<String, List<UserComment>>> _fetchCommentsByNodeId() async {
     try {
       final comments = await BibleDatabaseHelper.db.getComments(
         documentId: widget.book.abbrev,
@@ -131,28 +147,41 @@ class _BibleChapterViewState extends State<BibleChapterView>
       for (final c in comments) {
         byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
       }
-      if (mounted) {
-        setState(() {
-          _commentsByNodeId = byNodeId;
-        });
-      }
-    } catch (_) {}
+      return byNodeId;
+    } catch (_) {
+      return _commentsByNodeId;
+    }
+  }
+
+  Future<void> _loadComments() async {
+    final byNodeId = await _fetchCommentsByNodeId();
+    if (mounted) {
+      setState(() {
+        _commentsByNodeId = byNodeId;
+      });
+    }
   }
 
   Future<void> _loadChapterData() async {
     if (!mounted) return;
+    final loadGen = ++_loadGeneration;
     setState(() {
       _loading = true;
       _error = null;
     });
 
     try {
-      ReverseCitationService.ensureIndexed().then((_) {
-        if (mounted) setState(() {});
-      });
+      if (!ReverseCitationService.isCatalogFullyIndexed &&
+          !_isSubscribedToIndexing) {
+        _isSubscribedToIndexing = true;
+        ReverseCitationService.ensureIndexed().then((_) {
+          _isSubscribedToIndexing = false;
+          if (mounted && !_loading) setState(() {});
+        });
+      }
       final db = BibleDatabaseHelper.db;
-      await _loadFavorites();
-      await _loadComments();
+      final favoritesByVerse = await _fetchFavoritesByVerse();
+      final commentsByNodeId = await _fetchCommentsByNodeId();
       // Load primary translation
       await db.ensureBookPopulated(
         widget.book.bookNumber,
@@ -185,21 +214,21 @@ class _BibleChapterViewState extends State<BibleChapterView>
         };
       }
 
-      if (mounted) {
-        setState(() {
-          _verses = verses;
-          _compareVersesByNumber = compareVersesByNumber;
-          _loading = false;
-        });
-        _scrollToAndHighlightTarget();
-      }
+      if (!mounted || loadGen != _loadGeneration) return;
+      setState(() {
+        _favoritesByVerse = favoritesByVerse;
+        _commentsByNodeId = commentsByNodeId;
+        _verses = verses;
+        _compareVersesByNumber = compareVersesByNumber;
+        _loading = false;
+      });
+      _scrollToAndHighlightTarget();
     } catch (e) {
-      if (mounted) {
-        setState(() {
-          _error = e.toString();
-          _loading = false;
-        });
-      }
+      if (!mounted || loadGen != _loadGeneration) return;
+      setState(() {
+        _error = e.toString();
+        _loading = false;
+      });
     }
   }
 
@@ -426,173 +455,179 @@ class _BibleChapterViewState extends State<BibleChapterView>
       widget.chapter,
     );
 
-    return Stack(
-      children: [
-        SingleChildScrollView(
-          controller: widget.scrollController,
-          padding: const EdgeInsets.fromLTRB(
-            16.0,
-            48.0,
-            16.0,
-            160.0, // space for bottom sheet + action bar
-          ),
-          child: Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (widget.translationSelectorAnimation != null)
-                    SizeTransition(
-                      sizeFactor: widget.translationSelectorAnimation!,
-                      alignment: Alignment.topCenter,
-                      child: const SizedBox(height: 72.0),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Flexible(
-                          child: Text(
-                            BibleVerseResolver.formatChapterTitle(
-                              bookNumber: widget.book.bookNumber,
-                              bookName: widget.book.bookName,
-                              chapter: widget.chapter,
-                              numberingSystem: widget.numberingSystem,
-                            ),
-                            style: theme.textTheme.headlineMedium?.copyWith(
-                              fontFamily: 'CinzelDecorative',
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ),
-                        ),
-                        if (chapterCitations.isNotEmpty) ...[
-                          const SizedBox(width: 8),
-                          Padding(
-                            // Compensates for the font descender space (~6.0px in headlineMedium CinzelDecorative),
-                            // aligning the bottom of the chip with the baseline of the chapter title text.
-                            padding: const EdgeInsets.only(bottom: 6.0),
-                            child: _buildChapterCitationsChip(
-                              context,
-                              theme,
-                              chapterCitations,
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  ..._verses.map((verse) {
-                    final isSelected = _isVerseSelected(verse.verseNumber);
-                    _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
-
-                    final verseCitations =
-                        ReverseCitationService.getVerseCitations(
-                          widget.book.bookNumber,
-                          widget.chapter,
-                          verse.verseNumber,
-                        );
-
-                    final nodeId =
-                        '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
-                    final verseComments = _commentsByNodeId[nodeId] ?? const [];
-
-                    final matchingFavorites =
-                        _favoritesByVerse[verse.verseNumber] ?? const [];
-                    final isFavorite = matchingFavorites.isNotEmpty;
-
-                    final compareVerse =
-                        _compareVersesByNumber[verse.verseNumber];
-
-                    final verseDisplay = BibleVerseResolver.formatVerseDisplay(
-                      bookNumber: widget.book.bookNumber,
-                      chapter: widget.chapter,
-                      verseNumber: verse.verseNumber,
-                      numberingSystem: widget.numberingSystem,
-                    );
-
-                    return KeyedSubtree(
-                      key: _verseKeys[verse.id],
-                      child: BibleVerseRow(
-                        verseNumber: verseDisplay.displayVerseNumber,
-                        alternateVerseNumber: verseDisplay.alternateVerseNumber,
-                        verseText: verse.verseText,
-                        compareVerseText: compareVerse?.verseText,
-                        isSelected: isSelected,
-                        margin: const EdgeInsets.only(
-                          left: 16.0,
-                          top: 2.0,
-                          bottom: 2.0,
-                        ),
-                        citationsCount: verseCitations.length,
-                        commentsCount: verseComments.length,
-                        isFavorite: isFavorite,
-                        onTap: () => _onVerseTap(verse.verseNumber),
-                        onLongPress: () => _onVerseLongPress(verse.verseNumber),
-                        onTapCitations: () => showReverseCitationsModal(
-                          context: context,
-                          title:
-                              '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                          citations: verseCitations,
-                        ),
-                        onTapComments: () => showVerseCommentsModal(
-                          context: context,
-                          title:
-                              '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                          nodeId: nodeId,
-                          textPreview: verse.verseText,
-                          comments: verseComments,
-                          onCommentsChanged: _loadComments,
-                          onAddComment: () => showAddCommentDialog(
-                            context: context,
-                            citation:
-                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                            textPreview: verse.verseText,
-                            documentId: widget.book.abbrev,
-                            sectionIndex: widget.chapter,
-                            nodeId: nodeId,
-                            onCommentSaved: _loadComments,
-                          ),
-                        ),
-                        onTapFavorite: () => showVerseFavoritesModal(
-                          context: context,
-                          title:
-                              '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                          favorites: matchingFavorites,
-                          onFavoritesChanged: () async {
-                            await _loadFavorites();
-                            if (widget.onFavoriteSaved != null) {
-                              widget.onFavoriteSaved!();
-                            }
-                          },
-                        ),
+    return RepaintBoundary(
+      child: Stack(
+        children: [
+          SingleChildScrollView(
+            controller: widget.scrollController,
+            padding: const EdgeInsets.fromLTRB(
+              16.0,
+              48.0,
+              16.0,
+              160.0, // space for bottom sheet + action bar
+            ),
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (widget.translationSelectorAnimation != null)
+                      SizeTransition(
+                        sizeFactor: widget.translationSelectorAnimation!,
+                        alignment: Alignment.topCenter,
+                        child: const SizedBox(height: 72.0),
                       ),
-                    );
-                  }),
-                ],
-              ),
-              BiblePageRibbonsWidget(
-                bookmarks: widget.bookmarks,
-                bookNumber: widget.book.bookNumber,
-                chapter: widget.chapter,
-                top: -48.0,
-                bottom: -16.0,
-                left: -12.0,
-              ),
-            ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              BibleVerseResolver.formatChapterTitle(
+                                bookNumber: widget.book.bookNumber,
+                                bookName: widget.book.bookName,
+                                chapter: widget.chapter,
+                                numberingSystem: widget.numberingSystem,
+                              ),
+                              style: theme.textTheme.headlineMedium?.copyWith(
+                                fontFamily: 'CinzelDecorative',
+                                fontWeight: FontWeight.bold,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                          ),
+                          if (chapterCitations.isNotEmpty) ...[
+                            const SizedBox(width: 8),
+                            Padding(
+                              // Compensates for the font descender space (~6.0px in headlineMedium CinzelDecorative),
+                              // aligning the bottom of the chip with the baseline of the chapter title text.
+                              padding: const EdgeInsets.only(bottom: 6.0),
+                              child: _buildChapterCitationsChip(
+                                context,
+                                theme,
+                                chapterCitations,
+                              ),
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    ..._verses.map((verse) {
+                      final isSelected = _isVerseSelected(verse.verseNumber);
+                      _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
+
+                      final verseCitations =
+                          ReverseCitationService.getVerseCitations(
+                            widget.book.bookNumber,
+                            widget.chapter,
+                            verse.verseNumber,
+                          );
+
+                      final nodeId =
+                          '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
+                      final verseComments =
+                          _commentsByNodeId[nodeId] ?? const [];
+
+                      final matchingFavorites =
+                          _favoritesByVerse[verse.verseNumber] ?? const [];
+                      final isFavorite = matchingFavorites.isNotEmpty;
+
+                      final compareVerse =
+                          _compareVersesByNumber[verse.verseNumber];
+
+                      final verseDisplay =
+                          BibleVerseResolver.formatVerseDisplay(
+                            bookNumber: widget.book.bookNumber,
+                            chapter: widget.chapter,
+                            verseNumber: verse.verseNumber,
+                            numberingSystem: widget.numberingSystem,
+                          );
+
+                      return KeyedSubtree(
+                        key: _verseKeys[verse.id],
+                        child: BibleVerseRow(
+                          verseNumber: verseDisplay.displayVerseNumber,
+                          alternateVerseNumber:
+                              verseDisplay.alternateVerseNumber,
+                          verseText: verse.verseText,
+                          compareVerseText: compareVerse?.verseText,
+                          isSelected: isSelected,
+                          margin: const EdgeInsets.only(
+                            left: 16.0,
+                            top: 2.0,
+                            bottom: 2.0,
+                          ),
+                          citationsCount: verseCitations.length,
+                          commentsCount: verseComments.length,
+                          isFavorite: isFavorite,
+                          onTap: () => _onVerseTap(verse.verseNumber),
+                          onLongPress: () =>
+                              _onVerseLongPress(verse.verseNumber),
+                          onTapCitations: () => showReverseCitationsModal(
+                            context: context,
+                            title:
+                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                            citations: verseCitations,
+                          ),
+                          onTapComments: () => showVerseCommentsModal(
+                            context: context,
+                            title:
+                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                            nodeId: nodeId,
+                            textPreview: verse.verseText,
+                            comments: verseComments,
+                            onCommentsChanged: _loadComments,
+                            onAddComment: () => showAddCommentDialog(
+                              context: context,
+                              citation:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              textPreview: verse.verseText,
+                              documentId: widget.book.abbrev,
+                              sectionIndex: widget.chapter,
+                              nodeId: nodeId,
+                              onCommentSaved: _loadComments,
+                            ),
+                          ),
+                          onTapFavorite: () => showVerseFavoritesModal(
+                            context: context,
+                            title:
+                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                            favorites: matchingFavorites,
+                            onFavoritesChanged: () async {
+                              await _loadFavorites();
+                              if (widget.onFavoriteSaved != null) {
+                                widget.onFavoriteSaved!();
+                              }
+                            },
+                          ),
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+                BiblePageRibbonsWidget(
+                  bookmarks: widget.bookmarks,
+                  bookNumber: widget.book.bookNumber,
+                  chapter: widget.chapter,
+                  top: -48.0,
+                  bottom: -16.0,
+                  left: -12.0,
+                ),
+              ],
+            ),
           ),
-        ),
-        if (_firstSelectedVerseNumber != null)
-          Positioned(
-            left: 16,
-            right: 16,
-            bottom: 88, // float 16px above collapsed bottom sheet (72px)
-            child: _buildSelectionActionBar(theme),
-          ),
-      ],
+          if (_firstSelectedVerseNumber != null)
+            Positioned(
+              left: 16,
+              right: 16,
+              bottom: 88, // float 16px above collapsed bottom sheet (72px)
+              child: _buildSelectionActionBar(theme),
+            ),
+        ],
+      ),
     );
   }
 }

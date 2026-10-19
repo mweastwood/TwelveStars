@@ -1010,6 +1010,15 @@ void main() {
       // Verify BiblePageRibbon is rendered for the matching ribbon
       expect(find.byType(BiblePageRibbon), findsOneWidget);
       expect(find.byKey(const Key('bible_page_ribbon_1')), findsOneWidget);
+
+      // Verify chapter view and verse column are isolated in RepaintBoundaries
+      expect(
+        find.descendant(
+          of: find.byType(BibleChapterView),
+          matching: find.byType(RepaintBoundary),
+        ),
+        findsWidgets,
+      );
     });
 
     testWidgets(
