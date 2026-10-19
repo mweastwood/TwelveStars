@@ -53,7 +53,7 @@ class BibleChapterView extends StatefulWidget {
 class _BibleChapterViewState extends State<BibleChapterView>
     with AutomaticKeepAliveClientMixin {
   List<BibleVerse> _verses = [];
-  List<BibleVerse> _compareVerses = [];
+  Map<int, BibleVerse> _compareVersesByNumber = {};
   Map<String, List<UserComment>> _commentsByNodeId = {};
   Map<int, List<FavoritePassage>> _favoritesByVerse = {};
   bool _loading = true;
@@ -167,7 +167,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
       );
 
       // Load compare translation if needed
-      List<BibleVerse> compareVerses = [];
+      Map<int, BibleVerse> compareVersesByNumber = {};
       if (widget.compareTranslation != 'none') {
         await db.ensureBookPopulated(
           widget.book.bookNumber,
@@ -175,17 +175,20 @@ class _BibleChapterViewState extends State<BibleChapterView>
           widget.book.abbrev,
           translation: widget.compareTranslation,
         );
-        compareVerses = await db.getChapterVerses(
+        final compareVerses = await db.getChapterVerses(
           widget.compareTranslation,
           widget.book.bookNumber,
           widget.chapter,
         );
+        compareVersesByNumber = {
+          for (final cv in compareVerses) cv.verseNumber: cv,
+        };
       }
 
       if (mounted) {
         setState(() {
           _verses = verses;
-          _compareVerses = compareVerses;
+          _compareVersesByNumber = compareVersesByNumber;
           _loading = false;
         });
         _scrollToAndHighlightTarget();
@@ -501,15 +504,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         _favoritesByVerse[verse.verseNumber] ?? const [];
                     final isFavorite = matchingFavorites.isNotEmpty;
 
-                    BibleVerse? compareVerse;
-                    if (_compareVerses.isNotEmpty) {
-                      for (final cv in _compareVerses) {
-                        if (cv.verseNumber == verse.verseNumber) {
-                          compareVerse = cv;
-                          break;
-                        }
-                      }
-                    }
+                    final compareVerse =
+                        _compareVersesByNumber[verse.verseNumber];
 
                     final verseDisplay = BibleVerseResolver.formatVerseDisplay(
                       bookNumber: widget.book.bookNumber,

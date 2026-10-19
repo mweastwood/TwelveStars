@@ -197,6 +197,57 @@ void main() {
     });
 
     testWidgets(
+      'Compare translation lookup handles missing verses gracefully',
+      (WidgetTester tester) async {
+        await seedVerses(
+          testDb,
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 3,
+          translationCode: 'CPDV',
+          verseTexts: ['Verse 1 text', 'Verse 2 text', 'Verse 3 text'],
+        );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 3,
+                verseNumber: 2,
+                verseText: 'DRC verse 2 text',
+                translationCode: 'DRC',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 3,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'DRC',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final verseRows = tester
+            .widgetList<BibleVerseRow>(find.byType(BibleVerseRow))
+            .toList();
+        expect(verseRows.length, equals(3));
+        expect(verseRows[0].verseText, equals('Verse 1 text'));
+        expect(verseRows[0].compareVerseText, isNull);
+        expect(verseRows[1].verseText, equals('Verse 2 text'));
+        expect(verseRows[1].compareVerseText, equals('DRC verse 2 text'));
+        expect(verseRows[2].verseText, equals('Verse 3 text'));
+        expect(verseRows[2].compareVerseText, isNull);
+      },
+    );
+
+    testWidgets(
       'Translation Selector Animation mounts SizeTransition with top spacing',
       (WidgetTester tester) async {
         final animationController = AnimationController(
