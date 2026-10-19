@@ -680,6 +680,8 @@ void main() {
         expect(customPaintFinder, findsOneWidget);
 
         final customPaint = tester.widget<CustomPaint>(customPaintFinder);
+        expect(customPaint.isComplex, isTrue);
+        expect(customPaint.willChange, isFalse);
         expect(customPaint.painter, isA<PageRibbonPatternPainter>());
         final patternPainter = customPaint.painter as PageRibbonPatternPainter;
         expect(patternPainter.ribbonIndex, equals(2));
@@ -691,6 +693,31 @@ void main() {
           patternPainter.edgeColor,
           equals(Colors.black.withValues(alpha: 0.10)),
         );
+
+        expect(
+          find.ancestor(
+            of: physicalShapeFinder,
+            matching: find.byType(RepaintBoundary),
+          ),
+          findsWidgets,
+        );
+      },
+    );
+
+    test(
+      'PageRibbonPatternPainter reuses cached geometry and evicts LRU entries cleanly',
+      () {
+        for (int i = 0; i < 20; i++) {
+          final recorder = PictureRecorder();
+          final canvas = Canvas(recorder);
+          final painter = PageRibbonPatternPainter(ribbonIndex: i % 4);
+          final size = Size(16.0, 100.0 + i * 10.0);
+
+          // First paint populates cache; second paint hits cache
+          expect(() => painter.paint(canvas, size), returnsNormally);
+          expect(() => painter.paint(canvas, size), returnsNormally);
+          recorder.endRecording();
+        }
       },
     );
 

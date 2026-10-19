@@ -52,6 +52,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   List<BibleChapterRef> get _allChapters => canonicalBibleChapters;
   late PageController _pageController;
   int _currentPageIndex = 0;
+  late final ValueNotifier<int> _currentPageIndexNotifier;
 
   // Bottom Peeking Panel Animation
   late AnimationController _panelController;
@@ -139,6 +140,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     for (final controller in _chapterScrollControllers.values) {
       controller.dispose();
     }
+    _currentPageIndexNotifier.dispose();
     _translationSelectorAnimationController.dispose();
     _panelController.dispose();
     _pageController.dispose();
@@ -149,6 +151,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    _currentPageIndexNotifier = ValueNotifier<int>(_currentPageIndex);
     _translationSelectorAnimationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 300),
@@ -205,6 +208,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           }
           _currentPageIndex = initialIndex;
           _selectedBookForPicker = _allChapters[initialIndex].book;
+          _currentPageIndexNotifier.value = initialIndex;
         }
 
         setState(() {
@@ -592,8 +596,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       );
     }
 
-    final currentRef = _allChapters[_currentPageIndex];
-
     return Scaffold(
       body: Stack(
         children: [
@@ -602,10 +604,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             controller: _pageController,
             itemCount: _allChapters.length,
             onPageChanged: (index) {
-              setState(() {
-                _currentPageIndex = index;
-                _selectedBookForPicker = _allChapters[index].book;
-              });
+              _currentPageIndex = index;
+              _selectedBookForPicker = _allChapters[index].book;
+              _currentPageIndexNotifier.value = index;
               _saveReadingPosition(index);
             },
             itemBuilder: (context, index) {
@@ -683,25 +684,31 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             left: 0,
             right: 0,
             bottom: 0,
-            child: BibleBottomNavigationPanel(
-              panelHeightAnimation: _panelHeightAnimation,
-              isPanelExpanded: _isPanelExpanded,
-              currentBook: currentRef.book,
-              currentChapter: currentRef.chapter,
-              numberingSystem:
-                  _settings?.bibleNumberingSystem ??
-                  BibleNumberingSystem.vulgate,
-              sheetTabController: _sheetTabController,
-              selectedBookForPicker: _selectedBookForPicker,
-              onBookSelectedForPicker: (book) {
-                setState(() {
-                  _selectedBookForPicker = book;
-                });
+            child: ValueListenableBuilder<int>(
+              valueListenable: _currentPageIndexNotifier,
+              builder: (context, currentIndex, _) {
+                final currentRef = _allChapters[currentIndex];
+                return BibleBottomNavigationPanel(
+                  panelHeightAnimation: _panelHeightAnimation,
+                  isPanelExpanded: _isPanelExpanded,
+                  currentBook: currentRef.book,
+                  currentChapter: currentRef.chapter,
+                  numberingSystem:
+                      _settings?.bibleNumberingSystem ??
+                      BibleNumberingSystem.vulgate,
+                  sheetTabController: _sheetTabController,
+                  selectedBookForPicker: _selectedBookForPicker,
+                  onBookSelectedForPicker: (book) {
+                    setState(() {
+                      _selectedBookForPicker = book;
+                    });
+                  },
+                  onChapterSelected: _navigateToChapter,
+                  onTogglePanel: _togglePanel,
+                  onVerticalDragUpdate: _onVerticalDragUpdate,
+                  onVerticalDragEnd: _onVerticalDragEnd,
+                );
               },
-              onChapterSelected: _navigateToChapter,
-              onTogglePanel: _togglePanel,
-              onVerticalDragUpdate: _onVerticalDragUpdate,
-              onVerticalDragEnd: _onVerticalDragEnd,
             ),
           ),
         ],

@@ -1036,9 +1036,11 @@ void main() {
 
       test('handles empty catalog or unindexed paths gracefully', () async {
         ReverseCitationService.clear();
+        expect(ReverseCitationService.isCatalogFullyIndexed, isFalse);
 
         // Populate all catalog paths first so unindexedPaths is empty
         await ReverseCitationService.ensureIndexed();
+        expect(ReverseCitationService.isCatalogFullyIndexed, isTrue);
         final initialCount = ReverseCitationService.indexedSourcesCount;
         expect(
           initialCount,
@@ -1047,10 +1049,14 @@ void main() {
 
         // Calling again when all paths are already indexed should return early without error
         await ReverseCitationService.ensureIndexed();
+        expect(ReverseCitationService.isCatalogFullyIndexed, isTrue);
         expect(
           ReverseCitationService.indexedSourcesCount,
           equals(initialCount),
         );
+
+        ReverseCitationService.clear();
+        expect(ReverseCitationService.isCatalogFullyIndexed, isFalse);
       });
 
       test(

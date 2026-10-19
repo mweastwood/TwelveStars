@@ -136,8 +136,10 @@ class ReverseCitationService {
   static final Map<int, Map<int, Map<int, List<ReverseCitation>>>> _verseIndex =
       {};
   static Future<void>? _inFlightIndexing;
+  static bool _isCatalogFullyIndexed = false;
 
   static int get indexedSourcesCount => _indexedSources.length;
+  static bool get isCatalogFullyIndexed => _isCatalogFullyIndexed;
 
   static final RegExp _digitRegex = RegExp(r'\d');
   static final RegExp _wordBoundaryRegex = RegExp(
@@ -450,6 +452,7 @@ class ReverseCitationService {
     _chapterIndex.clear();
     _verseIndex.clear();
     _inFlightIndexing = null;
+    _isCatalogFullyIndexed = false;
   }
 
   static void prune() {
@@ -459,6 +462,7 @@ class ReverseCitationService {
       changed = true;
     }
     if (changed) {
+      _isCatalogFullyIndexed = false;
       _rebuildIndices();
     }
   }
@@ -466,6 +470,7 @@ class ReverseCitationService {
   static Future<void> ensureIndexed({
     int concurrency = indexingConcurrencyLimit,
   }) {
+    if (_isCatalogFullyIndexed) return Future<void>.value();
     if (_inFlightIndexing != null) return _inFlightIndexing!;
     final future = () async {
       try {
@@ -486,6 +491,9 @@ class ReverseCitationService {
             unindexedPaths,
             concurrency: concurrency,
           );
+        }
+        if (catalogPaths.every(_indexedSources.containsKey)) {
+          _isCatalogFullyIndexed = true;
         }
       } finally {
         _inFlightIndexing = null;
@@ -607,6 +615,7 @@ class ReverseCitationService {
       needsFullRebuild = true;
     } else if (_indexedSources.length >= maxIndexedSources) {
       _indexedSources.remove(_indexedSources.keys.first);
+      _isCatalogFullyIndexed = false;
       needsFullRebuild = true;
     }
 
