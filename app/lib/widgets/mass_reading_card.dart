@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:drift/drift.dart' hide Column;
@@ -8,9 +7,11 @@ import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/lectionary_responses.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
-import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
+import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 /// Encapsulates an active verse selection within a [MassReadingCard],
@@ -87,8 +88,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
   String? _errorMessage;
 
   String? _loadedTranslation;
-  int? _firstSelectedVerseIndex;
-  int? _lastSelectedVerseIndex;
+  final ReaderSelectionController _selectionController =
+      ReaderSelectionController();
 
   @override
   void initState() {
@@ -97,12 +98,17 @@ class _MassReadingCardState extends State<MassReadingCard> {
   }
 
   @override
+  void dispose() {
+    _selectionController.dispose();
+    super.dispose();
+  }
+
+  @override
   void didUpdateWidget(MassReadingCard oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.reading != widget.reading ||
         oldWidget.fontSize != widget.fontSize) {
-      _firstSelectedVerseIndex = null;
-      _lastSelectedVerseIndex = null;
+      _selectionController.clear();
       _loadVerses(force: true);
     } else if (oldWidget.primaryLanguage != widget.primaryLanguage ||
         oldWidget.compareLanguage != widget.compareLanguage) {
@@ -113,8 +119,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         oldWidget.isSelected &&
         !widget.isSelected) {
       setState(() {
-        _firstSelectedVerseIndex = null;
-        _lastSelectedVerseIndex = null;
+        _selectionController.clear();
       });
     }
   }
@@ -168,7 +173,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         );
         for (final fav in favorites) {
           for (int v = fav.startVerse; v <= fav.endVerse; v++) {
-            final key = '${fav.bookNumber}_${fav.chapter}_$v';
+            final key = ReaderNodeId.bibleVerse(fav.bookNumber, fav.chapter, v);
             byVerseKey.putIfAbsent(key, () => []).add(fav);
           }
         }
@@ -347,28 +352,19 @@ class _MassReadingCardState extends State<MassReadingCard> {
   String get _readingIdentifier =>
       '${widget.reading.readingKey}_${widget.reading.readingType}_${widget.reading.id}';
 
-  bool _isVerseSelected(int index) {
-    if (_firstSelectedVerseIndex != null && _lastSelectedVerseIndex != null) {
-      final start = min(_firstSelectedVerseIndex!, _lastSelectedVerseIndex!);
-      final end = max(_firstSelectedVerseIndex!, _lastSelectedVerseIndex!);
-      return index >= start && index <= end;
-    }
-    return false;
-  }
+  bool _isVerseSelected(int index) => _selectionController.isSelected(index);
 
   void _onVerseLongPress(int index) {
-    SystemSound.play(SystemSoundType.click);
     setState(() {
-      _firstSelectedVerseIndex = index;
-      _lastSelectedVerseIndex = index;
+      _selectionController.onLongPress(index);
       _notifySelectionChanged();
     });
   }
 
   void _onVerseTap(int index) {
-    if (_firstSelectedVerseIndex != null) {
+    if (_selectionController.hasSelection) {
       setState(() {
-        _lastSelectedVerseIndex = index;
+        _selectionController.onTap(index);
         _notifySelectionChanged();
       });
     }
@@ -376,8 +372,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
   void _clearSelection({bool notify = true}) {
     setState(() {
-      _firstSelectedVerseIndex = null;
-      _lastSelectedVerseIndex = null;
+      _selectionController.clear();
       if (notify) {
         _notifySelectionChanged();
       }
@@ -385,22 +380,21 @@ class _MassReadingCardState extends State<MassReadingCard> {
   }
 
   void _notifySelectionChanged() {
-    // Invariant: Must be called inside or after updating _firstSelectedVerseIndex
-    // and _lastSelectedVerseIndex so _createSelectionData reflects current state.
+    // Invariant: Must be called inside or after updating _selectionController
+    // so _createSelectionData reflects current state.
     widget.onSelectionChanged?.call(_createSelectionData());
   }
 
   MassReadingSelection? _createSelectionData() {
-    if (_firstSelectedVerseIndex == null ||
-        _lastSelectedVerseIndex == null ||
+    if (!_selectionController.hasSelection ||
         _verses == null ||
         _verses!.isEmpty) {
       return null;
     }
 
-    final start = min(_firstSelectedVerseIndex!, _lastSelectedVerseIndex!);
-    final end = max(_firstSelectedVerseIndex!, _lastSelectedVerseIndex!);
-    final count = end - start + 1;
+    final start = _selectionController.start!;
+    final end = _selectionController.end!;
+    final count = _selectionController.selectedCount;
     final selectedVerses = _verses!.sublist(start, end + 1);
     final firstV = selectedVerses.first;
     final lastV = selectedVerses.last;
@@ -455,8 +449,11 @@ class _MassReadingCardState extends State<MassReadingCard> {
           textPreview: textPreview,
           documentId: bookMeta.abbrev,
           sectionIndex: firstV.chapter,
-          nodeId:
-              '${firstV.bookNumber}_${firstV.chapter}_${firstV.verseNumber}',
+          nodeId: ReaderNodeId.bibleVerse(
+            firstV.bookNumber,
+            firstV.chapter,
+            firstV.verseNumber,
+          ),
           onCommentSaved: () async {
             _clearSelection();
             await _loadComments();
@@ -610,8 +607,11 @@ class _MassReadingCardState extends State<MassReadingCard> {
                         verse.verseNumber,
                       );
 
-                  final nodeId =
-                      '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
+                  final nodeId = ReaderNodeId.bibleVerse(
+                    verse.bookNumber,
+                    verse.chapter,
+                    verse.verseNumber,
+                  );
                   final verseComments = _commentsByNodeId[nodeId] ?? const [];
 
                   final matchingFavorites =
@@ -678,7 +678,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                 if (_buildConcludingAcclamation(theme) != null)
                   _buildConcludingAcclamation(theme)!,
                 if (widget.onSelectionChanged == null &&
-                    _firstSelectedVerseIndex != null)
+                    _selectionController.hasSelection)
                   _buildSelectionActionBar(theme),
               ],
             ],

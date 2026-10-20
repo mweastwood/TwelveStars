@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
@@ -134,7 +135,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       final book =
           catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
           catholicBooks.first;
-      final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
+      final verseNum = ReaderNodeId.parseBibleVerseNumber(comment.nodeId);
 
       items.add(
         BibleAnnotationItem(

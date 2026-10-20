@@ -1,9 +1,11 @@
-import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
+import 'package:twelve_stars/logic/reader/reader_models.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'package:twelve_stars/widgets/library_section_view.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
@@ -44,6 +46,10 @@ class LibraryReaderScreen extends StatefulWidget {
 class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   late String _currentAssetPath;
   String? _currentVolumeKey;
+  late LibraryReaderAdapter _adapter;
+  final ReaderSelectionController _selectionController =
+      ReaderSelectionController();
+
   bool _isLoading = true;
   String? _error;
   ParsedBookData? _bookData;
@@ -54,12 +60,6 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   final Map<int, GlobalKey> _questionKeys = {};
   final Map<int, GlobalKey> _itemKeys = {};
 
-  int? _firstSelectedItemIndex;
-  int? _lastSelectedItemIndex;
-  int? _temporaryHighlightStartIndex;
-  int? _temporaryHighlightEndIndex;
-  String? _lastProcessedSessionId;
-  Timer? _highlightTimer;
   List<UserComment> _comments = [];
 
   bool _isSearching = false;
@@ -72,36 +72,32 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     super.initState();
     _currentSectionIndex = widget.initialSectionIndex ?? 0;
     _pageController = PageController(initialPage: _currentSectionIndex);
-    if (widget.bookItem.isSeries) {
-      if (widget.initialVolumeKey != null) {
-        _currentVolumeKey = widget.initialVolumeKey;
-        final selectedVol = widget.bookItem.volumes!.firstWhere(
-          (v) => v.volumeKey == _currentVolumeKey,
-          orElse: () => widget.bookItem.volumes!.first,
-        );
-        _currentAssetPath = selectedVol.assetPath;
-      } else if (widget.initialAssetPath != null) {
-        final selectedVol = widget.bookItem.volumes!.firstWhere(
-          (v) => v.assetPath == widget.initialAssetPath,
-          orElse: () => widget.bookItem.volumes!.first,
-        );
-        _currentVolumeKey = selectedVol.volumeKey;
-        _currentAssetPath = selectedVol.assetPath;
-      } else {
-        _currentVolumeKey = widget.bookItem.volumes!.first.volumeKey;
-        _currentAssetPath = widget.bookItem.volumes!.first.assetPath;
-      }
-    } else {
-      final resolvedPath =
-          widget.initialAssetPath ?? widget.bookItem.defaultAssetPath;
-      if (resolvedPath == null) {
-        _currentAssetPath = '';
-        _isLoading = false;
-        _error = 'No reader content available for this title.';
-        return;
-      }
-      _currentAssetPath = resolvedPath;
+
+    final resolved = LibraryReaderAdapter.resolveInitialSource(
+      widget.bookItem,
+      initialVolumeKey: widget.initialVolumeKey,
+      initialAssetPath: widget.initialAssetPath,
+    );
+    _currentVolumeKey = resolved.volumeKey;
+    if (resolved.assetPath == null) {
+      _currentAssetPath = '';
+      _adapter = LibraryReaderAdapter(
+        bookItem: widget.bookItem,
+        assetPath: '',
+        volumeKey: _currentVolumeKey,
+      );
+      _isLoading = false;
+      _error = 'No reader content available for this title.';
+      return;
     }
+
+    _currentAssetPath = resolved.assetPath!;
+    _adapter = LibraryReaderAdapter(
+      bookItem: widget.bookItem,
+      assetPath: _currentAssetPath,
+      volumeKey: _currentVolumeKey,
+    );
+
     _loadComments();
     _loadBookData(
       isInitialLoad: true,
@@ -111,7 +107,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
   @override
   void dispose() {
-    _highlightTimer?.cancel();
+    _selectionController.dispose();
     _pageController.dispose();
     _searchController.dispose();
     super.dispose();
@@ -126,16 +122,12 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   }
 
   Future<void> _loadComments() async {
-    try {
-      final comments = await BibleDatabaseHelper.db.getComments(
-        documentId: widget.bookItem.id,
-      );
-      if (mounted) {
-        setState(() {
-          _comments = comments;
-        });
-      }
-    } catch (_) {}
+    final comments = await _adapter.loadUserComments();
+    if (mounted) {
+      setState(() {
+        _comments = comments;
+      });
+    }
   }
 
   void _populateKeys(ParsedBookData? data, int sectionIndex) {
@@ -155,73 +147,55 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     }
   }
 
-  bool _hasProcessedInitialTarget = false;
-
   void _scrollToAndHighlightTarget() {
     final hasTarget =
         widget.initialItemIndex != null || widget.initialQuestionNumber != null;
-    if (!hasTarget) return;
-
-    final shouldProcess = widget.navigationSessionId != null
-        ? widget.navigationSessionId != _lastProcessedSessionId
-        : !_hasProcessedInitialTarget;
-
-    if (shouldProcess) {
-      _hasProcessedInitialTarget = true;
-      _lastProcessedSessionId = widget.navigationSessionId;
-
-      int? effectiveItemIndex = widget.initialItemIndex;
-      if (effectiveItemIndex == null &&
-          widget.initialQuestionNumber != null &&
-          _bookData != null &&
-          _currentSectionIndex >= 0 &&
-          _currentSectionIndex < _bookData!.sections.length) {
-        final sec = _bookData!.sections[_currentSectionIndex];
-        final idx = sec.content.indexWhere(
-          (it) =>
-              it.type == 'qa' &&
-              it.questionNumber == widget.initialQuestionNumber,
-        );
-        if (idx >= 0) {
-          effectiveItemIndex = idx;
-        }
-      }
-
-      setState(() {
-        _temporaryHighlightStartIndex = effectiveItemIndex;
-        _temporaryHighlightEndIndex = effectiveItemIndex;
-      });
-
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        GlobalKey? targetKey;
-        if (effectiveItemIndex != null &&
-            _itemKeys.containsKey(effectiveItemIndex)) {
-          targetKey = _itemKeys[effectiveItemIndex];
-        } else if (widget.initialQuestionNumber != null &&
-            _questionKeys.containsKey(widget.initialQuestionNumber!)) {
-          targetKey = _questionKeys[widget.initialQuestionNumber!];
-        }
-
-        if (targetKey != null && targetKey.currentContext != null) {
-          Scrollable.ensureVisible(
-            targetKey.currentContext!,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-            alignment: 0.1,
-          );
-        }
-      });
-
-      _highlightTimer?.cancel();
-      _highlightTimer = Timer(const Duration(seconds: 2), () {
-        if (mounted) {
-          setState(() {
-            _temporaryHighlightStartIndex = null;
-            _temporaryHighlightEndIndex = null;
-          });
-        }
-      });
+    if (!_selectionController.shouldProcessTarget(
+      hasTarget: hasTarget,
+      navigationSessionId: widget.navigationSessionId,
+    )) {
+      return;
     }
+
+    int? effectiveItemIndex = widget.initialItemIndex;
+    if (effectiveItemIndex == null &&
+        widget.initialQuestionNumber != null &&
+        _bookData != null &&
+        _currentSectionIndex >= 0 &&
+        _currentSectionIndex < _bookData!.sections.length) {
+      final sec = _bookData!.sections[_currentSectionIndex];
+      final idx = sec.content.indexWhere(
+        (it) =>
+            it.type == 'qa' &&
+            it.questionNumber == widget.initialQuestionNumber,
+      );
+      if (idx >= 0) {
+        effectiveItemIndex = idx;
+      }
+    }
+
+    setState(() {
+      _selectionController.activateTemporaryHighlight(
+        start: effectiveItemIndex,
+        end: effectiveItemIndex,
+        navigationSessionId: widget.navigationSessionId,
+        onExpired: () {
+          if (mounted) setState(() {});
+        },
+      );
+    });
+
+    _selectionController.scrollToKeyPostFrame(() {
+      if (effectiveItemIndex != null &&
+          _itemKeys.containsKey(effectiveItemIndex)) {
+        return _itemKeys[effectiveItemIndex];
+      }
+      if (widget.initialQuestionNumber != null &&
+          _questionKeys.containsKey(widget.initialQuestionNumber!)) {
+        return _questionKeys[widget.initialQuestionNumber!];
+      }
+      return null;
+    }, alignment: 0.1);
   }
 
   Future<void> _saveReadingPosition(int sectionIndex) async {
@@ -231,14 +205,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       return;
     }
     final section = _bookData!.sections[sectionIndex];
-    try {
-      await BibleDatabaseHelper.db.saveBookReadingPosition(
-        bookId: widget.bookItem.id,
-        volumeKey: _currentVolumeKey,
-        sectionIndex: sectionIndex,
-        sectionId: section.id,
-      );
-    } catch (_) {}
+    await _adapter.saveReadingPosition(
+      sectionIndex: sectionIndex,
+      sectionId: section.id,
+    );
   }
 
   Future<void> _loadBookData({
@@ -250,8 +220,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       _error = null;
       _questionKeys.clear();
       _itemKeys.clear();
-      _firstSelectedItemIndex = null;
-      _lastSelectedItemIndex = null;
+      _selectionController.clear();
     });
 
     try {
@@ -259,11 +228,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       if (isInitialLoad &&
           widget.initialSectionIndex == null &&
           widget.initialSectionId == null) {
-        try {
-          savedPos = await BibleDatabaseHelper.db.getBookReadingPosition(
-            widget.bookItem.id,
-          );
-        } catch (_) {}
+        savedPos = await _adapter.getReadingPosition();
       }
 
       if (isInitialLoad &&
@@ -279,48 +244,28 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         if (matchingVol != null) {
           _currentVolumeKey = matchingVol.volumeKey;
           _currentAssetPath = matchingVol.assetPath;
+          _adapter = LibraryReaderAdapter(
+            bookItem: widget.bookItem,
+            assetPath: _currentAssetPath,
+            volumeKey: _currentVolumeKey,
+          );
         }
       }
 
-      final data = await LibraryHelper.loadBookData(_currentAssetPath);
+      final data = await _adapter.loadBookData();
       if (mounted) {
-        int resolvedIndex = initialSectionIndex;
-        if (isInitialLoad && widget.initialSectionId != null) {
-          final idx = data.sections.indexWhere(
-            (s) => s.id == widget.initialSectionId,
-          );
-          if (idx >= 0) resolvedIndex = idx;
-        } else if (isInitialLoad && widget.initialSectionIndex != null) {
-          resolvedIndex = widget.initialSectionIndex!.clamp(
-            0,
-            max(0, data.sections.length - 1),
-          );
-        } else if (isInitialLoad && savedPos != null) {
-          final isMatchingVolume =
-              !widget.bookItem.isSeries ||
-              savedPos.volumeKey == null ||
-              savedPos.volumeKey == _currentVolumeKey;
-          if (isMatchingVolume) {
-            if (savedPos.sectionId != null) {
-              final idx = data.sections.indexWhere(
-                (s) => s.id == savedPos!.sectionId,
-              );
-              if (idx >= 0) {
-                resolvedIndex = idx;
-              } else {
-                resolvedIndex = savedPos.sectionIndex.clamp(
-                  0,
-                  max(0, data.sections.length - 1),
-                );
-              }
-            } else {
-              resolvedIndex = savedPos.sectionIndex.clamp(
-                0,
-                max(0, data.sections.length - 1),
-              );
-            }
-          }
-        }
+        final resolvedIndex = isInitialLoad
+            ? LibraryReaderAdapter.resolveInitialSectionIndex(
+                data,
+                bookItem: widget.bookItem,
+                currentVolumeKey: _currentVolumeKey,
+                initialSectionId: widget.initialSectionId,
+                initialSectionIndex: widget.initialSectionIndex,
+                savedPos: savedPos,
+                fallbackIndex: initialSectionIndex,
+              )
+            : initialSectionIndex;
+
         _populateKeys(data, resolvedIndex);
 
         if (_pageController.hasClients) {
@@ -354,7 +299,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       if (_currentSectionIndex != initialSectionIndex) {
         setState(() {
           _currentSectionIndex = initialSectionIndex;
-          _clearSelection();
+          _selectionController.clear(clearTemporaryHighlight: true);
         });
         if (_pageController.hasClients) {
           _pageController.jumpToPage(initialSectionIndex);
@@ -366,120 +311,71 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     setState(() {
       _currentVolumeKey = vol.volumeKey;
       _currentAssetPath = vol.assetPath;
-      _clearSelection();
+      _adapter = LibraryReaderAdapter(
+        bookItem: widget.bookItem,
+        assetPath: _currentAssetPath,
+        volumeKey: _currentVolumeKey,
+      );
+      _selectionController.clear(clearTemporaryHighlight: true);
     });
     _loadBookData(initialSectionIndex: initialSectionIndex);
   }
 
   void _onItemLongPress(int index) {
-    SystemSound.play(SystemSoundType.click);
     setState(() {
-      _firstSelectedItemIndex = index;
-      _lastSelectedItemIndex = index;
+      _selectionController.onLongPress(index);
     });
   }
 
   void _onItemTap(int index) {
-    if (_firstSelectedItemIndex != null) {
+    if (_selectionController.hasSelection) {
       setState(() {
-        _lastSelectedItemIndex = index;
+        _selectionController.onTap(index);
       });
     }
   }
 
   void _clearSelection() {
     setState(() {
-      _firstSelectedItemIndex = null;
-      _lastSelectedItemIndex = null;
-      _temporaryHighlightStartIndex = null;
-      _temporaryHighlightEndIndex = null;
+      _selectionController.clear(clearTemporaryHighlight: true);
     });
-  }
-
-  String _buildItemCitation(BookSection section, int startIndex, int endIndex) {
-    String baseTitle = widget.bookItem.title;
-    if (widget.bookItem.isSeries && widget.bookItem.volumes != null) {
-      final vol = widget.bookItem.volumes!.firstWhere(
-        (v) => v.volumeKey == _currentVolumeKey,
-        orElse: () => widget.bookItem.volumes!.first,
-      );
-      baseTitle = '${widget.bookItem.title} (${vol.shortName})';
-    }
-
-    final startItem = section.content[startIndex];
-    final endItem = section.content[endIndex];
-
-    if (startItem.type == 'qa' &&
-        endItem.type == 'qa' &&
-        startItem.questionNumber != null &&
-        endItem.questionNumber != null) {
-      if (startItem.questionNumber == endItem.questionNumber) {
-        return '$baseTitle, ${section.title}, Q. ${startItem.questionNumber}';
-      } else {
-        final qMin = min(startItem.questionNumber!, endItem.questionNumber!);
-        final qMax = max(startItem.questionNumber!, endItem.questionNumber!);
-        return '$baseTitle, ${section.title}, Q. $qMin–$qMax';
-      }
-    }
-
-    return '$baseTitle, ${section.title}';
-  }
-
-  String _buildItemTextPreview(
-    BookSection section,
-    int startIndex,
-    int endIndex,
-  ) {
-    final buffer = StringBuffer();
-    for (int i = startIndex; i <= endIndex; i++) {
-      final item = section.content[i];
-      if (item.type == 'qa') {
-        final q = item.question ?? '';
-        final a = item.answer ?? '';
-        buffer.writeln('Q. $q');
-        buffer.writeln('A. $a');
-      } else if (item.type == 'heading') {
-        buffer.writeln(item.text ?? '');
-      } else {
-        buffer.writeln(item.text ?? '');
-      }
-      if (i < endIndex) buffer.writeln();
-    }
-    return buffer.toString().trim();
   }
 
   Widget _buildSelectionActionBar(ThemeData theme) {
     if (_bookData == null ||
         _currentSectionIndex >= _bookData!.sections.length ||
-        _firstSelectedItemIndex == null ||
-        _lastSelectedItemIndex == null) {
+        !_selectionController.hasSelection) {
       return const SizedBox.shrink();
     }
 
     final section = _bookData!.sections[_currentSectionIndex];
-    final start = min(_firstSelectedItemIndex!, _lastSelectedItemIndex!);
-    final end = max(_firstSelectedItemIndex!, _lastSelectedItemIndex!);
-    final count = end - start + 1;
+    final start = _selectionController.start!;
+    final end = _selectionController.end!;
+    final count = _selectionController.selectedCount;
 
-    final citation = _buildItemCitation(section, start, end);
-    final textPreview = _buildItemTextPreview(section, start, end);
-    final nodeId =
-        '${_currentVolumeKey != null ? '$_currentVolumeKey:' : ''}${section.id}_$start';
+    final citation = _adapter.buildItemCitation(section, start, end);
+    final textPreview = _adapter.buildItemTextPreview(section, start, end);
+    final nodeId = ReaderNodeId.libraryItem(
+      sectionId: section.id,
+      itemIndex: start,
+      volumeKey: _currentVolumeKey,
+    );
 
     return ReaderSelectionActionBar(
       title: citation,
       selectedCount: count,
       itemLabel: 'passage',
       onSaveFavorite: () async {
-        final bookmark = LibraryBookmarksCompanion.insert(
-          documentId: widget.bookItem.id,
-          sectionIndex: _currentSectionIndex,
-          nodeId: nodeId,
-          textPreview: '$citation\n$textPreview',
-          createdAt: DateTime.now(),
+        await _adapter.saveBookmark(
+          ReaderBookmark(
+            id: '',
+            documentId: widget.bookItem.id,
+            sectionIndex: _currentSectionIndex,
+            nodeId: nodeId,
+            textPreview: '$citation\n$textPreview',
+            timestamp: DateTime.now(),
+          ),
         );
-
-        await BibleDatabaseHelper.db.saveLibraryBookmark(bookmark);
 
         if (widget.onFavoriteSaved != null) {
           widget.onFavoriteSaved!();
@@ -537,7 +433,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         setState(() {
           _currentSectionIndex = idx;
           _populateKeys(_bookData, idx);
-          _clearSelection();
+          _selectionController.clear(clearTemporaryHighlight: true);
         });
         if (_pageController.hasClients) {
           _pageController.jumpToPage(idx);
@@ -561,7 +457,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
   void _performSearch(String query) {
     if (_bookData == null) return;
-    final results = LibraryHelper.searchInBook(_bookData!, query);
+    final results = _adapter.searchInBook(_bookData!, query);
     setState(() {
       _searchResults = results;
     });
@@ -850,22 +746,8 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       }
     }
 
-    final int? selStart = _firstSelectedItemIndex != null
-        ? min(_firstSelectedItemIndex!, _lastSelectedItemIndex!)
-        : (_temporaryHighlightStartIndex != null
-              ? min(
-                  _temporaryHighlightStartIndex!,
-                  _temporaryHighlightEndIndex!,
-                )
-              : null);
-    final int? selEnd = _firstSelectedItemIndex != null
-        ? max(_firstSelectedItemIndex!, _lastSelectedItemIndex!)
-        : (_temporaryHighlightStartIndex != null
-              ? max(
-                  _temporaryHighlightStartIndex!,
-                  _temporaryHighlightEndIndex!,
-                )
-              : null);
+    final selStart = _selectionController.effectiveHighlightStart;
+    final selEnd = _selectionController.effectiveHighlightEnd;
 
     return Stack(
       children: [
@@ -876,7 +758,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
             setState(() {
               _currentSectionIndex = index;
               _populateKeys(_bookData, index);
-              _clearSelection();
+              _selectionController.clear(clearTemporaryHighlight: true);
             });
             _saveReadingPosition(index);
           },
@@ -935,7 +817,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
             );
           },
         ),
-        if (_firstSelectedItemIndex != null)
+        if (_selectionController.hasSelection)
           Positioned(
             left: 16,
             right: 16,

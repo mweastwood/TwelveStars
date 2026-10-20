@@ -15,6 +15,8 @@ import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
 import 'package:twelve_stars/widgets/reader/reader_toc_bottom_sheet.dart';
 
 class MockReaderAdapter implements ReaderAdapter {
+  final List<ReaderBookmark> savedBookmarks = [];
+
   @override
   Future<ReaderDocument> loadDocument() async {
     return const ReaderDocument(
@@ -56,11 +58,13 @@ class MockReaderAdapter implements ReaderAdapter {
   }
 
   @override
-  Future<void> saveBookmark(ReaderBookmark bookmark) async {}
+  Future<void> saveBookmark(ReaderBookmark bookmark) async {
+    savedBookmarks.add(bookmark);
+  }
 
   @override
   Future<List<ReaderBookmark>> loadBookmarks() async {
-    return [];
+    return savedBookmarks;
   }
 
   @override
@@ -459,6 +463,47 @@ void main() {
         expect(find.text('Content of Section 1'), findsOneWidget);
 
         await db.close();
+      },
+    );
+
+    testWidgets(
+      'CoreReaderShell supports node long-press selection and saving bookmark via action bar',
+      (tester) async {
+        final mockAdapter = MockReaderAdapter();
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: CoreReaderShell(
+              adapter: mockAdapter,
+              primaryVariant: 'CPDV',
+              compareVariant: 'VUL',
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.textContaining('Secondary verse content for chapter 1.'),
+          findsOneWidget,
+        );
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        // Long-press the verse to select it
+        await tester.longPress(
+          find.textContaining('Primary verse content for chapter 1.'),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+        expect(find.text('1 item selected'), findsOneWidget);
+
+        // Save bookmark
+        await tester.tap(find.byIcon(Icons.star));
+        await tester.pumpAndSettle();
+
+        expect(mockAdapter.savedBookmarks.length, 1);
+        expect(mockAdapter.savedBookmarks.first.nodeId, '0_1');
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
       },
     );
   });

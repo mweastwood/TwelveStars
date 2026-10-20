@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
@@ -447,7 +448,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void navigateToComment(UserComment comment) {
-    final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
+    final verseNum = ReaderNodeId.parseBibleVerseNumber(comment.nodeId);
     final book =
         catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
         catholicBooks.first;

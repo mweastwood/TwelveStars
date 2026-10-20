@@ -4,6 +4,23 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 
 import 'reader_adapter.dart';
 import 'reader_models.dart';
+import 'reader_node_id.dart';
+
+/// Snapshot of a loaded Bible chapter including primary verses, optional
+/// parallel comparison verses indexed by verse number, and chapter annotations.
+class BibleChapterData {
+  final List<BibleVerse> verses;
+  final Map<int, BibleVerse> compareVersesByNumber;
+  final Map<int, List<FavoritePassage>> favoritesByVerse;
+  final Map<String, List<UserComment>> commentsByNodeId;
+
+  const BibleChapterData({
+    required this.verses,
+    required this.compareVersesByNumber,
+    required this.favoritesByVerse,
+    required this.commentsByNodeId,
+  });
+}
 
 class BibleReaderAdapter implements ReaderAdapter {
   final BibleBook bibleBook;
@@ -33,53 +50,178 @@ class BibleReaderAdapter implements ReaderAdapter {
     );
   }
 
+  /// Loads the primary and optional comparison verses for [chapterNumber] (1-based).
+  Future<
+    ({List<BibleVerse> primary, Map<int, BibleVerse> compareVersesByNumber})
+  >
+  loadChapterVerses(
+    int chapterNumber, {
+    String primaryTranslation = 'CPDV',
+    String compareTranslation = 'none',
+  }) async {
+    await dbHelper.ensureBookPopulated(
+      bibleBook.bookNumber,
+      bibleBook.bookName,
+      bibleBook.abbrev,
+      translation: primaryTranslation,
+    );
+
+    final primaryVerses = await dbHelper.getChapterVerses(
+      primaryTranslation,
+      bibleBook.bookNumber,
+      chapterNumber,
+    );
+
+    Map<int, BibleVerse> compareVersesByNumber = {};
+    if (compareTranslation != 'none') {
+      await dbHelper.ensureBookPopulated(
+        bibleBook.bookNumber,
+        bibleBook.bookName,
+        bibleBook.abbrev,
+        translation: compareTranslation,
+      );
+      final compareVerses = await dbHelper.getChapterVerses(
+        compareTranslation,
+        bibleBook.bookNumber,
+        chapterNumber,
+      );
+      compareVersesByNumber = {
+        for (final cv in compareVerses) cv.verseNumber: cv,
+      };
+    }
+
+    return (
+      primary: primaryVerses,
+      compareVersesByNumber: compareVersesByNumber,
+    );
+  }
+
+  /// Loads a complete [BibleChapterData] snapshot for [chapterNumber] (1-based).
+  Future<BibleChapterData> loadChapterData(
+    int chapterNumber, {
+    required String primaryTranslation,
+    String compareTranslation = 'none',
+  }) async {
+    final favoritesByVerse = await fetchFavoritesByVerse(chapterNumber);
+    final commentsByNodeId = await fetchCommentsByNodeId(chapterNumber);
+    final loaded = await loadChapterVerses(
+      chapterNumber,
+      primaryTranslation: primaryTranslation,
+      compareTranslation: compareTranslation,
+    );
+
+    return BibleChapterData(
+      verses: loaded.primary,
+      compareVersesByNumber: loaded.compareVersesByNumber,
+      favoritesByVerse: favoritesByVerse,
+      commentsByNodeId: commentsByNodeId,
+    );
+  }
+
+  /// Fetches favorite passages for [chapterNumber] (1-based) indexed by verse number.
+  Future<Map<int, List<FavoritePassage>>> fetchFavoritesByVerse(
+    int chapterNumber, {
+    Map<int, List<FavoritePassage>> fallback = const {},
+  }) async {
+    try {
+      final favorites = await dbHelper.getFavoritesForChapter(
+        bibleBook.bookNumber,
+        chapterNumber,
+      );
+      final byVerse = <int, List<FavoritePassage>>{};
+      for (final fav in favorites) {
+        for (int v = fav.startVerse; v <= fav.endVerse; v++) {
+          byVerse.putIfAbsent(v, () => []).add(fav);
+        }
+      }
+      return byVerse;
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  /// Fetches user comments for [chapterNumber] (1-based) indexed by `nodeId`.
+  Future<Map<String, List<UserComment>>> fetchCommentsByNodeId(
+    int chapterNumber, {
+    Map<String, List<UserComment>> fallback = const {},
+  }) async {
+    try {
+      final comments = await dbHelper.getComments(
+        documentId: bibleBook.abbrev,
+        sectionIndex: chapterNumber,
+      );
+      final byNodeId = <String, List<UserComment>>{};
+      for (final c in comments) {
+        byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
+      }
+      return byNodeId;
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  /// Saves a favorite verse range in [chapterNumber] (1-based).
+  Future<void> saveFavoriteRange({
+    required int chapterNumber,
+    required int startVerse,
+    required int endVerse,
+    required String textPreview,
+  }) async {
+    await dbHelper.saveFavorite(
+      FavoritePassagesCompanion.insert(
+        bookNumber: bibleBook.bookNumber,
+        bookName: bibleBook.bookName,
+        chapter: chapterNumber,
+        startVerse: startVerse,
+        endVerse: endVerse,
+        textPreview: textPreview,
+      ),
+    );
+  }
+
+  /// Formats a human-readable citation label for a selected verse range.
+  String formatSelectionCitation(int chapter, int startVerse, int endVerse) {
+    return startVerse == endVerse
+        ? '${bibleBook.bookName} $chapter:$startVerse'
+        : '${bibleBook.bookName} $chapter:$startVerse-$endVerse';
+  }
+
+  /// Formats selected verses for clipboard copy.
+  String formatClipboardContent(
+    String citation,
+    List<BibleVerse> selectedVerses,
+  ) {
+    final count = selectedVerses.length;
+    final versesText = selectedVerses
+        .map((v) => count == 1 ? v.verseText : '${v.verseNumber} ${v.verseText}')
+        .join(count == 1 ? '' : '\n');
+    return '$citation\n$versesText';
+  }
+
   @override
   Future<ReaderSection> loadSection(
     int sectionIndex, {
     String? primaryVariant,
     String? compareVariant,
   }) async {
-    final primaryTrans = primaryVariant ?? 'CPDV';
-    final compareTrans = compareVariant ?? 'none';
-
-    await dbHelper.ensureBookPopulated(
-      bibleBook.bookNumber,
-      bibleBook.bookName,
-      bibleBook.abbrev,
-      translation: primaryTrans,
-    );
-
     final chapterNumber = sectionIndex + 1;
-
-    final primaryVerses = await dbHelper.getChapterVerses(
-      primaryTrans,
-      bibleBook.bookNumber,
+    final loaded = await loadChapterVerses(
       chapterNumber,
+      primaryTranslation: primaryVariant ?? 'CPDV',
+      compareTranslation: compareVariant ?? 'none',
     );
-
-    List<BibleVerse> compareVerses = [];
-    if (compareTrans != 'none') {
-      await dbHelper.ensureBookPopulated(
-        bibleBook.bookNumber,
-        bibleBook.bookName,
-        bibleBook.abbrev,
-        translation: compareTrans,
-      );
-      compareVerses = await dbHelper.getChapterVerses(
-        compareTrans,
-        bibleBook.bookNumber,
-        chapterNumber,
-      );
-    }
 
     final nodes = <ReaderContentNode>[];
-    for (int i = 0; i < primaryVerses.length; i++) {
-      final pVerse = primaryVerses[i];
-      final cVerse = (i < compareVerses.length) ? compareVerses[i] : null;
+    for (final pVerse in loaded.primary) {
+      final cVerse = loaded.compareVersesByNumber[pVerse.verseNumber];
 
       nodes.add(
         ReaderContentNode(
-          id: '${pVerse.bookNumber}_${pVerse.chapter}_${pVerse.verseNumber}',
+          id: ReaderNodeId.bibleVerse(
+            pVerse.bookNumber,
+            pVerse.chapter,
+            pVerse.verseNumber,
+          ),
           nodeType: ReaderNodeType.verse,
           primaryText: pVerse.verseText,
           secondaryText: cVerse?.verseText,
@@ -97,16 +239,12 @@ class BibleReaderAdapter implements ReaderAdapter {
 
   @override
   Future<void> saveBookmark(ReaderBookmark bookmark) async {
-    final verseNum = int.tryParse(bookmark.nodeId.split('_').last) ?? 1;
-    await dbHelper.saveFavorite(
-      FavoritePassagesCompanion.insert(
-        bookNumber: bibleBook.bookNumber,
-        bookName: bibleBook.bookName,
-        chapter: bookmark.sectionIndex + 1,
-        startVerse: verseNum,
-        endVerse: verseNum,
-        textPreview: bookmark.textPreview,
-      ),
+    final verseNum = ReaderNodeId.parseBibleVerseNumber(bookmark.nodeId);
+    await saveFavoriteRange(
+      chapterNumber: bookmark.sectionIndex + 1,
+      startVerse: verseNum,
+      endVerse: verseNum,
+      textPreview: bookmark.textPreview,
     );
   }
 
@@ -120,7 +258,11 @@ class BibleReaderAdapter implements ReaderAdapter {
             id: '${f.id}',
             documentId: bibleBook.abbrev,
             sectionIndex: f.chapter - 1,
-            nodeId: '${f.bookNumber}_${f.chapter}_${f.startVerse}',
+            nodeId: ReaderNodeId.bibleVerse(
+              f.bookNumber,
+              f.chapter,
+              f.startVerse,
+            ),
             textPreview: f.textPreview,
             timestamp: DateTime.now(),
           ),

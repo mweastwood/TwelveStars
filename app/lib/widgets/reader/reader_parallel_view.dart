@@ -7,6 +7,7 @@ class ReaderParallelView extends StatelessWidget {
   final Set<String> selectedNodeIds;
   final ValueChanged<String>? onNodeLongPress;
   final ValueChanged<String>? onNodeTap;
+  final Widget? header;
 
   const ReaderParallelView({
     super.key,
@@ -15,6 +16,7 @@ class ReaderParallelView extends StatelessWidget {
     this.selectedNodeIds = const <String>{},
     this.onNodeLongPress,
     this.onNodeTap,
+    this.header,
   });
 
   Widget _buildPrimaryContent(ReaderContentNode node, ThemeData theme) {
@@ -33,8 +35,8 @@ class ReaderParallelView extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          RichText(
-            text: TextSpan(
+          Text.rich(
+            TextSpan(
               style: theme.textTheme.bodyLarge?.copyWith(
                 fontSize: fontSize,
                 height: 1.5,
@@ -57,8 +59,8 @@ class ReaderParallelView extends StatelessWidget {
           ),
           if (node.answer != null) ...[
             const SizedBox(height: 6),
-            RichText(
-              text: TextSpan(
+            Text.rich(
+              TextSpan(
                 style: theme.textTheme.bodyLarge?.copyWith(
                   fontSize: fontSize,
                   height: 1.5,
@@ -81,8 +83,8 @@ class ReaderParallelView extends StatelessWidget {
       );
     } else {
       final vNum = node.questionNumber != null ? '${node.questionNumber} ' : '';
-      return RichText(
-        text: TextSpan(
+      return Text.rich(
+        TextSpan(
           style: theme.textTheme.bodyLarge?.copyWith(
             fontSize: fontSize,
             height: 1.55,
@@ -123,13 +125,18 @@ class ReaderParallelView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final hasHeader = header != null;
+    final totalCount = nodes.length + (hasHeader ? 1 : 0);
 
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-      itemCount: nodes.length,
+      itemCount: totalCount,
       separatorBuilder: (context, index) => const SizedBox(height: 12),
       itemBuilder: (context, index) {
-        final node = nodes[index];
+        if (hasHeader && index == 0) {
+          return header!;
+        }
+        final node = nodes[hasHeader ? index - 1 : index];
         final isSelected = selectedNodeIds.contains(node.id);
         final hasSecondary =
             node.secondaryText != null && node.secondaryText!.isNotEmpty;
