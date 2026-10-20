@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:twelve_stars/logic/bible_database.dart';
@@ -266,168 +267,206 @@ Future<void> showVerseCommentsModal({
     builder: (ctx) {
       return StatefulBuilder(
         builder: (sheetCtx, setSheetState) {
-          return Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.onSurfaceVariant.withValues(
-                        alpha: 0.4,
+          final mediaQuery = MediaQuery.of(sheetCtx);
+          final extraBottomPadding = math.max(
+            0.0,
+            mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
+          );
+          return SafeArea(
+            top: false,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                20.0,
+                20.0,
+                20.0,
+                20.0 + extraBottomPadding,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Center(
+                    child: Container(
+                      width: 40,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.onSurfaceVariant.withValues(
+                          alpha: 0.4,
+                        ),
+                        borderRadius: BorderRadius.circular(2),
                       ),
-                      borderRadius: BorderRadius.circular(2),
                     ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.comment_rounded,
-                      color: theme.colorScheme.primary,
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        'Comments for $title',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.comment_rounded,
+                        color: theme.colorScheme.primary,
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          'Comments for $title',
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.primary,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  textPreview,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    fontStyle: FontStyle.italic,
-                    color: theme.colorScheme.onSurfaceVariant,
+                    ],
                   ),
-                ),
-                const Divider(height: 24),
-                if (comments.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24.0),
-                    child: Center(
-                      child: Text(
-                        'No comments yet.',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
+                  const SizedBox(height: 6),
+                  Text(
+                    textPreview,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  const Divider(height: 24),
+                  if (comments.isEmpty)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 24.0),
+                      child: Center(
+                        child: Text(
+                          'No comments yet.',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                else
-                  Flexible(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: comments.length,
-                      itemBuilder: (lCtx, index) {
-                        final comment = comments[index];
-                        final formattedDate =
-                            '${comment.createdAt.year}-${comment.createdAt.month.toString().padLeft(2, '0')}-${comment.createdAt.day.toString().padLeft(2, '0')} ${comment.createdAt.hour.toString().padLeft(2, '0')}:${comment.createdAt.minute.toString().padLeft(2, '0')}';
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 8),
-                          child: ListTile(
-                            title: Text(comment.commentText),
-                            subtitle: Text(
-                              formattedDate,
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                color: theme.colorScheme.outline,
+                    )
+                  else
+                    Flexible(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: comments.length,
+                        itemBuilder: (lCtx, index) {
+                          final comment = comments[index];
+                          final formattedDate =
+                              '${comment.createdAt.year}-${comment.createdAt.month.toString().padLeft(2, '0')}-${comment.createdAt.day.toString().padLeft(2, '0')} ${comment.createdAt.hour.toString().padLeft(2, '0')}:${comment.createdAt.minute.toString().padLeft(2, '0')}';
+                          return Card(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(16, 12, 8, 12),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          comment.commentText,
+                                          style: theme.textTheme.bodyLarge,
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          formattedDate,
+                                          style: theme.textTheme.labelSmall
+                                              ?.copyWith(
+                                                color:
+                                                    theme.colorScheme.outline,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(
+                                          Icons.edit_outlined,
+                                          size: 20,
+                                        ),
+                                        tooltip: 'Edit comment',
+                                        visualDensity: VisualDensity.compact,
+                                        color: theme.colorScheme.primary,
+                                        onPressed: () async {
+                                          await showEditCommentDialog(
+                                            context: context,
+                                            citation: title,
+                                            textPreview: textPreview,
+                                            commentId: comment.id,
+                                            initialText: comment.commentText,
+                                            onCommentUpdated: (newText) async {
+                                              setSheetState(() {
+                                                final targetIndex = comments
+                                                    .indexWhere(
+                                                      (c) => c.id == comment.id,
+                                                    );
+                                                if (targetIndex != -1) {
+                                                  comments[targetIndex] =
+                                                      comments[targetIndex]
+                                                          .copyWith(
+                                                            commentText:
+                                                                newText,
+                                                          );
+                                                }
+                                              });
+                                              await onCommentsChanged();
+                                            },
+                                          );
+                                        },
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(
+                                          Icons.delete_outline,
+                                          size: 20,
+                                        ),
+                                        tooltip: 'Delete comment',
+                                        visualDensity: VisualDensity.compact,
+                                        color: theme.colorScheme.error,
+                                        onPressed: () async {
+                                          final confirmed =
+                                              await showDeleteConfirmationDialog(
+                                                context: context,
+                                                title: 'Delete Comment',
+                                                content:
+                                                    'Are you sure you want to delete this comment?',
+                                                confirmLabel: 'Delete',
+                                              );
+                                          if (!confirmed) return;
+                                          await BibleDatabaseHelper.db
+                                              .deleteComment(comment.id);
+                                          setSheetState(() {
+                                            comments.removeWhere(
+                                              (c) => c.id == comment.id,
+                                            );
+                                          });
+                                          await onCommentsChanged();
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.edit_outlined,
-                                    size: 20,
-                                  ),
-                                  tooltip: 'Edit comment',
-                                  color: theme.colorScheme.primary,
-                                  onPressed: () async {
-                                    await showEditCommentDialog(
-                                      context: context,
-                                      citation: title,
-                                      textPreview: textPreview,
-                                      commentId: comment.id,
-                                      initialText: comment.commentText,
-                                      onCommentUpdated: (newText) async {
-                                        setSheetState(() {
-                                          final targetIndex = comments
-                                              .indexWhere(
-                                                (c) => c.id == comment.id,
-                                              );
-                                          if (targetIndex != -1) {
-                                            comments[targetIndex] =
-                                                comments[targetIndex].copyWith(
-                                                  commentText: newText,
-                                                );
-                                          }
-                                        });
-                                        await onCommentsChanged();
-                                      },
-                                    );
-                                  },
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.delete_outline,
-                                    size: 20,
-                                  ),
-                                  tooltip: 'Delete comment',
-                                  color: theme.colorScheme.error,
-                                  onPressed: () async {
-                                    final confirmed =
-                                        await showDeleteConfirmationDialog(
-                                          context: context,
-                                          title: 'Delete Comment',
-                                          content:
-                                              'Are you sure you want to delete this comment?',
-                                          confirmLabel: 'Delete',
-                                        );
-                                    if (!confirmed) return;
-                                    await BibleDatabaseHelper.db.deleteComment(
-                                      comment.id,
-                                    );
-                                    setSheetState(() {
-                                      comments.removeWhere(
-                                        (c) => c.id == comment.id,
-                                      );
-                                    });
-                                    await onCommentsChanged();
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                          );
+                        },
+                      ),
+                    ),
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.add_comment),
+                      label: const Text('Add Another Comment'),
+                      onPressed: () {
+                        Navigator.pop(ctx);
+                        onAddComment();
                       },
                     ),
                   ),
-                const SizedBox(height: 12),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.add_comment),
-                    label: const Text('Add Another Comment'),
-                    onPressed: () {
-                      Navigator.pop(ctx);
-                      onAddComment();
-                    },
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },

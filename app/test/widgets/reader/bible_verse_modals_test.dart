@@ -399,6 +399,66 @@ void main() {
         expect(find.text('2026-08-30 14:05'), findsOneWidget);
         expect(find.byTooltip('Edit comment'), findsOneWidget);
         expect(find.byTooltip('Delete comment'), findsOneWidget);
+
+        // Verify edit (pencil) and delete buttons are stacked vertically (up/down)
+        final editCenter = tester.getCenter(find.byTooltip('Edit comment'));
+        final deleteCenter = tester.getCenter(find.byTooltip('Delete comment'));
+        expect(editCenter.dy, lessThan(deleteCenter.dy));
+        expect((editCenter.dx - deleteCenter.dx).abs(), lessThan(1.0));
+      },
+    );
+
+    testWidgets(
+      'Add Another Comment button clears bottom system UI insets via SafeArea',
+      (WidgetTester tester) async {
+        const bottomSystemInset = 48.0;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            builder: (context, child) {
+              final mq = MediaQuery.of(context);
+              return MediaQuery(
+                data: mq.copyWith(
+                  padding: const EdgeInsets.only(bottom: bottomSystemInset),
+                  viewPadding: const EdgeInsets.only(bottom: bottomSystemInset),
+                ),
+                child: child!,
+              );
+            },
+            home: Scaffold(
+              body: Builder(
+                builder: (context) => ElevatedButton(
+                  onPressed: () => showVerseCommentsModal(
+                    context: context,
+                    title: 'Matthew 5:3',
+                    nodeId: 'mat_5_3',
+                    textPreview: 'Blessed are the poor in spirit.',
+                    comments: [],
+                    onCommentsChanged: () {},
+                    onAddComment: () {},
+                  ),
+                  child: const Text('Open Comments Modal'),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Comments Modal'));
+        await tester.pumpAndSettle();
+
+        final screenHeight =
+            tester.view.physicalSize.height / tester.view.devicePixelRatio;
+        final buttonRect = tester.getRect(
+          find.widgetWithText(ElevatedButton, 'Add Another Comment'),
+        );
+
+        // The button's bottom edge must stay above the bottom system UI region
+        // (at least bottomSystemInset + 20.0 sheet padding from screen bottom).
+        expect(
+          screenHeight - buttonRect.bottom,
+          greaterThanOrEqualTo(bottomSystemInset + 20.0),
+        );
       },
     );
 
