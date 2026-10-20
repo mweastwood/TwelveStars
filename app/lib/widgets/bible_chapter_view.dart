@@ -1,15 +1,17 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
-import 'package:twelve_stars/widgets/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
+import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 class BibleChapterView extends StatefulWidget {
@@ -52,19 +54,16 @@ class BibleChapterView extends StatefulWidget {
 
 class _BibleChapterViewState extends State<BibleChapterView>
     with AutomaticKeepAliveClientMixin {
+  late BibleReaderAdapter _adapter;
+  final ReaderSelectionController _selectionController =
+      ReaderSelectionController();
+
   List<BibleVerse> _verses = [];
   Map<int, BibleVerse> _compareVersesByNumber = {};
   Map<String, List<UserComment>> _commentsByNodeId = {};
   Map<int, List<FavoritePassage>> _favoritesByVerse = {};
   bool _loading = true;
   String? _error;
-
-  int? _firstSelectedVerseNumber;
-  int? _lastSelectedVerseNumber;
-  int? _temporaryHighlightStart;
-  int? _temporaryHighlightEnd;
-  String? _lastProcessedSessionId;
-  Timer? _highlightTimer;
 
   final Map<int, GlobalKey> _verseKeys = {};
   int _loadGeneration = 0;
@@ -76,29 +75,31 @@ class _BibleChapterViewState extends State<BibleChapterView>
   @override
   void initState() {
     super.initState();
+    _adapter = BibleReaderAdapter(bibleBook: widget.book);
     _loadChapterData();
   }
 
   @override
   void dispose() {
-    _highlightTimer?.cancel();
+    _selectionController.dispose();
     super.dispose();
   }
 
   @override
   void didUpdateWidget(BibleChapterView oldWidget) {
     super.didUpdateWidget(oldWidget);
-    final chapterChanged =
-        oldWidget.book.bookNumber != widget.book.bookNumber ||
-        oldWidget.chapter != widget.chapter;
+    final bookChanged = oldWidget.book.bookNumber != widget.book.bookNumber;
+    final chapterChanged = bookChanged || oldWidget.chapter != widget.chapter;
+    if (bookChanged) {
+      _adapter = BibleReaderAdapter(bibleBook: widget.book);
+    }
     if (chapterChanged ||
         oldWidget.primaryTranslation != widget.primaryTranslation ||
         oldWidget.compareTranslation != widget.compareTranslation) {
-      if (_firstSelectedVerseNumber != null) {
+      if (_selectionController.hasSelection) {
         widget.onSelectionChanged?.call(false);
       }
-      _firstSelectedVerseNumber = null;
-      _lastSelectedVerseNumber = null;
+      _selectionController.clear();
       if (chapterChanged) {
         _verseKeys.clear();
         _favoritesByVerse = {};
@@ -110,26 +111,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
     }
   }
 
-  Future<Map<int, List<FavoritePassage>>> _fetchFavoritesByVerse() async {
-    try {
-      final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
-        widget.book.bookNumber,
-        widget.chapter,
-      );
-      final byVerse = <int, List<FavoritePassage>>{};
-      for (final fav in favorites) {
-        for (int v = fav.startVerse; v <= fav.endVerse; v++) {
-          byVerse.putIfAbsent(v, () => []).add(fav);
-        }
-      }
-      return byVerse;
-    } catch (_) {
-      return _favoritesByVerse;
-    }
-  }
-
   Future<void> _loadFavorites() async {
-    final byVerse = await _fetchFavoritesByVerse();
+    final byVerse = await _adapter.fetchFavoritesByVerse(
+      widget.chapter,
+      fallback: _favoritesByVerse,
+    );
     if (mounted) {
       setState(() {
         _favoritesByVerse = byVerse;
@@ -137,24 +123,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
     }
   }
 
-  Future<Map<String, List<UserComment>>> _fetchCommentsByNodeId() async {
-    try {
-      final comments = await BibleDatabaseHelper.db.getComments(
-        documentId: widget.book.abbrev,
-        sectionIndex: widget.chapter,
-      );
-      final byNodeId = <String, List<UserComment>>{};
-      for (final c in comments) {
-        byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
-      }
-      return byNodeId;
-    } catch (_) {
-      return _commentsByNodeId;
-    }
-  }
-
   Future<void> _loadComments() async {
-    final byNodeId = await _fetchCommentsByNodeId();
+    final byNodeId = await _adapter.fetchCommentsByNodeId(
+      widget.chapter,
+      fallback: _commentsByNodeId,
+    );
     if (mounted) {
       setState(() {
         _commentsByNodeId = byNodeId;
@@ -179,47 +152,19 @@ class _BibleChapterViewState extends State<BibleChapterView>
           if (mounted && !_loading) setState(() {});
         });
       }
-      final db = BibleDatabaseHelper.db;
-      final favoritesByVerse = await _fetchFavoritesByVerse();
-      final commentsByNodeId = await _fetchCommentsByNodeId();
-      // Load primary translation
-      await db.ensureBookPopulated(
-        widget.book.bookNumber,
-        widget.book.bookName,
-        widget.book.abbrev,
-        translation: widget.primaryTranslation,
-      );
-      final verses = await db.getChapterVerses(
-        widget.primaryTranslation,
-        widget.book.bookNumber,
-        widget.chapter,
-      );
 
-      // Load compare translation if needed
-      Map<int, BibleVerse> compareVersesByNumber = {};
-      if (widget.compareTranslation != 'none') {
-        await db.ensureBookPopulated(
-          widget.book.bookNumber,
-          widget.book.bookName,
-          widget.book.abbrev,
-          translation: widget.compareTranslation,
-        );
-        final compareVerses = await db.getChapterVerses(
-          widget.compareTranslation,
-          widget.book.bookNumber,
-          widget.chapter,
-        );
-        compareVersesByNumber = {
-          for (final cv in compareVerses) cv.verseNumber: cv,
-        };
-      }
+      final chapterData = await _adapter.loadChapterData(
+        widget.chapter,
+        primaryTranslation: widget.primaryTranslation,
+        compareTranslation: widget.compareTranslation,
+      );
 
       if (!mounted || loadGen != _loadGeneration) return;
       setState(() {
-        _favoritesByVerse = favoritesByVerse;
-        _commentsByNodeId = commentsByNodeId;
-        _verses = verses;
-        _compareVersesByNumber = compareVersesByNumber;
+        _favoritesByVerse = chapterData.favoritesByVerse;
+        _commentsByNodeId = chapterData.commentsByNodeId;
+        _verses = chapterData.verses;
+        _compareVersesByNumber = chapterData.compareVersesByNumber;
         _loading = false;
       });
       _scrollToAndHighlightTarget();
@@ -233,84 +178,60 @@ class _BibleChapterViewState extends State<BibleChapterView>
   }
 
   void _scrollToAndHighlightTarget() {
-    if (widget.scrollToVerse != null &&
-        widget.navigationSessionId != _lastProcessedSessionId) {
-      _lastProcessedSessionId = widget.navigationSessionId;
-      _temporaryHighlightStart = widget.highlightStartVerse;
-      _temporaryHighlightEnd = widget.highlightEndVerse;
+    if (_selectionController.shouldProcessTarget(
+      hasTarget: widget.scrollToVerse != null,
+      navigationSessionId: widget.navigationSessionId,
+      requireSessionIdMatchOnly: true,
+    )) {
+      _selectionController.activateTemporaryHighlight(
+        start: widget.highlightStartVerse,
+        end: widget.highlightEndVerse,
+        navigationSessionId: widget.navigationSessionId,
+        onExpired: () {
+          if (mounted) setState(() {});
+        },
+      );
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
+      _selectionController.scrollToKeyPostFrame(() {
         final targetVerse = _verses
             .where((v) => v.verseNumber == widget.scrollToVerse)
             .firstOrNull;
-        final key = targetVerse != null ? _verseKeys[targetVerse.id] : null;
-        if (key != null && key.currentContext != null) {
-          Scrollable.ensureVisible(
-            key.currentContext!,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut,
-          );
-        }
-      });
-
-      _highlightTimer?.cancel();
-      _highlightTimer = Timer(const Duration(seconds: 2), () {
-        if (mounted) {
-          setState(() {
-            _temporaryHighlightStart = null;
-            _temporaryHighlightEnd = null;
-          });
-        }
+        return targetVerse != null ? _verseKeys[targetVerse.id] : null;
       });
     }
-  }
-
-  bool _isVerseSelected(int verseNumber) {
-    if (_firstSelectedVerseNumber != null && _lastSelectedVerseNumber != null) {
-      final start = min(_firstSelectedVerseNumber!, _lastSelectedVerseNumber!);
-      final end = max(_firstSelectedVerseNumber!, _lastSelectedVerseNumber!);
-      return verseNumber >= start && verseNumber <= end;
-    }
-    if (_temporaryHighlightStart != null && _temporaryHighlightEnd != null) {
-      final start = min(_temporaryHighlightStart!, _temporaryHighlightEnd!);
-      final end = max(_temporaryHighlightStart!, _temporaryHighlightEnd!);
-      return verseNumber >= start && verseNumber <= end;
-    }
-    return false;
   }
 
   void _onVerseLongPress(int verseNumber) {
-    SystemSound.play(SystemSoundType.click);
     setState(() {
-      _firstSelectedVerseNumber = verseNumber;
-      _lastSelectedVerseNumber = verseNumber;
+      _selectionController.onLongPress(verseNumber);
     });
     widget.onSelectionChanged?.call(true);
   }
 
   void _onVerseTap(int verseNumber) {
-    if (_firstSelectedVerseNumber != null) {
+    if (_selectionController.hasSelection) {
       setState(() {
-        _lastSelectedVerseNumber = verseNumber;
+        _selectionController.onTap(verseNumber);
       });
     }
   }
 
   void _clearSelection() {
     setState(() {
-      _firstSelectedVerseNumber = null;
-      _lastSelectedVerseNumber = null;
+      _selectionController.clear();
     });
     widget.onSelectionChanged?.call(false);
   }
 
   Widget _buildSelectionActionBar(ThemeData theme) {
-    final start = min(_firstSelectedVerseNumber!, _lastSelectedVerseNumber!);
-    final end = max(_firstSelectedVerseNumber!, _lastSelectedVerseNumber!);
-    final count = end - start + 1;
-    final citation = count == 1
-        ? '${widget.book.bookName} ${widget.chapter}:$start'
-        : '${widget.book.bookName} ${widget.chapter}:$start-$end';
+    final start = _selectionController.start!;
+    final end = _selectionController.end!;
+    final count = _selectionController.selectedCount;
+    final citation = _adapter.formatSelectionCitation(
+      widget.chapter,
+      start,
+      end,
+    );
 
     final selectedVerses =
         _verses
@@ -324,16 +245,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
       selectedCount: count,
       itemLabel: 'verse',
       onSaveFavorite: () async {
-        final favorite = FavoritePassagesCompanion.insert(
-          bookNumber: widget.book.bookNumber,
-          bookName: widget.book.bookName,
-          chapter: widget.chapter,
+        await _adapter.saveFavoriteRange(
+          chapterNumber: widget.chapter,
           startVerse: start,
           endVerse: end,
           textPreview: textPreview,
         );
-
-        await BibleDatabaseHelper.db.saveFavorite(favorite);
         await _loadFavorites();
 
         if (widget.onFavoriteSaved != null) {
@@ -356,22 +273,21 @@ class _BibleChapterViewState extends State<BibleChapterView>
         textPreview: textPreview,
         documentId: widget.book.abbrev,
         sectionIndex: widget.chapter,
-        nodeId: '${widget.book.bookNumber}_${widget.chapter}_$start',
+        nodeId: ReaderNodeId.bibleVerse(
+          widget.book.bookNumber,
+          widget.chapter,
+          start,
+        ),
         onCommentSaved: () async {
           _clearSelection();
           await _loadComments();
         },
       ),
       onCopy: () async {
-        final versesText = selectedVerses
-            .map((v) {
-              return count == 1
-                  ? v.verseText
-                  : '${v.verseNumber} ${v.verseText}';
-            })
-            .join(count == 1 ? '' : '\n');
-
-        final clipboardContent = '$citation\n$versesText';
+        final clipboardContent = _adapter.formatClipboardContent(
+          citation,
+          selectedVerses,
+        );
         await Clipboard.setData(ClipboardData(text: clipboardContent));
 
         if (mounted) {
@@ -516,7 +432,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                     ),
                     const SizedBox(height: 16),
                     ..._verses.map((verse) {
-                      final isSelected = _isVerseSelected(verse.verseNumber);
+                      final isSelected = _selectionController.isSelected(
+                        verse.verseNumber,
+                      );
                       _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
 
                       final verseCitations =
@@ -526,8 +444,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             verse.verseNumber,
                           );
 
-                      final nodeId =
-                          '${verse.bookNumber}_${verse.chapter}_${verse.verseNumber}';
+                      final nodeId = ReaderNodeId.bibleVerse(
+                        verse.bookNumber,
+                        verse.chapter,
+                        verse.verseNumber,
+                      );
                       final verseComments =
                           _commentsByNodeId[nodeId] ?? const [];
 
@@ -619,7 +540,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
               ],
             ),
           ),
-          if (_firstSelectedVerseNumber != null)
+          if (_selectionController.hasSelection)
             Positioned(
               left: 16,
               right: 16,

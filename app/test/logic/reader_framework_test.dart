@@ -7,6 +7,8 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reader/reader_models.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
 import 'package:flutter/services.dart';
@@ -559,6 +561,116 @@ void main() {
         final secEmpty = await adapter.loadComments(sectionIndex: 5);
         expect(secEmpty, isEmpty);
       });
+
+      test(
+        'loadSection generates canonical underscore nodeIds with optional volumeKey',
+        () async {
+          final volAdapter = LibraryReaderAdapter(
+            bookItem: item,
+            assetPath: testAssetPath,
+            volumeKey: 'vol1',
+            dbHelper: db,
+          );
+          final section = await volAdapter.loadSection(0);
+          expect(section.nodes[0].id, 'vol1:s1_0');
+          expect(section.nodes[1].id, 'vol1:s1_1');
+          expect(section.nodes[2].id, 'vol1:s1_2');
+        },
+      );
+
+      test(
+        'saveReadingPosition and getReadingPosition persist reading state',
+        () async {
+          final volAdapter = LibraryReaderAdapter(
+            bookItem: item,
+            assetPath: testAssetPath,
+            volumeKey: 'vol1',
+            dbHelper: db,
+          );
+          await volAdapter.saveReadingPosition(
+            sectionIndex: 2,
+            sectionId: 's3',
+          );
+          final pos = await volAdapter.getReadingPosition();
+          expect(pos, isNotNull);
+          expect(pos!.bookId, 'test_book');
+          expect(pos.volumeKey, 'vol1');
+          expect(pos.sectionIndex, 2);
+          expect(pos.sectionId, 's3');
+        },
+      );
+    });
+
+    group('ReaderNodeId & ReaderSelectionController', () {
+      test('ReaderNodeId encodes and parses Bible and Library IDs', () {
+        expect(ReaderNodeId.bibleVerse(1, 2, 3), '1_2_3');
+        expect(ReaderNodeId.parseBibleVerseNumber('1_2_15'), 15);
+        expect(ReaderNodeId.parseBibleVerseNumber('invalid', fallback: 1), 1);
+
+        expect(
+          ReaderNodeId.libraryItem(sectionId: 'sec_1', itemIndex: 4),
+          'sec_1_4',
+        );
+        expect(
+          ReaderNodeId.libraryItem(
+            sectionId: 'sec_1',
+            itemIndex: 4,
+            volumeKey: 'no2',
+          ),
+          'no2:sec_1_4',
+        );
+        expect(ReaderNodeId.parseLibrary('no2:sec_1_4'), ('no2', 4, null));
+        expect(ReaderNodeId.parseLibrary('sec_1-0'), (null, 0, null));
+        expect(ReaderNodeId.parseLibrary('vol1:sec_1-0'), ('vol1', 0, null));
+      });
+
+      test(
+        'ReaderSelectionController manages selection and temporary highlight',
+        () async {
+          final controller = ReaderSelectionController();
+          expect(controller.hasSelection, isFalse);
+
+          controller.onLongPress(5, playClickSound: false);
+          expect(controller.hasSelection, isTrue);
+          expect(controller.start, 5);
+          expect(controller.end, 5);
+          expect(controller.selectedCount, 1);
+          expect(controller.isSelected(5), isTrue);
+          expect(controller.isSelected(4), isFalse);
+
+          controller.onTap(2);
+          expect(controller.start, 2);
+          expect(controller.end, 5);
+          expect(controller.selectedCount, 4);
+          expect(controller.isSelected(3), isTrue);
+
+          controller.clear();
+          expect(controller.hasSelection, isFalse);
+
+          bool expired = false;
+          controller.activateTemporaryHighlight(
+            start: 10,
+            end: 12,
+            navigationSessionId: 's1',
+            duration: const Duration(milliseconds: 20),
+            onExpired: () => expired = true,
+          );
+          expect(controller.hasTemporaryHighlight, isTrue);
+          expect(controller.isSelected(11), isTrue);
+          expect(
+            controller.shouldProcessTarget(
+              hasTarget: true,
+              navigationSessionId: 's1',
+            ),
+            isFalse,
+          );
+
+          await Future<void>.delayed(const Duration(milliseconds: 40));
+          expect(expired, isTrue);
+          expect(controller.hasTemporaryHighlight, isFalse);
+          controller.dispose();
+        },
+      );
     });
   });
 }

@@ -4,6 +4,18 @@ import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/widgets/reader/reader_parallel_view.dart';
 
 void main() {
+  TextSpan unwrapSpan(RichText richText) {
+    final span = richText.text as TextSpan;
+    if (span.text == null &&
+        span.children != null &&
+        span.children!.length == 1 &&
+        span.children!.first is TextSpan &&
+        (span.children!.first as TextSpan).children != null) {
+      return span.children!.first as TextSpan;
+    }
+    return span;
+  }
+
   group('Phase 3 ReaderParallelView Widget Tests', () {
     testWidgets('renders primary and secondary side-by-side nodes', (
       tester,
@@ -133,7 +145,7 @@ void main() {
           .toList();
       expect(richTexts.length, equals(2));
 
-      final questionSpan = richTexts[0].text as TextSpan;
+      final questionSpan = unwrapSpan(richTexts[0]);
       final qPrefixSpan = questionSpan.children![0] as TextSpan;
       final qTextSpan = questionSpan.children![1] as TextSpan;
 
@@ -144,7 +156,7 @@ void main() {
       expect(qTextSpan.text, equals('What is the chief end of man?'));
       expect(qTextSpan.style?.fontWeight, equals(FontWeight.bold));
 
-      final answerSpan = richTexts[1].text as TextSpan;
+      final answerSpan = unwrapSpan(richTexts[1]);
       final aPrefixSpan = answerSpan.children![0] as TextSpan;
       final aTextSpan = answerSpan.children![1] as TextSpan;
 
@@ -179,7 +191,7 @@ void main() {
           .toList();
       expect(richTexts.length, equals(1));
 
-      final questionSpan = richTexts[0].text as TextSpan;
+      final questionSpan = unwrapSpan(richTexts[0]);
       final qPrefixSpan = questionSpan.children![0] as TextSpan;
 
       expect(qPrefixSpan.text, equals('Q. '));
@@ -208,7 +220,7 @@ void main() {
 
       final theme = Theme.of(tester.element(find.byType(ReaderParallelView)));
       final richText = tester.widget<RichText>(find.byType(RichText));
-      final rootSpan = richText.text as TextSpan;
+      final rootSpan = unwrapSpan(richText);
 
       expect(rootSpan.children?.length, equals(2));
       final prefixSpan = rootSpan.children![0] as TextSpan;
@@ -243,7 +255,7 @@ void main() {
       );
 
       final richText = tester.widget<RichText>(find.byType(RichText));
-      final rootSpan = richText.text as TextSpan;
+      final rootSpan = unwrapSpan(richText);
 
       expect(rootSpan.children?.length, equals(1));
       final textSpan = rootSpan.children![0] as TextSpan;
@@ -362,7 +374,7 @@ void main() {
           matching: find.byType(RichText),
         ),
       );
-      final rootSpan = primaryRichText.text as TextSpan;
+      final rootSpan = unwrapSpan(primaryRichText);
       expect(rootSpan.style?.fontSize, equals(customFontSize));
 
       final prefixSpan = rootSpan.children![0] as TextSpan;

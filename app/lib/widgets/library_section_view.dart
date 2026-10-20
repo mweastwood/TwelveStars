@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 
 class LibrarySectionView extends StatelessWidget {
   final BookSection section;
@@ -165,8 +166,11 @@ class LibrarySectionView extends StatelessWidget {
     ContentItem item,
   ) {
     final isSelected = _isItemSelected(index);
-    final nodeId =
-        '${volumeKey != null ? '$volumeKey:' : ''}${section.id}_$index';
+    final nodeId = ReaderNodeId.libraryItem(
+      sectionId: section.id,
+      itemIndex: index,
+      volumeKey: volumeKey,
+    );
     final comments = commentsMap?[nodeId] ?? [];
     final citation = _getItemCitation(item, index);
     final textPreview = _getItemTextPreview(item);

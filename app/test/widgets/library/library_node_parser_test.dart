@@ -38,6 +38,21 @@ void main() {
       expect(qNum, isNull);
     });
 
+    test(
+      'parses section ID with underscore and hyphen-delimited item index',
+      () {
+        final (volKey, itemIdx, qNum) = parseLibraryNodeId('sec_1-0');
+        expect(volKey, isNull);
+        expect(itemIdx, 0);
+        expect(qNum, isNull);
+
+        final (volKey2, itemIdx2, qNum2) = parseLibraryNodeId('vol1:sec_1-0');
+        expect(volKey2, 'vol1');
+        expect(itemIdx2, 0);
+        expect(qNum2, isNull);
+      },
+    );
+
     test('handles node ID without separators gracefully', () {
       final (volKey, itemIdx, qNum) = parseLibraryNodeId('intro');
       expect(volKey, isNull);
