@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/notification_service.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/main.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -19,11 +19,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadSettings();
   }
 
+  @override
+  void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
+    super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    if (!mounted) return;
+    setState(() {
+      _settings = UserSettingsController.instance.value;
+      _loading = false;
+    });
+  }
+
   Future<void> _loadSettings() async {
-    final settings = await PrayerDatabase.loadSettings();
+    final settings = await UserSettingsController.instance.load();
     if (mounted) {
       setState(() {
         _settings = settings;
@@ -52,129 +67,115 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _updateHaptics(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.hapticsEnabled = value;
+    await UserSettingsController.instance.mutate((s) {
+      s.hapticsEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
   }
 
   Future<void> _updateThemeMode(AppThemeMode mode) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.appThemeMode = mode;
+    await UserSettingsController.instance.mutate((s) {
+      s.appThemeMode = mode;
     });
-    await PrayerDatabase.saveSettings(_settings!);
     TwelveStarsApp.themeNotifier.value = mode;
   }
 
   Future<void> _updateSundayNotifications(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.sundayNotificationsEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.sundayNotificationsEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncSundayNotification(_settings!);
+    await NotificationService.syncSundayNotification(updated);
   }
 
   Future<void> _updateAngelusEnabled(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.angelusReminderEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.angelusReminderEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncAngelusNotifications(_settings!);
+    await NotificationService.syncAngelusNotifications(updated);
   }
 
   Future<void> _updateAngelusMorning(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.angelusMorningEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.angelusMorningEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncAngelusNotifications(_settings!);
+    await NotificationService.syncAngelusNotifications(updated);
   }
 
   Future<void> _updateAngelusMidday(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.angelusMiddayEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.angelusMiddayEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncAngelusNotifications(_settings!);
+    await NotificationService.syncAngelusNotifications(updated);
   }
 
   Future<void> _updateAngelusEvening(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.angelusEveningEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.angelusEveningEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncAngelusNotifications(_settings!);
+    await NotificationService.syncAngelusNotifications(updated);
   }
 
   Future<void> _updateRosaryEnabled(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.rosaryReminderEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.rosaryReminderEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncRosaryNotification(_settings!);
+    await NotificationService.syncRosaryNotification(updated);
   }
 
   Future<void> _updateRosaryTime(TimeOfDay time) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.rosaryReminderHour = time.hour;
-      _settings!.rosaryReminderMinute = time.minute;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.rosaryReminderHour = time.hour;
+      s.rosaryReminderMinute = time.minute;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncRosaryNotification(_settings!);
+    await NotificationService.syncRosaryNotification(updated);
   }
 
   Future<void> _updateMorningPrayerEnabled(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.morningPrayerReminderEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.morningPrayerReminderEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncMorningPrayerNotification(_settings!);
+    await NotificationService.syncMorningPrayerNotification(updated);
   }
 
   Future<void> _updateMorningPrayerTime(TimeOfDay time) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.morningPrayerReminderHour = time.hour;
-      _settings!.morningPrayerReminderMinute = time.minute;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.morningPrayerReminderHour = time.hour;
+      s.morningPrayerReminderMinute = time.minute;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncMorningPrayerNotification(_settings!);
+    await NotificationService.syncMorningPrayerNotification(updated);
   }
 
   Future<void> _updateNightPrayerEnabled(bool value) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.nightPrayerReminderEnabled = value;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.nightPrayerReminderEnabled = value;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncNightPrayerNotification(_settings!);
+    await NotificationService.syncNightPrayerNotification(updated);
   }
 
   Future<void> _updateNightPrayerTime(TimeOfDay time) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.nightPrayerReminderHour = time.hour;
-      _settings!.nightPrayerReminderMinute = time.minute;
+    final updated = await UserSettingsController.instance.mutate((s) {
+      s.nightPrayerReminderHour = time.hour;
+      s.nightPrayerReminderMinute = time.minute;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await NotificationService.syncNightPrayerNotification(_settings!);
+    await NotificationService.syncNightPrayerNotification(updated);
   }
 
   Future<void> _updateBibleNumberingSystem(BibleNumberingSystem system) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.bibleNumberingSystem = system;
+    await UserSettingsController.instance.mutate((s) {
+      s.bibleNumberingSystem = system;
     });
-    await PrayerDatabase.saveSettings(_settings!);
   }
 
   String _formatTime(int hour, int minute) {

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show setEquals;
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -102,6 +103,7 @@ class _MissalTabState extends State<MissalTab> {
   String? _error;
   Map<String, Prayer>? _prayersById;
   UserSettings? _settings;
+  bool _readingsOnly = false;
   Set<String> _hiddenPrayers = const {};
   List<Saint>? _saints;
   Map<String, List<Saint>>? _feastDayMap;
@@ -140,7 +142,34 @@ class _MissalTabState extends State<MissalTab> {
     _selectedDate = DateTime(baseDate.year, baseDate.month, baseDate.day);
     _primaryLanguage = widget.primaryLanguage;
     _compareLanguage = widget.compareLanguage;
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadData();
+  }
+
+  @override
+  void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
+    super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    if (!mounted) return;
+    final settings = UserSettingsController.instance.value;
+    final nextHidden = (settings.missalHiddenPrayers ?? const []).toSet();
+    final changed =
+        _primaryLanguage != settings.primaryLanguage ||
+        _compareLanguage != settings.compareLanguage ||
+        _readingsOnly != settings.missalReadingsOnly ||
+        !setEquals(_hiddenPrayers, nextHidden);
+    _settings = settings;
+    if (changed) {
+      setState(() {
+        _readingsOnly = settings.missalReadingsOnly;
+        _hiddenPrayers = nextHidden;
+        _primaryLanguage = settings.primaryLanguage;
+        _compareLanguage = settings.compareLanguage;
+      });
+    }
   }
 
   @override
@@ -158,12 +187,13 @@ class _MissalTabState extends State<MissalTab> {
   Future<void> _loadData() async {
     try {
       final prayers = await PrayerDatabase.loadPrayers();
-      final settings = await PrayerDatabase.loadSettings();
+      final settings = await UserSettingsController.instance.load();
       final saints = await SaintDatabase.loadSaints();
       if (mounted) {
         setState(() {
           _prayersById = {for (final p in prayers) p.prayerId: p};
           _settings = settings;
+          _readingsOnly = settings.missalReadingsOnly;
           _hiddenPrayers = (settings.missalHiddenPrayers ?? const []).toSet();
           _saints = saints;
           _feastDayMap = SaintDatabase.buildFeastDayMap(saints);
@@ -281,14 +311,7 @@ class _MissalTabState extends State<MissalTab> {
 
   Widget _buildPrayerCard(Prayer prayer) {
     final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-    final initialVersion =
-        _settings?.preferredVersions
-            ?.firstWhere(
-              (p) => p.key == prefKey,
-              orElse: () => PrayerVersionPreference(),
-            )
-            .versionIndex ??
-        0;
+    final initialVersion = _settings?.getPreferredVersionIndex(prefKey) ?? 0;
 
     return PrayerCard(
       prayer: prayer,
@@ -297,55 +320,42 @@ class _MissalTabState extends State<MissalTab> {
       initialVersionIndex: initialVersion,
       fontSize: widget.fontSize,
       onVersionChanged: (newIndex) async {
-        if (_settings != null) {
-          final list = _settings!.preferredVersions ?? [];
-          final idx = list.indexWhere((p) => p.key == prefKey);
-          if (idx >= 0) {
-            list[idx].versionIndex = newIndex;
-          } else {
-            list.add(PrayerVersionPreference(prefKey, newIndex));
-          }
-          _settings!.preferredVersions = list;
-          await PrayerDatabase.saveSettings(_settings!);
-        }
+        await UserSettingsController.instance.mutate((s) {
+          s.setPreferredVersionIndex(prefKey, newIndex);
+        });
       },
     );
   }
 
-  bool get _isReadingsOnly => _settings?.missalReadingsOnly ?? false;
+  bool get _isReadingsOnly => _readingsOnly;
 
   bool _isPrayerVisible(String id) {
     if (_settings == null) return true;
-    if (_settings!.missalReadingsOnly) return false;
+    if (_readingsOnly) return false;
     return !_hiddenPrayers.contains(id);
   }
 
   Future<void> _toggleReadingsOnly(bool enabled) async {
     if (_settings == null) return;
-    setState(() {
-      _settings!.missalReadingsOnly = enabled;
+    await UserSettingsController.instance.mutate((s) {
+      s.missalReadingsOnly = enabled;
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await UserSettingsController.instance.update(_settings!);
   }
 
   Future<void> _togglePrayerFilter(String prayerId, bool enabled) async {
     if (_settings == null) return;
-    setState(() {
-      final updated = Set<String>.of(_hiddenPrayers);
-      if (enabled) {
-        updated.remove(prayerId);
-      } else {
-        updated.add(prayerId);
-      }
-      _hiddenPrayers = updated;
-      _settings!.missalHiddenPrayers = updated.toList();
-      if (_settings!.missalReadingsOnly) {
-        _settings!.missalReadingsOnly = false;
+    final updated = Set<String>.of(_hiddenPrayers);
+    if (enabled) {
+      updated.remove(prayerId);
+    } else {
+      updated.add(prayerId);
+    }
+    await UserSettingsController.instance.mutate((s) {
+      s.missalHiddenPrayers = updated.toList();
+      if (s.missalReadingsOnly) {
+        s.missalReadingsOnly = false;
       }
     });
-    await PrayerDatabase.saveSettings(_settings!);
-    await UserSettingsController.instance.update(_settings!);
   }
 
   Widget _buildFilterChips(BuildContext context) {

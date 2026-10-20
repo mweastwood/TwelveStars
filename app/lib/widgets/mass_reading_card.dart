@@ -5,11 +5,11 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/lectionary_responses.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
@@ -94,13 +94,24 @@ class _MassReadingCardState extends State<MassReadingCard> {
   @override
   void initState() {
     super.initState();
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadVerses();
   }
 
   @override
   void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
     _selectionController.dispose();
     super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    if (!mounted) return;
+    final translation =
+        UserSettingsController.instance.value.primaryBibleTranslation;
+    if (_loadedTranslation != null && _loadedTranslation != translation) {
+      _loadVerses();
+    }
   }
 
   @override
@@ -233,7 +244,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
   }
 
   Future<void> _loadVerses({bool force = false}) async {
-    final settings = await PrayerDatabase.loadSettings();
+    final settings = await UserSettingsController.instance.load();
     final translation = settings.primaryBibleTranslation;
 
     if (_verses != null && _loadedTranslation == translation && !force) return;

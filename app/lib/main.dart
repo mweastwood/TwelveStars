@@ -5,8 +5,8 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/notification_service.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 
 import 'screens/home_screen.dart';
 
@@ -94,6 +94,7 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadThemeSetting();
     unawaited(
       NotificationService.syncAllNotifications().catchError((e, stack) {
@@ -106,8 +107,14 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
 
   @override
   void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    TwelveStarsApp.themeNotifier.value =
+        UserSettingsController.instance.value.appThemeMode;
   }
 
   @override
@@ -124,7 +131,7 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
   }
 
   Future<void> _loadThemeSetting() async {
-    final settings = await PrayerDatabase.loadSettings();
+    final settings = await UserSettingsController.instance.load();
     TwelveStarsApp.themeNotifier.value = settings.appThemeMode;
   }
 

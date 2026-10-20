@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/rosary_bead_chain.dart';
 import 'package:twelve_stars/widgets/rosary_mystery_card.dart';
@@ -37,7 +37,10 @@ class _RosaryScreenState extends State<RosaryScreen> {
   @override
   void initState() {
     super.initState();
-    _hapticsEnabled = widget.hapticsEnabled ?? true;
+    _hapticsEnabled =
+        widget.hapticsEnabled ??
+        UserSettingsController.instance.value.hapticsEnabled;
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     if (widget.hapticsEnabled == null) {
       _loadHapticsSetting();
     }
@@ -48,8 +51,18 @@ class _RosaryScreenState extends State<RosaryScreen> {
     HardwareKeyboard.instance.addHandler(_handleKeyEvent);
   }
 
+  void _onSettingsChanged() {
+    if (!mounted || widget.hapticsEnabled != null) return;
+    final haptics = UserSettingsController.instance.value.hapticsEnabled;
+    if (_hapticsEnabled != haptics) {
+      setState(() {
+        _hapticsEnabled = haptics;
+      });
+    }
+  }
+
   Future<void> _loadHapticsSetting() async {
-    final settings = await PrayerDatabase.loadSettings();
+    final settings = await UserSettingsController.instance.load();
     if (mounted) {
       setState(() {
         _hapticsEnabled = settings.hapticsEnabled;
@@ -59,6 +72,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
 
   @override
   void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
     HardwareKeyboard.instance.removeHandler(_handleKeyEvent);
     super.dispose();
   }

@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/home_language_selector_card.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
@@ -62,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
     _searchController.dispose();
     _searchFocusNode.dispose();
     _languageSelectorAnimationController.removeListener(
@@ -112,7 +114,23 @@ class _HomeScreenState extends State<HomeScreen>
         if (mounted) setState(() {});
       }
     });
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadData();
+  }
+
+  void _onSettingsChanged() {
+    if (!mounted) return;
+    final settings = UserSettingsController.instance.value;
+    final languageChanged =
+        _primaryLanguage != settings.primaryLanguage ||
+        _compareLanguage != settings.compareLanguage;
+    _settings = settings;
+    if (languageChanged) {
+      setState(() {
+        _primaryLanguage = settings.primaryLanguage;
+        _compareLanguage = settings.compareLanguage;
+      });
+    }
   }
 
   void _toggleLanguageSelectors() {
@@ -152,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen>
   Future<void> _loadData() async {
     try {
       final prayers = await PrayerDatabase.loadPrayers();
-      final settings = await PrayerDatabase.loadSettings();
+      final settings = await UserSettingsController.instance.load();
       if (mounted) {
         setState(() {
           _prayers = prayers;
@@ -177,54 +195,49 @@ class _HomeScreenState extends State<HomeScreen>
       primaryLanguage: _primaryLanguage,
       compareLanguage: _compareLanguage,
       onPrimaryChanged: (lang) {
+        final nextCompare = _compareLanguage == lang ? null : _compareLanguage;
         setState(() {
           _primaryLanguage = lang;
-          if (_compareLanguage == lang) {
-            _compareLanguage = null;
-          }
-          _settings?.primaryLanguageCode = lang.code;
-          _settings?.compareLanguageCode = _compareLanguage?.code ?? 'none';
+          _compareLanguage = nextCompare;
         });
-        if (_settings != null) {
-          PrayerDatabase.saveSettings(_settings!);
-        }
+        UserSettingsController.instance.mutate((s) {
+          s.primaryLanguageCode = lang.code;
+          s.compareLanguageCode = nextCompare?.code ?? 'none';
+        });
       },
       onSecondaryChanged: (lang) {
+        final nextPrimary = (lang != null && _primaryLanguage == lang)
+            ? PrayerLanguage.values.firstWhere((l) => l != lang)
+            : _primaryLanguage;
         setState(() {
           _compareLanguage = lang;
-          if (lang != null && _primaryLanguage == lang) {
-            _primaryLanguage = PrayerLanguage.values.firstWhere(
-              (l) => l != lang,
-            );
-          }
-          _settings?.compareLanguageCode = lang?.code ?? 'none';
-          _settings?.primaryLanguageCode = _primaryLanguage.code;
+          _primaryLanguage = nextPrimary;
         });
-        if (_settings != null) {
-          PrayerDatabase.saveSettings(_settings!);
-        }
+        UserSettingsController.instance.mutate((s) {
+          s.compareLanguageCode = lang?.code ?? 'none';
+          s.primaryLanguageCode = nextPrimary.code;
+        });
       },
       onSwap: () {
         if (_compareLanguage == null) return;
+        final nextPrimary = _compareLanguage!;
+        final nextCompare = _primaryLanguage;
         setState(() {
-          final temp = _primaryLanguage;
-          _primaryLanguage = _compareLanguage!;
-          _compareLanguage = temp;
-          _settings?.primaryLanguageCode = _primaryLanguage.code;
-          _settings?.compareLanguageCode = _compareLanguage?.code ?? 'none';
+          _primaryLanguage = nextPrimary;
+          _compareLanguage = nextCompare;
         });
-        if (_settings != null) {
-          PrayerDatabase.saveSettings(_settings!);
-        }
+        UserSettingsController.instance.mutate((s) {
+          s.primaryLanguageCode = nextPrimary.code;
+          s.compareLanguageCode = nextCompare.code;
+        });
       },
       onClearSecondary: () {
         setState(() {
           _compareLanguage = null;
-          _settings?.compareLanguageCode = 'none';
         });
-        if (_settings != null) {
-          PrayerDatabase.saveSettings(_settings!);
-        }
+        UserSettingsController.instance.mutate((s) {
+          s.compareLanguageCode = 'none';
+        });
       },
     );
   }
@@ -666,14 +679,7 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget _buildPrayerCard(Prayer prayer) {
     final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-    final initialVersion =
-        _settings?.preferredVersions
-            ?.firstWhere(
-              (p) => p.key == prefKey,
-              orElse: () => PrayerVersionPreference(),
-            )
-            .versionIndex ??
-        0;
+    final initialVersion = _settings?.getPreferredVersionIndex(prefKey) ?? 0;
 
     return RepaintBoundary(
       child: PrayerCard(
@@ -684,17 +690,9 @@ class _HomeScreenState extends State<HomeScreen>
         initialVersionIndex: initialVersion,
         fontSize: _fontSize,
         onVersionChanged: (newIndex) async {
-          if (_settings != null) {
-            final list = _settings!.preferredVersions ?? [];
-            final idx = list.indexWhere((p) => p.key == prefKey);
-            if (idx >= 0) {
-              list[idx].versionIndex = newIndex;
-            } else {
-              list.add(PrayerVersionPreference(prefKey, newIndex));
-            }
-            _settings!.preferredVersions = list;
-            await PrayerDatabase.saveSettings(_settings!);
-          }
+          await UserSettingsController.instance.mutate((s) {
+            s.setPreferredVersionIndex(prefKey, newIndex);
+          });
         },
       ),
     );
