@@ -262,7 +262,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     final book =
         catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
         catholicBooks.first;
-    final verseNum = int.tryParse(comment.nodeId.split('_').last) ?? 1;
+    final verseNum = ReaderNodeId.parseBibleVerseNumber(comment.nodeId);
     final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
 
     await showEditCommentDialog(

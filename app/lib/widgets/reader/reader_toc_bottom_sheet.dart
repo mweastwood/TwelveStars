@@ -7,6 +7,7 @@ class ReaderTocBottomSheet extends StatelessWidget {
   final int currentSectionIndex;
   final ValueChanged<int> onSectionSelected;
   final bool popOnSelect;
+  final ScrollController? scrollController;
 
   const ReaderTocBottomSheet({
     super.key,
@@ -15,6 +16,7 @@ class ReaderTocBottomSheet extends StatelessWidget {
     required this.currentSectionIndex,
     required this.onSectionSelected,
     this.popOnSelect = true,
+    this.scrollController,
   });
 
   static Future<void> show(
@@ -45,6 +47,7 @@ class ReaderTocBottomSheet extends StatelessWidget {
               currentSectionIndex: currentSectionIndex,
               onSectionSelected: onSectionSelected,
               popOnSelect: true,
+              scrollController: scrollController,
             );
           },
         );
@@ -103,6 +106,7 @@ class ReaderTocBottomSheet extends StatelessWidget {
           const Divider(),
           Expanded(
             child: ListView.builder(
+              controller: scrollController,
               itemCount: tocEntries.length,
               itemBuilder: (context, index) {
                 final entry = tocEntries[index];

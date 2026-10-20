@@ -193,7 +193,9 @@ class BibleReaderAdapter implements ReaderAdapter {
   ) {
     final count = selectedVerses.length;
     final versesText = selectedVerses
-        .map((v) => count == 1 ? v.verseText : '${v.verseNumber} ${v.verseText}')
+        .map(
+          (v) => count == 1 ? v.verseText : '${v.verseNumber} ${v.verseText}',
+        )
         .join(count == 1 ? '' : '\n');
     return '$citation\n$versesText';
   }

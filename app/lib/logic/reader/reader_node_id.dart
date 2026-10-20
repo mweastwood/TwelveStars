@@ -53,6 +53,9 @@ class ReaderNodeId {
     } else if (rest.contains('_')) {
       final lastPart = rest.split('_').last;
       itemIndex = int.tryParse(lastPart);
+      if (itemIndex == null && rest.contains('-')) {
+        itemIndex = int.tryParse(rest.split('-').last);
+      }
     } else if (rest.contains('-')) {
       final lastPart = rest.split('-').last;
       itemIndex = int.tryParse(lastPart);
