@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
@@ -153,153 +154,160 @@ class BibleBottomNavigationPanel extends StatelessWidget {
           ),
 
           // Tab Bar and Tab Views
-          if (isPanelExpanded)
-            Expanded(
-              child: AnimatedBuilder(
-                animation: panelHeightAnimation,
-                builder: (context, _) {
-                  if (panelHeightAnimation.value <= 150.0) {
-                    return const SizedBox.shrink();
-                  }
-                  return Column(
-                    children: [
-                      TabBar(
-                        controller: sheetTabController,
-                        tabs: const [
-                          Tab(text: 'Books'),
-                          Tab(text: 'Chapters'),
-                        ],
-                      ),
-                      Expanded(
-                        child: TabBarView(
-                          controller: sheetTabController,
+          Expanded(
+            child: AnimatedBuilder(
+              animation: panelHeightAnimation,
+              builder: (context, child) {
+                if (!isPanelExpanded && panelHeightAnimation.value <= 72.0) {
+                  return const SizedBox.shrink();
+                }
+                return ClipRect(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final contentHeight = math.max(
+                        constraints.maxHeight,
+                        428.0,
+                      );
+                      return OverflowBox(
+                        alignment: Alignment.topCenter,
+                        minHeight: contentHeight,
+                        maxHeight: contentHeight,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              },
+              child: Column(
+                children: [
+                  TabBar(
+                    controller: sheetTabController,
+                    tabs: const [
+                      Tab(text: 'Books'),
+                      Tab(text: 'Chapters'),
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      controller: sheetTabController,
+                      children: [
+                        // Tab 1: Book List grouped by Category
+                        ListView(
+                          padding: const EdgeInsets.all(16.0),
                           children: [
-                            // Tab 1: Book List grouped by Category
-                            ListView(
-                              padding: const EdgeInsets.all(16.0),
-                              children: [
-                                _buildBookGroup(
-                                  context,
-                                  'Pentateuch',
-                                  catholicBooks
-                                      .where((b) => b.category == 'Pentateuch')
-                                      .toList(),
-                                ),
-                                _buildBookGroup(
-                                  context,
-                                  'Historical Books',
-                                  catholicBooks
-                                      .where(
-                                        (b) => b.category == 'Historical Books',
-                                      )
-                                      .toList(),
-                                ),
-                                _buildBookGroup(
-                                  context,
-                                  'Wisdom Books',
-                                  catholicBooks
-                                      .where(
-                                        (b) => b.category == 'Wisdom Books',
-                                      )
-                                      .toList(),
-                                ),
-                                _buildBookGroup(
-                                  context,
-                                  'Prophets',
-                                  catholicBooks
-                                      .where((b) => b.category == 'Prophets')
-                                      .toList(),
-                                ),
-                                _buildBookGroup(
-                                  context,
-                                  'Gospels & Acts',
-                                  catholicBooks
-                                      .where(
-                                        (b) => b.category == 'Gospels & Acts',
-                                      )
-                                      .toList(),
-                                ),
-                                _buildBookGroup(
-                                  context,
-                                  'Epistles',
-                                  catholicBooks
-                                      .where((b) => b.category == 'Epistles')
-                                      .toList(),
-                                ),
-                                _buildBookGroup(
-                                  context,
-                                  'Prophecy',
-                                  catholicBooks
-                                      .where((b) => b.category == 'Prophecy')
-                                      .toList(),
-                                ),
-                              ],
+                            _buildBookGroup(
+                              context,
+                              'Pentateuch',
+                              catholicBooks
+                                  .where((b) => b.category == 'Pentateuch')
+                                  .toList(),
                             ),
-
-                            // Tab 2: Chapter Grid
-                            GridView.builder(
-                              padding: const EdgeInsets.all(16.0),
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 6,
-                                    mainAxisSpacing: 12.0,
-                                    crossAxisSpacing: 12.0,
-                                  ),
-                              itemCount: selectedBookForPicker.chaptersCount,
-                              itemBuilder: (context, index) {
-                                final chapterNum = index + 1;
-                                final chapterLabel =
-                                    BibleVerseResolver.formatChapterPickerLabel(
-                                      bookNumber:
-                                          selectedBookForPicker.bookNumber,
-                                      chapter: chapterNum,
-                                      numberingSystem: numberingSystem,
-                                    );
-                                return InkWell(
-                                  onTap: () => onChapterSelected(
-                                    selectedBookForPicker,
-                                    chapterNum,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: theme.colorScheme.outlineVariant,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        chapterLabel,
-                                        style: theme.textTheme.bodyMedium
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize:
-                                                  selectedBookForPicker
-                                                              .bookNumber ==
-                                                          21 &&
-                                                      numberingSystem ==
-                                                          BibleNumberingSystem
-                                                              .dual &&
-                                                      chapterLabel.contains('(')
-                                                  ? 11.0
-                                                  : null,
-                                            ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
+                            _buildBookGroup(
+                              context,
+                              'Historical Books',
+                              catholicBooks
+                                  .where(
+                                    (b) => b.category == 'Historical Books',
+                                  )
+                                  .toList(),
+                            ),
+                            _buildBookGroup(
+                              context,
+                              'Wisdom Books',
+                              catholicBooks
+                                  .where((b) => b.category == 'Wisdom Books')
+                                  .toList(),
+                            ),
+                            _buildBookGroup(
+                              context,
+                              'Prophets',
+                              catholicBooks
+                                  .where((b) => b.category == 'Prophets')
+                                  .toList(),
+                            ),
+                            _buildBookGroup(
+                              context,
+                              'Gospels & Acts',
+                              catholicBooks
+                                  .where((b) => b.category == 'Gospels & Acts')
+                                  .toList(),
+                            ),
+                            _buildBookGroup(
+                              context,
+                              'Epistles',
+                              catholicBooks
+                                  .where((b) => b.category == 'Epistles')
+                                  .toList(),
+                            ),
+                            _buildBookGroup(
+                              context,
+                              'Prophecy',
+                              catholicBooks
+                                  .where((b) => b.category == 'Prophecy')
+                                  .toList(),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  );
-                },
+
+                        // Tab 2: Chapter Grid
+                        GridView.builder(
+                          padding: const EdgeInsets.all(16.0),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 6,
+                                mainAxisSpacing: 12.0,
+                                crossAxisSpacing: 12.0,
+                              ),
+                          itemCount: selectedBookForPicker.chaptersCount,
+                          itemBuilder: (context, index) {
+                            final chapterNum = index + 1;
+                            final chapterLabel =
+                                BibleVerseResolver.formatChapterPickerLabel(
+                                  bookNumber: selectedBookForPicker.bookNumber,
+                                  chapter: chapterNum,
+                                  numberingSystem: numberingSystem,
+                                );
+                            return InkWell(
+                              onTap: () => onChapterSelected(
+                                selectedBookForPicker,
+                                chapterNum,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: theme.colorScheme.outlineVariant,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    chapterLabel,
+                                    style: theme.textTheme.bodyMedium?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize:
+                                          selectedBookForPicker.bookNumber ==
+                                                  21 &&
+                                              numberingSystem ==
+                                                  BibleNumberingSystem.dual &&
+                                              chapterLabel.contains('(')
+                                          ? 11.0
+                                          : null,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
+          ),
         ],
       ),
     );

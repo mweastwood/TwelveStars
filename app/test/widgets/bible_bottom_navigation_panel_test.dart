@@ -138,5 +138,68 @@ void main() {
 
       tabController.dispose();
     });
+
+    testWidgets(
+      'reveals books and chapters during swipe-up before isPanelExpanded becomes true without overflow',
+      (WidgetTester tester) async {
+        final tabController = TabController(
+          length: 2,
+          vsync: const TestVSync(),
+          initialIndex: 0,
+        );
+        final heightController = AnimationController(
+          vsync: const TestVSync(),
+          lowerBound: 72.0,
+          upperBound: 500.0,
+          value: 72.0,
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Align(
+                alignment: Alignment.bottomCenter,
+                child: BibleBottomNavigationPanel(
+                  panelHeightAnimation: heightController,
+                  isPanelExpanded: false,
+                  currentBook: catholicBooks.first,
+                  currentChapter: 1,
+                  numberingSystem: BibleNumberingSystem.vulgate,
+                  sheetTabController: tabController,
+                  selectedBookForPicker: catholicBooks.first,
+                  onBookSelectedForPicker: (_) {},
+                  onChapterSelected: (_, _) {},
+                  onTogglePanel: () {},
+                  onVerticalDragUpdate: (_) {},
+                  onVerticalDragEnd: (_) {},
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // At collapsed height (72.0), tabs are hidden
+        expect(find.text('Books'), findsNothing);
+        expect(find.text('Chapters'), findsNothing);
+
+        // Mid-swipe at small height (100.0, where remaining height < TabBar height)
+        heightController.value = 100.0;
+        await tester.pump();
+        expect(tester.takeException(), isNull);
+        expect(find.text('Books'), findsOneWidget);
+        expect(find.text('Chapters'), findsOneWidget);
+
+        // Mid-swipe at 250.0 while isPanelExpanded is still false
+        heightController.value = 250.0;
+        await tester.pump();
+        expect(tester.takeException(), isNull);
+        expect(find.text('Books'), findsOneWidget);
+        expect(find.text('Pentateuch'), findsOneWidget);
+        expect(find.text('Genesis'), findsOneWidget);
+
+        heightController.dispose();
+        tabController.dispose();
+      },
+    );
   });
 }

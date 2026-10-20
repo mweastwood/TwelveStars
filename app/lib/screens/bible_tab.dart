@@ -262,7 +262,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void _collapsePanel() {
-    if (_isPanelExpanded) {
+    if (_isPanelExpanded || _panelController.value > 0.0) {
       setState(() {
         _isPanelExpanded = false;
         _panelController.reverse();
