@@ -5,7 +5,7 @@ import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 
 /// Representation of a lectionary reading prepared for homily reflection.
 class HomilyReadingData {
@@ -46,7 +46,7 @@ class HomilyService {
     List<LectionaryReading> readings, {
     String? translation,
   }) async {
-    final settings = await PrayerDatabase.loadSettings();
+    final settings = await UserSettingsController.instance.load();
     final activeTranslation = translation ?? settings.primaryBibleTranslation;
     final db = BibleDatabaseHelper.db;
 

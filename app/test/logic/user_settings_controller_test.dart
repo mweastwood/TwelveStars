@@ -279,5 +279,86 @@ void main() {
         expect(controller.value.primaryLanguageCode, equals('english'));
       },
     );
+
+    test(
+      'mutate() updates settings in place, persists to PrayerDatabase, and prevents stale overwrites across consumers',
+      () async {
+        final controller = UserSettingsController.instance;
+        PrayerDatabase.mockSettings = UserSettings(
+          primaryLanguageCode: 'english',
+          primaryBibleTranslation: 'CPDV',
+          missalReadingsOnly: false,
+        );
+        await controller.load();
+
+        // Consumer 1 (e.g. BibleTab) updates Bible translation and chapter position
+        await controller.mutate((s) {
+          s.primaryBibleTranslation = 'DRA';
+          s.lastBibleBookNumber = 43;
+          s.lastBibleChapter = 3;
+        });
+
+        // Consumer 2 (e.g. MissalTab) updates readings-only mode
+        await controller.mutate((s) {
+          s.missalReadingsOnly = true;
+        });
+
+        // Consumer 3 (e.g. HomeScreen) updates primary language and preferred version
+        await controller.mutate((s) {
+          s.primaryLanguageCode = 'latin';
+          s.setPreferredVersionIndex('sign_of_the_cross_latin', 1);
+        });
+
+        // Verify all mutations are preserved without any stale overwrites
+        expect(controller.value.primaryBibleTranslation, equals('DRA'));
+        expect(controller.value.lastBibleBookNumber, equals(43));
+        expect(controller.value.lastBibleChapter, equals(3));
+        expect(controller.value.missalReadingsOnly, isTrue);
+        expect(controller.value.primaryLanguageCode, equals('latin'));
+        expect(
+          controller.value.getPreferredVersionIndex('sign_of_the_cross_latin'),
+          equals(1),
+        );
+        expect(
+          PrayerDatabase.mockSettings?.primaryBibleTranslation,
+          equals('DRA'),
+        );
+        expect(PrayerDatabase.mockSettings?.missalReadingsOnly, isTrue);
+        expect(
+          PrayerDatabase.mockSettings?.primaryLanguageCode,
+          equals('latin'),
+        );
+      },
+    );
+
+    test(
+      'UserSettings.copyWith clones collections and overrides specified fields',
+      () {
+        final original = UserSettings(
+          primaryLanguageCode: 'english',
+          preferredVersions: [PrayerVersionPreference('ave_maria_latin', 0)],
+          missalHiddenPrayers: ['gloria'],
+          bibleRibbons: const [
+            BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+          ],
+        );
+
+        final copy = original.copyWith(
+          primaryLanguageCode: 'spanish',
+          hapticsEnabled: false,
+        );
+
+        expect(copy.primaryLanguageCode, equals('spanish'));
+        expect(copy.hapticsEnabled, isFalse);
+        expect(original.primaryLanguageCode, equals('english'));
+        expect(original.hapticsEnabled, isTrue);
+
+        // Mutating cloned collections on copy should not affect original
+        copy.setPreferredVersionIndex('ave_maria_latin', 2);
+        copy.missalHiddenPrayers!.add('creed');
+        expect(original.getPreferredVersionIndex('ave_maria_latin'), equals(0));
+        expect(original.missalHiddenPrayers, equals(['gloria']));
+      },
+    );
   });
 }

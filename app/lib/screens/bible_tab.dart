@@ -1,10 +1,10 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
@@ -73,6 +73,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   UserSettings? _settings;
   String _primaryTranslation = 'CPDV';
   String _compareTranslation = 'none';
+  BibleNumberingSystem _numberingSystem = BibleNumberingSystem.vulgate;
+  List<BibleRibbonBookmark>? _bibleRibbons;
   bool _isSelectingVerses = false;
   bool _showTranslationSelectors = false;
 
@@ -139,6 +141,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   @override
   void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
     _translationSelectorAnimationController.removeListener(
       _onTranslationSelectorAnimationTick,
     );
@@ -152,6 +155,37 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     _pageController.dispose();
     _sheetTabController.dispose();
     super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    if (!mounted) return;
+    final settings = UserSettingsController.instance.value;
+    final showSelectorsChanged =
+        _showTranslationSelectors != settings.showBibleTranslationSelectors;
+    final translationChanged =
+        _primaryTranslation != settings.primaryBibleTranslation ||
+        _compareTranslation != settings.compareBibleTranslation;
+    final numberingChanged = _numberingSystem != settings.bibleNumberingSystem;
+    final ribbonsChanged = !listEquals(_bibleRibbons, settings.bibleRibbons);
+    _settings = settings;
+    if (showSelectorsChanged ||
+        translationChanged ||
+        numberingChanged ||
+        ribbonsChanged) {
+      setState(() {
+        _primaryTranslation = settings.primaryBibleTranslation;
+        _compareTranslation = settings.compareBibleTranslation;
+        _numberingSystem = settings.bibleNumberingSystem;
+        _bibleRibbons = settings.bibleRibbons != null
+            ? List<BibleRibbonBookmark>.from(settings.bibleRibbons!)
+            : null;
+        if (showSelectorsChanged) {
+          _showTranslationSelectors = settings.showBibleTranslationSelectors;
+          _translationSelectorAnimationController.value =
+              _showTranslationSelectors ? 1.0 : 0.0;
+        }
+      });
+    }
   }
 
   @override
@@ -196,12 +230,13 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         );
 
     _sheetTabController = TabController(length: 2, vsync: this);
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadSettings();
   }
 
   Future<void> _loadSettings() async {
     try {
-      final settings = await PrayerDatabase.loadSettings();
+      final settings = await UserSettingsController.instance.load();
       if (mounted) {
         final targetIndex = getCanonicalChapterIndex(
           settings.lastBibleBookNumber,
@@ -225,6 +260,10 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           _settings = settings;
           _primaryTranslation = settings.primaryBibleTranslation;
           _compareTranslation = settings.compareBibleTranslation;
+          _numberingSystem = settings.bibleNumberingSystem;
+          _bibleRibbons = settings.bibleRibbons != null
+              ? List<BibleRibbonBookmark>.from(settings.bibleRibbons!)
+              : null;
           _showTranslationSelectors = settings.showBibleTranslationSelectors;
           _translationSelectorAnimationController.value =
               _showTranslationSelectors ? 1.0 : 0.0;
@@ -236,18 +275,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   void _saveReadingPosition(int index) {
     if (index >= 0 && index < _allChapters.length) {
       final ref = _allChapters[index];
-      if (_settings != null) {
-        _settings!.lastBibleBookNumber = ref.book.bookNumber;
-        _settings!.lastBibleChapter = ref.chapter;
-        PrayerDatabase.saveSettings(_settings!);
-      } else {
-        PrayerDatabase.loadSettings().then((s) {
-          _settings = s;
-          s.lastBibleBookNumber = ref.book.bookNumber;
-          s.lastBibleChapter = ref.chapter;
-          PrayerDatabase.saveSettings(s);
-        });
-      }
+      _settings?.lastBibleBookNumber = ref.book.bookNumber;
+      _settings?.lastBibleChapter = ref.chapter;
+      UserSettingsController.instance.mutate((s) {
+        s.lastBibleBookNumber = ref.book.bookNumber;
+        s.lastBibleChapter = ref.chapter;
+      });
     }
   }
 
@@ -310,26 +343,25 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             onOpenSelector: (target) => _showTranslationSelectorDialog(target),
             onSwap: () {
               if (_compareTranslation != 'none') {
+                final nextPrimary = _compareTranslation;
+                final nextCompare = _primaryTranslation;
                 setState(() {
-                  final oldPrimary = _primaryTranslation;
-                  _primaryTranslation = _compareTranslation;
-                  _compareTranslation = oldPrimary;
-                  _settings?.primaryBibleTranslation = _primaryTranslation;
-                  _settings?.compareBibleTranslation = _compareTranslation;
+                  _primaryTranslation = nextPrimary;
+                  _compareTranslation = nextCompare;
                 });
-                if (_settings != null) {
-                  PrayerDatabase.saveSettings(_settings!);
-                }
+                UserSettingsController.instance.mutate((s) {
+                  s.primaryBibleTranslation = nextPrimary;
+                  s.compareBibleTranslation = nextCompare;
+                });
               }
             },
             onClearCompare: () {
               setState(() {
                 _compareTranslation = 'none';
-                _settings?.compareBibleTranslation = 'none';
               });
-              if (_settings != null) {
-                PrayerDatabase.saveSettings(_settings!);
-              }
+              UserSettingsController.instance.mutate((s) {
+                s.compareBibleTranslation = 'none';
+              });
             },
           ),
         ),
@@ -348,33 +380,35 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           : _compareTranslation,
       initialTarget: target,
       onPrimarySelected: (newPrimary) async {
+        final nextCompare = _compareTranslation == newPrimary
+            ? 'none'
+            : _compareTranslation;
         setState(() {
           _primaryTranslation = newPrimary;
-          if (_compareTranslation == newPrimary) {
-            _compareTranslation = 'none';
-          }
-          _settings?.primaryBibleTranslation = _primaryTranslation;
-          _settings?.compareBibleTranslation = _compareTranslation;
+          _compareTranslation = nextCompare;
         });
-        if (_settings != null) {
-          await PrayerDatabase.saveSettings(_settings!);
-        }
+        await UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = newPrimary;
+          s.compareBibleTranslation = nextCompare;
+        });
       },
       onCompareSelected: (newCompare) async {
-        setState(() {
-          _compareTranslation = newCompare ?? 'none';
-          if (_primaryTranslation == newCompare) {
-            final options = BibleTranslationInfo.allTranslations
-                .map((t) => t.code)
-                .toList();
-            _primaryTranslation = options.firstWhere((o) => o != newCompare);
-          }
-          _settings?.primaryBibleTranslation = _primaryTranslation;
-          _settings?.compareBibleTranslation = _compareTranslation;
-        });
-        if (_settings != null) {
-          await PrayerDatabase.saveSettings(_settings!);
+        final nextCompare = newCompare ?? 'none';
+        var nextPrimary = _primaryTranslation;
+        if (_primaryTranslation == newCompare) {
+          final options = BibleTranslationInfo.allTranslations
+              .map((t) => t.code)
+              .toList();
+          nextPrimary = options.firstWhere((o) => o != newCompare);
         }
+        setState(() {
+          _primaryTranslation = nextPrimary;
+          _compareTranslation = nextCompare;
+        });
+        await UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = nextPrimary;
+          s.compareBibleTranslation = nextCompare;
+        });
       },
     );
   }
@@ -390,18 +424,18 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         (_kTranslationSelectorTopSpacerHeight *
             _translationSelectorAnimation.value);
 
+    final nextShow = !_showTranslationSelectors;
     setState(() {
-      _showTranslationSelectors = !_showTranslationSelectors;
+      _showTranslationSelectors = nextShow;
       if (_showTranslationSelectors) {
         _translationSelectorAnimationController.forward();
       } else {
         _translationSelectorAnimationController.reverse();
       }
-      _settings?.showBibleTranslationSelectors = _showTranslationSelectors;
     });
-    if (_settings != null) {
-      PrayerDatabase.saveSettings(_settings!);
-    }
+    UserSettingsController.instance.mutate((s) {
+      s.showBibleTranslationSelectors = nextShow;
+    });
   }
 
   void _jumpToPageAndSync(int pageIndex) {
@@ -523,31 +557,20 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       chapter: currentRef.chapter,
     );
 
-    var settings = _settings;
-    if (settings == null) {
-      settings = await PrayerDatabase.loadSettings();
-      _settings = settings;
-    }
-
-    final updatedRibbons = List<BibleRibbonBookmark>.from(
-      settings.bibleRibbons ?? [],
-    );
-    updatedRibbons.removeWhere((b) => b.ribbonIndex == index);
-    updatedRibbons.removeWhere(
-      (b) =>
-          b.bookNumber == currentRef.book.bookNumber &&
-          b.chapter == currentRef.chapter,
-    );
-    updatedRibbons.add(newBookmark);
-    updatedRibbons.sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
-    settings.bibleRibbons = updatedRibbons;
-
-    setState(() {
-      _settings = settings;
+    await UserSettingsController.instance.mutate((s) {
+      final updatedRibbons = List<BibleRibbonBookmark>.from(
+        s.bibleRibbons ?? [],
+      );
+      updatedRibbons.removeWhere((b) => b.ribbonIndex == index);
+      updatedRibbons.removeWhere(
+        (b) =>
+            b.bookNumber == currentRef.book.bookNumber &&
+            b.chapter == currentRef.chapter,
+      );
+      updatedRibbons.add(newBookmark);
+      updatedRibbons.sort((a, b) => a.ribbonIndex.compareTo(b.ribbonIndex));
+      s.bibleRibbons = updatedRibbons;
     });
-
-    await PrayerDatabase.saveSettings(settings);
-    await UserSettingsController.instance.update(settings);
   }
 
   @override
@@ -640,16 +663,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 chapter: ref.chapter,
                 primaryTranslation: _primaryTranslation,
                 compareTranslation: _compareTranslation,
-                numberingSystem:
-                    _settings?.bibleNumberingSystem ??
-                    BibleNumberingSystem.vulgate,
+                numberingSystem: _numberingSystem,
                 translationSelectorAnimation: _translationSelectorAnimation,
                 scrollController: _getScrollController(index),
                 scrollToVerse: isTarget ? _scrollToVerse : null,
                 highlightStartVerse: isTarget ? _highlightStartVerse : null,
                 highlightEndVerse: isTarget ? _highlightEndVerse : null,
                 navigationSessionId: isTarget ? _navigationSessionId : null,
-                bookmarks: _settings?.bibleRibbons,
+                bookmarks: _bibleRibbons,
                 onSelectionChanged: (isSelecting) {
                   if (_isSelectingVerses != isSelecting) {
                     setState(() => _isSelectingVerses = isSelecting);
@@ -664,7 +685,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             top: 0,
             right: 0,
             child: BibleRibbonsWidget(
-              bookmarks: _settings?.bibleRibbons,
+              bookmarks: _bibleRibbons,
               onRibbonTap: _onRibbonTap,
               onRibbonLongPress: _onRibbonLongPress,
             ),
@@ -718,9 +739,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                   isPanelExpanded: _isPanelExpanded,
                   currentBook: currentRef.book,
                   currentChapter: currentRef.chapter,
-                  numberingSystem:
-                      _settings?.bibleNumberingSystem ??
-                      BibleNumberingSystem.vulgate,
+                  numberingSystem: _numberingSystem,
                   sheetTabController: _sheetTabController,
                   selectedBookForPicker: _selectedBookForPickerNotifier.value,
                   onBookSelectedForPicker: (book) {

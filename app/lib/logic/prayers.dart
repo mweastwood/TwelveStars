@@ -207,6 +207,13 @@ class PrayerVersionPreference {
   int versionIndex;
 
   PrayerVersionPreference([this.key = '', this.versionIndex = 0]);
+
+  PrayerVersionPreference copyWith({String? key, int? versionIndex}) {
+    return PrayerVersionPreference(
+      key ?? this.key,
+      versionIndex ?? this.versionIndex,
+    );
+  }
 }
 
 enum AppThemeMode {
@@ -380,5 +387,117 @@ class UserSettings {
       (e) => e.code == compareLanguageCode,
     );
     return match.isNotEmpty ? match.first : null;
+  }
+
+  int getPreferredVersionIndex(String key) {
+    return preferredVersions
+            ?.firstWhere(
+              (p) => p.key == key,
+              orElse: () => PrayerVersionPreference(),
+            )
+            .versionIndex ??
+        0;
+  }
+
+  void setPreferredVersionIndex(String key, int versionIndex) {
+    final list = List<PrayerVersionPreference>.from(preferredVersions ?? []);
+    final idx = list.indexWhere((p) => p.key == key);
+    if (idx >= 0) {
+      list[idx].versionIndex = versionIndex;
+    } else {
+      list.add(PrayerVersionPreference(key, versionIndex));
+    }
+    preferredVersions = list;
+  }
+
+  UserSettings copyWith({
+    int? id,
+    String? primaryLanguageCode,
+    String? compareLanguageCode,
+    String? primaryBibleTranslation,
+    String? compareBibleTranslation,
+    List<PrayerVersionPreference>? preferredVersions,
+    bool? hapticsEnabled,
+    String? appThemeModeCode,
+    bool? sundayNotificationsEnabled,
+    bool? showBibleTranslationSelectors,
+    String? bibleNumberingSystemCode,
+    int? prayerCatalogVersion,
+    int? lastBibleBookNumber,
+    int? lastBibleChapter,
+    bool? missalReadingsOnly,
+    List<String>? missalHiddenPrayers,
+    bool? angelusReminderEnabled,
+    bool? angelusMorningEnabled,
+    bool? angelusMiddayEnabled,
+    bool? angelusEveningEnabled,
+    bool? rosaryReminderEnabled,
+    int? rosaryReminderHour,
+    int? rosaryReminderMinute,
+    bool? morningPrayerReminderEnabled,
+    int? morningPrayerReminderHour,
+    int? morningPrayerReminderMinute,
+    bool? nightPrayerReminderEnabled,
+    int? nightPrayerReminderHour,
+    int? nightPrayerReminderMinute,
+    List<BibleRibbonBookmark>? bibleRibbons,
+  }) {
+    return UserSettings(
+      id: id ?? this.id,
+      primaryLanguageCode: primaryLanguageCode ?? this.primaryLanguageCode,
+      compareLanguageCode: compareLanguageCode ?? this.compareLanguageCode,
+      primaryBibleTranslation:
+          primaryBibleTranslation ?? this.primaryBibleTranslation,
+      compareBibleTranslation:
+          compareBibleTranslation ?? this.compareBibleTranslation,
+      preferredVersions:
+          preferredVersions ??
+          this.preferredVersions?.map((p) => p.copyWith()).toList(),
+      hapticsEnabled: hapticsEnabled ?? this.hapticsEnabled,
+      appThemeModeCode: appThemeModeCode ?? this.appThemeModeCode,
+      sundayNotificationsEnabled:
+          sundayNotificationsEnabled ?? this.sundayNotificationsEnabled,
+      showBibleTranslationSelectors:
+          showBibleTranslationSelectors ?? this.showBibleTranslationSelectors,
+      bibleNumberingSystemCode:
+          bibleNumberingSystemCode ?? this.bibleNumberingSystemCode,
+      prayerCatalogVersion: prayerCatalogVersion ?? this.prayerCatalogVersion,
+      lastBibleBookNumber: lastBibleBookNumber ?? this.lastBibleBookNumber,
+      lastBibleChapter: lastBibleChapter ?? this.lastBibleChapter,
+      missalReadingsOnly: missalReadingsOnly ?? this.missalReadingsOnly,
+      missalHiddenPrayers:
+          missalHiddenPrayers ??
+          (this.missalHiddenPrayers != null
+              ? List<String>.from(this.missalHiddenPrayers!)
+              : null),
+      angelusReminderEnabled:
+          angelusReminderEnabled ?? this.angelusReminderEnabled,
+      angelusMorningEnabled:
+          angelusMorningEnabled ?? this.angelusMorningEnabled,
+      angelusMiddayEnabled: angelusMiddayEnabled ?? this.angelusMiddayEnabled,
+      angelusEveningEnabled:
+          angelusEveningEnabled ?? this.angelusEveningEnabled,
+      rosaryReminderEnabled:
+          rosaryReminderEnabled ?? this.rosaryReminderEnabled,
+      rosaryReminderHour: rosaryReminderHour ?? this.rosaryReminderHour,
+      rosaryReminderMinute: rosaryReminderMinute ?? this.rosaryReminderMinute,
+      morningPrayerReminderEnabled:
+          morningPrayerReminderEnabled ?? this.morningPrayerReminderEnabled,
+      morningPrayerReminderHour:
+          morningPrayerReminderHour ?? this.morningPrayerReminderHour,
+      morningPrayerReminderMinute:
+          morningPrayerReminderMinute ?? this.morningPrayerReminderMinute,
+      nightPrayerReminderEnabled:
+          nightPrayerReminderEnabled ?? this.nightPrayerReminderEnabled,
+      nightPrayerReminderHour:
+          nightPrayerReminderHour ?? this.nightPrayerReminderHour,
+      nightPrayerReminderMinute:
+          nightPrayerReminderMinute ?? this.nightPrayerReminderMinute,
+      bibleRibbons:
+          bibleRibbons ??
+          (this.bibleRibbons != null
+              ? List<BibleRibbonBookmark>.from(this.bibleRibbons!)
+              : null),
+    );
   }
 }

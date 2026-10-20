@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
 
@@ -346,7 +346,8 @@ class NotificationService {
     if (kIsWeb) return;
 
     try {
-      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      final userSettings =
+          settings ?? await UserSettingsController.instance.load();
       await initialize();
 
       if (!userSettings.sundayNotificationsEnabled) {
@@ -444,7 +445,8 @@ class NotificationService {
     if (kIsWeb) return;
 
     try {
-      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      final userSettings =
+          settings ?? await UserSettingsController.instance.load();
       await initialize();
 
       Future<void> syncAngelusSlot({
@@ -539,7 +541,8 @@ class NotificationService {
     if (kIsWeb) return;
 
     try {
-      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      final userSettings =
+          settings ?? await UserSettingsController.instance.load();
       await initialize();
 
       if (userSettings.rosaryReminderEnabled) {
@@ -580,7 +583,8 @@ class NotificationService {
     if (kIsWeb) return;
 
     try {
-      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      final userSettings =
+          settings ?? await UserSettingsController.instance.load();
       await initialize();
 
       if (userSettings.morningPrayerReminderEnabled) {
@@ -612,7 +616,8 @@ class NotificationService {
     if (kIsWeb) return;
 
     try {
-      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      final userSettings =
+          settings ?? await UserSettingsController.instance.load();
       await initialize();
 
       if (userSettings.nightPrayerReminderEnabled) {
@@ -646,7 +651,8 @@ class NotificationService {
     if (kIsWeb) return;
     try {
       await initialize();
-      final userSettings = settings ?? await PrayerDatabase.loadSettings();
+      final userSettings =
+          settings ?? await UserSettingsController.instance.load();
       await syncSundayNotification(userSettings, fromDate);
       await syncAngelusNotifications(userSettings, fromDate);
       await syncRosaryNotification(userSettings, fromDate);

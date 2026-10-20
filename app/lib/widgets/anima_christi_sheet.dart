@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/prayers.dart';
-import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 
 /// Modal bottom sheet widget displaying the Anima Christi prayer
@@ -62,14 +62,28 @@ class _AnimaChristiSheetState extends State<AnimaChristiSheet> {
   void initState() {
     super.initState();
     _settings = widget.settings;
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     if (_settings == null) {
       _loadSettings();
     }
   }
 
+  @override
+  void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
+    super.dispose();
+  }
+
+  void _onSettingsChanged() {
+    if (!mounted) return;
+    setState(() {
+      _settings = UserSettingsController.instance.value;
+    });
+  }
+
   Future<void> _loadSettings() async {
     try {
-      final s = await PrayerDatabase.loadSettings();
+      final s = await UserSettingsController.instance.load();
       if (mounted) {
         setState(() {
           _settings = s;
@@ -82,14 +96,7 @@ class _AnimaChristiSheetState extends State<AnimaChristiSheet> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final prefKey = '${widget.prayer.prayerId}_${widget.primaryLanguage.code}';
-    final initialVersion =
-        _settings?.preferredVersions
-            ?.firstWhere(
-              (p) => p.key == prefKey,
-              orElse: () => PrayerVersionPreference(),
-            )
-            .versionIndex ??
-        0;
+    final initialVersion = _settings?.getPreferredVersionIndex(prefKey) ?? 0;
 
     return DraggableScrollableSheet(
       initialChildSize: 0.7,
@@ -172,15 +179,12 @@ class _AnimaChristiSheetState extends State<AnimaChristiSheet> {
                     widget.onVersionChanged!(newIndex);
                   }
                   if (_settings != null) {
-                    final list = _settings!.preferredVersions ?? [];
-                    final idx = list.indexWhere((p) => p.key == prefKey);
-                    if (idx >= 0) {
-                      list[idx].versionIndex = newIndex;
-                    } else {
-                      list.add(PrayerVersionPreference(prefKey, newIndex));
-                    }
-                    _settings!.preferredVersions = list;
-                    await PrayerDatabase.saveSettings(_settings!);
+                    _settings!.setPreferredVersionIndex(prefKey, newIndex);
+                    await UserSettingsController.instance.update(_settings!);
+                  } else {
+                    await UserSettingsController.instance.mutate((s) {
+                      s.setPreferredVersionIndex(prefKey, newIndex);
+                    });
                   }
                 },
               ),
