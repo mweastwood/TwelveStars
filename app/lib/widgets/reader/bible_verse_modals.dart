@@ -39,202 +39,222 @@ Future<void> showReverseCitationsModal({
               maxChildSize: 0.9,
               minChildSize: 0.4,
               builder: (sheetCtx, scrollController) {
-                return Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Container(
-                          width: 40,
-                          height: 4,
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onSurfaceVariant
-                                .withValues(alpha: 0.4),
-                            borderRadius: BorderRadius.circular(2),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.auto_stories_rounded,
-                            color: theme.colorScheme.primary,
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              'Library References to $title',
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                              ),
+                final mediaQuery = MediaQuery.of(sheetCtx);
+                final extraBottomPadding = math.max(
+                  0.0,
+                  mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
+                );
+                return SafeArea(
+                  top: false,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      20.0,
+                      20.0,
+                      20.0,
+                      20.0 + extraBottomPadding,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            width: 40,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onSurfaceVariant
+                                  .withValues(alpha: 0.4),
+                              borderRadius: BorderRadius.circular(2),
                             ),
                           ),
-                        ],
-                      ),
-                      const Divider(height: 24),
-                      Expanded(
-                        child: ListView.builder(
-                          controller: scrollController,
-                          itemCount: citations.length,
-                          itemBuilder: (lCtx, index) {
-                            final item = citations[index];
-                            final qText = item.questionNumber != null
-                                ? 'Q. ${item.questionNumber}. '
-                                : '';
-
-                            return Container(
-                              margin: const EdgeInsets.only(bottom: 12),
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.surfaceContainerLow,
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: theme.colorScheme.outlineVariant
-                                      .withValues(alpha: 0.5),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.auto_stories_rounded,
+                              color: theme.colorScheme.primary,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'Library References to $title',
+                                style: theme.textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
                                 ),
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          item.sourceBookTitle,
-                                          style: theme.textTheme.labelMedium
-                                              ?.copyWith(
-                                                fontWeight: FontWeight.bold,
-                                                color:
-                                                    theme.colorScheme.primary,
-                                              ),
-                                        ),
-                                      ),
-                                      Chip(
-                                        label: Text(
-                                          item.citation.displayLabel,
-                                          style: const TextStyle(fontSize: 10),
-                                        ),
-                                        visualDensity: VisualDensity.compact,
-                                        padding: EdgeInsets.zero,
-                                      ),
-                                    ],
-                                  ),
-                                  if (item.sourceAuthor.isNotEmpty) ...[
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      'By ${item.sourceAuthor}',
-                                      style: theme.textTheme.bodySmall
-                                          ?.copyWith(
-                                            color: theme
-                                                .colorScheme
-                                                .onSurfaceVariant,
-                                            fontStyle: FontStyle.italic,
-                                          ),
-                                    ),
-                                  ],
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    '$qText${item.sectionTitle}',
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  if (item.snippet.isNotEmpty) ...[
-                                    const SizedBox(height: 6),
-                                    Text(
-                                      item.snippet,
-                                      maxLines: 6,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: theme.textTheme.bodySmall
-                                          ?.copyWith(
-                                            color: theme
-                                                .colorScheme
-                                                .onSurfaceVariant,
-                                            height: 1.4,
-                                          ),
-                                    ),
-                                  ],
-                                  const SizedBox(height: 8),
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: TextButton.icon(
-                                      icon: const Icon(
-                                        Icons.open_in_new_rounded,
-                                        size: 16,
-                                      ),
-                                      label: const Text('Read in Library'),
-                                      onPressed: () {
-                                        Navigator.pop(ctx);
-                                        final catalog =
-                                            LibraryHelper.getCatalog();
-                                        final book = catalog.firstWhere(
-                                          (b) =>
-                                              b.id == item.sourceBookId ||
-                                              b.defaultAssetPath ==
-                                                  item.sourceAssetPath ||
-                                              (b.volumes?.any(
-                                                    (v) =>
-                                                        v.assetPath ==
-                                                        item.sourceAssetPath,
-                                                  ) ??
-                                                  false),
-                                          orElse: () => catalog[0],
-                                        );
+                            ),
+                          ],
+                        ),
+                        const Divider(height: 24),
+                        Expanded(
+                          child: ListView.builder(
+                            controller: scrollController,
+                            itemCount: citations.length,
+                            itemBuilder: (lCtx, index) {
+                              final item = citations[index];
+                              final qText = item.questionNumber != null
+                                  ? 'Q. ${item.questionNumber}. '
+                                  : '';
 
-                                        // For series books, find the volume containing this section
-                                        String? targetAssetPath;
-                                        String? targetVolumeKey;
-                                        if (book.isSeries &&
-                                            book.volumes != null &&
-                                            book.volumes!.isNotEmpty) {
-                                          final matchingVol = book.volumes!
-                                              .firstWhere(
-                                                (v) =>
-                                                    v.assetPath ==
-                                                    item.sourceAssetPath,
-                                                orElse: () =>
-                                                    book.volumes!.first,
-                                              );
-                                          targetVolumeKey =
-                                              matchingVol.volumeKey;
-                                          targetAssetPath =
-                                              matchingVol.assetPath;
-                                        } else {
-                                          targetAssetPath =
-                                              item.sourceAssetPath;
-                                        }
-
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (_) => LibraryReaderScreen(
-                                              bookItem: book,
-                                              initialAssetPath: targetAssetPath,
-                                              initialVolumeKey: targetVolumeKey,
-                                              initialSectionId: item.sectionId,
-                                              initialQuestionNumber:
-                                                  item.questionNumber,
-                                              initialItemIndex: item.itemIndex,
-                                              navigationSessionId:
-                                                  DateTime.now()
-                                                      .millisecondsSinceEpoch
-                                                      .toString(),
+                              return Container(
+                                margin: const EdgeInsets.only(bottom: 12),
+                                padding: const EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.surfaceContainerLow,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: theme.colorScheme.outlineVariant
+                                        .withValues(alpha: 0.5),
+                                  ),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            item.sourceBookTitle,
+                                            style: theme.textTheme.labelMedium
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.bold,
+                                                  color:
+                                                      theme.colorScheme.primary,
+                                                ),
+                                          ),
+                                        ),
+                                        Chip(
+                                          label: Text(
+                                            item.citation.displayLabel,
+                                            style: const TextStyle(
+                                              fontSize: 10,
                                             ),
                                           ),
-                                        );
-                                      },
+                                          visualDensity: VisualDensity.compact,
+                                          padding: EdgeInsets.zero,
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
+                                    if (item.sourceAuthor.isNotEmpty) ...[
+                                      const SizedBox(height: 2),
+                                      Text(
+                                        'By ${item.sourceAuthor}',
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                              fontStyle: FontStyle.italic,
+                                            ),
+                                      ),
+                                    ],
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      '$qText${item.sectionTitle}',
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    if (item.snippet.isNotEmpty) ...[
+                                      const SizedBox(height: 6),
+                                      Text(
+                                        item.snippet,
+                                        maxLines: 6,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurfaceVariant,
+                                              height: 1.4,
+                                            ),
+                                      ),
+                                    ],
+                                    const SizedBox(height: 8),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: TextButton.icon(
+                                        icon: const Icon(
+                                          Icons.open_in_new_rounded,
+                                          size: 16,
+                                        ),
+                                        label: const Text('Read in Library'),
+                                        onPressed: () {
+                                          Navigator.pop(ctx);
+                                          final catalog =
+                                              LibraryHelper.getCatalog();
+                                          final book = catalog.firstWhere(
+                                            (b) =>
+                                                b.id == item.sourceBookId ||
+                                                b.defaultAssetPath ==
+                                                    item.sourceAssetPath ||
+                                                (b.volumes?.any(
+                                                      (v) =>
+                                                          v.assetPath ==
+                                                          item.sourceAssetPath,
+                                                    ) ??
+                                                    false),
+                                            orElse: () => catalog[0],
+                                          );
+
+                                          // For series books, find the volume containing this section
+                                          String? targetAssetPath;
+                                          String? targetVolumeKey;
+                                          if (book.isSeries &&
+                                              book.volumes != null &&
+                                              book.volumes!.isNotEmpty) {
+                                            final matchingVol = book.volumes!
+                                                .firstWhere(
+                                                  (v) =>
+                                                      v.assetPath ==
+                                                      item.sourceAssetPath,
+                                                  orElse: () =>
+                                                      book.volumes!.first,
+                                                );
+                                            targetVolumeKey =
+                                                matchingVol.volumeKey;
+                                            targetAssetPath =
+                                                matchingVol.assetPath;
+                                          } else {
+                                            targetAssetPath =
+                                                item.sourceAssetPath;
+                                          }
+
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (_) => LibraryReaderScreen(
+                                                bookItem: book,
+                                                initialAssetPath:
+                                                    targetAssetPath,
+                                                initialVolumeKey:
+                                                    targetVolumeKey,
+                                                initialSectionId:
+                                                    item.sectionId,
+                                                initialQuestionNumber:
+                                                    item.questionNumber,
+                                                initialItemIndex:
+                                                    item.itemIndex,
+                                                navigationSessionId:
+                                                    DateTime.now()
+                                                        .millisecondsSinceEpoch
+                                                        .toString(),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
@@ -272,200 +292,216 @@ Future<void> showVerseCommentsModal({
             0.0,
             mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
           );
-          return SafeArea(
-            top: false,
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                20.0,
-                20.0,
-                20.0,
-                20.0 + extraBottomPadding,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Container(
-                      width: 40,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        color: theme.colorScheme.onSurfaceVariant.withValues(
-                          alpha: 0.4,
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: mediaQuery.size.height * 0.85,
+            ),
+            child: SafeArea(
+              top: false,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0 + extraBottomPadding,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.onSurfaceVariant.withValues(
+                            alpha: 0.4,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
                         ),
-                        borderRadius: BorderRadius.circular(2),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.comment_rounded,
-                        color: theme.colorScheme.primary,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          'Comments for $title',
-                          style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: theme.colorScheme.primary,
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.comment_rounded,
+                          color: theme.colorScheme.primary,
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            'Comments for $title',
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    textPreview,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      fontStyle: FontStyle.italic,
-                      color: theme.colorScheme.onSurfaceVariant,
+                      ],
                     ),
-                  ),
-                  const Divider(height: 24),
-                  if (comments.isEmpty)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 24.0),
-                      child: Center(
-                        child: Text(
-                          'No comments yet.',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
+                    const SizedBox(height: 6),
+                    Text(
+                      textPreview,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        fontStyle: FontStyle.italic,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                    ),
+                    const Divider(height: 24),
+                    if (comments.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 24.0),
+                        child: Center(
+                          child: Text(
+                            'No comments yet.',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
                           ),
                         ),
-                      ),
-                    )
-                  else
-                    Flexible(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: comments.length,
-                        itemBuilder: (lCtx, index) {
-                          final comment = comments[index];
-                          final formattedDate =
-                              '${comment.createdAt.year}-${comment.createdAt.month.toString().padLeft(2, '0')}-${comment.createdAt.day.toString().padLeft(2, '0')} ${comment.createdAt.hour.toString().padLeft(2, '0')}:${comment.createdAt.minute.toString().padLeft(2, '0')}';
-                          return Card(
-                            margin: const EdgeInsets.only(bottom: 8),
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 12, 8, 12),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                      )
+                    else
+                      Flexible(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: comments.length,
+                          itemBuilder: (lCtx, index) {
+                            final comment = comments[index];
+                            final formattedDate =
+                                '${comment.createdAt.year}-${comment.createdAt.month.toString().padLeft(2, '0')}-${comment.createdAt.day.toString().padLeft(2, '0')} ${comment.createdAt.hour.toString().padLeft(2, '0')}:${comment.createdAt.minute.toString().padLeft(2, '0')}';
+                            return Card(
+                              margin: const EdgeInsets.only(bottom: 8),
+                              child: Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                  16,
+                                  12,
+                                  8,
+                                  12,
+                                ),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            comment.commentText,
+                                            style: theme.textTheme.bodyLarge,
+                                          ),
+                                          const SizedBox(height: 4),
+                                          Text(
+                                            formattedDate,
+                                            style: theme.textTheme.labelSmall
+                                                ?.copyWith(
+                                                  color:
+                                                      theme.colorScheme.outline,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Text(
-                                          comment.commentText,
-                                          style: theme.textTheme.bodyLarge,
+                                        IconButton(
+                                          icon: const Icon(
+                                            Icons.edit_outlined,
+                                            size: 20,
+                                          ),
+                                          tooltip: 'Edit comment',
+                                          visualDensity: VisualDensity.compact,
+                                          color: theme.colorScheme.primary,
+                                          onPressed: () async {
+                                            await showEditCommentDialog(
+                                              context: context,
+                                              citation: title,
+                                              textPreview: textPreview,
+                                              commentId: comment.id,
+                                              initialText: comment.commentText,
+                                              onCommentUpdated: (newText) async {
+                                                if (sheetCtx.mounted) {
+                                                  setSheetState(() {
+                                                    final targetIndex = comments
+                                                        .indexWhere(
+                                                          (c) =>
+                                                              c.id ==
+                                                              comment.id,
+                                                        );
+                                                    if (targetIndex != -1) {
+                                                      comments[targetIndex] =
+                                                          comments[targetIndex]
+                                                              .copyWith(
+                                                                commentText:
+                                                                    newText,
+                                                              );
+                                                    }
+                                                  });
+                                                }
+                                                await onCommentsChanged();
+                                              },
+                                            );
+                                          },
                                         ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          formattedDate,
-                                          style: theme.textTheme.labelSmall
-                                              ?.copyWith(
-                                                color:
-                                                    theme.colorScheme.outline,
-                                              ),
+                                        IconButton(
+                                          icon: const Icon(
+                                            Icons.delete_outline,
+                                            size: 20,
+                                          ),
+                                          tooltip: 'Delete comment',
+                                          visualDensity: VisualDensity.compact,
+                                          color: theme.colorScheme.error,
+                                          onPressed: () async {
+                                            final confirmed =
+                                                await showDeleteConfirmationDialog(
+                                                  context: context,
+                                                  title: 'Delete Comment',
+                                                  content:
+                                                      'Are you sure you want to delete this comment?',
+                                                  confirmLabel: 'Delete',
+                                                );
+                                            if (!confirmed) return;
+                                            await BibleDatabaseHelper.db
+                                                .deleteComment(comment.id);
+                                            if (sheetCtx.mounted) {
+                                              setSheetState(() {
+                                                comments.removeWhere(
+                                                  (c) => c.id == comment.id,
+                                                );
+                                              });
+                                            }
+                                            await onCommentsChanged();
+                                          },
                                         ),
                                       ],
                                     ),
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      IconButton(
-                                        icon: const Icon(
-                                          Icons.edit_outlined,
-                                          size: 20,
-                                        ),
-                                        tooltip: 'Edit comment',
-                                        visualDensity: VisualDensity.compact,
-                                        color: theme.colorScheme.primary,
-                                        onPressed: () async {
-                                          await showEditCommentDialog(
-                                            context: context,
-                                            citation: title,
-                                            textPreview: textPreview,
-                                            commentId: comment.id,
-                                            initialText: comment.commentText,
-                                            onCommentUpdated: (newText) async {
-                                              setSheetState(() {
-                                                final targetIndex = comments
-                                                    .indexWhere(
-                                                      (c) => c.id == comment.id,
-                                                    );
-                                                if (targetIndex != -1) {
-                                                  comments[targetIndex] =
-                                                      comments[targetIndex]
-                                                          .copyWith(
-                                                            commentText:
-                                                                newText,
-                                                          );
-                                                }
-                                              });
-                                              await onCommentsChanged();
-                                            },
-                                          );
-                                        },
-                                      ),
-                                      IconButton(
-                                        icon: const Icon(
-                                          Icons.delete_outline,
-                                          size: 20,
-                                        ),
-                                        tooltip: 'Delete comment',
-                                        visualDensity: VisualDensity.compact,
-                                        color: theme.colorScheme.error,
-                                        onPressed: () async {
-                                          final confirmed =
-                                              await showDeleteConfirmationDialog(
-                                                context: context,
-                                                title: 'Delete Comment',
-                                                content:
-                                                    'Are you sure you want to delete this comment?',
-                                                confirmLabel: 'Delete',
-                                              );
-                                          if (!confirmed) return;
-                                          await BibleDatabaseHelper.db
-                                              .deleteComment(comment.id);
-                                          setSheetState(() {
-                                            comments.removeWhere(
-                                              (c) => c.id == comment.id,
-                                            );
-                                          });
-                                          await onCommentsChanged();
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
+                            );
+                          },
+                        ),
+                      ),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        icon: const Icon(Icons.add_comment),
+                        label: const Text('Add Another Comment'),
+                        onPressed: () {
+                          Navigator.pop(ctx);
+                          onAddComment();
                         },
                       ),
                     ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      icon: const Icon(Icons.add_comment),
-                      label: const Text('Add Another Comment'),
-                      onPressed: () {
-                        Navigator.pop(ctx);
-                        onAddComment();
-                      },
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
@@ -711,115 +747,143 @@ Future<void> showVerseFavoritesModal({
     builder: (ctx) {
       return StatefulBuilder(
         builder: (sheetCtx, setSheetState) {
-          return Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(
-                  child: Container(
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.onSurfaceVariant.withValues(
-                        alpha: 0.4,
-                      ),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
+          final mediaQuery = MediaQuery.of(sheetCtx);
+          final extraBottomPadding = math.max(
+            0.0,
+            mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
+          );
+          return ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: mediaQuery.size.height * 0.85,
+            ),
+            child: SafeArea(
+              top: false,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(
+                  20.0,
+                  20.0,
+                  20.0,
+                  20.0 + extraBottomPadding,
                 ),
-                const SizedBox(height: 16),
-                Row(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.star_rounded, color: theme.colorScheme.primary),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        favorites.length > 1
-                            ? 'Favorite Passages for $title'
-                            : 'Favorite Passage for $title',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.onSurfaceVariant.withValues(
+                            alpha: 0.4,
+                          ),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.star_rounded,
                           color: theme.colorScheme.primary,
                         ),
-                      ),
-                    ),
-                  ],
-                ),
-                const Divider(height: 24),
-                if (favorites.isEmpty)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 24.0),
-                    child: Center(
-                      child: Text(
-                        'No favorite passages found.',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                    ),
-                  )
-                else
-                  Flexible(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: favorites.length,
-                      itemBuilder: (lCtx, index) {
-                        final fav = favorites[index];
-                        final citation = fav.startVerse == fav.endVerse
-                            ? '${fav.bookName} ${fav.chapter}:${fav.startVerse}'
-                            : '${fav.bookName} ${fav.chapter}:${fav.startVerse}-${fav.endVerse}';
-
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 8),
-                          child: ListTile(
-                            title: Text(
-                              citation,
-                              style: theme.textTheme.titleSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                              ),
-                            ),
-                            subtitle: Text(
-                              fav.textPreview,
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: theme.colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.delete_outline, size: 20),
-                              color: theme.colorScheme.error,
-                              onPressed: () async {
-                                final confirmed =
-                                    await showDeleteConfirmationDialog(
-                                      context: context,
-                                      title: 'Remove Favorite',
-                                      content:
-                                          'Are you sure you want to remove this favorite passage?',
-                                      confirmLabel: 'Remove',
-                                    );
-                                if (!confirmed) return;
-                                await BibleDatabaseHelper.db.deleteFavorite(
-                                  fav.id,
-                                );
-                                setSheetState(() {
-                                  favorites.removeWhere((f) => f.id == fav.id);
-                                });
-                                await onFavoritesChanged();
-                                if (favorites.isEmpty && ctx.mounted) {
-                                  Navigator.pop(ctx);
-                                }
-                              },
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            favorites.length > 1
+                                ? 'Favorite Passages for $title'
+                                : 'Favorite Passage for $title',
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
                             ),
                           ),
-                        );
-                      },
+                        ),
+                      ],
                     ),
-                  ),
-              ],
+                    const Divider(height: 24),
+                    if (favorites.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 24.0),
+                        child: Center(
+                          child: Text(
+                            'No favorite passages found.',
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ),
+                      )
+                    else
+                      Flexible(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: favorites.length,
+                          itemBuilder: (lCtx, index) {
+                            final fav = favorites[index];
+                            final citation = fav.startVerse == fav.endVerse
+                                ? '${fav.bookName} ${fav.chapter}:${fav.startVerse}'
+                                : '${fav.bookName} ${fav.chapter}:${fav.startVerse}-${fav.endVerse}';
+
+                            return Card(
+                              margin: const EdgeInsets.only(bottom: 8),
+                              child: ListTile(
+                                title: Text(
+                                  citation,
+                                  style: theme.textTheme.titleSmall?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: theme.colorScheme.primary,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  fav.textPreview,
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: theme.colorScheme.onSurfaceVariant,
+                                  ),
+                                ),
+                                trailing: IconButton(
+                                  icon: const Icon(
+                                    Icons.delete_outline,
+                                    size: 20,
+                                  ),
+                                  color: theme.colorScheme.error,
+                                  onPressed: () async {
+                                    final confirmed =
+                                        await showDeleteConfirmationDialog(
+                                          context: context,
+                                          title: 'Remove Favorite',
+                                          content:
+                                              'Are you sure you want to remove this favorite passage?',
+                                          confirmLabel: 'Remove',
+                                        );
+                                    if (!confirmed) return;
+                                    await BibleDatabaseHelper.db.deleteFavorite(
+                                      fav.id,
+                                    );
+                                    if (sheetCtx.mounted) {
+                                      setSheetState(() {
+                                        favorites.removeWhere(
+                                          (f) => f.id == fav.id,
+                                        );
+                                      });
+                                    }
+                                    await onFavoritesChanged();
+                                    if (favorites.isEmpty && ctx.mounted) {
+                                      Navigator.pop(ctx);
+                                    }
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                  ],
+                ),
+              ),
             ),
           );
         },

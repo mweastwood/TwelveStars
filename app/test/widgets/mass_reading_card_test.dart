@@ -35,6 +35,7 @@ void main() {
   });
 
   tearDown(() async {
+    ReverseCitationService.clear();
     await testDb.close();
   });
 

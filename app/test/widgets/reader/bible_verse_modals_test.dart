@@ -463,6 +463,51 @@ void main() {
     );
 
     testWidgets(
+      'caps sheet height at 85% of screen height when many comments are present',
+      (WidgetTester tester) async {
+        final comments = List.generate(
+          25,
+          (i) => UserComment(
+            id: i + 1,
+            documentId: 'bible_cpdv',
+            sectionIndex: 40,
+            nodeId: 'mat_5_3',
+            commentText:
+                'Long commentary reflection #$i on Matthew 5:3 that adds vertical height to the modal sheet list.',
+            textPreview: 'Blessed are the poor in spirit.',
+            createdAt: DateTime(2026, 8, 30, 14, i),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestScaffold(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showVerseCommentsModal(
+                context: context,
+                title: 'Matthew 5:3',
+                nodeId: 'mat_5_3',
+                textPreview: 'Blessed are the poor in spirit.',
+                comments: comments,
+                onCommentsChanged: () {},
+                onAddComment: () {},
+              ),
+              child: const Text('Open Comments Modal'),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Comments Modal'));
+        await tester.pumpAndSettle();
+
+        final screenHeight =
+            tester.view.physicalSize.height / tester.view.devicePixelRatio;
+        final sheetHeight = tester.getSize(find.byType(BottomSheet)).height;
+
+        expect(sheetHeight, lessThanOrEqualTo(screenHeight * 0.85));
+      },
+    );
+
+    testWidgets(
       'tapping Add Another Comment pops bottom sheet and triggers onAddComment callback',
       (WidgetTester tester) async {
         bool addCommentCalled = false;
@@ -1623,6 +1668,61 @@ void main() {
         expect(remainingFavs.first.startVerse, equals(1));
       },
     );
+
+    testWidgets('respects bottom system UI insets via SafeArea', (
+      WidgetTester tester,
+    ) async {
+      const bottomSystemInset = 48.0;
+      const fav = FavoritePassage(
+        id: 1,
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        startVerse: 1,
+        endVerse: 1,
+        textPreview: 'In the beginning God created heaven, and earth.',
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          builder: (context, child) {
+            final mq = MediaQuery.of(context);
+            return MediaQuery(
+              data: mq.copyWith(
+                padding: const EdgeInsets.only(bottom: bottomSystemInset),
+                viewPadding: const EdgeInsets.only(bottom: bottomSystemInset),
+              ),
+              child: child!,
+            );
+          },
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => ElevatedButton(
+                onPressed: () => showVerseFavoritesModal(
+                  context: context,
+                  title: 'Genesis 1:1',
+                  favorites: [fav],
+                  onFavoritesChanged: () {},
+                ),
+                child: const Text('Open Favorites Modal'),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Favorites Modal'));
+      await tester.pumpAndSettle();
+
+      final screenHeight =
+          tester.view.physicalSize.height / tester.view.devicePixelRatio;
+      final cardRect = tester.getRect(find.byType(Card));
+
+      expect(
+        screenHeight - cardRect.bottom,
+        greaterThanOrEqualTo(bottomSystemInset + 20.0),
+      );
+    });
   });
 
   group('showDeleteConfirmationDialog Unit & Widget Tests', () {
