@@ -298,7 +298,20 @@ void main() {
       expect(find.text('Books'), findsNothing);
 
       // Drag up from the location header
-      await tester.drag(find.text('Genesis 1').last, const Offset(0.0, -300.0));
+      final dragGesture = await tester.startGesture(
+        tester.getCenter(find.text('Genesis 1').last),
+      );
+      await dragGesture.moveBy(const Offset(0.0, -20.0));
+      await dragGesture.moveBy(const Offset(0.0, -130.0));
+      await tester.pump();
+
+      // Verify books/chapters are already visible DURING the swipe before finger release
+      expect(find.text('Books'), findsOneWidget);
+      expect(find.text('Chapters'), findsOneWidget);
+      expect(find.text('Pentateuch'), findsOneWidget);
+
+      await dragGesture.moveBy(const Offset(0.0, -150.0));
+      await dragGesture.up();
       await tester.pumpAndSettle();
 
       // Verify the panel is now expanded
