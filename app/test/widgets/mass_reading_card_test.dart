@@ -1958,5 +1958,56 @@ void main() {
 
       expect(find.textContaining('Book UnknownBook not found'), findsOneWidget);
     });
+
+    testWidgets(
+      'MassReadingCard falls back to CPDV when primaryBibleTranslation is LXX for New Testament reading',
+      (WidgetTester tester) async {
+        await testDb.saveUserSettings(
+          UserSettings(
+            primaryBibleTranslation: 'LXX',
+            compareBibleTranslation: 'none',
+          ),
+        );
+
+        // Seed Matthew 1:1 in CPDV
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 490101,
+                bookNumber: 49,
+                bookName: 'Matthew',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'The book of the genealogy of Jesus Christ.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        const reading = LectionaryReading(
+          id: 50,
+          readingKey: 'matthew_reading',
+          readingType: 'gospel',
+          bookNumber: 49,
+          bookName: 'Matthew',
+          chapter: 1,
+          verseRange: '1',
+          citation: 'Matthew 1:1',
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(body: MassReadingCard(reading: reading)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('The book of the genealogy of Jesus Christ.'),
+          findsOneWidget,
+        );
+        expect(find.textContaining('Error'), findsNothing);
+      },
+    );
   });
 }

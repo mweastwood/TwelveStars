@@ -431,102 +431,140 @@ class _BibleChapterViewState extends State<BibleChapterView>
                       ),
                     ),
                     const SizedBox(height: 16),
-                    ..._verses.map((verse) {
-                      final isSelected = _selectionController.isSelected(
-                        verse.verseNumber,
-                      );
-                      _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
-
-                      final verseCitations =
-                          ReverseCitationService.getVerseCitations(
-                            widget.book.bookNumber,
-                            widget.chapter,
-                            verse.verseNumber,
-                          );
-
-                      final nodeId = ReaderNodeId.bibleVerse(
-                        verse.bookNumber,
-                        verse.chapter,
-                        verse.verseNumber,
-                      );
-                      final verseComments =
-                          _commentsByNodeId[nodeId] ?? const [];
-
-                      final matchingFavorites =
-                          _favoritesByVerse[verse.verseNumber] ?? const [];
-                      final isFavorite = matchingFavorites.isNotEmpty;
-
-                      final compareVerse =
-                          _compareVersesByNumber[verse.verseNumber];
-
-                      final verseDisplay =
-                          BibleVerseResolver.formatVerseDisplay(
-                            bookNumber: widget.book.bookNumber,
-                            chapter: widget.chapter,
-                            verseNumber: verse.verseNumber,
-                            numberingSystem: widget.numberingSystem,
-                          );
-
-                      return KeyedSubtree(
-                        key: _verseKeys[verse.id],
-                        child: BibleVerseRow(
-                          verseNumber: verseDisplay.displayVerseNumber,
-                          alternateVerseNumber:
-                              verseDisplay.alternateVerseNumber,
-                          verseText: verse.verseText,
-                          compareVerseText: compareVerse?.verseText,
-                          isSelected: isSelected,
-                          margin: const EdgeInsets.only(
-                            left: 16.0,
-                            top: 2.0,
-                            bottom: 2.0,
-                          ),
-                          citationsCount: verseCitations.length,
-                          commentsCount: verseComments.length,
-                          isFavorite: isFavorite,
-                          onTap: () => _onVerseTap(verse.verseNumber),
-                          onLongPress: () =>
-                              _onVerseLongPress(verse.verseNumber),
-                          onTapCitations: () => showReverseCitationsModal(
-                            context: context,
-                            title:
-                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                            citations: verseCitations,
-                          ),
-                          onTapComments: () => showVerseCommentsModal(
-                            context: context,
-                            title:
-                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                            nodeId: nodeId,
-                            textPreview: verse.verseText,
-                            comments: verseComments,
-                            onCommentsChanged: _loadComments,
-                            onAddComment: () => showAddCommentDialog(
-                              context: context,
-                              citation:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                              textPreview: verse.verseText,
-                              documentId: widget.book.abbrev,
-                              sectionIndex: widget.chapter,
-                              nodeId: nodeId,
-                              onCommentSaved: _loadComments,
+                    if (_verses.isEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0,
+                          vertical: 32.0,
+                        ),
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surfaceContainerHighest
+                                .withValues(alpha: 0.5),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: theme.colorScheme.outlineVariant,
                             ),
                           ),
-                          onTapFavorite: () => showVerseFavoritesModal(
-                            context: context,
-                            title:
-                                '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
-                            favorites: matchingFavorites,
-                            onFavoritesChanged: () async {
-                              await _loadFavorites();
-                              if (widget.onFavoriteSaved != null) {
-                                widget.onFavoriteSaved!();
-                              }
-                            },
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.info_outline,
+                                color: theme.colorScheme.primary,
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  widget.primaryTranslation == 'LXX'
+                                      ? 'The Septuagint (LXX) contains only Old Testament books. Select another translation to read ${widget.book.bookName}.'
+                                      : 'No verses available for ${widget.book.bookName} in this translation.',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: theme.colorScheme.onSurfaceVariant,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      );
-                    }),
+                      )
+                    else
+                      ..._verses.map((verse) {
+                        final isSelected = _selectionController.isSelected(
+                          verse.verseNumber,
+                        );
+                        _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
+
+                        final verseCitations =
+                            ReverseCitationService.getVerseCitations(
+                              widget.book.bookNumber,
+                              widget.chapter,
+                              verse.verseNumber,
+                            );
+
+                        final nodeId = ReaderNodeId.bibleVerse(
+                          verse.bookNumber,
+                          verse.chapter,
+                          verse.verseNumber,
+                        );
+                        final verseComments =
+                            _commentsByNodeId[nodeId] ?? const [];
+
+                        final matchingFavorites =
+                            _favoritesByVerse[verse.verseNumber] ?? const [];
+                        final isFavorite = matchingFavorites.isNotEmpty;
+
+                        final compareVerse =
+                            _compareVersesByNumber[verse.verseNumber];
+
+                        final verseDisplay =
+                            BibleVerseResolver.formatVerseDisplay(
+                              bookNumber: widget.book.bookNumber,
+                              chapter: widget.chapter,
+                              verseNumber: verse.verseNumber,
+                              numberingSystem: widget.numberingSystem,
+                            );
+
+                        return KeyedSubtree(
+                          key: _verseKeys[verse.id],
+                          child: BibleVerseRow(
+                            verseNumber: verseDisplay.displayVerseNumber,
+                            alternateVerseNumber:
+                                verseDisplay.alternateVerseNumber,
+                            verseText: verse.verseText,
+                            compareVerseText: compareVerse?.verseText,
+                            isSelected: isSelected,
+                            margin: const EdgeInsets.only(
+                              left: 16.0,
+                              top: 2.0,
+                              bottom: 2.0,
+                            ),
+                            citationsCount: verseCitations.length,
+                            commentsCount: verseComments.length,
+                            isFavorite: isFavorite,
+                            onTap: () => _onVerseTap(verse.verseNumber),
+                            onLongPress: () =>
+                                _onVerseLongPress(verse.verseNumber),
+                            onTapCitations: () => showReverseCitationsModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              citations: verseCitations,
+                            ),
+                            onTapComments: () => showVerseCommentsModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              nodeId: nodeId,
+                              textPreview: verse.verseText,
+                              comments: verseComments,
+                              onCommentsChanged: _loadComments,
+                              onAddComment: () => showAddCommentDialog(
+                                context: context,
+                                citation:
+                                    '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                                textPreview: verse.verseText,
+                                documentId: widget.book.abbrev,
+                                sectionIndex: widget.chapter,
+                                nodeId: nodeId,
+                                onCommentSaved: _loadComments,
+                              ),
+                            ),
+                            onTapFavorite: () => showVerseFavoritesModal(
+                              context: context,
+                              title:
+                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              favorites: matchingFavorites,
+                              onFavoritesChanged: () async {
+                                await _loadFavorites();
+                                if (widget.onFavoriteSaved != null) {
+                                  widget.onFavoriteSaved!();
+                                }
+                              },
+                            ),
+                          ),
+                        );
+                      }),
                   ],
                 ),
                 BiblePageRibbonsWidget(

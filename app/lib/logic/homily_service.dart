@@ -4,6 +4,7 @@ import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 
@@ -47,7 +48,8 @@ class HomilyService {
     String? translation,
   }) async {
     final settings = await UserSettingsController.instance.load();
-    final activeTranslation = translation ?? settings.primaryBibleTranslation;
+    final requestedTranslation =
+        translation ?? settings.primaryBibleTranslation;
     final db = BibleDatabaseHelper.db;
 
     final List<HomilyReadingData> results = [];
@@ -57,6 +59,11 @@ class HomilyService {
         final bookMeta =
             catholicBooksByNumber[reading.bookNumber] ??
             (throw Exception('Book ${reading.bookName} not found in metadata'));
+
+        final transInfo = BibleTranslationInfo.getByCode(requestedTranslation);
+        final activeTranslation = transInfo.supportsBook(reading.bookNumber)
+            ? requestedTranslation
+            : 'CPDV';
 
         await db.ensureBookPopulated(
           bookMeta.bookNumber,

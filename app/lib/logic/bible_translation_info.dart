@@ -11,6 +11,7 @@ class BibleTranslationInfo {
   final BibleApprovalStatus approvalStatus;
   final String originDescription;
   final String churchUsage;
+  final bool isOldTestamentOnly;
 
   const BibleTranslationInfo({
     required this.code,
@@ -23,7 +24,15 @@ class BibleTranslationInfo {
     required this.approvalStatus,
     required this.originDescription,
     required this.churchUsage,
+    this.isOldTestamentOnly = false,
   });
+
+  bool supportsBook(int bookNumber) {
+    if (isOldTestamentOnly && bookNumber > 46) {
+      return false;
+    }
+    return true;
+  }
 
   String get approvalStatusLabel {
     switch (approvalStatus) {
@@ -120,6 +129,7 @@ class BibleTranslationInfo {
           'Ancient Greek translation of the Old Testament prepared by Jewish scholars in Alexandria, Egypt.',
       churchUsage:
           'The primary Old Testament text quoted by the New Testament writers and Apostles, approved canonically by the Council of Rome (382) and Council of Trent (1546).',
+      isOldTestamentOnly: true,
     ),
     BibleTranslationInfo(
       code: 'ORIG',

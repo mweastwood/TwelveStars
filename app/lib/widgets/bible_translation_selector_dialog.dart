@@ -7,6 +7,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
   final String currentPrimaryCode;
   final String? currentCompareCode;
   final BibleTranslationTarget initialTarget;
+  final int? currentBookNumber;
   final ValueChanged<String> onPrimarySelected;
   final ValueChanged<String?> onCompareSelected;
 
@@ -15,6 +16,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
     required this.currentPrimaryCode,
     required this.currentCompareCode,
     this.initialTarget = BibleTranslationTarget.primary,
+    this.currentBookNumber,
     required this.onPrimarySelected,
     required this.onCompareSelected,
   });
@@ -24,6 +26,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
     required String currentPrimaryCode,
     required String? currentCompareCode,
     BibleTranslationTarget initialTarget = BibleTranslationTarget.primary,
+    int? currentBookNumber,
     required ValueChanged<String> onPrimarySelected,
     required ValueChanged<String?> onCompareSelected,
   }) {
@@ -38,6 +41,7 @@ class BibleTranslationSelectorDialog extends StatefulWidget {
           currentPrimaryCode: currentPrimaryCode,
           currentCompareCode: currentCompareCode,
           initialTarget: initialTarget,
+          currentBookNumber: currentBookNumber,
           onPrimarySelected: onPrimarySelected,
           onCompareSelected: onCompareSelected,
         );
@@ -716,11 +720,101 @@ class _BibleTranslationSelectorDialogState
                                   ),
                                   const SizedBox(height: 8),
 
-                                  // Approval badge
-                                  _buildApprovalBadge(
-                                    item.approvalStatus,
-                                    theme,
+                                  // Approval badge & OT Only badge
+                                  Wrap(
+                                    spacing: 8,
+                                    runSpacing: 6,
+                                    children: [
+                                      _buildApprovalBadge(
+                                        item.approvalStatus,
+                                        theme,
+                                      ),
+                                      if (item.isOldTestamentOnly)
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 8,
+                                            vertical: 3,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.amber.withValues(
+                                              alpha: 0.15,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              6,
+                                            ),
+                                            border: Border.all(
+                                              color: Colors.amber.shade700
+                                                  .withValues(alpha: 0.5),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                Icons.history_edu,
+                                                size: 14,
+                                                color: Colors.amber.shade900,
+                                              ),
+                                              const SizedBox(width: 4),
+                                              Text(
+                                                'OT Only',
+                                                style: theme
+                                                    .textTheme
+                                                    .labelSmall
+                                                    ?.copyWith(
+                                                      color:
+                                                          Colors.amber.shade900,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                    ],
                                   ),
+                                  if (widget.currentBookNumber != null &&
+                                      !item.supportsBook(
+                                        widget.currentBookNumber!,
+                                      )) ...[
+                                    const SizedBox(height: 8),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 10,
+                                        vertical: 6,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: theme.colorScheme.errorContainer
+                                            .withValues(alpha: 0.5),
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(
+                                          color: theme.colorScheme.error
+                                              .withValues(alpha: 0.3),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.warning_amber_rounded,
+                                            size: 16,
+                                            color: theme.colorScheme.error,
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Expanded(
+                                            child: Text(
+                                              'Old Testament only. Not available for this book.',
+                                              style: theme.textTheme.labelSmall
+                                                  ?.copyWith(
+                                                    color:
+                                                        theme.colorScheme.error,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                   const SizedBox(height: 10),
 
                                   // Origin & Church Usage description

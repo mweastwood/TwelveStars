@@ -180,6 +180,50 @@ void main() {
       });
 
       test(
+        'loadSection with compare translation that lacks book loads primary cleanly without crashing',
+        () async {
+          const matthewBook = BibleBook(
+            bookNumber: 49,
+            bookName: 'Matthew',
+            abbrev: 'MAT',
+            chaptersCount: 28,
+            category: 'Gospels',
+            testament: 'New Testament',
+          );
+
+          await db
+              .into(db.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  bookNumber: 49,
+                  bookName: 'Matthew',
+                  chapter: 1,
+                  verseNumber: 1,
+                  verseText: 'The book of the genealogy of Jesus Christ.',
+                  translationCode: 'CPDV',
+                ),
+              );
+
+          final matthewAdapter = BibleReaderAdapter(
+            bibleBook: matthewBook,
+            dbHelper: db,
+          );
+          // Compare with LXX which has no NT
+          final section = await matthewAdapter.loadSection(
+            0,
+            compareVariant: 'LXX',
+          );
+          expect(section.nodes.length, 1);
+          final node = section.nodes.first;
+          expect(
+            node.primaryText,
+            'The book of the genealogy of Jesus Christ.',
+          );
+          expect(node.secondaryText, isNull);
+        },
+      );
+
+      test(
         'saveBookmark and loadBookmarks with 0-based sectionIndex',
         () async {
           final bookmark = ReaderBookmark(

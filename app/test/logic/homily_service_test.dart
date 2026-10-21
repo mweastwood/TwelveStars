@@ -596,5 +596,43 @@ void main() {
         expect(results.first.text, isEmpty);
       },
     );
+
+    test(
+      'falls back to CPDV when translation is LXX and reading is from New Testament',
+      () async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                translationCode: 'CPDV',
+                bookNumber: 49,
+                bookName: 'Matthew',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'The book of the genealogy of Jesus Christ.',
+              ),
+            );
+
+        final reading = LectionaryReading(
+          id: 3,
+          readingKey: 'gospel_reading',
+          readingType: 'gospel',
+          bookNumber: 49,
+          bookName: 'Matthew',
+          chapter: 1,
+          verseRange: '1',
+          citation: 'Mt 1:1',
+        );
+
+        final data = await HomilyService.fetchReadingsData([
+          reading,
+        ], translation: 'LXX');
+
+        expect(data.length, 1);
+        expect(data.first.readingType, 'gospel');
+        expect(data.first.citation, 'Mt 1:1');
+        expect(data.first.text, 'The book of the genealogy of Jesus Christ.');
+      },
+    );
   });
 }
