@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
+import 'package:twelve_stars/logic/bible_metadata.dart';
 
 void main() {
   group('BibleCitationParser Unit Tests', () {
@@ -3159,6 +3160,28 @@ void main() {
 
         // Assert that all ranges across the 26 non-psalm divergent books were verified
         expect(totalVersesTested, greaterThan(400));
+      },
+    );
+
+    test(
+      'catholicBookAliases and catholicBookAbbreviationTokens cover all 73 Catholic books',
+      () {
+        for (final book in catholicBooks) {
+          expect(
+            catholicBookAliases[book.bookName.toLowerCase()],
+            equals(book.bookNumber),
+          );
+          expect(
+            catholicBookAliases[book.abbrev.toLowerCase()],
+            equals(book.bookNumber),
+          );
+        }
+        expect(catholicBookAliases['1 paralipomenon'], equals(13));
+        expect(catholicBookAliases['ecclesiasticus'], equals(26));
+        expect(catholicBookAliases['apocalypse'], equals(76));
+        expect(catholicBookAbbreviationTokens.contains('ecclus'), isTrue);
+        expect(catholicBookAbbreviationTokens.contains('cor'), isTrue);
+        expect(catholicBookAbbreviationTokens.contains('apoc'), isTrue);
       },
     );
   });
