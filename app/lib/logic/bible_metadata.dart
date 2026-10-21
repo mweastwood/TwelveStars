@@ -630,3 +630,359 @@ final Set<String> catholicBookAbbrevs = Set.unmodifiable(
 final Map<int, BibleBook> catholicBooksByNumber = Map.unmodifiable({
   for (final book in catholicBooks) book.bookNumber: book,
 });
+
+/// Canonical map of lowercase Scripture book names, Douay-Rheims titles,
+/// and standard abbreviations to Catholic [BibleBook.bookNumber].
+final Map<String, int> catholicBookAliases = Map.unmodifiable(() {
+  final map = <String, int>{};
+  for (final book in catholicBooks) {
+    map[book.bookName.toLowerCase()] = book.bookNumber;
+    map[book.abbrev.toLowerCase()] = book.bookNumber;
+  }
+
+  void alias(String a, int num) => map[a.toLowerCase()] = num;
+
+  alias('gen', 1);
+  alias('genesis', 1);
+  alias('ex', 2);
+  alias('exod', 2);
+  alias('exodus', 2);
+  alias('lev', 3);
+  alias('leviticus', 3);
+  alias('num', 4);
+  alias('numbers', 4);
+  alias('deut', 5);
+  alias('deuteronomy', 5);
+  alias('jos', 6);
+  alias('josh', 6);
+  alias('joshua', 6);
+  alias('jdg', 7);
+  alias('judg', 7);
+  alias('judges', 7);
+  alias('rut', 8);
+  alias('ruth', 8);
+  alias('1sa', 9);
+  alias('1 sam', 9);
+  alias('1sam', 9);
+  alias('1 samuel', 9);
+  alias('2sa', 10);
+  alias('2 sam', 10);
+  alias('2sam', 10);
+  alias('2 samuel', 10);
+  alias('1ki', 11);
+  alias('1 ki', 11);
+  alias('3 kings', 11);
+  alias('3ki', 11);
+  alias('1kings', 11);
+  alias('1 kings', 11);
+  alias('2ki', 12);
+  alias('2 ki', 12);
+  alias('4 kings', 12);
+  alias('4ki', 12);
+  alias('2kings', 12);
+  alias('2 kings', 12);
+  alias('1ch', 13);
+  alias('1 chron', 13);
+  alias('1 par', 13);
+  alias('1 paralip', 13);
+  alias('1 paralipomenon', 13);
+  alias('2ch', 14);
+  alias('2 chron', 14);
+  alias('2 par', 14);
+  alias('2 paralip', 14);
+  alias('2 paralipomenon', 14);
+  alias('ezr', 15);
+  alias('esd', 15);
+  alias('esdras', 15);
+  alias('neh', 16);
+  alias('nehemiah', 16);
+  alias('tob', 17);
+  alias('tobias', 17);
+  alias('tobit', 17);
+  alias('jdt', 18);
+  alias('judith', 18);
+  alias('est', 19);
+  alias('esth', 19);
+  alias('esther', 19);
+  alias('job', 20);
+  alias('psa', 21);
+  alias('ps', 21);
+  alias('pss', 21);
+  alias('psalm', 21);
+  alias('psalms', 21);
+  alias('pro', 22);
+  alias('prov', 22);
+  alias('proverbs', 22);
+  alias('ecc', 23);
+  alias('eccl', 23);
+  alias('eccles', 23);
+  alias('ecclesiastes', 23);
+  alias('sng', 24);
+  alias('cant', 24);
+  alias('song', 24);
+  alias('canticle', 24);
+  alias('canticles', 24);
+  alias('song of songs', 24);
+  alias('song of solomon', 24);
+  alias('canticle of canticles', 24);
+  alias('wis', 25);
+  alias('wisd', 25);
+  alias('wisdom', 25);
+  alias('sir', 26);
+  alias('ecclus', 26);
+  alias('sirach', 26);
+  alias('ecclesiasticus', 26);
+  alias('isa', 27);
+  alias('isaias', 27);
+  alias('isaiah', 27);
+  alias('jer', 28);
+  alias('jeremias', 28);
+  alias('jeremiah', 28);
+  alias('lam', 29);
+  alias('lamentations', 29);
+  alias('bar', 30);
+  alias('baruch', 30);
+  alias('eze', 31);
+  alias('ezek', 31);
+  alias('ezekiel', 31);
+  alias('dan', 32);
+  alias('daniel', 32);
+  alias('hos', 33);
+  alias('osee', 33);
+  alias('hosea', 33);
+  alias('joe', 34);
+  alias('joel', 34);
+  alias('amo', 35);
+  alias('amos', 35);
+  alias('oba', 36);
+  alias('obad', 36);
+  alias('abdias', 36);
+  alias('obadiah', 36);
+  alias('jon', 37);
+  alias('jonas', 37);
+  alias('jonah', 37);
+  alias('mic', 38);
+  alias('micheas', 38);
+  alias('micah', 38);
+  alias('nah', 39);
+  alias('nahum', 39);
+  alias('hab', 40);
+  alias('habacuc', 40);
+  alias('habakkuk', 40);
+  alias('zep', 41);
+  alias('zeph', 41);
+  alias('sophonias', 41);
+  alias('zephaniah', 41);
+  alias('hag', 42);
+  alias('aggeus', 42);
+  alias('haggai', 42);
+  alias('zech', 43);
+  alias('zacharias', 43);
+  alias('zechariah', 43);
+  alias('mal', 44);
+  alias('malachias', 44);
+  alias('malachi', 44);
+  alias('1ma', 45);
+  alias('1 mach', 45);
+  alias('1mach', 45);
+  alias('1 mac', 45);
+  alias('1mac', 45);
+  alias('1 macc', 45);
+  alias('1macc', 45);
+  alias('1 maccabees', 45);
+  alias('2ma', 46);
+  alias('2 mach', 46);
+  alias('2mach', 46);
+  alias('2 mac', 46);
+  alias('2mac', 46);
+  alias('2 macc', 46);
+  alias('2macc', 46);
+  alias('2 maccabees', 46);
+
+  alias('mt', 49);
+  alias('mat', 49);
+  alias('matt', 49);
+  alias('matthew', 49);
+  alias('mk', 50);
+  alias('mar', 50);
+  alias('mark', 50);
+  alias('lk', 51);
+  alias('luk', 51);
+  alias('luke', 51);
+  alias('jn', 52);
+  alias('joh', 52);
+  alias('john', 52);
+  alias('act', 53);
+  alias('acts', 53);
+  alias('rom', 54);
+  alias('romans', 54);
+  alias('1co', 55);
+  alias('1 cor', 55);
+  alias('1cor', 55);
+  alias('1 corinthians', 55);
+  alias('2co', 56);
+  alias('2 cor', 56);
+  alias('2cor', 56);
+  alias('2 corinthians', 56);
+  alias('gal', 57);
+  alias('galatians', 57);
+  alias('eph', 58);
+  alias('ephesians', 58);
+  alias('php', 59);
+  alias('phil', 59);
+  alias('philippians', 59);
+  alias('col', 60);
+  alias('colossians', 60);
+  alias('1th', 61);
+  alias('1 thes', 61);
+  alias('1 thess', 61);
+  alias('1thess', 61);
+  alias('1 thessalonians', 61);
+  alias('2th', 62);
+  alias('2 thes', 62);
+  alias('2 thess', 62);
+  alias('2thess', 62);
+  alias('2 thessalonians', 62);
+  alias('1ti', 64);
+  alias('1 tim', 64);
+  alias('1tim', 64);
+  alias('1 timothy', 64);
+  alias('2ti', 65);
+  alias('2 tim', 65);
+  alias('2tim', 65);
+  alias('2 timothy', 65);
+  alias('tit', 66);
+  alias('titus', 66);
+  alias('phm', 67);
+  alias('philem', 67);
+  alias('philemon', 67);
+  alias('heb', 68);
+  alias('hebrews', 68);
+  alias('jam', 69);
+  alias('jas', 69);
+  alias('james', 69);
+  alias('1pe', 70);
+  alias('1 pet', 70);
+  alias('1pet', 70);
+  alias('1 peter', 70);
+  alias('2pe', 71);
+  alias('2 pet', 71);
+  alias('2pet', 71);
+  alias('2 peter', 71);
+  alias('1jn', 72);
+  alias('1 jn', 72);
+  alias('1 john', 72);
+  alias('2jn', 73);
+  alias('2 jn', 73);
+  alias('2 john', 73);
+  alias('3jn', 74);
+  alias('3 jn', 74);
+  alias('3 john', 74);
+  alias('jud', 75);
+  alias('jude', 75);
+  alias('rev', 76);
+  alias('apoc', 76);
+  alias('apocalypse', 76);
+  alias('revelation', 76);
+
+  return map;
+}());
+
+/// Lowercase Scripture book abbreviation tokens (including trailing tokens of
+/// numbered books such as `cor`, `sam`, `ki`, `thess`) used to avoid false
+/// sentence breaks on abbreviated citations like `1 Cor. 13:4` or `Matt. 5:3`.
+const Set<String> catholicBookAbbreviationTokens = {
+  'gen',
+  'ex',
+  'exod',
+  'lev',
+  'num',
+  'deut',
+  'jos',
+  'josh',
+  'jdg',
+  'judg',
+  'rut',
+  'sam',
+  'ki',
+  'chron',
+  'par',
+  'paralip',
+  'ezr',
+  'esd',
+  'neh',
+  'tob',
+  'jdt',
+  'est',
+  'esth',
+  'ps',
+  'pss',
+  'psa',
+  'prov',
+  'pro',
+  'ecc',
+  'eccl',
+  'eccles',
+  'cant',
+  'sng',
+  'wis',
+  'wisd',
+  'sir',
+  'ecclus',
+  'isa',
+  'jer',
+  'lam',
+  'bar',
+  'eze',
+  'ezek',
+  'dan',
+  'hos',
+  'joe',
+  'joel',
+  'amo',
+  'amos',
+  'oba',
+  'obad',
+  'jon',
+  'mic',
+  'nah',
+  'hab',
+  'zep',
+  'zeph',
+  'hag',
+  'zech',
+  'mal',
+  'mach',
+  'macc',
+  'mt',
+  'matt',
+  'mat',
+  'mk',
+  'mar',
+  'lk',
+  'luk',
+  'jn',
+  'joh',
+  'act',
+  'acts',
+  'rom',
+  'cor',
+  'gal',
+  'eph',
+  'php',
+  'phil',
+  'col',
+  'thes',
+  'thess',
+  'tim',
+  'tit',
+  'phm',
+  'philem',
+  'heb',
+  'jas',
+  'jam',
+  'pet',
+  'jud',
+  'rev',
+  'apoc',
+};
