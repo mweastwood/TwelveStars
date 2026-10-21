@@ -449,6 +449,62 @@ void main() {
       );
       expect(mismatched, isEmpty);
     });
+
+    test(
+      'getBibleComments and getLibraryComments partition comments in SQL by canonical Bible abbreviations',
+      () async {
+        final now = DateTime.now();
+
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'gen',
+            sectionIndex: 1,
+            nodeId: '1_1_1',
+            commentText: 'Genesis comment',
+            createdAt: now,
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'MAT',
+            sectionIndex: 5,
+            nodeId: '40_5_3',
+            commentText: 'Matthew comment',
+            createdAt: now,
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'trent',
+            sectionIndex: 0,
+            nodeId: 'sec_1_0',
+            commentText: 'Council of Trent comment',
+            createdAt: now,
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'baltimore',
+            sectionIndex: 2,
+            nodeId: 'no2:sec_3_1',
+            commentText: 'Baltimore Catechism comment',
+            createdAt: now,
+          ),
+        );
+
+        final bibleComments = await testDb.getBibleComments();
+        expect(
+          bibleComments.map((c) => c.commentText).toSet(),
+          equals({'Genesis comment', 'Matthew comment'}),
+        );
+
+        final libraryComments = await testDb.getLibraryComments();
+        expect(
+          libraryComments.map((c) => c.commentText).toSet(),
+          equals({'Council of Trent comment', 'Baltimore Catechism comment'}),
+        );
+      },
+    );
   });
 
   group('TypeConverters Error Resilience', () {

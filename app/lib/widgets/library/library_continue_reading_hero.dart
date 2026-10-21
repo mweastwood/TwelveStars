@@ -24,22 +24,20 @@ class LibraryContinueReadingHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final book = catalog
-        .where((b) => b.id == readingPosition.bookId)
-        .firstOrNull;
+    final book = LibraryCatalog.findBookById(
+      readingPosition.bookId,
+      catalog: catalog,
+    );
     if (book == null) return const SizedBox.shrink();
 
-    String? volumeName;
-    String? volumeAssetPath;
-    if (book.isSeries && readingPosition.volumeKey != null) {
-      final vol = book.volumes
-          ?.where((v) => v.volumeKey == readingPosition.volumeKey)
-          .firstOrNull;
-      if (vol != null) {
-        volumeName = vol.name;
-        volumeAssetPath = vol.assetPath;
-      }
-    }
+    final vol = readingPosition.volumeKey != null
+        ? book.resolveVolume(
+            volumeKey: readingPosition.volumeKey,
+            fallbackToFirst: false,
+          )
+        : null;
+    final volumeName = vol?.name;
+    final volumeAssetPath = vol?.assetPath;
 
     return Card(
       elevation: 0,

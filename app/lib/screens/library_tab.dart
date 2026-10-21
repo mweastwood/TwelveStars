@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
-import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
@@ -177,12 +176,8 @@ class _LibraryTabState extends State<LibraryTab> {
   Future<void> _loadComments() async {
     setState(() => _loadingComments = true);
     try {
-      final allComments = await BibleDatabaseHelper.db.getComments();
-      final nonBibleComments = allComments
-          .where(
-            (c) => !catholicBookAbbrevs.contains(c.documentId.toUpperCase()),
-          )
-          .toList();
+      final nonBibleComments = await BibleDatabaseHelper.db
+          .getLibraryComments();
       if (mounted) {
         setState(() {
           _comments = nonBibleComments;
@@ -209,38 +204,17 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   void _openReaderForPassage(ThematicPassage passage) {
-    final catalog = _catalog;
-    LibraryBookItem? matchedBook;
-    String? matchedVolumeKey;
-    String? matchedAssetPath;
+    final target = LibraryCatalog.resolveTarget(
+      bookId: passage.bookId,
+      catalog: _catalog,
+    );
 
-    for (final b in catalog) {
-      if (b.id == passage.bookId) {
-        matchedBook = b;
-        break;
-      }
-      if (b.isSeries && b.volumes != null) {
-        for (final v in b.volumes!) {
-          if (v.volumeKey == passage.bookId ||
-              v.assetPath == passage.bookId ||
-              v.assetPath.endsWith('/${passage.bookId}.json') ||
-              v.assetPath.contains(passage.bookId)) {
-            matchedBook = b;
-            matchedVolumeKey = v.volumeKey;
-            matchedAssetPath = v.assetPath;
-            break;
-          }
-        }
-      }
-      if (matchedBook != null) break;
-    }
-
-    if (matchedBook != null) {
+    if (target != null) {
       _openReader(
         context,
-        matchedBook,
-        volumeKey: matchedVolumeKey,
-        assetPath: matchedAssetPath,
+        target.book,
+        volumeKey: target.volumeKey,
+        assetPath: target.assetPath,
         sectionId: passage.sectionId,
         itemIndex: passage.itemIndex,
         questionNumber: passage.questionNumber,
@@ -287,10 +261,7 @@ class _LibraryTabState extends State<LibraryTab> {
         );
         if (savedPos != null) {
           if (bookItem.isSeries && savedPos.volumeKey != null) {
-            final vol = bookItem.volumes?.firstWhere(
-              (v) => v.volumeKey == savedPos.volumeKey,
-              orElse: () => bookItem.volumes!.first,
-            );
+            final vol = bookItem.resolveVolume(volumeKey: savedPos.volumeKey);
             if (vol != null) {
               targetVolumeKey = vol.volumeKey;
               targetAssetPath = vol.assetPath;

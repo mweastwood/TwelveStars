@@ -6,6 +6,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'connection_stub.dart'
     if (dart.library.io) 'connection_native.dart'
     if (dart.library.html) 'connection_web.dart';
+import 'bible_metadata.dart' show catholicBookAbbrevs;
 import 'prayers.dart';
 
 part 'bible_database.g.dart';
@@ -834,6 +835,22 @@ class BibleDatabase extends _$BibleDatabase {
     }
 
     return query.get();
+  }
+
+  /// Queries only comments associated with canonical Catholic Bible books
+  /// directly in SQL without loading non-Bible comments into memory.
+  Future<List<UserComment>> getBibleComments() {
+    return (select(
+      userComments,
+    )..where((t) => t.documentId.upper().isIn(catholicBookAbbrevs))).get();
+  }
+
+  /// Queries only comments associated with Library books (non-Bible documents)
+  /// directly in SQL without loading Bible comments into memory.
+  Future<List<UserComment>> getLibraryComments() {
+    return (select(
+      userComments,
+    )..where((t) => t.documentId.upper().isNotIn(catholicBookAbbrevs))).get();
   }
 
   Future<int> saveComment(UserCommentsCompanion companion) {

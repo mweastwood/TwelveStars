@@ -1429,4 +1429,194 @@ class LibraryCatalog {
   ]);
 
   static List<String> getAllCatalogPaths() => _allCatalogPaths;
+
+  static final Map<String, LibraryBookItem> _booksById = Map.unmodifiable({
+    for (final item in _catalog) item.id: item,
+  });
+
+  static final Map<String, String?> _authorSaintIdsByKey = Map.unmodifiable({
+    for (final item in _catalog) ...{
+      item.id: item.authorSaintId,
+      if (item.volumes != null)
+        for (final vol in item.volumes!) vol.volumeKey: item.authorSaintId,
+    },
+  });
+
+  /// Looks up a [LibraryBookItem] by its exact [bookId] in [catalog] (or the
+  /// default catalog in O(1) time when [catalog] is omitted).
+  static LibraryBookItem? findBookById(
+    String bookId, {
+    List<LibraryBookItem>? catalog,
+  }) {
+    if (catalog == null || identical(catalog, _catalog)) {
+      return _booksById[bookId];
+    }
+    for (final b in catalog) {
+      if (b.id == bookId) return b;
+    }
+    return null;
+  }
+
+  /// Resolves the `authorSaintId` associated with a book ID or volume key.
+  static String? resolveAuthorSaintId(String bookOrVolumeId) =>
+      _authorSaintIdsByKey[bookOrVolumeId];
+
+  /// Resolves a [ResolvedLibraryTarget] matching [bookId], [volumeKey], or
+  /// [assetPath] across [catalog] (or the default catalog).
+  static ResolvedLibraryTarget? resolveTarget({
+    String? bookId,
+    String? volumeKey,
+    String? assetPath,
+    List<LibraryBookItem>? catalog,
+    bool fallbackToFirstBook = false,
+    bool fallbackToFirstVolume = false,
+  }) {
+    final items = catalog ?? _catalog;
+    LibraryBookItem? matchedBook;
+    BaltimoreVolume? matchedVolume;
+    String? matchedVolumeKey = volumeKey;
+    String? matchedAssetPath = assetPath;
+
+    for (final b in items) {
+      if (bookId != null && b.id == bookId) {
+        matchedBook = b;
+        break;
+      }
+      if (assetPath != null &&
+          b.defaultAssetPath != null &&
+          b.defaultAssetPath == assetPath) {
+        matchedBook = b;
+        matchedAssetPath = b.defaultAssetPath;
+        break;
+      }
+      if (bookId != null &&
+          b.defaultAssetPath != null &&
+          (b.defaultAssetPath == bookId ||
+              b.defaultAssetPath!.endsWith('/$bookId.json') ||
+              b.defaultAssetPath!.contains(bookId))) {
+        matchedBook = b;
+        matchedAssetPath ??= b.defaultAssetPath;
+        break;
+      }
+      if (b.volumes != null) {
+        for (final v in b.volumes!) {
+          final matchesVolumeKey =
+              (volumeKey != null && v.volumeKey == volumeKey) ||
+              (bookId != null && v.volumeKey == bookId);
+          final matchesAssetPath =
+              (assetPath != null && v.assetPath == assetPath) ||
+              (bookId != null &&
+                  (v.assetPath == bookId ||
+                      v.assetPath.endsWith('/$bookId.json') ||
+                      v.assetPath.contains(bookId)));
+          if (matchesVolumeKey || matchesAssetPath) {
+            matchedBook = b;
+            matchedVolume = v;
+            matchedVolumeKey = v.volumeKey;
+            matchedAssetPath = v.assetPath;
+            break;
+          }
+        }
+      }
+      if (matchedBook != null) break;
+    }
+
+    if (matchedBook == null && fallbackToFirstBook && items.isNotEmpty) {
+      matchedBook = items.first;
+    }
+    if (matchedBook == null) return null;
+
+    if (matchedBook.isSeries) {
+      matchedVolume ??= matchedBook.resolveVolume(
+        volumeKey: matchedVolumeKey,
+        assetPath: matchedAssetPath,
+        fallbackToFirst:
+            fallbackToFirstVolume ||
+            matchedVolumeKey != null ||
+            matchedAssetPath != null,
+      );
+      if (matchedVolume != null) {
+        matchedVolumeKey = matchedVolume.volumeKey;
+        matchedAssetPath = matchedVolume.assetPath;
+      }
+    } else {
+      matchedAssetPath ??= matchedBook.defaultAssetPath;
+    }
+
+    return ResolvedLibraryTarget(
+      book: matchedBook,
+      volume: matchedVolume,
+      volumeKey: matchedVolumeKey,
+      assetPath: matchedAssetPath,
+    );
+  }
+
+  /// Constructs a fallback [ResolvedLibraryTarget] when a passage's `bookId` is
+  /// not found in the static catalog, inferring category and JSON asset path.
+  static ResolvedLibraryTarget buildFallbackTarget({
+    required String bookId,
+    required String bookTitle,
+    required String author,
+    String? authorSaintId,
+  }) {
+    String inferredCategory = 'Theology';
+    final lowerTitle = bookTitle.toLowerCase();
+    final lowerAuthor = author.toLowerCase();
+    final lowerId = bookId.toLowerCase();
+
+    if (lowerTitle.contains('catechism') ||
+        lowerId.contains('baltimore') ||
+        lowerId.contains('trent')) {
+      inferredCategory = 'Catechisms';
+    } else if (lowerAuthor.contains('apostolic') ||
+        lowerId.contains('didache') ||
+        lowerId.contains('clement') ||
+        lowerId.contains('ignatius') ||
+        lowerId.contains('polycarp') ||
+        lowerId.contains('diognetus')) {
+      inferredCategory = 'Apostolic Fathers';
+    } else if (lowerAuthor.contains('augustine') ||
+        lowerAuthor.contains('chrysostom') ||
+        lowerAuthor.contains('athanasius') ||
+        lowerAuthor.contains('ambrose') ||
+        lowerAuthor.contains('basil') ||
+        lowerAuthor.contains('gregory') ||
+        lowerAuthor.contains('jerome') ||
+        lowerAuthor.contains('cyprian') ||
+        lowerAuthor.contains('cyril') ||
+        lowerAuthor.contains('damascene') ||
+        lowerAuthor.contains('irenaeus') ||
+        lowerAuthor.contains('justin')) {
+      inferredCategory = 'Early Church Fathers';
+    } else if (lowerAuthor.contains('aquinas') ||
+        lowerAuthor.contains('anselm') ||
+        lowerAuthor.contains('bonaventure') ||
+        lowerAuthor.contains('teresa') ||
+        lowerAuthor.contains('john of the cross') ||
+        lowerAuthor.contains('francis de sales')) {
+      inferredCategory = 'Doctor of the Church';
+    }
+
+    String assetPath = bookId;
+    if (!assetPath.startsWith('assets/')) {
+      if (!assetPath.endsWith('.json')) {
+        assetPath = 'assets/catechism/json/$assetPath.json';
+      } else {
+        assetPath = 'assets/catechism/json/$assetPath';
+      }
+    }
+
+    final fallbackBook = LibraryBookItem(
+      id: bookId,
+      title: bookTitle,
+      subtitle: '',
+      category: inferredCategory,
+      author: author,
+      authorSaintId: authorSaintId,
+      description: '',
+      defaultAssetPath: assetPath,
+    );
+
+    return ResolvedLibraryTarget(book: fallbackBook, assetPath: assetPath);
+  }
 }

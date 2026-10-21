@@ -89,13 +89,14 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       final favs =
           widget.initialFavorites ??
           await BibleDatabaseHelper.db.getFavorites();
-      final allComments =
-          widget.initialComments ?? await BibleDatabaseHelper.db.getComments();
-
-      // Only include comments on Bible verses (documentId matches a Bible book abbrev)
-      final bibleComments = allComments.where((c) {
-        return catholicBookAbbrevs.contains(c.documentId.toUpperCase());
-      }).toList();
+      final bibleComments = widget.initialComments != null
+          ? widget.initialComments!
+                .where(
+                  (c) =>
+                      catholicBookAbbrevs.contains(c.documentId.toUpperCase()),
+                )
+                .toList()
+          : await BibleDatabaseHelper.db.getBibleComments();
 
       if (mounted) {
         setState(() {

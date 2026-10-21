@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
-import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/widgets/library/library_comments_view.dart';
 import 'package:twelve_stars/widgets/library/library_favorites_view.dart';
@@ -93,12 +92,8 @@ class _LibrarySavedSheetState extends State<LibrarySavedSheet> {
   Future<void> _refreshComments() async {
     setState(() => _loadingComments = true);
     try {
-      final allComments = await BibleDatabaseHelper.db.getComments();
-      final nonBibleComments = allComments
-          .where(
-            (c) => !catholicBookAbbrevs.contains(c.documentId.toUpperCase()),
-          )
-          .toList();
+      final nonBibleComments = await BibleDatabaseHelper.db
+          .getLibraryComments();
       if (mounted) {
         setState(() {
           _comments = nonBibleComments;

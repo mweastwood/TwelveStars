@@ -183,54 +183,24 @@ Future<void> showReverseCitationsModal({
                                         label: const Text('Read in Library'),
                                         onPressed: () {
                                           Navigator.pop(ctx);
-                                          final catalog =
-                                              LibraryHelper.getCatalog();
-                                          final book = catalog.firstWhere(
-                                            (b) =>
-                                                b.id == item.sourceBookId ||
-                                                b.defaultAssetPath ==
-                                                    item.sourceAssetPath ||
-                                                (b.volumes?.any(
-                                                      (v) =>
-                                                          v.assetPath ==
-                                                          item.sourceAssetPath,
-                                                    ) ??
-                                                    false),
-                                            orElse: () => catalog[0],
-                                          );
-
-                                          // For series books, find the volume containing this section
-                                          String? targetAssetPath;
-                                          String? targetVolumeKey;
-                                          if (book.isSeries &&
-                                              book.volumes != null &&
-                                              book.volumes!.isNotEmpty) {
-                                            final matchingVol = book.volumes!
-                                                .firstWhere(
-                                                  (v) =>
-                                                      v.assetPath ==
-                                                      item.sourceAssetPath,
-                                                  orElse: () =>
-                                                      book.volumes!.first,
-                                                );
-                                            targetVolumeKey =
-                                                matchingVol.volumeKey;
-                                            targetAssetPath =
-                                                matchingVol.assetPath;
-                                          } else {
-                                            targetAssetPath =
-                                                item.sourceAssetPath;
-                                          }
+                                          final target =
+                                              LibraryCatalog.resolveTarget(
+                                                bookId: item.sourceBookId,
+                                                assetPath: item.sourceAssetPath,
+                                                fallbackToFirstBook: true,
+                                                fallbackToFirstVolume: true,
+                                              )!;
 
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                               builder: (_) => LibraryReaderScreen(
-                                                bookItem: book,
+                                                bookItem: target.book,
                                                 initialAssetPath:
-                                                    targetAssetPath,
+                                                    target.assetPath ??
+                                                    item.sourceAssetPath,
                                                 initialVolumeKey:
-                                                    targetVolumeKey,
+                                                    target.volumeKey,
                                                 initialSectionId:
                                                     item.sectionId,
                                                 initialQuestionNumber:
