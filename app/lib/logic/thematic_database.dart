@@ -192,21 +192,10 @@ class ThematicHelper {
       final data = jsonDecode(raw) as Map<String, dynamic>;
       final passagesRaw = data['passages'] as List<dynamic>? ?? [];
 
-      final catalog = LibraryHelper.getCatalog();
-      final Map<String, String?> bookSaintMap = {};
-      for (final b in catalog) {
-        bookSaintMap[b.id] = b.authorSaintId;
-        if (b.volumes != null) {
-          for (final v in b.volumes!) {
-            bookSaintMap[v.volumeKey] = b.authorSaintId;
-          }
-        }
-      }
-
       _cachedPassages = passagesRaw.map((p) {
         final map = p as Map<String, dynamic>;
         final bookId = map['bookId'] as String? ?? '';
-        final saintId = bookSaintMap[bookId];
+        final saintId = LibraryCatalog.resolveAuthorSaintId(bookId);
         return ThematicPassage.fromJson(map, authorSaintId: saintId);
       }).toList();
 

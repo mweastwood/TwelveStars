@@ -443,5 +443,97 @@ void main() {
       expect(parsed.sections.first.content.first.type, equals('qa'));
       expect(parsed.sections.first.content.first.questionNumber, equals(1));
     });
+
+    test(
+      'LibraryCatalog.findBookById, resolveTarget, resolveVolume, resolveAuthorSaintId, and buildFallbackTarget resolve books and volumes accurately',
+      () {
+        // 1. findBookById O(1) lookup and custom catalog lookup
+        final baltimore = LibraryCatalog.findBookById('baltimore_catechism');
+        expect(baltimore, isNotNull);
+        expect(baltimore!.isSeries, isTrue);
+        expect(LibraryCatalog.findBookById('nonexistent_book'), isNull);
+
+        // 2. resolveVolume on a series book
+        final vol2 = baltimore.resolveVolume(volumeKey: 'no2');
+        expect(vol2, isNotNull);
+        expect(vol2!.shortName, equals('No. 2'));
+
+        final volByPath = baltimore.resolveVolume(assetPath: 'baltimore_3');
+        expect(volByPath, isNotNull);
+        expect(volByPath!.volumeKey, equals('no3'));
+
+        expect(
+          baltimore
+              .resolveVolume(volumeKey: 'unknown', fallbackToFirst: true)
+              ?.volumeKey,
+          equals('no1'),
+        );
+        expect(
+          baltimore.resolveVolume(volumeKey: 'unknown', fallbackToFirst: false),
+          isNull,
+        );
+
+        // 3. resolveTarget by bookId, volumeKey, and assetPath
+        final byVolumeKey = LibraryCatalog.resolveTarget(bookId: 'no3');
+        expect(byVolumeKey, isNotNull);
+        expect(byVolumeKey!.book.id, equals('baltimore_catechism'));
+        expect(byVolumeKey.volumeKey, equals('no3'));
+        expect(
+          byVolumeKey.assetPath,
+          equals('assets/catechism/json/baltimore_3.json'),
+        );
+
+        final byAssetStem = LibraryCatalog.resolveTarget(
+          bookId: 'ignatius_romans_lightfoot',
+        );
+        expect(byAssetStem, isNotNull);
+        expect(byAssetStem!.book.id, equals('ignatius_epistles'));
+        expect(byAssetStem.volumeKey, equals('romans'));
+
+        final standalone = LibraryCatalog.resolveTarget(
+          bookId: 'benedict_rule',
+        );
+        expect(standalone, isNotNull);
+        expect(standalone!.book.id, equals('benedict_rule'));
+        expect(
+          standalone.assetPath,
+          equals('assets/catechism/json/benedict_rule.json'),
+        );
+
+        final fallbackBook = LibraryCatalog.resolveTarget(
+          bookId: 'missing_id',
+          fallbackToFirstBook: true,
+          fallbackToFirstVolume: true,
+        );
+        expect(fallbackBook, isNotNull);
+        expect(
+          fallbackBook!.book.id,
+          equals(LibraryCatalog.getCatalog().first.id),
+        );
+
+        // 4. resolveAuthorSaintId for book and volume keys
+        expect(
+          LibraryCatalog.resolveAuthorSaintId('benedict_rule'),
+          equals('benedict-of-nursia'),
+        );
+        expect(
+          LibraryCatalog.resolveAuthorSaintId('ephesians'),
+          equals('ignatius-of-antioch'),
+        );
+
+        // 5. buildFallbackTarget category and path inference
+        final fallback = LibraryCatalog.buildFallbackTarget(
+          bookId: 'custom_augustine_tract',
+          bookTitle: 'Tractate on Grace',
+          author: 'St. Augustine of Hippo',
+          authorSaintId: 'augustine-of-hippo',
+        );
+        expect(fallback.book.category, equals('Early Church Fathers'));
+        expect(
+          fallback.assetPath,
+          equals('assets/catechism/json/custom_augustine_tract.json'),
+        );
+      },
+    );
   });
 }

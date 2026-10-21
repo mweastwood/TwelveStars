@@ -63,6 +63,25 @@ class LibraryHelper {
   static List<LibraryBookItem> getCatalog() => LibraryCatalog.getCatalog();
   static List<String> getAllCatalogPaths() =>
       LibraryCatalog.getAllCatalogPaths();
+  static LibraryBookItem? findBookById(
+    String bookId, {
+    List<LibraryBookItem>? catalog,
+  }) => LibraryCatalog.findBookById(bookId, catalog: catalog);
+  static ResolvedLibraryTarget? resolveTarget({
+    String? bookId,
+    String? volumeKey,
+    String? assetPath,
+    List<LibraryBookItem>? catalog,
+    bool fallbackToFirstBook = false,
+    bool fallbackToFirstVolume = false,
+  }) => LibraryCatalog.resolveTarget(
+    bookId: bookId,
+    volumeKey: volumeKey,
+    assetPath: assetPath,
+    catalog: catalog,
+    fallbackToFirstBook: fallbackToFirstBook,
+    fallbackToFirstVolume: fallbackToFirstVolume,
+  );
 
   static List<BaltimoreVolume> get baltimoreVolumes =>
       LibraryCatalog.baltimoreVolumes;

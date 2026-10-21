@@ -149,44 +149,17 @@ class _ThematicQuoteBrowserScreenState
   }
 
   void _openReaderContext(ThematicPassage passage) {
-    final catalog = LibraryHelper.getCatalog();
-    LibraryBookItem? matchedBook;
-    String? matchedVolumeKey;
-    String? matchedAssetPath;
+    final target =
+        LibraryCatalog.resolveTarget(bookId: passage.bookId) ??
+        LibraryCatalog.buildFallbackTarget(
+          bookId: passage.bookId,
+          bookTitle: passage.bookTitle,
+          author: passage.author,
+          authorSaintId: passage.authorSaintId,
+        );
+    final matchedBook = target.book;
 
-    for (final b in catalog) {
-      if (b.id == passage.bookId) {
-        matchedBook = b;
-        matchedAssetPath = b.defaultAssetPath;
-        break;
-      }
-      if (b.defaultAssetPath != null &&
-          (b.defaultAssetPath == passage.bookId ||
-              b.defaultAssetPath!.endsWith('/${passage.bookId}.json') ||
-              b.defaultAssetPath!.contains(passage.bookId))) {
-        matchedBook = b;
-        matchedAssetPath = b.defaultAssetPath;
-        break;
-      }
-      if (b.volumes != null) {
-        for (final v in b.volumes!) {
-          if (v.volumeKey == passage.bookId ||
-              v.assetPath == passage.bookId ||
-              v.assetPath.endsWith('/${passage.bookId}.json') ||
-              v.assetPath.contains(passage.bookId)) {
-            matchedBook = b;
-            matchedVolumeKey = v.volumeKey;
-            matchedAssetPath = v.assetPath;
-            break;
-          }
-        }
-      }
-      if (matchedBook != null) break;
-    }
-
-    if (matchedBook != null &&
-        matchedBook.isWeb &&
-        matchedBook.webUrl != null) {
+    if (matchedBook.isWeb && matchedBook.webUrl != null) {
       final bookTitle = matchedBook.title;
       final bookUrl = matchedBook.webUrl!;
       if (!context.mounted) return;
@@ -200,75 +173,13 @@ class _ThematicQuoteBrowserScreenState
       return;
     }
 
-    if (matchedBook == null) {
-      // Robust category inference for non-catechism passages (e.g. Fathers, Doctors, Scriptures)
-      String inferredCategory = 'Theology';
-      final lowerTitle = passage.bookTitle.toLowerCase();
-      final lowerAuthor = passage.author.toLowerCase();
-      final lowerId = passage.bookId.toLowerCase();
-
-      if (lowerTitle.contains('catechism') ||
-          lowerId.contains('baltimore') ||
-          lowerId.contains('trent')) {
-        inferredCategory = 'Catechisms';
-      } else if (lowerAuthor.contains('apostolic') ||
-          lowerId.contains('didache') ||
-          lowerId.contains('clement') ||
-          lowerId.contains('ignatius') ||
-          lowerId.contains('polycarp') ||
-          lowerId.contains('diognetus')) {
-        inferredCategory = 'Apostolic Fathers';
-      } else if (lowerAuthor.contains('augustine') ||
-          lowerAuthor.contains('chrysostom') ||
-          lowerAuthor.contains('athanasius') ||
-          lowerAuthor.contains('ambrose') ||
-          lowerAuthor.contains('basil') ||
-          lowerAuthor.contains('gregory') ||
-          lowerAuthor.contains('jerome') ||
-          lowerAuthor.contains('cyprian') ||
-          lowerAuthor.contains('cyril') ||
-          lowerAuthor.contains('damascene') ||
-          lowerAuthor.contains('irenaeus') ||
-          lowerAuthor.contains('justin')) {
-        inferredCategory = 'Early Church Fathers';
-      } else if (lowerAuthor.contains('aquinas') ||
-          lowerAuthor.contains('anselm') ||
-          lowerAuthor.contains('bonaventure') ||
-          lowerAuthor.contains('teresa') ||
-          lowerAuthor.contains('john of the cross') ||
-          lowerAuthor.contains('francis de sales')) {
-        inferredCategory = 'Doctor of the Church';
-      }
-
-      String assetPath = passage.bookId;
-      if (!assetPath.startsWith('assets/')) {
-        if (!assetPath.endsWith('.json')) {
-          assetPath = 'assets/catechism/json/$assetPath.json';
-        } else {
-          assetPath = 'assets/catechism/json/$assetPath';
-        }
-      }
-
-      matchedBook = LibraryBookItem(
-        id: passage.bookId,
-        title: passage.bookTitle,
-        subtitle: '',
-        category: inferredCategory,
-        author: passage.author,
-        authorSaintId: passage.authorSaintId,
-        description: '',
-        defaultAssetPath: assetPath,
-      );
-      matchedAssetPath = assetPath;
-    }
-
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => LibraryReaderScreen(
-          bookItem: matchedBook!,
-          initialVolumeKey: matchedVolumeKey,
-          initialAssetPath: matchedAssetPath,
+          bookItem: matchedBook,
+          initialVolumeKey: target.volumeKey,
+          initialAssetPath: target.assetPath,
           initialSectionId: passage.sectionId,
           initialItemIndex: passage.itemIndex,
           initialQuestionNumber: passage.questionNumber,

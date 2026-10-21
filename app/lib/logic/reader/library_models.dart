@@ -165,6 +165,51 @@ class LibraryBookItem {
     }
     return const [];
   }
+
+  /// Resolves a [BaltimoreVolume] for a series book by [volumeKey] or [assetPath].
+  ///
+  /// When [fallbackToFirst] is `true`, returns `volumes!.first` if no specific
+  /// volume matches.
+  BaltimoreVolume? resolveVolume({
+    String? volumeKey,
+    String? assetPath,
+    bool fallbackToFirst = true,
+  }) {
+    if (!isSeries || volumes == null || volumes!.isEmpty) {
+      return null;
+    }
+    if (volumeKey != null && volumeKey.isNotEmpty) {
+      for (final v in volumes!) {
+        if (v.volumeKey == volumeKey) return v;
+      }
+    }
+    if (assetPath != null && assetPath.isNotEmpty) {
+      for (final v in volumes!) {
+        if (v.assetPath == assetPath ||
+            v.assetPath.endsWith('/$assetPath.json') ||
+            v.assetPath.contains(assetPath)) {
+          return v;
+        }
+      }
+    }
+    return fallbackToFirst ? volumes!.first : null;
+  }
+}
+
+/// Represents a resolved [LibraryBookItem] and optional [BaltimoreVolume]
+/// target within the library catalog.
+class ResolvedLibraryTarget {
+  final LibraryBookItem book;
+  final BaltimoreVolume? volume;
+  final String? volumeKey;
+  final String? assetPath;
+
+  const ResolvedLibraryTarget({
+    required this.book,
+    this.volume,
+    this.volumeKey,
+    this.assetPath,
+  });
 }
 
 class BookSearchResult {
