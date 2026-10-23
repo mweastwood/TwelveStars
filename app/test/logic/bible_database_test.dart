@@ -93,6 +93,34 @@ void main() {
         expect(testDb.inFlightLectionaryPopulation, isNull);
       },
     );
+
+    test(
+      're-seeds lectionaryReadings when existing row count is out of date',
+      () async {
+        // Insert a single stale row into lectionaryReadings
+        await testDb
+            .into(testDb.lectionaryReadings)
+            .insert(
+              LectionaryReadingsCompanion.insert(
+                readingKey: 'stale_dummy_key',
+                readingType: 'first',
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseRange: '1-5',
+                citation: 'Genesis 1:1-5',
+              ),
+            );
+
+        // Calling getReadings should detect incomplete row count, clear stale data, and seed full dataset
+        final readings = await testDb.getReadings('season_christmas_1_12');
+        expect(readings, isNotEmpty);
+        expect(readings.first.readingKey, equals('season_christmas_1_12'));
+
+        final staleReadings = await testDb.getReadings('stale_dummy_key');
+        expect(staleReadings, isEmpty);
+      },
+    );
   });
 
   group('UserSettings Operations', () {

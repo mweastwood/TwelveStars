@@ -668,11 +668,17 @@ class LiturgicalCalendar {
 
       // St. Joseph (March 19): transferred if on a Sunday of Lent or in Holy Week
       final mar19 = DateTime(year, 3, 19);
-      DateTime? stJosephDate;
-      if (mar19.isBefore(palmSunday)) {
-        stJosephDate = mar19.weekday == DateTime.sunday
-            ? DateTime(year, 3, 20)
-            : mar19;
+      final DateTime stJosephDate;
+      if (!mar19.isBefore(palmSunday)) {
+        stJosephDate = DateTime(
+          palmSunday.year,
+          palmSunday.month,
+          palmSunday.day - 1,
+        );
+      } else if (mar19.weekday == DateTime.sunday) {
+        stJosephDate = DateTime(year, 3, 20);
+      } else {
+        stJosephDate = mar19;
       }
 
       // Annunciation (March 25): transferred to Monday after 2nd Sunday of Easter
@@ -691,19 +697,32 @@ class LiturgicalCalendar {
         annunciationDate = mar25;
       }
 
+      // Nativity of St. John the Baptist (June 24): anticipated on June 23
+      // (or transferred to June 25 if June 23 is Corpus Christi) when colliding
+      // with the Solemnity of the Most Sacred Heart of Jesus.
+      final DateTime stJohnBaptistDate;
+      if (sacredHeart.month == 6 && sacredHeart.day == 24) {
+        stJohnBaptistDate =
+            (corpusChristi.month == 6 && corpusChristi.day == 23)
+            ? DateTime(year, 6, 25)
+            : DateTime(year, 6, 23);
+      } else {
+        stJohnBaptistDate = DateTime(year, 6, 24);
+      }
+
       // Immaculate Conception (December 8): transferred to Dec 9 if falling on a Sunday of Advent
       final dec8 = DateTime(year, 12, 8);
       final immaculateConceptionDate = dec8.weekday == DateTime.sunday
           ? DateTime(year, 12, 9)
           : dec8;
 
-      if (stJosephDate != null && localDate.isAtSameMomentAs(stJosephDate)) {
+      if (localDate.isAtSameMomentAs(stJosephDate)) {
         name = 'St. Joseph, Spouse of the Blessed Virgin Mary';
         color = LiturgicalColor.white;
       } else if (localDate.isAtSameMomentAs(annunciationDate)) {
         name = 'The Annunciation of the Lord';
         color = LiturgicalColor.white;
-      } else if (localDate.month == 6 && localDate.day == 24) {
+      } else if (localDate.isAtSameMomentAs(stJohnBaptistDate)) {
         name = 'Nativity of St. John the Baptist';
         color = LiturgicalColor.white;
       } else if (localDate.month == 6 && localDate.day == 29) {

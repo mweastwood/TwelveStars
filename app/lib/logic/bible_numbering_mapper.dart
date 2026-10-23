@@ -867,7 +867,7 @@ class BibleVerseResolver {
       if (chapter == 56) {
         return (
           chapter: 55,
-          verses: verses.map((v) => v > 1 ? v - 1 : 1).toList(),
+          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
         );
       }
       final baseChapter = masoreticToVulgatePsalm(chapter);
@@ -970,7 +970,7 @@ class BibleVerseResolver {
       if (chapter == 32) {
         return (
           chapter: chapter,
-          verses: verses.map((v) => v > 1 ? v - 1 : 1).toList(),
+          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
         );
       }
       if (chapter == 50) {

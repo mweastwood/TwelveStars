@@ -558,6 +558,19 @@ void main() {
           expect(unbalancedLeading[1].isCitation, isTrue);
           expect(unbalancedLeading[1].citation!.rawMatch, 'Romans 8:28');
           expect(unbalancedLeading[2].text, ', 31)');
+
+          final wholeChapBeforePronounI = BibleCitationParser.parse(
+            'See Matthew 5. I say to you',
+          );
+          expect(wholeChapBeforePronounI.length, 3);
+          expect(wholeChapBeforePronounI[0].text, 'See ');
+          expect(wholeChapBeforePronounI[1].isCitation, isTrue);
+          expect(wholeChapBeforePronounI[1].citation!.bookName, 'Matthew');
+          expect(wholeChapBeforePronounI[1].citation!.chapter, 5);
+          expect(wholeChapBeforePronounI[1].citation!.verse, isNull);
+          expect(wholeChapBeforePronounI[1].citation!.isEntireChapter, isTrue);
+          expect(wholeChapBeforePronounI[1].citation!.rawMatch, 'Matthew 5');
+          expect(wholeChapBeforePronounI[2].text, '. I say to you');
         },
       );
     });

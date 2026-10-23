@@ -560,6 +560,40 @@ void main() {
         );
         expect(apr8Transferred.name, 'The Annunciation of the Lord');
         expect(apr8Transferred.lectionaryKey, 'feast_annunciation');
+
+        // Mar 19, 2008 falls in Holy Week (Easter is Mar 23, 2008; Palm Sunday is Mar 16, 2008).
+        // St. Joseph transfers to Saturday before Palm Sunday (Mar 15, 2008).
+        final mar19HolyWeek2008 = LiturgicalCalendar.computeDay(
+          DateTime(2008, 3, 19),
+        );
+        expect(mar19HolyWeek2008.season, LiturgicalSeason.lent);
+        expect(mar19HolyWeek2008.name, isNull);
+        expect(mar19HolyWeek2008.weekName, 'Wednesday of Holy Week');
+        expect(mar19HolyWeek2008.lectionaryKey, 'season_lent_6_wednesday');
+
+        final mar15StJoseph2008 = LiturgicalCalendar.computeDay(
+          DateTime(2008, 3, 15),
+        );
+        expect(
+          mar15StJoseph2008.name,
+          'St. Joseph, Spouse of the Blessed Virgin Mary',
+        );
+        expect(mar15StJoseph2008.lectionaryKey, 'feast_st_joseph');
+
+        // Jun 24, 2022 collides with the Solemnity of the Most Sacred Heart of Jesus
+        // (Easter is Apr 17, 2022; Sacred Heart is Apr 17 + 68 days = Jun 24, 2022).
+        // Nativity of St. John the Baptist transfers to Jun 23, 2022.
+        final jun24SacredHeart2022 = LiturgicalCalendar.computeDay(
+          DateTime(2022, 6, 24),
+        );
+        expect(jun24SacredHeart2022.name, 'The Most Sacred Heart of Jesus');
+        expect(jun24SacredHeart2022.lectionaryKey, 'feast_sacred_heart');
+
+        final jun23StJohnBaptist2022 = LiturgicalCalendar.computeDay(
+          DateTime(2022, 6, 23),
+        );
+        expect(jun23StJohnBaptist2022.name, 'Nativity of St. John the Baptist');
+        expect(jun23StJohnBaptist2022.lectionaryKey, 'feast_st_john_baptist');
       },
     );
 
@@ -600,35 +634,32 @@ void main() {
       }
     });
 
-    test(
-      'every liturgical day from 2023 through 2028 (excluding Holy Saturday) '
-      'resolves to a reading_key present in lectionary.json',
-      () {
-        final file = File('assets/bible/lectionary.json');
-        final rawList = jsonDecode(file.readAsStringSync()) as List<dynamic>;
-        final availableKeys = rawList
-            .map((e) => (e as Map<String, dynamic>)['reading_key'] as String)
-            .toSet();
+    test('every liturgical day from 2000 through 2050 (excluding Holy Saturday) '
+        'resolves to a reading_key present in lectionary.json', () {
+      final file = File('assets/bible/lectionary.json');
+      final rawList = jsonDecode(file.readAsStringSync()) as List<dynamic>;
+      final availableKeys = rawList
+          .map((e) => (e as Map<String, dynamic>)['reading_key'] as String)
+          .toSet();
 
-        final missing = <String>[];
-        for (int year = 2023; year <= 2028; year++) {
-          var date = DateTime(year, 1, 1);
-          final end = DateTime(year, 12, 31);
-          while (!date.isAfter(end)) {
-            final day = LiturgicalCalendar.computeDay(date);
-            if (day.weekName != 'Holy Saturday') {
-              final key = day.lectionaryKey;
-              if (!availableKeys.contains(key)) {
-                missing.add(
-                  '${date.toIso8601String().split("T").first} (${day.displayTitle}): $key',
-                );
-              }
+      final missing = <String>[];
+      for (int year = 2000; year <= 2050; year++) {
+        var date = DateTime(year, 1, 1);
+        final end = DateTime(year, 12, 31);
+        while (!date.isAfter(end)) {
+          final day = LiturgicalCalendar.computeDay(date);
+          if (day.weekName != 'Holy Saturday') {
+            final key = day.lectionaryKey;
+            if (!availableKeys.contains(key)) {
+              missing.add(
+                '${date.toIso8601String().split("T").first} (${day.name ?? day.weekName}): $key',
+              );
             }
-            date = DateTime(date.year, date.month, date.day + 1);
           }
+          date = DateTime(date.year, date.month, date.day + 1);
         }
-        expect(missing, isEmpty);
-      },
-    );
+      }
+      expect(missing, isEmpty);
+    });
   });
 }

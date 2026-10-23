@@ -82,7 +82,7 @@ class BibleCitationParser {
     r'\.?\s*(\d{1,3})'
     r')'
     r'(?:\s*\[\d{1,3}(?::\d{1,3})?\])?'
-    r'(?:'
+    r'('
     r'[\:\.\,\s]+([0-9ivxlcdmIVXLCDM]+)'
     r'(?:\s*[\-\u2013\u2014]\s*([0-9ivxlcdmIVXLCDM]+))?'
     r')?'
@@ -105,8 +105,9 @@ class BibleCitationParser {
       final rawBook = match.group(1)!.trim().replaceAll('.', '');
       final rawRomanChap = match.group(2)?.trim();
       final rawArabicChap = match.group(3)?.trim();
-      final rawVerse = match.group(4)?.trim();
-      final rawEndVerse = match.group(5)?.trim();
+      final rawVerseSuffix = match.group(4);
+      final rawVerse = match.group(5)?.trim();
+      final rawEndVerse = match.group(6)?.trim();
 
       var bookKey = rawBook
           .toLowerCase()
@@ -135,20 +136,27 @@ class BibleCitationParser {
       }
 
       int? verse;
+      bool ignoreVerseSuffix = false;
       if (rawVerse != null) {
         verse = int.tryParse(rawVerse);
-        if (verse == null && _strictRomanRegex.hasMatch(rawVerse)) {
+        if (verse == null &&
+            rawRomanChap != null &&
+            _strictRomanRegex.hasMatch(rawVerse)) {
           verse = _romanToDecimal(rawVerse);
         }
-        if (verse == null || verse < 1 || verse > 200) {
+        if (verse == null) {
+          ignoreVerseSuffix = true;
+        } else if (verse < 1 || verse > 200) {
           continue;
         }
       }
 
       int? endVerse;
-      if (rawEndVerse != null) {
+      if (!ignoreVerseSuffix && rawEndVerse != null) {
         endVerse = int.tryParse(rawEndVerse);
-        if (endVerse == null && _strictRomanRegex.hasMatch(rawEndVerse)) {
+        if (endVerse == null &&
+            rawRomanChap != null &&
+            _strictRomanRegex.hasMatch(rawEndVerse)) {
           endVerse = _romanToDecimal(rawEndVerse);
         }
         if (endVerse == null ||
@@ -162,6 +170,21 @@ class BibleCitationParser {
       int matchStart = match.start;
       int matchEnd = match.end;
       String rawMatch = match.group(0)!;
+      if (ignoreVerseSuffix && rawVerseSuffix != null) {
+        if (rawMatch.endsWith(')')) {
+          matchEnd -= rawVerseSuffix.length + 1;
+          rawMatch = rawMatch.substring(
+            0,
+            rawMatch.length - rawVerseSuffix.length - 1,
+          );
+        } else {
+          matchEnd -= rawVerseSuffix.length;
+          rawMatch = rawMatch.substring(
+            0,
+            rawMatch.length - rawVerseSuffix.length,
+          );
+        }
+      }
       final hasLeadingParen = rawMatch.startsWith('(');
       final hasTrailingParen = rawMatch.endsWith(')');
       if (hasLeadingParen && !hasTrailingParen) {

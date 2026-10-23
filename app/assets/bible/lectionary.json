@@ -1287,6 +1287,33 @@
     "citation": "Psalm 85:9ab, 10, 11-12, 13-14"
   },
   {
+    "reading_key": "season_advent_4_friday",
+    "reading_type": "first",
+    "book_number": 10,
+    "book_name": "2 Samuel",
+    "chapter": 7,
+    "verse_range": "1-5, 8b-12, 14a, 16",
+    "citation": "2 Samuel 7:1-5, 8b-12, 14a, 16"
+  },
+  {
+    "reading_key": "season_advent_4_friday",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 1,
+    "verse_range": "67-79",
+    "citation": "Luke 1:67-79"
+  },
+  {
+    "reading_key": "season_advent_4_friday",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 89,
+    "verse_range": "2-3, 4-5, 27, 29",
+    "citation": "Psalm 89:2-3, 4-5, 27, 29"
+  },
+  {
     "reading_key": "season_advent_4_monday",
     "reading_type": "first",
     "book_number": 24,
@@ -1312,6 +1339,33 @@
     "chapter": 33,
     "verse_range": "2-3, 11-12, 20-21",
     "citation": "Psalm 33:2-3, 11-12, 20-21"
+  },
+  {
+    "reading_key": "season_advent_4_saturday",
+    "reading_type": "first",
+    "book_number": 10,
+    "book_name": "2 Samuel",
+    "chapter": 7,
+    "verse_range": "1-5, 8b-12, 14a, 16",
+    "citation": "2 Samuel 7:1-5, 8b-12, 14a, 16"
+  },
+  {
+    "reading_key": "season_advent_4_saturday",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 1,
+    "verse_range": "67-79",
+    "citation": "Luke 1:67-79"
+  },
+  {
+    "reading_key": "season_advent_4_saturday",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 89,
+    "verse_range": "2-3, 4-5, 27, 29",
+    "citation": "Psalm 89:2-3, 4-5, 27, 29"
   },
   {
     "reading_key": "season_advent_4_sunday_a",
@@ -1789,6 +1843,33 @@
     "chapter": 149,
     "verse_range": "1-2, 3-4, 5-6a and 9b",
     "citation": "Psalm 149:1-2, 3-4, 5-6a and 9b"
+  },
+  {
+    "reading_key": "season_christmas_1_12",
+    "reading_type": "first",
+    "book_number": 72,
+    "book_name": "1 John",
+    "chapter": 5,
+    "verse_range": "14-21",
+    "citation": "1 John 5:14-21"
+  },
+  {
+    "reading_key": "season_christmas_1_12",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 3,
+    "verse_range": "22-30",
+    "citation": "John 3:22-30"
+  },
+  {
+    "reading_key": "season_christmas_1_12",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 149,
+    "verse_range": "1-2, 3-4, 5, 6a, 9b",
+    "citation": "Psalm 149:1-2, 3-4, 5, 6a, 9b"
   },
   {
     "reading_key": "season_christmas_1_2",
@@ -3591,6 +3672,33 @@
     "citation": "Revelation 21:10-14, 22-23"
   },
   {
+    "reading_key": "season_easter_6_thursday",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 18,
+    "verse_range": "1-8",
+    "citation": "Acts 18:1-8"
+  },
+  {
+    "reading_key": "season_easter_6_thursday",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 16,
+    "verse_range": "16-20",
+    "citation": "John 16:16-20"
+  },
+  {
+    "reading_key": "season_easter_6_thursday",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 98,
+    "verse_range": "1, 2-3ab, 3cd-4",
+    "citation": "Psalm 98:1, 2-3ab, 3cd-4"
+  },
+  {
     "reading_key": "season_easter_6_tuesday",
     "reading_type": "first",
     "book_number": 53,
@@ -3787,6 +3895,42 @@
     "chapter": 4,
     "verse_range": "11-16",
     "citation": "1 John 4:11-16"
+  },
+  {
+    "reading_key": "season_easter_7_sunday_c",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 7,
+    "verse_range": "55-60",
+    "citation": "Acts 7:55-60"
+  },
+  {
+    "reading_key": "season_easter_7_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 17,
+    "verse_range": "20-26",
+    "citation": "John 17:20-26"
+  },
+  {
+    "reading_key": "season_easter_7_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 97,
+    "verse_range": "1-2, 6-7, 9",
+    "citation": "Psalm 97:1-2, 6-7, 9"
+  },
+  {
+    "reading_key": "season_easter_7_sunday_c",
+    "reading_type": "second",
+    "book_number": 76,
+    "book_name": "Revelation",
+    "chapter": 22,
+    "verse_range": "12-14, 16-17, 20",
+    "citation": "Revelation 22:12-14, 16-17, 20"
   },
   {
     "reading_key": "season_easter_7_thursday",
@@ -4518,6 +4662,42 @@
     "citation": "Romans 8:31b-34"
   },
   {
+    "reading_key": "season_lent_2_sunday_c",
+    "reading_type": "first",
+    "book_number": 1,
+    "book_name": "Genesis",
+    "chapter": 15,
+    "verse_range": "5-12, 17-18",
+    "citation": "Genesis 15:5-12, 17-18"
+  },
+  {
+    "reading_key": "season_lent_2_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 9,
+    "verse_range": "28b-36",
+    "citation": "Luke 9:28b-36"
+  },
+  {
+    "reading_key": "season_lent_2_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 27,
+    "verse_range": "1, 7-8, 8-9, 13-14",
+    "citation": "Psalm 27:1, 7-8, 8-9, 13-14"
+  },
+  {
+    "reading_key": "season_lent_2_sunday_c",
+    "reading_type": "second",
+    "book_number": 59,
+    "book_name": "Philippians",
+    "chapter": 3,
+    "verse_range": "17-4",
+    "citation": "Philippians 3:17—4:1"
+  },
+  {
     "reading_key": "season_lent_2_thursday",
     "reading_type": "first",
     "book_number": 28,
@@ -4750,6 +4930,42 @@
     "chapter": 5,
     "verse_range": "1-2, 5-8",
     "citation": "Romans 5:1-2, 5-8"
+  },
+  {
+    "reading_key": "season_lent_3_sunday_c",
+    "reading_type": "first",
+    "book_number": 2,
+    "book_name": "Exodus",
+    "chapter": 3,
+    "verse_range": "1-8a, 13-15",
+    "citation": "Exodus 3:1-8a, 13-15"
+  },
+  {
+    "reading_key": "season_lent_3_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 13,
+    "verse_range": "1-9",
+    "citation": "Luke 13:1-9"
+  },
+  {
+    "reading_key": "season_lent_3_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 103,
+    "verse_range": "1-2, 3-4, 6-7, 8, 11",
+    "citation": "Psalm 103:1-2, 3-4, 6-7, 8, 11"
+  },
+  {
+    "reading_key": "season_lent_3_sunday_c",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 10,
+    "verse_range": "1-6, 10-12",
+    "citation": "1 Corinthians 10:1-6, 10-12"
   },
   {
     "reading_key": "season_lent_3_thursday",
@@ -4993,6 +5209,42 @@
     "chapter": 5,
     "verse_range": "8-14",
     "citation": "Ephesians 5:8-14"
+  },
+  {
+    "reading_key": "season_lent_4_sunday_c",
+    "reading_type": "first",
+    "book_number": 6,
+    "book_name": "Joshua",
+    "chapter": 5,
+    "verse_range": "9a, 10-12",
+    "citation": "Joshua 5:9a, 10-12"
+  },
+  {
+    "reading_key": "season_lent_4_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 15,
+    "verse_range": "1-3, 11-32",
+    "citation": "Luke 15:1-3, 11-32"
+  },
+  {
+    "reading_key": "season_lent_4_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 34,
+    "verse_range": "2-3, 4-5, 6-7",
+    "citation": "Psalm 34:2-3, 4-5, 6-7"
+  },
+  {
+    "reading_key": "season_lent_4_sunday_c",
+    "reading_type": "second",
+    "book_number": 56,
+    "book_name": "2 Corinthians",
+    "chapter": 5,
+    "verse_range": "17-21",
+    "citation": "2 Corinthians 5:17-21"
   },
   {
     "reading_key": "season_lent_4_thursday",
@@ -5733,6 +5985,42 @@
     "citation": "Psalm 16:1b-2a and 5, 7-8, 9-10"
   },
   {
+    "reading_key": "season_ordinary_time_10_sunday_a",
+    "reading_type": "first",
+    "book_number": 33,
+    "book_name": "Hosea",
+    "chapter": 6,
+    "verse_range": "3-6",
+    "citation": "Hosea 6:3-6"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 9,
+    "verse_range": "9-13",
+    "citation": "Matthew 9:9-13"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 50,
+    "verse_range": "1, 8, 12-13, 14-15",
+    "citation": "Psalm 50:1, 8, 12-13, 14-15"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_a",
+    "reading_type": "second",
+    "book_number": 54,
+    "book_name": "Romans",
+    "chapter": 4,
+    "verse_range": "18-25",
+    "citation": "Romans 4:18-25"
+  },
+  {
     "reading_key": "season_ordinary_time_10_sunday_b",
     "reading_type": "first",
     "book_number": 1,
@@ -5767,6 +6055,42 @@
     "chapter": 4,
     "verse_range": "13-5",
     "citation": "2 Cor 4:13—5:1"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_c",
+    "reading_type": "first",
+    "book_number": 11,
+    "book_name": "1 Kings",
+    "chapter": 17,
+    "verse_range": "17-24",
+    "citation": "1 Kings 17:17-24"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 7,
+    "verse_range": "11-17",
+    "citation": "Luke 7:11-17"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 30,
+    "verse_range": "2, 4, 5-6, 11, 12a, 13b",
+    "citation": "Psalm 30:2, 4, 5-6, 11, 12a, 13b"
+  },
+  {
+    "reading_key": "season_ordinary_time_10_sunday_c",
+    "reading_type": "second",
+    "book_number": 57,
+    "book_name": "Galatians",
+    "chapter": 1,
+    "verse_range": "11-19",
+    "citation": "Galatians 1:11-19"
   },
   {
     "reading_key": "season_ordinary_time_10_thursday_1",
@@ -6165,6 +6489,42 @@
     "citation": "2 Cor 5:6-10"
   },
   {
+    "reading_key": "season_ordinary_time_11_sunday_c",
+    "reading_type": "first",
+    "book_number": 10,
+    "book_name": "2 Samuel",
+    "chapter": 12,
+    "verse_range": "7-10, 13",
+    "citation": "2 Samuel 12:7-10, 13"
+  },
+  {
+    "reading_key": "season_ordinary_time_11_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 7,
+    "verse_range": "36-8",
+    "citation": "Luke 7:36—8:3"
+  },
+  {
+    "reading_key": "season_ordinary_time_11_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 32,
+    "verse_range": "1-2, 5, 7, 11",
+    "citation": "Psalm 32:1-2, 5, 7, 11"
+  },
+  {
+    "reading_key": "season_ordinary_time_11_sunday_c",
+    "reading_type": "second",
+    "book_number": 57,
+    "book_name": "Galatians",
+    "chapter": 2,
+    "verse_range": "16, 19-21",
+    "citation": "Galatians 2:16, 19-21"
+  },
+  {
     "reading_key": "season_ordinary_time_11_thursday_1",
     "reading_type": "first",
     "book_number": 56,
@@ -6541,6 +6901,42 @@
     "chapter": 5,
     "verse_range": "14-17",
     "citation": "2 Cor 5:14-17"
+  },
+  {
+    "reading_key": "season_ordinary_time_12_sunday_c",
+    "reading_type": "first",
+    "book_number": 43,
+    "book_name": "Zechariah",
+    "chapter": 12,
+    "verse_range": "10-11; 13:1",
+    "citation": "Zechariah 12:10-11; 13:1"
+  },
+  {
+    "reading_key": "season_ordinary_time_12_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 9,
+    "verse_range": "18-24",
+    "citation": "Luke 9:18-24"
+  },
+  {
+    "reading_key": "season_ordinary_time_12_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 63,
+    "verse_range": "2, 3-4, 5-6, 8-9",
+    "citation": "Psalm 63:2, 3-4, 5-6, 8-9"
+  },
+  {
+    "reading_key": "season_ordinary_time_12_sunday_c",
+    "reading_type": "second",
+    "book_number": 57,
+    "book_name": "Galatians",
+    "chapter": 3,
+    "verse_range": "26-29",
+    "citation": "Galatians 3:26-29"
   },
   {
     "reading_key": "season_ordinary_time_12_thursday_1",
@@ -6937,6 +7333,42 @@
     "chapter": 8,
     "verse_range": "7, 9, 13-15",
     "citation": "2 Cor 8:7, 9, 13-15"
+  },
+  {
+    "reading_key": "season_ordinary_time_13_sunday_c",
+    "reading_type": "first",
+    "book_number": 11,
+    "book_name": "1 Kings",
+    "chapter": 19,
+    "verse_range": "16b, 19-21",
+    "citation": "1 Kings 19:16b, 19-21"
+  },
+  {
+    "reading_key": "season_ordinary_time_13_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 9,
+    "verse_range": "51-62",
+    "citation": "Luke 9:51-62"
+  },
+  {
+    "reading_key": "season_ordinary_time_13_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 16,
+    "verse_range": "1-2, 5, 7-8, 9-10, 11",
+    "citation": "Psalm 16:1-2, 5, 7-8, 9-10, 11"
+  },
+  {
+    "reading_key": "season_ordinary_time_13_sunday_c",
+    "reading_type": "second",
+    "book_number": 57,
+    "book_name": "Galatians",
+    "chapter": 5,
+    "verse_range": "1, 13-18",
+    "citation": "Galatians 5:1, 13-18"
   },
   {
     "reading_key": "season_ordinary_time_13_thursday_1",
@@ -16938,6 +17370,33 @@
     "citation": "PS 19:8, 9, 10, 11"
   },
   {
+    "reading_key": "season_ordinary_time_34_thursday_2",
+    "reading_type": "first",
+    "book_number": 76,
+    "book_name": "Revelation",
+    "chapter": 18,
+    "verse_range": "1-2, 21-23; 19:1-3, 9a",
+    "citation": "Revelation 18:1-2, 21-23; 19:1-3, 9a"
+  },
+  {
+    "reading_key": "season_ordinary_time_34_thursday_2",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 21,
+    "verse_range": "20-28",
+    "citation": "Luke 21:20-28"
+  },
+  {
+    "reading_key": "season_ordinary_time_34_thursday_2",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 100,
+    "verse_range": "1b-2, 3, 4, 5",
+    "citation": "Psalm 100:1b-2, 3, 4, 5"
+  },
+  {
     "reading_key": "season_ordinary_time_34_tuesday_1",
     "reading_type": "first",
     "book_number": 32,
@@ -18405,6 +18864,33 @@
     "citation": "Psalm 33:10-11, 12-13, 14-15"
   },
   {
+    "reading_key": "season_ordinary_time_6_friday_2",
+    "reading_type": "first",
+    "book_number": 69,
+    "book_name": "James",
+    "chapter": 2,
+    "verse_range": "14-24, 26",
+    "citation": "James 2:14-24, 26"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_friday_2",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 8,
+    "verse_range": "34-9",
+    "citation": "Mark 8:34—9:1"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_friday_2",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 112,
+    "verse_range": "1-2, 3-4, 5-6",
+    "citation": "Psalm 112:1-2, 3-4, 5-6"
+  },
+  {
     "reading_key": "season_ordinary_time_6_monday_1",
     "reading_type": "first",
     "book_number": 1,
@@ -18486,6 +18972,33 @@
     "citation": "Psalm 23:1-3a, 4, 5, 6"
   },
   {
+    "reading_key": "season_ordinary_time_6_saturday_2",
+    "reading_type": "first",
+    "book_number": 69,
+    "book_name": "James",
+    "chapter": 3,
+    "verse_range": "1-10",
+    "citation": "James 3:1-10"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_saturday_2",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 9,
+    "verse_range": "2-13",
+    "citation": "Mark 9:2-13"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_saturday_2",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 12,
+    "verse_range": "2-3, 4-5, 7-8",
+    "citation": "Psalm 12:2-3, 4-5, 7-8"
+  },
+  {
     "reading_key": "season_ordinary_time_6_sunday_a",
     "reading_type": "first",
     "book_number": 26,
@@ -18520,6 +19033,42 @@
     "chapter": 2,
     "verse_range": "6-10",
     "citation": "1 Corinthians 2:6-10"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_sunday_b",
+    "reading_type": "first",
+    "book_number": 3,
+    "book_name": "Leviticus",
+    "chapter": 13,
+    "verse_range": "1-2, 44-46",
+    "citation": "Leviticus 13:1-2, 44-46"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 1,
+    "verse_range": "40-45",
+    "citation": "Mark 1:40-45"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 32,
+    "verse_range": "1-2, 5, 11",
+    "citation": "Psalm 32:1-2, 5, 11"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_sunday_b",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 10,
+    "verse_range": "31-11",
+    "citation": "1 Corinthians 10:31—11:1"
   },
   {
     "reading_key": "season_ordinary_time_6_sunday_c",
@@ -18583,6 +19132,33 @@
     "chapter": 102,
     "verse_range": "16-18, 19-21, 29 and 22-23",
     "citation": "Psalm 102:16-18, 19-21, 29 and 22-23"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_thursday_2",
+    "reading_type": "first",
+    "book_number": 69,
+    "book_name": "James",
+    "chapter": 2,
+    "verse_range": "1-9",
+    "citation": "James 2:1-9"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_thursday_2",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 8,
+    "verse_range": "27-33",
+    "citation": "Mark 8:27-33"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_thursday_2",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 34,
+    "verse_range": "2-3, 4-5, 6-7",
+    "citation": "Psalm 34:2-3, 4-5, 6-7"
   },
   {
     "reading_key": "season_ordinary_time_6_tuesday_1",
@@ -18664,6 +19240,33 @@
     "chapter": 116,
     "verse_range": "12-13, 14-15, 18-19",
     "citation": "Psalm 116:12-13, 14-15, 18-19"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_wednesday_2",
+    "reading_type": "first",
+    "book_number": 69,
+    "book_name": "James",
+    "chapter": 1,
+    "verse_range": "19-27",
+    "citation": "James 1:19-27"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_wednesday_2",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 8,
+    "verse_range": "22-26",
+    "citation": "Mark 8:22-26"
+  },
+  {
+    "reading_key": "season_ordinary_time_6_wednesday_2",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 15,
+    "verse_range": "2-3a, 3bc-4ab, 5",
+    "citation": "Psalm 15:2-3a, 3bc-4ab, 5"
   },
   {
     "reading_key": "season_ordinary_time_7_friday_1",
@@ -18817,6 +19420,78 @@
     "chapter": 141,
     "verse_range": "1-2, 3 and 8",
     "citation": "PS 141:1-2, 3 and 8"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_a",
+    "reading_type": "first",
+    "book_number": 3,
+    "book_name": "Leviticus",
+    "chapter": 19,
+    "verse_range": "1-2, 17-18",
+    "citation": "Leviticus 19:1-2, 17-18"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 5,
+    "verse_range": "38-48",
+    "citation": "Matthew 5:38-48"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 103,
+    "verse_range": "1-2, 3-4, 8, 10, 12-13",
+    "citation": "Psalm 103:1-2, 3-4, 8, 10, 12-13"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_a",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 3,
+    "verse_range": "16-23",
+    "citation": "1 Corinthians 3:16-23"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_b",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 43,
+    "verse_range": "18-19, 21-22, 24b-25",
+    "citation": "Isaiah 43:18-19, 21-22, 24b-25"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 2,
+    "verse_range": "1-12",
+    "citation": "Mark 2:1-12"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 41,
+    "verse_range": "2-3, 4-5, 13-14",
+    "citation": "Psalm 41:2-3, 4-5, 13-14"
+  },
+  {
+    "reading_key": "season_ordinary_time_7_sunday_b",
+    "reading_type": "second",
+    "book_number": 56,
+    "book_name": "2 Corinthians",
+    "chapter": 1,
+    "verse_range": "18-22",
+    "citation": "2 Corinthians 1:18-22"
   },
   {
     "reading_key": "season_ordinary_time_7_sunday_c",
@@ -19159,6 +19834,78 @@
     "chapter": 63,
     "verse_range": "2, 3-4, 5-6",
     "citation": "Psalm 63:2, 3-4, 5-6"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_a",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 49,
+    "verse_range": "14-15",
+    "citation": "Isaiah 49:14-15"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 6,
+    "verse_range": "24-34",
+    "citation": "Matthew 6:24-34"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 62,
+    "verse_range": "2-3, 6-7, 8-9",
+    "citation": "Psalm 62:2-3, 6-7, 8-9"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_a",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 4,
+    "verse_range": "1-5",
+    "citation": "1 Corinthians 4:1-5"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_b",
+    "reading_type": "first",
+    "book_number": 33,
+    "book_name": "Hosea",
+    "chapter": 2,
+    "verse_range": "16b, 17b, 21-22",
+    "citation": "Hosea 2:16b, 17b, 21-22"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 2,
+    "verse_range": "18-22",
+    "citation": "Mark 2:18-22"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 103,
+    "verse_range": "1-2, 3-4, 8, 10, 12-13",
+    "citation": "Psalm 103:1-2, 3-4, 8, 10, 12-13"
+  },
+  {
+    "reading_key": "season_ordinary_time_8_sunday_b",
+    "reading_type": "second",
+    "book_number": 56,
+    "book_name": "2 Corinthians",
+    "chapter": 3,
+    "verse_range": "1b-6",
+    "citation": "2 Corinthians 3:1b-6"
   },
   {
     "reading_key": "season_ordinary_time_8_sunday_c",
@@ -19519,6 +20266,114 @@
     "chapter": 71,
     "verse_range": "8-9, 14-15AB, 16-17, 22",
     "citation": "Psalm 71:8-9, 14-15AB, 16-17, 22"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_a",
+    "reading_type": "first",
+    "book_number": 5,
+    "book_name": "Deuteronomy",
+    "chapter": 11,
+    "verse_range": "18, 26-28, 32",
+    "citation": "Deuteronomy 11:18, 26-28, 32"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 7,
+    "verse_range": "21-27",
+    "citation": "Matthew 7:21-27"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 31,
+    "verse_range": "2-3a, 3bc-4, 17, 25",
+    "citation": "Psalm 31:2-3a, 3bc-4, 17, 25"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_a",
+    "reading_type": "second",
+    "book_number": 54,
+    "book_name": "Romans",
+    "chapter": 3,
+    "verse_range": "21-25, 28",
+    "citation": "Romans 3:21-25, 28"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_b",
+    "reading_type": "first",
+    "book_number": 5,
+    "book_name": "Deuteronomy",
+    "chapter": 5,
+    "verse_range": "12-15",
+    "citation": "Deuteronomy 5:12-15"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 2,
+    "verse_range": "23-3",
+    "citation": "Mark 2:23—3:6"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 81,
+    "verse_range": "3-4, 5-6ab, 6c-8a, 10-11ab",
+    "citation": "Psalm 81:3-4, 5-6ab, 6c-8a, 10-11ab"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_b",
+    "reading_type": "second",
+    "book_number": 56,
+    "book_name": "2 Corinthians",
+    "chapter": 4,
+    "verse_range": "6-11",
+    "citation": "2 Corinthians 4:6-11"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_c",
+    "reading_type": "first",
+    "book_number": 11,
+    "book_name": "1 Kings",
+    "chapter": 8,
+    "verse_range": "41-43",
+    "citation": "1 Kings 8:41-43"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 7,
+    "verse_range": "1-10",
+    "citation": "Luke 7:1-10"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 117,
+    "verse_range": "1, 2",
+    "citation": "Psalm 117:1, 2"
+  },
+  {
+    "reading_key": "season_ordinary_time_9_sunday_c",
+    "reading_type": "second",
+    "book_number": 57,
+    "book_name": "Galatians",
+    "chapter": 1,
+    "verse_range": "1-2, 6-10",
+    "citation": "Galatians 1:1-2, 6-10"
   },
   {
     "reading_key": "season_ordinary_time_9_thursday_1",

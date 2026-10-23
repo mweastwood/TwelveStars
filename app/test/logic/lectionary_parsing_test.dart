@@ -1660,7 +1660,7 @@ void main() {
         defaultVerseRange: '1-3',
         citation: 'Psalm 56:1-3',
         expected: [
-          const ChapterVerseRange(chapter: 55, verses: [1, 1, 2]),
+          const ChapterVerseRange(chapter: 55, verses: [1, 2]),
         ],
       ),
       _TestCase(
@@ -1671,7 +1671,7 @@ void main() {
         defaultVerseRange: '1-3',
         citation: 'Genesis 32:1-3',
         expected: [
-          const ChapterVerseRange(chapter: 32, verses: [1, 1, 2]),
+          const ChapterVerseRange(chapter: 32, verses: [1, 2]),
         ],
       ),
     ];

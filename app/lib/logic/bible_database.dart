@@ -756,17 +756,33 @@ class BibleDatabase extends _$BibleDatabase {
     return future;
   }
 
+  static List<dynamic>? _cachedLectionaryJson;
+
   Future<void> _ensureLectionaryPopulatedImpl() async {
     try {
-      final countCheck = await (select(lectionaryReadings)..limit(1)).get();
-      if (countCheck.isNotEmpty) {
-        return; // Already populated
+      final countExp = lectionaryReadings.id.count();
+      final countQuery = selectOnly(lectionaryReadings)..addColumns([countExp]);
+      final existingCount =
+          await countQuery.map((row) => row.read(countExp)).getSingle() ?? 0;
+
+      final List<dynamic> decoded;
+      if (_cachedLectionaryJson != null) {
+        decoded = _cachedLectionaryJson!;
+      } else {
+        final jsonContent = await rootBundle.loadString(
+          'assets/bible/lectionary.json',
+        );
+        decoded = jsonDecode(jsonContent) as List<dynamic>;
+        _cachedLectionaryJson = decoded;
       }
 
-      final jsonContent = await rootBundle.loadString(
-        'assets/bible/lectionary.json',
-      );
-      final List<dynamic> decoded = jsonDecode(jsonContent);
+      if (existingCount >= decoded.length) {
+        return; // Already populated with current dataset
+      }
+
+      if (existingCount > 0) {
+        await delete(lectionaryReadings).go();
+      }
 
       await batch((batch) {
         batch.insertAll(
