@@ -529,6 +529,50 @@ void main() {
           expect(citations[2].displayLabel, 'Malachi 1:11');
         },
       );
+
+      test(
+        'parses Roman numeral chapters immediately after a period and trims unbalanced parentheses',
+        () {
+          final romCompact = BibleCitationParser.parse('See Rom.viii.28 here.');
+          expect(romCompact.length, 3);
+          expect(romCompact[1].isCitation, isTrue);
+          expect(romCompact[1].citation!.bookName, 'Romans');
+          expect(romCompact[1].citation!.chapter, 8);
+          expect(romCompact[1].citation!.verse, 28);
+          expect(romCompact[1].citation!.rawMatch, 'Rom.viii.28');
+
+          final unbalancedTrailing = BibleCitationParser.parse(
+            '(see Romans 8:28)',
+          );
+          expect(unbalancedTrailing.length, 3);
+          expect(unbalancedTrailing[0].text, '(see ');
+          expect(unbalancedTrailing[1].isCitation, isTrue);
+          expect(unbalancedTrailing[1].citation!.rawMatch, 'Romans 8:28');
+          expect(unbalancedTrailing[2].text, ')');
+
+          final unbalancedLeading = BibleCitationParser.parse(
+            '(Romans 8:28, 31)',
+          );
+          expect(unbalancedLeading.length, 3);
+          expect(unbalancedLeading[0].text, '(');
+          expect(unbalancedLeading[1].isCitation, isTrue);
+          expect(unbalancedLeading[1].citation!.rawMatch, 'Romans 8:28');
+          expect(unbalancedLeading[2].text, ', 31)');
+
+          final wholeChapBeforePronounI = BibleCitationParser.parse(
+            'See Matthew 5. I say to you',
+          );
+          expect(wholeChapBeforePronounI.length, 3);
+          expect(wholeChapBeforePronounI[0].text, 'See ');
+          expect(wholeChapBeforePronounI[1].isCitation, isTrue);
+          expect(wholeChapBeforePronounI[1].citation!.bookName, 'Matthew');
+          expect(wholeChapBeforePronounI[1].citation!.chapter, 5);
+          expect(wholeChapBeforePronounI[1].citation!.verse, isNull);
+          expect(wholeChapBeforePronounI[1].citation!.isEntireChapter, isTrue);
+          expect(wholeChapBeforePronounI[1].citation!.rawMatch, 'Matthew 5');
+          expect(wholeChapBeforePronounI[2].text, '. I say to you');
+        },
+      );
     });
   });
 

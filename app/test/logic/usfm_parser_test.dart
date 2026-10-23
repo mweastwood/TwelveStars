@@ -182,5 +182,29 @@ void main() {
         equals('By what does an adolescent correct his way?'),
       );
     });
+
+    test(
+      'Preserves continuation lines starting with \\sc while ignoring \\s section headers and stripping \\x cross-references',
+      () {
+        const usfm = r'''
+\c 1
+\v 1 Praise the
+\sc LORD\sc* all you nations,\x + Ps 117:1\x*
+\s1 A New Section
+\sd2
+\v 2 For his mercy is confirmed upon us.
+''';
+        final results = UsfmParser.parse(usfm, 'CPDV', 21, 'Psalms');
+        expect(results.length, equals(2));
+        expect(
+          results[0]['verseText'],
+          equals('Praise the LORD all you nations,'),
+        );
+        expect(
+          results[1]['verseText'],
+          equals('For his mercy is confirmed upon us.'),
+        );
+      },
+    );
   });
 }

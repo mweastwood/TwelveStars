@@ -756,17 +756,33 @@ class BibleDatabase extends _$BibleDatabase {
     return future;
   }
 
+  static List<dynamic>? _cachedLectionaryJson;
+
   Future<void> _ensureLectionaryPopulatedImpl() async {
     try {
-      final countCheck = await (select(lectionaryReadings)..limit(1)).get();
-      if (countCheck.isNotEmpty) {
-        return; // Already populated
+      final countExp = lectionaryReadings.id.count();
+      final countQuery = selectOnly(lectionaryReadings)..addColumns([countExp]);
+      final existingCount =
+          await countQuery.map((row) => row.read(countExp)).getSingle() ?? 0;
+
+      final List<dynamic> decoded;
+      if (_cachedLectionaryJson != null) {
+        decoded = _cachedLectionaryJson!;
+      } else {
+        final jsonContent = await rootBundle.loadString(
+          'assets/bible/lectionary.json',
+        );
+        decoded = jsonDecode(jsonContent) as List<dynamic>;
+        _cachedLectionaryJson = decoded;
       }
 
-      final jsonContent = await rootBundle.loadString(
-        'assets/bible/lectionary.json',
-      );
-      final List<dynamic> decoded = jsonDecode(jsonContent);
+      if (existingCount >= decoded.length) {
+        return; // Already populated with current dataset
+      }
+
+      if (existingCount > 0) {
+        await delete(lectionaryReadings).go();
+      }
 
       await batch((batch) {
         batch.insertAll(
@@ -1019,6 +1035,7 @@ class UsfmParseParams {
 // Simple USFM Parser
 class UsfmParser {
   static final RegExp _footnoteRegex = RegExp(r'\\f\s+.*?\\f\*');
+  static final RegExp _crossRefRegex = RegExp(r'\\x\s+.*?\\x\*');
   static final RegExp _qsRegex = RegExp(r'\\qs\s*.*?\s*\\qs\*');
   static final RegExp _tagRegex = RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?');
   static final RegExp _attributeRegex = RegExp(
@@ -1027,6 +1044,9 @@ class UsfmParser {
   static final RegExp _multiSpaceRegex = RegExp(r'\s+');
   static final RegExp _chapterRegex = RegExp(r'^\\c\s+(\d+)');
   static final RegExp _verseRegex = RegExp(r'\\v\s+(\d+)\s*');
+  static final RegExp _ignoredLineTagRegex = RegExp(
+    r'^\\(?:id|h|toc\d*|mt\d*|cl|ca|qa|s\d*|sd\d*|cd|rem|ip)\b',
+  );
 
   static List<Map<String, dynamic>> parseInBackground(UsfmParseParams params) {
     return parse(
@@ -1055,6 +1075,7 @@ class UsfmParser {
         var text = currentVerseText;
         // Strip inline footnotes and formatting
         text = text.replaceAll(_footnoteRegex, '');
+        text = text.replaceAll(_crossRefRegex, '');
         text = text.replaceAll(_qsRegex, '');
         text = text.replaceAll(_tagRegex, '');
         text = text.replaceAll(_attributeRegex, '');
@@ -1112,17 +1133,7 @@ class UsfmParser {
       }
 
       if (currentChapter > 0 && currentVerseNumber > 0) {
-        if (line.startsWith(r'\id') ||
-            line.startsWith(r'\h') ||
-            line.startsWith(r'\toc') ||
-            line.startsWith(r'\mt') ||
-            line.startsWith(r'\cl') ||
-            line.startsWith(r'\ca') ||
-            line.startsWith(r'\qa') ||
-            line.startsWith(r'\s') ||
-            line.startsWith(r'\cd') ||
-            line.startsWith(r'\rem') ||
-            line.startsWith(r'\ip')) {
+        if (_ignoredLineTagRegex.hasMatch(line)) {
           continue;
         }
         currentVerseText += ' $line';

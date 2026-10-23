@@ -865,7 +865,10 @@ class BibleVerseResolver {
     if (bookNumber == 21 && chapter >= 1 && chapter <= 150) {
       // Hebrew Psalm 56 counts the superscription as verse 1; CPDV Psalm 55 does not.
       if (chapter == 56) {
-        return (chapter: 55, verses: verses.map((v) => v - 1).toList());
+        return (
+          chapter: 55,
+          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
+        );
       }
       final baseChapter = masoreticToVulgatePsalm(chapter);
       if (verses.isEmpty) {
@@ -965,7 +968,10 @@ class BibleVerseResolver {
     }
     if (bookNumber == 1) {
       if (chapter == 32) {
-        return (chapter: chapter, verses: verses.map((v) => v - 1).toList());
+        return (
+          chapter: chapter,
+          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
+        );
       }
       if (chapter == 50) {
         return (
