@@ -394,6 +394,24 @@ void main() {
       expect(find.text('No explanation generated.'), findsOneWidget);
     });
 
+    testWidgets(
+      'unmounting sheet during in-flight generation does not throw after dispose',
+      (tester) async {
+        mockAi.status = AiCoreStatus.available;
+        mockAi.generateCompleter = Completer<String?>();
+
+        await tester.pumpWidget(buildTestWidget());
+        await tester.pump();
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
+        // Unmount the sheet while generation is still pending
+        await tester.pumpWidget(const MaterialApp(home: SizedBox.shrink()));
+        mockAi.generateCompleter!.complete('Late explanation');
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+      },
+    );
+
     group('Golden Tests', () {
       final testPrayerWithTokens = Prayer.mock(
         id: 'our_father_tokens',

@@ -6,6 +6,8 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/home_language_selector_card.dart';
+import 'package:twelve_stars/widgets/collapsible_selector_bar.dart';
+import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
@@ -30,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen>
   int _currentTab = 0;
   PrayerLanguage _primaryLanguage = PrayerLanguage.english;
   PrayerLanguage? _compareLanguage = PrayerLanguage.latin;
-  bool _showLanguageSelectors = false;
   List<Prayer>? _prayers;
   bool _loading = true;
   String? _error;
@@ -42,8 +43,7 @@ class _HomeScreenState extends State<HomeScreen>
   late final TextEditingController _searchController;
   late final FocusNode _searchFocusNode;
 
-  late final AnimationController _languageSelectorAnimationController;
-  late final CurvedAnimation _languageSelectorAnimation;
+  late final CollapsibleSelectorController _languageSelectorController;
   final ScrollController _prayersScrollController = ScrollController();
   final ScrollController _missalScrollController = ScrollController();
   final GlobalKey<BibleTabState> _bibleTabKey = GlobalKey<BibleTabState>();
@@ -51,9 +51,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   static const double _kLanguageSelectorTopSpacerHeight = 92.0;
   static final RegExp _whitespaceRegex = RegExp(r'\s+');
-
-  bool _wasScrolledDown = false;
-  double _initialScrollOffset = 0.0;
 
   ScrollController? get _activeScrollController {
     if (_currentTab == 0) return _missalScrollController;
@@ -66,10 +63,7 @@ class _HomeScreenState extends State<HomeScreen>
     UserSettingsController.instance.removeListener(_onSettingsChanged);
     _searchController.dispose();
     _searchFocusNode.dispose();
-    _languageSelectorAnimationController.removeListener(
-      _onLanguageSelectorAnimationTick,
-    );
-    _languageSelectorAnimationController.dispose();
+    _languageSelectorController.dispose();
     _prayersScrollController.dispose();
     _missalScrollController.dispose();
     super.dispose();
@@ -95,25 +89,14 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _searchController = TextEditingController();
     _searchFocusNode = FocusNode();
-    _languageSelectorAnimationController = AnimationController(
+    _languageSelectorController = CollapsibleSelectorController(
       vsync: this,
-      duration: const Duration(milliseconds: 300),
-      value: _showLanguageSelectors ? 1.0 : 0.0,
-    );
-    _languageSelectorAnimation = CurvedAnimation(
-      parent: _languageSelectorAnimationController,
-      curve: Curves.easeOutCubic,
-      reverseCurve: Curves.easeInOutCubic,
-    );
-    _languageSelectorAnimationController.addListener(
-      _onLanguageSelectorAnimationTick,
-    );
-    _languageSelectorAnimationController.addStatusListener((status) {
-      if (status == AnimationStatus.dismissed ||
-          status == AnimationStatus.completed) {
+      topSpacerHeight: _kLanguageSelectorTopSpacerHeight,
+      activeScrollController: () => _activeScrollController,
+      onStatusSettled: () {
         if (mounted) setState(() {});
-      }
-    });
+      },
+    );
     UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadData();
   }
@@ -134,37 +117,8 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _toggleLanguageSelectors() {
-    final controller = _activeScrollController;
-    final offset = controller != null && controller.hasClients
-        ? controller.offset
-        : 0.0;
-    _wasScrolledDown = offset > 5.0;
-    _initialScrollOffset =
-        offset -
-        (_kLanguageSelectorTopSpacerHeight * _languageSelectorAnimation.value);
-
-    if (_showLanguageSelectors) {
-      _showLanguageSelectors = false;
-      _languageSelectorAnimationController.reverse();
-    } else {
-      _showLanguageSelectors = true;
-      _languageSelectorAnimationController.forward();
-    }
+    _languageSelectorController.toggle();
     setState(() {});
-  }
-
-  void _onLanguageSelectorAnimationTick() {
-    final controller = _activeScrollController;
-    if (!_wasScrolledDown || controller == null || !controller.hasClients) {
-      return;
-    }
-
-    final targetOffset =
-        _initialScrollOffset +
-        (_kLanguageSelectorTopSpacerHeight * _languageSelectorAnimation.value);
-    final maxExtent =
-        controller.position.maxScrollExtent + _kLanguageSelectorTopSpacerHeight;
-    controller.jumpTo(targetOffset.clamp(0.0, maxExtent));
   }
 
   Future<void> _loadData() async {
@@ -242,59 +196,17 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  void _openFontDialog(BuildContext context, ThemeData theme) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return StatefulBuilder(
-          builder: (context, setSheetState) {
-            return Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Text(
-                    'Reading Options',
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      const Icon(Icons.format_size, size: 16),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Font Size: ${_fontSize.round()} pt',
-                        style: theme.textTheme.bodyMedium,
-                      ),
-                    ],
-                  ),
-                  Slider(
-                    value: _fontSize,
-                    min: 12.0,
-                    max: 28.0,
-                    divisions: 16,
-                    label: '${_fontSize.round()}',
-                    onChanged: (val) {
-                      setSheetState(() {
-                        _fontSize = val;
-                      });
-                      setState(() {
-                        _fontSize = val;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            );
-          },
-        );
+  void _openFontDialog(BuildContext context) {
+    ReaderTextOptionsSheet.show(
+      context,
+      fontSize: _fontSize,
+      minFontSize: 12.0,
+      maxFontSize: 28.0,
+      divisions: 16,
+      onFontSizeChanged: (val) {
+        setState(() {
+          _fontSize = val;
+        });
       },
     );
   }
@@ -315,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen>
           primaryLanguage: _primaryLanguage,
           compareLanguage: _compareLanguage,
           initialDate: widget.initialDate,
-          languageSelectorAnimation: _languageSelectorAnimation,
+          languageSelectorAnimation: _languageSelectorController.animation,
           scrollController: _missalScrollController,
           fontSize: _fontSize,
         );
@@ -349,24 +261,19 @@ class _HomeScreenState extends State<HomeScreen>
             top: 0,
             left: 0,
             right: 0,
-            child: SizeTransition(
-              sizeFactor: _languageSelectorAnimation,
-              alignment: Alignment.topCenter,
-              child: FadeTransition(
-                opacity: _languageSelectorAnimation,
-                child:
-                    _showLanguageSelectors ||
-                        _languageSelectorAnimationController.value > 0
-                    ? Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0,
-                          vertical: 12.0,
-                        ),
-                        color: Colors.transparent,
-                        child: _buildGlobalLanguageSelectors(theme),
-                      )
-                    : const SizedBox.shrink(),
-              ),
+            child: CollapsibleSelectorBar(
+              animation: _languageSelectorController.animation,
+              padding: EdgeInsets.zero,
+              child: _languageSelectorController.isVisibleOrAnimating
+                  ? Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 12.0,
+                      ),
+                      color: Colors.transparent,
+                      child: _buildGlobalLanguageSelectors(theme),
+                    )
+                  : const SizedBox.shrink(),
             ),
           ),
       ],
@@ -415,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen>
             IconButton(
               icon: const Icon(Icons.text_fields),
               tooltip: 'Text Options',
-              onPressed: () => _openFontDialog(context, theme),
+              onPressed: () => _openFontDialog(context),
             ),
             IconButton(
               icon: Icon(
@@ -424,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen>
                               false
                           ? Icons.translate
                           : Icons.translate_outlined)
-                    : (_showLanguageSelectors
+                    : (_languageSelectorController.isExpanded
                           ? Icons.translate
                           : Icons.translate_outlined),
               ),
@@ -433,7 +340,7 @@ class _HomeScreenState extends State<HomeScreen>
                             false)
                         ? 'Hide translation options'
                         : 'Select translations')
-                  : (_showLanguageSelectors
+                  : (_languageSelectorController.isExpanded
                         ? 'Hide language options'
                         : 'Select languages'),
               onPressed: () {
@@ -760,7 +667,7 @@ class _HomeScreenState extends State<HomeScreen>
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         children: [
           SizeTransition(
-            sizeFactor: _languageSelectorAnimation,
+            sizeFactor: _languageSelectorController.animation,
             alignment: Alignment.topCenter,
             child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
           ),
@@ -803,7 +710,7 @@ class _HomeScreenState extends State<HomeScreen>
                 top: 12.0,
               ),
               child: SizeTransition(
-                sizeFactor: _languageSelectorAnimation,
+                sizeFactor: _languageSelectorController.animation,
                 alignment: Alignment.topCenter,
                 child: const SizedBox(
                   height: _kLanguageSelectorTopSpacerHeight,
@@ -862,7 +769,7 @@ class _HomeScreenState extends State<HomeScreen>
       itemBuilder: (context, index) {
         if (index == 0) {
           return SizeTransition(
-            sizeFactor: _languageSelectorAnimation,
+            sizeFactor: _languageSelectorController.animation,
             alignment: Alignment.topCenter,
             child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
           );

@@ -12,6 +12,7 @@ import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
+import 'package:twelve_stars/widgets/collapsible_selector_bar.dart';
 import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 
@@ -79,14 +80,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   bool _showTranslationSelectors = false;
 
   bool get showTranslationSelectors => _showTranslationSelectors;
-  late final AnimationController _translationSelectorAnimationController;
-  late final CurvedAnimation _translationSelectorAnimation;
+  late final CollapsibleSelectorController _translationSelectorController;
+  late final CurvedAnimation _panelHeightCurvedAnimation;
 
   static const double _kTranslationSelectorTopSpacerHeight = 72.0;
   static const int _maxCachedControllers = 10;
   final Map<int, ScrollController> _chapterScrollControllers = {};
-  double _initialScrollOffset = 0.0;
-  bool _wasScrolledDown = false;
 
   @visibleForTesting
   Map<int, ScrollController> get chapterScrollControllers =>
@@ -115,22 +114,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     return _chapterScrollControllers[_currentPageIndex];
   }
 
-  void _onTranslationSelectorAnimationTick() {
-    final controller = _currentChapterScrollController;
-    if (!_wasScrolledDown || controller == null || !controller.hasClients) {
-      return;
-    }
-
-    final targetOffset =
-        _initialScrollOffset +
-        (_kTranslationSelectorTopSpacerHeight *
-            _translationSelectorAnimation.value);
-    final maxExtent =
-        controller.position.maxScrollExtent +
-        _kTranslationSelectorTopSpacerHeight;
-    controller.jumpTo(targetOffset.clamp(0.0, maxExtent));
-  }
-
   // Navigation target for favorite scrolling/highlighting
   int? _targetBookNumber;
   int? _targetChapter;
@@ -142,15 +125,13 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   @override
   void dispose() {
     UserSettingsController.instance.removeListener(_onSettingsChanged);
-    _translationSelectorAnimationController.removeListener(
-      _onTranslationSelectorAnimationTick,
-    );
+    _translationSelectorController.dispose();
     for (final controller in _chapterScrollControllers.values) {
       controller.dispose();
     }
     _currentPageIndexNotifier.dispose();
     _selectedBookForPickerNotifier.dispose();
-    _translationSelectorAnimationController.dispose();
+    _panelHeightCurvedAnimation.dispose();
     _panelController.dispose();
     _pageController.dispose();
     _sheetTabController.dispose();
@@ -181,8 +162,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             : null;
         if (showSelectorsChanged) {
           _showTranslationSelectors = settings.showBibleTranslationSelectors;
-          _translationSelectorAnimationController.value =
-              _showTranslationSelectors ? 1.0 : 0.0;
+          _translationSelectorController.syncExpanded(
+            _showTranslationSelectors,
+          );
         }
       });
     }
@@ -196,18 +178,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     _selectedBookForPickerNotifier = ValueNotifier<BibleBook>(
       _selectedBookForPicker,
     );
-    _translationSelectorAnimationController = AnimationController(
+    _translationSelectorController = CollapsibleSelectorController(
       vsync: this,
-      duration: const Duration(milliseconds: 300),
-      value: _showTranslationSelectors ? 1.0 : 0.0,
-    );
-    _translationSelectorAnimationController.addListener(
-      _onTranslationSelectorAnimationTick,
-    );
-    _translationSelectorAnimation = CurvedAnimation(
-      parent: _translationSelectorAnimationController,
-      curve: Curves.easeOutCubic,
-      reverseCurve: Curves.easeInOutCubic,
+      topSpacerHeight: _kTranslationSelectorTopSpacerHeight,
+      activeScrollController: () => _currentChapterScrollController,
+      initiallyExpanded: _showTranslationSelectors,
     );
 
     _pageController = PageController(initialPage: 0);
@@ -217,17 +192,15 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(milliseconds: 350),
     );
+    _panelHeightCurvedAnimation = CurvedAnimation(
+      parent: _panelController,
+      curve: Curves.easeInOutCubic,
+    );
 
-    _panelHeightAnimation =
-        Tween<double>(
-          begin: 72.0, // collapsed peeking height
-          end: 500.0, // expanded picker height
-        ).animate(
-          CurvedAnimation(
-            parent: _panelController,
-            curve: Curves.easeInOutCubic,
-          ),
-        );
+    _panelHeightAnimation = Tween<double>(
+      begin: 72.0, // collapsed peeking height
+      end: 500.0, // expanded picker height
+    ).animate(_panelHeightCurvedAnimation);
 
     _sheetTabController = TabController(length: 2, vsync: this);
     UserSettingsController.instance.addListener(_onSettingsChanged);
@@ -265,8 +238,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               ? List<BibleRibbonBookmark>.from(settings.bibleRibbons!)
               : null;
           _showTranslationSelectors = settings.showBibleTranslationSelectors;
-          _translationSelectorAnimationController.value =
-              _showTranslationSelectors ? 1.0 : 0.0;
+          _translationSelectorController.syncExpanded(
+            _showTranslationSelectors,
+          );
         });
       }
     } catch (_) {}
@@ -328,43 +302,35 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   Widget _buildTranslationSelectors(ThemeData theme) {
-    return SizeTransition(
-      sizeFactor: _translationSelectorAnimation,
-      alignment: Alignment.topCenter,
-      child: FadeTransition(
-        opacity: _translationSelectorAnimation,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
-          child: BibleTranslationSelectorCard(
-            primaryCode: _primaryTranslation,
-            compareCode: _compareTranslation == 'none'
-                ? null
-                : _compareTranslation,
-            onOpenSelector: (target) => _showTranslationSelectorDialog(target),
-            onSwap: () {
-              if (_compareTranslation != 'none') {
-                final nextPrimary = _compareTranslation;
-                final nextCompare = _primaryTranslation;
-                setState(() {
-                  _primaryTranslation = nextPrimary;
-                  _compareTranslation = nextCompare;
-                });
-                UserSettingsController.instance.mutate((s) {
-                  s.primaryBibleTranslation = nextPrimary;
-                  s.compareBibleTranslation = nextCompare;
-                });
-              }
-            },
-            onClearCompare: () {
-              setState(() {
-                _compareTranslation = 'none';
-              });
-              UserSettingsController.instance.mutate((s) {
-                s.compareBibleTranslation = 'none';
-              });
-            },
-          ),
-        ),
+    return CollapsibleSelectorBar(
+      animation: _translationSelectorController.animation,
+      padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 4.0),
+      child: BibleTranslationSelectorCard(
+        primaryCode: _primaryTranslation,
+        compareCode: _compareTranslation == 'none' ? null : _compareTranslation,
+        onOpenSelector: (target) => _showTranslationSelectorDialog(target),
+        onSwap: () {
+          if (_compareTranslation != 'none') {
+            final nextPrimary = _compareTranslation;
+            final nextCompare = _primaryTranslation;
+            setState(() {
+              _primaryTranslation = nextPrimary;
+              _compareTranslation = nextCompare;
+            });
+            UserSettingsController.instance.mutate((s) {
+              s.primaryBibleTranslation = nextPrimary;
+              s.compareBibleTranslation = nextCompare;
+            });
+          }
+        },
+        onClearCompare: () {
+          setState(() {
+            _compareTranslation = 'none';
+          });
+          UserSettingsController.instance.mutate((s) {
+            s.compareBibleTranslation = 'none';
+          });
+        },
       ),
     );
   }
@@ -419,24 +385,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void toggleTranslationSelectors() {
-    final controller = _currentChapterScrollController;
-    final offset = controller != null && controller.hasClients
-        ? controller.offset
-        : 0.0;
-    _wasScrolledDown = offset > 5.0;
-    _initialScrollOffset =
-        offset -
-        (_kTranslationSelectorTopSpacerHeight *
-            _translationSelectorAnimation.value);
-
-    final nextShow = !_showTranslationSelectors;
+    final nextShow = _translationSelectorController.toggle();
     setState(() {
       _showTranslationSelectors = nextShow;
-      if (_showTranslationSelectors) {
-        _translationSelectorAnimationController.forward();
-      } else {
-        _translationSelectorAnimationController.reverse();
-      }
     });
     UserSettingsController.instance.mutate((s) {
       s.showBibleTranslationSelectors = nextShow;
@@ -669,7 +620,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 primaryTranslation: _primaryTranslation,
                 compareTranslation: _compareTranslation,
                 numberingSystem: _numberingSystem,
-                translationSelectorAnimation: _translationSelectorAnimation,
+                translationSelectorAnimation:
+                    _translationSelectorController.animation,
                 scrollController: _getScrollController(index),
                 scrollToVerse: isTarget ? _scrollToVerse : null,
                 highlightStartVerse: isTarget ? _highlightStartVerse : null,
