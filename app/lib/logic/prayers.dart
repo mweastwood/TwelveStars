@@ -61,12 +61,70 @@ class ChineseChar {
   String? phraseId;
 
   ChineseChar([this.char = '', this.pinyin = '', this.phraseId]);
+
+  factory ChineseChar.fromJson(Map<String, dynamic> map) {
+    return ChineseChar(
+      map['char'] as String? ?? '',
+      map['pinyin'] as String? ?? '',
+      map['phraseId'] as String?,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'char': char,
+    'pinyin': pinyin,
+    'phraseId': phraseId,
+  };
 }
 
 class ChineseLine {
   List<ChineseChar>? chars;
 
   ChineseLine({this.chars});
+
+  static ChineseLine? tryFromJson(
+    dynamic rawLine, {
+    bool requireCharsListWhenMap = false,
+  }) {
+    if (rawLine is List) {
+      final List<ChineseChar> chars = [];
+      for (final c in rawLine) {
+        if (c is Map) {
+          final cMap = c is Map<String, dynamic>
+              ? c
+              : Map<String, dynamic>.from(c);
+          chars.add(ChineseChar.fromJson(cMap));
+        }
+      }
+      return ChineseLine(chars: chars);
+    }
+    if (rawLine is Map) {
+      final lineMap = rawLine is Map<String, dynamic>
+          ? rawLine
+          : Map<String, dynamic>.from(rawLine);
+      final rawChars = lineMap['chars'];
+      if (requireCharsListWhenMap && rawChars is! List) {
+        return null;
+      }
+      final List<ChineseChar> chars = [];
+      if (rawChars is List) {
+        for (final c in rawChars) {
+          if (c is Map) {
+            final cMap = c is Map<String, dynamic>
+                ? c
+                : Map<String, dynamic>.from(c);
+            chars.add(ChineseChar.fromJson(cMap));
+          }
+        }
+      }
+      return ChineseLine(chars: chars);
+    }
+    return null;
+  }
+
+  Map<String, dynamic> toJson() => {
+    'chars': chars?.map((c) => c.toJson()).toList(),
+  };
 }
 
 class PrayerToken {
@@ -74,6 +132,12 @@ class PrayerToken {
   String? id;
 
   PrayerToken([this.text = '', this.id]);
+
+  factory PrayerToken.fromJson(Map<String, dynamic> map) {
+    return PrayerToken(map['text'] as String? ?? '', map['id'] as String?);
+  }
+
+  Map<String, dynamic> toJson() => {'text': text, 'id': id};
 }
 
 class PrayerTranslation {
@@ -102,6 +166,73 @@ class PrayerTranslation {
     this.chineseLines,
     this.tokens,
   });
+
+  factory PrayerTranslation.fromJson(
+    Map<String, dynamic> tMap, {
+    bool strictChineseLineMap = false,
+  }) {
+    final rawChineseLines = tMap['chineseLines'] ?? tMap['chinese_lines'];
+    List<ChineseLine>? chineseLines;
+    if (rawChineseLines is List) {
+      chineseLines = [];
+      for (final line in rawChineseLines) {
+        final parsed = ChineseLine.tryFromJson(
+          line,
+          requireCharsListWhenMap: strictChineseLineMap,
+        );
+        if (parsed != null) {
+          chineseLines.add(parsed);
+        }
+      }
+    }
+
+    final rawTokens = tMap['tokens'];
+    List<PrayerToken>? tokens;
+    if (rawTokens is List) {
+      tokens = [];
+      for (final tok in rawTokens) {
+        if (tok is Map) {
+          final tokMap = tok is Map<String, dynamic>
+              ? tok
+              : Map<String, dynamic>.from(tok);
+          tokens.add(PrayerToken.fromJson(tokMap));
+        }
+      }
+    }
+
+    return PrayerTranslation(
+      title: tMap['title'] as String? ?? '',
+      subtitle: tMap['subtitle'] as String? ?? '',
+      text: tMap['text'] as String? ?? '',
+      sourceName: (tMap['sourceName'] ?? tMap['source_name']) as String? ?? '',
+      sourceUrl: (tMap['sourceUrl'] ?? tMap['source_url']) as String? ?? '',
+      historyAuthor:
+          (tMap['historyAuthor'] ?? tMap['history_author']) as String? ?? '',
+      historyOrigin:
+          (tMap['historyOrigin'] ?? tMap['history_origin']) as String? ?? '',
+      historyDescription:
+          (tMap['historyDescription'] ?? tMap['history_description'])
+              as String? ??
+          '',
+      copyright: tMap['copyright'] as String? ?? '',
+      chineseLines: chineseLines,
+      tokens: tokens,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'title': title,
+    'subtitle': subtitle,
+    'text': text,
+    'sourceName': sourceName,
+    'sourceUrl': sourceUrl,
+    'historyAuthor': historyAuthor,
+    'historyOrigin': historyOrigin,
+    'historyDescription': historyDescription,
+    'copyright': copyright,
+    'chineseLines': chineseLines?.map((line) => line.toJson()).toList(),
+    'tokens': tokens?.map((tok) => tok.toJson()).toList(),
+  };
 
   factory PrayerTranslation.mock({
     String title = '',
@@ -139,6 +270,28 @@ class LocalizedTranslations {
   List<PrayerTranslation>? list;
 
   LocalizedTranslations({this.languageCode = '', this.list});
+
+  factory LocalizedTranslations.fromJson(Map<String, dynamic> map) {
+    final langStr = map['languageCode'] as String? ?? 'english';
+    final rawTransList = map['list'];
+    List<PrayerTranslation>? translationList;
+    if (rawTransList is List) {
+      translationList = [];
+      for (final tItem in rawTransList) {
+        if (tItem is! Map) continue;
+        final tMap = tItem is Map<String, dynamic>
+            ? tItem
+            : Map<String, dynamic>.from(tItem);
+        translationList.add(PrayerTranslation.fromJson(tMap));
+      }
+    }
+    return LocalizedTranslations(languageCode: langStr, list: translationList);
+  }
+
+  Map<String, dynamic> toJson() => {
+    'languageCode': languageCode,
+    'list': list?.map((trans) => trans.toJson()).toList(),
+  };
 }
 
 class Prayer {
@@ -161,6 +314,54 @@ class Prayer {
     this.hash = '',
     this.localizedTranslations,
   });
+
+  static Prayer? tryFromAssetJson(Map<String, dynamic> pMap) {
+    final prayerId = pMap['id'] as String? ?? '';
+    if (prayerId.isEmpty) return null;
+
+    final defaultTitle = pMap['default_title'] as String? ?? '';
+    final category = pMap['category'] as String? ?? '';
+    final defaultOrder = pMap['default_order'] as int? ?? 0;
+
+    final List<LocalizedTranslations> localizedTranslations = [];
+    final rawTrans = pMap['translations'];
+    if (rawTrans is Map) {
+      final transMap = rawTrans is Map<String, dynamic>
+          ? rawTrans
+          : Map<String, dynamic>.from(rawTrans);
+
+      for (final entry in transMap.entries) {
+        final langStr = entry.key.toString();
+        final rawTransList = entry.value;
+        if (rawTransList is! List) continue;
+
+        final List<PrayerTranslation> translationList = [];
+        for (final tItem in rawTransList) {
+          if (tItem is! Map) continue;
+          final tMap = tItem is Map<String, dynamic>
+              ? tItem
+              : Map<String, dynamic>.from(tItem);
+          translationList.add(
+            PrayerTranslation.fromJson(tMap, strictChineseLineMap: true),
+          );
+        }
+
+        localizedTranslations.add(
+          LocalizedTranslations(languageCode: langStr, list: translationList),
+        );
+      }
+    }
+
+    return Prayer(
+      prayerId: prayerId,
+      defaultTitle: defaultTitle,
+      category: category,
+      defaultOrder: defaultOrder,
+      hasAmen: pMap['has_amen'] as bool? ?? false,
+      hash: pMap['hash'] as String? ?? '',
+      localizedTranslations: localizedTranslations,
+    );
+  }
 
   factory Prayer.mock({
     required String id,
@@ -207,6 +408,15 @@ class PrayerVersionPreference {
   int versionIndex;
 
   PrayerVersionPreference([this.key = '', this.versionIndex = 0]);
+
+  factory PrayerVersionPreference.fromJson(Map<String, dynamic> map) {
+    return PrayerVersionPreference(
+      map['key'] as String? ?? '',
+      map['versionIndex'] as int? ?? 0,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {'key': key, 'versionIndex': versionIndex};
 
   PrayerVersionPreference copyWith({String? key, int? versionIndex}) {
     return PrayerVersionPreference(

@@ -568,4 +568,76 @@ void main() {
       expect(loaded, equals(mockList));
     });
   });
+
+  group('Prayer Model JSON Serialization', () {
+    test(
+      'LocalizedTranslations and PrayerTranslation round-trip camelCase and snake_case JSON',
+      () {
+        final snakeJson = {
+          'title': 'Our Father',
+          'subtitle': 'Lord\'s Prayer',
+          'text': 'Our Father, who art in heaven',
+          'source_name': 'Traditional',
+          'source_url': 'https://example.com',
+          'history_author': 'Christ',
+          'history_origin': 'Gospel of Matthew',
+          'history_description': 'Taught in the Sermon on the Mount',
+          'copyright': 'Public Domain',
+          'chinese_lines': [
+            [
+              {'char': '我', 'pinyin': 'wǒ', 'phraseId': 'our'},
+              {'char': '們', 'pinyin': 'men', 'phraseId': 'our'},
+            ],
+            {
+              'chars': [
+                {'char': '天', 'pinyin': 'tiān', 'phraseId': 'heaven'},
+              ],
+            },
+          ],
+          'tokens': [
+            {'text': 'Our Father', 'id': 'our'},
+          ],
+        };
+
+        final parsed = PrayerTranslation.fromJson(
+          snakeJson,
+          strictChineseLineMap: true,
+        );
+        expect(parsed.title, 'Our Father');
+        expect(parsed.sourceName, 'Traditional');
+        expect(parsed.sourceUrl, 'https://example.com');
+        expect(parsed.historyAuthor, 'Christ');
+        expect(parsed.historyOrigin, 'Gospel of Matthew');
+        expect(parsed.historyDescription, 'Taught in the Sermon on the Mount');
+        expect(parsed.chineseLines, hasLength(2));
+        expect(parsed.chineseLines![0].chars, hasLength(2));
+        expect(parsed.chineseLines![0].chars![0].char, '我');
+        expect(parsed.chineseLines![1].chars, hasLength(1));
+        expect(parsed.chineseLines![1].chars![0].char, '天');
+        expect(parsed.tokens, hasLength(1));
+        expect(parsed.tokens![0].id, 'our');
+
+        final localized = LocalizedTranslations(
+          languageCode: 'traditionalChinese',
+          list: [parsed],
+        );
+        final roundTripped = LocalizedTranslations.fromJson(localized.toJson());
+        expect(roundTripped.languageCode, 'traditionalChinese');
+        expect(roundTripped.list, hasLength(1));
+        expect(
+          roundTripped.list!.first.historyDescription,
+          'Taught in the Sermon on the Mount',
+        );
+        expect(roundTripped.list!.first.chineseLines, hasLength(2));
+        expect(roundTripped.list!.first.tokens!.first.text, 'Our Father');
+      },
+    );
+
+    test('PrayerVersionPreference round-trips JSON', () {
+      final pref = PrayerVersionPreference('our_father_latin', 2);
+      final restored = PrayerVersionPreference.fromJson(pref.toJson());
+      expect(restored.key, 'our_father_latin');
+      expect(restored.versionIndex, 2);
+    });
+  });
 }

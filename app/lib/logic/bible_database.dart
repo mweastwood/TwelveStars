@@ -27,89 +27,7 @@ class LocalizedTranslationsConverter
         final map = item is Map<String, dynamic>
             ? item
             : Map<String, dynamic>.from(item);
-        final langStr = map['languageCode'] as String? ?? 'english';
-        final rawTransList = map['list'];
-        List<PrayerTranslation>? translationList;
-        if (rawTransList is List) {
-          translationList = [];
-          for (final tItem in rawTransList) {
-            if (tItem is! Map) continue;
-            final tMap = tItem is Map<String, dynamic>
-                ? tItem
-                : Map<String, dynamic>.from(tItem);
-
-            final chineseLinesList = tMap['chineseLines'];
-            List<ChineseLine>? chineseLines;
-            if (chineseLinesList is List) {
-              chineseLines = [];
-              for (final line in chineseLinesList) {
-                if (line is Map) {
-                  final lineMap = line is Map<String, dynamic>
-                      ? line
-                      : Map<String, dynamic>.from(line);
-                  final charList = lineMap['chars'];
-                  final List<ChineseChar> chars = [];
-                  if (charList is List) {
-                    for (final c in charList) {
-                      if (c is Map) {
-                        final cMap = c is Map<String, dynamic>
-                            ? c
-                            : Map<String, dynamic>.from(c);
-                        chars.add(
-                          ChineseChar(
-                            cMap['char'] as String? ?? '',
-                            cMap['pinyin'] as String? ?? '',
-                            cMap['phraseId'] as String?,
-                          ),
-                        );
-                      }
-                    }
-                  }
-                  chineseLines.add(ChineseLine(chars: chars));
-                }
-              }
-            }
-
-            final tokensList = tMap['tokens'];
-            List<PrayerToken>? tokens;
-            if (tokensList is List) {
-              tokens = [];
-              for (final tok in tokensList) {
-                if (tok is Map) {
-                  final tokMap = tok is Map<String, dynamic>
-                      ? tok
-                      : Map<String, dynamic>.from(tok);
-                  tokens.add(
-                    PrayerToken(
-                      tokMap['text'] as String? ?? '',
-                      tokMap['id'] as String?,
-                    ),
-                  );
-                }
-              }
-            }
-
-            translationList.add(
-              PrayerTranslation(
-                title: tMap['title'] as String? ?? '',
-                subtitle: tMap['subtitle'] as String? ?? '',
-                text: tMap['text'] as String? ?? '',
-                sourceName: tMap['sourceName'] as String? ?? '',
-                sourceUrl: tMap['sourceUrl'] as String? ?? '',
-                historyAuthor: tMap['historyAuthor'] as String? ?? '',
-                historyOrigin: tMap['historyOrigin'] as String? ?? '',
-                historyDescription: tMap['historyDescription'] as String? ?? '',
-                copyright: tMap['copyright'] as String? ?? '',
-                chineseLines: chineseLines,
-                tokens: tokens,
-              ),
-            );
-          }
-        }
-
-        results.add(
-          LocalizedTranslations(languageCode: langStr, list: translationList),
-        );
+        results.add(LocalizedTranslations.fromJson(map));
       }
       return results;
     } catch (e, stack) {
@@ -121,39 +39,7 @@ class LocalizedTranslationsConverter
   @override
   String toSql(List<LocalizedTranslations> value) {
     try {
-      final List<Map<String, dynamic>> list = value.map((item) {
-        return {
-          'languageCode': item.languageCode,
-          'list': item.list?.map((trans) {
-            return {
-              'title': trans.title,
-              'subtitle': trans.subtitle,
-              'text': trans.text,
-              'sourceName': trans.sourceName,
-              'sourceUrl': trans.sourceUrl,
-              'historyAuthor': trans.historyAuthor,
-              'historyOrigin': trans.historyOrigin,
-              'historyDescription': trans.historyDescription,
-              'copyright': trans.copyright,
-              'chineseLines': trans.chineseLines?.map((line) {
-                return {
-                  'chars': line.chars?.map((c) {
-                    return {
-                      'char': c.char,
-                      'pinyin': c.pinyin,
-                      'phraseId': c.phraseId,
-                    };
-                  }).toList(),
-                };
-              }).toList(),
-              'tokens': trans.tokens?.map((tok) {
-                return {'text': tok.text, 'id': tok.id};
-              }).toList(),
-            };
-          }).toList(),
-        };
-      }).toList();
-      return jsonEncode(list);
+      return jsonEncode(value.map((item) => item.toJson()).toList());
     } catch (e, stack) {
       debugPrint('LocalizedTranslationsConverter.toSql error: $e\n$stack');
       return '';
@@ -177,12 +63,7 @@ class PreferredVersionsConverter
         final map = item is Map<String, dynamic>
             ? item
             : Map<String, dynamic>.from(item);
-        results.add(
-          PrayerVersionPreference(
-            map['key'] as String? ?? '',
-            map['versionIndex'] as int? ?? 0,
-          ),
-        );
+        results.add(PrayerVersionPreference.fromJson(map));
       }
       return results;
     } catch (e, stack) {
@@ -194,10 +75,7 @@ class PreferredVersionsConverter
   @override
   String toSql(List<PrayerVersionPreference> value) {
     try {
-      final List<Map<String, dynamic>> list = value.map((item) {
-        return {'key': item.key, 'versionIndex': item.versionIndex};
-      }).toList();
-      return jsonEncode(list);
+      return jsonEncode(value.map((item) => item.toJson()).toList());
     } catch (e, stack) {
       debugPrint('PreferredVersionsConverter.toSql error: $e\n$stack');
       return '';

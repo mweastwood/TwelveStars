@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
-import 'package:twelve_stars/widgets/library/library_node_parser.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class LibraryCommentsView extends StatefulWidget {
@@ -167,7 +167,7 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                 catalog: catalog,
               );
 
-              final (volKey, itemIdx, qNum) = parseLibraryNodeId(
+              final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
                 comment.nodeId,
               );
               String header = book?.title ?? comment.documentId;

@@ -3,17 +3,26 @@ import 'package:flutter/material.dart';
 class ReaderTextOptionsSheet extends StatefulWidget {
   final double fontSize;
   final ValueChanged<double> onFontSizeChanged;
+  final double minFontSize;
+  final double maxFontSize;
+  final int? divisions;
 
   const ReaderTextOptionsSheet({
     super.key,
     required this.fontSize,
     required this.onFontSizeChanged,
+    this.minFontSize = 12.0,
+    this.maxFontSize = 32.0,
+    this.divisions = 20,
   });
 
   static Future<void> show(
     BuildContext context, {
     required double fontSize,
     required ValueChanged<double> onFontSizeChanged,
+    double minFontSize = 12.0,
+    double maxFontSize = 32.0,
+    int? divisions = 20,
   }) {
     return showModalBottomSheet(
       context: context,
@@ -24,6 +33,9 @@ class ReaderTextOptionsSheet extends StatefulWidget {
         return ReaderTextOptionsSheet(
           fontSize: fontSize,
           onFontSizeChanged: onFontSizeChanged,
+          minFontSize: minFontSize,
+          maxFontSize: maxFontSize,
+          divisions: divisions,
         );
       },
     );
@@ -72,9 +84,9 @@ class _ReaderTextOptionsSheetState extends State<ReaderTextOptionsSheet> {
           ),
           Slider(
             value: _currentFontSize,
-            min: 12.0,
-            max: 32.0,
-            divisions: 20,
+            min: widget.minFontSize,
+            max: widget.maxFontSize,
+            divisions: widget.divisions,
             label: '${_currentFontSize.round()}',
             onChanged: (val) {
               setState(() {

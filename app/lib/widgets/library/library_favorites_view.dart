@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
-import 'package:twelve_stars/widgets/library/library_node_parser.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 
 class LibraryFavoritesView extends StatefulWidget {
   final List<LibraryBookItem>? catalog;
@@ -167,7 +167,9 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
                   ? parts.sublist(1).join(' ')
                   : '';
 
-              final (volKey, itemIdx, qNum) = parseLibraryNodeId(fav.nodeId);
+              final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
+                fav.nodeId,
+              );
               final book = LibraryCatalog.findBookById(
                 fav.documentId,
                 catalog: catalog,
