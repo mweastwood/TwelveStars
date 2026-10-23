@@ -146,6 +146,7 @@ List<ChapterVerseRange> resolveReadingRanges({
   if (primaryCitation.contains(';')) {
     final parts = primaryCitation.split(';');
     final List<ChapterVerseRange> result = [];
+    int? lastChapter;
 
     // Process the first part
     final part1 = parts[0].trim();
@@ -155,6 +156,7 @@ List<ChapterVerseRange> resolveReadingRanges({
       final chapterMatch = _trailingDigitsRegex.firstMatch(chapterPart.trim());
       if (chapterMatch != null) {
         final ch1 = int.parse(chapterMatch.group(0)!);
+        lastChapter = ch1;
         final versesStr1 = part1.substring(colonIndex1 + 1);
         final rawVerses1 = parseVerseRange(cleanVerseStr(versesStr1));
         final mappedRef1 = mapModernToVulgate(bookNumber, ch1, rawVerses1);
@@ -177,9 +179,25 @@ List<ChapterVerseRange> resolveReadingRanges({
             .replaceAll(_nonDigitsRegex, '');
         final ch2 = int.tryParse(ch2Str);
         if (ch2 != null) {
+          lastChapter = ch2;
           final versesStr2 = part2.substring(colonIndex2 + 1);
           final rawVerses2 = parseVerseRange(cleanVerseStr(versesStr2));
           final mappedRef2 = mapModernToVulgate(bookNumber, ch2, rawVerses2);
+          result.add(
+            ChapterVerseRange(
+              chapter: mappedRef2.chapter,
+              verses: mappedRef2.verses,
+            ),
+          );
+        }
+      } else if (lastChapter != null) {
+        final rawVerses2 = parseVerseRange(cleanVerseStr(part2));
+        if (rawVerses2.isNotEmpty) {
+          final mappedRef2 = mapModernToVulgate(
+            bookNumber,
+            lastChapter,
+            rawVerses2,
+          );
           result.add(
             ChapterVerseRange(
               chapter: mappedRef2.chapter,
@@ -231,22 +249,17 @@ List<ChapterVerseRange> resolveReadingRanges({
           initialVersesList,
         );
 
-        final mappedEndRef = mapModernToVulgate(
+        final endVersesPart = rightPart.substring(colonIndex + 1);
+        final endVerseStr = cleanVerseStr(endVersesPart);
+        final rawEndVerses = parseVerseRange(endVerseStr);
+        final mappedEndVerseRef = mapModernToVulgate(
           bookNumber,
           endChapterVal,
-          const [],
+          rawEndVerses,
         );
-        final endChapter = mappedEndRef.chapter;
+        final endChapter = mappedEndVerseRef.chapter;
 
         if (endChapter != mappedRef.chapter) {
-          final endVersesPart = rightPart.substring(colonIndex + 1);
-          final endVerseStr = cleanVerseStr(endVersesPart);
-          final rawEndVerses = parseVerseRange(endVerseStr);
-          final mappedEndVerseRef = mapModernToVulgate(
-            bookNumber,
-            endChapterVal,
-            rawEndVerses,
-          );
           final endVerses = mappedEndVerseRef.verses;
 
           final startVerses = mappedRef.verses;

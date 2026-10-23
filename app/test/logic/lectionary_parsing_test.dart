@@ -1640,6 +1640,40 @@ void main() {
           const ChapterVerseRange(chapter: 1, verses: [1, 2, 3, 4, 5, 6, 7]),
         ],
       ),
+      _TestCase(
+        description:
+            'Semicolon-separated citation with implicit same-chapter continuation',
+        bookNumber: 26, // Sirach
+        defaultChapter: 3,
+        defaultVerseRange: '2-6; 12-14',
+        citation: 'Sirach 3:2-6; 12-14',
+        expected: [
+          const ChapterVerseRange(chapter: 3, verses: [2, 3, 4, 5, 6]),
+          const ChapterVerseRange(chapter: 3, verses: [12, 13, 14]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Psalm 56:1-3 clamps verse 1 to 1 instead of underflowing to 0',
+        bookNumber: 21, // Psalms
+        defaultChapter: 56,
+        defaultVerseRange: '1-3',
+        citation: 'Psalm 56:1-3',
+        expected: [
+          const ChapterVerseRange(chapter: 55, verses: [1, 1, 2]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Genesis 32:1-3 clamps verse 1 to 1 instead of underflowing to 0',
+        bookNumber: 1, // Genesis
+        defaultChapter: 32,
+        defaultVerseRange: '1-3',
+        citation: 'Genesis 32:1-3',
+        expected: [
+          const ChapterVerseRange(chapter: 32, verses: [1, 1, 2]),
+        ],
+      ),
     ];
 
     for (var i = 0; i < testCases.length; i++) {

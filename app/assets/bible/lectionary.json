@@ -72,6 +72,42 @@
     "citation": "Hebrews 10:4-10"
   },
   {
+    "reading_key": "feast_assumption",
+    "reading_type": "first",
+    "book_number": 76,
+    "book_name": "Revelation",
+    "chapter": 11,
+    "verse_range": "19a; 12:1-6a, 10ab",
+    "citation": "Revelation 11:19a; 12:1-6a, 10ab"
+  },
+  {
+    "reading_key": "feast_assumption",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 1,
+    "verse_range": "39-56",
+    "citation": "Luke 1:39-56"
+  },
+  {
+    "reading_key": "feast_assumption",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 45,
+    "verse_range": "10, 11, 12, 16",
+    "citation": "Psalm 45:10, 11, 12, 16"
+  },
+  {
+    "reading_key": "feast_assumption",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 15,
+    "verse_range": "20-27",
+    "citation": "1 Corinthians 15:20-27"
+  },
+  {
     "reading_key": "feast_baptism_of_the_lord",
     "reading_type": "first",
     "book_number": 27,
@@ -142,6 +178,78 @@
     "chapter": 9,
     "verse_range": "11-15",
     "citation": "Hebrews 9:11-15"
+  },
+  {
+    "reading_key": "feast_epiphany",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 60,
+    "verse_range": "1-6",
+    "citation": "Isaiah 60:1-6"
+  },
+  {
+    "reading_key": "feast_epiphany",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 2,
+    "verse_range": "1-12",
+    "citation": "Matthew 2:1-12"
+  },
+  {
+    "reading_key": "feast_epiphany",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 72,
+    "verse_range": "1-2, 7-8, 10-11, 12-13",
+    "citation": "Psalm 72:1-2, 7-8, 10-11, 12-13"
+  },
+  {
+    "reading_key": "feast_epiphany",
+    "reading_type": "second",
+    "book_number": 58,
+    "book_name": "Ephesians",
+    "chapter": 3,
+    "verse_range": "2-3a, 5-6",
+    "citation": "Ephesians 3:2-3a, 5-6"
+  },
+  {
+    "reading_key": "feast_holy_family",
+    "reading_type": "first",
+    "book_number": 26,
+    "book_name": "Sirach",
+    "chapter": 3,
+    "verse_range": "2-6, 12-14",
+    "citation": "Sirach 3:2-6, 12-14"
+  },
+  {
+    "reading_key": "feast_holy_family",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 2,
+    "verse_range": "22-40",
+    "citation": "Luke 2:22-40"
+  },
+  {
+    "reading_key": "feast_holy_family",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 128,
+    "verse_range": "1-2, 3, 4-5",
+    "citation": "Psalm 128:1-2, 3, 4-5"
+  },
+  {
+    "reading_key": "feast_holy_family",
+    "reading_type": "second",
+    "book_number": 60,
+    "book_name": "Colossians",
+    "chapter": 3,
+    "verse_range": "12-21",
+    "citation": "Colossians 3:12-21"
   },
   {
     "reading_key": "feast_holy_trinity",
@@ -792,6 +900,42 @@
     "citation": "2 Peter 3:8-14"
   },
   {
+    "reading_key": "season_advent_2_sunday_c",
+    "reading_type": "first",
+    "book_number": 30,
+    "book_name": "Baruch",
+    "chapter": 5,
+    "verse_range": "1-9",
+    "citation": "Baruch 5:1-9"
+  },
+  {
+    "reading_key": "season_advent_2_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 3,
+    "verse_range": "1-6",
+    "citation": "Luke 3:1-6"
+  },
+  {
+    "reading_key": "season_advent_2_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 126,
+    "verse_range": "1-2, 2-3, 4-5, 6",
+    "citation": "Psalm 126:1-2, 2-3, 4-5, 6"
+  },
+  {
+    "reading_key": "season_advent_2_sunday_c",
+    "reading_type": "second",
+    "book_number": 59,
+    "book_name": "Philippians",
+    "chapter": 1,
+    "verse_range": "4-6, 8-11",
+    "citation": "Philippians 1:4-6, 8-11"
+  },
+  {
     "reading_key": "season_advent_2_thursday",
     "reading_type": "first",
     "book_number": 27,
@@ -1357,6 +1501,42 @@
     "chapter": 25,
     "verse_range": "4-5ab, 8-9, 10 and 14",
     "citation": "Psalm 25:4-5ab, 8-9, 10 and 14"
+  },
+  {
+    "reading_key": "season_christmas_12_25",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 52,
+    "verse_range": "7-10",
+    "citation": "Isaiah 52:7-10"
+  },
+  {
+    "reading_key": "season_christmas_12_25",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 1,
+    "verse_range": "1-18",
+    "citation": "John 1:1-18"
+  },
+  {
+    "reading_key": "season_christmas_12_25",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 98,
+    "verse_range": "1, 2-3, 3-4, 5-6",
+    "citation": "Psalm 98:1, 2-3, 3-4, 5-6"
+  },
+  {
+    "reading_key": "season_christmas_12_25",
+    "reading_type": "second",
+    "book_number": 68,
+    "book_name": "Hebrews",
+    "chapter": 1,
+    "verse_range": "1-6",
+    "citation": "Hebrews 1:1-6"
   },
   {
     "reading_key": "season_christmas_12_26",
@@ -2171,38 +2351,29 @@
   {
     "reading_key": "season_easter_2_monday",
     "reading_type": "first",
-    "book_number": 27,
-    "book_name": "Isaiah",
-    "chapter": 7,
-    "verse_range": "10-14; 8",
-    "citation": "Isaiah 7:10-14; 8:10"
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 4,
+    "verse_range": "23-31",
+    "citation": "Acts 4:23-31"
   },
   {
     "reading_key": "season_easter_2_monday",
     "reading_type": "gospel",
-    "book_number": 51,
-    "book_name": "Luke",
-    "chapter": 1,
-    "verse_range": "26-38",
-    "citation": "Luke 1:26-38"
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 3,
+    "verse_range": "1-8",
+    "citation": "John 3:1-8"
   },
   {
     "reading_key": "season_easter_2_monday",
     "reading_type": "psalm",
     "book_number": 21,
     "book_name": "Psalms",
-    "chapter": 40,
-    "verse_range": "7-8a, 8b-9, 10, 11",
-    "citation": "Psalm 40:7-8a, 8b-9, 10, 11"
-  },
-  {
-    "reading_key": "season_easter_2_monday",
-    "reading_type": "second",
-    "book_number": 68,
-    "book_name": "Hebrews",
-    "chapter": 10,
-    "verse_range": "4-10",
-    "citation": "Hebrews 10:4-10"
+    "chapter": 2,
+    "verse_range": "1-3, 4-7a, 7b-9",
+    "citation": "Psalm 2:1-3, 4-7a, 7b-9"
   },
   {
     "reading_key": "season_easter_2_saturday",
@@ -2230,6 +2401,114 @@
     "chapter": 33,
     "verse_range": "1-2, 4-5, 18-19",
     "citation": "Psalm 33:1-2, 4-5, 18-19"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_a",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 2,
+    "verse_range": "42-47",
+    "citation": "Acts 2:42-47"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 20,
+    "verse_range": "19-31",
+    "citation": "John 20:19-31"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 118,
+    "verse_range": "2-4, 13-15, 22-24",
+    "citation": "Psalm 118:2-4, 13-15, 22-24"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_a",
+    "reading_type": "second",
+    "book_number": 70,
+    "book_name": "1 Peter",
+    "chapter": 1,
+    "verse_range": "3-9",
+    "citation": "1 Peter 1:3-9"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_b",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 4,
+    "verse_range": "32-35",
+    "citation": "Acts 4:32-35"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 20,
+    "verse_range": "19-31",
+    "citation": "John 20:19-31"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 118,
+    "verse_range": "2-4, 13-15, 22-24",
+    "citation": "Psalm 118:2-4, 13-15, 22-24"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_b",
+    "reading_type": "second",
+    "book_number": 72,
+    "book_name": "1 John",
+    "chapter": 5,
+    "verse_range": "1-6",
+    "citation": "1 John 5:1-6"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_c",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 5,
+    "verse_range": "12-16",
+    "citation": "Acts 5:12-16"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 20,
+    "verse_range": "19-31",
+    "citation": "John 20:19-31"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 118,
+    "verse_range": "2-4, 13-15, 22-24",
+    "citation": "Psalm 118:2-4, 13-15, 22-24"
+  },
+  {
+    "reading_key": "season_easter_2_sunday_c",
+    "reading_type": "second",
+    "book_number": 76,
+    "book_name": "Revelation",
+    "chapter": 1,
+    "verse_range": "9-11a, 12-13, 17-19",
+    "citation": "Revelation 1:9-11a, 12-13, 17-19"
   },
   {
     "reading_key": "season_easter_2_thursday",
@@ -3591,6 +3870,114 @@
     "citation": "Psalm 68:29-30, 33-35a, 35bc-36ab"
   },
   {
+    "reading_key": "season_easter_8_sunday_a",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 2,
+    "verse_range": "1-11",
+    "citation": "Acts 2:1-11"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 20,
+    "verse_range": "19-23",
+    "citation": "John 20:19-23"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 104,
+    "verse_range": "1, 24, 29-30, 31, 34",
+    "citation": "Psalm 104:1, 24, 29-30, 31, 34"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_a",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 12,
+    "verse_range": "3b-7, 12-13",
+    "citation": "1 Corinthians 12:3b-7, 12-13"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_b",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 2,
+    "verse_range": "1-11",
+    "citation": "Acts 2:1-11"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 20,
+    "verse_range": "19-23",
+    "citation": "John 20:19-23"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 104,
+    "verse_range": "1, 24, 29-30, 31, 34",
+    "citation": "Psalm 104:1, 24, 29-30, 31, 34"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_b",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 12,
+    "verse_range": "3b-7, 12-13",
+    "citation": "1 Corinthians 12:3b-7, 12-13"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_c",
+    "reading_type": "first",
+    "book_number": 53,
+    "book_name": "Acts",
+    "chapter": 2,
+    "verse_range": "1-11",
+    "citation": "Acts 2:1-11"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 52,
+    "book_name": "John",
+    "chapter": 20,
+    "verse_range": "19-23",
+    "citation": "John 20:19-23"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 104,
+    "verse_range": "1, 24, 29-30, 31, 34",
+    "citation": "Psalm 104:1, 24, 29-30, 31, 34"
+  },
+  {
+    "reading_key": "season_easter_8_sunday_c",
+    "reading_type": "second",
+    "book_number": 55,
+    "book_name": "1 Corinthians",
+    "chapter": 12,
+    "verse_range": "3b-7, 12-13",
+    "citation": "1 Corinthians 12:3b-7, 12-13"
+  },
+  {
     "reading_key": "season_easter_sunday",
     "reading_type": "first",
     "book_number": 53,
@@ -3625,6 +4012,87 @@
     "chapter": 3,
     "verse_range": "1-4",
     "citation": "Colossians 3:1-4"
+  },
+  {
+    "reading_key": "season_lent_0_friday",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 58,
+    "verse_range": "1-9a",
+    "citation": "Isaiah 58:1-9a"
+  },
+  {
+    "reading_key": "season_lent_0_friday",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 9,
+    "verse_range": "14-15",
+    "citation": "Matthew 9:14-15"
+  },
+  {
+    "reading_key": "season_lent_0_friday",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 51,
+    "verse_range": "3-4, 5-6ab, 18-19",
+    "citation": "Psalm 51:3-4, 5-6ab, 18-19"
+  },
+  {
+    "reading_key": "season_lent_0_saturday",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 58,
+    "verse_range": "9b-14",
+    "citation": "Isaiah 58:9b-14"
+  },
+  {
+    "reading_key": "season_lent_0_saturday",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 5,
+    "verse_range": "27-32",
+    "citation": "Luke 5:27-32"
+  },
+  {
+    "reading_key": "season_lent_0_saturday",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 86,
+    "verse_range": "1-2, 3-4, 5-6",
+    "citation": "Psalm 86:1-2, 3-4, 5-6"
+  },
+  {
+    "reading_key": "season_lent_0_thursday",
+    "reading_type": "first",
+    "book_number": 5,
+    "book_name": "Deuteronomy",
+    "chapter": 30,
+    "verse_range": "15-20",
+    "citation": "Deuteronomy 30:15-20"
+  },
+  {
+    "reading_key": "season_lent_0_thursday",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 9,
+    "verse_range": "22-25",
+    "citation": "Luke 9:22-25"
+  },
+  {
+    "reading_key": "season_lent_0_thursday",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 1,
+    "verse_range": "1-2, 3, 4, 6",
+    "citation": "Psalm 1:1-2, 3, 4, 6"
   },
   {
     "reading_key": "season_lent_1_friday",
@@ -4903,6 +5371,114 @@
     "chapter": 27,
     "verse_range": "1, 2, 3, 13-14",
     "citation": "Psalm 27:1, 2, 3, 13-14"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_a",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 50,
+    "verse_range": "4-7",
+    "citation": "Isaiah 50:4-7"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_a",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 26,
+    "verse_range": "14-66",
+    "citation": "Matthew 26:14—27:66"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_a",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 22,
+    "verse_range": "8-9, 17-18, 19-20, 23-24",
+    "citation": "Psalm 22:8-9, 17-18, 19-20, 23-24"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_a",
+    "reading_type": "second",
+    "book_number": 59,
+    "book_name": "Philippians",
+    "chapter": 2,
+    "verse_range": "6-11",
+    "citation": "Philippians 2:6-11"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_b",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 50,
+    "verse_range": "4-7",
+    "citation": "Isaiah 50:4-7"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_b",
+    "reading_type": "gospel",
+    "book_number": 50,
+    "book_name": "Mark",
+    "chapter": 14,
+    "verse_range": "1-47",
+    "citation": "Mark 14:1—15:47"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_b",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 22,
+    "verse_range": "8-9, 17-18, 19-20, 23-24",
+    "citation": "Psalm 22:8-9, 17-18, 19-20, 23-24"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_b",
+    "reading_type": "second",
+    "book_number": 59,
+    "book_name": "Philippians",
+    "chapter": 2,
+    "verse_range": "6-11",
+    "citation": "Philippians 2:6-11"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_c",
+    "reading_type": "first",
+    "book_number": 27,
+    "book_name": "Isaiah",
+    "chapter": 50,
+    "verse_range": "4-7",
+    "citation": "Isaiah 50:4-7"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_c",
+    "reading_type": "gospel",
+    "book_number": 51,
+    "book_name": "Luke",
+    "chapter": 22,
+    "verse_range": "14-56",
+    "citation": "Luke 22:14—23:56"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_c",
+    "reading_type": "psalm",
+    "book_number": 21,
+    "book_name": "Psalms",
+    "chapter": 22,
+    "verse_range": "8-9, 17-18, 19-20, 23-24",
+    "citation": "Psalm 22:8-9, 17-18, 19-20, 23-24"
+  },
+  {
+    "reading_key": "season_lent_6_sunday_c",
+    "reading_type": "second",
+    "book_number": 59,
+    "book_name": "Philippians",
+    "chapter": 2,
+    "verse_range": "6-11",
+    "citation": "Philippians 2:6-11"
   },
   {
     "reading_key": "season_lent_6_tuesday",

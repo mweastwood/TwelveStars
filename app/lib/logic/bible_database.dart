@@ -1019,6 +1019,7 @@ class UsfmParseParams {
 // Simple USFM Parser
 class UsfmParser {
   static final RegExp _footnoteRegex = RegExp(r'\\f\s+.*?\\f\*');
+  static final RegExp _crossRefRegex = RegExp(r'\\x\s+.*?\\x\*');
   static final RegExp _qsRegex = RegExp(r'\\qs\s*.*?\s*\\qs\*');
   static final RegExp _tagRegex = RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?');
   static final RegExp _attributeRegex = RegExp(
@@ -1027,6 +1028,9 @@ class UsfmParser {
   static final RegExp _multiSpaceRegex = RegExp(r'\s+');
   static final RegExp _chapterRegex = RegExp(r'^\\c\s+(\d+)');
   static final RegExp _verseRegex = RegExp(r'\\v\s+(\d+)\s*');
+  static final RegExp _ignoredLineTagRegex = RegExp(
+    r'^\\(?:id|h|toc\d*|mt\d*|cl|ca|qa|s\d*|sd\d*|cd|rem|ip)\b',
+  );
 
   static List<Map<String, dynamic>> parseInBackground(UsfmParseParams params) {
     return parse(
@@ -1055,6 +1059,7 @@ class UsfmParser {
         var text = currentVerseText;
         // Strip inline footnotes and formatting
         text = text.replaceAll(_footnoteRegex, '');
+        text = text.replaceAll(_crossRefRegex, '');
         text = text.replaceAll(_qsRegex, '');
         text = text.replaceAll(_tagRegex, '');
         text = text.replaceAll(_attributeRegex, '');
@@ -1112,17 +1117,7 @@ class UsfmParser {
       }
 
       if (currentChapter > 0 && currentVerseNumber > 0) {
-        if (line.startsWith(r'\id') ||
-            line.startsWith(r'\h') ||
-            line.startsWith(r'\toc') ||
-            line.startsWith(r'\mt') ||
-            line.startsWith(r'\cl') ||
-            line.startsWith(r'\ca') ||
-            line.startsWith(r'\qa') ||
-            line.startsWith(r'\s') ||
-            line.startsWith(r'\cd') ||
-            line.startsWith(r'\rem') ||
-            line.startsWith(r'\ip')) {
+        if (_ignoredLineTagRegex.hasMatch(line)) {
           continue;
         }
         currentVerseText += ' $line';

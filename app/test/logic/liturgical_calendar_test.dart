@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 
@@ -458,17 +461,107 @@ void main() {
       final easter = LiturgicalCalendar.computeDay(DateTime(2026, 4, 5));
       expect(easter.lectionaryKey, 'season_easter_sunday');
 
-      // Apr 12, 2026 is 7 days after Easter (still within the Octave, days < 8
-      // is false for days==7; weekName has no ordinal so week defaults to 1).
+      // Apr 12, 2026 is 7 days after Easter: 2nd Sunday of Easter (Divine Mercy Sunday)
       final octaveSunday = LiturgicalCalendar.computeDay(DateTime(2026, 4, 12));
       expect(octaveSunday.season, LiturgicalSeason.easter);
-      expect(octaveSunday.lectionaryKey, 'season_easter_1_sunday_a');
+      expect(
+        octaveSunday.weekName,
+        '2nd Sunday of Easter (Divine Mercy Sunday)',
+      );
+      expect(octaveSunday.lectionaryKey, 'season_easter_2_sunday_a');
 
       // Apr 13, 2026 is Monday of the 2nd Week of Easter
       final mon = LiturgicalCalendar.computeDay(DateTime(2026, 4, 13));
       expect(mon.season, LiturgicalSeason.easter);
       expect(mon.lectionaryKey, 'season_easter_2_monday');
+
+      // May 24, 2026 is Pentecost Sunday (8th Sunday of Easter, Year A)
+      final pentecost = LiturgicalCalendar.computeDay(DateTime(2026, 5, 24));
+      expect(pentecost.season, LiturgicalSeason.easter);
+      expect(pentecost.lectionaryKey, 'season_easter_8_sunday_a');
     });
+
+    test('returns correct key for Palm Sunday and Epiphany', () {
+      // Mar 29, 2026 is Palm Sunday, Year A
+      final palmSunday = LiturgicalCalendar.computeDay(DateTime(2026, 3, 29));
+      expect(palmSunday.season, LiturgicalSeason.lent);
+      expect(palmSunday.lectionaryKey, 'season_lent_6_sunday_a');
+
+      // Jan 4, 2026 is Epiphany of the Lord
+      final epiphany = LiturgicalCalendar.computeDay(DateTime(2026, 1, 4));
+      expect(epiphany.season, LiturgicalSeason.christmas);
+      expect(epiphany.lectionaryKey, 'feast_epiphany');
+    });
+
+    test(
+      'computes Ordinary Time Part 1 weeks accurately when Baptism is on Monday',
+      () {
+        // In 2024, Epiphany is Sunday Jan 7, so Baptism of the Lord is Monday Jan 8.
+        final baptism = LiturgicalCalendar.computeDay(DateTime(2024, 1, 8));
+        expect(baptism.season, LiturgicalSeason.christmas);
+        expect(baptism.name, 'The Baptism of the Lord');
+
+        // Tuesday Jan 9, 2024 is Tuesday of the 1st Week in Ordinary Time
+        final tue1 = LiturgicalCalendar.computeDay(DateTime(2024, 1, 9));
+        expect(tue1.season, LiturgicalSeason.ordinaryTime);
+        expect(tue1.weekName, 'Tuesday of the 1st Week in Ordinary Time');
+        expect(tue1.lectionaryKey, 'season_ordinary_time_1_tuesday_2');
+
+        // Sunday Jan 14, 2024 is the 2nd Sunday in Ordinary Time (not 1st!)
+        final sun2 = LiturgicalCalendar.computeDay(DateTime(2024, 1, 14));
+        expect(sun2.season, LiturgicalSeason.ordinaryTime);
+        expect(sun2.weekName, '2nd Sunday in Ordinary Time');
+        expect(sun2.lectionaryKey, 'season_ordinary_time_2_sunday_b');
+      },
+    );
+
+    test(
+      'handles fixed solemnity precedence and transfers for Sundays of Advent/Lent and Holy Week',
+      () {
+        // Dec 8, 2024 is a Sunday (2nd Sunday of Advent, Cycle C).
+        // Immaculate Conception transfers to Monday Dec 9, 2024.
+        final dec8Sun = LiturgicalCalendar.computeDay(DateTime(2024, 12, 8));
+        expect(dec8Sun.season, LiturgicalSeason.advent);
+        expect(dec8Sun.name, isNull);
+        expect(dec8Sun.weekName, '2nd Sunday of Advent');
+        expect(dec8Sun.lectionaryKey, 'season_advent_2_sunday_c');
+
+        final dec9Mon = LiturgicalCalendar.computeDay(DateTime(2024, 12, 9));
+        expect(
+          dec9Mon.name,
+          'The Immaculate Conception of the Blessed Virgin Mary',
+        );
+        expect(dec9Mon.lectionaryKey, 'feast_immaculate_conception');
+
+        // Mar 19, 2023 is a Sunday (4th Sunday of Lent / Laetare Sunday).
+        // St. Joseph transfers to Monday Mar 20, 2023.
+        final mar19Sun = LiturgicalCalendar.computeDay(DateTime(2023, 3, 19));
+        expect(mar19Sun.season, LiturgicalSeason.lent);
+        expect(mar19Sun.name, isNull);
+        expect(mar19Sun.weekName, '4th Sunday of Lent (Laetare Sunday)');
+        expect(mar19Sun.lectionaryKey, 'season_lent_4_sunday_a');
+
+        final mar20Mon = LiturgicalCalendar.computeDay(DateTime(2023, 3, 20));
+        expect(mar20Mon.name, 'St. Joseph, Spouse of the Blessed Virgin Mary');
+        expect(mar20Mon.lectionaryKey, 'feast_st_joseph');
+
+        // Mar 25, 2024 falls on Monday of Holy Week (Easter is Mar 31, 2024).
+        // Annunciation transfers to Monday of the 2nd Week of Easter (Apr 8, 2024).
+        final mar25HolyWeek = LiturgicalCalendar.computeDay(
+          DateTime(2024, 3, 25),
+        );
+        expect(mar25HolyWeek.season, LiturgicalSeason.lent);
+        expect(mar25HolyWeek.name, isNull);
+        expect(mar25HolyWeek.weekName, 'Monday of Holy Week');
+        expect(mar25HolyWeek.lectionaryKey, 'season_lent_6_monday');
+
+        final apr8Transferred = LiturgicalCalendar.computeDay(
+          DateTime(2024, 4, 8),
+        );
+        expect(apr8Transferred.name, 'The Annunciation of the Lord');
+        expect(apr8Transferred.lectionaryKey, 'feast_annunciation');
+      },
+    );
 
     test(
       'returns correct key for Ordinary Time Sundays and weekdays across cycles',
@@ -506,5 +599,36 @@ void main() {
         );
       }
     });
+
+    test(
+      'every liturgical day from 2023 through 2028 (excluding Holy Saturday) '
+      'resolves to a reading_key present in lectionary.json',
+      () {
+        final file = File('assets/bible/lectionary.json');
+        final rawList = jsonDecode(file.readAsStringSync()) as List<dynamic>;
+        final availableKeys = rawList
+            .map((e) => (e as Map<String, dynamic>)['reading_key'] as String)
+            .toSet();
+
+        final missing = <String>[];
+        for (int year = 2023; year <= 2028; year++) {
+          var date = DateTime(year, 1, 1);
+          final end = DateTime(year, 12, 31);
+          while (!date.isAfter(end)) {
+            final day = LiturgicalCalendar.computeDay(date);
+            if (day.weekName != 'Holy Saturday') {
+              final key = day.lectionaryKey;
+              if (!availableKeys.contains(key)) {
+                missing.add(
+                  '${date.toIso8601String().split("T").first} (${day.displayTitle}): $key',
+                );
+              }
+            }
+            date = DateTime(date.year, date.month, date.day + 1);
+          }
+        }
+        expect(missing, isEmpty);
+      },
+    );
   });
 }

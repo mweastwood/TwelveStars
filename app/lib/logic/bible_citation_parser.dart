@@ -75,11 +75,11 @@ class BibleCitationParser {
   }
 
   static final RegExp _citationRegex = RegExp(
-    r'\(?\b((?:[1-4]\s*)?(?:St\.\s*|Saint\s*)?[A-Z][a-zA-Z]{1,16}(?:\s+of\s+[A-Za-z]+)?\.?)'
+    r'\(?\b((?:[1-4]\s*)?(?:St\.\s*|Saint\s*)?[A-Z][a-zA-Z]{1,16}(?:\s+of\s+[A-Za-z]+)?)'
     r'(?:'
-    r'(?:\s+|\.)([ivxlcdmIVXLCDM]+)'
+    r'(?:\.?\s+|\.)([ivxlcdmIVXLCDM]+)'
     r'|'
-    r'\s*(\d{1,3})'
+    r'\.?\s*(\d{1,3})'
     r')'
     r'(?:\s*\[\d{1,3}(?::\d{1,3})?\])?'
     r'(?:'
@@ -159,9 +159,22 @@ class BibleCitationParser {
         }
       }
 
-      if (match.start > lastOffset) {
+      int matchStart = match.start;
+      int matchEnd = match.end;
+      String rawMatch = match.group(0)!;
+      final hasLeadingParen = rawMatch.startsWith('(');
+      final hasTrailingParen = rawMatch.endsWith(')');
+      if (hasLeadingParen && !hasTrailingParen) {
+        matchStart += 1;
+        rawMatch = rawMatch.substring(1);
+      } else if (!hasLeadingParen && hasTrailingParen) {
+        matchEnd -= 1;
+        rawMatch = rawMatch.substring(0, rawMatch.length - 1);
+      }
+
+      if (matchStart > lastOffset) {
         segments.add(
-          CitationSegment.text(input.substring(lastOffset, match.start)),
+          CitationSegment.text(input.substring(lastOffset, matchStart)),
         );
       }
 
@@ -175,7 +188,7 @@ class BibleCitationParser {
       }
 
       final citation = BibleCitation(
-        rawMatch: match.group(0)!,
+        rawMatch: rawMatch,
         displayLabel: displayLabel,
         bookNumber: bookNum,
         bookName: bookMetadata.bookName,
@@ -187,7 +200,7 @@ class BibleCitationParser {
       );
 
       segments.add(CitationSegment.citation(citation));
-      lastOffset = match.end;
+      lastOffset = matchEnd;
     }
 
     if (lastOffset < input.length) {
