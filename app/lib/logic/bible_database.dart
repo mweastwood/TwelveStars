@@ -7,147 +7,15 @@ import 'connection_stub.dart'
     if (dart.library.io) 'connection_native.dart'
     if (dart.library.html) 'connection_web.dart';
 import 'bible_metadata.dart' show catholicBookAbbrevs;
+import 'database_converters.dart';
+import 'lectionary_resolver.dart' show ChapterVerseRange;
 import 'prayers.dart';
+import 'usfm_parser.dart';
+
+export 'database_converters.dart';
+export 'usfm_parser.dart';
 
 part 'bible_database.g.dart';
-
-class LocalizedTranslationsConverter
-    extends TypeConverter<List<LocalizedTranslations>, String> {
-  const LocalizedTranslationsConverter();
-
-  @override
-  List<LocalizedTranslations> fromSql(String fromDb) {
-    if (fromDb.isEmpty) return [];
-    try {
-      final dynamic decoded = jsonDecode(fromDb);
-      if (decoded is! List) return [];
-      final List<LocalizedTranslations> results = [];
-      for (final item in decoded) {
-        if (item is! Map) continue;
-        final map = item is Map<String, dynamic>
-            ? item
-            : Map<String, dynamic>.from(item);
-        results.add(LocalizedTranslations.fromJson(map));
-      }
-      return results;
-    } catch (e, stack) {
-      debugPrint('LocalizedTranslationsConverter.fromSql error: $e\n$stack');
-      return [];
-    }
-  }
-
-  @override
-  String toSql(List<LocalizedTranslations> value) {
-    try {
-      return jsonEncode(value.map((item) => item.toJson()).toList());
-    } catch (e, stack) {
-      debugPrint('LocalizedTranslationsConverter.toSql error: $e\n$stack');
-      return '';
-    }
-  }
-}
-
-class PreferredVersionsConverter
-    extends TypeConverter<List<PrayerVersionPreference>, String> {
-  const PreferredVersionsConverter();
-
-  @override
-  List<PrayerVersionPreference> fromSql(String fromDb) {
-    if (fromDb.isEmpty) return [];
-    try {
-      final dynamic decoded = jsonDecode(fromDb);
-      if (decoded is! List) return [];
-      final List<PrayerVersionPreference> results = [];
-      for (final item in decoded) {
-        if (item is! Map) continue;
-        final map = item is Map<String, dynamic>
-            ? item
-            : Map<String, dynamic>.from(item);
-        results.add(PrayerVersionPreference.fromJson(map));
-      }
-      return results;
-    } catch (e, stack) {
-      debugPrint('PreferredVersionsConverter.fromSql error: $e\n$stack');
-      return [];
-    }
-  }
-
-  @override
-  String toSql(List<PrayerVersionPreference> value) {
-    try {
-      return jsonEncode(value.map((item) => item.toJson()).toList());
-    } catch (e, stack) {
-      debugPrint('PreferredVersionsConverter.toSql error: $e\n$stack');
-      return '';
-    }
-  }
-}
-
-class StringListConverter extends TypeConverter<List<String>, String> {
-  const StringListConverter();
-
-  @override
-  List<String> fromSql(String fromDb) {
-    if (fromDb.isEmpty) return [];
-    try {
-      final dynamic decoded = jsonDecode(fromDb);
-      if (decoded is! List) return [];
-      return decoded.map((e) => e.toString()).toList();
-    } catch (e, stack) {
-      debugPrint('StringListConverter.fromSql error: $e\n$stack');
-      return [];
-    }
-  }
-
-  @override
-  String toSql(List<String> value) {
-    try {
-      return jsonEncode(value);
-    } catch (e, stack) {
-      debugPrint('StringListConverter.toSql error: $e\n$stack');
-      return '[]';
-    }
-  }
-}
-
-class BibleRibbonsConverter
-    extends TypeConverter<List<BibleRibbonBookmark>, String> {
-  const BibleRibbonsConverter();
-
-  @override
-  List<BibleRibbonBookmark> fromSql(String fromDb) {
-    if (fromDb.isEmpty) return [];
-    try {
-      final dynamic decoded = jsonDecode(fromDb);
-      if (decoded is! List) return [];
-      final List<BibleRibbonBookmark> results = [];
-      for (final item in decoded) {
-        if (item is! Map) continue;
-        final map = item is Map<String, dynamic>
-            ? item
-            : Map<String, dynamic>.from(item);
-        results.add(BibleRibbonBookmark.fromJson(map));
-      }
-      return results;
-    } catch (e, stack) {
-      debugPrint('BibleRibbonsConverter.fromSql error: $e\n$stack');
-      return [];
-    }
-  }
-
-  @override
-  String toSql(List<BibleRibbonBookmark> value) {
-    try {
-      final List<Map<String, dynamic>> list = value
-          .map((item) => item.toJson())
-          .toList();
-      return jsonEncode(list);
-    } catch (e, stack) {
-      debugPrint('BibleRibbonsConverter.toSql error: $e\n$stack');
-      return '[]';
-    }
-  }
-}
 
 @UseRowClass(Prayer)
 class Prayers extends Table {
@@ -464,6 +332,62 @@ class BibleDatabase extends _$BibleDatabase {
                 t.chapter.equals(chapterNum),
           )
           ..orderBy([(t) => OrderingTerm(expression: t.verseNumber)]))
+        .get();
+  }
+
+  /// Retrieves verses matching a list of [ChapterVerseRange]s for a given
+  /// [translationCode] and [bookNumber], ordered by chapter and verse number.
+  Future<List<BibleVerse>> getVersesForRanges({
+    required String translationCode,
+    required int bookNumber,
+    required List<ChapterVerseRange> ranges,
+  }) {
+    if (ranges.isEmpty) return Future.value(const []);
+
+    Expression<bool> predicate = const Constant(false);
+    for (final range in ranges) {
+      Expression<bool> rangePredicate = bibleVerses.chapter.equals(
+        range.chapter,
+      );
+
+      if (range.verses != null) {
+        if (range.startVerseLimit != null) {
+          rangePredicate =
+              rangePredicate &
+              (bibleVerses.verseNumber.isIn(range.verses!) |
+                  bibleVerses.verseNumber.isBiggerOrEqualValue(
+                    range.startVerseLimit!,
+                  ));
+        } else {
+          rangePredicate =
+              rangePredicate & bibleVerses.verseNumber.isIn(range.verses!);
+        }
+      } else if (range.startVerseLimit != null) {
+        rangePredicate =
+            rangePredicate &
+            bibleVerses.verseNumber.isBiggerOrEqualValue(
+              range.startVerseLimit!,
+            );
+      } else if (range.endVerseLimit != null) {
+        rangePredicate =
+            rangePredicate &
+            bibleVerses.verseNumber.isSmallerOrEqualValue(range.endVerseLimit!);
+      }
+
+      predicate = predicate | rangePredicate;
+    }
+
+    return (select(bibleVerses)
+          ..where(
+            (t) =>
+                t.translationCode.equals(translationCode) &
+                t.bookNumber.equals(bookNumber) &
+                predicate,
+          )
+          ..orderBy([
+            (t) => OrderingTerm(expression: t.chapter),
+            (t) => OrderingTerm(expression: t.verseNumber),
+          ]))
         .get();
   }
 
@@ -893,133 +817,6 @@ class BibleDatabase extends _$BibleDatabase {
         updatedAt: Value(DateTime.now()),
       ),
     );
-  }
-}
-
-class UsfmParseParams {
-  final String usfmContent;
-  final String translationCode;
-  final int bookNumber;
-  final String bookName;
-
-  const UsfmParseParams({
-    required this.usfmContent,
-    required this.translationCode,
-    required this.bookNumber,
-    required this.bookName,
-  });
-}
-
-// Simple USFM Parser
-class UsfmParser {
-  static final RegExp _footnoteRegex = RegExp(r'\\f\s+.*?\\f\*');
-  static final RegExp _crossRefRegex = RegExp(r'\\x\s+.*?\\x\*');
-  static final RegExp _qsRegex = RegExp(r'\\qs\s*.*?\s*\\qs\*');
-  static final RegExp _tagRegex = RegExp(r'\\[a-zA-Z0-9]+(?:\*|\s)?');
-  static final RegExp _attributeRegex = RegExp(
-    r'\|[a-zA-Z0-9_]+="[^"]*"(?:\s+[a-zA-Z0-9_]+="[^"]*")*',
-  );
-  static final RegExp _multiSpaceRegex = RegExp(r'\s+');
-  static final RegExp _chapterRegex = RegExp(r'^\\c\s+(\d+)');
-  static final RegExp _verseRegex = RegExp(r'\\v\s+(\d+)\s*');
-  static final RegExp _ignoredLineTagRegex = RegExp(
-    r'^\\(?:id|h|toc\d*|mt\d*|cl|ca|qa|s\d*|sd\d*|cd|rem|ip)\b',
-  );
-
-  static List<Map<String, dynamic>> parseInBackground(UsfmParseParams params) {
-    return parse(
-      params.usfmContent,
-      params.translationCode,
-      params.bookNumber,
-      params.bookName,
-    );
-  }
-
-  static List<Map<String, dynamic>> parse(
-    String usfmContent,
-    String translationCode,
-    int bookNumber,
-    String bookName,
-  ) {
-    final List<Map<String, dynamic>> verses = [];
-    final lines = usfmContent.split('\n');
-
-    int currentChapter = 0;
-    int currentVerseNumber = 0;
-    String currentVerseText = '';
-
-    void saveCurrentVerse() {
-      if (currentChapter > 0 && currentVerseNumber > 0) {
-        var text = currentVerseText;
-        // Strip inline footnotes and formatting
-        text = text.replaceAll(_footnoteRegex, '');
-        text = text.replaceAll(_crossRefRegex, '');
-        text = text.replaceAll(_qsRegex, '');
-        text = text.replaceAll(_tagRegex, '');
-        text = text.replaceAll(_attributeRegex, '');
-        text = text.trim();
-        // Remove multiple consecutive spaces
-        text = text.replaceAll(_multiSpaceRegex, ' ');
-
-        verses.add({
-          'bookNumber': bookNumber,
-          'bookName': bookName,
-          'chapter': currentChapter,
-          'verseNumber': currentVerseNumber,
-          'verseText': text,
-          'translationCode': translationCode,
-        });
-      }
-    }
-
-    for (var line in lines) {
-      line = line.trim();
-      if (line.isEmpty) continue;
-
-      final chapterMatch = _chapterRegex.firstMatch(line);
-      if (chapterMatch != null) {
-        saveCurrentVerse();
-        currentChapter = int.parse(chapterMatch.group(1)!);
-        currentVerseNumber = 0;
-        currentVerseText = '';
-        continue;
-      }
-
-      final verseMatches = _verseRegex.allMatches(line).toList();
-      if (verseMatches.isNotEmpty) {
-        for (int i = 0; i < verseMatches.length; i++) {
-          final m = verseMatches[i];
-          final textEnd = (i + 1 < verseMatches.length)
-              ? verseMatches[i + 1].start
-              : line.length;
-          final chunk = line.substring(m.end, textEnd);
-
-          if (i == 0) {
-            final prefix = line.substring(0, m.start).trim();
-            if (prefix.isNotEmpty &&
-                currentChapter > 0 &&
-                currentVerseNumber > 0) {
-              currentVerseText += ' $prefix';
-            }
-          }
-
-          saveCurrentVerse();
-          currentVerseNumber = int.parse(m.group(1)!);
-          currentVerseText = chunk;
-        }
-        continue;
-      }
-
-      if (currentChapter > 0 && currentVerseNumber > 0) {
-        if (_ignoredLineTagRegex.hasMatch(line)) {
-          continue;
-        }
-        currentVerseText += ' $line';
-      }
-    }
-
-    saveCurrentVerse();
-    return verses;
   }
 }
 
