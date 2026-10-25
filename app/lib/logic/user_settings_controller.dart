@@ -22,6 +22,11 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     value.prayerCatalogVersion = version;
   }
 
+  /// Clears the cached prayer catalog version (e.g., when [PrayerDatabase.resetCache] is called).
+  void clearSyncedPrayerCatalogVersion() {
+    _syncedPrayerCatalogVersion = null;
+  }
+
   void _setValueAndNotify(UserSettings newValue) {
     final alreadyEqual = identical(value, newValue) || value == newValue;
     value = newValue;

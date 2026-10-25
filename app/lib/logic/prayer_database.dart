@@ -17,6 +17,7 @@ class PrayerDatabase {
   static void resetCache() {
     _cachedPrayers = null;
     _inFlightLoad = null;
+    UserSettingsController.instance.clearSyncedPrayerCatalogVersion();
   }
 
   // Fetch all prayers from the database

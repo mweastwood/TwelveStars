@@ -597,6 +597,32 @@ void main() {
         );
         expect(resolvedBook1?.volumeKey, equals('book1'));
 
+        // Disambiguates shared volumeKey ('book1') via specific volume assetPath when bookId is omitted
+        final cityOfGodByAssetAndSharedVolKey = LibraryCatalog.resolveTarget(
+          volumeKey: 'book1',
+          assetPath: 'assets/catechism/json/augustine_city_of_god_book1.json',
+        );
+        expect(cityOfGodByAssetAndSharedVolKey, isNotNull);
+        expect(
+          cityOfGodByAssetAndSharedVolKey!.book.id,
+          equals('augustine_city_of_god'),
+        );
+        expect(cityOfGodByAssetAndSharedVolKey.volumeKey, equals('book1'));
+
+        // Single-volume boundary substring fallback via assetPath when bookId is omitted
+        final singleVolBySubstringAsset = LibraryCatalog.resolveTarget(
+          assetPath: 'imitation_of_christ',
+        );
+        expect(singleVolBySubstringAsset, isNotNull);
+        expect(
+          singleVolBySubstringAsset!.book.id,
+          equals('kempis_imitation_of_christ'),
+        );
+        expect(
+          singleVolBySubstringAsset.assetPath,
+          equals('assets/catechism/json/kempis_imitation_of_christ.json'),
+        );
+
         // 6. buildFallbackTarget category and path inference
         final fallback = LibraryCatalog.buildFallbackTarget(
           bookId: 'custom_augustine_tract',

@@ -575,6 +575,7 @@ class NotificationService {
   /// Updates or cancels Morning Prayer reminder based on UserSettings.
   static Future<void> syncMorningPrayerNotification([
     UserSettings? settings,
+    DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
 
@@ -586,7 +587,7 @@ class NotificationService {
       if (userSettings.morningPrayerReminderEnabled) {
         final hour = userSettings.morningPrayerReminderHour;
         final minute = userSettings.morningPrayerReminderMinute;
-        final scheduled = nextDailyTime(hour, minute);
+        final scheduled = nextDailyTime(hour, minute, fromDate);
         final (title, body) = computeMorningPrayerContent(scheduled);
         await scheduleDailyNotification(
           id: kMorningPrayerNotificationId,
@@ -594,6 +595,7 @@ class NotificationService {
           body: body,
           hour: hour,
           minute: minute,
+          scheduledDate: scheduled,
         );
       } else {
         await plugin.cancel(id: kMorningPrayerNotificationId);
@@ -608,6 +610,7 @@ class NotificationService {
   /// Updates or cancels Night Prayer reminder based on UserSettings.
   static Future<void> syncNightPrayerNotification([
     UserSettings? settings,
+    DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
 
@@ -619,7 +622,7 @@ class NotificationService {
       if (userSettings.nightPrayerReminderEnabled) {
         final hour = userSettings.nightPrayerReminderHour;
         final minute = userSettings.nightPrayerReminderMinute;
-        final scheduled = nextDailyTime(hour, minute);
+        final scheduled = nextDailyTime(hour, minute, fromDate);
         final (title, body) = computeNightPrayerContent(scheduled);
         await scheduleDailyNotification(
           id: kNightPrayerNotificationId,
@@ -627,6 +630,7 @@ class NotificationService {
           body: body,
           hour: hour,
           minute: minute,
+          scheduledDate: scheduled,
         );
       } else {
         await plugin.cancel(id: kNightPrayerNotificationId);
@@ -652,8 +656,8 @@ class NotificationService {
       await syncSundayNotification(userSettings, fromDate);
       await syncAngelusNotifications(userSettings, fromDate);
       await syncRosaryNotification(userSettings, fromDate);
-      await syncMorningPrayerNotification(userSettings);
-      await syncNightPrayerNotification(userSettings);
+      await syncMorningPrayerNotification(userSettings, fromDate);
+      await syncNightPrayerNotification(userSettings, fromDate);
     } catch (e, stack) {
       debugPrint('NotificationService syncAllNotifications error: $e\n$stack');
     }

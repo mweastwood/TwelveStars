@@ -1533,7 +1533,27 @@ class LibraryCatalog {
       }
     }
 
-    // Pass 2: Exact volumeKey or exact/stem match on volume assetPath
+    // Pass 2: Exact/stem match on volume assetPath first, then exact volumeKey
+    if (matchedBook == null) {
+      for (final b in items) {
+        if (b.volumes == null) continue;
+        for (final v in b.volumes!) {
+          final matchesAssetPath =
+              (assetPath != null &&
+                  LibraryBookItem.matchesAssetExact(v.assetPath, assetPath)) ||
+              (bookId != null &&
+                  LibraryBookItem.matchesAssetExact(v.assetPath, bookId));
+          if (matchesAssetPath) {
+            matchedBook = b;
+            matchedVolume = v;
+            matchedVolumeKey = v.volumeKey;
+            matchedAssetPath = v.assetPath;
+            break;
+          }
+        }
+        if (matchedBook != null) break;
+      }
+    }
     if (matchedBook == null) {
       for (final b in items) {
         if (b.volumes == null) continue;
@@ -1541,12 +1561,7 @@ class LibraryCatalog {
           final matchesVolumeKey =
               (volumeKey != null && v.volumeKey == volumeKey) ||
               (bookId != null && v.volumeKey == bookId);
-          final matchesAssetPath =
-              (assetPath != null &&
-                  LibraryBookItem.matchesAssetExact(v.assetPath, assetPath)) ||
-              (bookId != null &&
-                  LibraryBookItem.matchesAssetExact(v.assetPath, bookId));
-          if (matchesVolumeKey || matchesAssetPath) {
+          if (matchesVolumeKey) {
             matchedBook = b;
             matchedVolume = v;
             matchedVolumeKey = v.volumeKey;
@@ -1561,15 +1576,23 @@ class LibraryCatalog {
     // Pass 3: Boundary-safe substring fallback (where 'book1' does not match 'book10')
     if (matchedBook == null) {
       for (final b in items) {
-        if (bookId != null &&
-            b.defaultAssetPath != null &&
-            LibraryBookItem.matchesAssetBoundarySubstring(
-              b.defaultAssetPath!,
-              bookId,
-            )) {
-          matchedBook = b;
-          matchedAssetPath ??= b.defaultAssetPath;
-          break;
+        if (b.defaultAssetPath != null) {
+          final matchesSingleVolumeSubstring =
+              (assetPath != null &&
+                  LibraryBookItem.matchesAssetBoundarySubstring(
+                    b.defaultAssetPath!,
+                    assetPath,
+                  )) ||
+              (bookId != null &&
+                  LibraryBookItem.matchesAssetBoundarySubstring(
+                    b.defaultAssetPath!,
+                    bookId,
+                  ));
+          if (matchesSingleVolumeSubstring) {
+            matchedBook = b;
+            matchedAssetPath = b.defaultAssetPath;
+            break;
+          }
         }
         if (b.volumes != null) {
           for (final v in b.volumes!) {

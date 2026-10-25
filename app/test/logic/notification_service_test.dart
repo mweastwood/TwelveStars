@@ -749,9 +749,16 @@ void main() {
           nightPrayerReminderHour: 22,
           nightPrayerReminderMinute: 0,
         );
+        final anchorDate = DateTime(2026, 8, 10, 5, 0);
 
-        await NotificationService.syncMorningPrayerNotification(settings);
-        await NotificationService.syncNightPrayerNotification(settings);
+        await NotificationService.syncMorningPrayerNotification(
+          settings,
+          anchorDate,
+        );
+        await NotificationService.syncNightPrayerNotification(
+          settings,
+          anchorDate,
+        );
 
         final scheduledIds = mockPlugin.scheduledList.map((e) => e.id).toList();
         expect(
@@ -762,6 +769,24 @@ void main() {
           scheduledIds,
           contains(NotificationService.kNightPrayerNotificationId),
         );
+
+        final morningRecord = mockPlugin.scheduledList.firstWhere(
+          (e) => e.id == NotificationService.kMorningPrayerNotificationId,
+        );
+        expect(morningRecord.scheduledDate.year, equals(2026));
+        expect(morningRecord.scheduledDate.month, equals(8));
+        expect(morningRecord.scheduledDate.day, equals(10));
+        expect(morningRecord.scheduledDate.hour, equals(6));
+        expect(morningRecord.scheduledDate.minute, equals(30));
+
+        final nightRecord = mockPlugin.scheduledList.firstWhere(
+          (e) => e.id == NotificationService.kNightPrayerNotificationId,
+        );
+        expect(nightRecord.scheduledDate.year, equals(2026));
+        expect(nightRecord.scheduledDate.month, equals(8));
+        expect(nightRecord.scheduledDate.day, equals(10));
+        expect(nightRecord.scheduledDate.hour, equals(22));
+        expect(nightRecord.scheduledDate.minute, equals(0));
       });
     });
 

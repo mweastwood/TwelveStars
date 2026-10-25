@@ -610,6 +610,54 @@ void main() {
         }
       },
     );
+
+    test(
+      'resetCache clears synced prayerCatalogVersion on UserSettingsController and preserves concurrent settings mutations during loadPrayers',
+      () async {
+        UserSettingsController.instance.resetForTesting();
+        try {
+          // 1. Seed initial prayers so _syncedPrayerCatalogVersion is set to kPrayerCatalogVersion
+          await PrayerDatabase.loadPrayers();
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+
+          // 2. Simulate an outdated DB row (prayerCatalogVersion = 0) and call resetCache()
+          final outdated = UserSettings(prayerCatalogVersion: 0);
+          await db.saveUserSettings(outdated);
+          PrayerDatabase.resetCache();
+
+          // Loading UserSettingsController now must NOT prematurely stamp kPrayerCatalogVersion
+          final loadedBeforeReseed = await UserSettingsController.instance
+              .load();
+          expect(loadedBeforeReseed.prayerCatalogVersion, equals(0));
+
+          // 3. Start loadPrayers() and concurrently mutate a user setting while loadPrayers is in flight
+          final loadFuture = PrayerDatabase.loadPrayers();
+          await UserSettingsController.instance.mutate((s) {
+            s.primaryLanguageCode = 'latin';
+            s.hapticsEnabled = false;
+          });
+          await loadFuture;
+
+          final finalSettings = await db.getUserSettings();
+          expect(finalSettings, isNotNull);
+          expect(
+            finalSettings!.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+          expect(finalSettings.primaryLanguageCode, equals('latin'));
+          expect(finalSettings.hapticsEnabled, isFalse);
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+        } finally {
+          UserSettingsController.instance.resetForTesting();
+        }
+      },
+    );
   });
 
   group('Prayer Model JSON Serialization', () {
