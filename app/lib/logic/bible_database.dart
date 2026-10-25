@@ -351,27 +351,39 @@ class BibleDatabase extends _$BibleDatabase {
       );
 
       if (range.verses != null) {
+        Expression<bool> versePredicate = bibleVerses.verseNumber.isIn(
+          range.verses!,
+        );
+        if (range.startVerseLimit != null) {
+          versePredicate =
+              versePredicate |
+              bibleVerses.verseNumber.isBiggerOrEqualValue(
+                range.startVerseLimit!,
+              );
+        }
+        if (range.endVerseLimit != null) {
+          versePredicate =
+              versePredicate |
+              bibleVerses.verseNumber.isSmallerOrEqualValue(
+                range.endVerseLimit!,
+              );
+        }
+        rangePredicate = rangePredicate & versePredicate;
+      } else {
         if (range.startVerseLimit != null) {
           rangePredicate =
               rangePredicate &
-              (bibleVerses.verseNumber.isIn(range.verses!) |
-                  bibleVerses.verseNumber.isBiggerOrEqualValue(
-                    range.startVerseLimit!,
-                  ));
-        } else {
-          rangePredicate =
-              rangePredicate & bibleVerses.verseNumber.isIn(range.verses!);
+              bibleVerses.verseNumber.isBiggerOrEqualValue(
+                range.startVerseLimit!,
+              );
         }
-      } else if (range.startVerseLimit != null) {
-        rangePredicate =
-            rangePredicate &
-            bibleVerses.verseNumber.isBiggerOrEqualValue(
-              range.startVerseLimit!,
-            );
-      } else if (range.endVerseLimit != null) {
-        rangePredicate =
-            rangePredicate &
-            bibleVerses.verseNumber.isSmallerOrEqualValue(range.endVerseLimit!);
+        if (range.endVerseLimit != null) {
+          rangePredicate =
+              rangePredicate &
+              bibleVerses.verseNumber.isSmallerOrEqualValue(
+                range.endVerseLimit!,
+              );
+        }
       }
 
       predicate = predicate | rangePredicate;

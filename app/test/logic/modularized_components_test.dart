@@ -150,6 +150,25 @@ void main() {
         );
       },
     );
+
+    test(
+      'queries verses combined with endVerseLimit and startVerseLimit combined with endVerseLimit',
+      () async {
+        final verses = await db.getVersesForRanges(
+          translationCode: 'CPDV',
+          bookNumber: 1,
+          ranges: [
+            ChapterVerseRange(chapter: 1, verses: [4], endVerseLimit: 2),
+            ChapterVerseRange(chapter: 2, startVerseLimit: 2, endVerseLimit: 2),
+          ],
+        );
+
+        expect(
+          verses.map((v) => '${v.chapter}:${v.verseNumber}').toList(),
+          equals(['1:1', '1:2', '1:4', '2:2']),
+        );
+      },
+    );
   });
 
   group('SaintCategoryClassifier', () {
