@@ -13,6 +13,7 @@ class RosaryScreen extends StatefulWidget {
   final PrayerLanguage? compareLanguage;
   final DateTime? initialDate;
   final bool? hapticsEnabled;
+  final double fontSize;
 
   const RosaryScreen({
     super.key,
@@ -21,6 +22,7 @@ class RosaryScreen extends StatefulWidget {
     this.compareLanguage,
     this.initialDate,
     this.hapticsEnabled,
+    this.fontSize = 16.0,
   });
 
   @override
@@ -52,13 +54,13 @@ class _RosaryScreenState extends State<RosaryScreen> {
   }
 
   void _onSettingsChanged() {
-    if (!mounted || widget.hapticsEnabled != null) return;
-    final haptics = UserSettingsController.instance.value.hapticsEnabled;
-    if (_hapticsEnabled != haptics) {
-      setState(() {
-        _hapticsEnabled = haptics;
-      });
-    }
+    if (!mounted) return;
+    final haptics =
+        widget.hapticsEnabled ??
+        UserSettingsController.instance.value.hapticsEnabled;
+    setState(() {
+      _hapticsEnabled = haptics;
+    });
   }
 
   Future<void> _loadHapticsSetting() async {
@@ -198,22 +200,27 @@ class _RosaryScreenState extends State<RosaryScreen> {
         ? _findPrayer(activeStep.tertiaryPrayerId!)
         : null;
 
+    final settings = UserSettingsController.instance.value;
     final langSuffix = widget.primaryLanguage.code;
     final prefKey1 = '${activeStep.prayerId}_$langSuffix';
-    final initialVersion1 = _preferredVersions[prefKey1] ?? 0;
+    final initialVersion1 =
+        _preferredVersions[prefKey1] ??
+        settings.getPreferredVersionIndex(prefKey1);
 
     final prefKey2 = activeStep.secondaryPrayerId != null
         ? '${activeStep.secondaryPrayerId}_$langSuffix'
         : '';
     final initialVersion2 = activeStep.secondaryPrayerId != null
-        ? (_preferredVersions[prefKey2] ?? 0)
+        ? (_preferredVersions[prefKey2] ??
+              settings.getPreferredVersionIndex(prefKey2))
         : 0;
 
     final prefKey3 = activeStep.tertiaryPrayerId != null
         ? '${activeStep.tertiaryPrayerId}_$langSuffix'
         : '';
     final initialVersion3 = activeStep.tertiaryPrayerId != null
-        ? (_preferredVersions[prefKey3] ?? 0)
+        ? (_preferredVersions[prefKey3] ??
+              settings.getPreferredVersionIndex(prefKey3))
         : 0;
 
     return Scaffold(
@@ -312,11 +319,19 @@ class _RosaryScreenState extends State<RosaryScreen> {
                                             widget.primaryLanguage,
                                         compareLanguage: widget.compareLanguage,
                                         initialVersionIndex: initialVersion1,
-                                        onVersionChanged: (newIndex) {
+                                        fontSize: widget.fontSize,
+                                        onVersionChanged: (newIndex) async {
                                           setState(() {
                                             _preferredVersions[prefKey1] =
                                                 newIndex;
                                           });
+                                          await UserSettingsController.instance
+                                              .mutate((s) {
+                                                s.setPreferredVersionIndex(
+                                                  prefKey1,
+                                                  newIndex,
+                                                );
+                                              });
                                         },
                                       ),
                                     ] else ...[
@@ -348,11 +363,19 @@ class _RosaryScreenState extends State<RosaryScreen> {
                                             widget.primaryLanguage,
                                         compareLanguage: widget.compareLanguage,
                                         initialVersionIndex: initialVersion2,
-                                        onVersionChanged: (newIndex) {
+                                        fontSize: widget.fontSize,
+                                        onVersionChanged: (newIndex) async {
                                           setState(() {
                                             _preferredVersions[prefKey2] =
                                                 newIndex;
                                           });
+                                          await UserSettingsController.instance
+                                              .mutate((s) {
+                                                s.setPreferredVersionIndex(
+                                                  prefKey2,
+                                                  newIndex,
+                                                );
+                                              });
                                         },
                                       ),
                                     ],
@@ -368,11 +391,19 @@ class _RosaryScreenState extends State<RosaryScreen> {
                                             widget.primaryLanguage,
                                         compareLanguage: widget.compareLanguage,
                                         initialVersionIndex: initialVersion3,
-                                        onVersionChanged: (newIndex) {
+                                        fontSize: widget.fontSize,
+                                        onVersionChanged: (newIndex) async {
                                           setState(() {
                                             _preferredVersions[prefKey3] =
                                                 newIndex;
                                           });
+                                          await UserSettingsController.instance
+                                              .mutate((s) {
+                                                s.setPreferredVersionIndex(
+                                                  prefKey3,
+                                                  newIndex,
+                                                );
+                                              });
                                         },
                                       ),
                                     ],

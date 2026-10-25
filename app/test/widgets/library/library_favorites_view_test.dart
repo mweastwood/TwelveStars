@@ -37,6 +37,7 @@ void main() {
                   volumeKey,
                   assetPath,
                   sectionIndex,
+                  sectionId,
                   itemIndex,
                   questionNumber,
                 }) {},
@@ -62,6 +63,7 @@ void main() {
                   volumeKey,
                   assetPath,
                   sectionIndex,
+                  sectionId,
                   itemIndex,
                   questionNumber,
                 }) {},
@@ -110,6 +112,7 @@ void main() {
       bool refreshCalled = false;
       LibraryBookItem? openedBook;
       int? openedSectionIndex;
+      String? openedSectionId;
       int? openedItemIndex;
 
       await tester.pumpWidget(
@@ -127,11 +130,13 @@ void main() {
                     volumeKey,
                     assetPath,
                     sectionIndex,
+                    sectionId,
                     itemIndex,
                     questionNumber,
                   }) {
                     openedBook = book;
                     openedSectionIndex = sectionIndex;
+                    openedSectionId = sectionId;
                     openedItemIndex = itemIndex;
                   },
             ),
@@ -158,6 +163,7 @@ void main() {
 
       expect(openedBook?.id, 'didache_lightfoot');
       expect(openedSectionIndex, 0);
+      expect(openedSectionId, 'ch1');
       expect(openedItemIndex, 0);
 
       // Delete favorite
@@ -207,6 +213,7 @@ void main() {
                     volumeKey,
                     assetPath,
                     sectionIndex,
+                    sectionId,
                     itemIndex,
                     questionNumber,
                   }) {
@@ -224,6 +231,82 @@ void main() {
 
       expect(openedBook?.id, 'custom_favorite_book');
       expect(openedBook?.title, 'Custom Favorite Book');
+    },
+  );
+
+  testWidgets(
+    'resolves volume asset stem documentId (e.g. baltimore_2) to parent LibraryBookItem and volumeKey',
+    (tester) async {
+      final fav = LibraryBookmark(
+        id: 601,
+        documentId: 'baltimore_2',
+        sectionIndex: 0,
+        nodeId: 'no2:lesson_01_0',
+        textPreview:
+            'Baltimore Catechism No. 2 — Lesson 1\nWho made the world?',
+        createdAt: DateTime.now(),
+      );
+      final favParentId = LibraryBookmark(
+        id: 603,
+        documentId: 'baltimore_catechism',
+        sectionIndex: 0,
+        nodeId: 'no1:lesson_01_0',
+        textPreview:
+            'Baltimore Catechism No. 1 — Lesson 1\nWho made the world?',
+        createdAt: DateTime.now(),
+      );
+      final favOther = LibraryBookmark(
+        id: 602,
+        documentId: 'didache_lightfoot',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        textPreview: 'The Didache, Chapter 1\nThere are two ways...',
+        createdAt: DateTime.now(),
+      );
+
+      LibraryBookItem? openedBook;
+      String? openedVolumeKey;
+      String? openedAssetPath;
+      String? openedSectionId;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryFavoritesView(
+              favorites: [fav, favParentId, favOther],
+              isLoading: false,
+              onRefresh: () {},
+              onOpenReader:
+                  (
+                    book, {
+                    volumeKey,
+                    assetPath,
+                    sectionIndex,
+                    sectionId,
+                    itemIndex,
+                    questionNumber,
+                  }) {
+                    openedBook = book;
+                    openedVolumeKey = volumeKey;
+                    openedAssetPath = assetPath;
+                    openedSectionId = sectionId;
+                  },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Filter chip should group 'baltimore_2' and 'baltimore_catechism' into a single parent book chip
+      expect(find.text('Baltimore Catechism (2)'), findsOneWidget);
+
+      await tester.tap(find.text('Baltimore Catechism No. 2 — Lesson 1'));
+      await tester.pumpAndSettle();
+
+      expect(openedBook?.id, equals('baltimore_catechism'));
+      expect(openedVolumeKey, equals('no2'));
+      expect(openedAssetPath, equals('assets/catechism/json/baltimore_2.json'));
+      expect(openedSectionId, equals('lesson_01'));
     },
   );
 }

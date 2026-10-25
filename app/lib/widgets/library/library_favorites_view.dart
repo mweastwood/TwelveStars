@@ -14,6 +14,7 @@ class LibraryFavoritesView extends StatefulWidget {
     String? volumeKey,
     String? assetPath,
     int? sectionIndex,
+    String? sectionId,
     int? itemIndex,
     int? questionNumber,
   })
@@ -39,11 +40,26 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
   List<LibraryBookItem> get _catalog =>
       widget.catalog ?? LibraryHelper.getCatalog();
 
+  String _canonicalBookId(String documentId, List<LibraryBookItem> catalog) {
+    final book =
+        LibraryCatalog.findBookById(documentId, catalog: catalog) ??
+        LibraryCatalog.resolveTarget(
+          bookId: documentId,
+          catalog: catalog,
+        )?.book;
+    return book?.id ?? documentId;
+  }
+
   @override
   void didUpdateWidget(covariant LibraryFavoritesView oldWidget) {
     super.didUpdateWidget(oldWidget);
+    final catalog = _catalog;
     if (_selectedFavoriteBookId != 'all' &&
-        !widget.favorites.any((f) => f.documentId == _selectedFavoriteBookId)) {
+        !widget.favorites.any(
+          (f) =>
+              _canonicalBookId(f.documentId, catalog) ==
+              _selectedFavoriteBookId,
+        )) {
       _selectedFavoriteBookId = 'all';
     }
   }
@@ -93,14 +109,18 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
 
     final catalog = _catalog;
     final distinctBookIds = widget.favorites
-        .map((f) => f.documentId)
+        .map((f) => _canonicalBookId(f.documentId, catalog))
         .toSet()
         .toList();
 
     final filteredFavorites = _selectedFavoriteBookId == 'all'
         ? widget.favorites
         : widget.favorites
-              .where((f) => f.documentId == _selectedFavoriteBookId)
+              .where(
+                (f) =>
+                    _canonicalBookId(f.documentId, catalog) ==
+                    _selectedFavoriteBookId,
+              )
               .toList();
 
     return Column(
@@ -125,13 +145,18 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
                     ),
                   ),
                   ...distinctBookIds.map((bookId) {
-                    final book = LibraryCatalog.findBookById(
-                      bookId,
-                      catalog: catalog,
-                    );
+                    final book =
+                        LibraryCatalog.findBookById(bookId, catalog: catalog) ??
+                        LibraryCatalog.resolveTarget(
+                          bookId: bookId,
+                          catalog: catalog,
+                        )?.book;
                     final bookTitle = book?.title ?? bookId;
                     final count = widget.favorites
-                        .where((f) => f.documentId == bookId)
+                        .where(
+                          (f) =>
+                              _canonicalBookId(f.documentId, catalog) == bookId,
+                        )
                         .length;
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
@@ -170,10 +195,17 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
               final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
                 fav.nodeId,
               );
-              final book = LibraryCatalog.findBookById(
-                fav.documentId,
+              final resolvedTarget = LibraryCatalog.resolveTarget(
+                bookId: fav.documentId,
+                volumeKey: volKey,
                 catalog: catalog,
               );
+              final book =
+                  LibraryCatalog.findBookById(
+                    fav.documentId,
+                    catalog: catalog,
+                  ) ??
+                  resolvedTarget?.book;
 
               return Card(
                 margin: const EdgeInsets.symmetric(vertical: 4.0),
@@ -219,13 +251,18 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
                       return;
                     }
 
-                    final targetVol = book.resolveVolume(volumeKey: volKey);
+                    final effectiveVolKey = volKey ?? resolvedTarget?.volumeKey;
+                    final targetVol = book.resolveVolume(
+                      volumeKey: effectiveVolKey,
+                    );
 
                     widget.onOpenReader(
                       book,
-                      volumeKey: targetVol?.volumeKey ?? volKey,
-                      assetPath: targetVol?.assetPath,
+                      volumeKey: targetVol?.volumeKey ?? effectiveVolKey,
+                      assetPath:
+                          targetVol?.assetPath ?? resolvedTarget?.assetPath,
                       sectionIndex: fav.sectionIndex,
+                      sectionId: ReaderNodeId.parseLibrarySectionId(fav.nodeId),
                       itemIndex: itemIdx,
                       questionNumber: qNum,
                     );

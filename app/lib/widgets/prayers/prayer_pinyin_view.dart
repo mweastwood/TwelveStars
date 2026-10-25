@@ -38,10 +38,8 @@ class PrayerPinyinView extends StatelessWidget {
         for (final charItem in line.chars ?? []) {
           if (charItem.phraseId == selectedPhraseId) {
             targetChar = charItem;
-            break;
           }
         }
-        if (targetChar != null) break;
       }
     }
 

@@ -2009,5 +2009,95 @@ void main() {
         expect(find.textContaining('Error'), findsNothing);
       },
     );
+
+    testWidgets(
+      'saving a multi-chapter selection in MassReadingCard creates separate valid FavoritePassages per chapter',
+      (WidgetTester tester) async {
+        const reading = LectionaryReading(
+          id: 77,
+          readingKey: 'multi_chapter_favorite_test',
+          readingType: 'first',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '31; 2:1-2',
+          citation: 'Genesis 1:31—2:2',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 10131,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 31,
+                verseText: 'And God saw all the things that he had made.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 10201,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 2,
+                verseNumber: 1,
+                verseText: 'So the heavens and the earth were finished.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 10202,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 2,
+                verseNumber: 2,
+                verseText: 'And on the seventh day God ended his work.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(body: MassReadingCard(reading: reading)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Long-press Genesis 1:31 and tap Genesis 2:2 to select across chapters 1 and 2
+        await tester.longPress(
+          find.text('And God saw all the things that he had made.'),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(
+          find.text('And on the seventh day God ended his work.'),
+        );
+        await tester.pumpAndSettle();
+
+        // Tap Save (star icon) in the selection action bar
+        await tester.tap(find.byIcon(Icons.star));
+        await tester.pumpAndSettle();
+
+        final favs = await testDb.getFavorites();
+        expect(favs.length, equals(2));
+
+        final ch1Fav = favs.firstWhere((f) => f.chapter == 1);
+        expect(ch1Fav.startVerse, equals(31));
+        expect(ch1Fav.endVerse, equals(31));
+        expect(ch1Fav.startVerse, lessThanOrEqualTo(ch1Fav.endVerse));
+
+        final ch2Fav = favs.firstWhere((f) => f.chapter == 2);
+        expect(ch2Fav.startVerse, equals(1));
+        expect(ch2Fav.endVerse, equals(2));
+        expect(ch2Fav.startVerse, lessThanOrEqualTo(ch2Fav.endVerse));
+      },
+    );
   });
 }

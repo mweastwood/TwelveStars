@@ -63,4 +63,31 @@ class ReaderNodeId {
 
     return (volumeKey, itemIndex, questionNumber);
   }
+
+  /// Extracts the `sectionId` portion from a Library bookmark or comment [nodeId],
+  /// or returns `null` if it cannot be determined.
+  static String? parseLibrarySectionId(String nodeId) {
+    if (nodeId.isEmpty) return null;
+    String rest = nodeId;
+    if (rest.contains(':')) {
+      rest = rest.split(':').sublist(1).join(':');
+    }
+    if (rest.contains('_q')) {
+      final idx = rest.lastIndexOf('_q');
+      return idx > 0 ? rest.substring(0, idx) : null;
+    }
+    if (rest.contains('_')) {
+      final lastUnderscore = rest.lastIndexOf('_');
+      if (int.tryParse(rest.substring(lastUnderscore + 1)) != null) {
+        return lastUnderscore > 0 ? rest.substring(0, lastUnderscore) : null;
+      }
+    }
+    if (rest.contains('-')) {
+      final lastHyphen = rest.lastIndexOf('-');
+      if (int.tryParse(rest.substring(lastHyphen + 1)) != null) {
+        return lastHyphen > 0 ? rest.substring(0, lastHyphen) : null;
+      }
+    }
+    return null;
+  }
 }

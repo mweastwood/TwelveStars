@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
+import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
+import 'package:twelve_stars/widgets/prayer_card.dart';
 import '../test_helper.dart';
 
 List<Prayer> _createMockPrayers() {
@@ -257,5 +260,71 @@ void main() {
 
       await screenMatchesGolden(tester, 'rosary_tab_populated_golden');
     });
+
+    testWidgets(
+      'forwards fontSize to PrayerCards and loads/persists preferred prayer versions',
+      (tester) async {
+        final multiVersionPrayers = _createMockPrayers().map((p) {
+          if (p.prayerId == 'sign_of_the_cross') {
+            return Prayer.mock(
+              id: 'sign_of_the_cross',
+              defaultTitle: 'Sign of the Cross',
+              translations: {
+                PrayerLanguage.english: [
+                  PrayerTranslation(
+                    title: 'Sign of the Cross (Traditional)',
+                    subtitle: 'Traditional',
+                    text: 'In the name of the Father...',
+                  ),
+                  PrayerTranslation(
+                    title: 'Sign of the Cross (Modern)',
+                    subtitle: 'Modern',
+                    text: 'In the name of the Father (Modern)...',
+                  ),
+                ],
+              },
+            );
+          }
+          return p;
+        }).toList();
+
+        final settings = UserSettings()
+          ..setPreferredVersionIndex(
+            'sign_of_the_cross_${PrayerLanguage.english.code}',
+            1,
+          );
+        PrayerDatabase.mockSettings = settings;
+        addTearDown(() {
+          PrayerDatabase.mockSettings = null;
+        });
+        await UserSettingsController.instance.update(settings);
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: RosaryScreen(
+              prayers: multiVersionPrayers,
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              fontSize: 22.0,
+              initialDate: DateTime(2026, 7, 6),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final prayerCards = tester
+            .widgetList<PrayerCard>(find.byType(PrayerCard))
+            .toList();
+        expect(prayerCards, isNotEmpty);
+        for (final card in prayerCards) {
+          expect(card.fontSize, equals(22.0));
+        }
+
+        final signCard = prayerCards.firstWhere(
+          (c) => c.prayer.prayerId == 'sign_of_the_cross',
+        );
+        expect(signCard.initialVersionIndex, equals(1));
+      },
+    );
   });
 }

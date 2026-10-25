@@ -15,6 +15,7 @@ class LibraryCommentsView extends StatefulWidget {
     String? volumeKey,
     String? assetPath,
     int? sectionIndex,
+    String? sectionId,
     int? itemIndex,
     int? questionNumber,
   })
@@ -40,11 +41,25 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
   List<LibraryBookItem> get _catalog =>
       widget.catalog ?? LibraryHelper.getCatalog();
 
+  String _canonicalBookId(String documentId, List<LibraryBookItem> catalog) {
+    final book =
+        LibraryCatalog.findBookById(documentId, catalog: catalog) ??
+        LibraryCatalog.resolveTarget(
+          bookId: documentId,
+          catalog: catalog,
+        )?.book;
+    return book?.id ?? documentId;
+  }
+
   @override
   void didUpdateWidget(covariant LibraryCommentsView oldWidget) {
     super.didUpdateWidget(oldWidget);
+    final catalog = _catalog;
     if (_selectedCommentBookId != 'all' &&
-        !widget.comments.any((c) => c.documentId == _selectedCommentBookId)) {
+        !widget.comments.any(
+          (c) =>
+              _canonicalBookId(c.documentId, catalog) == _selectedCommentBookId,
+        )) {
       _selectedCommentBookId = 'all';
     }
   }
@@ -94,14 +109,18 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
 
     final catalog = _catalog;
     final distinctBookIds = widget.comments
-        .map((c) => c.documentId)
+        .map((c) => _canonicalBookId(c.documentId, catalog))
         .toSet()
         .toList();
 
     final filteredComments = _selectedCommentBookId == 'all'
         ? widget.comments
         : widget.comments
-              .where((c) => c.documentId == _selectedCommentBookId)
+              .where(
+                (c) =>
+                    _canonicalBookId(c.documentId, catalog) ==
+                    _selectedCommentBookId,
+              )
               .toList();
 
     return Column(
@@ -126,13 +145,18 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                     ),
                   ),
                   ...distinctBookIds.map((bookId) {
-                    final book = LibraryCatalog.findBookById(
-                      bookId,
-                      catalog: catalog,
-                    );
+                    final book =
+                        LibraryCatalog.findBookById(bookId, catalog: catalog) ??
+                        LibraryCatalog.resolveTarget(
+                          bookId: bookId,
+                          catalog: catalog,
+                        )?.book;
                     final bookTitle = book?.title ?? bookId;
                     final count = widget.comments
-                        .where((c) => c.documentId == bookId)
+                        .where(
+                          (c) =>
+                              _canonicalBookId(c.documentId, catalog) == bookId,
+                        )
                         .length;
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
@@ -162,17 +186,24 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
             itemCount: filteredComments.length,
             itemBuilder: (context, index) {
               final comment = filteredComments[index];
-              final book = LibraryCatalog.findBookById(
-                comment.documentId,
-                catalog: catalog,
-              );
-
               final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
                 comment.nodeId,
               );
+              final resolvedTarget = LibraryCatalog.resolveTarget(
+                bookId: comment.documentId,
+                volumeKey: volKey,
+                catalog: catalog,
+              );
+              final book =
+                  LibraryCatalog.findBookById(
+                    comment.documentId,
+                    catalog: catalog,
+                  ) ??
+                  resolvedTarget?.book;
+              final effectiveVolKey = volKey ?? resolvedTarget?.volumeKey;
               String header = book?.title ?? comment.documentId;
               final headerVol = book?.resolveVolume(
-                volumeKey: volKey,
+                volumeKey: effectiveVolKey,
                 fallbackToFirst: false,
               );
               if (book != null && headerVol != null) {
@@ -244,13 +275,19 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                       return;
                     }
 
-                    final targetVol = book.resolveVolume(volumeKey: volKey);
+                    final targetVol = book.resolveVolume(
+                      volumeKey: effectiveVolKey,
+                    );
 
                     widget.onOpenReader(
                       book,
-                      volumeKey: targetVol?.volumeKey ?? volKey,
-                      assetPath: targetVol?.assetPath,
+                      volumeKey: targetVol?.volumeKey ?? effectiveVolKey,
+                      assetPath:
+                          targetVol?.assetPath ?? resolvedTarget?.assetPath,
                       sectionIndex: comment.sectionIndex,
+                      sectionId: ReaderNodeId.parseLibrarySectionId(
+                        comment.nodeId,
+                      ),
                       itemIndex: itemIdx,
                       questionNumber: qNum,
                     );

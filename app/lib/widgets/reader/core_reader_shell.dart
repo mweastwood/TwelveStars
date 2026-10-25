@@ -159,7 +159,7 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
             documentId: doc.documentId,
             sectionIndex: _currentSectionIndex,
             nodeId: firstNode.id,
-            textPreview: textPreview,
+            textPreview: '$citation\n$textPreview',
             timestamp: DateTime.now(),
           ),
         );

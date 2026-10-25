@@ -42,6 +42,11 @@ class LibraryHelper {
   @visibleForTesting
   static int get cacheSize => _cache.length;
 
+  /// Synchronously returns cached [ParsedBookData] for [assetPath] if already
+  /// loaded in memory, or `null` otherwise.
+  static ParsedBookData? getCachedBookData(String assetPath) =>
+      _cache[assetPath];
+
   @visibleForTesting
   static int get searchIndexSize => _searchIndex.length;
 

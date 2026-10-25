@@ -20,6 +20,7 @@ class BibleChapterView extends StatefulWidget {
   final String primaryTranslation;
   final String compareTranslation;
   final BibleNumberingSystem numberingSystem;
+  final double fontSize;
   final Animation<double>? translationSelectorAnimation;
   final ScrollController? scrollController;
   final int? scrollToVerse;
@@ -37,6 +38,7 @@ class BibleChapterView extends StatefulWidget {
     required this.primaryTranslation,
     required this.compareTranslation,
     this.numberingSystem = BibleNumberingSystem.vulgate,
+    this.fontSize = 16.0,
     this.translationSelectorAnimation,
     this.scrollController,
     this.scrollToVerse,
@@ -514,6 +516,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             verseText: verse.verseText,
                             compareVerseText: compareVerse?.verseText,
                             isSelected: isSelected,
+                            fontSize: widget.fontSize == 16.0
+                                ? null
+                                : widget.fontSize,
                             margin: const EdgeInsets.only(
                               left: 16.0,
                               top: 2.0,

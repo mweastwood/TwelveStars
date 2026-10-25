@@ -9,6 +9,10 @@ Future<void> showBaltimoreCrossRefSheet({
   onSwitchVolume,
 }) async {
   final theme = Theme.of(context);
+  final booksFuture = Future.wait([
+    LibraryHelper.loadBookData('assets/catechism/json/baltimore_2.json'),
+    LibraryHelper.loadBookData('assets/catechism/json/baltimore_4.json'),
+  ]);
 
   await showModalBottomSheet(
     context: context,
@@ -27,14 +31,7 @@ Future<void> showBaltimoreCrossRefSheet({
         minChildSize: 0.4,
         builder: (sheetCtx, scrollController) {
           return FutureBuilder<List<ParsedBookData?>>(
-            future: Future.wait([
-              LibraryHelper.loadBookData(
-                'assets/catechism/json/baltimore_2.json',
-              ),
-              LibraryHelper.loadBookData(
-                'assets/catechism/json/baltimore_4.json',
-              ),
-            ]),
+            future: booksFuture,
             builder: (bCtx, snapshot) {
               if (!snapshot.hasData) {
                 return const Center(child: CircularProgressIndicator());
