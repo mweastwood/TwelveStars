@@ -15,6 +15,7 @@ class LibraryCommentsView extends StatefulWidget {
     String? volumeKey,
     String? assetPath,
     int? sectionIndex,
+    String? sectionId,
     int? itemIndex,
     int? questionNumber,
   })
@@ -40,11 +41,25 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
   List<LibraryBookItem> get _catalog =>
       widget.catalog ?? LibraryHelper.getCatalog();
 
+  String _canonicalBookId(String documentId, List<LibraryBookItem> catalog) {
+    final book =
+        LibraryCatalog.findBookById(documentId, catalog: catalog) ??
+        LibraryCatalog.resolveTarget(
+          bookId: documentId,
+          catalog: catalog,
+        )?.book;
+    return book?.id ?? documentId;
+  }
+
   @override
   void didUpdateWidget(covariant LibraryCommentsView oldWidget) {
     super.didUpdateWidget(oldWidget);
+    final catalog = _catalog;
     if (_selectedCommentBookId != 'all' &&
-        !widget.comments.any((c) => c.documentId == _selectedCommentBookId)) {
+        !widget.comments.any(
+          (c) =>
+              _canonicalBookId(c.documentId, catalog) == _selectedCommentBookId,
+        )) {
       _selectedCommentBookId = 'all';
     }
   }
@@ -94,14 +109,18 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
 
     final catalog = _catalog;
     final distinctBookIds = widget.comments
-        .map((c) => c.documentId)
+        .map((c) => _canonicalBookId(c.documentId, catalog))
         .toSet()
         .toList();
 
     final filteredComments = _selectedCommentBookId == 'all'
         ? widget.comments
         : widget.comments
-              .where((c) => c.documentId == _selectedCommentBookId)
+              .where(
+                (c) =>
+                    _canonicalBookId(c.documentId, catalog) ==
+                    _selectedCommentBookId,
+              )
               .toList();
 
     return Column(
@@ -134,7 +153,10 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                         )?.book;
                     final bookTitle = book?.title ?? bookId;
                     final count = widget.comments
-                        .where((c) => c.documentId == bookId)
+                        .where(
+                          (c) =>
+                              _canonicalBookId(c.documentId, catalog) == bookId,
+                        )
                         .length;
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
@@ -263,6 +285,9 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                       assetPath:
                           targetVol?.assetPath ?? resolvedTarget?.assetPath,
                       sectionIndex: comment.sectionIndex,
+                      sectionId: ReaderNodeId.parseLibrarySectionId(
+                        comment.nodeId,
+                      ),
                       itemIndex: itemIdx,
                       questionNumber: qNum,
                     );

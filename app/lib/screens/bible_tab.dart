@@ -406,6 +406,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     final previousPageIndex = _currentPageIndex;
     if (_pageController.hasClients) {
       _pageController.jumpToPage(pageIndex);
+    } else {
+      _pageController.dispose();
+      _pageController = PageController(initialPage: pageIndex);
     }
     if (_currentPageIndex == previousPageIndex) {
       _currentPageIndex = pageIndex;

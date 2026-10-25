@@ -377,39 +377,18 @@ class _LibraryTabState extends State<LibraryTab> {
                     volumeKey,
                     assetPath,
                     sectionIndex,
+                    sectionId,
                     itemIndex,
                     questionNumber,
                   }) {
                     Navigator.of(sheetContext).pop();
                     if (!mounted) return;
-                    String? inferredSectionId;
-                    if (sectionIndex == 0) {
-                      for (final fav in _favorites) {
-                        final (fVol, fItem, fQ) = ReaderNodeId.parseLibrary(
-                          fav.nodeId,
-                        );
-                        final resolved = LibraryCatalog.resolveTarget(
-                          bookId: fav.documentId,
-                          volumeKey: fVol,
-                          catalog: _catalog,
-                        );
-                        if ((fav.documentId == book.id ||
-                                resolved?.book.id == book.id) &&
-                            fav.sectionIndex == 0 &&
-                            fItem == itemIndex &&
-                            fQ == questionNumber) {
-                          inferredSectionId =
-                              ReaderNodeId.parseLibrarySectionId(fav.nodeId);
-                          if (inferredSectionId != null) break;
-                        }
-                      }
-                    }
                     _openReader(
                       context,
                       book,
                       volumeKey: volumeKey,
                       assetPath: assetPath,
-                      sectionId: inferredSectionId,
+                      sectionId: sectionId,
                       sectionIndex: sectionIndex,
                       itemIndex: itemIndex,
                       questionNumber: questionNumber,
