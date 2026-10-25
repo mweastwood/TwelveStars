@@ -166,6 +166,43 @@ class LibraryBookItem {
     return const [];
   }
 
+  static String assetStem(String path) {
+    final slash = path.lastIndexOf('/');
+    final fileName = slash >= 0 ? path.substring(slash + 1) : path;
+    return fileName.endsWith('.json')
+        ? fileName.substring(0, fileName.length - 5)
+        : fileName;
+  }
+
+  static bool matchesAssetExact(String candidatePath, String query) {
+    if (candidatePath == query ||
+        candidatePath.endsWith('/$query') ||
+        candidatePath.endsWith('/$query.json')) {
+      return true;
+    }
+    return assetStem(candidatePath) == assetStem(query);
+  }
+
+  static bool matchesAssetBoundarySubstring(
+    String candidatePath,
+    String query,
+  ) {
+    int start = 0;
+    while (true) {
+      final idx = candidatePath.indexOf(query, start);
+      if (idx < 0) return false;
+      final afterIdx = idx + query.length;
+      final followedByDigit =
+          afterIdx < candidatePath.length &&
+          candidatePath.codeUnitAt(afterIdx) >= 0x30 &&
+          candidatePath.codeUnitAt(afterIdx) <= 0x39;
+      if (!followedByDigit) {
+        return true;
+      }
+      start = idx + 1;
+    }
+  }
+
   /// Resolves a [BaltimoreVolume] for a series book by [volumeKey] or [assetPath].
   ///
   /// When [fallbackToFirst] is `true`, returns `volumes!.first` if no specific
@@ -185,9 +222,12 @@ class LibraryBookItem {
     }
     if (assetPath != null && assetPath.isNotEmpty) {
       for (final v in volumes!) {
-        if (v.assetPath == assetPath ||
-            v.assetPath.endsWith('/$assetPath.json') ||
-            v.assetPath.contains(assetPath)) {
+        if (matchesAssetExact(v.assetPath, assetPath)) {
+          return v;
+        }
+      }
+      for (final v in volumes!) {
+        if (matchesAssetBoundarySubstring(v.assetPath, assetPath)) {
           return v;
         }
       }
@@ -217,11 +257,17 @@ class BookSearchResult {
   final String sectionId;
   final String sectionTitle;
   final String matchedSnippet;
+  final String? bookId;
+  final String? volumeKey;
+  final String? assetPath;
 
   BookSearchResult({
     required this.bookTitle,
     required this.sectionId,
     required this.sectionTitle,
     required this.matchedSnippet,
+    this.bookId,
+    this.volumeKey,
+    this.assetPath,
   });
 }

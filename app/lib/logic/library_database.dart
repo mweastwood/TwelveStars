@@ -217,6 +217,7 @@ class LibraryHelper {
   static Future<List<BookSearchResult>> searchCatalog(
     String query, {
     int limit = 50,
+    List<LibraryBookItem>? catalog,
   }) async {
     final cleanQuery = query.trim().toLowerCase();
     if (cleanQuery.isEmpty) return [];
@@ -226,12 +227,16 @@ class LibraryHelper {
         .toList();
     if (words.isEmpty) return [];
 
-    final catalog = getCatalog();
+    final books = catalog ?? getCatalog();
     final allResults = <BookSearchResult>[];
 
-    for (final bookItem in catalog) {
+    for (final bookItem in books) {
       final assetPaths = bookItem.allAssetPaths;
       for (final path in assetPaths) {
+        final matchedVolume = bookItem.resolveVolume(
+          assetPath: path,
+          fallbackToFirst: false,
+        );
         try {
           final searchableItems = await _getSearchableItems(path);
           for (final item in searchableItems) {
@@ -252,6 +257,9 @@ class LibraryHelper {
                   sectionId: item.sectionId,
                   sectionTitle: item.sectionTitle,
                   matchedSnippet: snippet,
+                  bookId: bookItem.id,
+                  volumeKey: matchedVolume?.volumeKey,
+                  assetPath: path,
                 ),
               );
               if (allResults.length >= limit) break;

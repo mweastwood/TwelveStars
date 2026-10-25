@@ -32,6 +32,19 @@ class NotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
   static bool _isInitialized = false;
+  static bool _tzInitialized = false;
+
+  static void _ensureTimeZonesInitialized() {
+    if (_tzInitialized) return;
+    try {
+      tz.initializeTimeZones();
+      _tzInitialized = true;
+    } catch (e, stack) {
+      debugPrint(
+        'NotificationService timezone initialization error: $e\n$stack',
+      );
+    }
+  }
 
   @visibleForTesting
   static VoidCallback? onSyncAll;
@@ -52,13 +65,7 @@ class NotificationService {
     if (kIsWeb) return;
     if (_isInitialized) return;
 
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     const androidSettings = AndroidInitializationSettings(
       '@mipmap/ic_launcher',
@@ -85,13 +92,7 @@ class NotificationService {
 
   /// Calculates next Sunday at 8:00 AM local time.
   static tz.TZDateTime nextSunday8AM([DateTime? fromDate]) {
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     final now = fromDate ?? DateTime.now();
     final tzNow = now is tz.TZDateTime
@@ -143,13 +144,7 @@ class NotificationService {
     int minute, [
     DateTime? fromDate,
   ]) {
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     final now = fromDate ?? DateTime.now();
     final tzNow = now is tz.TZDateTime
@@ -175,7 +170,14 @@ class NotificationService {
     );
 
     if (!tzNow.isBefore(scheduledDate)) {
-      scheduledDate = scheduledDate.add(const Duration(days: 1));
+      scheduledDate = tz.TZDateTime(
+        tz.local,
+        tzNow.year,
+        tzNow.month,
+        tzNow.day + 1,
+        hour,
+        minute,
+      );
     }
 
     return scheduledDate;
@@ -188,13 +190,7 @@ class NotificationService {
     int minute, [
     DateTime? fromDate,
   ]) {
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     final now = fromDate ?? DateTime.now();
     final tzNow = now is tz.TZDateTime
@@ -579,6 +575,7 @@ class NotificationService {
   /// Updates or cancels Morning Prayer reminder based on UserSettings.
   static Future<void> syncMorningPrayerNotification([
     UserSettings? settings,
+    DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
 
@@ -590,7 +587,7 @@ class NotificationService {
       if (userSettings.morningPrayerReminderEnabled) {
         final hour = userSettings.morningPrayerReminderHour;
         final minute = userSettings.morningPrayerReminderMinute;
-        final scheduled = nextDailyTime(hour, minute);
+        final scheduled = nextDailyTime(hour, minute, fromDate);
         final (title, body) = computeMorningPrayerContent(scheduled);
         await scheduleDailyNotification(
           id: kMorningPrayerNotificationId,
@@ -598,6 +595,7 @@ class NotificationService {
           body: body,
           hour: hour,
           minute: minute,
+          scheduledDate: scheduled,
         );
       } else {
         await plugin.cancel(id: kMorningPrayerNotificationId);
@@ -612,6 +610,7 @@ class NotificationService {
   /// Updates or cancels Night Prayer reminder based on UserSettings.
   static Future<void> syncNightPrayerNotification([
     UserSettings? settings,
+    DateTime? fromDate,
   ]) async {
     if (kIsWeb) return;
 
@@ -623,7 +622,7 @@ class NotificationService {
       if (userSettings.nightPrayerReminderEnabled) {
         final hour = userSettings.nightPrayerReminderHour;
         final minute = userSettings.nightPrayerReminderMinute;
-        final scheduled = nextDailyTime(hour, minute);
+        final scheduled = nextDailyTime(hour, minute, fromDate);
         final (title, body) = computeNightPrayerContent(scheduled);
         await scheduleDailyNotification(
           id: kNightPrayerNotificationId,
@@ -631,6 +630,7 @@ class NotificationService {
           body: body,
           hour: hour,
           minute: minute,
+          scheduledDate: scheduled,
         );
       } else {
         await plugin.cancel(id: kNightPrayerNotificationId);
@@ -656,8 +656,8 @@ class NotificationService {
       await syncSundayNotification(userSettings, fromDate);
       await syncAngelusNotifications(userSettings, fromDate);
       await syncRosaryNotification(userSettings, fromDate);
-      await syncMorningPrayerNotification(userSettings);
-      await syncNightPrayerNotification(userSettings);
+      await syncMorningPrayerNotification(userSettings, fromDate);
+      await syncNightPrayerNotification(userSettings, fromDate);
     } catch (e, stack) {
       debugPrint('NotificationService syncAllNotifications error: $e\n$stack');
     }

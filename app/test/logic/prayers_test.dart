@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:yaml/yaml.dart';
 
 void main() {
@@ -567,6 +568,96 @@ void main() {
       final loaded = await PrayerDatabase.loadPrayers();
       expect(loaded, equals(mockList));
     });
+
+    test(
+      'concurrent loadPrayers calls share in-flight load and sync prayerCatalogVersion with UserSettingsController',
+      () async {
+        UserSettingsController.instance.resetForTesting();
+        try {
+          // Load UserSettingsController first (when prayerCatalogVersion in DB is 0)
+          await UserSettingsController.instance.load();
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(0),
+          );
+
+          // Trigger two concurrent loadPrayers calls
+          final results = await Future.wait([
+            PrayerDatabase.loadPrayers(),
+            PrayerDatabase.loadPrayers(),
+          ]);
+
+          expect(identical(results[0], results[1]), isTrue);
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+
+          // Subsequent mutation on UserSettingsController must preserve prayerCatalogVersion
+          await UserSettingsController.instance.mutate((s) {
+            s.hapticsEnabled = false;
+          });
+
+          final persisted = await db.getUserSettings();
+          expect(persisted, isNotNull);
+          expect(persisted!.hapticsEnabled, isFalse);
+          expect(
+            persisted.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+        } finally {
+          UserSettingsController.instance.resetForTesting();
+        }
+      },
+    );
+
+    test(
+      'resetCache clears synced prayerCatalogVersion on UserSettingsController and preserves concurrent settings mutations during loadPrayers',
+      () async {
+        UserSettingsController.instance.resetForTesting();
+        try {
+          // 1. Seed initial prayers so _syncedPrayerCatalogVersion is set to kPrayerCatalogVersion
+          await PrayerDatabase.loadPrayers();
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+
+          // 2. Simulate an outdated DB row (prayerCatalogVersion = 0) and call resetCache()
+          final outdated = UserSettings(prayerCatalogVersion: 0);
+          await db.saveUserSettings(outdated);
+          PrayerDatabase.resetCache();
+
+          // Loading UserSettingsController now must NOT prematurely stamp kPrayerCatalogVersion
+          final loadedBeforeReseed = await UserSettingsController.instance
+              .load();
+          expect(loadedBeforeReseed.prayerCatalogVersion, equals(0));
+
+          // 3. Start loadPrayers() and concurrently mutate a user setting while loadPrayers is in flight
+          final loadFuture = PrayerDatabase.loadPrayers();
+          await UserSettingsController.instance.mutate((s) {
+            s.primaryLanguageCode = 'latin';
+            s.hapticsEnabled = false;
+          });
+          await loadFuture;
+
+          final finalSettings = await db.getUserSettings();
+          expect(finalSettings, isNotNull);
+          expect(
+            finalSettings!.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+          expect(finalSettings.primaryLanguageCode, equals('latin'));
+          expect(finalSettings.hapticsEnabled, isFalse);
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+        } finally {
+          UserSettingsController.instance.resetForTesting();
+        }
+      },
+    );
   });
 
   group('Prayer Model JSON Serialization', () {

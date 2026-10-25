@@ -252,6 +252,56 @@ void main() {
         expect(target.hour, equals(12));
         expect(target.minute, equals(0));
       });
+
+      test(
+        'preserves exact local hour across DST spring-forward and fall-back transitions',
+        () {
+          final originalLocal = tz.local;
+          try {
+            final newYork = tz.getLocation('America/New_York');
+            tz.setLocalLocation(newYork);
+
+            // Spring-forward in America/New_York: Sunday March 8, 2026 at 2:00 AM
+            // Calling nextDailyTime(8, 0) on Saturday March 7 at 10:00 AM must
+            // schedule 8:00 AM EDT on March 8 (not 9:00 AM EDT from adding 24 UTC hours).
+            final beforeSpringForward = tz.TZDateTime(
+              newYork,
+              2026,
+              3,
+              7,
+              10,
+              0,
+            );
+            final springTarget = NotificationService.nextDailyTime(
+              8,
+              0,
+              beforeSpringForward,
+            );
+            expect(springTarget.year, equals(2026));
+            expect(springTarget.month, equals(3));
+            expect(springTarget.day, equals(8));
+            expect(springTarget.hour, equals(8));
+            expect(springTarget.minute, equals(0));
+
+            // Fall-back in America/New_York: Sunday November 1, 2026 at 2:00 AM
+            // Calling nextDailyTime(8, 0) on Saturday October 31 at 10:00 AM must
+            // schedule 8:00 AM EST on November 1 (not 7:00 AM EST from adding 24 UTC hours).
+            final beforeFallBack = tz.TZDateTime(newYork, 2026, 10, 31, 10, 0);
+            final fallTarget = NotificationService.nextDailyTime(
+              8,
+              0,
+              beforeFallBack,
+            );
+            expect(fallTarget.year, equals(2026));
+            expect(fallTarget.month, equals(11));
+            expect(fallTarget.day, equals(1));
+            expect(fallTarget.hour, equals(8));
+            expect(fallTarget.minute, equals(0));
+          } finally {
+            tz.setLocalLocation(originalLocal);
+          }
+        },
+      );
     });
 
     group('nextWeekdayTime', () {
@@ -699,9 +749,16 @@ void main() {
           nightPrayerReminderHour: 22,
           nightPrayerReminderMinute: 0,
         );
+        final anchorDate = DateTime(2026, 8, 10, 5, 0);
 
-        await NotificationService.syncMorningPrayerNotification(settings);
-        await NotificationService.syncNightPrayerNotification(settings);
+        await NotificationService.syncMorningPrayerNotification(
+          settings,
+          anchorDate,
+        );
+        await NotificationService.syncNightPrayerNotification(
+          settings,
+          anchorDate,
+        );
 
         final scheduledIds = mockPlugin.scheduledList.map((e) => e.id).toList();
         expect(
@@ -712,6 +769,24 @@ void main() {
           scheduledIds,
           contains(NotificationService.kNightPrayerNotificationId),
         );
+
+        final morningRecord = mockPlugin.scheduledList.firstWhere(
+          (e) => e.id == NotificationService.kMorningPrayerNotificationId,
+        );
+        expect(morningRecord.scheduledDate.year, equals(2026));
+        expect(morningRecord.scheduledDate.month, equals(8));
+        expect(morningRecord.scheduledDate.day, equals(10));
+        expect(morningRecord.scheduledDate.hour, equals(6));
+        expect(morningRecord.scheduledDate.minute, equals(30));
+
+        final nightRecord = mockPlugin.scheduledList.firstWhere(
+          (e) => e.id == NotificationService.kNightPrayerNotificationId,
+        );
+        expect(nightRecord.scheduledDate.year, equals(2026));
+        expect(nightRecord.scheduledDate.month, equals(8));
+        expect(nightRecord.scheduledDate.day, equals(10));
+        expect(nightRecord.scheduledDate.hour, equals(22));
+        expect(nightRecord.scheduledDate.minute, equals(0));
       });
     });
 

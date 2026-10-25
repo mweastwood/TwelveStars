@@ -1434,13 +1434,37 @@ class LibraryCatalog {
     for (final item in _catalog) item.id: item,
   });
 
-  static final Map<String, String?> _authorSaintIdsByKey = Map.unmodifiable({
-    for (final item in _catalog) ...{
-      item.id: item.authorSaintId,
-      if (item.volumes != null)
-        for (final vol in item.volumes!) vol.volumeKey: item.authorSaintId,
-    },
-  });
+  static final Map<String, String?> _authorSaintIdsByKey = () {
+    final map = <String, String?>{};
+    final volumeKeySaints = <String, Set<String?>>{};
+
+    for (final item in _catalog) {
+      map[item.id] = item.authorSaintId;
+      if (item.defaultAssetPath != null) {
+        map[item.defaultAssetPath!] = item.authorSaintId;
+        map[LibraryBookItem.assetStem(item.defaultAssetPath!)] =
+            item.authorSaintId;
+      }
+      if (item.volumes != null) {
+        for (final vol in item.volumes!) {
+          map['${item.id}:${vol.volumeKey}'] = item.authorSaintId;
+          map[vol.assetPath] = item.authorSaintId;
+          map[LibraryBookItem.assetStem(vol.assetPath)] = item.authorSaintId;
+          volumeKeySaints
+              .putIfAbsent(vol.volumeKey, () => <String?>{})
+              .add(item.authorSaintId);
+        }
+      }
+    }
+
+    for (final entry in volumeKeySaints.entries) {
+      if (!map.containsKey(entry.key) && entry.value.length == 1) {
+        map[entry.key] = entry.value.first;
+      }
+    }
+
+    return Map<String, String?>.unmodifiable(map);
+  }();
 
   /// Looks up a [LibraryBookItem] by its exact [bookId] in [catalog] (or the
   /// default catalog in O(1) time when [catalog] is omitted).
@@ -1457,9 +1481,19 @@ class LibraryCatalog {
     return null;
   }
 
-  /// Resolves the `authorSaintId` associated with a book ID or volume key.
-  static String? resolveAuthorSaintId(String bookOrVolumeId) =>
-      _authorSaintIdsByKey[bookOrVolumeId];
+  /// Resolves the `authorSaintId` associated with a book ID, volume key, or
+  /// asset path/stem. When [bookId] is provided alongside a generic volume key
+  /// (such as `'book1'`), resolves the saint for that specific book series.
+  static String? resolveAuthorSaintId(String bookOrVolumeId, {String? bookId}) {
+    if (bookId != null && bookId.isNotEmpty) {
+      final composite = _authorSaintIdsByKey['$bookId:$bookOrVolumeId'];
+      if (composite != null) return composite;
+      final byBook = _authorSaintIdsByKey[bookId];
+      if (byBook != null) return byBook;
+    }
+    return _authorSaintIdsByKey[bookOrVolumeId] ??
+        _authorSaintIdsByKey[LibraryBookItem.assetStem(bookOrVolumeId)];
+  }
 
   /// Resolves a [ResolvedLibraryTarget] matching [bookId], [volumeKey], or
   /// [assetPath] across [catalog] (or the default catalog).
@@ -1477,6 +1511,7 @@ class LibraryCatalog {
     String? matchedVolumeKey = volumeKey;
     String? matchedAssetPath = assetPath;
 
+    // Pass 1: Exact book ID or exact/stem match on book defaultAssetPath
     for (final b in items) {
       if (bookId != null && b.id == bookId) {
         matchedBook = b;
@@ -1484,32 +1519,31 @@ class LibraryCatalog {
       }
       if (assetPath != null &&
           b.defaultAssetPath != null &&
-          b.defaultAssetPath == assetPath) {
+          LibraryBookItem.matchesAssetExact(b.defaultAssetPath!, assetPath)) {
         matchedBook = b;
         matchedAssetPath = b.defaultAssetPath;
         break;
       }
       if (bookId != null &&
           b.defaultAssetPath != null &&
-          (b.defaultAssetPath == bookId ||
-              b.defaultAssetPath!.endsWith('/$bookId.json') ||
-              b.defaultAssetPath!.contains(bookId))) {
+          LibraryBookItem.matchesAssetExact(b.defaultAssetPath!, bookId)) {
         matchedBook = b;
         matchedAssetPath ??= b.defaultAssetPath;
         break;
       }
-      if (b.volumes != null) {
+    }
+
+    // Pass 2: Exact/stem match on volume assetPath first, then exact volumeKey
+    if (matchedBook == null) {
+      for (final b in items) {
+        if (b.volumes == null) continue;
         for (final v in b.volumes!) {
-          final matchesVolumeKey =
-              (volumeKey != null && v.volumeKey == volumeKey) ||
-              (bookId != null && v.volumeKey == bookId);
           final matchesAssetPath =
-              (assetPath != null && v.assetPath == assetPath) ||
+              (assetPath != null &&
+                  LibraryBookItem.matchesAssetExact(v.assetPath, assetPath)) ||
               (bookId != null &&
-                  (v.assetPath == bookId ||
-                      v.assetPath.endsWith('/$bookId.json') ||
-                      v.assetPath.contains(bookId)));
-          if (matchesVolumeKey || matchesAssetPath) {
+                  LibraryBookItem.matchesAssetExact(v.assetPath, bookId));
+          if (matchesAssetPath) {
             matchedBook = b;
             matchedVolume = v;
             matchedVolumeKey = v.volumeKey;
@@ -1517,8 +1551,73 @@ class LibraryCatalog {
             break;
           }
         }
+        if (matchedBook != null) break;
       }
-      if (matchedBook != null) break;
+    }
+    if (matchedBook == null) {
+      for (final b in items) {
+        if (b.volumes == null) continue;
+        for (final v in b.volumes!) {
+          final matchesVolumeKey =
+              (volumeKey != null && v.volumeKey == volumeKey) ||
+              (bookId != null && v.volumeKey == bookId);
+          if (matchesVolumeKey) {
+            matchedBook = b;
+            matchedVolume = v;
+            matchedVolumeKey = v.volumeKey;
+            matchedAssetPath = v.assetPath;
+            break;
+          }
+        }
+        if (matchedBook != null) break;
+      }
+    }
+
+    // Pass 3: Boundary-safe substring fallback (where 'book1' does not match 'book10')
+    if (matchedBook == null) {
+      for (final b in items) {
+        if (b.defaultAssetPath != null) {
+          final matchesSingleVolumeSubstring =
+              (assetPath != null &&
+                  LibraryBookItem.matchesAssetBoundarySubstring(
+                    b.defaultAssetPath!,
+                    assetPath,
+                  )) ||
+              (bookId != null &&
+                  LibraryBookItem.matchesAssetBoundarySubstring(
+                    b.defaultAssetPath!,
+                    bookId,
+                  ));
+          if (matchesSingleVolumeSubstring) {
+            matchedBook = b;
+            matchedAssetPath = b.defaultAssetPath;
+            break;
+          }
+        }
+        if (b.volumes != null) {
+          for (final v in b.volumes!) {
+            final matchesSubstring =
+                (assetPath != null &&
+                    LibraryBookItem.matchesAssetBoundarySubstring(
+                      v.assetPath,
+                      assetPath,
+                    )) ||
+                (bookId != null &&
+                    LibraryBookItem.matchesAssetBoundarySubstring(
+                      v.assetPath,
+                      bookId,
+                    ));
+            if (matchesSubstring) {
+              matchedBook = b;
+              matchedVolume = v;
+              matchedVolumeKey = v.volumeKey;
+              matchedAssetPath = v.assetPath;
+              break;
+            }
+          }
+        }
+        if (matchedBook != null) break;
+      }
     }
 
     if (matchedBook == null && fallbackToFirstBook && items.isNotEmpty) {

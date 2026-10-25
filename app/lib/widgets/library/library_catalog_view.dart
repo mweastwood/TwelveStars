@@ -74,7 +74,10 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
       _isSearchingGlobal = true;
     });
 
-    final allResults = await LibraryHelper.searchCatalog(cleanQuery);
+    final allResults = await LibraryHelper.searchCatalog(
+      cleanQuery,
+      catalog: _catalog,
+    );
 
     if (mounted && sessionId == _searchSessionId) {
       setState(() {
@@ -354,10 +357,19 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
                 return groups.entries.map((entry) {
                   final bookTitle = entry.key;
                   final results = entry.value;
-                  final matchingBook = catalog.firstWhere(
-                    (b) => b.title == bookTitle,
-                    orElse: () => catalog.first,
+                  final firstResult = results.first;
+                  final resolvedGroupTarget = LibraryCatalog.resolveTarget(
+                    bookId: firstResult.bookId,
+                    volumeKey: firstResult.volumeKey,
+                    assetPath: firstResult.assetPath,
+                    catalog: catalog,
                   );
+                  final matchingBook =
+                      resolvedGroupTarget?.book ??
+                      catalog.firstWhere(
+                        (b) => b.title == bookTitle,
+                        orElse: () => catalog.first,
+                      );
                   final categoryIcon = _getCategoryIcon(matchingBook.category);
 
                   return Card(
@@ -416,10 +428,25 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
                           ),
                           const SizedBox(height: 8),
                           ...results.map((res) {
+                            final resolvedResultTarget =
+                                LibraryCatalog.resolveTarget(
+                                  bookId: res.bookId,
+                                  volumeKey: res.volumeKey,
+                                  assetPath: res.assetPath,
+                                  catalog: catalog,
+                                );
+                            final targetBook =
+                                resolvedResultTarget?.book ?? matchingBook;
                             return InkWell(
                               borderRadius: BorderRadius.circular(8),
                               onTap: () => widget.onOpenReader(
-                                matchingBook,
+                                targetBook,
+                                volumeKey:
+                                    res.volumeKey ??
+                                    resolvedResultTarget?.volumeKey,
+                                assetPath:
+                                    res.assetPath ??
+                                    resolvedResultTarget?.assetPath,
                                 sectionId: res.sectionId,
                               ),
                               child: Padding(
