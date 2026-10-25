@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
 
 enum BibleAnnotationType { favorite, comment }
 
@@ -89,52 +90,9 @@ class BibleAnnotationCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: isFav
-                          ? theme.colorScheme.primaryContainer.withValues(
-                              alpha: 0.8,
-                            )
-                          : theme.colorScheme.secondaryContainer.withValues(
-                              alpha: 0.8,
-                            ),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: isFav
-                            ? theme.colorScheme.primary.withValues(alpha: 0.4)
-                            : theme.colorScheme.secondary.withValues(
-                                alpha: 0.4,
-                              ),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          isFav ? Icons.star_rounded : Icons.comment_rounded,
-                          size: 13,
-                          color: isFav
-                              ? theme.colorScheme.onPrimaryContainer
-                              : theme.colorScheme.onSecondaryContainer,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          isFav ? 'Favorite' : 'Note',
-                          style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
-                            color: isFav
-                                ? theme.colorScheme.onPrimaryContainer
-                                : theme.colorScheme.onSecondaryContainer,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  isFav
+                      ? const ReaderAnnotationChip.favorite(label: 'Favorite')
+                      : ReaderAnnotationChip.comments(label: 'Note'),
                 ],
               ),
               const SizedBox(height: 10.0),

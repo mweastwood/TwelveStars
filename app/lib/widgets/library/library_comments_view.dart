@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
-import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/widgets/library/library_book_filter_bar.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 class LibraryCommentsView extends StatefulWidget {
@@ -41,16 +41,6 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
   List<LibraryBookItem> get _catalog =>
       widget.catalog ?? LibraryHelper.getCatalog();
 
-  String _canonicalBookId(String documentId, List<LibraryBookItem> catalog) {
-    final book =
-        LibraryCatalog.findBookById(documentId, catalog: catalog) ??
-        LibraryCatalog.resolveTarget(
-          bookId: documentId,
-          catalog: catalog,
-        )?.book;
-    return book?.id ?? documentId;
-  }
-
   @override
   void didUpdateWidget(covariant LibraryCommentsView oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -58,7 +48,8 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
     if (_selectedCommentBookId != 'all' &&
         !widget.comments.any(
           (c) =>
-              _canonicalBookId(c.documentId, catalog) == _selectedCommentBookId,
+              canonicalLibraryBookId(c.documentId, catalog) ==
+              _selectedCommentBookId,
         )) {
       _selectedCommentBookId = 'all';
     }
@@ -109,7 +100,7 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
 
     final catalog = _catalog;
     final distinctBookIds = widget.comments
-        .map((c) => _canonicalBookId(c.documentId, catalog))
+        .map((c) => canonicalLibraryBookId(c.documentId, catalog))
         .toSet()
         .toList();
 
@@ -118,64 +109,31 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
         : widget.comments
               .where(
                 (c) =>
-                    _canonicalBookId(c.documentId, catalog) ==
+                    canonicalLibraryBookId(c.documentId, catalog) ==
                     _selectedCommentBookId,
               )
               .toList();
 
     return Column(
       children: [
-        if (distinctBookIds.length > 1) ...[
-          Container(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: FilterChip(
-                      selected: _selectedCommentBookId == 'all',
-                      label: Text('All (${widget.comments.length})'),
-                      onSelected: (val) {
-                        setState(() {
-                          _selectedCommentBookId = 'all';
-                        });
-                      },
-                    ),
-                  ),
-                  ...distinctBookIds.map((bookId) {
-                    final book =
-                        LibraryCatalog.findBookById(bookId, catalog: catalog) ??
-                        LibraryCatalog.resolveTarget(
-                          bookId: bookId,
-                          catalog: catalog,
-                        )?.book;
-                    final bookTitle = book?.title ?? bookId;
-                    final count = widget.comments
-                        .where(
-                          (c) =>
-                              _canonicalBookId(c.documentId, catalog) == bookId,
-                        )
-                        .length;
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: FilterChip(
-                        selected: _selectedCommentBookId == bookId,
-                        label: Text('$bookTitle ($count)'),
-                        onSelected: (val) {
-                          setState(() {
-                            _selectedCommentBookId = val ? bookId : 'all';
-                          });
-                        },
-                      ),
-                    );
-                  }),
-                ],
-              ),
-            ),
+        if (distinctBookIds.length > 1)
+          LibraryBookFilterBar(
+            catalog: catalog,
+            distinctBookIds: distinctBookIds,
+            totalCount: widget.comments.length,
+            selectedBookId: _selectedCommentBookId,
+            countForBook: (bookId) => widget.comments
+                .where(
+                  (c) =>
+                      canonicalLibraryBookId(c.documentId, catalog) == bookId,
+                )
+                .length,
+            onBookSelected: (bookId) {
+              setState(() {
+                _selectedCommentBookId = bookId;
+              });
+            },
           ),
-        ],
         Expanded(
           child: ListView.builder(
             controller: widget.scrollController,
@@ -186,24 +144,15 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
             itemCount: filteredComments.length,
             itemBuilder: (context, index) {
               final comment = filteredComments[index];
-              final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
-                comment.nodeId,
-              );
-              final resolvedTarget = LibraryCatalog.resolveTarget(
-                bookId: comment.documentId,
-                volumeKey: volKey,
+              final resolved = resolveLibraryAnnotation(
+                documentId: comment.documentId,
+                nodeId: comment.nodeId,
                 catalog: catalog,
               );
-              final book =
-                  LibraryCatalog.findBookById(
-                    comment.documentId,
-                    catalog: catalog,
-                  ) ??
-                  resolvedTarget?.book;
-              final effectiveVolKey = volKey ?? resolvedTarget?.volumeKey;
+              final book = resolved.book;
               String header = book?.title ?? comment.documentId;
               final headerVol = book?.resolveVolume(
-                volumeKey: effectiveVolKey,
+                volumeKey: resolved.volumeKey,
                 fallbackToFirst: false,
               );
               if (book != null && headerVol != null) {
@@ -275,21 +224,14 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                       return;
                     }
 
-                    final targetVol = book.resolveVolume(
-                      volumeKey: effectiveVolKey,
-                    );
-
                     widget.onOpenReader(
                       book,
-                      volumeKey: targetVol?.volumeKey ?? effectiveVolKey,
-                      assetPath:
-                          targetVol?.assetPath ?? resolvedTarget?.assetPath,
+                      volumeKey: resolved.volumeKey,
+                      assetPath: resolved.assetPath,
                       sectionIndex: comment.sectionIndex,
-                      sectionId: ReaderNodeId.parseLibrarySectionId(
-                        comment.nodeId,
-                      ),
-                      itemIndex: itemIdx,
-                      questionNumber: qNum,
+                      sectionId: resolved.sectionId,
+                      itemIndex: resolved.itemIndex,
+                      questionNumber: resolved.questionNumber,
                     );
                   },
                 ),

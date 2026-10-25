@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
-import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/widgets/library/library_book_filter_bar.dart';
 
 class LibraryFavoritesView extends StatefulWidget {
   final List<LibraryBookItem>? catalog;
@@ -40,16 +40,6 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
   List<LibraryBookItem> get _catalog =>
       widget.catalog ?? LibraryHelper.getCatalog();
 
-  String _canonicalBookId(String documentId, List<LibraryBookItem> catalog) {
-    final book =
-        LibraryCatalog.findBookById(documentId, catalog: catalog) ??
-        LibraryCatalog.resolveTarget(
-          bookId: documentId,
-          catalog: catalog,
-        )?.book;
-    return book?.id ?? documentId;
-  }
-
   @override
   void didUpdateWidget(covariant LibraryFavoritesView oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -57,7 +47,7 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
     if (_selectedFavoriteBookId != 'all' &&
         !widget.favorites.any(
           (f) =>
-              _canonicalBookId(f.documentId, catalog) ==
+              canonicalLibraryBookId(f.documentId, catalog) ==
               _selectedFavoriteBookId,
         )) {
       _selectedFavoriteBookId = 'all';
@@ -109,7 +99,7 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
 
     final catalog = _catalog;
     final distinctBookIds = widget.favorites
-        .map((f) => _canonicalBookId(f.documentId, catalog))
+        .map((f) => canonicalLibraryBookId(f.documentId, catalog))
         .toSet()
         .toList();
 
@@ -118,64 +108,31 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
         : widget.favorites
               .where(
                 (f) =>
-                    _canonicalBookId(f.documentId, catalog) ==
+                    canonicalLibraryBookId(f.documentId, catalog) ==
                     _selectedFavoriteBookId,
               )
               .toList();
 
     return Column(
       children: [
-        if (distinctBookIds.length > 1) ...[
-          Container(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: FilterChip(
-                      selected: _selectedFavoriteBookId == 'all',
-                      label: Text('All (${widget.favorites.length})'),
-                      onSelected: (val) {
-                        setState(() {
-                          _selectedFavoriteBookId = 'all';
-                        });
-                      },
-                    ),
-                  ),
-                  ...distinctBookIds.map((bookId) {
-                    final book =
-                        LibraryCatalog.findBookById(bookId, catalog: catalog) ??
-                        LibraryCatalog.resolveTarget(
-                          bookId: bookId,
-                          catalog: catalog,
-                        )?.book;
-                    final bookTitle = book?.title ?? bookId;
-                    final count = widget.favorites
-                        .where(
-                          (f) =>
-                              _canonicalBookId(f.documentId, catalog) == bookId,
-                        )
-                        .length;
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: FilterChip(
-                        selected: _selectedFavoriteBookId == bookId,
-                        label: Text('$bookTitle ($count)'),
-                        onSelected: (val) {
-                          setState(() {
-                            _selectedFavoriteBookId = val ? bookId : 'all';
-                          });
-                        },
-                      ),
-                    );
-                  }),
-                ],
-              ),
-            ),
+        if (distinctBookIds.length > 1)
+          LibraryBookFilterBar(
+            catalog: catalog,
+            distinctBookIds: distinctBookIds,
+            totalCount: widget.favorites.length,
+            selectedBookId: _selectedFavoriteBookId,
+            countForBook: (bookId) => widget.favorites
+                .where(
+                  (f) =>
+                      canonicalLibraryBookId(f.documentId, catalog) == bookId,
+                )
+                .length,
+            onBookSelected: (bookId) {
+              setState(() {
+                _selectedFavoriteBookId = bookId;
+              });
+            },
           ),
-        ],
         Expanded(
           child: ListView.builder(
             controller: widget.scrollController,
@@ -192,20 +149,12 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
                   ? parts.sublist(1).join(' ')
                   : '';
 
-              final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
-                fav.nodeId,
-              );
-              final resolvedTarget = LibraryCatalog.resolveTarget(
-                bookId: fav.documentId,
-                volumeKey: volKey,
+              final resolved = resolveLibraryAnnotation(
+                documentId: fav.documentId,
+                nodeId: fav.nodeId,
                 catalog: catalog,
               );
-              final book =
-                  LibraryCatalog.findBookById(
-                    fav.documentId,
-                    catalog: catalog,
-                  ) ??
-                  resolvedTarget?.book;
+              final book = resolved.book;
 
               return Card(
                 margin: const EdgeInsets.symmetric(vertical: 4.0),
@@ -251,20 +200,14 @@ class _LibraryFavoritesViewState extends State<LibraryFavoritesView> {
                       return;
                     }
 
-                    final effectiveVolKey = volKey ?? resolvedTarget?.volumeKey;
-                    final targetVol = book.resolveVolume(
-                      volumeKey: effectiveVolKey,
-                    );
-
                     widget.onOpenReader(
                       book,
-                      volumeKey: targetVol?.volumeKey ?? effectiveVolKey,
-                      assetPath:
-                          targetVol?.assetPath ?? resolvedTarget?.assetPath,
+                      volumeKey: resolved.volumeKey,
+                      assetPath: resolved.assetPath,
                       sectionIndex: fav.sectionIndex,
-                      sectionId: ReaderNodeId.parseLibrarySectionId(fav.nodeId),
-                      itemIndex: itemIdx,
-                      questionNumber: qNum,
+                      sectionId: resolved.sectionId,
+                      itemIndex: resolved.itemIndex,
+                      questionNumber: resolved.questionNumber,
                     );
                   },
                 ),

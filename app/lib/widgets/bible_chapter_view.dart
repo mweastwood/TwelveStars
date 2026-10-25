@@ -12,6 +12,7 @@ import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 class BibleChapterView extends StatefulWidget {
@@ -314,43 +315,13 @@ class _BibleChapterViewState extends State<BibleChapterView>
     return Tooltip(
       message:
           '${citations.length} Library Reference${citations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
-      child: InkWell(
+      child: ReaderAnnotationChip.citations(
         key: const Key('chapter_citations_chip'),
-        mouseCursor: SystemMouseCursors.click,
+        count: citations.length,
         onTap: () => showReverseCitationsModal(
           context: context,
           title: '${widget.book.bookName} ${widget.chapter}',
           citations: citations,
-        ),
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.tertiaryContainer.withValues(alpha: 0.8),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: theme.colorScheme.tertiary.withValues(alpha: 0.4),
-            ),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                Icons.auto_stories_rounded,
-                size: 13,
-                color: theme.colorScheme.onTertiaryContainer,
-              ),
-              const SizedBox(width: 4),
-              Text(
-                '${citations.length}',
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.onTertiaryContainer,
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
