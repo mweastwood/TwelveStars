@@ -400,6 +400,24 @@ void main() {
       expect(await LibraryHelper.searchCatalog('   '), isEmpty);
     });
 
+    test(
+      'searchCatalog populates bookId, volumeKey, and assetPath on multi-volume results',
+      () async {
+        TestWidgetsFlutterBinding.ensureInitialized();
+        final baltimore = LibraryCatalog.findBookById('baltimore_catechism')!;
+        final results = await LibraryHelper.searchCatalog(
+          'Who made the world',
+          limit: 5,
+          catalog: [baltimore],
+        );
+        expect(results, isNotEmpty);
+        expect(results.first.bookId, equals('baltimore_catechism'));
+        expect(results.first.volumeKey, isNotNull);
+        expect(results.first.assetPath, startsWith('assets/catechism/json/'));
+        expect(results.first.sectionId, isNotEmpty);
+      },
+    );
+
     test('ParsedBookData.fromJson parses all fields and nested structures', () {
       final jsonMap = {
         'bookId': 'council_of_trent',
@@ -511,7 +529,7 @@ void main() {
           equals(LibraryCatalog.getCatalog().first.id),
         );
 
-        // 4. resolveAuthorSaintId for book and volume keys
+        // 4. resolveAuthorSaintId for book, volume keys, asset stems, and disambiguated series volume keys
         expect(
           LibraryCatalog.resolveAuthorSaintId('benedict_rule'),
           equals('benedict-of-nursia'),
@@ -520,8 +538,66 @@ void main() {
           LibraryCatalog.resolveAuthorSaintId('ephesians'),
           equals('ignatius-of-antioch'),
         );
+        expect(
+          LibraryCatalog.resolveAuthorSaintId('augustine_city_of_god_book1'),
+          equals('augustine-of-hippo'),
+        );
+        expect(
+          LibraryCatalog.resolveAuthorSaintId(
+            'irenaeus_against_heresies_book1',
+          ),
+          equals('irenaeus-of-lyons'),
+        );
+        expect(
+          LibraryCatalog.resolveAuthorSaintId(
+            'book1',
+            bookId: 'augustine_confessions',
+          ),
+          equals('augustine-of-hippo'),
+        );
+        expect(
+          LibraryCatalog.resolveAuthorSaintId(
+            'book1',
+            bookId: 'irenaeus_against_heresies',
+          ),
+          equals('irenaeus-of-lyons'),
+        );
+        // Bare 'book1' is shared across multiple different authors and should not
+        // return a last-write-wins saint from an unrelated series
+        expect(LibraryCatalog.resolveAuthorSaintId('book1'), isNull);
 
-        // 5. buildFallbackTarget category and path inference
+        // 5. resolveVolume and resolveTarget do not confuse 'book1' with 'book10'
+        final cityOfGod = LibraryCatalog.findBookById('augustine_city_of_god')!;
+        final reorderedCityOfGod = LibraryBookItem(
+          id: cityOfGod.id,
+          title: cityOfGod.title,
+          subtitle: cityOfGod.subtitle,
+          category: cityOfGod.category,
+          author: cityOfGod.author,
+          authorSaintId: cityOfGod.authorSaintId,
+          description: cityOfGod.description,
+          volumes: [
+            cityOfGod.volumes!.firstWhere((v) => v.volumeKey == 'book10'),
+            cityOfGod.volumes!.firstWhere((v) => v.volumeKey == 'book1'),
+          ],
+        );
+        expect(
+          reorderedCityOfGod
+              .resolveVolume(assetPath: 'augustine_city_of_god_book1')
+              ?.volumeKey,
+          equals('book1'),
+        );
+        expect(
+          reorderedCityOfGod.resolveVolume(assetPath: 'book1')?.volumeKey,
+          equals('book1'),
+        );
+        final resolvedBook1 = LibraryCatalog.resolveTarget(
+          bookId: 'augustine_city_of_god_book1',
+          catalog: [reorderedCityOfGod],
+        );
+        expect(resolvedBook1?.volumeKey, equals('book1'));
+
+        // 6. buildFallbackTarget category and path inference
         final fallback = LibraryCatalog.buildFallbackTarget(
           bookId: 'custom_augustine_tract',
           bookTitle: 'Tractate on Grace',

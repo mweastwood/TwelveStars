@@ -32,6 +32,19 @@ class NotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
       FlutterLocalNotificationsPlugin();
   static bool _isInitialized = false;
+  static bool _tzInitialized = false;
+
+  static void _ensureTimeZonesInitialized() {
+    if (_tzInitialized) return;
+    try {
+      tz.initializeTimeZones();
+      _tzInitialized = true;
+    } catch (e, stack) {
+      debugPrint(
+        'NotificationService timezone initialization error: $e\n$stack',
+      );
+    }
+  }
 
   @visibleForTesting
   static VoidCallback? onSyncAll;
@@ -52,13 +65,7 @@ class NotificationService {
     if (kIsWeb) return;
     if (_isInitialized) return;
 
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     const androidSettings = AndroidInitializationSettings(
       '@mipmap/ic_launcher',
@@ -85,13 +92,7 @@ class NotificationService {
 
   /// Calculates next Sunday at 8:00 AM local time.
   static tz.TZDateTime nextSunday8AM([DateTime? fromDate]) {
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     final now = fromDate ?? DateTime.now();
     final tzNow = now is tz.TZDateTime
@@ -143,13 +144,7 @@ class NotificationService {
     int minute, [
     DateTime? fromDate,
   ]) {
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     final now = fromDate ?? DateTime.now();
     final tzNow = now is tz.TZDateTime
@@ -175,7 +170,14 @@ class NotificationService {
     );
 
     if (!tzNow.isBefore(scheduledDate)) {
-      scheduledDate = scheduledDate.add(const Duration(days: 1));
+      scheduledDate = tz.TZDateTime(
+        tz.local,
+        tzNow.year,
+        tzNow.month,
+        tzNow.day + 1,
+        hour,
+        minute,
+      );
     }
 
     return scheduledDate;
@@ -188,13 +190,7 @@ class NotificationService {
     int minute, [
     DateTime? fromDate,
   ]) {
-    try {
-      tz.initializeTimeZones();
-    } catch (e, stack) {
-      debugPrint(
-        'NotificationService timezone initialization error: $e\n$stack',
-      );
-    }
+    _ensureTimeZonesInitialized();
 
     final now = fromDate ?? DateTime.now();
     final tzNow = now is tz.TZDateTime

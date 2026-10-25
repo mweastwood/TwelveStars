@@ -13,6 +13,14 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
 
   Future<UserSettings>? _inFlightLoad;
   int _mutationVersion = 0;
+  int? _syncedPrayerCatalogVersion;
+
+  /// Keeps the in-memory [UserSettings.prayerCatalogVersion] synchronized when
+  /// [PrayerDatabase.loadPrayers] seeds or upgrades the prayer catalog.
+  void syncPrayerCatalogVersion(int version) {
+    _syncedPrayerCatalogVersion = version;
+    value.prayerCatalogVersion = version;
+  }
 
   void _setValueAndNotify(UserSettings newValue) {
     final alreadyEqual = identical(value, newValue) || value == newValue;
@@ -31,6 +39,10 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     _inFlightLoad = future;
     try {
       final loaded = await future;
+      if (_syncedPrayerCatalogVersion != null &&
+          loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
+        loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
+      }
       if (_mutationVersion == loadVersion) {
         _isInitialized = true;
         _setValueAndNotify(loaded);
@@ -47,6 +59,10 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     _mutationVersion++;
     _inFlightLoad = null;
     _isInitialized = true;
+    if (_syncedPrayerCatalogVersion != null &&
+        settings.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
+      settings.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
+    }
     _setValueAndNotify(settings);
     await PrayerDatabase.saveSettings(settings);
   }
@@ -64,6 +80,10 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
         _isInitialized = true;
       } else {
         final loaded = await PrayerDatabase.loadSettings();
+        if (_syncedPrayerCatalogVersion != null &&
+            loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
+          loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
+        }
         value = loaded;
         _isInitialized = true;
       }
@@ -81,6 +101,7 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
   void resetForTesting() {
     _mutationVersion++;
     _inFlightLoad = null;
+    _syncedPrayerCatalogVersion = null;
     _isInitialized = false;
     value = UserSettings();
   }

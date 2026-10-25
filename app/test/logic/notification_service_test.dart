@@ -252,6 +252,56 @@ void main() {
         expect(target.hour, equals(12));
         expect(target.minute, equals(0));
       });
+
+      test(
+        'preserves exact local hour across DST spring-forward and fall-back transitions',
+        () {
+          final originalLocal = tz.local;
+          try {
+            final newYork = tz.getLocation('America/New_York');
+            tz.setLocalLocation(newYork);
+
+            // Spring-forward in America/New_York: Sunday March 8, 2026 at 2:00 AM
+            // Calling nextDailyTime(8, 0) on Saturday March 7 at 10:00 AM must
+            // schedule 8:00 AM EDT on March 8 (not 9:00 AM EDT from adding 24 UTC hours).
+            final beforeSpringForward = tz.TZDateTime(
+              newYork,
+              2026,
+              3,
+              7,
+              10,
+              0,
+            );
+            final springTarget = NotificationService.nextDailyTime(
+              8,
+              0,
+              beforeSpringForward,
+            );
+            expect(springTarget.year, equals(2026));
+            expect(springTarget.month, equals(3));
+            expect(springTarget.day, equals(8));
+            expect(springTarget.hour, equals(8));
+            expect(springTarget.minute, equals(0));
+
+            // Fall-back in America/New_York: Sunday November 1, 2026 at 2:00 AM
+            // Calling nextDailyTime(8, 0) on Saturday October 31 at 10:00 AM must
+            // schedule 8:00 AM EST on November 1 (not 7:00 AM EST from adding 24 UTC hours).
+            final beforeFallBack = tz.TZDateTime(newYork, 2026, 10, 31, 10, 0);
+            final fallTarget = NotificationService.nextDailyTime(
+              8,
+              0,
+              beforeFallBack,
+            );
+            expect(fallTarget.year, equals(2026));
+            expect(fallTarget.month, equals(11));
+            expect(fallTarget.day, equals(1));
+            expect(fallTarget.hour, equals(8));
+            expect(fallTarget.minute, equals(0));
+          } finally {
+            tz.setLocalLocation(originalLocal);
+          }
+        },
+      );
     });
 
     group('nextWeekdayTime', () {

@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:yaml/yaml.dart';
 
 void main() {
@@ -567,6 +568,48 @@ void main() {
       final loaded = await PrayerDatabase.loadPrayers();
       expect(loaded, equals(mockList));
     });
+
+    test(
+      'concurrent loadPrayers calls share in-flight load and sync prayerCatalogVersion with UserSettingsController',
+      () async {
+        UserSettingsController.instance.resetForTesting();
+        try {
+          // Load UserSettingsController first (when prayerCatalogVersion in DB is 0)
+          await UserSettingsController.instance.load();
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(0),
+          );
+
+          // Trigger two concurrent loadPrayers calls
+          final results = await Future.wait([
+            PrayerDatabase.loadPrayers(),
+            PrayerDatabase.loadPrayers(),
+          ]);
+
+          expect(identical(results[0], results[1]), isTrue);
+          expect(
+            UserSettingsController.instance.value.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+
+          // Subsequent mutation on UserSettingsController must preserve prayerCatalogVersion
+          await UserSettingsController.instance.mutate((s) {
+            s.hapticsEnabled = false;
+          });
+
+          final persisted = await db.getUserSettings();
+          expect(persisted, isNotNull);
+          expect(persisted!.hapticsEnabled, isFalse);
+          expect(
+            persisted.prayerCatalogVersion,
+            equals(PrayerDatabase.kPrayerCatalogVersion),
+          );
+        } finally {
+          UserSettingsController.instance.resetForTesting();
+        }
+      },
+    );
   });
 
   group('Prayer Model JSON Serialization', () {

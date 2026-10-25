@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 
 class PrayerDatabase {
   static const int kPrayerCatalogVersion = 4;
@@ -10,27 +11,45 @@ class PrayerDatabase {
   static List<Prayer>? mockPrayers;
   static UserSettings? mockSettings;
   static List<Prayer>? _cachedPrayers;
+  static Future<List<Prayer>>? _inFlightLoad;
 
   @visibleForTesting
   static void resetCache() {
     _cachedPrayers = null;
+    _inFlightLoad = null;
   }
 
   // Fetch all prayers from the database
-  static Future<List<Prayer>> loadPrayers() async {
+  static Future<List<Prayer>> loadPrayers() {
     if (mockPrayers != null) {
-      return mockPrayers!;
+      return Future.value(mockPrayers!);
     }
     if (_cachedPrayers != null) {
-      return _cachedPrayers!;
+      return Future.value(_cachedPrayers!);
+    }
+    if (_inFlightLoad != null) {
+      return _inFlightLoad!;
     }
 
+    final future = _performLoadPrayers();
+    _inFlightLoad = future;
+    return future.whenComplete(() {
+      if (identical(_inFlightLoad, future)) {
+        _inFlightLoad = null;
+      }
+    });
+  }
+
+  static Future<List<Prayer>> _performLoadPrayers() async {
     final db = BibleDatabaseHelper.db;
     final list = await db.getAllPrayers();
     final settings = await db.getUserSettings();
 
     if (list.isNotEmpty &&
         settings?.prayerCatalogVersion == kPrayerCatalogVersion) {
+      UserSettingsController.instance.syncPrayerCatalogVersion(
+        kPrayerCatalogVersion,
+      );
       _cachedPrayers = list;
       return list;
     }
@@ -43,9 +62,13 @@ class PrayerDatabase {
     await db.updatePrayers(compiledPrayers);
     compiledPrayers.sort((a, b) => a.defaultOrder.compareTo(b.defaultOrder));
 
-    final currentSettings = settings ?? UserSettings();
+    final currentSettings =
+        (await db.getUserSettings()) ?? settings ?? UserSettings();
     currentSettings.prayerCatalogVersion = kPrayerCatalogVersion;
     await db.saveUserSettings(currentSettings);
+    UserSettingsController.instance.syncPrayerCatalogVersion(
+      kPrayerCatalogVersion,
+    );
 
     _cachedPrayers = compiledPrayers;
     return compiledPrayers;
