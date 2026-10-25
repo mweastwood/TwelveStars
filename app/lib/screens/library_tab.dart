@@ -210,6 +210,7 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   Future<void> _loadFavorites() async {
+    if (!mounted) return;
     setState(() => _loadingFavorites = true);
     try {
       final favs = await BibleDatabaseHelper.db.getLibraryBookmarks();
@@ -225,6 +226,7 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   Future<void> _loadComments() async {
+    if (!mounted) return;
     setState(() => _loadingComments = true);
     try {
       final nonBibleComments = await BibleDatabaseHelper.db
@@ -248,6 +250,7 @@ class _LibraryTabState extends State<LibraryTab> {
             ThematicQuoteBrowserScreen(initialThemeId: themeId),
       ),
     ).then((_) {
+      if (!mounted) return;
       _loadFavorites();
       _loadComments();
       _loadLatestReadingPosition();
@@ -342,6 +345,7 @@ class _LibraryTabState extends State<LibraryTab> {
         ),
       ),
     ).then((_) {
+      if (!mounted) return;
       _loadFavorites();
       _loadComments();
       _loadLatestReadingPosition();

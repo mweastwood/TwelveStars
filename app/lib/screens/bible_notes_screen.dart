@@ -822,22 +822,21 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     );
   }
 
+  Widget _buildAnnotationCard(BibleAnnotationItem item) {
+    return BibleAnnotationCard(
+      item: item,
+      onOpen: () => _onOpenItem(item),
+      onCopy: () => _copyItem(item),
+      onEdit: item.comment != null ? () => _editComment(item.comment!) : null,
+      onDelete: () => _deleteItem(item),
+    );
+  }
+
   Widget _buildSingleColumnLayout(List<BibleAnnotationItem> items) {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
       itemCount: items.length,
-      itemBuilder: (context, index) {
-        final item = items[index];
-        return BibleAnnotationCard(
-          item: item,
-          onOpen: () => _onOpenItem(item),
-          onCopy: () => _copyItem(item),
-          onEdit: item.comment != null
-              ? () => _editComment(item.comment!)
-              : null,
-          onDelete: () => _deleteItem(item),
-        );
-      },
+      itemBuilder: (context, index) => _buildAnnotationCard(items[index]),
     );
   }
 
@@ -859,39 +858,11 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Column(
-              children: col1
-                  .map(
-                    (item) => BibleAnnotationCard(
-                      item: item,
-                      onOpen: () => _onOpenItem(item),
-                      onCopy: () => _copyItem(item),
-                      onEdit: item.comment != null
-                          ? () => _editComment(item.comment!)
-                          : null,
-                      onDelete: () => _deleteItem(item),
-                    ),
-                  )
-                  .toList(),
-            ),
+            child: Column(children: col1.map(_buildAnnotationCard).toList()),
           ),
           const SizedBox(width: 16.0),
           Expanded(
-            child: Column(
-              children: col2
-                  .map(
-                    (item) => BibleAnnotationCard(
-                      item: item,
-                      onOpen: () => _onOpenItem(item),
-                      onCopy: () => _copyItem(item),
-                      onEdit: item.comment != null
-                          ? () => _editComment(item.comment!)
-                          : null,
-                      onDelete: () => _deleteItem(item),
-                    ),
-                  )
-                  .toList(),
-            ),
+            child: Column(children: col2.map(_buildAnnotationCard).toList()),
           ),
         ],
       ),

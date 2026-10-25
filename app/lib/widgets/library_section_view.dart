@@ -3,6 +3,7 @@ import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
 
 class LibrarySectionView extends StatelessWidget {
   final BookSection section;
@@ -82,39 +83,9 @@ class LibrarySectionView extends StatelessWidget {
     required String textPreview,
     required List<UserComment> comments,
   }) {
-    return InkWell(
-      mouseCursor: SystemMouseCursors.click,
+    return ReaderAnnotationChip.comments(
+      count: comments.length,
       onTap: () => onTapComments?.call(nodeId, citation, textPreview, comments),
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.secondaryContainer.withValues(alpha: 0.8),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: theme.colorScheme.secondary.withValues(alpha: 0.4),
-          ),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              Icons.comment_rounded,
-              size: 13,
-              color: theme.colorScheme.onSecondaryContainer,
-            ),
-            const SizedBox(width: 4),
-            Text(
-              '${comments.length}',
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: FontWeight.bold,
-                color: theme.colorScheme.onSecondaryContainer,
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 

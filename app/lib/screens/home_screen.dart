@@ -8,6 +8,8 @@ import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/home_language_selector_card.dart';
 import 'package:twelve_stars/widgets/collapsible_selector_bar.dart';
 import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
+import 'package:twelve_stars/widgets/scripture_footer_quote.dart';
+import 'package:twelve_stars/widgets/two_column_sliver_list.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
@@ -607,29 +609,10 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildFooterQuote(ThemeData theme) {
-    return Column(
-      children: [
-        const SizedBox(height: 24),
-        Text(
+    return const ScriptureFooterQuote(
+      quote:
           '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-            fontStyle: FontStyle.italic,
-            height: 1.4,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 6),
-        Text(
-          '— Revelation 12:1',
-          style: theme.textTheme.labelSmall?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
-            fontWeight: FontWeight.w600,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 24),
-      ],
+      attribution: '— Revelation 12:1',
     );
   }
 
@@ -721,31 +704,10 @@ class _HomeScreenState extends State<HomeScreen>
           ),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            sliver: SliverCrossAxisGroup(
-              slivers: [
-                SliverCrossAxisExpanded(
-                  flex: 1,
-                  sliver: SliverList.builder(
-                    itemCount: (filteredPrayers.length + 1) ~/ 2,
-                    itemBuilder: (context, index) {
-                      return _buildPrayerCard(filteredPrayers[index * 2]);
-                    },
-                  ),
-                ),
-                const SliverConstrainedCrossAxis(
-                  maxExtent: 12.0,
-                  sliver: SliverToBoxAdapter(),
-                ),
-                SliverCrossAxisExpanded(
-                  flex: 1,
-                  sliver: SliverList.builder(
-                    itemCount: filteredPrayers.length ~/ 2,
-                    itemBuilder: (context, index) {
-                      return _buildPrayerCard(filteredPrayers[index * 2 + 1]);
-                    },
-                  ),
-                ),
-              ],
+            sliver: TwoColumnSliverList(
+              itemCount: filteredPrayers.length,
+              itemBuilder: (context, index) =>
+                  _buildPrayerCard(filteredPrayers[index]),
             ),
           ),
           SliverToBoxAdapter(

@@ -4,6 +4,8 @@ import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
+import 'package:twelve_stars/widgets/scripture_footer_quote.dart';
+import 'package:twelve_stars/widgets/two_column_sliver_list.dart';
 
 class SaintsScreen extends StatefulWidget {
   const SaintsScreen({super.key});
@@ -143,30 +145,11 @@ class _SaintsScreenState extends State<SaintsScreen> {
   }
 
   Widget _buildFooterQuote(ThemeData theme) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-      child: Column(
-        children: [
-          Text(
-            '“Therefore, since we are surrounded by so great a cloud of witnesses, let us also lay aside every weight, and run with perseverance the race that is set before us.”',
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-              fontStyle: FontStyle.italic,
-              height: 1.4,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 6),
-          Text(
-            '— Hebrews 12:1',
-            style: theme.textTheme.labelSmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
-              fontWeight: FontWeight.w600,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+    return const ScriptureFooterQuote(
+      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+      quote:
+          '“Therefore, since we are surrounded by so great a cloud of witnesses, let us also lay aside every weight, and run with perseverance the race that is set before us.”',
+      attribution: '— Hebrews 12:1',
     );
   }
 
@@ -559,35 +542,10 @@ class _SaintsScreenState extends State<SaintsScreen> {
                           horizontal: 16.0,
                           vertical: 12.0,
                         ),
-                        sliver: SliverCrossAxisGroup(
-                          slivers: [
-                            SliverCrossAxisExpanded(
-                              flex: 1,
-                              sliver: SliverList.builder(
-                                itemCount: (filteredSaints.length + 1) ~/ 2,
-                                itemBuilder: (context, index) {
-                                  return SaintCard(
-                                    saint: filteredSaints[index * 2],
-                                  );
-                                },
-                              ),
-                            ),
-                            const SliverConstrainedCrossAxis(
-                              maxExtent: 12.0,
-                              sliver: SliverToBoxAdapter(),
-                            ),
-                            SliverCrossAxisExpanded(
-                              flex: 1,
-                              sliver: SliverList.builder(
-                                itemCount: filteredSaints.length ~/ 2,
-                                itemBuilder: (context, index) {
-                                  return SaintCard(
-                                    saint: filteredSaints[index * 2 + 1],
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
+                        sliver: TwoColumnSliverList(
+                          itemCount: filteredSaints.length,
+                          itemBuilder: (context, index) =>
+                              SaintCard(saint: filteredSaints[index]),
                         ),
                       ),
                       SliverToBoxAdapter(child: _buildFooterQuote(theme)),
