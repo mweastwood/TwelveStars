@@ -2705,5 +2705,62 @@ void main() {
         'St. Andrew',
       ]);
     });
+
+    test(
+      'Saint.fromJson precomputes sorted unmodifiable categories and date fields',
+      () {
+        final saintWithExplicitCategories = Saint.fromJson({
+          'id': 'test-explicit',
+          'name': 'St. Explicit',
+          'birthDate': 'c. 3rd century',
+          'nationality': 'Roman',
+          'profession': 'Martyr',
+          'categories': ['martyr', 'doctor'],
+          'isDoctor': true,
+          'feastDay': 'October 14',
+        });
+
+        // Categories are pre-sorted by enum index and returned without reallocation
+        expect(saintWithExplicitCategories.categories, [
+          SaintCategory.doctor,
+          SaintCategory.martyr,
+        ]);
+        expect(
+          identical(
+            saintWithExplicitCategories.categories,
+            saintWithExplicitCategories.categories,
+          ),
+          isTrue,
+        );
+        expect(saintWithExplicitCategories.approximateYear, 250);
+        expect(saintWithExplicitCategories.feastMonth, 10);
+        expect(saintWithExplicitCategories.feastDayOfMonth, 14);
+
+        final saintWithComputedCategories = Saint.fromJson({
+          'id': 'test-computed',
+          'name': 'St. Computed',
+          'deathDate': '1274',
+          'nationality': 'Italian',
+          'profession': 'Dominican Priest & Doctor',
+          'isDoctor': true,
+          'feastDay': 'January 28',
+        });
+
+        expect(
+          saintWithComputedCategories.categories,
+          containsAll([SaintCategory.doctor, SaintCategory.priest]),
+        );
+        expect(
+          identical(
+            saintWithComputedCategories.categories,
+            saintWithComputedCategories.categories,
+          ),
+          isTrue,
+        );
+        expect(saintWithComputedCategories.approximateYear, 1274);
+        expect(saintWithComputedCategories.feastMonth, 1);
+        expect(saintWithComputedCategories.feastDayOfMonth, 28);
+      },
+    );
   });
 }
