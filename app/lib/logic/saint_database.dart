@@ -163,15 +163,48 @@ class SaintDatabase {
       return filtered;
     }
 
-    // Decorate each saint with its lowercase name so sorting never relies on
-    // saint ids (which may be duplicated) and avoids recomputing lowercase.
+    // Decorate each saint with its lowercase name and precomputed sort keys so
+    // sorting never relies on saint ids (which may be duplicated) and avoids
+    // recomputing regexes or category lists inside O(N log N) comparisons.
     final decorated = [
-      for (final s in filtered) (saint: s, lowerName: s.name.toLowerCase()),
+      for (final s in filtered)
+        (
+          saint: s,
+          lowerName: s.name.toLowerCase(),
+          feastMonth: s.feastMonth ?? 99,
+          feastDay: s.feastDayOfMonth ?? 99,
+          approxYear: s.approximateYear,
+          isSpecialCategory: const {
+            SaintCategory.angel,
+            SaintCategory.holyFamily,
+            SaintCategory.patriarch,
+            SaintCategory.prophet,
+            SaintCategory.judge,
+            SaintCategory.apostle,
+            SaintCategory.evangelist,
+          }.contains(s.category),
+        ),
     ];
 
     int compareByName(
-      ({Saint saint, String lowerName}) x,
-      ({Saint saint, String lowerName}) y,
+      ({
+        Saint saint,
+        String lowerName,
+        int feastMonth,
+        int feastDay,
+        int? approxYear,
+        bool isSpecialCategory,
+      })
+      x,
+      ({
+        Saint saint,
+        String lowerName,
+        int feastMonth,
+        int feastDay,
+        int? approxYear,
+        bool isSpecialCategory,
+      })
+      y,
     ) => x.lowerName.compareTo(y.lowerName);
 
     decorated.sort((da, db) {
@@ -183,45 +216,29 @@ class SaintDatabase {
         case SaintSortOption.nameDesc:
           return compareByName(db, da);
         case SaintSortOption.feastDay:
-          final aMonth = a.feastMonth ?? 99;
-          final bMonth = b.feastMonth ?? 99;
-          if (aMonth != bMonth) return aMonth.compareTo(bMonth);
-          final aDay = a.feastDayOfMonth ?? 99;
-          final bDay = b.feastDayOfMonth ?? 99;
-          if (aDay != bDay) return aDay.compareTo(bDay);
+          if (da.feastMonth != db.feastMonth) {
+            return da.feastMonth.compareTo(db.feastMonth);
+          }
+          if (da.feastDay != db.feastDay) {
+            return da.feastDay.compareTo(db.feastDay);
+          }
           return compareByName(da, db);
         case SaintSortOption.chronologicalAsc:
-          final aYear = a.approximateYear ?? 9999;
-          final bYear = b.approximateYear ?? 9999;
+          final aYear = da.approxYear ?? 9999;
+          final bYear = db.approxYear ?? 9999;
           if (aYear != bYear) return aYear.compareTo(bYear);
           return compareByName(da, db);
         case SaintSortOption.chronologicalDesc:
-          final aYear = a.approximateYear ?? -9999;
-          final bYear = b.approximateYear ?? -9999;
+          final aYear = da.approxYear ?? -9999;
+          final bYear = db.approxYear ?? -9999;
           if (aYear != bYear) return bYear.compareTo(aYear);
           return compareByName(da, db);
         case SaintSortOption.doctorsFirst:
           if (a.isDoctor != b.isDoctor) {
             return a.isDoctor ? -1 : 1;
           }
-          final aIsSpecial =
-              a.category == SaintCategory.angel ||
-              a.category == SaintCategory.holyFamily ||
-              a.category == SaintCategory.patriarch ||
-              a.category == SaintCategory.prophet ||
-              a.category == SaintCategory.judge ||
-              a.category == SaintCategory.apostle ||
-              a.category == SaintCategory.evangelist;
-          final bIsSpecial =
-              b.category == SaintCategory.angel ||
-              b.category == SaintCategory.holyFamily ||
-              b.category == SaintCategory.patriarch ||
-              b.category == SaintCategory.prophet ||
-              b.category == SaintCategory.judge ||
-              b.category == SaintCategory.apostle ||
-              b.category == SaintCategory.evangelist;
-          if (aIsSpecial != bIsSpecial) {
-            return aIsSpecial ? -1 : 1;
+          if (da.isSpecialCategory != db.isSpecialCategory) {
+            return da.isSpecialCategory ? -1 : 1;
           }
           return compareByName(da, db);
       }

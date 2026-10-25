@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -87,6 +88,42 @@ void main() {
         LibraryHelper.clearCache();
         expect(LibraryHelper.cacheSize, equals(0));
         expect(LibraryHelper.searchIndexSize, equals(0));
+      },
+    );
+
+    test(
+      'enforces maxSearchIndexSize (30) when indexing books for catalog search',
+      () async {
+        expect(LibraryHelper.searchIndexSize, equals(0));
+        expect(
+          LibraryHelper.getAllCatalogPaths().length,
+          greaterThan(LibraryHelper.maxSearchIndexSize),
+        );
+
+        final results = await LibraryHelper.searchCatalog(
+          'nonexistent_token_so_all_books_are_scanned',
+        );
+        expect(results, isEmpty);
+        expect(
+          LibraryHelper.searchIndexSize,
+          equals(LibraryHelper.maxSearchIndexSize),
+        );
+      },
+    );
+
+    test(
+      'pubspec.yaml excludes build-time raw catechism sources and pinyin_dict.txt',
+      () {
+        final pubspecFile = File('pubspec.yaml');
+        expect(pubspecFile.existsSync(), isTrue);
+        final content = pubspecFile.readAsStringSync();
+
+        expect(content, isNot(contains('assets/pinyin_dict.txt')));
+        expect(content, isNot(contains('assets/catechism/baltimore/')));
+        expect(content, isNot(contains('assets/catechism/trent/')));
+        expect(content, isNot(contains('assets/catechism/aquinas/')));
+        expect(content, contains('assets/catechism/json/'));
+        expect(content, contains('assets/catechism/thematic_index.json'));
       },
     );
   });

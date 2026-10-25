@@ -480,6 +480,10 @@ class Saint {
   final String? summary; // Short historical biographical context
   final String? gender; // 'male', 'female', or 'group'
   final SaintEmbedding? embedding; // Multi-dimensional spiritual feature vector
+  final bool _hasPrecomputedFields;
+  final int? _cachedApproximateYear;
+  final int? _cachedFeastMonth;
+  final int? _cachedFeastDayOfMonth;
 
   const Saint({
     required this.id,
@@ -496,7 +500,35 @@ class Saint {
     this.summary,
     this.gender,
     this.embedding,
-  }) : _explicitCategories = categories;
+  }) : _explicitCategories = categories,
+       _hasPrecomputedFields = false,
+       _cachedApproximateYear = null,
+       _cachedFeastMonth = null,
+       _cachedFeastDayOfMonth = null;
+
+  const Saint._precomputed({
+    required this.id,
+    required this.name,
+    this.birthDate,
+    this.deathDate,
+    required this.nationality,
+    required this.profession,
+    required List<SaintCategory> categories,
+    this.isDoctor = false,
+    this.isBlessed = false,
+    this.feastDay,
+    this.patronage,
+    this.summary,
+    this.gender,
+    this.embedding,
+    required int? approximateYear,
+    required int? feastMonth,
+    required int? feastDayOfMonth,
+  }) : _explicitCategories = categories,
+       _hasPrecomputedFields = true,
+       _cachedApproximateYear = approximateYear,
+       _cachedFeastMonth = feastMonth,
+       _cachedFeastDayOfMonth = feastDayOfMonth;
 
   bool get isMale => gender == 'male';
   bool get isFemale => gender == 'female';
@@ -537,6 +569,19 @@ class Saint {
   /// Returns all categories matching this saint based on explicit categories or historical fallback,
   /// ordered consistently according to the standard UI category hierarchy.
   List<SaintCategory> get categories {
+    if (_hasPrecomputedFields) {
+      return _explicitCategories;
+    }
+    if (_explicitCategories.isNotEmpty) {
+      bool isSorted = true;
+      for (int i = 1; i < _explicitCategories.length; i++) {
+        if (_explicitCategories[i - 1].index > _explicitCategories[i].index) {
+          isSorted = false;
+          break;
+        }
+      }
+      if (isSorted) return _explicitCategories;
+    }
     final raw = _explicitCategories.isNotEmpty
         ? _explicitCategories
         : computeCategories(
@@ -1210,6 +1255,21 @@ class Saint {
 
   /// Extracts numeric year for chronological sorting.
   int? get approximateYear {
+    if (_hasPrecomputedFields) {
+      return _cachedApproximateYear;
+    }
+    return _computeApproximateYear(
+      birthDate: birthDate,
+      deathDate: deathDate,
+      nationality: nationality,
+    );
+  }
+
+  static int? _computeApproximateYear({
+    required String? birthDate,
+    required String? deathDate,
+    required String nationality,
+  }) {
     final dateStr = deathDate ?? birthDate;
     if (dateStr == null || dateStr.isEmpty) {
       if (nationality.toLowerCase().contains('angelic')) return -9999;
@@ -1272,30 +1332,46 @@ class Saint {
     'december': 12,
   };
 
+  static ({int? month, int? day}) _parseFeastDay(String? feastDay) {
+    if (feastDay == null || feastDay.isEmpty) {
+      return (month: null, day: null);
+    }
+    final match = _feastDayRegex.firstMatch(feastDay);
+    if (match == null) {
+      return (month: null, day: null);
+    }
+    final mStr = match.group(1)?.toLowerCase();
+    final month = mStr != null ? _monthMap[mStr] : null;
+    final day = int.tryParse(match.group(2)!);
+    return (month: month, day: day);
+  }
+
   /// Month number (1-12) of feast day, if specified.
   int? get feastMonth {
-    if (feastDay == null || feastDay!.isEmpty) return null;
-    final match = _feastDayRegex.firstMatch(feastDay!);
-    if (match != null) {
-      final mStr = match.group(1)?.toLowerCase();
-      if (mStr != null && _monthMap.containsKey(mStr)) {
-        return _monthMap[mStr];
-      }
+    if (_hasPrecomputedFields) {
+      return _cachedFeastMonth;
     }
-    return null;
+    return _parseFeastDay(feastDay).month;
   }
 
   /// Day of month (1-31) of feast day, if specified.
   int? get feastDayOfMonth {
-    if (feastDay == null || feastDay!.isEmpty) return null;
-    final match = _feastDayRegex.firstMatch(feastDay!);
-    if (match != null) {
-      return int.tryParse(match.group(2)!);
+    if (_hasPrecomputedFields) {
+      return _cachedFeastDayOfMonth;
     }
-    return null;
+    return _parseFeastDay(feastDay).day;
   }
 
   factory Saint.fromJson(Map<String, dynamic> json) {
+    final id = json['id'] as String? ?? '';
+    final name = json['name'] as String? ?? '';
+    final birthDate = json['birthDate'] as String?;
+    final deathDate = json['deathDate'] as String?;
+    final nationality = json['nationality'] as String? ?? '';
+    final profession = json['profession'] as String? ?? '';
+    final isDoctor = json['isDoctor'] as bool? ?? false;
+    final feastDay = json['feastDay'] as String?;
+
     final List<SaintCategory> categories = [];
     if (json['categories'] is List) {
       for (final item in json['categories'] as List) {
@@ -1310,18 +1386,37 @@ class Saint {
         }
       }
     }
+    if (categories.isEmpty) {
+      categories.addAll(
+        computeCategories(
+          id: id,
+          name: name,
+          nationality: nationality,
+          profession: profession,
+          isDoctor: isDoctor,
+        ),
+      );
+    }
+    categories.sort((a, b) => a.index.compareTo(b.index));
 
-    return Saint(
-      id: json['id'] as String? ?? '',
-      name: json['name'] as String? ?? '',
-      birthDate: json['birthDate'] as String?,
-      deathDate: json['deathDate'] as String?,
-      nationality: json['nationality'] as String? ?? '',
-      profession: json['profession'] as String? ?? '',
-      categories: categories,
-      isDoctor: json['isDoctor'] as bool? ?? false,
+    final parsedFeast = _parseFeastDay(feastDay);
+    final approximateYear = _computeApproximateYear(
+      birthDate: birthDate,
+      deathDate: deathDate,
+      nationality: nationality,
+    );
+
+    return Saint._precomputed(
+      id: id,
+      name: name,
+      birthDate: birthDate,
+      deathDate: deathDate,
+      nationality: nationality,
+      profession: profession,
+      categories: List<SaintCategory>.unmodifiable(categories),
+      isDoctor: isDoctor,
       isBlessed: json['isBlessed'] as bool? ?? false,
-      feastDay: json['feastDay'] as String?,
+      feastDay: feastDay,
       patronage: json['patronage'] as String?,
       summary: json['summary'] as String?,
       gender: json['gender'] as String?,
@@ -1329,6 +1424,9 @@ class Saint {
           json['embedding'] != null && json['embedding'] is Map<String, dynamic>
           ? SaintEmbedding.fromJson(json['embedding'] as Map<String, dynamic>)
           : null,
+      approximateYear: approximateYear,
+      feastMonth: parsedFeast.month,
+      feastDayOfMonth: parsedFeast.day,
     );
   }
 

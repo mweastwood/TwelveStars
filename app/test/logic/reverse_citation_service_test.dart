@@ -1071,6 +1071,70 @@ void main() {
           );
         },
       );
+
+      test(
+        'parseBookCitationBatchInBackground parses a slice of books in one batch',
+        () {
+          const rawJson1 = '''
+{
+  "bookId": "batch_book_1",
+  "title": "Batch Book 1",
+  "subtitle": "",
+  "author": "Author 1",
+  "toc": [],
+  "sections": [
+    {
+      "id": "s1",
+      "title": "Sec 1",
+      "subtitle": "",
+      "content": [
+        {"type": "text", "text": "See John 3:16 for details."}
+      ]
+    }
+  ]
+}
+''';
+          const rawJson2 = '''
+{
+  "bookId": "batch_book_2",
+  "title": "Batch Book 2",
+  "subtitle": "",
+  "author": "Author 2",
+  "toc": [],
+  "sections": [
+    {
+      "id": "s2",
+      "title": "Sec 2",
+      "subtitle": "",
+      "content": [
+        {"type": "text", "text": "Compare Genesis 1:1 and Matthew 5:3."}
+      ]
+    }
+  ]
+}
+''';
+
+          final batchResults = parseBookCitationBatchInBackground(const [
+            CitationParseParams(sourceKey: 'path_1.json', rawJson: rawJson1),
+            CitationParseParams(sourceKey: 'path_2.json', rawJson: rawJson2),
+          ]);
+
+          expect(
+            batchResults.keys,
+            containsAll(['path_1.json', 'path_2.json']),
+          );
+          expect(batchResults['path_1.json'], hasLength(1));
+          expect(
+            batchResults['path_1.json']!.first.citation.bookName,
+            equals('John'),
+          );
+          expect(batchResults['path_2.json'], hasLength(2));
+          expect(
+            batchResults['path_2.json']!.map((c) => c.citation.bookName),
+            containsAll(['Genesis', 'Matthew']),
+          );
+        },
+      );
     });
   });
 }

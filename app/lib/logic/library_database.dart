@@ -31,8 +31,14 @@ ParsedBookData _parseBookDataInBackground(String rawJson) {
   return ParsedBookData.fromJson(map);
 }
 
+List<_SearchableBookItem> _parseSearchableItemsInBackground(String rawJson) {
+  final book = _parseBookDataInBackground(rawJson);
+  return LibraryHelper._extractSearchableItems(book);
+}
+
 class LibraryHelper {
   static const int maxCacheSize = 5;
+  static const int maxSearchIndexSize = 30;
   static final Map<String, ParsedBookData> _cache = {};
   static final Map<String, List<_SearchableBookItem>> _searchIndex = {};
   static final Map<String, Future<ParsedBookData>> _inFlight = {};
@@ -185,16 +191,30 @@ class LibraryHelper {
     return items;
   }
 
+  static void _putSearchIndex(
+    String assetPath,
+    List<_SearchableBookItem> items,
+  ) {
+    if (_searchIndex.containsKey(assetPath)) {
+      _searchIndex.remove(assetPath);
+    } else if (_searchIndex.length >= maxSearchIndexSize) {
+      _searchIndex.remove(_searchIndex.keys.first);
+    }
+    _searchIndex[assetPath] = items;
+  }
+
   static Future<List<_SearchableBookItem>> _getSearchableItems(
     String assetPath,
   ) async {
     if (_searchIndex.containsKey(assetPath)) {
-      return _searchIndex[assetPath]!;
+      final cached = _searchIndex.remove(assetPath)!;
+      _searchIndex[assetPath] = cached;
+      return cached;
     }
     if (_cache.containsKey(assetPath)) {
       final book = _cache[assetPath]!;
       final items = _extractSearchableItems(book);
-      _searchIndex[assetPath] = items;
+      _putSearchIndex(assetPath, items);
       return items;
     }
     if (_inFlightSearch.containsKey(assetPath)) {
@@ -213,9 +233,8 @@ class LibraryHelper {
     String assetPath,
   ) async {
     final rawString = await rootBundle.loadString(assetPath);
-    final book = await compute(_parseBookDataInBackground, rawString);
-    final items = _extractSearchableItems(book);
-    _searchIndex[assetPath] = items;
+    final items = await compute(_parseSearchableItemsInBackground, rawString);
+    _putSearchIndex(assetPath, items);
     return items;
   }
 

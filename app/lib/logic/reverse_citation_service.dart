@@ -129,6 +129,18 @@ List<ReverseCitation> parseBookCitationsInBackground(
   return _extractCitationsFromBookData(params.sourceKey, bookData);
 }
 
+/// Top-level batch worker function executed in background isolate via [compute]
+/// to amortize isolate startup overhead across a slice of books.
+Map<String, List<ReverseCitation>> parseBookCitationBatchInBackground(
+  List<CitationParseParams> batch,
+) {
+  final results = <String, List<ReverseCitation>>{};
+  for (final params in batch) {
+    results[params.sourceKey] = parseBookCitationsInBackground(params);
+  }
+  return results;
+}
+
 class ReverseCitationService {
   static const int maxIndexedSources = 160;
   static const int indexingConcurrencyLimit = 6;
@@ -437,21 +449,46 @@ class ReverseCitationService {
     int index = 0;
 
     Future<void> worker() async {
+      final batchInputs = <({int pathIndex, CitationParseParams params})>[];
       while (index < paths.length) {
-        if (runGeneration != _generation) break;
+        if (runGeneration != _generation) return;
         final pathIndex = index++;
         if (pathIndex >= paths.length) break;
         final path = paths[pathIndex];
 
         try {
           final rawJson = await rootBundle.loadString(path);
-          final citations = await compute(
-            parseBookCitationsInBackground,
-            CitationParseParams(sourceKey: path, rawJson: rawJson),
-          );
-          results[pathIndex] = citations;
+          batchInputs.add((
+            pathIndex: pathIndex,
+            params: CitationParseParams(sourceKey: path, rawJson: rawJson),
+          ));
         } catch (e, stack) {
-          debugPrint('Error indexing $path: $e\n$stack');
+          debugPrint('Error loading $path for indexing: $e\n$stack');
+        }
+      }
+
+      if (batchInputs.isEmpty || runGeneration != _generation) return;
+
+      try {
+        final batchResults = await compute(parseBookCitationBatchInBackground, [
+          for (final item in batchInputs) item.params,
+        ]);
+        for (final item in batchInputs) {
+          results[item.pathIndex] = batchResults[item.params.sourceKey];
+        }
+      } catch (_) {
+        // Fallback to per-book parsing so one malformed book in a batch does not
+        // prevent valid books in the same worker slice from being indexed.
+        for (final item in batchInputs) {
+          if (runGeneration != _generation) return;
+          try {
+            results[item.pathIndex] = await compute(
+              parseBookCitationsInBackground,
+              item.params,
+            );
+          } catch (e, stack) {
+            debugPrint('Error indexing ${item.params.sourceKey}: $e\n$stack');
+          }
         }
       }
     }
