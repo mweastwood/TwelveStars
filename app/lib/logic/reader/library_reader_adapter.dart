@@ -70,7 +70,8 @@ class LibraryReaderAdapter implements ReaderAdapter {
     if (initialSectionId != null) {
       final idx = data.sections.indexWhere((s) => s.id == initialSectionId);
       if (idx >= 0) return idx;
-    } else if (initialSectionIndex != null) {
+    }
+    if (initialSectionIndex != null) {
       return initialSectionIndex.clamp(0, max(0, data.sections.length - 1));
     } else if (savedPos != null) {
       final isMatchingVolume =

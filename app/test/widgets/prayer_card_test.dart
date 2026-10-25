@@ -2021,6 +2021,89 @@ void main() {
           );
         },
       );
+
+      testWidgets(
+        'anchors CompositedTransformTarget to the last character of a selected Chinese phrase and extracts phrase text from chineseLines when tokens is null',
+        (tester) async {
+          final mockAi = MockAiService();
+          LocalAgentHelper.instance = mockAi;
+          mockAi.setMockStatus(AiCoreStatus.available);
+
+          final chineseDualPrayer = Prayer.mock(
+            id: 'chinese_dual_phrase',
+            defaultTitle: 'Our Father',
+            translations: {
+              PrayerLanguage.traditionalChinese: [
+                PrayerTranslation.mock(
+                  title: '天主經',
+                  text: '我們的天父',
+                  tokens: null,
+                  chineseLines: [
+                    [
+                      ChineseChar('我', 'wǒ', 'p1'),
+                      ChineseChar('們', 'men', 'p1'),
+                      ChineseChar('的', 'de', 'p1'),
+                      ChineseChar('天', 'tiān', 'p2'),
+                      ChineseChar('父', 'fù', 'p2'),
+                    ],
+                  ],
+                ),
+              ],
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Our Father',
+                  text: 'Our Father',
+                  tokens: [
+                    PrayerToken('Our', 'p1'),
+                    PrayerToken(' ', null),
+                    PrayerToken('Father', 'p2'),
+                  ],
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: SingleChildScrollView(
+                  child: PrayerCard(
+                    prayer: chineseDualPrayer,
+                    selectedLanguage: PrayerLanguage.english,
+                    compareLanguage: PrayerLanguage.traditionalChinese,
+                    initialVersionIndex: 0,
+                    onVersionChanged: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          );
+          await tester.pumpAndSettle();
+
+          // Tap the first character '我' of phrase 'p1' ('我們的')
+          await tester.tap(find.text('我'));
+          await tester.pumpAndSettle();
+
+          // Verify CompositedTransformTarget wraps the LAST character '的' of 'p1', not '我'
+          final targetFinder = find.byType(CompositedTransformTarget);
+          expect(targetFinder, findsOneWidget);
+          expect(
+            find.descendant(of: targetFinder, matching: find.text('的')),
+            findsOneWidget,
+          );
+          expect(
+            find.descendant(of: targetFinder, matching: find.text('我')),
+            findsNothing,
+          );
+
+          // Tap the AI FAB and verify the Translation Explainer receives '我們的' from chineseLines
+          await tester.tap(find.byIcon(Icons.auto_awesome));
+          await tester.pumpAndSettle();
+
+          expect(find.text('Translation Explainer'), findsOneWidget);
+          expect(find.text('我們的'), findsWidgets);
+        },
+      );
     });
   });
 }

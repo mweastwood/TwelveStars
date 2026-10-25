@@ -818,12 +818,25 @@ class _PrayerCardState extends State<PrayerCard> {
   }
 
   String _getPhraseText(PrayerTranslation trans, String phraseId) {
-    if (trans.tokens == null) return '';
-    return trans.tokens!
-        .where((t) => t.id == phraseId)
-        .map((t) => t.text.replaceAll('*', ''))
-        .join('')
-        .trim();
+    if (trans.tokens != null && trans.tokens!.isNotEmpty) {
+      return trans.tokens!
+          .where((t) => t.id == phraseId)
+          .map((t) => t.text.replaceAll('*', ''))
+          .join('')
+          .trim();
+    }
+    if (trans.chineseLines != null && trans.chineseLines!.isNotEmpty) {
+      final buffer = StringBuffer();
+      for (final line in trans.chineseLines!) {
+        for (final charItem in line.chars ?? const <ChineseChar>[]) {
+          if (charItem.phraseId == phraseId) {
+            buffer.write(charItem.char);
+          }
+        }
+      }
+      return buffer.toString().trim();
+    }
+    return '';
   }
 
   void _explainSelectedTranslation() {

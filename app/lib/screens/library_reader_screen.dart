@@ -318,6 +318,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       );
       _selectionController.clear(clearTemporaryHighlight: true);
     });
+    _loadComments();
     _loadBookData(initialSectionIndex: initialSectionIndex);
   }
 
@@ -463,271 +464,282 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     });
   }
 
+  void _closeSearch() {
+    _pageController.dispose();
+    _pageController = PageController(initialPage: _currentSectionIndex);
+    setState(() {
+      _isSearching = false;
+      _searchQuery = '';
+      _searchController.clear();
+      _searchResults = [];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final book = _bookData;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: _isSearching
-            ? TextField(
-                controller: _searchController,
-                autofocus: true,
-                style: TextStyle(color: theme.colorScheme.onSurface),
-                decoration: const InputDecoration(
-                  hintText: 'Search in book...',
-                  border: InputBorder.none,
-                ),
-                onChanged: (val) {
-                  setState(() {
-                    _searchQuery = val;
-                  });
-                  _performSearch(val);
-                },
-              )
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.bookItem.title,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                    overflow: TextOverflow.ellipsis,
+    return PopScope(
+      canPop: !_isSearching,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop && _isSearching) {
+          _closeSearch();
+        }
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: _isSearching
+              ? TextField(
+                  controller: _searchController,
+                  autofocus: true,
+                  style: TextStyle(color: theme.colorScheme.onSurface),
+                  decoration: const InputDecoration(
+                    hintText: 'Search in book...',
+                    border: InputBorder.none,
                   ),
-                  if (book != null)
+                  onChanged: (val) {
+                    setState(() {
+                      _searchQuery = val;
+                    });
+                    _performSearch(val);
+                  },
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                     Text(
-                      book.subtitle.isNotEmpty ? book.subtitle : book.title,
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
+                      widget.bookItem.title,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
-                ],
-              ),
-        actions: [
-          if (_isSearching)
-            IconButton(
-              icon: const Icon(Icons.clear),
-              onPressed: () {
-                setState(() {
-                  _searchController.clear();
-                  _searchQuery = '';
-                  _searchResults = [];
-                });
-              },
-            )
-          else ...[
-            IconButton(
-              icon: const Icon(Icons.search),
-              tooltip: 'Search in Book',
-              onPressed: () {
-                setState(() {
-                  _isSearching = true;
-                });
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.list),
-              tooltip: 'Table of Contents',
-              onPressed: () => _openTocSheet(context, theme),
-            ),
-            IconButton(
-              icon: const Icon(Icons.text_fields),
-              tooltip: 'Text Options',
-              onPressed: () => _openFontDialog(context, theme),
-            ),
-          ],
-        ],
-        leading: _isSearching
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back),
+                    if (book != null)
+                      Text(
+                        book.subtitle.isNotEmpty ? book.subtitle : book.title,
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                  ],
+                ),
+          actions: [
+            if (_isSearching)
+              IconButton(
+                icon: const Icon(Icons.clear),
                 onPressed: () {
-                  _pageController.dispose();
-                  _pageController = PageController(
-                    initialPage: _currentSectionIndex,
-                  );
                   setState(() {
-                    _isSearching = false;
-                    _searchQuery = '';
                     _searchController.clear();
+                    _searchQuery = '';
                     _searchResults = [];
                   });
                 },
               )
-            : null,
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Series Volume Selector Header (for Baltimore Catechism)
-            if (widget.bookItem.isSeries && !_isSearching)
-              Container(
-                color: theme.colorScheme.surfaceContainerLow,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 8.0,
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      'Edition: ',
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.primary,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: widget.bookItem.volumes!.map((vol) {
-                            final isSel = vol.volumeKey == _currentVolumeKey;
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 6.0),
-                              child: ChoiceChip(
-                                label: Text(vol.shortName),
-                                selected: isSel,
-                                onSelected: (selected) {
-                                  if (selected) _switchVolume(vol);
-                                },
-                              ),
-                            );
-                          }).toList(),
+            else ...[
+              IconButton(
+                icon: const Icon(Icons.search),
+                tooltip: 'Search in Book',
+                onPressed: () {
+                  setState(() {
+                    _isSearching = true;
+                  });
+                },
+              ),
+              IconButton(
+                icon: const Icon(Icons.list),
+                tooltip: 'Table of Contents',
+                onPressed: () => _openTocSheet(context, theme),
+              ),
+              IconButton(
+                icon: const Icon(Icons.text_fields),
+                tooltip: 'Text Options',
+                onPressed: () => _openFontDialog(context, theme),
+              ),
+            ],
+          ],
+          leading: _isSearching
+              ? IconButton(
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: _closeSearch,
+                )
+              : null,
+        ),
+        body: SafeArea(
+          child: Column(
+            children: [
+              // Series Volume Selector Header (for Baltimore Catechism)
+              if (widget.bookItem.isSeries && !_isSearching)
+                Container(
+                  color: theme.colorScheme.surfaceContainerLow,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Edition: ',
+                        style: theme.textTheme.labelMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: widget.bookItem.volumes!.map((vol) {
+                              final isSel = vol.volumeKey == _currentVolumeKey;
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 6.0),
+                                child: ChoiceChip(
+                                  label: Text(vol.shortName),
+                                  selected: isSel,
+                                  onSelected: (selected) {
+                                    if (selected) _switchVolume(vol);
+                                  },
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+
+              // Main Reader / Search Results View
+              Expanded(
+                child: _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : _error != null
+                    ? Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(24.0),
+                          child: Text(
+                            'Error loading book: $_error',
+                            style: TextStyle(color: theme.colorScheme.error),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    : _isSearching
+                    ? LibrarySearchResultsView(
+                        searchQuery: _searchQuery,
+                        searchResults: _searchResults,
+                        onResultTap: (res) {
+                          final secIdx =
+                              _bookData?.sections.indexWhere(
+                                (s) => s.id == res.sectionId,
+                              ) ??
+                              -1;
+                          if (secIdx >= 0) {
+                            _pageController.dispose();
+                            _pageController = PageController(
+                              initialPage: secIdx,
+                            );
+                            setState(() {
+                              _currentSectionIndex = secIdx;
+                              _populateKeys(_bookData, secIdx);
+                              _isSearching = false;
+                              _searchQuery = '';
+                              _searchController.clear();
+                              _searchResults = [];
+                            });
+                            _saveReadingPosition(secIdx);
+                          }
+                        },
+                      )
+                    : _buildSectionContentView(theme, book!),
               ),
 
-            // Main Reader / Search Results View
-            Expanded(
-              child: _isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : _error != null
-                  ? Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(24.0),
-                        child: Text(
-                          'Error loading book: $_error',
-                          style: TextStyle(color: theme.colorScheme.error),
-                          textAlign: TextAlign.center,
+              // Bottom Section Navigation Footer
+              if (!_isSearching && book != null && book.sections.isNotEmpty)
+                Container(
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surfaceContainerLow,
+                    border: Border(
+                      top: BorderSide(
+                        color: theme.colorScheme.outlineVariant.withValues(
+                          alpha: 0.5,
                         ),
-                      ),
-                    )
-                  : _isSearching
-                  ? LibrarySearchResultsView(
-                      searchQuery: _searchQuery,
-                      searchResults: _searchResults,
-                      onResultTap: (res) {
-                        final secIdx =
-                            _bookData?.sections.indexWhere(
-                              (s) => s.id == res.sectionId,
-                            ) ??
-                            -1;
-                        if (secIdx >= 0) {
-                          _pageController.dispose();
-                          _pageController = PageController(initialPage: secIdx);
-                          setState(() {
-                            _currentSectionIndex = secIdx;
-                            _populateKeys(_bookData, secIdx);
-                            _isSearching = false;
-                            _searchQuery = '';
-                            _searchController.clear();
-                            _searchResults = [];
-                          });
-                          _saveReadingPosition(secIdx);
-                        }
-                      },
-                    )
-                  : _buildSectionContentView(theme, book!),
-            ),
-
-            // Bottom Section Navigation Footer
-            if (!_isSearching && book != null && book.sections.isNotEmpty)
-              Container(
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surfaceContainerLow,
-                  border: Border(
-                    top: BorderSide(
-                      color: theme.colorScheme.outlineVariant.withValues(
-                        alpha: 0.5,
                       ),
                     ),
                   ),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 8.0,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.chevron_left),
-                      tooltip: 'Previous Section',
-                      onPressed: _currentSectionIndex > 0
-                          ? () {
-                              _clearSelection();
-                              if (_pageController.hasClients) {
-                                _pageController.previousPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
-                              } else {
-                                setState(() {
-                                  _currentSectionIndex--;
-                                  _populateKeys(
-                                    _bookData,
-                                    _currentSectionIndex,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.chevron_left),
+                        tooltip: 'Previous Section',
+                        onPressed: _currentSectionIndex > 0
+                            ? () {
+                                _clearSelection();
+                                if (_pageController.hasClients) {
+                                  _pageController.previousPage(
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeInOut,
                                   );
-                                });
-                                _saveReadingPosition(_currentSectionIndex);
+                                } else {
+                                  setState(() {
+                                    _currentSectionIndex--;
+                                    _populateKeys(
+                                      _bookData,
+                                      _currentSectionIndex,
+                                    );
+                                  });
+                                  _saveReadingPosition(_currentSectionIndex);
+                                }
                               }
-                            }
-                          : null,
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Section ${_currentSectionIndex + 1} of ${book.sections.length}',
-                        style: theme.textTheme.labelMedium?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.center,
+                            : null,
                       ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.chevron_right),
-                      tooltip: 'Next Section',
-                      onPressed: _currentSectionIndex < book.sections.length - 1
-                          ? () {
-                              _clearSelection();
-                              if (_pageController.hasClients) {
-                                _pageController.nextPage(
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
-                              } else {
-                                setState(() {
-                                  _currentSectionIndex++;
-                                  _populateKeys(
-                                    _bookData,
-                                    _currentSectionIndex,
+                      Expanded(
+                        child: Text(
+                          'Section ${_currentSectionIndex + 1} of ${book.sections.length}',
+                          style: theme.textTheme.labelMedium?.copyWith(
+                            color: theme.colorScheme.onSurfaceVariant,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.chevron_right),
+                        tooltip: 'Next Section',
+                        onPressed:
+                            _currentSectionIndex < book.sections.length - 1
+                            ? () {
+                                _clearSelection();
+                                if (_pageController.hasClients) {
+                                  _pageController.nextPage(
+                                    duration: const Duration(milliseconds: 300),
+                                    curve: Curves.easeInOut,
                                   );
-                                });
-                                _saveReadingPosition(_currentSectionIndex);
+                                } else {
+                                  setState(() {
+                                    _currentSectionIndex++;
+                                    _populateKeys(
+                                      _bookData,
+                                      _currentSectionIndex,
+                                    );
+                                  });
+                                  _saveReadingPosition(_currentSectionIndex);
+                                }
                               }
-                            }
-                          : null,
-                    ),
-                  ],
+                            : null,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -742,6 +754,13 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     final sectionCommentsMap = <String, List<UserComment>>{};
     for (final c in _comments) {
       if (c.sectionIndex == _currentSectionIndex) {
+        final (commentVolKey, _, _) = ReaderNodeId.parseLibrary(c.nodeId);
+        if (widget.bookItem.isSeries &&
+            _currentVolumeKey != null &&
+            commentVolKey != null &&
+            commentVolKey != _currentVolumeKey) {
+          continue;
+        }
         sectionCommentsMap.putIfAbsent(c.nodeId, () => []).add(c);
       }
     }

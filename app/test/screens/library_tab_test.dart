@@ -3836,5 +3836,38 @@ void main() {
       expect(find.text(expectedQuoteB), findsOneWidget);
       expect(find.text('— ${expectedPassageB.author}'), findsOneWidget);
     });
+
+    testWidgets(
+      'LibraryReaderScreen closes in-book search on back navigation without popping reader',
+      (tester) async {
+        final catalog = LibraryHelper.getCatalog();
+        final didache = catalog.firstWhere((b) => b.id == 'didache_lightfoot');
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/didache_lightfoot.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: LibraryReaderScreen(bookItem: didache)),
+        );
+        await tester.pumpAndSettle();
+
+        // Enter in-book search
+        await tester.tap(find.byTooltip('Search in Book'));
+        await tester.pumpAndSettle();
+        expect(find.byType(TextField), findsOneWidget);
+
+        // Trigger system back pop
+        final NavigatorState navigator = tester.state(find.byType(Navigator));
+        await navigator.maybePop();
+        await tester.pumpAndSettle();
+
+        // Search should close, but LibraryReaderScreen remains mounted
+        expect(find.byType(TextField), findsNothing);
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+      },
+    );
   });
 }

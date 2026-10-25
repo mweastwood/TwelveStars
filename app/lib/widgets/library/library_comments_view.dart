@@ -126,10 +126,12 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                     ),
                   ),
                   ...distinctBookIds.map((bookId) {
-                    final book = LibraryCatalog.findBookById(
-                      bookId,
-                      catalog: catalog,
-                    );
+                    final book =
+                        LibraryCatalog.findBookById(bookId, catalog: catalog) ??
+                        LibraryCatalog.resolveTarget(
+                          bookId: bookId,
+                          catalog: catalog,
+                        )?.book;
                     final bookTitle = book?.title ?? bookId;
                     final count = widget.comments
                         .where((c) => c.documentId == bookId)
@@ -162,17 +164,24 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
             itemCount: filteredComments.length,
             itemBuilder: (context, index) {
               final comment = filteredComments[index];
-              final book = LibraryCatalog.findBookById(
-                comment.documentId,
-                catalog: catalog,
-              );
-
               final (volKey, itemIdx, qNum) = ReaderNodeId.parseLibrary(
                 comment.nodeId,
               );
+              final resolvedTarget = LibraryCatalog.resolveTarget(
+                bookId: comment.documentId,
+                volumeKey: volKey,
+                catalog: catalog,
+              );
+              final book =
+                  LibraryCatalog.findBookById(
+                    comment.documentId,
+                    catalog: catalog,
+                  ) ??
+                  resolvedTarget?.book;
+              final effectiveVolKey = volKey ?? resolvedTarget?.volumeKey;
               String header = book?.title ?? comment.documentId;
               final headerVol = book?.resolveVolume(
-                volumeKey: volKey,
+                volumeKey: effectiveVolKey,
                 fallbackToFirst: false,
               );
               if (book != null && headerVol != null) {
@@ -244,12 +253,15 @@ class _LibraryCommentsViewState extends State<LibraryCommentsView> {
                       return;
                     }
 
-                    final targetVol = book.resolveVolume(volumeKey: volKey);
+                    final targetVol = book.resolveVolume(
+                      volumeKey: effectiveVolKey,
+                    );
 
                     widget.onOpenReader(
                       book,
-                      volumeKey: targetVol?.volumeKey ?? volKey,
-                      assetPath: targetVol?.assetPath,
+                      volumeKey: targetVol?.volumeKey ?? effectiveVolKey,
+                      assetPath:
+                          targetVol?.assetPath ?? resolvedTarget?.assetPath,
                       sectionIndex: comment.sectionIndex,
                       itemIndex: itemIdx,
                       questionNumber: qNum,

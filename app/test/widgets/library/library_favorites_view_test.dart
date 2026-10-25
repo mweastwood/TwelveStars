@@ -226,4 +226,67 @@ void main() {
       expect(openedBook?.title, 'Custom Favorite Book');
     },
   );
+
+  testWidgets(
+    'resolves volume asset stem documentId (e.g. baltimore_2) to parent LibraryBookItem and volumeKey',
+    (tester) async {
+      final fav = LibraryBookmark(
+        id: 601,
+        documentId: 'baltimore_2',
+        sectionIndex: 0,
+        nodeId: 'no2:lesson_01_0',
+        textPreview:
+            'Baltimore Catechism No. 2 — Lesson 1\nWho made the world?',
+        createdAt: DateTime.now(),
+      );
+      final favOther = LibraryBookmark(
+        id: 602,
+        documentId: 'didache_lightfoot',
+        sectionIndex: 0,
+        nodeId: 'ch1_0',
+        textPreview: 'The Didache, Chapter 1\nThere are two ways...',
+        createdAt: DateTime.now(),
+      );
+
+      LibraryBookItem? openedBook;
+      String? openedVolumeKey;
+      String? openedAssetPath;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: Scaffold(
+            body: LibraryFavoritesView(
+              favorites: [fav, favOther],
+              isLoading: false,
+              onRefresh: () {},
+              onOpenReader:
+                  (
+                    book, {
+                    volumeKey,
+                    assetPath,
+                    sectionIndex,
+                    itemIndex,
+                    questionNumber,
+                  }) {
+                    openedBook = book;
+                    openedVolumeKey = volumeKey;
+                    openedAssetPath = assetPath;
+                  },
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Filter chip should show resolved parent book title, not raw 'baltimore_2'
+      expect(find.text('Baltimore Catechism (1)'), findsOneWidget);
+
+      await tester.tap(find.text('Baltimore Catechism No. 2 — Lesson 1'));
+      await tester.pumpAndSettle();
+
+      expect(openedBook?.id, equals('baltimore_catechism'));
+      expect(openedVolumeKey, equals('no2'));
+      expect(openedAssetPath, equals('assets/catechism/json/baltimore_2.json'));
+    },
+  );
 }

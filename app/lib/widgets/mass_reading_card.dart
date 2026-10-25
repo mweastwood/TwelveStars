@@ -433,16 +433,29 @@ class _MassReadingCardState extends State<MassReadingCard> {
       citation: citation,
       selectedCount: count,
       onSaveFavorite: () async {
-        final favorite = FavoritePassagesCompanion.insert(
-          bookNumber: firstV.bookNumber,
-          bookName: firstV.bookName,
-          chapter: firstV.chapter,
-          startVerse: firstV.verseNumber,
-          endVerse: lastV.verseNumber,
-          textPreview: textPreview,
-        );
+        final versesByChapter = <int, List<BibleVerse>>{};
+        for (final v in selectedVerses) {
+          versesByChapter.putIfAbsent(v.chapter, () => []).add(v);
+        }
 
-        await BibleDatabaseHelper.db.saveFavorite(favorite);
+        for (final entry in versesByChapter.entries) {
+          final chapterVerses = entry.value;
+          final chapterFirst = chapterVerses.first;
+          final chapterLast = chapterVerses.last;
+          final chapterPreview = versesByChapter.length == 1
+              ? textPreview
+              : chapterVerses.map((v) => v.verseText).join(' ');
+          final favorite = FavoritePassagesCompanion.insert(
+            bookNumber: chapterFirst.bookNumber,
+            bookName: chapterFirst.bookName,
+            chapter: chapterFirst.chapter,
+            startVerse: chapterFirst.verseNumber,
+            endVerse: chapterLast.verseNumber,
+            textPreview: chapterPreview,
+          );
+          await BibleDatabaseHelper.db.saveFavorite(favorite);
+        }
+
         await _loadFavorites();
 
         if (mounted) {

@@ -240,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen>
         }
         return _buildPrayersTab(theme, isWide: isWide);
       case 2:
-        return BibleTab(key: _bibleTabKey);
+        return BibleTab(key: _bibleTabKey, fontSize: _fontSize);
       case 3:
         return LibraryTab(controller: _libraryTabController);
       default:
@@ -418,6 +418,7 @@ class _HomeScreenState extends State<HomeScreen>
                       primaryLanguage: _primaryLanguage,
                       compareLanguage: _compareLanguage,
                       initialDate: widget.initialDate,
+                      fontSize: _fontSize,
                     ),
                   ),
                 );

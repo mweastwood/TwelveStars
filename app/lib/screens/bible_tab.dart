@@ -43,8 +43,9 @@ int getCanonicalChapterIndex(int bookNumber, int chapterNum) =>
 
 class BibleTab extends StatefulWidget {
   final List<BibleVerse>? initialVerses;
+  final double fontSize;
 
-  const BibleTab({super.key, this.initialVerses});
+  const BibleTab({super.key, this.initialVerses, this.fontSize = 16.0});
 
   @override
   BibleTabState createState() => BibleTabState();
@@ -121,6 +122,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   int? _highlightStartVerse;
   int? _highlightEndVerse;
   String? _navigationSessionId;
+  bool _hasExplicitNavigation = false;
 
   @override
   void dispose() {
@@ -216,7 +218,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
           settings.lastBibleChapter,
         );
         final initialIndex = targetIndex != -1 ? targetIndex : 0;
-        if (_currentPageIndex != initialIndex) {
+        if (!_hasExplicitNavigation &&
+            _targetBookNumber == null &&
+            _currentPageIndex != initialIndex) {
           if (_pageController.hasClients) {
             _pageController.jumpToPage(initialIndex);
           } else {
@@ -395,6 +399,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void _jumpToPageAndSync(int pageIndex) {
+    _hasExplicitNavigation = true;
     final book = _allChapters[pageIndex].book;
     _selectedBookForPicker = book;
     _selectedBookForPickerNotifier.value = book;
@@ -581,6 +586,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                         verse.verseText,
                         style: theme.textTheme.bodyLarge?.copyWith(
                           color: theme.colorScheme.onSurface,
+                          fontSize: widget.fontSize == 16.0
+                              ? null
+                              : widget.fontSize,
                           height: 1.5,
                         ),
                       ),
@@ -620,6 +628,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 primaryTranslation: _primaryTranslation,
                 compareTranslation: _compareTranslation,
                 numberingSystem: _numberingSystem,
+                fontSize: widget.fontSize,
                 translationSelectorAnimation:
                     _translationSelectorController.animation,
                 scrollController: _getScrollController(index),

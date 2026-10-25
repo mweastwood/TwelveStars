@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
@@ -86,27 +87,63 @@ class _ThematicQuoteBrowserScreenState
     _loadThemeData(reshuffle: true);
   }
 
+  List<String> _bookmarkKeysForPassage(ThematicPassage passage) {
+    final target = LibraryCatalog.resolveTarget(bookId: passage.bookId);
+    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
+    final canonicalNodeId = ReaderNodeId.libraryItem(
+      sectionId: passage.sectionId,
+      itemIndex: passage.itemIndex,
+      volumeKey: target?.volumeKey,
+    );
+    final keys = <String>{
+      '${passage.bookId}_$legacyNodeId',
+      '${passage.bookId}_$canonicalNodeId',
+      if (target != null) ...[
+        '${target.book.id}_$legacyNodeId',
+        '${target.book.id}_$canonicalNodeId',
+      ],
+    };
+    return keys.toList();
+  }
+
   Future<void> _toggleBookmark(ThematicPassage passage) async {
-    final nodeId = '${passage.sectionId}_${passage.itemIndex}';
-    final key = '${passage.bookId}_$nodeId';
-    final isBookmarked = _bookmarkedIds.containsKey(key);
+    final target = LibraryCatalog.resolveTarget(bookId: passage.bookId);
+    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
+    final canonicalNodeId = ReaderNodeId.libraryItem(
+      sectionId: passage.sectionId,
+      itemIndex: passage.itemIndex,
+      volumeKey: target?.volumeKey,
+    );
+    final candidateKeys = _bookmarkKeysForPassage(passage);
+    final matchingKey = candidateKeys
+        .where(_bookmarkedIds.containsKey)
+        .firstOrNull;
+    final isBookmarked = matchingKey != null;
 
     try {
       if (isBookmarked) {
-        final existingId = _bookmarkedIds[key];
+        final existingId = _bookmarkedIds[matchingKey];
         if (existingId != null) {
           await BibleDatabaseHelper.db.deleteLibraryBookmark(existingId);
         } else {
           final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
             documentId: passage.bookId,
           );
-          final match = bookmarks.where((b) => b.nodeId == nodeId).firstOrNull;
+          final match = bookmarks
+              .where(
+                (b) => b.nodeId == canonicalNodeId || b.nodeId == legacyNodeId,
+              )
+              .firstOrNull;
           if (match != null) {
             await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
           }
         }
         if (!mounted) return;
-        setState(() => _bookmarkedIds.remove(key));
+        setState(() {
+          for (final k in candidateKeys) {
+            _bookmarkedIds.remove(k);
+          }
+        });
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Removed from favorites'),
@@ -114,19 +151,37 @@ class _ThematicQuoteBrowserScreenState
           ),
         );
       } else {
+        int resolvedSectionIndex = 0;
+        if (target?.assetPath != null) {
+          final cachedBook = LibraryHelper.getCachedBookData(
+            target!.assetPath!,
+          );
+          if (cachedBook != null) {
+            final idx = cachedBook.sections.indexWhere(
+              (s) => s.id == passage.sectionId,
+            );
+            if (idx >= 0) resolvedSectionIndex = idx;
+          }
+        }
+        final citation = passage.sectionTitle.isNotEmpty
+            ? '${passage.bookTitle} — ${passage.sectionTitle}'
+            : passage.bookTitle;
+        final excerpt = passage.keyExcerpt.isNotEmpty
+            ? passage.keyExcerpt
+            : passage.oneSentenceSummary;
         final newId = await BibleDatabaseHelper.db.saveLibraryBookmark(
           LibraryBookmarksCompanion.insert(
             documentId: passage.bookId,
-            sectionIndex: 0,
-            nodeId: nodeId,
-            textPreview: passage.keyExcerpt.isNotEmpty
-                ? passage.keyExcerpt
-                : passage.oneSentenceSummary,
+            sectionIndex: resolvedSectionIndex,
+            nodeId: canonicalNodeId,
+            textPreview: '$citation\n$excerpt',
             createdAt: DateTime.now(),
           ),
         );
         if (!mounted) return;
-        setState(() => _bookmarkedIds[key] = newId);
+        setState(
+          () => _bookmarkedIds['${passage.bookId}_$canonicalNodeId'] = newId,
+        );
         HapticFeedback.lightImpact();
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -404,10 +459,9 @@ class _ThematicQuoteBrowserScreenState
                 },
                 itemBuilder: (context, index) {
                   final passage = _passages[index];
-                  final nodeId = '${passage.sectionId}_${passage.itemIndex}';
-                  final isBookmarked = _bookmarkedIds.containsKey(
-                    '${passage.bookId}_$nodeId',
-                  );
+                  final isBookmarked = _bookmarkKeysForPassage(
+                    passage,
+                  ).any(_bookmarkedIds.containsKey);
                   return ThematicQuoteCard(
                     passage: passage,
                     isBookmarked: isBookmarked,

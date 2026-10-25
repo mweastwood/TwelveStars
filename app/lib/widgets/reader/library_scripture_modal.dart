@@ -26,6 +26,19 @@ Future<void> showLibraryScriptureModal({
       : null;
 
   final vulgateChapter = resolvedStart.chapter;
+  final versesFuture = () async {
+    await BibleDatabaseHelper.db.ensureBookPopulated(
+      citation.bookNumber,
+      citation.bookName,
+      citation.abbrev,
+    );
+    return await BibleDatabaseHelper.db.getChapterVerses(
+      'CPDV',
+      citation.bookNumber,
+      vulgateChapter,
+    );
+  }();
+  bool hasScrolledToInitialTarget = false;
 
   await showModalBottomSheet(
     context: context,
@@ -40,18 +53,7 @@ Future<void> showLibraryScriptureModal({
         maxChildSize: 0.9,
         builder: (sheetCtx, scrollController) {
           return FutureBuilder<List<BibleVerse>>(
-            future: () async {
-              await BibleDatabaseHelper.db.ensureBookPopulated(
-                citation.bookNumber,
-                citation.bookName,
-                citation.abbrev,
-              );
-              return await BibleDatabaseHelper.db.getChapterVerses(
-                'CPDV',
-                citation.bookNumber,
-                vulgateChapter,
-              );
-            }(),
+            future: versesFuture,
             builder: (bCtx, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Container(
@@ -87,22 +89,26 @@ Future<void> showLibraryScriptureModal({
                 endVerseNum = citation.endVerse ?? targetVerseNum;
               }
 
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                if (scrollController.hasClients &&
-                    hasTargetVerse &&
-                    targetVerseNum > 1) {
-                  final targetIndex = verses.indexWhere(
-                    (v) => v.verseNumber == targetVerseNum,
-                  );
-                  if (targetIndex > 0) {
-                    final targetOffset = (targetIndex * 85.0).clamp(
-                      0.0,
-                      scrollController.position.maxScrollExtent,
+              if (!hasScrolledToInitialTarget &&
+                  hasTargetVerse &&
+                  targetVerseNum > 1) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  if (!hasScrolledToInitialTarget &&
+                      scrollController.hasClients) {
+                    hasScrolledToInitialTarget = true;
+                    final targetIndex = verses.indexWhere(
+                      (v) => v.verseNumber == targetVerseNum,
                     );
-                    scrollController.jumpTo(targetOffset);
+                    if (targetIndex > 0) {
+                      final targetOffset = (targetIndex * 85.0).clamp(
+                        0.0,
+                        scrollController.position.maxScrollExtent,
+                      );
+                      scrollController.jumpTo(targetOffset);
+                    }
                   }
-                }
-              });
+                });
+              }
 
               final headerTitle =
                   (isModern && vulgateChapter != citation.chapter)

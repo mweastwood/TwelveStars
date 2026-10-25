@@ -2238,5 +2238,109 @@ void main() {
         expect(getCanonicalChapterIndex(49, -1), equals(-1));
       },
     );
+
+    testWidgets(
+      'forwards custom fontSize to BibleChapterView and BibleVerseRow',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created...',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(body: BibleTab(fontSize: 22.0)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final chapterView = tester.widget<BibleChapterView>(
+          find.byType(BibleChapterView).first,
+        );
+        expect(chapterView.fontSize, equals(22.0));
+
+        final verseRow = tester.widget<BibleVerseRow>(
+          find.byType(BibleVerseRow).first,
+        );
+        expect(verseRow.fontSize, equals(22.0));
+      },
+    );
+
+    testWidgets(
+      'explicit navigateToFavorite before _loadSettings completes is not overwritten by saved ribbon chapter',
+      (WidgetTester tester) async {
+        // Save settings where ribbon 0 points to Genesis 1
+        await testDb.saveUserSettings(
+          UserSettings(
+            lastBibleBookNumber: 1,
+            lastBibleChapter: 1,
+            bibleRibbons: const [
+              BibleRibbonBookmark(ribbonIndex: 0, bookNumber: 1, chapter: 1),
+            ],
+          ),
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created...',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 49,
+                bookName: 'Matthew',
+                chapter: 5,
+                verseNumber: 3,
+                verseText: 'Blessed are the poor in spirit.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        final bibleKey = GlobalKey<BibleTabState>();
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(body: BibleTab(key: bibleKey)),
+          ),
+        );
+
+        // Immediately invoke navigateToFavorite before _loadSettings finishes
+        bibleKey.currentState!.navigateToFavorite(
+          const FavoritePassage(
+            id: 1,
+            bookNumber: 49,
+            bookName: 'Matthew',
+            chapter: 5,
+            startVerse: 3,
+            endVerse: 3,
+            textPreview: 'Blessed are the poor in spirit.',
+          ),
+        );
+
+        await tester.pumpAndSettle();
+
+        expect(
+          bibleKey.currentState!.selectedBookForPicker.bookNumber,
+          equals(49),
+        );
+        expect(find.text('Blessed are the poor in spirit.'), findsOneWidget);
+      },
+    );
   });
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
@@ -97,16 +98,50 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   bool _isPassageBookmarked(ThematicPassage passage) {
-    final nodeId = '${passage.sectionId}_${passage.itemIndex}';
+    final target = LibraryCatalog.resolveTarget(
+      bookId: passage.bookId,
+      catalog: _catalog,
+    );
+    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
+    final canonicalNodeId = ReaderNodeId.libraryItem(
+      sectionId: passage.sectionId,
+      itemIndex: passage.itemIndex,
+      volumeKey: target?.volumeKey,
+    );
+    final candidateBookIds = {
+      passage.bookId,
+      if (target != null) target.book.id,
+    };
+    final candidateNodeIds = {legacyNodeId, canonicalNodeId};
     return _favorites.any(
-      (f) => f.documentId == passage.bookId && f.nodeId == nodeId,
+      (f) =>
+          candidateBookIds.contains(f.documentId) &&
+          candidateNodeIds.contains(f.nodeId),
     );
   }
 
   Future<void> _toggleFeaturedBookmark(ThematicPassage passage) async {
-    final nodeId = '${passage.sectionId}_${passage.itemIndex}';
+    final target = LibraryCatalog.resolveTarget(
+      bookId: passage.bookId,
+      catalog: _catalog,
+    );
+    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
+    final canonicalNodeId = ReaderNodeId.libraryItem(
+      sectionId: passage.sectionId,
+      itemIndex: passage.itemIndex,
+      volumeKey: target?.volumeKey,
+    );
+    final candidateBookIds = {
+      passage.bookId,
+      if (target != null) target.book.id,
+    };
+    final candidateNodeIds = {legacyNodeId, canonicalNodeId};
     final existing = _favorites
-        .where((f) => f.documentId == passage.bookId && f.nodeId == nodeId)
+        .where(
+          (f) =>
+              candidateBookIds.contains(f.documentId) &&
+              candidateNodeIds.contains(f.nodeId),
+        )
         .firstOrNull;
 
     try {
@@ -122,14 +157,30 @@ class _LibraryTabState extends State<LibraryTab> {
           );
         }
       } else {
+        int resolvedSectionIndex = 0;
+        if (target?.assetPath != null) {
+          final cachedBook = LibraryHelper.getCachedBookData(
+            target!.assetPath!,
+          );
+          if (cachedBook != null) {
+            final idx = cachedBook.sections.indexWhere(
+              (s) => s.id == passage.sectionId,
+            );
+            if (idx >= 0) resolvedSectionIndex = idx;
+          }
+        }
+        final citation = passage.sectionTitle.isNotEmpty
+            ? '${passage.bookTitle} — ${passage.sectionTitle}'
+            : passage.bookTitle;
+        final excerpt = passage.keyExcerpt.isNotEmpty
+            ? passage.keyExcerpt
+            : passage.oneSentenceSummary;
         await BibleDatabaseHelper.db.saveLibraryBookmark(
           LibraryBookmarksCompanion.insert(
             documentId: passage.bookId,
-            sectionIndex: 0,
-            nodeId: nodeId,
-            textPreview: passage.keyExcerpt.isNotEmpty
-                ? passage.keyExcerpt
-                : passage.oneSentenceSummary,
+            sectionIndex: resolvedSectionIndex,
+            nodeId: canonicalNodeId,
+            textPreview: '$citation\n$excerpt',
             createdAt: DateTime.now(),
           ),
         );
@@ -331,11 +382,34 @@ class _LibraryTabState extends State<LibraryTab> {
                   }) {
                     Navigator.of(sheetContext).pop();
                     if (!mounted) return;
+                    String? inferredSectionId;
+                    if (sectionIndex == 0) {
+                      for (final fav in _favorites) {
+                        final (fVol, fItem, fQ) = ReaderNodeId.parseLibrary(
+                          fav.nodeId,
+                        );
+                        final resolved = LibraryCatalog.resolveTarget(
+                          bookId: fav.documentId,
+                          volumeKey: fVol,
+                          catalog: _catalog,
+                        );
+                        if ((fav.documentId == book.id ||
+                                resolved?.book.id == book.id) &&
+                            fav.sectionIndex == 0 &&
+                            fItem == itemIndex &&
+                            fQ == questionNumber) {
+                          inferredSectionId =
+                              ReaderNodeId.parseLibrarySectionId(fav.nodeId);
+                          if (inferredSectionId != null) break;
+                        }
+                      }
+                    }
                     _openReader(
                       context,
                       book,
                       volumeKey: volumeKey,
                       assetPath: assetPath,
+                      sectionId: inferredSectionId,
                       sectionIndex: sectionIndex,
                       itemIndex: itemIndex,
                       questionNumber: questionNumber,
