@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
-import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/home_language_selector_card.dart';
 import 'package:twelve_stars/widgets/collapsible_selector_bar.dart';
 import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
-import 'package:twelve_stars/widgets/scripture_footer_quote.dart';
-import 'package:twelve_stars/widgets/two_column_sliver_list.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/missal_tab.dart';
+import 'package:twelve_stars/screens/prayers_tab.dart';
 import 'package:twelve_stars/screens/library_tab.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
@@ -52,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen>
   final LibraryTabController _libraryTabController = LibraryTabController();
 
   static const double _kLanguageSelectorTopSpacerHeight = 92.0;
-  static final RegExp _whitespaceRegex = RegExp(r'\s+');
 
   ScrollController? get _activeScrollController {
     if (_currentTab == 0) return _missalScrollController;
@@ -240,7 +236,24 @@ class _HomeScreenState extends State<HomeScreen>
         if (_error != null) {
           return Center(child: Text('Error loading prayers: $_error'));
         }
-        return _buildPrayersTab(theme, isWide: isWide);
+        return PrayersTab(
+          prayers: _prayers,
+          primaryLanguage: _primaryLanguage,
+          compareLanguage: _compareLanguage,
+          settings: _settings,
+          fontSize: _fontSize,
+          searchQuery: _searchQuery,
+          onClearSearch: () {
+            setState(() {
+              _searchController.clear();
+              _searchQuery = '';
+            });
+          },
+          scrollController: _prayersScrollController,
+          languageSelectorAnimation: _languageSelectorController.animation,
+          topSpacerHeight: _kLanguageSelectorTopSpacerHeight,
+          isWide: isWide,
+        );
       case 2:
         return BibleTab(key: _bibleTabKey, fontSize: _fontSize);
       case 3:
@@ -584,166 +597,6 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildPrayerCard(Prayer prayer) {
-    final prefKey = '${prayer.prayerId}_${_primaryLanguage.code}';
-    final initialVersion = _settings?.getPreferredVersionIndex(prefKey) ?? 0;
-
-    return RepaintBoundary(
-      child: PrayerCard(
-        key: ValueKey(prayer.prayerId),
-        prayer: prayer,
-        selectedLanguage: _primaryLanguage,
-        compareLanguage: _compareLanguage,
-        initialVersionIndex: initialVersion,
-        fontSize: _fontSize,
-        onVersionChanged: (newIndex) async {
-          await UserSettingsController.instance.mutate((s) {
-            s.setPreferredVersionIndex(prefKey, newIndex);
-          });
-        },
-      ),
-    );
-  }
-
-  Widget _buildFooterQuote(ThemeData theme) {
-    return const ScriptureFooterQuote(
-      quote:
-          '“A great sign appeared in heaven: a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars.”',
-      attribution: '— Revelation 12:1',
-    );
-  }
-
-  Widget _buildPrayersTab(ThemeData theme, {required bool isWide}) {
-    final prayers = _prayers;
-    if (prayers == null || prayers.isEmpty) {
-      return const Center(child: Text('No prayers found.'));
-    }
-
-    final query = _searchQuery.trim().toLowerCase();
-    final queryWords = query.isEmpty
-        ? const <String>[]
-        : query.split(_whitespaceRegex).where((w) => w.isNotEmpty).toList();
-
-    final filteredPrayers = prayers.where((prayer) {
-      if (prayer.category == 'liturgy') return false;
-      final transList = prayer.translations[_primaryLanguage];
-      if (transList == null || transList.isEmpty) return false;
-      if (queryWords.isEmpty) return true;
-      final trans = transList[0];
-
-      final title = trans.title.toLowerCase();
-      final subtitle = trans.subtitle.toLowerCase();
-      final text = trans.text.toLowerCase();
-
-      return queryWords.every((word) {
-        return title.contains(word) ||
-            subtitle.contains(word) ||
-            text.contains(word);
-      });
-    }).toList();
-
-    if (filteredPrayers.isEmpty) {
-      return ListView(
-        controller: _prayersScrollController,
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-        children: [
-          SizeTransition(
-            sizeFactor: _languageSelectorController.animation,
-            alignment: Alignment.topCenter,
-            child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 48),
-                Text(
-                  'No prayers matching "$_searchQuery"',
-                  style: theme.textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 8),
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      _searchController.clear();
-                      _searchQuery = '';
-                    });
-                  },
-                  child: const Text('Clear search'),
-                ),
-              ],
-            ),
-          ),
-        ],
-      );
-    }
-
-    if (isWide) {
-      return CustomScrollView(
-        controller: _prayersScrollController,
-        scrollCacheExtent: const ScrollCacheExtent.pixels(10000.0),
-        slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                top: 12.0,
-              ),
-              child: SizeTransition(
-                sizeFactor: _languageSelectorController.animation,
-                alignment: Alignment.topCenter,
-                child: const SizedBox(
-                  height: _kLanguageSelectorTopSpacerHeight,
-                ),
-              ),
-            ),
-          ),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            sliver: TwoColumnSliverList(
-              itemCount: filteredPrayers.length,
-              itemBuilder: (context, index) =>
-                  _buildPrayerCard(filteredPrayers[index]),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                bottom: 12.0,
-              ),
-              child: _buildFooterQuote(theme),
-            ),
-          ),
-        ],
-      );
-    }
-
-    return ListView.builder(
-      controller: _prayersScrollController,
-      scrollCacheExtent: const ScrollCacheExtent.pixels(10000.0),
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-      itemCount: filteredPrayers.length + 2,
-      itemBuilder: (context, index) {
-        if (index == 0) {
-          return SizeTransition(
-            sizeFactor: _languageSelectorController.animation,
-            alignment: Alignment.topCenter,
-            child: const SizedBox(height: _kLanguageSelectorTopSpacerHeight),
-          );
-        }
-        if (index == filteredPrayers.length + 1) {
-          return _buildFooterQuote(theme);
-        }
-
-        final prayer = filteredPrayers[index - 1];
-        return _buildPrayerCard(prayer);
-      },
     );
   }
 }

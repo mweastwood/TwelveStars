@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:drift/drift.dart' hide Column;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
@@ -287,54 +286,11 @@ class _MassReadingCardState extends State<MassReadingCard> {
         citation: widget.reading.citation,
       );
 
-      Expression<bool> predicate = const Constant(false);
-      for (final range in ranges) {
-        Expression<bool> rangePredicate = db.bibleVerses.chapter.equals(
-          range.chapter,
-        );
-
-        if (range.verses != null) {
-          if (range.startVerseLimit != null) {
-            rangePredicate =
-                rangePredicate &
-                (db.bibleVerses.verseNumber.isIn(range.verses!) |
-                    db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                      range.startVerseLimit!,
-                    ));
-          } else {
-            rangePredicate =
-                rangePredicate & db.bibleVerses.verseNumber.isIn(range.verses!);
-          }
-        } else if (range.startVerseLimit != null) {
-          rangePredicate =
-              rangePredicate &
-              db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                range.startVerseLimit!,
-              );
-        } else if (range.endVerseLimit != null) {
-          rangePredicate =
-              rangePredicate &
-              db.bibleVerses.verseNumber.isSmallerOrEqualValue(
-                range.endVerseLimit!,
-              );
-        }
-
-        predicate = predicate | rangePredicate;
-      }
-
-      final verses =
-          await (db.select(db.bibleVerses)
-                ..where(
-                  (t) =>
-                      t.translationCode.equals(translation) &
-                      t.bookNumber.equals(widget.reading.bookNumber) &
-                      predicate,
-                )
-                ..orderBy([
-                  (t) => OrderingTerm(expression: t.chapter),
-                  (t) => OrderingTerm(expression: t.verseNumber),
-                ]))
-              .get();
+      final verses = await db.getVersesForRanges(
+        translationCode: translation,
+        bookNumber: widget.reading.bookNumber,
+        ranges: ranges,
+      );
 
       if (mounted) {
         setState(() {
