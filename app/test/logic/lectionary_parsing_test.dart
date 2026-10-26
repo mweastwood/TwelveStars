@@ -2332,6 +2332,29 @@ void main() {
           ),
         ],
       ),
+      _TestCase(
+        description:
+            'Isaiah 8:23; 9:1-6 merges shifted 8:23 (-> 9:1) and 9:1-6 (-> 9:2-7) into Vulgate 9:1-7',
+        bookNumber: 27,
+        defaultChapter: 8,
+        defaultVerseRange: '23; 9:1-6',
+        citation: 'Isaiah 8:23; 9:1-6',
+        expected: [
+          const ChapterVerseRange(chapter: 9, verses: [1, 2, 3, 4, 5, 6, 7]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Mark 8:34—9:1-4 preserves chapter 9 when 9:1 shifts to 8:39 and 9:2-4 shifts to 9:1-3',
+        bookNumber: 50,
+        defaultChapter: 8,
+        defaultVerseRange: '34-9',
+        citation: 'Mark 8:34—9:1-4',
+        expected: [
+          const ChapterVerseRange(chapter: 8, startVerseLimit: 34),
+          const ChapterVerseRange(chapter: 9, endVerseLimit: 3),
+        ],
+      ),
     ];
 
     for (var i = 0; i < shiftTestCases.length; i++) {

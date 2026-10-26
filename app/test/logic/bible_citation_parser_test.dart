@@ -3321,5 +3321,122 @@ void main() {
         );
       },
     );
+
+    test(
+      'vulgateToMasoreticVerse is monotonically non-decreasing across all shifted chapters in Sirach and _bookShiftRules',
+      () {
+        const sirachMaxVerses = <int, int>{
+          2: 23,
+          3: 34,
+          4: 36,
+          5: 18,
+          6: 37,
+          7: 40,
+          15: 22,
+          27: 33,
+          28: 30,
+          35: 26,
+          36: 28,
+          42: 26,
+          47: 31,
+          48: 28,
+          51: 38,
+        };
+
+        for (final entry in sirachMaxVerses.entries) {
+          final chapter = entry.key;
+          final maxVerse = entry.value;
+          ({int chapter, int verse})? prev;
+          for (int v = 1; v <= maxVerse; v++) {
+            final current = BibleVerseResolver.vulgateToMasoreticVerse(
+              bookNumber: 26,
+              chapter: chapter,
+              verse: v,
+            );
+            if (prev != null) {
+              final isNonDecreasing =
+                  current.chapter > prev.chapter ||
+                  (current.chapter == prev.chapter &&
+                      current.verse >= prev.verse);
+              expect(
+                isNonDecreasing,
+                isTrue,
+                reason:
+                    'Sirach $chapter:$v mapped to ${current.chapter}:${current.verse}, '
+                    'which regressed from $chapter:${v - 1} -> ${prev.chapter}:${prev.verse}',
+              );
+            }
+            prev = current;
+          }
+        }
+
+        // Also check monotonicity across all books with shifted chapters
+        const shiftedBookChapters = <int, Map<int, int>>{
+          1: {31: 55, 32: 32},
+          2: {7: 25, 8: 32, 21: 36, 22: 31},
+          3: {5: 19, 6: 30},
+          4: {16: 50, 17: 13, 25: 18, 26: 65, 29: 40, 30: 16},
+          5: {12: 31, 13: 18, 22: 30, 23: 25, 28: 68, 29: 29},
+          9: {20: 43, 21: 15, 23: 28, 24: 23},
+          10: {18: 33, 19: 43},
+          11: {4: 34, 5: 18, 22: 54},
+          12: {11: 21, 12: 21},
+          13: {5: 26, 6: 81, 12: 40},
+          14: {1: 17, 2: 18, 13: 22, 14: 15},
+          16: {3: 32, 4: 23, 7: 73, 9: 38, 10: 39},
+          19: {12: 13},
+          20: {39: 35, 40: 28, 41: 25, 42: 16},
+          23: {4: 17, 5: 19},
+          24: {7: 13},
+          26: sirachMaxVerses,
+          27: {9: 21, 64: 12},
+          28: {9: 26, 37: 20},
+          31: {20: 49, 21: 32},
+          33: {1: 11, 2: 24, 11: 12, 12: 14, 14: 10},
+          34: {2: 32, 3: 21},
+          37: {2: 11},
+          38: {5: 14},
+          39: {1: 15, 2: 13},
+          42: {2: 24},
+          43: {1: 21, 2: 13},
+          44: {4: 6},
+          47: {17: 26},
+          50: {4: 40, 8: 39, 9: 49},
+          52: {6: 72},
+          53: {14: 27},
+          62: {2: 16},
+        };
+
+        for (final bookEntry in shiftedBookChapters.entries) {
+          final bookNumber = bookEntry.key;
+          for (final chEntry in bookEntry.value.entries) {
+            final chapter = chEntry.key;
+            final maxVerse = chEntry.value;
+            ({int chapter, int verse})? prev;
+            for (int v = 1; v <= maxVerse; v++) {
+              final current = BibleVerseResolver.vulgateToMasoreticVerse(
+                bookNumber: bookNumber,
+                chapter: chapter,
+                verse: v,
+              );
+              if (prev != null) {
+                final isNonDecreasing =
+                    current.chapter > prev.chapter ||
+                    (current.chapter == prev.chapter &&
+                        current.verse >= prev.verse);
+                expect(
+                  isNonDecreasing,
+                  isTrue,
+                  reason:
+                      'Book $bookNumber $chapter:$v mapped to ${current.chapter}:${current.verse}, '
+                      'which regressed from $chapter:${v - 1} -> ${prev.chapter}:${prev.verse}',
+                );
+              }
+              prev = current;
+            }
+          }
+        }
+      },
+    );
   });
 }

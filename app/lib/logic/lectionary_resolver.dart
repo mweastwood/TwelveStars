@@ -175,8 +175,7 @@ List<ChapterVerseRange> resolveReadingRanges({
             ChapterVerseRange(chapter: mapped.chapter, verses: mapped.verses),
           );
         }
-        lastWasCrossChapterSplit =
-            mappedRanges.length > 1 && mapped.chapter != sourceChapter;
+        lastWasCrossChapterSplit = mapped.chapter != sourceChapter;
       }
     }
 
@@ -253,20 +252,21 @@ List<ChapterVerseRange> resolveReadingRanges({
           initialVersesList = parseVerseRange(cleanRange);
         }
 
-        final mappedRef = mapModernToVulgate(
-          bookNumber,
-          startChapterVal,
-          initialVersesList,
-        );
+        final mappedRef = BibleVerseResolver.mapLectionaryToVulgateRanges(
+          bookNumber: bookNumber,
+          chapter: startChapterVal,
+          verses: initialVersesList,
+        ).first;
 
         final endVersesPart = rightPart.substring(colonIndex + 1);
         final endVerseStr = cleanVerseStr(endVersesPart);
         final rawEndVerses = parseVerseRange(endVerseStr);
-        final mappedEndVerseRef = mapModernToVulgate(
-          bookNumber,
-          endChapterVal,
-          rawEndVerses,
-        );
+        final mappedEndVerseRef =
+            BibleVerseResolver.mapLectionaryToVulgateRanges(
+              bookNumber: bookNumber,
+              chapter: endChapterVal,
+              verses: rawEndVerses,
+            ).last;
         final endChapter = mappedEndVerseRef.chapter;
 
         if (endChapter != mappedRef.chapter) {
