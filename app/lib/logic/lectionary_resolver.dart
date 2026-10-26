@@ -147,6 +147,38 @@ List<ChapterVerseRange> resolveReadingRanges({
     final parts = primaryCitation.split(';');
     final List<ChapterVerseRange> result = [];
     int? lastChapter;
+    bool lastWasCrossChapterSplit = false;
+
+    void appendMappedRanges(int sourceChapter, List<int> rawVerses) {
+      final mappedRanges = BibleVerseResolver.mapLectionaryToVulgateRanges(
+        bookNumber: bookNumber,
+        chapter: sourceChapter,
+        verses: rawVerses,
+      );
+      for (final mapped in mappedRanges) {
+        if (lastWasCrossChapterSplit &&
+            result.isNotEmpty &&
+            result.last.chapter == mapped.chapter &&
+            result.last.verses != null) {
+          final mergedVerses = <int>[...result.last.verses!];
+          for (final v in mapped.verses) {
+            if (!mergedVerses.contains(v)) {
+              mergedVerses.add(v);
+            }
+          }
+          result[result.length - 1] = ChapterVerseRange(
+            chapter: mapped.chapter,
+            verses: mergedVerses,
+          );
+        } else {
+          result.add(
+            ChapterVerseRange(chapter: mapped.chapter, verses: mapped.verses),
+          );
+        }
+        lastWasCrossChapterSplit =
+            mappedRanges.length > 1 && mapped.chapter != sourceChapter;
+      }
+    }
 
     // Process the first part
     final part1 = parts[0].trim();
@@ -159,13 +191,7 @@ List<ChapterVerseRange> resolveReadingRanges({
         lastChapter = ch1;
         final versesStr1 = part1.substring(colonIndex1 + 1);
         final rawVerses1 = parseVerseRange(cleanVerseStr(versesStr1));
-        final mappedRef1 = mapModernToVulgate(bookNumber, ch1, rawVerses1);
-        result.add(
-          ChapterVerseRange(
-            chapter: mappedRef1.chapter,
-            verses: mappedRef1.verses,
-          ),
-        );
+        appendMappedRanges(ch1, rawVerses1);
       }
     }
 
@@ -182,28 +208,12 @@ List<ChapterVerseRange> resolveReadingRanges({
           lastChapter = ch2;
           final versesStr2 = part2.substring(colonIndex2 + 1);
           final rawVerses2 = parseVerseRange(cleanVerseStr(versesStr2));
-          final mappedRef2 = mapModernToVulgate(bookNumber, ch2, rawVerses2);
-          result.add(
-            ChapterVerseRange(
-              chapter: mappedRef2.chapter,
-              verses: mappedRef2.verses,
-            ),
-          );
+          appendMappedRanges(ch2, rawVerses2);
         }
       } else if (lastChapter != null) {
         final rawVerses2 = parseVerseRange(cleanVerseStr(part2));
         if (rawVerses2.isNotEmpty) {
-          final mappedRef2 = mapModernToVulgate(
-            bookNumber,
-            lastChapter,
-            rawVerses2,
-          );
-          result.add(
-            ChapterVerseRange(
-              chapter: mappedRef2.chapter,
-              verses: mappedRef2.verses,
-            ),
-          );
+          appendMappedRanges(lastChapter, rawVerses2);
         }
       }
     }
@@ -307,6 +317,26 @@ List<ChapterVerseRange> resolveReadingRanges({
           }
 
           return result;
+        } else if (startChapterVal != endChapterVal &&
+            mappedRef.verses.isNotEmpty &&
+            mappedEndVerseRef.verses.isNotEmpty) {
+          // A Modern multi-chapter crossing that collapses into a single
+          // Vulgate chapter (e.g., "Isaiah 8:23—9:3" -> Vulgate 9:1-4, or
+          // "Mark 8:34—9:1" -> Vulgate 8:34-39).
+          final startVerses = mappedRef.verses;
+          final endVerses = mappedEndVerseRef.verses;
+          final List<int> combinedVerses = [
+            if (startVerses.length > 1)
+              ...startVerses.sublist(0, startVerses.length - 1),
+            for (int v = startVerses.last; v <= endVerses.first; v++) v,
+            if (endVerses.length > 1) ...endVerses.sublist(1),
+          ];
+          return [
+            ChapterVerseRange(
+              chapter: mappedRef.chapter,
+              verses: combinedVerses,
+            ),
+          ];
         }
       }
     }
@@ -315,15 +345,16 @@ List<ChapterVerseRange> resolveReadingRanges({
   // Single chapter case:
   final cleanRange = cleanVerseStr(defaultVerseRange);
   final initialVersesList = parseVerseRange(cleanRange);
-  final mappedRef = mapModernToVulgate(
-    bookNumber,
-    defaultChapter,
-    initialVersesList,
+  final mappedRanges = BibleVerseResolver.mapLectionaryToVulgateRanges(
+    bookNumber: bookNumber,
+    chapter: defaultChapter,
+    verses: initialVersesList,
   );
   return [
-    ChapterVerseRange(
-      chapter: mappedRef.chapter,
-      verses: mappedRef.verses.isNotEmpty ? mappedRef.verses : null,
-    ),
+    for (final mappedRef in mappedRanges)
+      ChapterVerseRange(
+        chapter: mappedRef.chapter,
+        verses: mappedRef.verses.isNotEmpty ? mappedRef.verses : null,
+      ),
   ];
 }

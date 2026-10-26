@@ -613,7 +613,7 @@ void main() {
         citation: 'Isaiah 63:16b-17, 19b; 64:2-7',
         expected: [
           const ChapterVerseRange(chapter: 63, verses: [16, 17, 19]),
-          const ChapterVerseRange(chapter: 64, verses: [2, 3, 4, 5, 6, 7]),
+          const ChapterVerseRange(chapter: 64, verses: [1, 3, 4, 5, 6, 7, 8]),
         ],
       ),
       _TestCase(
@@ -1218,16 +1218,14 @@ void main() {
       ),
       _TestCase(
         description:
-            'Malachi partial shift: Malachi 3:15-20 shifts verses > 18 to chapter 4',
+            'Malachi partial shift: Malachi 3:15-20 preserves 3:15-18 and shifts 19-20 to 4:1-2',
         bookNumber: 44,
         defaultChapter: 3,
         defaultVerseRange: '15-20',
         citation: 'Malachi 3:15-20',
         expected: [
-          const ChapterVerseRange(
-            chapter: 4,
-            verses: [1, 2],
-          ), // verses 19-20 map to chapter 4:1-2
+          const ChapterVerseRange(chapter: 3, verses: [15, 16, 17, 18]),
+          const ChapterVerseRange(chapter: 4, verses: [1, 2]),
         ],
       ),
       _TestCase(
@@ -1648,8 +1646,8 @@ void main() {
         defaultVerseRange: '2-6; 12-14',
         citation: 'Sirach 3:2-6; 12-14',
         expected: [
-          const ChapterVerseRange(chapter: 3, verses: [2, 3, 4, 5, 6]),
-          const ChapterVerseRange(chapter: 3, verses: [12, 13, 14]),
+          const ChapterVerseRange(chapter: 3, verses: [3, 4, 5, 6, 7]),
+          const ChapterVerseRange(chapter: 3, verses: [14, 15, 16, 17]),
         ],
       ),
       _TestCase(
@@ -2075,6 +2073,280 @@ void main() {
       }
     },
   );
+
+  group('Unified global _bookShiftRules lectionary resolution tests', () {
+    final shiftTestCases = <_TestCase>[
+      _TestCase(
+        description:
+            '30th Sunday in Ordinary Time Year A: Exodus 22:20-26 shifts to 22:21-27',
+        bookNumber: 2,
+        defaultChapter: 22,
+        defaultVerseRange: '20-26',
+        citation: 'Exodus 22:20-26',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 22,
+            verses: [21, 22, 23, 24, 25, 26, 27],
+          ),
+        ],
+      ),
+      _TestCase(
+        description:
+            '4th Sunday of Advent Year C: Micah 5:1-4a shifts to 5:2-5',
+        bookNumber: 38,
+        defaultChapter: 5,
+        defaultVerseRange: '1-4a',
+        citation: 'Micah 5:1-4a',
+        expected: [
+          const ChapterVerseRange(chapter: 5, verses: [2, 3, 4, 5]),
+        ],
+      ),
+      _TestCase(
+        description: 'Haggai 2:1-9 shifts to 2:2-10 (+1 verse)',
+        bookNumber: 42,
+        defaultChapter: 2,
+        defaultVerseRange: '1-9',
+        citation: 'Haggai 2:1-9',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 2,
+            verses: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          ),
+        ],
+      ),
+      _TestCase(
+        description: 'Hosea 2:16, 17c-18, 21-22 shifts by -2 to 2:14-16, 19-20',
+        bookNumber: 33,
+        defaultChapter: 2,
+        defaultVerseRange: '16, 17c-18, 21-22',
+        citation: 'Hosea 2:16, 17c-18, 21-22',
+        expected: [
+          const ChapterVerseRange(chapter: 2, verses: [14, 15, 16, 19, 20]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Hosea 14:2-10 preserves Catholic NABRE numbering matching Vulgate 14:2-10',
+        bookNumber: 33,
+        defaultChapter: 14,
+        defaultVerseRange: '2-10',
+        citation: 'Hosea 14:2-10',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 14,
+            verses: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+          ),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Daniel 3:14-20, 91-92, 95 preserves Catholic NABRE 100-verse numbering',
+        bookNumber: 32,
+        defaultChapter: 3,
+        defaultVerseRange: '14-20, 91-92, 95',
+        citation: 'Daniel 3:14-20, 91-92, 95',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: [14, 15, 16, 17, 18, 19, 20, 91, 92, 95],
+          ),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Jonah 1:1—2:1-2, 11 preserves Catholic NABRE Jonah 2 numbering',
+        bookNumber: 37,
+        defaultChapter: 1,
+        defaultVerseRange: '1-2',
+        citation: 'Jonah 1:1—2:1-2, 11',
+        expected: [
+          const ChapterVerseRange(chapter: 1, startVerseLimit: 1),
+          const ChapterVerseRange(chapter: 2, verses: [1, 2, 11]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Isaiah 8:23—9:3 multi-chapter crossing collapses into Vulgate 9:1-4',
+        bookNumber: 27,
+        defaultChapter: 8,
+        defaultVerseRange: '23-9',
+        citation: 'Isaiah 8:23—9:3',
+        expected: [
+          const ChapterVerseRange(chapter: 9, verses: [1, 2, 3, 4]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Mark 8:34—9:1 multi-chapter crossing collapses into Vulgate 8:34-39',
+        bookNumber: 50,
+        defaultChapter: 8,
+        defaultVerseRange: '34-9',
+        citation: 'Mark 8:34—9:1',
+        expected: [
+          const ChapterVerseRange(chapter: 8, verses: [34, 35, 36, 37, 38, 39]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Mark 9:2-10 (Transfiguration) shifts all verses by -1 to 9:1-9',
+        bookNumber: 50,
+        defaultChapter: 9,
+        defaultVerseRange: '2-10',
+        citation: 'Mark 9:2-10',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 9,
+            verses: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+          ),
+        ],
+      ),
+      _TestCase(
+        description:
+            '2 Samuel 18:9-10, 14b, 24-25a, 30—19:3 shifts 19:3 to endVerseLimit 2',
+        bookNumber: 10,
+        defaultChapter: 18,
+        defaultVerseRange: '9-10, 14b, 24-25a, 30-19',
+        citation: '2 Samuel 18:9-10, 14b, 24-25a, 30—19:3',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 18,
+            verses: [9, 10, 14, 24, 25],
+            startVerseLimit: 30,
+          ),
+          const ChapterVerseRange(chapter: 19, endVerseLimit: 2),
+        ],
+      ),
+      _TestCase(
+        description: 'Job 38:1, 12-21; 40:3-5 maps 40:3-5 to Vulgate 39:33-35',
+        bookNumber: 20,
+        defaultChapter: 38,
+        defaultVerseRange: '1, 12-21; 40',
+        citation: 'Job 38:1, 12-21; 40:3-5',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 38,
+            verses: [1, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+          ),
+          const ChapterVerseRange(chapter: 39, verses: [33, 34, 35]),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Nahum 2:1, 3; 3:1-3, 6-7 splits 2:1, 3 across Vulgate 1:15 and 2:2',
+        bookNumber: 39,
+        defaultChapter: 2,
+        defaultVerseRange: '1, 3; 3',
+        citation: 'Nahum 2:1, 3; 3:1-3, 6-7',
+        expected: [
+          const ChapterVerseRange(chapter: 1, verses: [15]),
+          const ChapterVerseRange(chapter: 2, verses: [2]),
+          const ChapterVerseRange(chapter: 3, verses: [1, 2, 3, 6, 7]),
+        ],
+      ),
+      _TestCase(
+        description: 'Malachi 3:1-4, 23-24 splits into Vulgate 3:1-4 and 4:5-6',
+        bookNumber: 44,
+        defaultChapter: 3,
+        defaultVerseRange: '1-4, 23-24',
+        citation: 'Malachi 3:1-4, 23-24',
+        expected: [
+          const ChapterVerseRange(chapter: 3, verses: [1, 2, 3, 4]),
+          const ChapterVerseRange(chapter: 4, verses: [5, 6]),
+        ],
+      ),
+      _TestCase(
+        description: 'John 6:41-51 expands split verse 51 into Vulgate 6:41-52',
+        bookNumber: 52,
+        defaultChapter: 6,
+        defaultVerseRange: '41-51',
+        citation: 'John 6:41-51',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 6,
+            verses: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52],
+          ),
+        ],
+      ),
+      _TestCase(
+        description: 'John 6:51-58 (Corpus Christi) maps to Vulgate 6:51-59',
+        bookNumber: 52,
+        defaultChapter: 6,
+        defaultVerseRange: '51-58',
+        citation: 'John 6:51-58',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 6,
+            verses: [51, 52, 53, 54, 55, 56, 57, 58, 59],
+          ),
+        ],
+      ),
+      _TestCase(
+        description: 'John 6:60-69 shifts by +1 to Vulgate 6:61-70',
+        bookNumber: 52,
+        defaultChapter: 6,
+        defaultVerseRange: '60-69',
+        citation: 'John 6:60-69',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 6,
+            verses: [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+          ),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Sirach 3:2-6, 12-14 (Holy Family) maps to Vulgate 3:3-7, 14-17',
+        bookNumber: 26,
+        defaultChapter: 3,
+        defaultVerseRange: '2-6, 12-14',
+        citation: 'Sirach 3:2-6, 12-14',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 3,
+            verses: [3, 4, 5, 6, 7, 14, 15, 16, 17],
+          ),
+        ],
+      ),
+      _TestCase(
+        description: 'Sirach 27:30—28:7 maps to Vulgate 27:33 and 28:1-9',
+        bookNumber: 26,
+        defaultChapter: 27,
+        defaultVerseRange: '30-28',
+        citation: 'Sirach 27:30—28:7',
+        expected: [
+          const ChapterVerseRange(chapter: 27, startVerseLimit: 33),
+          const ChapterVerseRange(chapter: 28, endVerseLimit: 9),
+        ],
+      ),
+      _TestCase(
+        description:
+            'Sirach 35:12-14, 16-18 (30th Sunday Year C) maps to Vulgate 35:15-17, 20-22',
+        bookNumber: 26,
+        defaultChapter: 35,
+        defaultVerseRange: '12-14, 16-18',
+        citation: 'Sirach 35:12-14, 16-18',
+        expected: [
+          const ChapterVerseRange(
+            chapter: 35,
+            verses: [15, 16, 17, 20, 21, 22],
+          ),
+        ],
+      ),
+    ];
+
+    for (var i = 0; i < shiftTestCases.length; i++) {
+      final tc = shiftTestCases[i];
+      test('Shift case #${i + 1}: ${tc.description}', () {
+        final result = resolveReadingRanges(
+          bookNumber: tc.bookNumber,
+          defaultChapter: tc.defaultChapter,
+          defaultVerseRange: tc.defaultVerseRange,
+          citation: tc.citation,
+        );
+        expect(result, tc.expected);
+      });
+    }
+  });
 }
 
 class _TestCase {

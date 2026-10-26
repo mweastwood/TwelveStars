@@ -17,12 +17,13 @@ Future<void> showLibraryScriptureModal({
         )
       : (chapter: citation.chapter, verse: citation.verse ?? 1);
 
-  final resolvedEnd = (isModern && citation.endVerse != null)
-      ? BibleVerseResolver.masoreticToVulgateVerse(
+  final resolvedEnd =
+      (isModern && (citation.endVerse ?? citation.verse) != null)
+      ? BibleVerseResolver.masoreticToVulgateVerses(
           bookNumber: citation.bookNumber,
           chapter: citation.chapter,
-          verse: citation.endVerse!,
-        )
+          verse: (citation.endVerse ?? citation.verse)!,
+        ).last
       : null;
 
   final vulgateChapter = resolvedStart.chapter;

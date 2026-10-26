@@ -100,6 +100,20 @@ class BibleVerseResolver {
         masoreticStart: 2,
         count: 32,
       ),
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 50,
+        masoreticStart: 22,
+        masoreticEnd: 23,
+        vulgateChapter: 50,
+        vulgateVerse: 22,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 50,
+        vulgateStart: 23,
+        masoreticChapter: 50,
+        masoreticStart: 24,
+        count: 3,
+      ),
     ],
     // Exodus (2)
     2: [
@@ -130,6 +144,13 @@ class BibleVerseResolver {
         masoreticChapter: 22,
         masoreticStart: 1,
         count: 30,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 40,
+        vulgateStart: 32,
+        masoreticChapter: 40,
+        masoreticStart: 34,
+        count: 5,
       ),
     ],
     // Leviticus (3)
@@ -388,6 +409,13 @@ class BibleVerseResolver {
         masoreticStart: 10,
         count: 25,
       ),
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 42,
+        masoreticStart: 16,
+        masoreticEnd: 18,
+        vulgateChapter: 42,
+        vulgateVerse: 16,
+      ),
     ],
     // Ecclesiastes (23)
     23: [
@@ -421,6 +449,261 @@ class BibleVerseResolver {
         masoreticChapter: 7,
         masoreticStart: 1,
         count: 12,
+      ),
+    ],
+    // Sirach / Ecclesiasticus (26)
+    26: [
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 2,
+        vulgateStart: 10,
+        vulgateEnd: 12,
+        masoreticChapter: 2,
+        masoreticVerse: 10,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 2,
+        vulgateStart: 13,
+        masoreticChapter: 2,
+        masoreticStart: 11,
+        count: 11,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 3,
+        vulgateStart: 2,
+        masoreticChapter: 3,
+        masoreticStart: 1,
+        count: 6,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 3,
+        vulgateStart: 9,
+        masoreticChapter: 3,
+        masoreticStart: 7,
+        count: 8,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 3,
+        vulgateStart: 17,
+        vulgateEnd: 17,
+        masoreticChapter: 3,
+        masoreticVerse: 14,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 3,
+        vulgateStart: 18,
+        masoreticChapter: 3,
+        masoreticStart: 16,
+        count: 3,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 3,
+        vulgateStart: 21,
+        masoreticChapter: 3,
+        masoreticStart: 20,
+        count: 5,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 3,
+        vulgateStart: 27,
+        masoreticChapter: 3,
+        masoreticStart: 25,
+        count: 7,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 4,
+        vulgateStart: 12,
+        masoreticChapter: 4,
+        masoreticStart: 11,
+        count: 7,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 4,
+        vulgateStart: 19,
+        vulgateEnd: 19,
+        masoreticChapter: 4,
+        masoreticVerse: 17,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 4,
+        vulgateStart: 20,
+        masoreticChapter: 4,
+        masoreticStart: 18,
+        count: 1,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 4,
+        vulgateStart: 21,
+        vulgateEnd: 21,
+        masoreticChapter: 4,
+        masoreticVerse: 18,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 4,
+        vulgateStart: 22,
+        masoreticChapter: 4,
+        masoreticStart: 19,
+        count: 13,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 5,
+        vulgateStart: 5,
+        vulgateEnd: 5,
+        masoreticChapter: 5,
+        masoreticVerse: 4,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 5,
+        vulgateStart: 6,
+        masoreticChapter: 5,
+        masoreticStart: 5,
+        count: 3,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 5,
+        vulgateStart: 9,
+        vulgateEnd: 9,
+        masoreticChapter: 5,
+        masoreticVerse: 7,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 5,
+        vulgateStart: 10,
+        masoreticChapter: 5,
+        masoreticStart: 8,
+        count: 8,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 15,
+        vulgateStart: 16,
+        masoreticChapter: 15,
+        masoreticStart: 15,
+        count: 6,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 27,
+        vulgateStart: 5,
+        masoreticChapter: 27,
+        masoreticStart: 4,
+        count: 4,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 27,
+        vulgateStart: 33,
+        masoreticChapter: 27,
+        masoreticStart: 30,
+        count: 1,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 28,
+        vulgateStart: 8,
+        masoreticChapter: 28,
+        masoreticStart: 7,
+        count: 1,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 28,
+        vulgateStart: 9,
+        vulgateEnd: 9,
+        masoreticChapter: 28,
+        masoreticVerse: 7,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 35,
+        vulgateStart: 2,
+        vulgateEnd: 3,
+        masoreticChapter: 35,
+        masoreticVerse: 1,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 35,
+        vulgateStart: 4,
+        masoreticChapter: 35,
+        masoreticStart: 2,
+        count: 9,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 35,
+        vulgateStart: 13,
+        vulgateEnd: 13,
+        masoreticChapter: 35,
+        masoreticVerse: 10,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 35,
+        vulgateStart: 14,
+        masoreticChapter: 35,
+        masoreticStart: 11,
+        count: 5,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 35,
+        vulgateStart: 20,
+        masoreticChapter: 35,
+        masoreticStart: 16,
+        count: 7,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 36,
+        vulgateStart: 2,
+        vulgateEnd: 2,
+        masoreticChapter: 36,
+        masoreticVerse: 1,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 36,
+        vulgateStart: 13,
+        masoreticChapter: 36,
+        masoreticStart: 10,
+        count: 6,
+      ),
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 36,
+        masoreticStart: 16,
+        masoreticEnd: 17,
+        vulgateChapter: 36,
+        vulgateVerse: 19,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 42,
+        vulgateStart: 26,
+        vulgateEnd: 26,
+        masoreticChapter: 42,
+        masoreticVerse: 25,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 47,
+        vulgateStart: 12,
+        vulgateEnd: 13,
+        masoreticChapter: 47,
+        masoreticVerse: 11,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 48,
+        vulgateStart: 15,
+        vulgateEnd: 15,
+        masoreticChapter: 48,
+        masoreticVerse: 14,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 51,
+        vulgateStart: 17,
+        masoreticChapter: 51,
+        masoreticStart: 12,
+        count: 8,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 51,
+        vulgateStart: 25,
+        masoreticChapter: 51,
+        masoreticStart: 20,
+        count: 1,
+      ),
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 51,
+        vulgateStart: 26,
+        vulgateEnd: 28,
+        masoreticChapter: 51,
+        masoreticVerse: 20,
       ),
     ],
     // Isaiah (27)
@@ -691,6 +974,98 @@ class BibleVerseResolver {
         count: 6,
       ),
     ],
+    // Matthew (49)
+    49: [
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 17,
+        masoreticStart: 21,
+        masoreticEnd: 22,
+        vulgateChapter: 17,
+        vulgateVerse: 21,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 17,
+        vulgateStart: 22,
+        masoreticChapter: 17,
+        masoreticStart: 23,
+        count: 5,
+      ),
+    ],
+    // Mark (50)
+    50: [
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 4,
+        masoreticStart: 40,
+        masoreticEnd: 41,
+        vulgateChapter: 4,
+        vulgateVerse: 40,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 8,
+        vulgateStart: 39,
+        masoreticChapter: 9,
+        masoreticStart: 1,
+        count: 1,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 9,
+        vulgateStart: 1,
+        masoreticChapter: 9,
+        masoreticStart: 2,
+        count: 49,
+      ),
+    ],
+    // John (52)
+    52: [
+      _VerseShiftRule.vulgateOnly(
+        vulgateChapter: 6,
+        vulgateStart: 52,
+        vulgateEnd: 52,
+        masoreticChapter: 6,
+        masoreticVerse: 51,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 6,
+        vulgateStart: 53,
+        masoreticChapter: 6,
+        masoreticStart: 52,
+        count: 20,
+      ),
+    ],
+    // Acts (53)
+    53: [
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 14,
+        masoreticStart: 20,
+        masoreticEnd: 21,
+        vulgateChapter: 14,
+        vulgateVerse: 20,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 14,
+        vulgateStart: 21,
+        masoreticChapter: 14,
+        masoreticStart: 22,
+        count: 7,
+      ),
+    ],
+    // 2 Thessalonians (62)
+    62: [
+      _VerseShiftRule.masoreticOnly(
+        masoreticChapter: 2,
+        masoreticStart: 13,
+        masoreticEnd: 14,
+        vulgateChapter: 2,
+        vulgateVerse: 13,
+      ),
+      _VerseShiftRule.bijective(
+        vulgateChapter: 2,
+        vulgateStart: 14,
+        masoreticChapter: 2,
+        masoreticStart: 15,
+        count: 3,
+      ),
+    ],
   };
 
   /// Resolves Vulgate Psalm chapter to Masoretic/Hebrew Psalm chapter number
@@ -853,10 +1228,45 @@ class BibleVerseResolver {
     return (chapter: chapter, verse: verse);
   }
 
-  /// Resolves a Modern/NABRE lectionary chapter and verse list to Vulgate/CPDV
-  /// coordinates, applying shared Psalm/OT chapter shifts as well as CPDV
-  /// verse-merge adjustments.
-  static ({int chapter, List<int> verses}) mapLectionaryToVulgate({
+  /// Resolves a Masoretic/Modern chapter and verse to all corresponding Vulgate
+  /// chapters and verses (including additional Vulgate verses when a single
+  /// Modern verse was split across multiple Vulgate verses).
+  static List<({int chapter, int verse})> masoreticToVulgateVerses({
+    required int bookNumber,
+    required int chapter,
+    required int verse,
+  }) {
+    final primary = masoreticToVulgateVerse(
+      bookNumber: bookNumber,
+      chapter: chapter,
+      verse: verse,
+    );
+    final result = <({int chapter, int verse})>[primary];
+    final rules = _bookShiftRules[bookNumber];
+    if (rules != null) {
+      for (final rule in rules) {
+        if (!rule._isBijective &&
+            rule._includeVulgate &&
+            !rule._includeMasoretic &&
+            rule.masoreticChapter == chapter &&
+            verse >= rule.masoreticStart &&
+            verse <= rule.masoreticEnd) {
+          for (int v = rule.vulgateStart; v <= rule.vulgateEnd; v++) {
+            final entry = (chapter: rule.vulgateChapter, verse: v);
+            if (!result.contains(entry)) {
+              result.add(entry);
+            }
+          }
+        }
+      }
+    }
+    return result;
+  }
+
+  /// Resolves a Modern/NABRE lectionary chapter and verse list to one or more
+  /// Vulgate/CPDV chapter-verse ranges, applying [_bookShiftRules] globally
+  /// while accounting for Catholic lectionary conventions.
+  static List<({int chapter, List<int> verses})> mapLectionaryToVulgateRanges({
     required int bookNumber,
     required int chapter,
     required List<int> verses,
@@ -865,14 +1275,16 @@ class BibleVerseResolver {
     if (bookNumber == 21 && chapter >= 1 && chapter <= 150) {
       // Hebrew Psalm 56 counts the superscription as verse 1; CPDV Psalm 55 does not.
       if (chapter == 56) {
-        return (
-          chapter: 55,
-          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
-        );
+        return [
+          (
+            chapter: 55,
+            verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
+          ),
+        ];
       }
       final baseChapter = masoreticToVulgatePsalm(chapter);
       if (verses.isEmpty) {
-        return (chapter: baseChapter, verses: verses);
+        return [(chapter: baseChapter, verses: verses)];
       }
       final List<int> primaryVerses = [];
       final List<int> secondaryVerses = [];
@@ -889,123 +1301,111 @@ class BibleVerseResolver {
         }
       }
       if (secondaryVerses.isNotEmpty) {
-        return (chapter: baseChapter + 1, verses: secondaryVerses);
+        return [(chapter: baseChapter + 1, verses: secondaryVerses)];
       }
-      return (chapter: baseChapter, verses: primaryVerses);
+      return [(chapter: baseChapter, verses: primaryVerses)];
     }
 
-    // 2. Zechariah 2 (Hebrew 2:5-17 shifts by -4 to Vulgate 2:1-13)
+    // 2. Catholic Lectionary (NABRE) chapters that already follow Vulgate
+    // numbering (unlike Protestant/KJV numbering in _bookShiftRules):
+    // - Daniel 3 (32:3): NABRE includes the Deuterocanonical canticle (v24-90)
+    // - Hosea 14 (33:14): NABRE numbers Hosea 14 as 14:1-10 (matching Vulgate)
+    // - Jonah 2 (37:2): NABRE numbers Jonah 2 as 2:1-11 (matching Vulgate)
+    if ((bookNumber == 32 && chapter == 3) ||
+        (bookNumber == 33 && chapter == 14) ||
+        (bookNumber == 37 && chapter == 2)) {
+      return [(chapter: chapter, verses: verses)];
+    }
+
+    // 3. Single-chapter clamping conventions
+    if (bookNumber == 1 && chapter == 32) {
+      return [
+        (
+          chapter: 32,
+          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
+        ),
+      ];
+    }
     if (bookNumber == 43 && chapter == 2) {
-      return (
-        chapter: chapter,
-        verses: [
-          for (final v in verses)
-            v >= 5
-                ? masoreticToVulgateVerse(
-                    bookNumber: 43,
-                    chapter: 2,
-                    verse: v,
-                  ).verse
-                : v,
-        ],
-      );
+      return [
+        (
+          chapter: 2,
+          verses: [
+            for (final v in verses)
+              v >= 5
+                  ? masoreticToVulgateVerse(
+                      bookNumber: 43,
+                      chapter: 2,
+                      verse: v,
+                    ).verse
+                  : v,
+          ],
+        ),
+      ];
     }
-
-    // 3. Malachi 3 (Hebrew 3:19-24 shifts into Vulgate 4:1-6)
-    if (bookNumber == 44 && chapter == 3) {
-      final List<int> versesCh3 = [];
-      final List<int> versesCh4 = [];
-      for (final v in verses) {
-        final mapped = masoreticToVulgateVerse(
-          bookNumber: 44,
-          chapter: 3,
-          verse: v,
-        );
-        if (mapped.chapter == 4) {
-          versesCh4.add(mapped.verse);
-        } else {
-          versesCh3.add(mapped.verse);
-        }
-      }
-      return versesCh4.isEmpty
-          ? (chapter: 3, verses: versesCh3)
-          : (chapter: 4, verses: versesCh4);
-    }
-
-    // 4. Joel 4 (Modern Joel 4 maps to Vulgate Joel 3)
-    if (bookNumber == 34 && chapter == 4) {
-      final mappedChapter = masoreticToVulgateVerse(
-        bookNumber: 34,
-        chapter: 4,
-        verse: 1,
-      ).chapter;
-      return (chapter: mappedChapter, verses: verses);
-    }
-
-    // 5. CPDV-specific lectionary verse merges
-    if (bookNumber == 53 && chapter == 14) {
-      return (
-        chapter: 14,
-        verses: [for (final v in verses) v <= 20 ? v : v - 1],
-      );
-    }
-    if (bookNumber == 50) {
-      if (chapter == 4) {
-        return (
-          chapter: chapter,
+    if (bookNumber == 50 && chapter == 4) {
+      return [
+        (
+          chapter: 4,
           verses: [
             for (final v in verses)
               if (v <= 40) v,
           ],
-        );
-      }
-      if (chapter == 9) {
-        return (
-          chapter: chapter,
-          verses: [for (final v in verses) v <= 40 ? v : v - 1],
-        );
-      }
-    }
-    if (bookNumber == 1) {
-      if (chapter == 32) {
-        return (
-          chapter: chapter,
-          verses: verses.map((v) => v > 1 ? v - 1 : 1).toSet().toList(),
-        );
-      }
-      if (chapter == 50) {
-        return (
-          chapter: chapter,
-          verses: [for (final v in verses) v >= 23 ? v - 1 : v],
-        );
-      }
-    }
-    if (bookNumber == 2 && chapter == 40) {
-      return (
-        chapter: chapter,
-        verses: [for (final v in verses) v >= 34 ? v - 2 : v],
-      );
-    }
-    if (bookNumber == 49 && chapter == 17) {
-      return (
-        chapter: chapter,
-        verses: [for (final v in verses) v >= 22 ? v - 1 : v],
-      );
-    }
-    if (bookNumber == 62 && chapter == 2) {
-      return (
-        chapter: chapter,
-        verses: [for (final v in verses) v >= 14 ? v - 1 : v],
-      );
-    }
-    if (bookNumber == 20 && chapter == 42) {
-      return (
-        chapter: chapter,
-        verses: [for (final v in verses) v >= 17 ? 16 : v],
-      );
+        ),
+      ];
     }
 
-    return (chapter: chapter, verses: verses);
+    // 4. Whole-chapter citation (empty verse list)
+    if (verses.isEmpty) {
+      final mappedChapter = masoreticToVulgateVerse(
+        bookNumber: bookNumber,
+        chapter: chapter,
+        verse: 1,
+      ).chapter;
+      return [(chapter: mappedChapter, verses: verses)];
+    }
+
+    // 5. General rule-driven mapping across all books in _bookShiftRules
+    final List<({int chapter, List<int> verses})> ranges = [];
+    for (final v in verses) {
+      final mappedList = masoreticToVulgateVerses(
+        bookNumber: bookNumber,
+        chapter: chapter,
+        verse: v,
+      );
+      for (final mapped in mappedList) {
+        if (ranges.isNotEmpty && ranges.last.chapter == mapped.chapter) {
+          ranges.last.verses.add(mapped.verse);
+        } else {
+          final existingIdx = ranges.indexWhere(
+            (r) => r.chapter == mapped.chapter,
+          );
+          if (existingIdx != -1) {
+            ranges[existingIdx].verses.add(mapped.verse);
+          } else {
+            ranges.add((chapter: mapped.chapter, verses: [mapped.verse]));
+          }
+        }
+      }
+    }
+
+    return ranges.isNotEmpty ? ranges : [(chapter: chapter, verses: verses)];
+  }
+
+  /// Resolves a Modern/NABRE lectionary chapter and verse list to Vulgate/CPDV
+  /// coordinates, applying shared Psalm/OT chapter shifts as well as CPDV
+  /// verse-merge adjustments.
+  static ({int chapter, List<int> verses}) mapLectionaryToVulgate({
+    required int bookNumber,
+    required int chapter,
+    required List<int> verses,
+  }) {
+    final ranges = mapLectionaryToVulgateRanges(
+      bookNumber: bookNumber,
+      chapter: chapter,
+      verses: verses,
+    );
+    return ranges.first;
   }
 
   /// Formats chapter title for display in Bible tab and chapter header

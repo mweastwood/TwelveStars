@@ -3228,5 +3228,98 @@ void main() {
         expect(catholicBookAbbreviationTokens.contains('apoc'), isTrue);
       },
     );
+
+    test(
+      'masoreticToVulgateVerses and newly unified _bookShiftRules cover Deuterocanonical and NT shifts',
+      () {
+        // John 6:51 splits into Vulgate 6:51 and 6:52; 6:52-71 shifts to 6:53-72
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerses(
+            bookNumber: 52,
+            chapter: 6,
+            verse: 51,
+          ),
+          equals([(chapter: 6, verse: 51), (chapter: 6, verse: 52)]),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 52,
+            chapter: 6,
+            verse: 52,
+          ),
+          equals((chapter: 6, verse: 51)),
+        );
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 52,
+            chapter: 6,
+            verse: 52,
+          ),
+          equals((chapter: 6, verse: 53)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 52,
+            chapter: 6,
+            verse: 53,
+          ),
+          equals((chapter: 6, verse: 52)),
+        );
+
+        // Mark 8:39 <-> 9:1 and Mark 9:1-49 <-> 9:2-50
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 50,
+            chapter: 9,
+            verse: 1,
+          ),
+          equals((chapter: 8, verse: 39)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 50,
+            chapter: 8,
+            verse: 39,
+          ),
+          equals((chapter: 9, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: 50,
+            chapter: 9,
+            verse: 2,
+          ),
+          equals((chapter: 9, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.vulgateToMasoreticVerse(
+            bookNumber: 50,
+            chapter: 9,
+            verse: 1,
+          ),
+          equals((chapter: 9, verse: 2)),
+        );
+
+        // Isaiah 63:19 splits into Vulgate 63:19 and 64:1
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerses(
+            bookNumber: 27,
+            chapter: 63,
+            verse: 19,
+          ),
+          equals([(chapter: 63, verse: 19), (chapter: 64, verse: 1)]),
+        );
+
+        // Sirach 3:14 splits into Vulgate 3:16 and 3:17
+        expect(
+          BibleVerseResolver.masoreticToVulgateVerses(
+            bookNumber: 26,
+            chapter: 3,
+            verse: 14,
+          ),
+          equals([(chapter: 3, verse: 16), (chapter: 3, verse: 17)]),
+        );
+      },
+    );
   });
 }
