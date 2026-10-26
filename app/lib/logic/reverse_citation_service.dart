@@ -526,16 +526,18 @@ class ReverseCitationService {
           final start = c.verse!;
           final end = c.endVerse ?? start;
           for (int v = start; v <= end; v++) {
-            final resolved = BibleVerseResolver.masoreticToVulgateVerse(
+            final resolvedList = BibleVerseResolver.masoreticToVulgateVerses(
               bookNumber: b,
               chapter: c.chapter,
               verse: v,
             );
-            _verseIndex
-                .putIfAbsent(b, () => {})
-                .putIfAbsent(resolved.chapter, () => {})
-                .putIfAbsent(resolved.verse, () => [])
-                .add(rc);
+            for (final resolved in resolvedList) {
+              _verseIndex
+                  .putIfAbsent(b, () => {})
+                  .putIfAbsent(resolved.chapter, () => {})
+                  .putIfAbsent(resolved.verse, () => [])
+                  .add(rc);
+            }
           }
         }
       } else {

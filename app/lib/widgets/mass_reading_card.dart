@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/lectionary_responses.dart';
@@ -88,6 +89,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
   String? _errorMessage;
 
   String? _loadedTranslation;
+  BibleNumberingSystem _numberingSystem = BibleNumberingSystem.vulgate;
   final ReaderSelectionController _selectionController =
       ReaderSelectionController();
 
@@ -107,10 +109,14 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
   void _onSettingsChanged() {
     if (!mounted) return;
-    final translation =
-        UserSettingsController.instance.value.primaryBibleTranslation;
+    final settings = UserSettingsController.instance.value;
+    final translation = settings.primaryBibleTranslation;
     if (_loadedTranslation != null && _loadedTranslation != translation) {
       _loadVerses();
+    } else if (_numberingSystem != settings.bibleNumberingSystem) {
+      setState(() {
+        _numberingSystem = settings.bibleNumberingSystem;
+      });
     }
   }
 
@@ -296,6 +302,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         setState(() {
           _verses = verses;
           _loadedTranslation = translation;
+          _numberingSystem = settings.bibleNumberingSystem;
           _isLoading = false;
         });
       }
@@ -603,8 +610,16 @@ class _MassReadingCardState extends State<MassReadingCard> {
                       _favoritesByVerseKey[nodeId] ?? const [];
                   final isFavorite = matchingFavorites.isNotEmpty;
 
-                  return BibleVerseRow(
+                  final verseDisplay = BibleVerseResolver.formatVerseDisplay(
+                    bookNumber: verse.bookNumber,
+                    chapter: verse.chapter,
                     verseNumber: verse.verseNumber,
+                    numberingSystem: _numberingSystem,
+                  );
+
+                  return BibleVerseRow(
+                    verseNumber: verseDisplay.displayVerseNumber,
+                    alternateVerseNumber: verseDisplay.alternateVerseNumber,
                     verseText: verse.verseText,
                     padding: const EdgeInsets.only(
                       left: 0.0,
