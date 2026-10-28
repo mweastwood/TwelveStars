@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
 
 enum BibleAnnotationType { favorite, comment }
@@ -29,12 +31,21 @@ class BibleAnnotationItem {
     required this.createdAt,
   });
 
-  String get citation {
-    if (type == BibleAnnotationType.favorite && startVerse != endVerse) {
-      return '$bookName $chapter:$startVerse-$endVerse';
-    }
-    return '$bookName $chapter:$startVerse';
+  String formatCitation([BibleNumberingSystem? numberingSystem]) {
+    final effectiveSystem =
+        numberingSystem ??
+        UserSettingsController.instance.value.bibleNumberingSystem;
+    return BibleVerseResolver.formatVerseCitation(
+      bookNumber: bookNumber,
+      bookName: bookName,
+      startChapter: chapter,
+      startVerse: startVerse,
+      endVerse: type == BibleAnnotationType.favorite ? endVerse : startVerse,
+      numberingSystem: effectiveSystem,
+    );
   }
+
+  String get citation => formatCitation();
 }
 
 class BibleAnnotationCard extends StatelessWidget {

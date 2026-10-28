@@ -3,8 +3,10 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 
 Future<void> showReverseCitationsModal({
@@ -792,9 +794,19 @@ Future<void> showVerseFavoritesModal({
                           itemCount: favorites.length,
                           itemBuilder: (lCtx, index) {
                             final fav = favorites[index];
-                            final citation = fav.startVerse == fav.endVerse
-                                ? '${fav.bookName} ${fav.chapter}:${fav.startVerse}'
-                                : '${fav.bookName} ${fav.chapter}:${fav.startVerse}-${fav.endVerse}';
+                            final numberingSystem = UserSettingsController
+                                .instance
+                                .value
+                                .bibleNumberingSystem;
+                            final citation =
+                                BibleVerseResolver.formatVerseCitation(
+                                  bookNumber: fav.bookNumber,
+                                  bookName: fav.bookName,
+                                  startChapter: fav.chapter,
+                                  startVerse: fav.startVerse,
+                                  endVerse: fav.endVerse,
+                                  numberingSystem: numberingSystem,
+                                );
 
                             return Card(
                               margin: const EdgeInsets.only(bottom: 8),

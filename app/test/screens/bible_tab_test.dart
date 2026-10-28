@@ -371,7 +371,7 @@ void main() {
       // Swipe left (drag from right to left) to go to the next page
       await tester.drag(
         find.text('Genesis 1 Verse 1'),
-        const Offset(-400.0, 0.0),
+        const Offset(-500.0, 0.0),
       );
       await tester.pumpAndSettle();
 
@@ -1409,6 +1409,116 @@ void main() {
       },
     );
 
+    testWidgets(
+      'formats selection action bar citation, clipboard copy, and resolveReferenceQuery across numbering systems',
+      (WidgetTester tester) async {
+        String? copiedText;
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMethodCallHandler(SystemChannels.platform, (call) async {
+              if (call.method == 'Clipboard.setData') {
+                final args = call.arguments as Map<dynamic, dynamic>;
+                copiedText = args['text'] as String?;
+              }
+              return null;
+            });
+        addTearDown(() {
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+              .setMockMethodCallHandler(SystemChannels.platform, null);
+        });
+
+        for (int v = 1; v <= 2; v++) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  bookNumber: 21,
+                  bookName: 'Psalms',
+                  chapter: 115,
+                  verseNumber: v,
+                  verseText: 'Psalm 115 verse $v text.',
+                  translationCode: 'CPDV',
+                ),
+              );
+        }
+
+        final psalmBook = catholicBooks.firstWhere((b) => b.bookNumber == 21);
+
+        // Modern Mode: Vulgate Psalm 115:1-2 -> Modern Psalms 116:10-11
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: psalmBook,
+                chapter: 115,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+                numberingSystem: BibleNumberingSystem.modern,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.longPress(find.text('Psalm 115 verse 1 text.'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Psalm 115 verse 2 text.'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Psalms 116:10-11'), findsOneWidget);
+
+        await tester.tap(find.byIcon(Icons.copy));
+        await tester.pumpAndSettle();
+
+        expect(
+          copiedText,
+          equals(
+            'Psalms 116:10-11\n10 Psalm 115 verse 1 text.\n11 Psalm 115 verse 2 text.',
+          ),
+        );
+
+        // Verify BibleTabState.resolveReferenceQuery in Modern and Vulgate modes
+        PrayerDatabase.mockSettings = UserSettings(
+          bibleNumberingSystemCode: 'modern',
+        );
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 100));
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        final resolvedPs23 = state.resolveReferenceQuery('Psalm 23');
+        expect(resolvedPs23?.book.bookNumber, equals(21));
+        expect(resolvedPs23?.chapter, equals(22));
+        expect(resolvedPs23?.verse, isNull);
+
+        final resolvedPs10 = state.resolveReferenceQuery('Psalm 10');
+        expect(resolvedPs10?.book.bookNumber, equals(21));
+        expect(resolvedPs10?.chapter, equals(9));
+        expect(resolvedPs10?.verse, equals(22));
+
+        final resolvedNum17 = state.resolveReferenceQuery('Numbers 17');
+        expect(resolvedNum17?.book.bookNumber, equals(4));
+        expect(resolvedNum17?.chapter, equals(17));
+        expect(resolvedNum17?.verse, isNull);
+
+        final resolvedNum17v1 = state.resolveReferenceQuery('Numbers 17:1');
+        expect(resolvedNum17v1?.book.bookNumber, equals(4));
+        expect(resolvedNum17v1?.chapter, equals(16));
+        expect(resolvedNum17v1?.verse, equals(36));
+
+        final resolvedGen32 = state.resolveReferenceQuery('Genesis 32');
+        expect(resolvedGen32?.book.bookNumber, equals(1));
+        expect(resolvedGen32?.chapter, equals(32));
+        expect(resolvedGen32?.verse, isNull);
+
+        final resolvedJoel3 = state.resolveReferenceQuery('Joel 3');
+        expect(resolvedJoel3?.book.bookNumber, equals(34));
+        expect(resolvedJoel3?.chapter, equals(2));
+        expect(resolvedJoel3?.verse, equals(28));
+      },
+    );
+
     testGoldens(
       'renders real CPDV Psalm 115 chapter under Vulgate, Modern, and Dual numbering schemes with verse number shifts',
       (tester) async {
@@ -1691,7 +1801,7 @@ void main() {
         // Swipe to Genesis 2
         await tester.drag(
           find.text('Genesis 1 Verse 1'),
-          const Offset(-400.0, 0.0),
+          const Offset(-500.0, 0.0),
         );
         await tester.pumpAndSettle();
 
@@ -1702,7 +1812,7 @@ void main() {
         // Swipe back to Genesis 1
         await tester.drag(
           find.text('Genesis 2 Verse 1'),
-          const Offset(400.0, 0.0),
+          const Offset(500.0, 0.0),
         );
         await tester.pumpAndSettle();
 
@@ -2063,7 +2173,7 @@ void main() {
         // Swipe left to transition from Genesis 50 to Exodus 1
         await tester.drag(
           find.text('Genesis 50 Verse 1'),
-          const Offset(-400.0, 0.0),
+          const Offset(-500.0, 0.0),
         );
         await tester.pumpAndSettle();
 
@@ -2079,7 +2189,7 @@ void main() {
         // Swipe right back to Genesis 50 and verify the kept-alive BibleChapterView widget instance was not recreated by a parent setState
         await tester.drag(
           find.text('Exodus 1 Verse 1'),
-          const Offset(400.0, 0.0),
+          const Offset(500.0, 0.0),
         );
         await tester.pumpAndSettle();
 

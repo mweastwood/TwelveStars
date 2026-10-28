@@ -6,10 +6,12 @@ import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/library_section_view.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/reader/library_scripture_modal.dart';
 
 void main() {
   late BibleDatabase testDb;
@@ -21,6 +23,7 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    UserSettingsController.instance.resetForTesting();
   });
 
   tearDown(() async {
@@ -711,6 +714,103 @@ void main() {
           ),
           findsOneWidget,
         );
+      },
+    );
+
+    testWidgets(
+      'showLibraryScriptureModal respects user primaryBibleTranslation and bibleNumberingSystem and handles multi-chapter Modern Psalm 116',
+      (tester) async {
+        UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = 'DRC';
+          s.bibleNumberingSystem = BibleNumberingSystem.modern;
+        });
+        addTearDown(() {
+          UserSettingsController.instance.resetForTesting();
+        });
+
+        // Populate Vulgate Psalms 114 and 115 in DRC
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 114,
+                verseNumber: 8,
+                verseText: 'DRC Psalm 114 verse 8 (Modern 116:8)',
+                translationCode: 'DRC',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 114,
+                verseNumber: 9,
+                verseText: 'DRC Psalm 114 verse 9 (Modern 116:9)',
+                translationCode: 'DRC',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 115,
+                verseNumber: 1,
+                verseText: 'DRC Psalm 115 verse 1 (Modern 116:10)',
+                translationCode: 'DRC',
+              ),
+            );
+
+        const citation = BibleCitation(
+          rawMatch: 'Ps 116:8-10',
+          displayLabel: 'Psalms 116:8-10',
+          bookNumber: 21,
+          bookName: 'Psalms',
+          abbrev: 'Ps',
+          chapter: 116,
+          verse: 8,
+          endVerse: 10,
+          verseSystem: 'modern',
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Builder(
+                builder: (ctx) => ElevatedButton(
+                  onPressed: () => showLibraryScriptureModal(
+                    context: ctx,
+                    citation: citation,
+                  ),
+                  child: const Text('Open Scripture Modal'),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Scripture Modal'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Psalms 116'), findsOneWidget);
+        expect(
+          find.text('Douay-Rheims Bible (Challoner Revision) (DRC)'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('DRC Psalm 114 verse 8 (Modern 116:8)'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('DRC Psalm 115 verse 1 (Modern 116:10)'),
+          findsOneWidget,
+        );
+        expect(find.text('10'), findsOneWidget);
       },
     );
   });

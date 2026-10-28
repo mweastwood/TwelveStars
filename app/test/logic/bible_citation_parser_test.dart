@@ -3438,5 +3438,268 @@ void main() {
         }
       },
     );
+
+    test(
+      'formatChapterPickerLabel, formatChapterTitle, and formatChapterReference handle split Psalms 9 and 113',
+      () {
+        expect(
+          BibleVerseResolver.formatChapterPickerLabel(
+            bookNumber: 21,
+            chapter: 9,
+            numberingSystem: BibleNumberingSystem.vulgate,
+          ),
+          equals('9'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterPickerLabel(
+            bookNumber: 21,
+            chapter: 9,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals('9–10'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterPickerLabel(
+            bookNumber: 21,
+            chapter: 9,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('9 (9–10)'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterPickerLabel(
+            bookNumber: 21,
+            chapter: 113,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals('114–115'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterPickerLabel(
+            bookNumber: 21,
+            chapter: 113,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('113 (114–115)'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterTitle(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            chapter: 9,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('Psalms 9 (Modern 9–10)'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterReference(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            chapter: 22,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals('Psalms 23'),
+        );
+        expect(
+          BibleVerseResolver.formatChapterReference(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            chapter: 22,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('Psalms 22 (23)'),
+        );
+      },
+    );
+
+    test(
+      'formatVerseCitation formats single verses, same-chapter ranges, and cross-chapter ranges across numbering systems',
+      () {
+        // Identical in Vulgate & Modern -> no redundant dual suffix
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 1,
+            bookName: 'Genesis',
+            startChapter: 1,
+            startVerse: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('Genesis 1:1'),
+        );
+
+        // Vulgate Psalm 22:1-6 -> Modern Psalm 23:1-6
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            startChapter: 22,
+            startVerse: 1,
+            endVerse: 6,
+            numberingSystem: BibleNumberingSystem.vulgate,
+          ),
+          equals('Psalms 22:1-6'),
+        );
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            startChapter: 22,
+            startVerse: 1,
+            endVerse: 6,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals('Psalms 23:1-6'),
+        );
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            startChapter: 22,
+            startVerse: 1,
+            endVerse: 6,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('Psalms 22:1-6 (23:1-6)'),
+        );
+
+        // Vulgate Psalm 9:21-22 spans Modern Psalm 9:21 to 10:1
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            startChapter: 9,
+            startVerse: 21,
+            endVerse: 22,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals('Psalms 9:21–10:1'),
+        );
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 21,
+            bookName: 'Psalms',
+            startChapter: 9,
+            startVerse: 21,
+            endVerse: 22,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('Psalms 9:21-22 (9:21–10:1)'),
+        );
+
+        // Vulgate Numbers 17:1 -> Modern Numbers 17:16
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 4,
+            bookName: 'Numbers',
+            startChapter: 17,
+            startVerse: 1,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals('Numbers 17:16'),
+        );
+        expect(
+          BibleVerseResolver.formatVerseCitation(
+            bookNumber: 4,
+            bookName: 'Numbers',
+            startChapter: 17,
+            startVerse: 1,
+            numberingSystem: BibleNumberingSystem.dual,
+          ),
+          equals('Numbers 17:1 (17:16)'),
+        );
+      },
+    );
+
+    test(
+      'resolveReferenceToVulgate maps Modern chapter and verse queries to canonical Vulgate coordinates',
+      () {
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 21,
+            chapter: 23,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 22, verse: null)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 21,
+            chapter: 10,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 9, verse: 22)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 21,
+            chapter: 115,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 113, verse: 9)),
+        );
+        // Whole-chapter query on non-Psalm books where Modern verse 1 sits at the end of Vulgate chapter C-1
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 4,
+            chapter: 17,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 17, verse: null)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 4,
+            chapter: 17,
+            verse: 1,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 16, verse: 36)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 4,
+            chapter: 17,
+            verse: 16,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 17, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 1,
+            chapter: 32,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 32, verse: null)),
+        );
+        // Joel 3 (Modern) -> Vulgate Joel 2:28; Joel 4 (Modern) -> Vulgate Joel 3
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 34,
+            chapter: 3,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 2, verse: 28)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 34,
+            chapter: 4,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 3, verse: null)),
+        );
+        // Malachi 3:19 (Modern) -> Vulgate Malachi 4:1
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 44,
+            chapter: 3,
+            verse: 19,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 4, verse: 1)),
+        );
+      },
+    );
   });
 }

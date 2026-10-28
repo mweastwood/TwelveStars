@@ -1636,17 +1636,21 @@ class BibleVerseResolver {
       return '$bookName $chapter';
     }
     final vulgateNum = chapter;
-    final masoreticNum = vulgateToMasoreticPsalm(vulgateNum);
+    final masoreticLabel = vulgateNum == 9
+        ? '9–10'
+        : (vulgateNum == 113
+              ? '114–115'
+              : '${vulgateToMasoreticPsalm(vulgateNum)}');
     switch (numberingSystem) {
       case BibleNumberingSystem.vulgate:
         return '$bookName $vulgateNum';
       case BibleNumberingSystem.modern:
-        return '$bookName $masoreticNum';
+        return '$bookName $masoreticLabel';
       case BibleNumberingSystem.dual:
-        if (vulgateNum == masoreticNum) {
+        if ('$vulgateNum' == masoreticLabel) {
           return '$bookName $vulgateNum';
         }
-        return '$bookName $vulgateNum (Modern $masoreticNum)';
+        return '$bookName $vulgateNum (Modern $masoreticLabel)';
     }
   }
 
@@ -1660,18 +1664,147 @@ class BibleVerseResolver {
       return '$chapter';
     }
     final vulgateNum = chapter;
-    final masoreticNum = vulgateToMasoreticPsalm(vulgateNum);
+    final masoreticLabel = vulgateNum == 9
+        ? '9–10'
+        : (vulgateNum == 113
+              ? '114–115'
+              : '${vulgateToMasoreticPsalm(vulgateNum)}');
     switch (numberingSystem) {
       case BibleNumberingSystem.vulgate:
         return '$vulgateNum';
       case BibleNumberingSystem.modern:
-        return '$masoreticNum';
+        return masoreticLabel;
       case BibleNumberingSystem.dual:
-        if (vulgateNum == masoreticNum) {
+        if ('$vulgateNum' == masoreticLabel) {
           return '$vulgateNum';
         }
-        return '$vulgateNum ($masoreticNum)';
+        return '$vulgateNum ($masoreticLabel)';
     }
+  }
+
+  /// Formats a chapter-level reference (e.g., "Psalms 23" in Modern, "Psalms 22 (23)" in Dual)
+  static String formatChapterReference({
+    required int bookNumber,
+    required String bookName,
+    required int chapter,
+    required BibleNumberingSystem numberingSystem,
+  }) {
+    final chapterLabel = formatChapterPickerLabel(
+      bookNumber: bookNumber,
+      chapter: chapter,
+      numberingSystem: numberingSystem,
+    );
+    return '$bookName $chapterLabel';
+  }
+
+  /// Formats a single verse or verse-range citation according to the active numbering system.
+  /// Input coordinates (`startChapter`, `startVerse`, `endChapter`, `endVerse`) are in
+  /// canonical Vulgate numbering.
+  static String formatVerseCitation({
+    required int bookNumber,
+    required String bookName,
+    required int startChapter,
+    required int startVerse,
+    int? endChapter,
+    int? endVerse,
+    required BibleNumberingSystem numberingSystem,
+  }) {
+    final effectiveEndChapter = endChapter ?? startChapter;
+    final effectiveEndVerse = endVerse ?? startVerse;
+
+    String buildCoordinateLabel(int sChap, int sVerse, int eChap, int eVerse) {
+      if (sChap == eChap) {
+        if (sVerse == eVerse) {
+          return '$sChap:$sVerse';
+        }
+        return '$sChap:$sVerse-$eVerse';
+      }
+      return '$sChap:$sVerse–$eChap:$eVerse';
+    }
+
+    final vulgateLabel = buildCoordinateLabel(
+      startChapter,
+      startVerse,
+      effectiveEndChapter,
+      effectiveEndVerse,
+    );
+
+    if (numberingSystem == BibleNumberingSystem.vulgate) {
+      return '$bookName $vulgateLabel';
+    }
+
+    final masoreticStart = vulgateToMasoreticVerse(
+      bookNumber: bookNumber,
+      chapter: startChapter,
+      verse: startVerse,
+    );
+    final masoreticEnd =
+        (effectiveEndChapter == startChapter && effectiveEndVerse == startVerse)
+        ? masoreticStart
+        : vulgateToMasoreticVerse(
+            bookNumber: bookNumber,
+            chapter: effectiveEndChapter,
+            verse: effectiveEndVerse,
+          );
+
+    final modernLabel = buildCoordinateLabel(
+      masoreticStart.chapter,
+      masoreticStart.verse,
+      masoreticEnd.chapter,
+      masoreticEnd.verse,
+    );
+
+    if (numberingSystem == BibleNumberingSystem.modern) {
+      return '$bookName $modernLabel';
+    }
+
+    if (vulgateLabel == modernLabel) {
+      return '$bookName $vulgateLabel';
+    }
+    return '$bookName $vulgateLabel ($modernLabel)';
+  }
+
+  /// Resolves a user-entered chapter/verse reference under [numberingSystem] to
+  /// canonical Vulgate coordinates.
+  static ({int chapter, int? verse}) resolveReferenceToVulgate({
+    required int bookNumber,
+    required int chapter,
+    int? verse,
+    required BibleNumberingSystem numberingSystem,
+  }) {
+    if (numberingSystem != BibleNumberingSystem.modern) {
+      return (chapter: chapter, verse: verse);
+    }
+    if (verse != null) {
+      final mapped = masoreticToVulgateVerse(
+        bookNumber: bookNumber,
+        chapter: chapter,
+        verse: verse,
+      );
+      return (chapter: mapped.chapter, verse: mapped.verse);
+    }
+    final mapped = masoreticToVulgateVerse(
+      bookNumber: bookNumber,
+      chapter: chapter,
+      verse: 1,
+    );
+    if (mapped.chapter != chapter && bookNumber != 21) {
+      final vulgateChapterStart = vulgateToMasoreticVerse(
+        bookNumber: bookNumber,
+        chapter: chapter,
+        verse: 1,
+      );
+      if (vulgateChapterStart.chapter == chapter &&
+          vulgateChapterStart.verse > 1) {
+        return (chapter: chapter, verse: null);
+      }
+    }
+    return (
+      chapter: mapped.chapter,
+      verse: mapped.verse > 1 && mapped.chapter != chapter
+          ? mapped.verse
+          : null,
+    );
   }
 
   /// Formats verse display number and alternate number according to active numbering system

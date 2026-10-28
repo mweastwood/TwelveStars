@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
@@ -404,6 +405,11 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     _selectedBookForPicker = book;
     _selectedBookForPickerNotifier.value = book;
     final previousPageIndex = _currentPageIndex;
+    if (previousPageIndex != pageIndex && _isSelectingVerses) {
+      setState(() {
+        _isSelectingVerses = false;
+      });
+    }
     if (_pageController.hasClients) {
       _pageController.jumpToPage(pageIndex);
     } else {
@@ -466,6 +472,57 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       _jumpToPageAndSync(pageIndex);
       _collapsePanel();
     }
+  }
+
+  /// Parses a user scripture reference query (e.g., "Psalm 23", "Psalm 23:1",
+  /// "Psalm 10", "Numbers 17:16") and resolves it to canonical Vulgate
+  /// `(book, chapter, verse)` coordinates according to [numberingSystem]
+  /// (defaults to the active [_numberingSystem]).
+  ({BibleBook book, int chapter, int? verse})? resolveReferenceQuery(
+    String query, {
+    BibleNumberingSystem? numberingSystem,
+  }) {
+    final effectiveSystem = numberingSystem ?? _numberingSystem;
+    final segments = BibleCitationParser.parse(query.trim());
+    final citation = segments
+        .where((s) => s.isCitation)
+        .map((s) => s.citation!)
+        .firstOrNull;
+    if (citation == null) return null;
+    final book = catholicBooksByNumber[citation.bookNumber];
+    if (book == null) return null;
+    final resolved = BibleVerseResolver.resolveReferenceToVulgate(
+      bookNumber: book.bookNumber,
+      chapter: citation.chapter,
+      verse: citation.verse,
+      numberingSystem: effectiveSystem,
+    );
+    if (resolved.chapter < 1 || resolved.chapter > book.chaptersCount) {
+      return null;
+    }
+    return (book: book, chapter: resolved.chapter, verse: resolved.verse);
+  }
+
+  /// Navigates to a user scripture reference query under the active numbering system.
+  bool navigateToReference(String query) {
+    final target = resolveReferenceQuery(query);
+    if (target == null) return false;
+    final pageIndex = getCanonicalChapterIndex(
+      target.book.bookNumber,
+      target.chapter,
+    );
+    if (pageIndex == -1) return false;
+    setState(() {
+      _targetBookNumber = target.book.bookNumber;
+      _targetChapter = target.chapter;
+      _scrollToVerse = target.verse;
+      _highlightStartVerse = target.verse;
+      _highlightEndVerse = target.verse;
+      _navigationSessionId = DateTime.now().millisecondsSinceEpoch.toString();
+    });
+    _jumpToPageAndSync(pageIndex);
+    _collapsePanel();
+    return true;
   }
 
   void _openNotesScreen() {
@@ -613,11 +670,17 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
             controller: _pageController,
             itemCount: _allChapters.length,
             onPageChanged: (index) {
+              _hasExplicitNavigation = true;
               final book = _allChapters[index].book;
               _currentPageIndex = index;
               _selectedBookForPicker = book;
               _selectedBookForPickerNotifier.value = book;
               _currentPageIndexNotifier.value = index;
+              if (_isSelectingVerses) {
+                setState(() {
+                  _isSelectingVerses = false;
+                });
+              }
               _saveReadingPosition(index);
             },
             itemBuilder: (context, index) {
@@ -657,6 +720,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               bookmarks: _bibleRibbons,
               onRibbonTap: _onRibbonTap,
               onRibbonLongPress: _onRibbonLongPress,
+              numberingSystem: _numberingSystem,
             ),
           ),
 
