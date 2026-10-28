@@ -3637,6 +3637,15 @@ void main() {
           ),
           equals((chapter: 113, verse: 9)),
         );
+        // Whole-chapter query on non-Psalm books where Modern verse 1 sits at the end of Vulgate chapter C-1
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 4,
+            chapter: 17,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 17, verse: null)),
+        );
         expect(
           BibleVerseResolver.resolveReferenceToVulgate(
             bookNumber: 4,
@@ -3645,6 +3654,50 @@ void main() {
             numberingSystem: BibleNumberingSystem.modern,
           ),
           equals((chapter: 16, verse: 36)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 4,
+            chapter: 17,
+            verse: 16,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 17, verse: 1)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 1,
+            chapter: 32,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 32, verse: null)),
+        );
+        // Joel 3 (Modern) -> Vulgate Joel 2:28; Joel 4 (Modern) -> Vulgate Joel 3
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 34,
+            chapter: 3,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 2, verse: 28)),
+        );
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 34,
+            chapter: 4,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 3, verse: null)),
+        );
+        // Malachi 3:19 (Modern) -> Vulgate Malachi 4:1
+        expect(
+          BibleVerseResolver.resolveReferenceToVulgate(
+            bookNumber: 44,
+            chapter: 3,
+            verse: 19,
+            numberingSystem: BibleNumberingSystem.modern,
+          ),
+          equals((chapter: 4, verse: 1)),
         );
       },
     );

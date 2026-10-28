@@ -1496,6 +1496,26 @@ void main() {
         expect(resolvedPs10?.book.bookNumber, equals(21));
         expect(resolvedPs10?.chapter, equals(9));
         expect(resolvedPs10?.verse, equals(22));
+
+        final resolvedNum17 = state.resolveReferenceQuery('Numbers 17');
+        expect(resolvedNum17?.book.bookNumber, equals(4));
+        expect(resolvedNum17?.chapter, equals(17));
+        expect(resolvedNum17?.verse, isNull);
+
+        final resolvedNum17v1 = state.resolveReferenceQuery('Numbers 17:1');
+        expect(resolvedNum17v1?.book.bookNumber, equals(4));
+        expect(resolvedNum17v1?.chapter, equals(16));
+        expect(resolvedNum17v1?.verse, equals(36));
+
+        final resolvedGen32 = state.resolveReferenceQuery('Genesis 32');
+        expect(resolvedGen32?.book.bookNumber, equals(1));
+        expect(resolvedGen32?.chapter, equals(32));
+        expect(resolvedGen32?.verse, isNull);
+
+        final resolvedJoel3 = state.resolveReferenceQuery('Joel 3');
+        expect(resolvedJoel3?.book.bookNumber, equals(34));
+        expect(resolvedJoel3?.chapter, equals(2));
+        expect(resolvedJoel3?.verse, equals(28));
       },
     );
 

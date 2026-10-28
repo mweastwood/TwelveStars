@@ -1788,6 +1788,17 @@ class BibleVerseResolver {
       chapter: chapter,
       verse: 1,
     );
+    if (mapped.chapter != chapter && bookNumber != 21) {
+      final vulgateChapterStart = vulgateToMasoreticVerse(
+        bookNumber: bookNumber,
+        chapter: chapter,
+        verse: 1,
+      );
+      if (vulgateChapterStart.chapter == chapter &&
+          vulgateChapterStart.verse > 1) {
+        return (chapter: chapter, verse: null);
+      }
+    }
     return (
       chapter: mapped.chapter,
       verse: mapped.verse > 1 && mapped.chapter != chapter
