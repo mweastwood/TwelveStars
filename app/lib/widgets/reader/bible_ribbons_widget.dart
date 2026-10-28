@@ -2,7 +2,9 @@ import 'dart:typed_data';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/theme/app_theme_tokens.dart';
 
 class RibbonClipper extends CustomClipper<Path> {
@@ -34,6 +36,7 @@ class BibleRibbonsWidget extends StatelessWidget {
   final void Function(int ribbonIndex, BibleRibbonBookmark? bookmark)
   onRibbonTap;
   final void Function(int ribbonIndex) onRibbonLongPress;
+  final BibleNumberingSystem? numberingSystem;
 
   static const List<Color> ribbonColors = [
     AppThemeTokens.liturgicalRed,
@@ -54,10 +57,14 @@ class BibleRibbonsWidget extends StatelessWidget {
     this.bookmarks,
     required this.onRibbonTap,
     required this.onRibbonLongPress,
+    this.numberingSystem,
   });
 
   @override
   Widget build(BuildContext context) {
+    final effectiveNumberingSystem =
+        numberingSystem ??
+        UserSettingsController.instance.value.bibleNumberingSystem;
     return RepaintBoundary(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -82,8 +89,13 @@ class BibleRibbonsWidget extends StatelessWidget {
             final book =
                 catholicBooksByNumber[bookmark.bookNumber] ??
                 catholicBooks.first;
-            tooltipMessage =
-                '$ribbonName: ${book.bookName} ${bookmark.chapter}';
+            final chapterRef = BibleVerseResolver.formatChapterReference(
+              bookNumber: book.bookNumber,
+              bookName: book.bookName,
+              chapter: bookmark.chapter,
+              numberingSystem: effectiveNumberingSystem,
+            );
+            tooltipMessage = '$ribbonName: $chapterRef';
           } else {
             tooltipMessage =
                 'Ribbon ${index + 1}: Unassigned (Long press to set)';

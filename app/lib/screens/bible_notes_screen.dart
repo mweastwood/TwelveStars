@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
@@ -52,9 +54,19 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   final TextEditingController _searchController = TextEditingController();
   BibleAnnotationType? _selectedTypeFilter;
 
+  BibleNumberingSystem get _numberingSystem =>
+      UserSettingsController.instance.value.bibleNumberingSystem;
+
+  void _onSettingsChanged() {
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    UserSettingsController.instance.addListener(_onSettingsChanged);
     _activeBook = widget.currentBook;
     _activeChapter = widget.currentChapter;
     _scope =
@@ -69,6 +81,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
   @override
   void dispose() {
+    UserSettingsController.instance.removeListener(_onSettingsChanged);
     _searchController.dispose();
     super.dispose();
   }
@@ -211,7 +224,19 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       if (query.isEmpty) return true;
 
       final matchBook = item.bookName.toLowerCase().contains(query);
-      final matchCitation = item.citation.toLowerCase().contains(query);
+      final matchCitation =
+          item
+              .formatCitation(BibleNumberingSystem.vulgate)
+              .toLowerCase()
+              .contains(query) ||
+          item
+              .formatCitation(BibleNumberingSystem.modern)
+              .toLowerCase()
+              .contains(query) ||
+          item
+              .formatCitation(BibleNumberingSystem.dual)
+              .toLowerCase()
+              .contains(query);
       final matchPreview = item.textPreview.toLowerCase().contains(query);
       final matchComment =
           item.comment != null &&
@@ -264,7 +289,13 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
         catholicBooks.first;
     final verseNum = ReaderNodeId.parseBibleVerseNumber(comment.nodeId);
-    final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
+    final citation = BibleVerseResolver.formatVerseCitation(
+      bookNumber: book.bookNumber,
+      bookName: book.bookName,
+      startChapter: comment.sectionIndex,
+      startVerse: verseNum,
+      numberingSystem: _numberingSystem,
+    );
 
     await showEditCommentDialog(
       context: context,
@@ -496,13 +527,21 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                                       value: null,
                                       child: Text('All Chapters'),
                                     ),
-                                    ...List.generate(
-                                      _activeBook!.chaptersCount,
-                                      (index) => DropdownMenuItem<int?>(
-                                        value: index + 1,
-                                        child: Text('Ch. ${index + 1}'),
-                                      ),
-                                    ),
+                                    ...List.generate(_activeBook!.chaptersCount, (
+                                      index,
+                                    ) {
+                                      final chapNum = index + 1;
+                                      final chapLabel =
+                                          BibleVerseResolver.formatChapterPickerLabel(
+                                            bookNumber: _activeBook!.bookNumber,
+                                            chapter: chapNum,
+                                            numberingSystem: _numberingSystem,
+                                          );
+                                      return DropdownMenuItem<int?>(
+                                        value: chapNum,
+                                        child: Text('Ch. $chapLabel'),
+                                      );
+                                    }),
                                   ],
                             onChanged: isChapterDropdownDisabled
                                 ? null
@@ -674,27 +713,38 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
                 color: theme.colorScheme.outline,
               ),
             ),
-            Tooltip(
-              message: 'Chapter $_activeChapter ($chapterCount)',
-              child: InkWell(
-                key: const Key('breadcrumb_chapter'),
-                borderRadius: BorderRadius.circular(8),
-                onTap: null,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 6.0,
-                    vertical: 4.0,
-                  ),
-                  child: Text(
-                    'Chapter $_activeChapter',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                      fontSize: 13.5,
+            Builder(
+              builder: (context) {
+                final chapLabel = _activeBook != null
+                    ? BibleVerseResolver.formatChapterPickerLabel(
+                        bookNumber: _activeBook!.bookNumber,
+                        chapter: _activeChapter!,
+                        numberingSystem: _numberingSystem,
+                      )
+                    : '$_activeChapter';
+                return Tooltip(
+                  message: 'Chapter $chapLabel ($chapterCount)',
+                  child: InkWell(
+                    key: const Key('breadcrumb_chapter'),
+                    borderRadius: BorderRadius.circular(8),
+                    onTap: null,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6.0,
+                        vertical: 4.0,
+                      ),
+                      child: Text(
+                        'Chapter $chapLabel',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.onSurface,
+                          fontSize: 13.5,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ],
 
@@ -773,8 +823,13 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     } else if (_scope == BibleNotesScope.chapter &&
         _activeBook != null &&
         _activeChapter != null) {
-      message =
-          'No notes or favorites in ${_activeBook!.bookName} $_activeChapter.';
+      final chapterRef = BibleVerseResolver.formatChapterReference(
+        bookNumber: _activeBook!.bookNumber,
+        bookName: _activeBook!.bookName,
+        chapter: _activeChapter!,
+        numberingSystem: _numberingSystem,
+      );
+      message = 'No notes or favorites in $chapterRef.';
       subMessage =
           'Try switching to "${_activeBook!.bookName}" or "All Bible" above.';
     } else if (_scope == BibleNotesScope.book && _activeBook != null) {

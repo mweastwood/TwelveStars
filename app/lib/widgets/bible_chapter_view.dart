@@ -234,6 +234,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
       widget.chapter,
       start,
       end,
+      numberingSystem: widget.numberingSystem,
     );
 
     final selectedVerses =
@@ -290,6 +291,8 @@ class _BibleChapterViewState extends State<BibleChapterView>
         final clipboardContent = _adapter.formatClipboardContent(
           citation,
           selectedVerses,
+          chapter: widget.chapter,
+          numberingSystem: widget.numberingSystem,
         );
         await Clipboard.setData(ClipboardData(text: clipboardContent));
 
@@ -312,15 +315,21 @@ class _BibleChapterViewState extends State<BibleChapterView>
     ThemeData theme,
     List<ReverseCitation> citations,
   ) {
+    final chapterRef = BibleVerseResolver.formatChapterReference(
+      bookNumber: widget.book.bookNumber,
+      bookName: widget.book.bookName,
+      chapter: widget.chapter,
+      numberingSystem: widget.numberingSystem,
+    );
     return Tooltip(
       message:
-          '${citations.length} Library Reference${citations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
+          '${citations.length} Library Reference${citations.length > 1 ? "s" : ""} to $chapterRef',
       child: ReaderAnnotationChip.citations(
         key: const Key('chapter_citations_chip'),
         count: citations.length,
         onTap: () => showReverseCitationsModal(
           context: context,
-          title: '${widget.book.bookName} ${widget.chapter}',
+          title: chapterRef,
           citations: citations,
         ),
       ),
@@ -478,6 +487,15 @@ class _BibleChapterViewState extends State<BibleChapterView>
                               numberingSystem: widget.numberingSystem,
                             );
 
+                        final verseCitation =
+                            BibleVerseResolver.formatVerseCitation(
+                              bookNumber: widget.book.bookNumber,
+                              bookName: widget.book.bookName,
+                              startChapter: widget.chapter,
+                              startVerse: verse.verseNumber,
+                              numberingSystem: widget.numberingSystem,
+                            );
+
                         return KeyedSubtree(
                           key: _verseKeys[verse.id],
                           child: BibleVerseRow(
@@ -503,22 +521,19 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                 _onVerseLongPress(verse.verseNumber),
                             onTapCitations: () => showReverseCitationsModal(
                               context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              title: verseCitation,
                               citations: verseCitations,
                             ),
                             onTapComments: () => showVerseCommentsModal(
                               context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              title: verseCitation,
                               nodeId: nodeId,
                               textPreview: verse.verseText,
                               comments: verseComments,
                               onCommentsChanged: _loadComments,
                               onAddComment: () => showAddCommentDialog(
                                 context: context,
-                                citation:
-                                    '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                                citation: verseCitation,
                                 textPreview: verse.verseText,
                                 documentId: widget.book.abbrev,
                                 sectionIndex: widget.chapter,
@@ -528,8 +543,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             ),
                             onTapFavorite: () => showVerseFavoritesModal(
                               context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              title: verseCitation,
                               favorites: matchingFavorites,
                               onFavoritesChanged: () async {
                                 await _loadFavorites();

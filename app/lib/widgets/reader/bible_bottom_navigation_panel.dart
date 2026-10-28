@@ -281,20 +281,31 @@ class BibleBottomNavigationPanel extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Center(
-                                  child: Text(
-                                    chapterLabel,
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          selectedBookForPicker.bookNumber ==
-                                                  21 &&
-                                              numberingSystem ==
-                                                  BibleNumberingSystem.dual &&
-                                              chapterLabel.contains('(')
-                                          ? 11.0
-                                          : null,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0,
                                     ),
-                                    textAlign: TextAlign.center,
+                                    child: FittedBox(
+                                      fit: BoxFit.scaleDown,
+                                      child: Text(
+                                        chapterLabel,
+                                        style: theme.textTheme.bodyMedium
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize:
+                                                  selectedBookForPicker
+                                                              .bookNumber ==
+                                                          21 &&
+                                                      numberingSystem ==
+                                                          BibleNumberingSystem
+                                                              .dual &&
+                                                      chapterLabel.contains('(')
+                                                  ? 11.0
+                                                  : null,
+                                            ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),

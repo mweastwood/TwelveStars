@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart' show Value;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 
 import 'reader_adapter.dart';
 import 'reader_models.dart';
@@ -184,22 +185,41 @@ class BibleReaderAdapter implements ReaderAdapter {
   }
 
   /// Formats a human-readable citation label for a selected verse range.
-  String formatSelectionCitation(int chapter, int startVerse, int endVerse) {
-    return startVerse == endVerse
-        ? '${bibleBook.bookName} $chapter:$startVerse'
-        : '${bibleBook.bookName} $chapter:$startVerse-$endVerse';
+  String formatSelectionCitation(
+    int chapter,
+    int startVerse,
+    int endVerse, {
+    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+  }) {
+    return BibleVerseResolver.formatVerseCitation(
+      bookNumber: bibleBook.bookNumber,
+      bookName: bibleBook.bookName,
+      startChapter: chapter,
+      startVerse: startVerse,
+      endVerse: endVerse,
+      numberingSystem: numberingSystem,
+    );
   }
 
   /// Formats selected verses for clipboard copy.
   String formatClipboardContent(
     String citation,
-    List<BibleVerse> selectedVerses,
-  ) {
+    List<BibleVerse> selectedVerses, {
+    int? chapter,
+    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+  }) {
     final count = selectedVerses.length;
     final versesText = selectedVerses
-        .map(
-          (v) => count == 1 ? v.verseText : '${v.verseNumber} ${v.verseText}',
-        )
+        .map((v) {
+          if (count == 1) return v.verseText;
+          final displayNum = BibleVerseResolver.formatVerseDisplay(
+            bookNumber: bibleBook.bookNumber,
+            chapter: chapter ?? v.chapter,
+            verseNumber: v.verseNumber,
+            numberingSystem: numberingSystem,
+          ).displayVerseNumber;
+          return '$displayNum ${v.verseText}';
+        })
         .join(count == 1 ? '' : '\n');
     return '$citation\n$versesText';
   }
