@@ -900,6 +900,57 @@ void main() {
       expect(find.text('Matthew 5:3'), findsOneWidget);
       expect(find.text('Psalms 23:1'), findsOneWidget);
     });
+
+    testWidgets(
+      'deleting or editing items when initialFavorites and initialComments are provided updates list and increments annotationsRevision',
+      (tester) async {
+        final initialRevision = BibleNotesScreen.annotationsRevision.value;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: mockFavorites,
+              initialComments: mockComments,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis 1:1-3'), findsOneWidget);
+        expect(find.text('Favorites (3)'), findsOneWidget);
+
+        // Delete the first item (Genesis 1:1-3 favorite)
+        await tester.tap(find.byTooltip('Delete').first);
+        await tester.pumpAndSettle();
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+        await tester.pumpAndSettle();
+
+        // Genesis 1:1-3 should be removed and not restored from stale widget.initialFavorites
+        expect(find.text('Genesis 1:1-3'), findsNothing);
+        expect(find.text('Favorites (2)'), findsOneWidget);
+        expect(
+          BibleNotesScreen.annotationsRevision.value,
+          greaterThan(initialRevision),
+        );
+
+        // Edit the Psalms 23:1 comment
+        final revAfterDelete = BibleNotesScreen.annotationsRevision.value;
+        await tester.tap(find.byTooltip('Edit note').first);
+        await tester.pumpAndSettle();
+        await tester.enterText(
+          find.byType(TextField).last,
+          'Updated shepherd reflection.',
+        );
+        await tester.tap(find.widgetWithText(FilledButton, 'Save'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Updated shepherd reflection.'), findsOneWidget);
+        expect(
+          BibleNotesScreen.annotationsRevision.value,
+          greaterThan(revAfterDelete),
+        );
+      },
+    );
   });
 
   group('BibleNotesScreen Golden Tests', () {
