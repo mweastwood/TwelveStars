@@ -5,7 +5,11 @@ Future<void> showBaltimoreCrossRefSheet({
   required BuildContext context,
   required int questionNumber,
   required LibraryBookItem bookItem,
-  required void Function(BaltimoreVolume volume, int sectionIndex)
+  required void Function(
+    BaltimoreVolume volume,
+    int sectionIndex, [
+    int? questionNumber,
+  ])
   onSwitchVolume,
 }) async {
   final theme = Theme.of(context);
@@ -208,6 +212,7 @@ Future<void> showBaltimoreCrossRefSheet({
                                         v.volumeKey == 'baltimore_2',
                                   ),
                                   q2SecIdx!,
+                                  q2Item?.questionNumber ?? questionNumber,
                                 );
                               },
                             ),
@@ -232,6 +237,7 @@ Future<void> showBaltimoreCrossRefSheet({
                                         v.volumeKey == 'baltimore_4',
                                   ),
                                   q4SecIdx!,
+                                  q4Item?.questionNumber ?? questionNumber,
                                 );
                               },
                             ),

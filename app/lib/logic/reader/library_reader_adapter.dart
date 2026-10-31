@@ -99,7 +99,21 @@ class LibraryReaderAdapter implements ReaderAdapter {
 
   /// Searches within [bookData] for [query].
   List<BookSearchResult> searchInBook(ParsedBookData bookData, String query) =>
-      LibraryHelper.searchInBook(bookData, query);
+      LibraryHelper.searchInBook(bookData, query)
+          .map(
+            (r) => BookSearchResult(
+              bookTitle: r.bookTitle,
+              sectionId: r.sectionId,
+              sectionTitle: r.sectionTitle,
+              matchedSnippet: r.matchedSnippet,
+              bookId: r.bookId ?? bookItem.id,
+              volumeKey: r.volumeKey ?? volumeKey,
+              assetPath: r.assetPath ?? assetPath,
+              itemIndex: r.itemIndex,
+              questionNumber: r.questionNumber,
+            ),
+          )
+          .toList();
 
   /// Loads the persisted reading position for [bookItem.id], if any.
   Future<BookReadingPosition?> getReadingPosition() async {

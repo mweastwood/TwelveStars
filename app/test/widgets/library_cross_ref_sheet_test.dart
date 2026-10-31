@@ -87,7 +87,7 @@ void main() {
                       context: context,
                       questionNumber: 1,
                       bookItem: testBookItem,
-                      onSwitchVolume: (_, _) {},
+                      onSwitchVolume: (_, _, [_]) {},
                     ),
                     child: const Text('Open Cross Ref'),
                   ),
@@ -121,5 +121,86 @@ void main() {
         findsOneWidget,
       );
     });
+
+    testWidgets(
+      'passes target questionNumber to onSwitchVolume when Open Vol 2 or Open Vol 4 is tapped',
+      (WidgetTester tester) async {
+        final testBookItem = LibraryBookItem(
+          id: 'baltimore_catechism',
+          title: 'Baltimore Catechism',
+          subtitle: 'Official Catechism for Plenary Councils',
+          category: 'Catechisms',
+          author: 'Third Plenary Council of Baltimore',
+          description: 'A classic summary of Catholic doctrine.',
+          defaultAssetPath: 'assets/catechism/json/baltimore_1.json',
+          volumes: [
+            const BaltimoreVolume(
+              volumeKey: 'baltimore_2',
+              name: 'Baltimore Catechism No. 2',
+              shortName: 'No. 2',
+              description: 'Confirmation edition',
+              assetPath: 'assets/catechism/json/baltimore_2.json',
+            ),
+            const BaltimoreVolume(
+              volumeKey: 'baltimore_4',
+              name: 'Baltimore Catechism No. 4',
+              shortName: 'No. 4',
+              description: 'Fr. Kinkead explanation',
+              assetPath: 'assets/catechism/json/baltimore_4.json',
+            ),
+          ],
+        );
+
+        BaltimoreVolume? switchedVol;
+        int? switchedSecIdx;
+        int? switchedQuestionNum;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Builder(
+                builder: (context) {
+                  return Center(
+                    child: ElevatedButton(
+                      onPressed: () => showBaltimoreCrossRefSheet(
+                        context: context,
+                        questionNumber: 1,
+                        bookItem: testBookItem,
+                        onSwitchVolume: (vol, secIdx, [qNum]) {
+                          switchedVol = vol;
+                          switchedSecIdx = secIdx;
+                          switchedQuestionNum = qNum;
+                        },
+                      ),
+                      child: const Text('Open Cross Ref'),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_2.json',
+          );
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_4.json',
+          );
+        });
+
+        await tester.tap(find.text('Open Cross Ref'));
+        await tester.pump();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Open Vol 4'));
+        await tester.pumpAndSettle();
+
+        expect(switchedVol?.volumeKey, equals('baltimore_4'));
+        expect(switchedSecIdx, equals(0));
+        expect(switchedQuestionNum, equals(1));
+      },
+    );
   });
 }
