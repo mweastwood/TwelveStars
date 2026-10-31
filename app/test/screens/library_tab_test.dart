@@ -3869,5 +3869,101 @@ void main() {
         expect(find.byType(LibraryReaderScreen), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'LibrarySavedSheet switches between non-empty Favorites and Comments tabs without ScrollController conflict',
+      (tester) async {
+        await testDb.saveLibraryBookmark(
+          LibraryBookmarksCompanion.insert(
+            documentId: 'didache_lightfoot',
+            sectionIndex: 0,
+            nodeId: 'ch1_0',
+            textPreview:
+                'The Didache, Chapter 1\nThere are two ways, one of life and one of death...',
+            createdAt: DateTime.now(),
+          ),
+        );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'didache_lightfoot',
+            sectionIndex: 0,
+            nodeId: 'ch1_0',
+            commentText: 'Note on the two ways',
+            textPreview: const Value(
+              'There are two ways, one of life and one of death',
+            ),
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byKey(const Key('library_saved_button')));
+        await tester.pumpAndSettle();
+
+        expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+
+        // Switch to Comments tab while Favorites is also non-empty
+        await tester.tap(find.text('Comments'));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(find.text('Note on the two ways'), findsOneWidget);
+
+        // Switch back to Favorites tab
+        await tester.tap(find.text('Favorites'));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(find.text('The Didache, Chapter 1'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'bookmarking featured quote on multi-volume book saves canonical bookId and resolved sectionIndex',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        ThematicHelper.mockPassages = [
+          ThematicPassage(
+            bookId: 'baltimore_1',
+            bookTitle: 'Baltimore Catechism No. 1',
+            author: 'Third Plenary Council of Baltimore',
+            sectionId: 'sec_3',
+            sectionTitle: 'Lesson 2',
+            itemIndex: 1,
+            questionNumber: 14,
+            primaryTheme: 'theology.trinity',
+            secondaryThemes: const [],
+            keyExcerpt: 'God is a spirit infinitely perfect.',
+            oneSentenceSummary: 'Nature of God.',
+            fullText: 'God is a spirit infinitely perfect.',
+          ),
+        ];
+        addTearDown(() {
+          ThematicHelper.mockPassages = null;
+        });
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: LibraryTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final bookmarkBtn = find.byTooltip('Bookmark reflection');
+        expect(bookmarkBtn, findsOneWidget);
+        await tester.tap(bookmarkBtn);
+        await tester.pumpAndSettle();
+
+        final saved = await testDb.getLibraryBookmarks();
+        expect(saved.length, equals(1));
+        expect(saved.first.documentId, equals('baltimore_catechism'));
+        expect(saved.first.sectionIndex, equals(2));
+      },
+    );
   });
 }

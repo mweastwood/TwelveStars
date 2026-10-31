@@ -713,5 +713,126 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'in-book search indexes QA explanations and tapping a search result highlights the target item',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_4.json',
+          );
+        });
+
+        final baltimore4Book = LibraryHelper.getCachedBookData(
+          'assets/catechism/json/baltimore_4.json',
+        )!;
+        // Find a question in Baltimore 4 that has a non-empty explanation
+        String? explanationTerm;
+        for (final sec in baltimore4Book.sections) {
+          for (final item in sec.content) {
+            if (item.type == 'qa' &&
+                item.explanation != null &&
+                item.explanation!.length > 20) {
+              explanationTerm = item.explanation!
+                  .split(RegExp(r'\s+'))
+                  .firstWhere((w) => w.length >= 6);
+              break;
+            }
+          }
+          if (explanationTerm != null) break;
+        }
+        expect(explanationTerm, isNotNull);
+
+        final results = LibraryHelper.searchInBook(
+          baltimore4Book,
+          explanationTerm!,
+        );
+        expect(results, isNotEmpty);
+        expect(results.first.itemIndex, isNotNull);
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        // Open search in book and search for 'Where is God'
+        await tester.tap(find.byTooltip('Search in Book'));
+        await tester.pumpAndSettle();
+
+        await tester.enterText(find.byType(TextField), 'Where is God');
+        await tester.pumpAndSettle();
+
+        // Tap the first search result
+        await tester.tap(find.byType(ListTile).first);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        // Should have navigated to Section 3 and highlighted the matched QA item
+        expect(find.text('Section 3 of 35'), findsOneWidget);
+        final animatedContainers = tester.widgetList<AnimatedContainer>(
+          find.descendant(
+            of: find.byType(LibrarySectionView),
+            matching: find.byType(AnimatedContainer),
+          ),
+        );
+        expect(
+          animatedContainers.any((c) {
+            final dec = c.decoration as BoxDecoration?;
+            return dec != null &&
+                dec.color != null &&
+                dec.color != Colors.transparent;
+          }),
+          isTrue,
+        );
+
+        // Expire temporary highlight timer
+        await tester.pump(const Duration(milliseconds: 2500));
+      },
+    );
+
+    testWidgets(
+      'switching volumes during initial load ignores stale load generation',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_2.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialVolumeKey: 'baltimore_1',
+            ),
+          ),
+        );
+
+        // Immediately tap 'No. 2' volume chip before initial load settles
+        await tester.tap(find.text('No. 2'));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        final chipNo2 = tester.widget<ChoiceChip>(
+          find.widgetWithText(ChoiceChip, 'No. 2'),
+        );
+        expect(chipNo2.selected, isTrue);
+      },
+    );
   });
 }

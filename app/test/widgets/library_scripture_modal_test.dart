@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/reader/library_scripture_modal.dart';
 
 void main() {
@@ -11,9 +13,11 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    UserSettingsController.instance.resetForTesting();
   });
 
   tearDown(() async {
+    UserSettingsController.instance.resetForTesting();
     await testDb.close();
   });
 
@@ -192,6 +196,196 @@ void main() {
         expect(v33Decoration.border, isNull);
         expect(v34Decoration.border, isNotNull);
         expect(v35Decoration.border, isNotNull);
+      },
+    );
+
+    testWidgets(
+      'uses primaryBibleTranslation from UserSettingsController and falls back to CPDV when unsupported',
+      (WidgetTester tester) async {
+        UserSettingsController.instance.value = UserSettings(
+          primaryBibleTranslation: 'DRC',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText:
+                    'In the beginning God created heaven, and earth. (DRC)',
+                translationCode: 'DRC',
+              ),
+            );
+
+        const genCitation = BibleCitation(
+          rawMatch: 'Gen 1:1',
+          displayLabel: 'Genesis 1:1',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verse: 1,
+          abbrev: 'GEN',
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData(splashFactory: InkRipple.splashFactory),
+            home: Scaffold(
+              body: Builder(
+                builder: (context) {
+                  return Center(
+                    child: ElevatedButton(
+                      onPressed: () => showLibraryScriptureModal(
+                        context: context,
+                        citation: genCitation,
+                      ),
+                      child: const Text('Open DRC Modal'),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open DRC Modal'));
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('Douay-Rheims Bible (Challoner Revision) (DRC)'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('In the beginning God created heaven, and earth. (DRC)'),
+          findsOneWidget,
+        );
+
+        // Close modal and test LXX fallback on New Testament book (Matthew = 49)
+        await tester.tapAt(const Offset(10, 10));
+        await tester.pumpAndSettle();
+
+        UserSettingsController.instance.value = UserSettings(
+          primaryBibleTranslation: 'LXX',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 49,
+                bookName: 'Matthew',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'The book of the generation of Jesus Christ.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        const mattCitation = BibleCitation(
+          rawMatch: 'Matt 1:1',
+          displayLabel: 'Matthew 1:1',
+          bookNumber: 49,
+          bookName: 'Matthew',
+          chapter: 1,
+          verse: 1,
+          abbrev: 'MAT',
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData(splashFactory: InkRipple.splashFactory),
+            home: Scaffold(
+              body: Builder(
+                builder: (context) {
+                  return Center(
+                    child: ElevatedButton(
+                      onPressed: () => showLibraryScriptureModal(
+                        context: context,
+                        citation: mattCitation,
+                      ),
+                      child: const Text('Open Matt Modal'),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Matt Modal'));
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('Catholic Public Domain Version (CPDV)'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('The book of the generation of Jesus Christ.'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'scrolls accurately to high verse numbers using GlobalKey and ensureVisible',
+      (WidgetTester tester) async {
+        for (int v = 1; v <= 30; v++) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  bookNumber: 1,
+                  bookName: 'Genesis',
+                  chapter: 1,
+                  verseNumber: v,
+                  verseText:
+                      'Verse $v text with enough length to wrap across multiple lines in the modal sheet layout so fixed height offsets would drift.',
+                  translationCode: 'CPDV',
+                ),
+              );
+        }
+
+        const citation = BibleCitation(
+          rawMatch: 'Gen 1:25',
+          displayLabel: 'Genesis 1:25',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verse: 25,
+          abbrev: 'GEN',
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData(splashFactory: InkRipple.splashFactory),
+            home: Scaffold(
+              body: Builder(
+                builder: (context) {
+                  return Center(
+                    child: ElevatedButton(
+                      onPressed: () => showLibraryScriptureModal(
+                        context: context,
+                        citation: citation,
+                      ),
+                      child: const Text('Open High Verse Modal'),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open High Verse Modal'));
+        await tester.pumpAndSettle();
+
+        expect(
+          find.textContaining('Verse 25 text with enough length'),
+          findsOneWidget,
+        );
       },
     );
   });

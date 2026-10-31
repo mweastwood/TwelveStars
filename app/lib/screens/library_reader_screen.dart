@@ -57,8 +57,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   late PageController _pageController;
   int _currentSectionIndex = 0;
   double _fontSize = 16.0;
-  final Map<int, GlobalKey> _questionKeys = {};
-  final Map<int, GlobalKey> _itemKeys = {};
+  final Map<int, Map<int, GlobalKey>> _sectionQuestionKeys = {};
+  final Map<int, Map<int, GlobalKey>> _sectionItemKeys = {};
+  int _loadGeneration = 0;
+  int _commentsLoadGeneration = 0;
 
   List<UserComment> _comments = [];
 
@@ -122,29 +124,93 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   }
 
   Future<void> _loadComments() async {
-    final comments = await _adapter.loadUserComments();
-    if (mounted) {
-      setState(() {
-        _comments = comments;
-      });
+    final generation = ++_commentsLoadGeneration;
+    final adapter = _adapter;
+    final comments = await adapter.loadUserComments();
+    if (!mounted ||
+        generation != _commentsLoadGeneration ||
+        !identical(adapter, _adapter)) {
+      return;
     }
+    setState(() {
+      _comments = comments;
+    });
   }
 
   void _populateKeys(ParsedBookData? data, int sectionIndex) {
-    _questionKeys.clear();
-    _itemKeys.clear();
-    if (data != null &&
-        sectionIndex >= 0 &&
-        sectionIndex < data.sections.length) {
-      final sec = data.sections[sectionIndex];
-      for (int i = 0; i < sec.content.length; i++) {
-        _itemKeys[i] = GlobalKey();
-        final item = sec.content[i];
-        if (item.type == 'qa' && item.questionNumber != null) {
-          _questionKeys[item.questionNumber!] = GlobalKey();
-        }
+    if (data == null ||
+        sectionIndex < 0 ||
+        sectionIndex >= data.sections.length) {
+      return;
+    }
+    if (_sectionItemKeys.containsKey(sectionIndex) &&
+        _sectionQuestionKeys.containsKey(sectionIndex)) {
+      return;
+    }
+    final sec = data.sections[sectionIndex];
+    final itemKeys = <int, GlobalKey>{};
+    final questionKeys = <int, GlobalKey>{};
+    for (int i = 0; i < sec.content.length; i++) {
+      itemKeys[i] = GlobalKey();
+      final item = sec.content[i];
+      if (item.type == 'qa' && item.questionNumber != null) {
+        questionKeys[item.questionNumber!] = GlobalKey();
       }
     }
+    _sectionItemKeys[sectionIndex] = itemKeys;
+    _sectionQuestionKeys[sectionIndex] = questionKeys;
+  }
+
+  void _highlightAndScrollTo({
+    int? itemIndex,
+    int? questionNumber,
+    String? navigationSessionId,
+  }) {
+    int? effectiveItemIndex = itemIndex;
+    if (effectiveItemIndex == null &&
+        questionNumber != null &&
+        _bookData != null &&
+        _currentSectionIndex >= 0 &&
+        _currentSectionIndex < _bookData!.sections.length) {
+      final sec = _bookData!.sections[_currentSectionIndex];
+      final idx = sec.content.indexWhere(
+        (it) => it.type == 'qa' && it.questionNumber == questionNumber,
+      );
+      if (idx >= 0) {
+        effectiveItemIndex = idx;
+      }
+    }
+
+    if (effectiveItemIndex == null && questionNumber == null) {
+      return;
+    }
+
+    setState(() {
+      _selectionController.activateTemporaryHighlight(
+        start: effectiveItemIndex,
+        end: effectiveItemIndex,
+        navigationSessionId: navigationSessionId,
+        onExpired: () {
+          if (mounted) setState(() {});
+        },
+      );
+    });
+
+    _selectionController.scrollToKeyPostFrame(() {
+      final itemKeys = _sectionItemKeys[_currentSectionIndex];
+      if (effectiveItemIndex != null &&
+          itemKeys != null &&
+          itemKeys.containsKey(effectiveItemIndex)) {
+        return itemKeys[effectiveItemIndex];
+      }
+      final questionKeys = _sectionQuestionKeys[_currentSectionIndex];
+      if (questionNumber != null &&
+          questionKeys != null &&
+          questionKeys.containsKey(questionNumber)) {
+        return questionKeys[questionNumber];
+      }
+      return null;
+    }, alignment: 0.1);
   }
 
   void _scrollToAndHighlightTarget() {
@@ -157,45 +223,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       return;
     }
 
-    int? effectiveItemIndex = widget.initialItemIndex;
-    if (effectiveItemIndex == null &&
-        widget.initialQuestionNumber != null &&
-        _bookData != null &&
-        _currentSectionIndex >= 0 &&
-        _currentSectionIndex < _bookData!.sections.length) {
-      final sec = _bookData!.sections[_currentSectionIndex];
-      final idx = sec.content.indexWhere(
-        (it) =>
-            it.type == 'qa' &&
-            it.questionNumber == widget.initialQuestionNumber,
-      );
-      if (idx >= 0) {
-        effectiveItemIndex = idx;
-      }
-    }
-
-    setState(() {
-      _selectionController.activateTemporaryHighlight(
-        start: effectiveItemIndex,
-        end: effectiveItemIndex,
-        navigationSessionId: widget.navigationSessionId,
-        onExpired: () {
-          if (mounted) setState(() {});
-        },
-      );
-    });
-
-    _selectionController.scrollToKeyPostFrame(() {
-      if (effectiveItemIndex != null &&
-          _itemKeys.containsKey(effectiveItemIndex)) {
-        return _itemKeys[effectiveItemIndex];
-      }
-      if (widget.initialQuestionNumber != null &&
-          _questionKeys.containsKey(widget.initialQuestionNumber!)) {
-        return _questionKeys[widget.initialQuestionNumber!];
-      }
-      return null;
-    }, alignment: 0.1);
+    _highlightAndScrollTo(
+      itemIndex: widget.initialItemIndex,
+      questionNumber: widget.initialQuestionNumber,
+      navigationSessionId: widget.navigationSessionId,
+    );
   }
 
   Future<void> _saveReadingPosition(int sectionIndex) async {
@@ -214,12 +246,15 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
   Future<void> _loadBookData({
     bool isInitialLoad = false,
     int initialSectionIndex = 0,
+    int? targetQuestionNumber,
+    int? targetItemIndex,
   }) async {
+    final generation = ++_loadGeneration;
     setState(() {
       _isLoading = true;
       _error = null;
-      _questionKeys.clear();
-      _itemKeys.clear();
+      _sectionQuestionKeys.clear();
+      _sectionItemKeys.clear();
       _selectionController.clear();
     });
 
@@ -229,6 +264,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           widget.initialSectionIndex == null &&
           widget.initialSectionId == null) {
         savedPos = await _adapter.getReadingPosition();
+        if (!mounted || generation != _loadGeneration) return;
       }
 
       if (isInitialLoad &&
@@ -253,39 +289,47 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       }
 
       final data = await _adapter.loadBookData();
-      if (mounted) {
-        final resolvedIndex = isInitialLoad
-            ? LibraryReaderAdapter.resolveInitialSectionIndex(
-                data,
-                bookItem: widget.bookItem,
-                currentVolumeKey: _currentVolumeKey,
-                initialSectionId: widget.initialSectionId,
-                initialSectionIndex: widget.initialSectionIndex,
-                savedPos: savedPos,
-                fallbackIndex: initialSectionIndex,
-              )
-            : initialSectionIndex;
+      if (!mounted || generation != _loadGeneration) return;
 
+      final resolvedIndex = isInitialLoad
+          ? LibraryReaderAdapter.resolveInitialSectionIndex(
+              data,
+              bookItem: widget.bookItem,
+              currentVolumeKey: _currentVolumeKey,
+              initialSectionId: widget.initialSectionId,
+              initialSectionIndex: widget.initialSectionIndex,
+              savedPos: savedPos,
+              fallbackIndex: initialSectionIndex,
+            )
+          : initialSectionIndex;
+
+      setState(() {
+        _bookData = data;
+        _currentSectionIndex = resolvedIndex;
         _populateKeys(data, resolvedIndex);
+        _isLoading = false;
+      });
 
-        if (_pageController.hasClients) {
-          _pageController.jumpToPage(resolvedIndex);
-        } else {
-          _pageController.dispose();
-          _pageController = PageController(initialPage: resolvedIndex);
-        }
+      if (_pageController.hasClients) {
+        _pageController.jumpToPage(resolvedIndex);
+      } else {
+        _pageController.dispose();
+        _pageController = PageController(initialPage: resolvedIndex);
+      }
 
-        setState(() {
-          _bookData = data;
-          _currentSectionIndex = resolvedIndex;
-          _isLoading = false;
-        });
-
-        _saveReadingPosition(resolvedIndex);
+      _saveReadingPosition(resolvedIndex);
+      if (targetItemIndex != null || targetQuestionNumber != null) {
+        _highlightAndScrollTo(
+          itemIndex: targetItemIndex,
+          questionNumber: targetQuestionNumber,
+          navigationSessionId:
+              'volswitch_${DateTime.now().microsecondsSinceEpoch}',
+        );
+      } else {
         _scrollToAndHighlightTarget();
       }
     } catch (e) {
-      if (mounted) {
+      if (mounted && generation == _loadGeneration) {
         setState(() {
           _error = e.toString();
           _isLoading = false;
@@ -294,17 +338,33 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     }
   }
 
-  void _switchVolume(BaltimoreVolume vol, {int initialSectionIndex = 0}) {
+  void _switchVolume(
+    BaltimoreVolume vol, {
+    int initialSectionIndex = 0,
+    int? targetQuestionNumber,
+    int? targetItemIndex,
+  }) {
     if (_currentVolumeKey == vol.volumeKey) {
+      ++_loadGeneration;
       if (_currentSectionIndex != initialSectionIndex) {
         setState(() {
           _currentSectionIndex = initialSectionIndex;
+          _populateKeys(_bookData, initialSectionIndex);
           _selectionController.clear(clearTemporaryHighlight: true);
         });
         if (_pageController.hasClients) {
           _pageController.jumpToPage(initialSectionIndex);
         }
         _saveReadingPosition(initialSectionIndex);
+      }
+      if (targetItemIndex != null || targetQuestionNumber != null) {
+        _populateKeys(_bookData, initialSectionIndex);
+        _highlightAndScrollTo(
+          itemIndex: targetItemIndex,
+          questionNumber: targetQuestionNumber,
+          navigationSessionId:
+              'crossref_${DateTime.now().microsecondsSinceEpoch}',
+        );
       }
       return;
     }
@@ -319,7 +379,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       _selectionController.clear(clearTemporaryHighlight: true);
     });
     _loadComments();
-    _loadBookData(initialSectionIndex: initialSectionIndex);
+    _loadBookData(
+      initialSectionIndex: initialSectionIndex,
+      targetQuestionNumber: targetQuestionNumber,
+      targetItemIndex: targetItemIndex,
+    );
   }
 
   void _onItemLongPress(int index) {
@@ -650,6 +714,15 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                               _searchResults = [];
                             });
                             _saveReadingPosition(secIdx);
+                            if (res.itemIndex != null ||
+                                res.questionNumber != null) {
+                              _highlightAndScrollTo(
+                                itemIndex: res.itemIndex,
+                                questionNumber: res.questionNumber,
+                                navigationSessionId:
+                                    'search_${DateTime.now().microsecondsSinceEpoch}',
+                              );
+                            }
                           }
                         },
                       )
@@ -789,9 +862,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
               verseSystem: widget.bookItem.verseSystem,
               volumeKey: _currentVolumeKey,
               questionKeys: index == _currentSectionIndex
-                  ? _questionKeys
-                  : null,
-              itemKeys: index == _currentSectionIndex ? _itemKeys : null,
+                  ? (_sectionQuestionKeys[index] ?? const {})
+                  : const {},
+              itemKeys: index == _currentSectionIndex
+                  ? (_sectionItemKeys[index] ?? const {})
+                  : const {},
               selectedStartIndex: index == _currentSectionIndex
                   ? selStart
                   : null,
@@ -826,8 +901,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                 context: context,
                 questionNumber: qNum,
                 bookItem: widget.bookItem,
-                onSwitchVolume: (vol, idx) =>
-                    _switchVolume(vol, initialSectionIndex: idx),
+                onSwitchVolume: (vol, idx, [targetQNum]) => _switchVolume(
+                  vol,
+                  initialSectionIndex: idx,
+                  targetQuestionNumber: targetQNum ?? qNum,
+                ),
               ),
               onShowScriptureModal: (citation) => showLibraryScriptureModal(
                 context: context,

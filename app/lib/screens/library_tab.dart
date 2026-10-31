@@ -159,16 +159,19 @@ class _LibraryTabState extends State<LibraryTab> {
       } else {
         int resolvedSectionIndex = 0;
         if (target?.assetPath != null) {
-          final cachedBook = LibraryHelper.getCachedBookData(
-            target!.assetPath!,
-          );
-          if (cachedBook != null) {
+          try {
+            final cachedBook =
+                LibraryHelper.getCachedBookData(target!.assetPath!) ??
+                await LibraryHelper.loadBookData(
+                  target.assetPath!,
+                ).timeout(const Duration(milliseconds: 100));
             final idx = cachedBook.sections.indexWhere(
               (s) => s.id == passage.sectionId,
             );
             if (idx >= 0) resolvedSectionIndex = idx;
-          }
+          } catch (_) {}
         }
+        final effectiveDocumentId = target?.book.id ?? passage.bookId;
         final citation = passage.sectionTitle.isNotEmpty
             ? '${passage.bookTitle} — ${passage.sectionTitle}'
             : passage.bookTitle;
@@ -177,7 +180,7 @@ class _LibraryTabState extends State<LibraryTab> {
             : passage.oneSentenceSummary;
         await BibleDatabaseHelper.db.saveLibraryBookmark(
           LibraryBookmarksCompanion.insert(
-            documentId: passage.bookId,
+            documentId: effectiveDocumentId,
             sectionIndex: resolvedSectionIndex,
             nodeId: canonicalNodeId,
             textPreview: '$citation\n$excerpt',

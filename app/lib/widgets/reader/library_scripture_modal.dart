@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
+import 'package:twelve_stars/logic/bible_translation_info.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 
 Future<void> showLibraryScriptureModal({
   required BuildContext context,
@@ -26,20 +28,36 @@ Future<void> showLibraryScriptureModal({
         ).last
       : null;
 
+  final preferredCode =
+      UserSettingsController.instance.value.primaryBibleTranslation;
+  final preferredInfo = BibleTranslationInfo.allTranslations
+      .where((t) => t.code.toUpperCase() == preferredCode.toUpperCase())
+      .firstOrNull;
+  final effectiveInfo =
+      (preferredInfo != null && preferredInfo.supportsBook(citation.bookNumber))
+      ? preferredInfo
+      : BibleTranslationInfo.getByCode('CPDV');
+  final translationCode = effectiveInfo.code;
+  final translationSubtitle = effectiveInfo.code == 'CPDV'
+      ? 'Catholic Public Domain Version (CPDV)'
+      : '${effectiveInfo.name} (${effectiveInfo.code})';
+
   final vulgateChapter = resolvedStart.chapter;
   final versesFuture = () async {
     await BibleDatabaseHelper.db.ensureBookPopulated(
       citation.bookNumber,
       citation.bookName,
       citation.abbrev,
+      translation: translationCode,
     );
     return await BibleDatabaseHelper.db.getChapterVerses(
-      'CPDV',
+      translationCode,
       citation.bookNumber,
       vulgateChapter,
     );
   }();
   bool hasScrolledToInitialTarget = false;
+  final GlobalKey targetVerseKey = GlobalKey();
 
   await showModalBottomSheet(
     context: context,
@@ -90,23 +108,37 @@ Future<void> showLibraryScriptureModal({
                 endVerseNum = citation.endVerse ?? targetVerseNum;
               }
 
+              final firstTargetIndex = hasTargetVerse
+                  ? verses.indexWhere(
+                      (v) =>
+                          v.verseNumber >= targetVerseNum &&
+                          v.verseNumber <= endVerseNum,
+                    )
+                  : -1;
+
               if (!hasScrolledToInitialTarget &&
                   hasTargetVerse &&
-                  targetVerseNum > 1) {
+                  targetVerseNum > 1 &&
+                  firstTargetIndex > 0) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
-                  if (!hasScrolledToInitialTarget &&
-                      scrollController.hasClients) {
+                  if (hasScrolledToInitialTarget) return;
+                  final targetCtx = targetVerseKey.currentContext;
+                  if (targetCtx != null) {
                     hasScrolledToInitialTarget = true;
-                    final targetIndex = verses.indexWhere(
-                      (v) => v.verseNumber == targetVerseNum,
+                    Scrollable.ensureVisible(targetCtx, alignment: 0.1);
+                  } else if (scrollController.hasClients) {
+                    hasScrolledToInitialTarget = true;
+                    final targetOffset = (firstTargetIndex * 85.0).clamp(
+                      0.0,
+                      scrollController.position.maxScrollExtent,
                     );
-                    if (targetIndex > 0) {
-                      final targetOffset = (targetIndex * 85.0).clamp(
-                        0.0,
-                        scrollController.position.maxScrollExtent,
-                      );
-                      scrollController.jumpTo(targetOffset);
-                    }
+                    scrollController.jumpTo(targetOffset);
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      final resolvedCtx = targetVerseKey.currentContext;
+                      if (resolvedCtx != null) {
+                        Scrollable.ensureVisible(resolvedCtx, alignment: 0.1);
+                      }
+                    });
                   }
                 });
               }
@@ -149,7 +181,7 @@ Future<void> showLibraryScriptureModal({
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Catholic Public Domain Version (CPDV)',
+                      translationSubtitle,
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontStyle: FontStyle.italic,
                         color: theme.colorScheme.outline,
@@ -183,6 +215,9 @@ Future<void> showLibraryScriptureModal({
                               : '${verseDisplay.displayVerseNumber}';
 
                           return AnimatedContainer(
+                            key: index == firstTargetIndex
+                                ? targetVerseKey
+                                : null,
                             duration: const Duration(milliseconds: 200),
                             margin: const EdgeInsets.symmetric(vertical: 2.0),
                             padding: const EdgeInsets.symmetric(

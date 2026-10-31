@@ -448,6 +448,8 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
                                     res.assetPath ??
                                     resolvedResultTarget?.assetPath,
                                 sectionId: res.sectionId,
+                                itemIndex: res.itemIndex,
+                                questionNumber: res.questionNumber,
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(

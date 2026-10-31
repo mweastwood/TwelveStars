@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +17,8 @@ class _SearchableBookItem {
   final String sectionTitle;
   final String fullText;
   final String lowerText;
+  final int itemIndex;
+  final int? questionNumber;
 
   _SearchableBookItem({
     required this.bookTitle,
@@ -23,6 +26,8 @@ class _SearchableBookItem {
     required this.sectionTitle,
     required this.fullText,
     required this.lowerText,
+    required this.itemIndex,
+    this.questionNumber,
   });
 }
 
@@ -42,6 +47,7 @@ class LibraryHelper {
   static final Map<String, ParsedBookData> _cache = {};
   static final Map<String, List<_SearchableBookItem>> _searchIndex = {};
   static final Map<String, Future<ParsedBookData>> _inFlight = {};
+  static final Map<String, Zone> _inFlightZone = {};
   static final Map<String, Future<List<_SearchableBookItem>>> _inFlightSearch =
       {};
 
@@ -61,6 +67,7 @@ class LibraryHelper {
     _cache.clear();
     _searchIndex.clear();
     _inFlight.clear();
+    _inFlightZone.clear();
     _inFlightSearch.clear();
   }
 
@@ -142,21 +149,28 @@ class LibraryHelper {
       _cache[assetPath] = cached;
       return cached;
     }
-    if (_inFlight.containsKey(assetPath)) {
+    if (_inFlight.containsKey(assetPath) &&
+        _inFlightZone[assetPath] == Zone.current) {
       return _inFlight[assetPath]!;
     }
     final future = _loadBookDataInternal(assetPath);
     _inFlight[assetPath] = future;
+    _inFlightZone[assetPath] = Zone.current;
     try {
       return await future;
     } finally {
-      _inFlight.remove(assetPath);
+      if (identical(_inFlight[assetPath], future)) {
+        _inFlight.remove(assetPath);
+        _inFlightZone.remove(assetPath);
+      }
     }
   }
 
   static Future<ParsedBookData> _loadBookDataInternal(String assetPath) async {
     final rawString = await rootBundle.loadString(assetPath);
-    final parsed = await compute(_parseBookDataInBackground, rawString);
+    final parsed = Zone.current == Zone.root
+        ? await compute(_parseBookDataInBackground, rawString)
+        : _parseBookDataInBackground(rawString);
     if (_cache.length >= maxCacheSize) {
       _cache.remove(_cache.keys.first);
     }
@@ -169,11 +183,16 @@ class LibraryHelper {
   ) {
     final items = <_SearchableBookItem>[];
     for (final sec in book.sections) {
-      for (final item in sec.content) {
+      for (int i = 0; i < sec.content.length; i++) {
+        final item = sec.content[i];
         String fullText = '';
         if (item.type == 'qa') {
+          final explanationPart =
+              (item.explanation != null && item.explanation!.isNotEmpty)
+              ? ' ${item.explanation}'
+              : '';
           fullText =
-              'Q. ${item.questionNumber} ${item.question ?? ""} A. ${item.answer ?? ""}';
+              'Q. ${item.questionNumber} ${item.question ?? ""} A. ${item.answer ?? ""}$explanationPart';
         } else {
           fullText = item.text ?? '';
         }
@@ -184,6 +203,8 @@ class LibraryHelper {
             sectionTitle: sec.title,
             fullText: fullText,
             lowerText: fullText.toLowerCase(),
+            itemIndex: i,
+            questionNumber: item.type == 'qa' ? item.questionNumber : null,
           ),
         );
       }
@@ -284,6 +305,8 @@ class LibraryHelper {
                   bookId: bookItem.id,
                   volumeKey: matchedVolume?.volumeKey,
                   assetPath: path,
+                  itemIndex: item.itemIndex,
+                  questionNumber: item.questionNumber,
                 ),
               );
               if (allResults.length >= limit) break;
@@ -313,11 +336,16 @@ class LibraryHelper {
     final results = <BookSearchResult>[];
 
     for (final sec in book.sections) {
-      for (final item in sec.content) {
+      for (int i = 0; i < sec.content.length; i++) {
+        final item = sec.content[i];
         String fullText = '';
         if (item.type == 'qa') {
+          final explanationPart =
+              (item.explanation != null && item.explanation!.isNotEmpty)
+              ? ' ${item.explanation}'
+              : '';
           fullText =
-              'Q. ${item.questionNumber} ${item.question ?? ""} A. ${item.answer ?? ""}';
+              'Q. ${item.questionNumber} ${item.question ?? ""} A. ${item.answer ?? ""}$explanationPart';
         } else {
           fullText = item.text ?? '';
         }
@@ -338,6 +366,8 @@ class LibraryHelper {
               sectionId: sec.id,
               sectionTitle: sec.title,
               matchedSnippet: snippet,
+              itemIndex: i,
+              questionNumber: item.type == 'qa' ? item.questionNumber : null,
             ),
           );
           if (results.length >= 50) break;

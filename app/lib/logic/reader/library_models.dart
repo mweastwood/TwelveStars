@@ -260,6 +260,8 @@ class BookSearchResult {
   final String? bookId;
   final String? volumeKey;
   final String? assetPath;
+  final int? itemIndex;
+  final int? questionNumber;
 
   BookSearchResult({
     required this.bookTitle,
@@ -269,5 +271,7 @@ class BookSearchResult {
     this.bookId,
     this.volumeKey,
     this.assetPath,
+    this.itemIndex,
+    this.questionNumber,
   });
 }

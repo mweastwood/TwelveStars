@@ -49,6 +49,19 @@ class _ThematicQuoteBrowserScreenState
     super.dispose();
   }
 
+  Future<void> _loadBookmarks() async {
+    try {
+      final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks();
+      if (!mounted) return;
+      setState(() {
+        _bookmarkedIds.clear();
+        for (final b in bookmarks) {
+          _bookmarkedIds['${b.documentId}_${b.nodeId}'] = b.id;
+        }
+      });
+    } catch (_) {}
+  }
+
   Future<void> _loadThemeData({bool reshuffle = true}) async {
     setState(() => _isLoading = true);
     final counts = await ThematicHelper.getThemeCounts();
@@ -126,16 +139,20 @@ class _ThematicQuoteBrowserScreenState
         if (existingId != null) {
           await BibleDatabaseHelper.db.deleteLibraryBookmark(existingId);
         } else {
-          final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
-            documentId: passage.bookId,
-          );
-          final match = bookmarks
-              .where(
-                (b) => b.nodeId == canonicalNodeId || b.nodeId == legacyNodeId,
-              )
-              .firstOrNull;
-          if (match != null) {
-            await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
+          final candidateDocIds = {
+            passage.bookId,
+            if (target != null) target.book.id,
+          };
+          for (final docId in candidateDocIds) {
+            final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
+              documentId: docId,
+            );
+            final matches = bookmarks.where(
+              (b) => b.nodeId == canonicalNodeId || b.nodeId == legacyNodeId,
+            );
+            for (final match in matches) {
+              await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
+            }
           }
         }
         if (!mounted) return;
@@ -153,16 +170,19 @@ class _ThematicQuoteBrowserScreenState
       } else {
         int resolvedSectionIndex = 0;
         if (target?.assetPath != null) {
-          final cachedBook = LibraryHelper.getCachedBookData(
-            target!.assetPath!,
-          );
-          if (cachedBook != null) {
+          try {
+            final cachedBook =
+                LibraryHelper.getCachedBookData(target!.assetPath!) ??
+                await LibraryHelper.loadBookData(
+                  target.assetPath!,
+                ).timeout(const Duration(milliseconds: 100));
             final idx = cachedBook.sections.indexWhere(
               (s) => s.id == passage.sectionId,
             );
             if (idx >= 0) resolvedSectionIndex = idx;
-          }
+          } catch (_) {}
         }
+        final effectiveDocumentId = target?.book.id ?? passage.bookId;
         final citation = passage.sectionTitle.isNotEmpty
             ? '${passage.bookTitle} — ${passage.sectionTitle}'
             : passage.bookTitle;
@@ -171,7 +191,7 @@ class _ThematicQuoteBrowserScreenState
             : passage.oneSentenceSummary;
         final newId = await BibleDatabaseHelper.db.saveLibraryBookmark(
           LibraryBookmarksCompanion.insert(
-            documentId: passage.bookId,
+            documentId: effectiveDocumentId,
             sectionIndex: resolvedSectionIndex,
             nodeId: canonicalNodeId,
             textPreview: '$citation\n$excerpt',
@@ -180,7 +200,8 @@ class _ThematicQuoteBrowserScreenState
         );
         if (!mounted) return;
         setState(
-          () => _bookmarkedIds['${passage.bookId}_$canonicalNodeId'] = newId,
+          () =>
+              _bookmarkedIds['${effectiveDocumentId}_$canonicalNodeId'] = newId,
         );
         HapticFeedback.lightImpact();
         ScaffoldMessenger.of(context).showSnackBar(
@@ -241,7 +262,7 @@ class _ThematicQuoteBrowserScreenState
           navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),
         ),
       ),
-    );
+    ).then((_) => _loadBookmarks());
   }
 
   void _showSaintSheet(String saintId) async {
