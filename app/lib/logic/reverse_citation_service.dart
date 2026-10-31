@@ -513,14 +513,13 @@ class ReverseCitationService {
 
       if (c.verseSystem == 'modern' || (b == 34 && c.chapter == 4)) {
         if (c.isEntireChapter) {
-          final resolved = BibleVerseResolver.masoreticToVulgateVerse(
+          final resolvedChapter = BibleVerseResolver.masoreticToVulgateChapter(
             bookNumber: b,
             chapter: c.chapter,
-            verse: 2,
           );
           _chapterIndex
               .putIfAbsent(b, () => {})
-              .putIfAbsent(resolved.chapter, () => [])
+              .putIfAbsent(resolvedChapter, () => [])
               .add(rc);
         } else if (c.verse != null) {
           final start = c.verse!;

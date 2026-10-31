@@ -1445,6 +1445,30 @@ class BibleVerseResolver {
     return (chapter: chapter, verse: verse);
   }
 
+  /// Resolves a whole Masoretic/Modern chapter to its primary Vulgate chapter.
+  static int masoreticToVulgateChapter({
+    required int bookNumber,
+    required int chapter,
+  }) {
+    if (bookNumber == 21 && chapter >= 1 && chapter <= 150) {
+      return masoreticToVulgatePsalm(chapter);
+    }
+    final rules = _bookShiftRules[bookNumber];
+    if (rules != null) {
+      final hasSameChapter = rules.any(
+        (r) => r.masoreticChapter == chapter && r.vulgateChapter == chapter,
+      );
+      if (hasSameChapter) {
+        return chapter;
+      }
+    }
+    return masoreticToVulgateVerse(
+      bookNumber: bookNumber,
+      chapter: chapter,
+      verse: 1,
+    ).chapter;
+  }
+
   /// Resolves a Masoretic/Modern chapter and verse to all corresponding Vulgate
   /// chapters and verses (including additional Vulgate verses when a single
   /// Modern verse was split across multiple Vulgate verses).
@@ -1580,11 +1604,10 @@ class BibleVerseResolver {
 
     // 4. Whole-chapter citation (empty verse list)
     if (verses.isEmpty) {
-      final mappedChapter = masoreticToVulgateVerse(
+      final mappedChapter = masoreticToVulgateChapter(
         bookNumber: bookNumber,
         chapter: chapter,
-        verse: 2,
-      ).chapter;
+      );
       return [(chapter: mappedChapter, verses: verses)];
     }
 

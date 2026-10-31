@@ -45,6 +45,11 @@ void main() {
                 vulgateChapter: 32,
               ), // Genesis 32
               (
+                bookNumber: 4,
+                modernChapter: 17,
+                vulgateChapter: 17,
+              ), // Numbers 17
+              (
                 bookNumber: 5,
                 modernChapter: 13,
                 vulgateChapter: 13,
@@ -65,15 +70,28 @@ void main() {
                 vulgateChapter: 19,
               ), // 2 Samuel 19
               (
+                bookNumber: 11,
+                modernChapter: 5,
+                vulgateChapter: 5,
+              ), // 1 Kings 5
+              (
                 bookNumber: 12,
                 modernChapter: 12,
                 vulgateChapter: 12,
               ), // 2 Kings 12
+              (bookNumber: 20, modernChapter: 40, vulgateChapter: 40), // Job 40
+              (bookNumber: 20, modernChapter: 41, vulgateChapter: 41), // Job 41
               (
                 bookNumber: 23,
                 modernChapter: 5,
                 vulgateChapter: 5,
               ), // Ecclesiastes 5
+              (
+                bookNumber: 31,
+                modernChapter: 21,
+                vulgateChapter: 21,
+              ), // Ezekiel 21
+              (bookNumber: 33, modernChapter: 2, vulgateChapter: 2), // Hosea 2
               (
                 bookNumber: 33,
                 modernChapter: 12,
@@ -82,10 +100,24 @@ void main() {
               (bookNumber: 34, modernChapter: 3, vulgateChapter: 2), // Joel 3
               (bookNumber: 34, modernChapter: 4, vulgateChapter: 3), // Joel 4
               (bookNumber: 39, modernChapter: 2, vulgateChapter: 2), // Nahum 2
+              (
+                bookNumber: 43,
+                modernChapter: 2,
+                vulgateChapter: 2,
+              ), // Zechariah 2
               (bookNumber: 50, modernChapter: 9, vulgateChapter: 9), // Mark 9
             ];
 
         for (final tc in expectedChapterMappings) {
+          expect(
+            BibleVerseResolver.masoreticToVulgateChapter(
+              bookNumber: tc.bookNumber,
+              chapter: tc.modernChapter,
+            ),
+            tc.vulgateChapter,
+            reason:
+                'masoreticToVulgateChapter(${tc.bookNumber}, ${tc.modernChapter}) should be ${tc.vulgateChapter}',
+          );
           final ranges = BibleVerseResolver.mapLectionaryToVulgateRanges(
             bookNumber: tc.bookNumber,
             chapter: tc.modernChapter,
@@ -131,9 +163,11 @@ void main() {
                 {
                   'type': 'paragraph',
                   'text':
-                      'See Genesis 32; Deuteronomy 13; Deuteronomy 23; 1 Samuel 21; '
-                      '2 Samuel 19; 2 Kings 12; Ecclesiastes 5; Hosea 12; Nahum 2; '
-                      'Mark 9; and Joel 4 for whole-chapter references, as well as Joel 4:1-2.',
+                      'See Genesis 32; Numbers 17; Deuteronomy 13; Deuteronomy 23; '
+                      '1 Samuel 21; 2 Samuel 19; 1 Kings 5; 2 Kings 12; Job 40; '
+                      'Job 41; Ecclesiastes 5; Ezekiel 21; Hosea 2; Hosea 12; '
+                      'Nahum 2; Zechariah 2; Mark 9; and Joel 4 for whole-chapter '
+                      'references, as well as Joel 4:1-2.',
                 },
               ],
             },
@@ -144,6 +178,9 @@ void main() {
 
         expect(ReverseCitationService.getChapterCitations(1, 32), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(1, 31), isEmpty);
+
+        expect(ReverseCitationService.getChapterCitations(4, 17), isNotEmpty);
+        expect(ReverseCitationService.getChapterCitations(4, 16), isEmpty);
 
         expect(ReverseCitationService.getChapterCitations(5, 13), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(5, 12), isEmpty);
@@ -157,17 +194,34 @@ void main() {
         expect(ReverseCitationService.getChapterCitations(10, 19), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(10, 18), isEmpty);
 
+        expect(ReverseCitationService.getChapterCitations(11, 5), isNotEmpty);
+        expect(ReverseCitationService.getChapterCitations(11, 4), isEmpty);
+
         expect(ReverseCitationService.getChapterCitations(12, 12), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(12, 11), isEmpty);
 
+        expect(ReverseCitationService.getChapterCitations(20, 40), isNotEmpty);
+        expect(ReverseCitationService.getChapterCitations(20, 39), isEmpty);
+
+        expect(ReverseCitationService.getChapterCitations(20, 41), isNotEmpty);
+
         expect(ReverseCitationService.getChapterCitations(23, 5), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(23, 4), isEmpty);
+
+        expect(ReverseCitationService.getChapterCitations(31, 21), isNotEmpty);
+        expect(ReverseCitationService.getChapterCitations(31, 20), isEmpty);
+
+        expect(ReverseCitationService.getChapterCitations(33, 2), isNotEmpty);
+        expect(ReverseCitationService.getChapterCitations(33, 1), isEmpty);
 
         expect(ReverseCitationService.getChapterCitations(33, 12), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(33, 11), isEmpty);
 
         expect(ReverseCitationService.getChapterCitations(39, 2), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(39, 1), isEmpty);
+
+        expect(ReverseCitationService.getChapterCitations(43, 2), isNotEmpty);
+        expect(ReverseCitationService.getChapterCitations(43, 1), isEmpty);
 
         expect(ReverseCitationService.getChapterCitations(50, 9), isNotEmpty);
         expect(ReverseCitationService.getChapterCitations(50, 8), isEmpty);
