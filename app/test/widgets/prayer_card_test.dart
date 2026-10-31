@@ -2275,6 +2275,111 @@ void main() {
           expect(find.byType(CompositedTransformTarget), findsNothing);
         },
       );
+
+      testWidgets(
+        'keeps floating AI button within Card horizontal bounds and hit-testable when selected right-column token is near the right edge',
+        (tester) async {
+          final mockAi = MockAiService();
+          LocalAgentHelper.instance = mockAi;
+          mockAi.setMockStatus(AiCoreStatus.available);
+
+          final edgeTokenPrayer = Prayer.mock(
+            id: 'edge_token_prayer',
+            defaultTitle: 'Edge Token Prayer',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Edge Token Prayer',
+                  text: 'Extraordinarily long phrase reaching the right edge',
+                  tokens: [
+                    PrayerToken(
+                      'Extraordinarily long phrase reaching the right edge',
+                      'edge_phrase',
+                    ),
+                  ],
+                ),
+              ],
+              PrayerLanguage.latin: [
+                PrayerTranslation.mock(
+                  title: 'Oratio',
+                  text: 'Supercalifragilisticexpialidocious',
+                  tokens: [
+                    PrayerToken(
+                      'Supercalifragilisticexpialidocious',
+                      'edge_phrase',
+                    ),
+                  ],
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: Center(
+                  child: SizedBox(
+                    width: 360,
+                    child: SingleChildScrollView(
+                      child: PrayerCard(
+                        prayer: edgeTokenPrayer,
+                        selectedLanguage: PrayerLanguage.english,
+                        compareLanguage: PrayerLanguage.latin,
+                        initialVersionIndex: 0,
+                        onVersionChanged: (_) {},
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+
+          final richTextFinder = find.byWidgetPredicate(
+            (widget) =>
+                widget is RichText &&
+                widget.text.toPlainText().contains('Extraordinarily long'),
+          );
+          final richTextWidget =
+              tester.element(richTextFinder).widget as RichText;
+
+          TapGestureRecognizer? recognizer;
+          richTextWidget.text.visitChildren((span) {
+            if (span is TextSpan &&
+                span.text ==
+                    'Extraordinarily long phrase reaching the right edge') {
+              recognizer = span.recognizer as TapGestureRecognizer?;
+              return false;
+            }
+            return true;
+          });
+
+          expect(recognizer, isNotNull);
+          recognizer!.onTap!();
+          await tester.pumpAndSettle();
+
+          final fabFinder = find.byIcon(Icons.auto_awesome);
+          expect(fabFinder, findsOneWidget);
+
+          final cardRect = tester.getRect(find.byType(Card));
+          final fabRect = tester.getRect(
+            find.ancestor(
+              of: fabFinder,
+              matching: find.byType(FloatingActionButton),
+            ),
+          );
+
+          // Verify the 28x28 floating AI button stays completely inside Card horizontal bounds
+          expect(fabRect.left, greaterThanOrEqualTo(cardRect.left));
+          expect(fabRect.right, lessThanOrEqualTo(cardRect.right));
+
+          // Verify tapping the AI button succeeds (not dropped by Stack.hitTest)
+          await tester.tap(fabFinder);
+          await tester.pumpAndSettle();
+
+          expect(find.text('Translation Explainer'), findsOneWidget);
+        },
+      );
     });
   });
 }
