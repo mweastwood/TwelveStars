@@ -9,6 +9,7 @@ import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/notification_service.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/time_helper.dart';
 import 'package:twelve_stars/main.dart';
 
 class ThrowingBibleDatabase extends Fake implements BibleDatabase {
@@ -157,6 +158,7 @@ void main() {
   });
 
   tearDown(() {
+    TimeHelper.setCustomTime(null);
     NotificationService.mockPlugin = null;
     NotificationService.isInitialized = false;
     NotificationService.syncAllCallCount = 0;
@@ -219,6 +221,17 @@ void main() {
           expect(nextSunday.second, equals(0));
         },
       );
+
+      test('defaults fromDate to TimeHelper.now() when omitted', () {
+        TimeHelper.setCustomTime(DateTime(2026, 7, 6, 14, 30)); // Monday
+        final nextSunday = NotificationService.nextSunday8AM();
+
+        expect(nextSunday.year, equals(2026));
+        expect(nextSunday.month, equals(7));
+        expect(nextSunday.day, equals(12));
+        expect(nextSunday.hour, equals(8));
+        expect(nextSunday.minute, equals(0));
+      });
     });
 
     group('nextDailyTime', () {
@@ -302,6 +315,17 @@ void main() {
           }
         },
       );
+
+      test('defaults fromDate to TimeHelper.now() when omitted', () {
+        TimeHelper.setCustomTime(DateTime(2026, 8, 24, 9, 30));
+        final target = NotificationService.nextDailyTime(12, 0);
+
+        expect(target.year, equals(2026));
+        expect(target.month, equals(8));
+        expect(target.day, equals(24));
+        expect(target.hour, equals(12));
+        expect(target.minute, equals(0));
+      });
     });
 
     group('nextWeekdayTime', () {
@@ -364,6 +388,21 @@ void main() {
           expect(target.weekday, equals(DateTime.friday));
         },
       );
+
+      test('defaults fromDate to TimeHelper.now() when omitted', () {
+        TimeHelper.setCustomTime(DateTime(2026, 8, 24, 10, 0)); // Monday
+        final target = NotificationService.nextWeekdayTime(
+          DateTime.friday,
+          12,
+          0,
+        );
+
+        expect(target.year, equals(2026));
+        expect(target.month, equals(8));
+        expect(target.day, equals(28));
+        expect(target.hour, equals(12));
+        expect(target.minute, equals(0));
+      });
     });
 
     group('Content Generators', () {
@@ -827,21 +866,26 @@ void main() {
         }
       });
 
-      test('invokes onSyncAll hook when synchronizing', () async {
-        int hookCalls = 0;
-        NotificationService.onSyncAll = () {
-          hookCalls++;
-        };
+      test(
+        'invokes onSyncAll hook and increments syncAllCallCount when synchronizing',
+        () async {
+          int hookCalls = 0;
+          NotificationService.onSyncAll = () {
+            hookCalls++;
+          };
+          NotificationService.syncAllCallCount = 0;
 
-        final settings = UserSettings(
-          sundayNotificationsEnabled: false,
-          angelusReminderEnabled: false,
-          rosaryReminderEnabled: false,
-        );
+          final settings = UserSettings(
+            sundayNotificationsEnabled: false,
+            angelusReminderEnabled: false,
+            rosaryReminderEnabled: false,
+          );
 
-        await NotificationService.syncAllNotifications(settings);
-        expect(hookCalls, equals(1));
-      });
+          await NotificationService.syncAllNotifications(settings);
+          expect(hookCalls, equals(1));
+          expect(NotificationService.syncAllCallCount, equals(1));
+        },
+      );
 
       test(
         'completes safely without throwing even if initialization or database throws',
@@ -866,9 +910,6 @@ void main() {
     group('Lifecycle Resync in TwelveStarsApp', () {
       setUp(() {
         NotificationService.syncAllCallCount = 0;
-        NotificationService.onSyncAll = () {
-          NotificationService.syncAllCallCount++;
-        };
       });
 
       tearDown(() {
@@ -877,13 +918,15 @@ void main() {
       });
 
       testWidgets(
-        'calls syncAllNotifications on init and on resumed lifecycle state',
+        'calls syncAllNotifications on init and on resumed lifecycle state, including in liturgical theme mode',
         (tester) async {
           PrayerDatabase.mockSettings = UserSettings(
+            appThemeModeCode: 'liturgical',
             sundayNotificationsEnabled: false,
             angelusReminderEnabled: false,
             rosaryReminderEnabled: false,
           );
+          TwelveStarsApp.themeNotifier.value = AppThemeMode.liturgical;
 
           await tester.pumpWidget(const TwelveStarsApp());
           await tester.pump();
@@ -901,7 +944,7 @@ void main() {
           await tester.pump();
           expect(NotificationService.syncAllCallCount, equals(1));
 
-          // Simulate app resuming to foreground - should trigger sync
+          // Simulate app resuming to foreground - should trigger sync and rebuild liturgical theme
           tester.binding.handleAppLifecycleStateChanged(
             AppLifecycleState.resumed,
           );

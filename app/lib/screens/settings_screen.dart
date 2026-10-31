@@ -80,12 +80,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
     TwelveStarsApp.themeNotifier.value = mode;
   }
 
+  Future<void> _safeSync(Future<void> Function() syncAction) async {
+    try {
+      await syncAction();
+    } catch (e, stack) {
+      debugPrint('SettingsScreen notification sync error: $e\n$stack');
+    }
+  }
+
   Future<void> _updateSundayNotifications(bool value) async {
     if (_settings == null) return;
     final updated = await UserSettingsController.instance.mutate((s) {
       s.sundayNotificationsEnabled = value;
     });
-    await NotificationService.syncSundayNotification(updated);
+    await _safeSync(() => NotificationService.syncSundayNotification(updated));
   }
 
   Future<void> _updateAngelusEnabled(bool value) async {
@@ -93,7 +101,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.angelusReminderEnabled = value;
     });
-    await NotificationService.syncAngelusNotifications(updated);
+    await _safeSync(
+      () => NotificationService.syncAngelusNotifications(updated),
+    );
   }
 
   Future<void> _updateAngelusMorning(bool value) async {
@@ -101,7 +111,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.angelusMorningEnabled = value;
     });
-    await NotificationService.syncAngelusNotifications(updated);
+    await _safeSync(
+      () => NotificationService.syncAngelusNotifications(updated),
+    );
   }
 
   Future<void> _updateAngelusMidday(bool value) async {
@@ -109,7 +121,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.angelusMiddayEnabled = value;
     });
-    await NotificationService.syncAngelusNotifications(updated);
+    await _safeSync(
+      () => NotificationService.syncAngelusNotifications(updated),
+    );
   }
 
   Future<void> _updateAngelusEvening(bool value) async {
@@ -117,7 +131,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.angelusEveningEnabled = value;
     });
-    await NotificationService.syncAngelusNotifications(updated);
+    await _safeSync(
+      () => NotificationService.syncAngelusNotifications(updated),
+    );
   }
 
   Future<void> _updateRosaryEnabled(bool value) async {
@@ -125,7 +141,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.rosaryReminderEnabled = value;
     });
-    await NotificationService.syncRosaryNotification(updated);
+    await _safeSync(() => NotificationService.syncRosaryNotification(updated));
   }
 
   Future<void> _updateRosaryTime(TimeOfDay time) async {
@@ -134,7 +150,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       s.rosaryReminderHour = time.hour;
       s.rosaryReminderMinute = time.minute;
     });
-    await NotificationService.syncRosaryNotification(updated);
+    await _safeSync(() => NotificationService.syncRosaryNotification(updated));
   }
 
   Future<void> _updateMorningPrayerEnabled(bool value) async {
@@ -142,7 +158,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.morningPrayerReminderEnabled = value;
     });
-    await NotificationService.syncMorningPrayerNotification(updated);
+    await _safeSync(
+      () => NotificationService.syncMorningPrayerNotification(updated),
+    );
   }
 
   Future<void> _updateMorningPrayerTime(TimeOfDay time) async {
@@ -151,7 +169,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       s.morningPrayerReminderHour = time.hour;
       s.morningPrayerReminderMinute = time.minute;
     });
-    await NotificationService.syncMorningPrayerNotification(updated);
+    await _safeSync(
+      () => NotificationService.syncMorningPrayerNotification(updated),
+    );
   }
 
   Future<void> _updateNightPrayerEnabled(bool value) async {
@@ -159,7 +179,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final updated = await UserSettingsController.instance.mutate((s) {
       s.nightPrayerReminderEnabled = value;
     });
-    await NotificationService.syncNightPrayerNotification(updated);
+    await _safeSync(
+      () => NotificationService.syncNightPrayerNotification(updated),
+    );
   }
 
   Future<void> _updateNightPrayerTime(TimeOfDay time) async {
@@ -168,7 +190,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       s.nightPrayerReminderHour = time.hour;
       s.nightPrayerReminderMinute = time.minute;
     });
-    await NotificationService.syncNightPrayerNotification(updated);
+    await _safeSync(
+      () => NotificationService.syncNightPrayerNotification(updated),
+    );
   }
 
   Future<void> _updateBibleNumberingSystem(BibleNumberingSystem system) async {
@@ -347,6 +371,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 minute: _settings!.rosaryReminderMinute,
                               ),
                             );
+                            if (!mounted) return;
                             if (picked != null) {
                               _updateRosaryTime(picked);
                             }
@@ -390,6 +415,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 minute: _settings!.morningPrayerReminderMinute,
                               ),
                             );
+                            if (!mounted) return;
                             if (picked != null) {
                               _updateMorningPrayerTime(picked);
                             }
@@ -433,6 +459,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 minute: _settings!.nightPrayerReminderMinute,
                               ),
                             );
+                            if (!mounted) return;
                             if (picked != null) {
                               _updateNightPrayerTime(picked);
                             }

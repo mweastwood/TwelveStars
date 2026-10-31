@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen>
   int _currentTab = 0;
   PrayerLanguage _primaryLanguage = PrayerLanguage.english;
   PrayerLanguage? _compareLanguage = PrayerLanguage.latin;
+  bool _showBibleTranslationSelectors = false;
   List<Prayer>? _prayers;
   bool _loading = true;
   String? _error;
@@ -105,11 +106,15 @@ class _HomeScreenState extends State<HomeScreen>
     final languageChanged =
         _primaryLanguage != settings.primaryLanguage ||
         _compareLanguage != settings.compareLanguage;
+    final bibleSelectorsChanged =
+        _showBibleTranslationSelectors !=
+        settings.showBibleTranslationSelectors;
     _settings = settings;
-    if (languageChanged) {
+    if (languageChanged || bibleSelectorsChanged) {
       setState(() {
         _primaryLanguage = settings.primaryLanguage;
         _compareLanguage = settings.compareLanguage;
+        _showBibleTranslationSelectors = settings.showBibleTranslationSelectors;
       });
     }
   }
@@ -129,6 +134,8 @@ class _HomeScreenState extends State<HomeScreen>
           _settings = settings;
           _primaryLanguage = settings.primaryLanguage;
           _compareLanguage = settings.compareLanguage;
+          _showBibleTranslationSelectors =
+              settings.showBibleTranslationSelectors;
           _loading = false;
         });
       }
@@ -210,6 +217,12 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   void _onTabSelected(int index) {
+    if (_currentTab != index &&
+        _languageSelectorController.animationController.isAnimating) {
+      _languageSelectorController.syncExpanded(
+        _languageSelectorController.isExpanded,
+      );
+    }
     setState(() {
       _currentTab = index;
       if (index != 1 && _isSearching) {
@@ -342,8 +355,9 @@ class _HomeScreenState extends State<HomeScreen>
             IconButton(
               icon: Icon(
                 _currentTab == 2
-                    ? (_bibleTabKey.currentState?.showTranslationSelectors ??
-                              false
+                    ? ((_bibleTabKey.currentState?.showTranslationSelectors ??
+                              _settings?.showBibleTranslationSelectors ??
+                              false)
                           ? Icons.translate
                           : Icons.translate_outlined)
                     : (_languageSelectorController.isExpanded
@@ -352,6 +366,7 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               tooltip: _currentTab == 2
                   ? ((_bibleTabKey.currentState?.showTranslationSelectors ??
+                            _settings?.showBibleTranslationSelectors ??
                             false)
                         ? 'Hide translation options'
                         : 'Select translations')

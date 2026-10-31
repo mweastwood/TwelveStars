@@ -276,6 +276,36 @@ void main() {
       PrayerDatabase.mockSettings = null;
     });
 
+    testWidgets(
+      'safely guards time picker callback when SettingsScreen is unmounted before picker resolves',
+      (tester) async {
+        PrayerDatabase.mockSettings = UserSettings(
+          rosaryReminderEnabled: true,
+          rosaryReminderHour: 20,
+          rosaryReminderMinute: 0,
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const SettingsScreen()),
+        );
+        await tester.pumpAndSettle();
+
+        final timeButton = find.byKey(const Key('settings_rosary_time_button'));
+        await tester.scrollUntilVisible(timeButton, 500);
+        await tester.tap(timeButton);
+        await tester.pumpAndSettle();
+
+        // Replace widget tree while time picker dialog is open
+        await tester.pumpWidget(const MaterialApp(home: SizedBox.shrink()));
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+        expect(PrayerDatabase.mockSettings!.rosaryReminderHour, equals(20));
+
+        PrayerDatabase.mockSettings = null;
+      },
+    );
+
     testGoldens('SettingsScreen renders options and scenarios correctly', (
       tester,
     ) async {
