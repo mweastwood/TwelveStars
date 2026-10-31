@@ -120,27 +120,33 @@ Future<void> showLibraryScriptureModal({
                   hasTargetVerse &&
                   targetVerseNum > 1 &&
                   firstTargetIndex > 0) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  if (hasScrolledToInitialTarget) return;
+                hasScrolledToInitialTarget = true;
+                void scrollToTarget([int attempt = 0]) {
                   final targetCtx = targetVerseKey.currentContext;
                   if (targetCtx != null) {
-                    hasScrolledToInitialTarget = true;
                     Scrollable.ensureVisible(targetCtx, alignment: 0.1);
-                  } else if (scrollController.hasClients) {
-                    hasScrolledToInitialTarget = true;
-                    final targetOffset = (firstTargetIndex * 85.0).clamp(
-                      0.0,
-                      scrollController.position.maxScrollExtent,
-                    );
-                    scrollController.jumpTo(targetOffset);
-                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                      final resolvedCtx = targetVerseKey.currentContext;
-                      if (resolvedCtx != null) {
-                        Scrollable.ensureVisible(resolvedCtx, alignment: 0.1);
-                      }
-                    });
+                    return;
                   }
-                });
+                  if (attempt < 5 &&
+                      scrollController.hasClients &&
+                      verses.isNotEmpty) {
+                    final position = scrollController.position;
+                    final estimatedTotalHeight =
+                        position.maxScrollExtent + position.viewportDimension;
+                    final targetOffset =
+                        ((firstTargetIndex / verses.length) *
+                                estimatedTotalHeight)
+                            .clamp(0.0, position.maxScrollExtent);
+                    scrollController.jumpTo(targetOffset);
+                    WidgetsBinding.instance.addPostFrameCallback(
+                      (_) => scrollToTarget(attempt + 1),
+                    );
+                  }
+                }
+
+                WidgetsBinding.instance.addPostFrameCallback(
+                  (_) => scrollToTarget(),
+                );
               }
 
               final headerTitle =

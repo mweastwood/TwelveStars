@@ -332,7 +332,7 @@ void main() {
     testWidgets(
       'scrolls accurately to high verse numbers using GlobalKey and ensureVisible',
       (WidgetTester tester) async {
-        for (int v = 1; v <= 30; v++) {
+        for (int v = 1; v <= 60; v++) {
           await testDb
               .into(testDb.bibleVerses)
               .insert(
@@ -349,12 +349,12 @@ void main() {
         }
 
         const citation = BibleCitation(
-          rawMatch: 'Gen 1:25',
-          displayLabel: 'Genesis 1:25',
+          rawMatch: 'Gen 1:45',
+          displayLabel: 'Genesis 1:45',
           bookNumber: 1,
           bookName: 'Genesis',
           chapter: 1,
-          verse: 25,
+          verse: 45,
           abbrev: 'GEN',
         );
 
@@ -382,10 +382,15 @@ void main() {
         await tester.tap(find.text('Open High Verse Modal'));
         await tester.pumpAndSettle();
 
-        expect(
-          find.textContaining('Verse 25 text with enough length'),
-          findsOneWidget,
+        final targetFinder = find.textContaining(
+          'Verse 45 text with enough length',
         );
+        expect(targetFinder, findsOneWidget);
+
+        final listRect = tester.getRect(find.byType(ListView));
+        final targetTopY = tester.getTopLeft(targetFinder).dy;
+        expect(targetTopY, greaterThanOrEqualTo(listRect.top));
+        expect(targetTopY, lessThan(listRect.bottom));
       },
     );
   });
