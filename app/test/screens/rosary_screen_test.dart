@@ -326,5 +326,61 @@ void main() {
         expect(signCard.initialVersionIndex, equals(1));
       },
     );
+
+    testWidgets(
+      'ignores volume key events while the Rosary Completed dialog is open so duplicate dialogs are not stacked',
+      (tester) async {
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: RosaryScreen(
+              prayers: mockPrayers,
+              primaryLanguage: PrayerLanguage.english,
+              compareLanguage: PrayerLanguage.latin,
+              initialDate: DateTime(2026, 7, 6),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final totalSteps = RosaryHelper.generateSteps(
+          RosaryMysteryType.joyful,
+        ).length;
+
+        // Advance to the final step using Volume Up
+        for (int i = 0; i < totalSteps - 1; i++) {
+          await tester.sendKeyDownEvent(LogicalKeyboardKey.audioVolumeUp);
+          await tester.sendKeyUpEvent(LogicalKeyboardKey.audioVolumeUp);
+        }
+        await tester.pumpAndSettle();
+
+        expect(find.widgetWithText(FilledButton, 'Finish'), findsOneWidget);
+
+        // Press Volume Up on the final step -> opens "Rosary Completed" dialog
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.audioVolumeUp);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.audioVolumeUp);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(AlertDialog), findsOneWidget);
+        expect(find.text('Rosary Completed'), findsOneWidget);
+
+        // Press Volume Up and Volume Down while dialog is open -> must NOT stack another dialog
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.audioVolumeUp);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.audioVolumeUp);
+        await tester.pumpAndSettle();
+
+        await tester.sendKeyDownEvent(LogicalKeyboardKey.audioVolumeDown);
+        await tester.sendKeyUpEvent(LogicalKeyboardKey.audioVolumeDown);
+        await tester.pumpAndSettle();
+
+        expect(find.byType(AlertDialog), findsOneWidget);
+
+        // Dismiss the single dialog via 'Amen' -> dialog closes cleanly and Rosary resets
+        await tester.tap(find.widgetWithText(FilledButton, 'Amen'));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(AlertDialog), findsNothing);
+        expect(find.text('Sign of the Cross'), findsWidgets);
+      },
+    );
   });
 }

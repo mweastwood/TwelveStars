@@ -85,16 +85,24 @@ class PrayersTab extends StatelessWidget {
       final transList = prayer.translations[primaryLanguage];
       if (transList == null || transList.isEmpty) return false;
       if (queryWords.isEmpty) return true;
-      final trans = transList[0];
 
-      final title = trans.title.toLowerCase();
-      final subtitle = trans.subtitle.toLowerCase();
-      final text = trans.text.toLowerCase();
+      final compareList =
+          (compareLanguage != null && compareLanguage != primaryLanguage)
+          ? (prayer.translations[compareLanguage!] ??
+                const <PrayerTranslation>[])
+          : const <PrayerTranslation>[];
+      final defaultTitle = prayer.defaultTitle.toLowerCase();
+
+      bool matchesTranslation(PrayerTranslation trans, String word) {
+        return trans.title.toLowerCase().contains(word) ||
+            trans.subtitle.toLowerCase().contains(word) ||
+            trans.text.toLowerCase().contains(word);
+      }
 
       return queryWords.every((word) {
-        return title.contains(word) ||
-            subtitle.contains(word) ||
-            text.contains(word);
+        return defaultTitle.contains(word) ||
+            transList.any((t) => matchesTranslation(t, word)) ||
+            compareList.any((t) => matchesTranslation(t, word));
       });
     }).toList();
 

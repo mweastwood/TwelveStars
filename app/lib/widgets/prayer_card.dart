@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
@@ -33,9 +35,44 @@ class _PrayerCardState extends State<PrayerCard> {
   int _currentVersionIndex = 0;
   String? _selectedPhraseId;
   final LayerLink _layerLink = LayerLink();
+  final GlobalKey _stackKey = GlobalKey();
+  final GlobalKey _targetKey = GlobalKey();
+  double _followerDx = 12.0;
   bool _isAiAvailable = false;
   final Map<String, TapGestureRecognizer> _recognizers = {};
   final Set<String> _activeRecognizerKeys = {};
+
+  void _scheduleUpdateFollowerOffset() {
+    if (!_isDualMode || _selectedPhraseId == null) {
+      _followerDx = 12.0;
+      return;
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_isDualMode || _selectedPhraseId == null) return;
+      final stackBox =
+          _stackKey.currentContext?.findRenderObject() as RenderBox?;
+      final targetBox =
+          _targetKey.currentContext?.findRenderObject() as RenderBox?;
+      if (stackBox == null ||
+          targetBox == null ||
+          !stackBox.hasSize ||
+          !targetBox.hasSize) {
+        return;
+      }
+      final targetRight = targetBox
+          .localToGlobal(Offset(targetBox.size.width, 0), ancestor: stackBox)
+          .dx;
+      final clampedDx = math.min(
+        12.0,
+        stackBox.size.width - 4.0 - 28.0 - targetRight,
+      );
+      if ((clampedDx - _followerDx).abs() > 0.5) {
+        setState(() {
+          _followerDx = clampedDx;
+        });
+      }
+    });
+  }
 
   @override
   void dispose() {
@@ -131,7 +168,15 @@ class _PrayerCardState extends State<PrayerCard> {
         oldWidget.prayer.prayerId != widget.prayer.prayerId) {
       _currentVersionIndex = widget.initialVersionIndex;
     }
+    if (oldWidget.prayer != widget.prayer ||
+        oldWidget.prayer.prayerId != widget.prayer.prayerId ||
+        oldWidget.selectedLanguage != widget.selectedLanguage ||
+        oldWidget.compareLanguage != widget.compareLanguage) {
+      _selectedPhraseId = null;
+      _followerDx = 12.0;
+    }
     _checkAiAvailability();
+    _scheduleUpdateFollowerOffset();
   }
 
   List<InlineSpan> _parseItalicsSpans(
@@ -188,6 +233,7 @@ class _PrayerCardState extends State<PrayerCard> {
     int index,
     ThemeData theme, {
     bool isTarget = false,
+    bool attachLayerLink = false,
     bool isResponse = false,
   }) {
     final fontWeight = isResponse ? FontWeight.bold : null;
@@ -215,9 +261,12 @@ class _PrayerCardState extends State<PrayerCard> {
             setState(() {
               if (_selectedPhraseId == token.id) {
                 _selectedPhraseId = null;
+                _followerDx = 12.0;
               } else {
                 _selectedPhraseId = token.id;
+                _followerDx = 12.0;
                 _checkAiAvailability();
+                _scheduleUpdateFollowerOffset();
               }
             });
           };
@@ -240,12 +289,13 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
       );
 
-      if (isTarget) {
+      if (attachLayerLink) {
         return TextSpan(
           children: [
             textSpan,
             WidgetSpan(
               child: CompositedTransformTarget(
+                key: _targetKey,
                 link: _layerLink,
                 child: const SizedBox(width: 0, height: 0),
               ),
@@ -343,8 +393,10 @@ class _PrayerCardState extends State<PrayerCard> {
         onPhraseSelected: (phraseId) {
           setState(() {
             _selectedPhraseId = phraseId;
+            _followerDx = 12.0;
             if (phraseId != null) {
               _checkAiAvailability();
+              _scheduleUpdateFollowerOffset();
             }
           });
         },
@@ -353,6 +405,15 @@ class _PrayerCardState extends State<PrayerCard> {
       // Text rendering with phrase alignments
       final fullText = trans.tokens!.map((t) => t.text).join('');
       final hasResponses = _responsePrefixRegex.hasMatch(fullText);
+
+      int? targetTokenIndex;
+      if (_isDualMode && isTargetColumn && _selectedPhraseId != null) {
+        for (var i = 0; i < trans.tokens!.length; i++) {
+          if (trans.tokens![i].id == _selectedPhraseId) {
+            targetTokenIndex = i;
+          }
+        }
+      }
 
       final spans = <InlineSpan>[];
 
@@ -364,6 +425,7 @@ class _PrayerCardState extends State<PrayerCard> {
               i,
               theme,
               isTarget: isTargetColumn,
+              attachLayerLink: i == targetTokenIndex,
               isResponse: false,
             ),
           );
@@ -413,6 +475,7 @@ class _PrayerCardState extends State<PrayerCard> {
                 i,
                 theme,
                 isTarget: isTargetColumn,
+                attachLayerLink: i == targetTokenIndex,
                 isResponse: isResponse,
               ),
             );
@@ -580,7 +643,10 @@ class _PrayerCardState extends State<PrayerCard> {
           : null,
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 8),
+        clipBehavior: Clip.none,
         child: Stack(
+          key: _stackKey,
+          clipBehavior: Clip.none,
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -795,7 +861,7 @@ class _PrayerCardState extends State<PrayerCard> {
                 showWhenUnlinked: false,
                 targetAnchor: Alignment.centerRight,
                 followerAnchor: Alignment.centerLeft,
-                offset: const Offset(12, 0),
+                offset: Offset(_followerDx, 0),
                 child: SizedBox(
                   width: 28,
                   height: 28,
