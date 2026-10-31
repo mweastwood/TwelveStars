@@ -99,12 +99,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       return controller;
     }
     if (_chapterScrollControllers.length >= _maxCachedControllers) {
-      final evictKey = _chapterScrollControllers.keys.firstWhere(
-        (k) => k != _currentPageIndex,
-        orElse: () => _chapterScrollControllers.keys.first,
-      );
-      final evictController = _chapterScrollControllers.remove(evictKey);
-      evictController?.dispose();
+      final evictKeys = _chapterScrollControllers.entries
+          .where((e) => e.key != _currentPageIndex && !e.value.hasClients)
+          .map((e) => e.key)
+          .take(_chapterScrollControllers.length - _maxCachedControllers + 1)
+          .toList();
+      for (final key in evictKeys) {
+        _chapterScrollControllers.remove(key)?.dispose();
+      }
     }
     final newController = ScrollController();
     _chapterScrollControllers[index] = newController;

@@ -2342,5 +2342,201 @@ void main() {
         expect(find.text('Blessed are the poor in spirit.'), findsOneWidget);
       },
     );
+
+    testWidgets(
+      'navigating across >10 chapters and returning to kept-alive chapter does not dispose attached ScrollControllers',
+      (WidgetTester tester) async {
+        final genesisBook = catholicBooks.firstWhere((b) => b.bookNumber == 1);
+        for (int ch = 1; ch <= 12; ch++) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  bookNumber: 1,
+                  bookName: 'Genesis',
+                  chapter: ch,
+                  verseNumber: 1,
+                  verseText: 'Genesis chapter $ch verse 1 content.',
+                  translationCode: 'CPDV',
+                ),
+              );
+        }
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+
+        // Navigate across 12 chapters so each chapter loads and attaches its ScrollController
+        for (int ch = 2; ch <= 12; ch++) {
+          state.navigateToChapter(genesisBook, ch);
+          await tester.pumpAndSettle();
+          expect(
+            find.text('Genesis chapter $ch verse 1 content.'),
+            findsOneWidget,
+          );
+        }
+
+        // Return to chapter 1 (kept alive via AutomaticKeepAliveClientMixin)
+        state.navigateToChapter(genesisBook, 1);
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis chapter 1 verse 1 content.'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    testWidgets(
+      'deleting a favorite in BibleNotesScreen refreshes kept-alive BibleChapterView in BibleTab',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven and earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb.saveFavorite(
+          FavoritePassagesCompanion.insert(
+            bookNumber: 1,
+            bookName: 'Genesis',
+            chapter: 1,
+            startVerse: 1,
+            endVerse: 1,
+            textPreview: 'In the beginning God created heaven and earth.',
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Favorite star chip is visible on Genesis 1:1
+        expect(find.byIcon(Icons.star_rounded), findsOneWidget);
+
+        // Open BibleNotesScreen via FAB
+        await tester.tap(find.byKey(const Key('bible_notes_fab')));
+        await tester.pumpAndSettle();
+
+        // Delete the favorite in BibleNotesScreen
+        await tester.tap(find.byTooltip('Delete'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+        await tester.pumpAndSettle();
+
+        // Navigate back to BibleTab
+        await tester.pageBack();
+        await tester.pumpAndSettle();
+
+        // Kept-alive BibleChapterView has refreshed and removed the favorite star chip
+        expect(find.byIcon(Icons.star_rounded), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'BibleChapterView formats selection bar, clipboard copy, and modals using modern/dual numbering',
+      (WidgetTester tester) async {
+        final List<Map<String, dynamic>> clipboardLog = [];
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          (MethodCall methodCall) async {
+            if (methodCall.method == 'Clipboard.setData') {
+              clipboardLog.add(methodCall.arguments as Map<String, dynamic>);
+              return null;
+            }
+            if (methodCall.method == 'Clipboard.getData') {
+              return {
+                'text': clipboardLog.isNotEmpty
+                    ? clipboardLog.last['text']
+                    : '',
+              };
+            }
+            return null;
+          },
+        );
+
+        final psalmBook = catholicBooks.firstWhere((b) => b.bookNumber == 21);
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 115,
+                verseNumber: 1,
+                verseText: 'Alleluia. I had confidence.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 115,
+                verseNumber: 2,
+                verseText: 'I said in my excess.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'PSA',
+            sectionIndex: 115,
+            nodeId: '21_115_1',
+            commentText: 'Psalm note',
+            textPreview: const Value('Alleluia. I had confidence.'),
+            createdAt: DateTime(2026, 1, 1),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: psalmBook,
+                chapter: 115,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+                numberingSystem: BibleNumberingSystem.modern,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Long-press verse 1 (Modern 116:10) and tap verse 2 (Modern 116:11)
+        await tester.longPress(find.text('Alleluia. I had confidence.'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('I said in my excess.'));
+        await tester.pumpAndSettle();
+
+        // Selection bar shows Modern citation Psalms 116:10-11
+        expect(find.text('Psalms 116:10-11'), findsOneWidget);
+
+        // Copy to clipboard uses Modern verse numbers 10 and 11
+        await tester.tap(find.byTooltip('Copy selection'));
+        await tester.pumpAndSettle();
+        final clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
+        expect(
+          clipboardData?.text,
+          'Psalms 116:10-11\n10 Alleluia. I had confidence.\n11 I said in my excess.',
+        );
+
+        // Open comments modal on verse 1 -> modal header shows Modern citation Psalms 116:10
+        await tester.tap(find.byIcon(Icons.comment_rounded));
+        await tester.pumpAndSettle();
+        expect(find.text('Comments for Psalms 116:10'), findsOneWidget);
+      },
+    );
   });
 }

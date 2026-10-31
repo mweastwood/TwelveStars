@@ -5,6 +5,7 @@ import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
+import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 export 'package:twelve_stars/widgets/bible_annotation_card.dart'
@@ -13,6 +14,9 @@ export 'package:twelve_stars/widgets/bible_annotation_card.dart'
 enum BibleNotesScope { chapter, book, all }
 
 class BibleNotesScreen extends StatefulWidget {
+  static ValueNotifier<int> get annotationsRevision =>
+      BibleChapterView.annotationsRevision;
+
   final ValueChanged<FavoritePassage>? onSelectFavorite;
   final ValueChanged<UserComment>? onSelectComment;
   final VoidCallback? onFavoritesOrCommentsChanged;
@@ -43,6 +47,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   List<UserComment> _comments = [];
   List<BibleAnnotationItem> _cachedUnifiedItems = const [];
   bool _isLoading = true;
+  bool _hasMutatedData = false;
 
   BibleBook? _activeBook;
   int? _activeChapter;
@@ -74,10 +79,12 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   }
 
   Future<void> _loadData() async {
-    if (widget.initialFavorites != null && widget.initialComments != null) {
+    if (!_hasMutatedData &&
+        widget.initialFavorites != null &&
+        widget.initialComments != null) {
       setState(() {
-        _favorites = widget.initialFavorites!;
-        _comments = widget.initialComments!;
+        _favorites = List<FavoritePassage>.from(widget.initialFavorites!);
+        _comments = List<UserComment>.from(widget.initialComments!);
         _recomputeUnifiedItems();
         _isLoading = false;
       });
@@ -86,17 +93,29 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
     setState(() => _isLoading = true);
     try {
-      final favs =
-          widget.initialFavorites ??
-          await BibleDatabaseHelper.db.getFavorites();
-      final bibleComments = widget.initialComments != null
-          ? widget.initialComments!
-                .where(
-                  (c) =>
-                      catholicBookAbbrevs.contains(c.documentId.toUpperCase()),
-                )
-                .toList()
-          : await BibleDatabaseHelper.db.getBibleComments();
+      final dbFavs = await BibleDatabaseHelper.db.getFavorites();
+      final favs = _hasMutatedData
+          ? (widget.initialFavorites == null || dbFavs.isNotEmpty
+                ? dbFavs
+                : _favorites)
+          : (widget.initialFavorites != null
+                ? List<FavoritePassage>.from(widget.initialFavorites!)
+                : dbFavs);
+
+      final dbComments = await BibleDatabaseHelper.db.getBibleComments();
+      final bibleComments = _hasMutatedData
+          ? (widget.initialComments == null || dbComments.isNotEmpty
+                ? dbComments
+                : _comments)
+          : (widget.initialComments != null
+                ? widget.initialComments!
+                      .where(
+                        (c) => catholicBookAbbrevs.contains(
+                          c.documentId.toUpperCase(),
+                        ),
+                      )
+                      .toList()
+                : dbComments);
 
       if (mounted) {
         setState(() {
@@ -108,7 +127,10 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       }
     } catch (_) {
       if (mounted) {
-        setState(() => _isLoading = false);
+        setState(() {
+          _recomputeUnifiedItems();
+          _isLoading = false;
+        });
       }
     }
   }
@@ -272,8 +294,16 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       textPreview: comment.textPreview ?? '',
       commentId: comment.id,
       initialText: comment.commentText,
-      onCommentUpdated: (_) async {
+      onCommentUpdated: (updatedText) async {
+        _hasMutatedData = true;
+        _comments = _comments
+            .map(
+              (c) =>
+                  c.id == comment.id ? c.copyWith(commentText: updatedText) : c,
+            )
+            .toList();
         await _loadData();
+        BibleChapterView.annotationsRevision.value++;
         widget.onFavoritesOrCommentsChanged?.call();
       },
     );
@@ -293,6 +323,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
 
     if (item.type == BibleAnnotationType.favorite && item.favorite != null) {
       await BibleDatabaseHelper.db.deleteFavorite(item.favorite!.id);
+      _favorites = _favorites.where((f) => f.id != item.favorite!.id).toList();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -304,6 +335,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     } else if (item.type == BibleAnnotationType.comment &&
         item.comment != null) {
       await BibleDatabaseHelper.db.deleteComment(item.comment!.id);
+      _comments = _comments.where((c) => c.id != item.comment!.id).toList();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -313,7 +345,9 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         );
       }
     }
+    _hasMutatedData = true;
     await _loadData();
+    BibleChapterView.annotationsRevision.value++;
     widget.onFavoritesOrCommentsChanged?.call();
   }
 

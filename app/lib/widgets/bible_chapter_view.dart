@@ -16,6 +16,8 @@ import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 class BibleChapterView extends StatefulWidget {
+  static final ValueNotifier<int> annotationsRevision = ValueNotifier<int>(0);
+
   final BibleBook book;
   final int chapter;
   final String primaryTranslation;
@@ -79,13 +81,24 @@ class _BibleChapterViewState extends State<BibleChapterView>
   void initState() {
     super.initState();
     _adapter = BibleReaderAdapter(bibleBook: widget.book);
+    BibleChapterView.annotationsRevision.addListener(
+      _onAnnotationsRevisionChanged,
+    );
     _loadChapterData();
   }
 
   @override
   void dispose() {
+    BibleChapterView.annotationsRevision.removeListener(
+      _onAnnotationsRevisionChanged,
+    );
     _selectionController.dispose();
     super.dispose();
+  }
+
+  void _onAnnotationsRevisionChanged() {
+    if (!mounted) return;
+    _loadChapterData(reloadVerses: false);
   }
 
   @override
@@ -138,8 +151,12 @@ class _BibleChapterViewState extends State<BibleChapterView>
     }
   }
 
-  Future<void> _loadChapterData() async {
+  Future<void> _loadChapterData({bool reloadVerses = true}) async {
     if (!mounted) return;
+    if (!reloadVerses) {
+      await Future.wait([_loadFavorites(), _loadComments()]);
+      return;
+    }
     final loadGen = ++_loadGeneration;
     setState(() {
       _loading = true;
@@ -226,15 +243,82 @@ class _BibleChapterViewState extends State<BibleChapterView>
     widget.onSelectionChanged?.call(false);
   }
 
+  String _formatSelectionCitation(int startVerse, int endVerse) {
+    if (widget.numberingSystem == BibleNumberingSystem.vulgate) {
+      return _adapter.formatSelectionCitation(
+        widget.chapter,
+        startVerse,
+        endVerse,
+      );
+    }
+
+    final mStart = BibleVerseResolver.vulgateToMasoreticVerse(
+      bookNumber: widget.book.bookNumber,
+      chapter: widget.chapter,
+      verse: startVerse,
+    );
+    final mEnd = BibleVerseResolver.vulgateToMasoreticVerse(
+      bookNumber: widget.book.bookNumber,
+      chapter: widget.chapter,
+      verse: endVerse,
+    );
+
+    final String modernPart;
+    if (mStart.chapter == mEnd.chapter && mStart.verse == mEnd.verse) {
+      modernPart = '${mStart.chapter}:${mStart.verse}';
+    } else if (mStart.chapter == mEnd.chapter) {
+      modernPart = '${mStart.chapter}:${mStart.verse}-${mEnd.verse}';
+    } else {
+      modernPart =
+          '${mStart.chapter}:${mStart.verse}-${mEnd.chapter}:${mEnd.verse}';
+    }
+
+    if (widget.numberingSystem == BibleNumberingSystem.modern) {
+      return '${widget.book.bookName} $modernPart';
+    }
+
+    final vulgatePart = startVerse == endVerse
+        ? '${widget.chapter}:$startVerse'
+        : '${widget.chapter}:$startVerse-$endVerse';
+    if (vulgatePart == modernPart) {
+      return '${widget.book.bookName} $vulgatePart';
+    }
+    return '${widget.book.bookName} $vulgatePart (Modern $modernPart)';
+  }
+
+  String _formatVerseCitation(int verseNumber) =>
+      _formatSelectionCitation(verseNumber, verseNumber);
+
+  String _formatClipboardContent(
+    String citation,
+    List<BibleVerse> selectedVerses,
+  ) {
+    final count = selectedVerses.length;
+    final versesText = selectedVerses
+        .map((v) {
+          if (count == 1) return v.verseText;
+          final display = BibleVerseResolver.formatVerseDisplay(
+            bookNumber: widget.book.bookNumber,
+            chapter: widget.chapter,
+            verseNumber: v.verseNumber,
+            numberingSystem: widget.numberingSystem,
+          );
+          final numLabel =
+              display.alternateVerseNumber != null &&
+                  display.alternateVerseNumber!.isNotEmpty
+              ? '${display.displayVerseNumber} (${display.alternateVerseNumber})'
+              : '${display.displayVerseNumber}';
+          return '$numLabel ${v.verseText}';
+        })
+        .join(count == 1 ? '' : '\n');
+    return '$citation\n$versesText';
+  }
+
   Widget _buildSelectionActionBar(ThemeData theme) {
     final start = _selectionController.start!;
     final end = _selectionController.end!;
     final count = _selectionController.selectedCount;
-    final citation = _adapter.formatSelectionCitation(
-      widget.chapter,
-      start,
-      end,
-    );
+    final citation = _formatSelectionCitation(start, end);
 
     final selectedVerses =
         _verses
@@ -287,7 +371,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         },
       ),
       onCopy: () async {
-        final clipboardContent = _adapter.formatClipboardContent(
+        final clipboardContent = _formatClipboardContent(
           citation,
           selectedVerses,
         );
@@ -477,6 +561,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
                               verseNumber: verse.verseNumber,
                               numberingSystem: widget.numberingSystem,
                             );
+                        final verseRef = _formatVerseCitation(
+                          verse.verseNumber,
+                        );
 
                         return KeyedSubtree(
                           key: _verseKeys[verse.id],
@@ -503,22 +590,19 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                 _onVerseLongPress(verse.verseNumber),
                             onTapCitations: () => showReverseCitationsModal(
                               context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              title: verseRef,
                               citations: verseCitations,
                             ),
                             onTapComments: () => showVerseCommentsModal(
                               context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              title: verseRef,
                               nodeId: nodeId,
                               textPreview: verse.verseText,
                               comments: verseComments,
                               onCommentsChanged: _loadComments,
                               onAddComment: () => showAddCommentDialog(
                                 context: context,
-                                citation:
-                                    '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                                citation: verseRef,
                                 textPreview: verse.verseText,
                                 documentId: widget.book.abbrev,
                                 sectionIndex: widget.chapter,
@@ -528,8 +612,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             ),
                             onTapFavorite: () => showVerseFavoritesModal(
                               context: context,
-                              title:
-                                  '${widget.book.bookName} ${widget.chapter}:${verse.verseNumber}',
+                              title: verseRef,
                               favorites: matchingFavorites,
                               onFavoritesChanged: () async {
                                 await _loadFavorites();
