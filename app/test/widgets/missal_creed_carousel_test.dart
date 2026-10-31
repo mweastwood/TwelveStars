@@ -366,6 +366,81 @@ void main() {
     );
 
     testWidgets(
+      'switching to Apostles Creed (index 1) clips vertical overflow beyond container height while preserving natural height measurement',
+      (tester) async {
+        const double niceneHeight = 350.0;
+        const double apostlesHeight = 180.0;
+        bool niceneBottomTapped = false;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  MissalCreedCarousel(
+                    niceneCard: SizedBox(
+                      key: const Key('tall_nicene_card'),
+                      height: niceneHeight,
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: GestureDetector(
+                          key: const Key('nicene_bottom_target'),
+                          behavior: HitTestBehavior.opaque,
+                          onTap: () => niceneBottomTapped = true,
+                          child: const SizedBox(width: 24, height: 40),
+                        ),
+                      ),
+                    ),
+                    apostlesCard: const SizedBox(
+                      key: Key('short_apostles_card'),
+                      height: apostlesHeight,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final animatedContainer = tester.widget<AnimatedContainer>(
+          find.byType(AnimatedContainer),
+        );
+        expect(animatedContainer.clipBehavior, equals(Clip.hardEdge));
+        expect(
+          find.descendant(
+            of: find.byType(MissalCreedCarousel),
+            matching: find.byType(ClipRect),
+          ),
+          findsOneWidget,
+        );
+
+        // Switch to page 1 (shorter Apostles' Creed)
+        await tester.tap(find.byKey(const Key('apostles_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        final carouselRect = tester.getRect(find.byType(MissalCreedCarousel));
+        expect(carouselRect.height, equals(apostlesHeight));
+
+        // Tapping below the carousel container where the taller Nicene card
+        // would otherwise overflow must be clipped and not hit-testable.
+        await tester.tapAt(
+          Offset(carouselRect.left + 8, carouselRect.bottom + 50),
+        );
+        await tester.pump();
+        expect(niceneBottomTapped, isFalse);
+
+        // Natural height of Nicene card is still measured and restored on page 0
+        await tester.tap(find.byKey(const Key('nicene_creed_peeking_tap')));
+        await tester.pumpAndSettle();
+
+        final restoredRect = tester.getRect(find.byType(MissalCreedCarousel));
+        expect(restoredRect.height, equals(niceneHeight));
+      },
+    );
+
+    testWidgets(
       'SingleChildScrollView uses clipBehavior Clip.none to prevent 1px border clipping',
       (tester) async {
         await tester.pumpWidget(

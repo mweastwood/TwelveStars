@@ -230,6 +230,8 @@ class _MissalCreedCarouselState extends State<MissalCreedCarousel> {
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOutCubic,
           height: calculatedHeight,
+          clipBehavior: Clip.hardEdge,
+          decoration: const BoxDecoration(),
           child: Stack(
             clipBehavior: Clip.none,
             children: [

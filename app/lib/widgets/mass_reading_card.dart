@@ -123,9 +123,10 @@ class _MassReadingCardState extends State<MassReadingCard> {
   @override
   void didUpdateWidget(MassReadingCard oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.reading != widget.reading ||
-        oldWidget.fontSize != widget.fontSize) {
-      _selectionController.clear();
+    if (oldWidget.reading != widget.reading) {
+      if (_selectionController.hasSelection) {
+        _clearSelection();
+      }
       _loadVerses(force: true);
     } else if (oldWidget.primaryLanguage != widget.primaryLanguage ||
         oldWidget.compareLanguage != widget.compareLanguage) {
@@ -474,7 +475,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
           _clearSelection();
         }
       },
-      onClearSelection: () => _clearSelection(notify: false),
+      onClearSelection: () => _clearSelection(),
     );
   }
 
