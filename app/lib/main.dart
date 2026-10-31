@@ -11,6 +11,7 @@ import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'screens/home_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   mainCommon();
 }
 
@@ -120,6 +121,10 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
+      if (mounted &&
+          TwelveStarsApp.themeNotifier.value == AppThemeMode.liturgical) {
+        setState(() {});
+      }
       unawaited(
         NotificationService.syncAllNotifications().catchError((e, stack) {
           debugPrint(

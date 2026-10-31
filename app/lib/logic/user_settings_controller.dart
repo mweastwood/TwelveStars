@@ -35,29 +35,32 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     }
   }
 
-  Future<UserSettings> load() async {
+  Future<UserSettings> load() {
     if (_inFlightLoad != null) {
       return _inFlightLoad!;
     }
-    final loadVersion = _mutationVersion;
-    final future = PrayerDatabase.loadSettings();
-    _inFlightLoad = future;
-    try {
-      final loaded = await future;
-      if (_syncedPrayerCatalogVersion != null &&
-          loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
-        loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
-      }
-      if (_mutationVersion == loadVersion) {
-        _isInitialized = true;
-        _setValueAndNotify(loaded);
-      }
-      return value;
-    } finally {
+    late final Future<UserSettings> future;
+    future = _performLoad().whenComplete(() {
       if (identical(_inFlightLoad, future)) {
         _inFlightLoad = null;
       }
+    });
+    _inFlightLoad = future;
+    return future;
+  }
+
+  Future<UserSettings> _performLoad() async {
+    final loadVersion = _mutationVersion;
+    final loaded = await PrayerDatabase.loadSettings();
+    if (_syncedPrayerCatalogVersion != null &&
+        loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
+      loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
     }
+    if (_mutationVersion == loadVersion) {
+      _isInitialized = true;
+      _setValueAndNotify(loaded);
+    }
+    return value;
   }
 
   Future<void> update(UserSettings settings) async {
@@ -84,13 +87,7 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
       } else if (PrayerDatabase.mockPrayers != null) {
         _isInitialized = true;
       } else {
-        final loaded = await PrayerDatabase.loadSettings();
-        if (_syncedPrayerCatalogVersion != null &&
-            loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
-          loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
-        }
-        value = loaded;
-        _isInitialized = true;
+        await load();
       }
     } else if (PrayerDatabase.mockSettings != null &&
         !identical(value, PrayerDatabase.mockSettings)) {

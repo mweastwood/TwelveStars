@@ -4,6 +4,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
+import 'package:twelve_stars/logic/time_helper.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
@@ -94,7 +95,7 @@ class NotificationService {
   static tz.TZDateTime nextSunday8AM([DateTime? fromDate]) {
     _ensureTimeZonesInitialized();
 
-    final now = fromDate ?? DateTime.now();
+    final now = fromDate ?? TimeHelper.now();
     final tzNow = now is tz.TZDateTime
         ? now
         : tz.TZDateTime(
@@ -146,7 +147,7 @@ class NotificationService {
   ]) {
     _ensureTimeZonesInitialized();
 
-    final now = fromDate ?? DateTime.now();
+    final now = fromDate ?? TimeHelper.now();
     final tzNow = now is tz.TZDateTime
         ? now
         : tz.TZDateTime(
@@ -192,7 +193,7 @@ class NotificationService {
   ]) {
     _ensureTimeZonesInitialized();
 
-    final now = fromDate ?? DateTime.now();
+    final now = fromDate ?? TimeHelper.now();
     final tzNow = now is tz.TZDateTime
         ? now
         : tz.TZDateTime(
@@ -647,6 +648,7 @@ class NotificationService {
     UserSettings? settings,
     DateTime? fromDate,
   ]) async {
+    syncAllCallCount++;
     onSyncAll?.call();
     if (kIsWeb) return;
     try {

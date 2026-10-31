@@ -1,7 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
+
+class _DelayedBibleDatabase extends Fake implements BibleDatabase {
+  final Completer<UserSettings?> completer = Completer<UserSettings?>();
+  UserSettings? savedSettings;
+  int getUserSettingsCallCount = 0;
+
+  @override
+  Future<UserSettings?> getUserSettings() {
+    getUserSettingsCallCount++;
+    return completer.future;
+  }
+
+  @override
+  Future<void> saveUserSettings(UserSettings settings) async {
+    savedSettings = settings;
+  }
+}
 
 void main() {
   setUp(() {
@@ -11,6 +31,7 @@ void main() {
   });
 
   tearDown(() {
+    BibleDatabaseHelper.db = null;
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.mockPrayers = null;
     UserSettingsController.instance.resetForTesting();
@@ -358,6 +379,71 @@ void main() {
         copy.missalHiddenPrayers!.add('creed');
         expect(original.getPreferredVersionIndex('ave_maria_latin'), equals(0));
         expect(original.missalHiddenPrayers, equals(['gloria']));
+      },
+    );
+
+    test(
+      'concurrent load() and update() returns updated value to all callers instead of stale DB settings',
+      () async {
+        final delayedDb = _DelayedBibleDatabase();
+        BibleDatabaseHelper.db = delayedDb;
+        final controller = UserSettingsController.instance;
+
+        // First and second callers invoke load() while DB query is in flight
+        final loadFuture1 = controller.load();
+        final loadFuture2 = controller.load();
+        expect(delayedDb.getUserSettingsCallCount, equals(1));
+
+        // While load() is still in flight, update() is called with new settings
+        final updatedSettings = UserSettings(primaryLanguageCode: 'french');
+        await controller.update(updatedSettings);
+
+        // Now complete the stale DB load with older settings
+        delayedDb.completer.complete(
+          UserSettings(primaryLanguageCode: 'spanish'),
+        );
+
+        final result1 = await loadFuture1;
+        final result2 = await loadFuture2;
+
+        expect(result1.primaryLanguageCode, equals('french'));
+        expect(result2.primaryLanguageCode, equals('french'));
+        expect(controller.value.primaryLanguageCode, equals('french'));
+        expect(controller.isInitialized, isTrue);
+      },
+    );
+
+    test(
+      'mutate() when uninitialized shares in-flight load() and respects concurrent update()',
+      () async {
+        final delayedDb = _DelayedBibleDatabase();
+        BibleDatabaseHelper.db = delayedDb;
+        final controller = UserSettingsController.instance;
+
+        // Start mutate() while controller is uninitialized
+        final mutateFuture = controller.mutate((s) {
+          s.hapticsEnabled = false;
+        });
+        expect(delayedDb.getUserSettingsCallCount, equals(1));
+
+        // Concurrent update() happens before the initial DB read completes
+        final concurrentSettings = UserSettings(
+          primaryLanguageCode: 'italian',
+          hapticsEnabled: true,
+        );
+        await controller.update(concurrentSettings);
+
+        // Complete the stale DB read
+        delayedDb.completer.complete(
+          UserSettings(primaryLanguageCode: 'german', hapticsEnabled: true),
+        );
+
+        final mutated = await mutateFuture;
+        // Both the concurrent update ('italian') and the mutation (hapticsEnabled: false) are preserved!
+        expect(mutated.primaryLanguageCode, equals('italian'));
+        expect(mutated.hapticsEnabled, isFalse);
+        expect(controller.value.primaryLanguageCode, equals('italian'));
+        expect(controller.value.hapticsEnabled, isFalse);
       },
     );
   });
