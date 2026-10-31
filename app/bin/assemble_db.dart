@@ -57,14 +57,16 @@ void main() {
     exit(1);
   }
 
-  final files = dir
-      .listSync(recursive: true)
-      .whereType<File>()
-      .where((f) => f.path.endsWith('.md'))
-      .toList();
+  final files =
+      dir
+          .listSync(recursive: true)
+          .whereType<File>()
+          .where((f) => f.path.endsWith('.md'))
+          .toList()
+        ..sort((a, b) => a.path.compareTo(b.path));
 
   final prayersToInsert = <String, Map<String, dynamic>>{};
-  final translationsToInsert = <Map<String, dynamic>>{};
+  final translationsToInsert = <Map<String, dynamic>>[];
 
   for (final file in files) {
     final filename = p.basename(file.path);
@@ -169,14 +171,24 @@ void main() {
       chineseLines = lines;
     }
 
-    prayersToInsert[prayerId] = {
-      'id': prayerId,
-      'default_title': defaultTitle,
-      'category': category,
-      'default_order': defaultOrder,
-      'has_amen':
-          (prayersToInsert[prayerId]?['has_amen'] as bool? ?? false) || hasAmen,
-    };
+    final existingPrayer = prayersToInsert[prayerId];
+    if (existingPrayer == null) {
+      prayersToInsert[prayerId] = {
+        'id': prayerId,
+        'default_title': defaultTitle,
+        'category': category,
+        'default_order': defaultOrder,
+        'has_amen': hasAmen,
+      };
+    } else {
+      if (versionIndex == 0) {
+        existingPrayer['default_title'] = defaultTitle;
+        existingPrayer['category'] = category;
+        existingPrayer['default_order'] = defaultOrder;
+      }
+      existingPrayer['has_amen'] =
+          (existingPrayer['has_amen'] as bool? ?? false) || hasAmen;
+    }
 
     translationsToInsert.add({
       'prayer_id': prayerId,
@@ -201,27 +213,38 @@ void main() {
   final List<Map<String, dynamic>> jsonList = [];
   for (final p in prayersToInsert.values) {
     final Map<String, List<Map<String, dynamic>>> translationsMap = {};
-    for (final t in translationsToInsert) {
-      if (t['prayer_id'] == p['id']) {
-        final lang = t['language'] as String;
-        if (!translationsMap.containsKey(lang)) {
-          translationsMap[lang] = [];
-        }
+    final prayerTranslations =
+        translationsToInsert.where((t) => t['prayer_id'] == p['id']).toList()
+          ..sort((a, b) {
+            final langCmp = (a['language'] as String).compareTo(
+              b['language'] as String,
+            );
+            if (langCmp != 0) return langCmp;
+            return (a['version_index'] as int).compareTo(
+              b['version_index'] as int,
+            );
+          });
 
-        translationsMap[lang]!.add({
-          'title': t['title'],
-          'subtitle': t['subtitle'],
-          'text': t['text'],
-          'source_name': t['source_name'],
-          'source_url': t['source_url'],
-          'history_author': t['history_author'],
-          'history_origin': t['history_origin'],
-          'history_description': t['history_description'],
-          'chinese_lines': t['chinese_lines'],
-          'tokens': t['tokens'],
-          'sources': t['sources'],
-        });
+    for (final t in prayerTranslations) {
+      final lang = t['language'] as String;
+      if (!translationsMap.containsKey(lang)) {
+        translationsMap[lang] = [];
       }
+
+      translationsMap[lang]!.add({
+        'title': t['title'],
+        'subtitle': t['subtitle'],
+        'text': t['text'],
+        'source_name': t['source_name'],
+        'source_url': t['source_url'],
+        'copyright': t['copyright'],
+        'history_author': t['history_author'],
+        'history_origin': t['history_origin'],
+        'history_description': t['history_description'],
+        'chinese_lines': t['chinese_lines'],
+        'tokens': t['tokens'],
+        'sources': t['sources'],
+      });
     }
     final prayerData = {
       'id': p['id'],
