@@ -86,33 +86,33 @@ String softNormalize(String text, {required PrayerLanguage language}) {
 
   res = res.toLowerCase();
 
-  // Strip call/response symbols, role labels, and prompt headers that are
-  // present in web sources but omitted in the application's local text database.
-  // This is done before stripping whitespace and punctuation so that multi-word
-  // labels (like "người xướng" and "đọc chung") can be matched accurately.
+  // Strip call/response symbols and liturgical cross markers before stripping
+  // whitespace and punctuation.
   res = res
+      .replaceAll('&#10016;', ' ')
+      .replaceAll('&#8224;', ' ')
+      .replaceAll('✠', ' ')
+      .replaceAll('†', ' ')
       .replaceAll(RegExp(r'(^|\s)[℣℟vVrR]\.?(\s|$)'), ' ')
       .replaceAll(RegExp(r'(^|\s)[vVrR]/(\s|$)'), ' ')
-      .replaceAll('namumuno', '')
-      .replaceAll('bayan', '')
-      .replaceAll('người đọc', '')
-      .replaceAll('người xướng', '')
-      .replaceAll('người đáp', '')
-      .replaceAll('đọc chung', '')
-      .replaceAll('xướng', '')
-      .replaceAll('đáp', '')
-      .replaceAll('linh mục', '')
-      .replaceAll('chủ tế', '')
-      .replaceAll('cộng đoàn', '')
-      .replaceAll('giáo dân', '')
-      .replaceAll('phó tế', '')
-      .replaceAll('領經者', '')
-      .replaceAll('主祭', '')
-      .replaceAll('全體', '')
-      .replaceAll('啟：', '')
-      .replaceAll('應：', '')
-      .replaceAll('啟', '')
-      .replaceAll('應', '');
+      .replaceAll('người đọc', ' ')
+      .replaceAll('người xướng', ' ')
+      .replaceAll('người đáp', ' ')
+      .replaceAll('đọc chung', ' ')
+      .replaceAll('xướng', ' ')
+      .replaceAll('đáp', ' ')
+      .replaceAll('linh mục', ' ')
+      .replaceAll('chủ tế', ' ')
+      .replaceAll('cộng đoàn', ' ')
+      .replaceAll('giáo dân', ' ')
+      .replaceAll('phó tế', ' ')
+      .replaceAll('領經者', ' ')
+      .replaceAll('主祭', ' ')
+      .replaceAll('全體', ' ')
+      .replaceAll('啟：', ' ')
+      .replaceAll('應：', ' ')
+      .replaceAll('啟', ' ')
+      .replaceAll('應', ' ');
 
   // Apply language-specific external source typo fixes
   final fixesForLanguage = sourceTypoFixes[language];
@@ -345,52 +345,44 @@ String softNormalize(String text, {required PrayerLanguage language}) {
   // Strip all straight quotes first
   res = res.replaceAll('"', '').replaceAll("'", '');
 
-  // Strip all punctuation, markdown italics asterisks, and whitespace to do a character-sequence only match.
-  // This includes Western and Chinese full-width punctuation.
+  // Replace punctuation and markdown italics asterisks with spaces first so that
+  // word-bounded role labels and "Amen" can be stripped without corrupting
+  // substrings inside words (e.g., "sacrament", "testament", "parish", "elector").
   res = res.replaceAll(
-    RegExp(r"[*.,;:!?\-\(\)«»‘’“”\s\u00A0\u200b，。、；：！？「」『』/]+"),
-    '',
+    RegExp(r"[*.,;:!?\-\(\)«»‘’“”\u00A0\u200b，。、；：！？「」『』/]+"),
+    ' ',
+  );
+
+  res = res.replaceAll(
+    RegExp(
+      r'(?:^|\s+)(?:'
+      r'người\s+đọc|người\s+xướng|người\s+đáp|đọc\s+chung|'
+      r'linh\s+mục|chủ\s+tế|cộng\s+đoàn|giáo\s+dân|phó\s+tế|'
+      r'xướng|đáp|linhmục|chủtế|cộngđoàn|giáodân|phótế|ngườiđọc|'
+      r'amen|amén|amên|'
+      r'priest|people|deacon|reader|'
+      r'sacerdos|populus|diaconus|lector|'
+      r'sacerdote|asamblea|pueblo|diácono|diacono|'
+      r'prêtre|pretre|lecteur|'
+      r'popolo|lettore|'
+      r'pari|namumuno|bayan'
+      r')(?=\s|$)',
+    ),
+    ' ',
   );
 
   res = res
-      .replaceAll('amen', '')
-      .replaceAll('amén', '')
-      .replaceAll('amên', '')
       .replaceAll('亞孟', '')
       .replaceAll('阿們', '')
       .replaceAll('阿門', '')
-      .replaceAll('priest', '')
-      .replaceAll('people', '')
-      .replaceAll('deacon', '')
-      .replaceAll('reader', '')
-      .replaceAll('sacerdos', '')
-      .replaceAll('populus', '')
-      .replaceAll('diaconus', '')
-      .replaceAll('lector', '')
-      .replaceAll('sacerdote', '')
-      .replaceAll('asamblea', '')
-      .replaceAll('pueblo', '')
-      .replaceAll('diácono', '')
-      .replaceAll('linhmục', '')
-      .replaceAll('chủtế', '')
-      .replaceAll('cộngđoàn', '')
-      .replaceAll('giáodân', '')
-      .replaceAll('phótế', '')
-      .replaceAll('ngườiđọc', '')
-      .replaceAll('prêtre', '')
-      .replaceAll('lecteur', '')
-      .replaceAll('popolo', '')
-      .replaceAll('lettore', '')
-      .replaceAll('pari', '')
-      .replaceAll('namumuno', '')
-      .replaceAll('bayan', '')
       .replaceAll('領經者', '')
       .replaceAll('主祭', '')
       .replaceAll('全體', '')
-      .replaceAll('✠', '')
-      .replaceAll('†', '')
-      .replaceAll('&#10016;', '')
-      .replaceAll('&#8224;', '');
+      .replaceAll('啟', '')
+      .replaceAll('應', '');
+
+  // Strip all remaining whitespace to do a character-sequence only match.
+  res = res.replaceAll(RegExp(r'\s+'), '');
 
   return res;
 }
@@ -403,100 +395,109 @@ Future<String> fetchHtml(
   Duration timeout = const Duration(seconds: 15),
 }) async {
   final activeClient = client ?? http.Client();
-  final cleanUrl = url.split('#').first;
-  if (cache != null && cache.containsKey(cleanUrl)) {
-    return cache[cleanUrl]!;
-  }
-
-  final uri = Uri.parse(cleanUrl);
-  final isWaybackOnly = waybackOnlyDomains.contains(uri.host);
-
-  http.Response response;
-  if (isWaybackOnly) {
-    final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
-    try {
-      response = await activeClient
-          .get(Uri.parse(waybackUrl), headers: {'User-Agent': 'Mozilla/5.0'})
-          .timeout(timeout);
-    } catch (e) {
-      throw HttpException(
-        'Failed to fetch from Wayback Machine ($waybackUrl): $e',
-      );
+  try {
+    final cleanUrl = url.split('#').first;
+    if (cache != null && cache.containsKey(cleanUrl)) {
+      return cache[cleanUrl]!;
     }
-  } else {
-    try {
-      response = await activeClient
-          .get(
-            uri,
-            headers: {
-              'User-Agent':
-                  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            },
-          )
-          .timeout(timeout);
 
-      final pageText = response.body.toLowerCase();
-      final isBlocked =
-          response.statusCode == 403 ||
-          response.statusCode == 503 ||
-          pageText.contains('cloudflare') ||
-          pageText.contains('security check') ||
-          (pageText.contains('captcha') &&
-              !pageText.contains('wgconfirmedit')) ||
-          pageText.contains('sucuri') ||
-          pageText.contains('access denied') ||
-          pageText.contains('challenge-platform') ||
-          pageText.contains('ray id') ||
-          pageText.contains('please enable cookies');
+    final uri = Uri.parse(cleanUrl);
+    final isWaybackOnly = waybackOnlyDomains.contains(uri.host);
 
-      if (isBlocked) {
-        final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
-        try {
-          final waybackResponse = await activeClient
-              .get(
-                Uri.parse(waybackUrl),
-                headers: {'User-Agent': 'Mozilla/5.0'},
-              )
-              .timeout(timeout);
-          if (waybackResponse.statusCode == 200) {
-            response = waybackResponse;
-          } else {
-            throw HttpException(
-              'Blocked on live site and Wayback Machine returned HTTP ${waybackResponse.statusCode}',
-            );
-          }
-        } catch (e) {
-          throw HttpException(
-            'Blocked on live site and Wayback Machine fetch failed: $e',
-          );
-        }
-      }
-    } catch (e) {
-      if (e is HttpException) rethrow;
+    http.Response response;
+    if (isWaybackOnly) {
       final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
       try {
         response = await activeClient
             .get(Uri.parse(waybackUrl), headers: {'User-Agent': 'Mozilla/5.0'})
             .timeout(timeout);
-      } catch (we) {
+      } catch (e) {
         throw HttpException(
-          'Live fetch failed ($e) and Wayback Machine fetch failed ($we)',
+          'Failed to fetch from Wayback Machine ($waybackUrl): $e',
         );
       }
+    } else {
+      try {
+        response = await activeClient
+            .get(
+              uri,
+              headers: {
+                'User-Agent':
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+              },
+            )
+            .timeout(timeout);
+
+        final pageText = response.body.toLowerCase();
+        final isBlocked =
+            response.statusCode == 403 ||
+            response.statusCode == 503 ||
+            pageText.contains('cloudflare') ||
+            pageText.contains('security check') ||
+            (pageText.contains('captcha') &&
+                !pageText.contains('wgconfirmedit')) ||
+            pageText.contains('sucuri') ||
+            pageText.contains('access denied') ||
+            pageText.contains('challenge-platform') ||
+            pageText.contains('ray id') ||
+            pageText.contains('please enable cookies');
+
+        if (isBlocked) {
+          final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
+          try {
+            final waybackResponse = await activeClient
+                .get(
+                  Uri.parse(waybackUrl),
+                  headers: {'User-Agent': 'Mozilla/5.0'},
+                )
+                .timeout(timeout);
+            if (waybackResponse.statusCode == 200) {
+              response = waybackResponse;
+            } else {
+              throw HttpException(
+                'Blocked on live site and Wayback Machine returned HTTP ${waybackResponse.statusCode}',
+              );
+            }
+          } catch (e) {
+            throw HttpException(
+              'Blocked on live site and Wayback Machine fetch failed: $e',
+            );
+          }
+        }
+      } catch (e) {
+        if (e is HttpException) rethrow;
+        final waybackUrl = 'https://web.archive.org/web/20260101/$cleanUrl';
+        try {
+          response = await activeClient
+              .get(
+                Uri.parse(waybackUrl),
+                headers: {'User-Agent': 'Mozilla/5.0'},
+              )
+              .timeout(timeout);
+        } catch (we) {
+          throw HttpException(
+            'Live fetch failed ($e) and Wayback Machine fetch failed ($we)',
+          );
+        }
+      }
+    }
+
+    if (response.statusCode != 200) {
+      throw HttpException(
+        'Failed to fetch $cleanUrl: HTTP ${response.statusCode}',
+      );
+    }
+
+    final html = decodeHtmlBytes(response.bodyBytes, cleanUrl);
+    if (cache != null) {
+      cache[cleanUrl] = html;
+    }
+    return html;
+  } finally {
+    if (client == null) {
+      activeClient.close();
     }
   }
-
-  if (response.statusCode != 200) {
-    throw HttpException(
-      'Failed to fetch $cleanUrl: HTTP ${response.statusCode}',
-    );
-  }
-
-  final html = decodeHtmlBytes(response.bodyBytes, cleanUrl);
-  if (cache != null) {
-    cache[cleanUrl] = html;
-  }
-  return html;
 }
 
 void printUsage() {

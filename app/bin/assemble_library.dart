@@ -533,6 +533,7 @@ void parseChapteredBookFile({
   required String subtitle,
   required String author,
   required Directory outputDir,
+  String? verseSystem,
 }) {
   final file = File(filepath);
   if (!file.existsSync()) {
@@ -549,6 +550,7 @@ void parseChapteredBookFile({
   Map<String, dynamic>? currentSection;
   String currentChapterTitle = '';
   String currentChapterSubtitle = '';
+  bool awaitingChapterSubtitle = false;
 
   for (final line in lines) {
     final stripped = line.trim();
@@ -657,6 +659,7 @@ void parseChapteredBookFile({
       final secId = 'sec_${secIdPrefix}_$chapNum';
       currentChapterTitle = 'Chapter $chapNum';
       currentChapterSubtitle = '';
+      awaitingChapterSubtitle = true;
       currentSection = {
         'id': secId,
         'title': currentChapterTitle,
@@ -667,16 +670,22 @@ void parseChapteredBookFile({
       continue;
     }
 
-    if (currentSection != null &&
-        (currentSection['subtitle'] as String).isEmpty &&
-        !RegExp(r'^\d+:\d+').hasMatch(stripped)) {
-      currentChapterSubtitle = stripped;
-      currentSection['subtitle'] = currentChapterSubtitle;
-      final tocTitle = currentChapterSubtitle.isNotEmpty
-          ? '${currentSection['title']}: $currentChapterSubtitle'
-          : currentSection['title'] as String;
-      toc.add({'id': currentSection['id'] as String, 'title': tocTitle});
-      continue;
+    if (currentSection != null && awaitingChapterSubtitle) {
+      awaitingChapterSubtitle = false;
+      if (!RegExp(r'^\d+:\d+').hasMatch(stripped)) {
+        currentChapterSubtitle = stripped;
+        currentSection['subtitle'] = currentChapterSubtitle;
+        final tocTitle = currentChapterSubtitle.isNotEmpty
+            ? '${currentSection['title']}: $currentChapterSubtitle'
+            : currentSection['title'] as String;
+        toc.add({'id': currentSection['id'] as String, 'title': tocTitle});
+        continue;
+      } else {
+        toc.add({
+          'id': currentSection['id'] as String,
+          'title': currentSection['title'] as String,
+        });
+      }
     }
 
     if (currentSection != null) {
@@ -697,17 +706,31 @@ void parseChapteredBookFile({
     }
   }
 
+  final outFile = File(p.join(outputDir.path, '$bookId.json'));
+  String resolvedVerseSystem = verseSystem ?? 'vulgate';
+  if (verseSystem == null && outFile.existsSync()) {
+    try {
+      final existingJson = jsonDecode(outFile.readAsStringSync());
+      if (existingJson is Map<String, dynamic> &&
+          existingJson['verseSystem'] is String &&
+          (existingJson['verseSystem'] as String).isNotEmpty) {
+        resolvedVerseSystem = existingJson['verseSystem'] as String;
+      }
+    } catch (_) {
+      // Fallback to default 'vulgate' if existing file cannot be parsed
+    }
+  }
+
   final finalJson = {
     'bookId': bookId,
     'title': title,
     'subtitle': subtitle,
     'author': author,
-    'verseSystem': 'vulgate',
+    'verseSystem': resolvedVerseSystem,
     'toc': toc,
     'sections': sections,
   };
 
-  final outFile = File(p.join(outputDir.path, '$bookId.json'));
   outFile.writeAsStringSync(
     const JsonEncoder.withIndent('  ').convert(finalJson),
   );

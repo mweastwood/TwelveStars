@@ -90,6 +90,31 @@ class TestRepositoryScripts(unittest.TestCase):
         self.assertIn("if (line.trim().isEmpty)", content)
         self.assertIn("globalCharIndex += line.runes.length + 1;", content)
 
+    def test_assemble_db_deterministic_sorting_and_copyright(self):
+        assemble_db_path = REPO_ROOT / "app" / "bin" / "assemble_db.dart"
+        self.assertTrue(assemble_db_path.is_file(), "assemble_db.dart should exist")
+        content = assemble_db_path.read_text(encoding="utf-8")
+
+        # Verify files are sorted by path for deterministic cross-OS ordering
+        self.assertIn("..sort((a, b) => a.path.compareTo(b.path))", content)
+        # Verify translations are sorted by version_index
+        self.assertIn("(a['version_index'] as int).compareTo(", content)
+        self.assertIn("b['version_index'] as int", content)
+        # Verify copyright is included in serialized translation entries
+        self.assertIn("'copyright': t['copyright']", content)
+
+    def test_verify_sources_word_boundaries_and_client_cleanup(self):
+        verify_sources_path = REPO_ROOT / "app" / "bin" / "verify_sources.dart"
+        self.assertTrue(verify_sources_path.is_file(), "verify_sources.dart should exist")
+        content = verify_sources_path.read_text(encoding="utf-8")
+
+        # Verify role labels and amen are stripped using whitespace boundaries before stripping spaces
+        self.assertIn(r"(?:^|\s+)(?:", content)
+        self.assertIn(r")(?=\s|$)", content)
+        # Verify standalone fetchHtml closes internally-created http.Client
+        self.assertIn("if (client == null)", content)
+        self.assertIn("activeClient.close();", content)
+
 
 if __name__ == "__main__":
     unittest.main()
