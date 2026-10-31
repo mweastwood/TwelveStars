@@ -124,8 +124,14 @@ class _MassReadingCardState extends State<MassReadingCard> {
   void didUpdateWidget(MassReadingCard oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.reading != widget.reading) {
-      if (_selectionController.hasSelection) {
-        _clearSelection();
+      final hadSelection = _selectionController.hasSelection;
+      _selectionController.clear();
+      if (hadSelection && !(oldWidget.isSelected && !widget.isSelected)) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && !_selectionController.hasSelection) {
+            _notifySelectionChanged();
+          }
+        });
       }
       _loadVerses(force: true);
     } else if (oldWidget.primaryLanguage != widget.primaryLanguage ||

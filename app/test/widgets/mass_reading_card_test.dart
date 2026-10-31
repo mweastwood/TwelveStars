@@ -1083,6 +1083,106 @@ void main() {
     },
   );
 
+  testWidgets(
+    'Updating MassReadingCard.reading while a verse is selected clears selection and notifies parent post-frame without setState-during-build error',
+    (WidgetTester tester) async {
+      const reading1 = LectionaryReading(
+        id: 12,
+        readingKey: 'feast_reading_1',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1',
+        citation: 'Genesis 1:1',
+      );
+      const reading2 = LectionaryReading(
+        id: 13,
+        readingKey: 'feast_reading_2',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '2',
+        citation: 'Genesis 1:2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void and empty.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      LectionaryReading activeReading = reading1;
+      MassReadingSelection? parentSelection;
+      late StateSetter updateParentState;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: StatefulBuilder(
+            builder: (context, setState) {
+              updateParentState = setState;
+              return Scaffold(
+                body: MassReadingCard(
+                  reading: activeReading,
+                  isSelected: parentSelection != null,
+                  onSelectionChanged: (sel) {
+                    setState(() {
+                      parentSelection = sel;
+                    });
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Select verse 1
+      await tester.longPress(
+        find.text('In the beginning God created heaven, and earth.'),
+      );
+      await tester.pumpAndSettle();
+      expect(parentSelection, isNotNull);
+
+      // Update reading while selection is active; parent onSelectionChanged calls setState
+      updateParentState(() {
+        activeReading = reading2;
+      });
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      expect(parentSelection, isNull);
+      expect(find.text('And the earth was void and empty.'), findsOneWidget);
+      expect(
+        tester.widget<BibleVerseRow>(find.byType(BibleVerseRow)).isSelected,
+        isFalse,
+      );
+    },
+  );
+
   testGoldens('MassReadingCard renders correctly expanded and collapsed', (
     tester,
   ) async {
