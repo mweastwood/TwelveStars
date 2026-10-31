@@ -926,7 +926,7 @@ void main() {
   });
 
   testWidgets(
-    'MassReadingSelection.onClearSelection clears local card selection without re-notifying onSelectionChanged',
+    'MassReadingSelection.onClearSelection clears local card selection and notifies onSelectionChanged(null)',
     (WidgetTester tester) async {
       const reading = LectionaryReading(
         id: 10,
@@ -985,12 +985,201 @@ void main() {
       currentSelection!.onClearSelection();
       await tester.pumpAndSettle();
 
-      // Callback count should remain 1 (no re-notification / double setState)
-      expect(callbackCount, 1);
+      // Parent listener must be notified that selection is now null
+      expect(callbackCount, 2);
+      expect(currentSelection, isNull);
 
       // Verse highlight should be cleared
       final verseFinder = find.byType(BibleVerseRow);
       expect(tester.widget<BibleVerseRow>(verseFinder).isSelected, isFalse);
+    },
+  );
+
+  testWidgets(
+    'Updating MassReadingCard.fontSize updates text style without clearing selection or triggering a database reload spinner',
+    (WidgetTester tester) async {
+      const reading = LectionaryReading(
+        id: 11,
+        readingKey: 'feast_fontsize_test',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1-2',
+        citation: 'Genesis 1:1-2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      final List<MassReadingSelection?> selectionEvents = [];
+      double fontSize = 16.0;
+      late StateSetter updateParentState;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: StatefulBuilder(
+            builder: (context, setState) {
+              updateParentState = setState;
+              return Scaffold(
+                body: MassReadingCard(
+                  reading: reading,
+                  fontSize: fontSize,
+                  isSelected: true,
+                  onSelectionChanged: selectionEvents.add,
+                ),
+              );
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Select verse 1
+      await tester.longPress(
+        find.text('In the beginning God created heaven, and earth.'),
+      );
+      await tester.pumpAndSettle();
+
+      expect(selectionEvents.length, 1);
+      expect(selectionEvents.last, isNotNull);
+      expect(
+        tester.widget<BibleVerseRow>(find.byType(BibleVerseRow)).isSelected,
+        isTrue,
+      );
+      expect(
+        tester.widget<BibleVerseRow>(find.byType(BibleVerseRow)).fontSize,
+        16.0,
+      );
+
+      // Update fontSize
+      updateParentState(() {
+        fontSize = 22.0;
+      });
+      await tester.pump();
+
+      // Should NOT show loading spinner on frame after fontSize change
+      expect(find.text('Loading scripture...'), findsNothing);
+      expect(find.byType(BibleVerseRow), findsOneWidget);
+
+      final updatedRow = tester.widget<BibleVerseRow>(
+        find.byType(BibleVerseRow),
+      );
+      expect(updatedRow.fontSize, 22.0);
+      expect(updatedRow.isSelected, isTrue);
+      expect(selectionEvents.length, 1);
+      expect(selectionEvents.last, isNotNull);
+    },
+  );
+
+  testWidgets(
+    'Updating MassReadingCard.reading while a verse is selected clears selection and notifies parent post-frame without setState-during-build error',
+    (WidgetTester tester) async {
+      const reading1 = LectionaryReading(
+        id: 12,
+        readingKey: 'feast_reading_1',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '1',
+        citation: 'Genesis 1:1',
+      );
+      const reading2 = LectionaryReading(
+        id: 13,
+        readingKey: 'feast_reading_2',
+        readingType: 'first',
+        bookNumber: 1,
+        bookName: 'Genesis',
+        chapter: 1,
+        verseRange: '2',
+        citation: 'Genesis 1:2',
+      );
+
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 1,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 1,
+              verseText: 'In the beginning God created heaven, and earth.',
+              translationCode: 'CPDV',
+            ),
+          );
+      await testDb
+          .into(testDb.bibleVerses)
+          .insert(
+            const BibleVerse(
+              id: 2,
+              bookNumber: 1,
+              bookName: 'Genesis',
+              chapter: 1,
+              verseNumber: 2,
+              verseText: 'And the earth was void and empty.',
+              translationCode: 'CPDV',
+            ),
+          );
+
+      LectionaryReading activeReading = reading1;
+      MassReadingSelection? parentSelection;
+      late StateSetter updateParentState;
+
+      await tester.pumpWidget(
+        buildTestableWidget(
+          child: StatefulBuilder(
+            builder: (context, setState) {
+              updateParentState = setState;
+              return Scaffold(
+                body: MassReadingCard(
+                  reading: activeReading,
+                  isSelected: parentSelection != null,
+                  onSelectionChanged: (sel) {
+                    setState(() {
+                      parentSelection = sel;
+                    });
+                  },
+                ),
+              );
+            },
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Select verse 1
+      await tester.longPress(
+        find.text('In the beginning God created heaven, and earth.'),
+      );
+      await tester.pumpAndSettle();
+      expect(parentSelection, isNotNull);
+
+      // Update reading while selection is active; parent onSelectionChanged calls setState
+      updateParentState(() {
+        activeReading = reading2;
+      });
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+      expect(parentSelection, isNull);
+      expect(find.text('And the earth was void and empty.'), findsOneWidget);
+      expect(
+        tester.widget<BibleVerseRow>(find.byType(BibleVerseRow)).isSelected,
+        isFalse,
+      );
     },
   );
 
