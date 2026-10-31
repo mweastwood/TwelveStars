@@ -158,7 +158,12 @@ void main() {
       'calculates correct Ordinary Time week across November DST transition',
       () {
         final nov1 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 1));
-        expect(nov1.weekName, '31st Sunday in Ordinary Time');
+        expect(nov1.weekNumber, 31);
+        expect(nov1.weekName, 'Solemnity of All Saints');
+        expect(nov1.name, 'All Saints');
+
+        final nov2 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 2));
+        expect(nov2.weekName, 'Monday of the 31st Week in Ordinary Time');
 
         final nov8 = LiturgicalCalendar.computeDay(DateTime(2026, 11, 8));
         expect(nov8.weekName, '32nd Sunday in Ordinary Time');
@@ -593,7 +598,68 @@ void main() {
           DateTime(2022, 6, 23),
         );
         expect(jun23StJohnBaptist2022.name, 'Nativity of St. John the Baptist');
+        expect(
+          jun23StJohnBaptist2022.weekName,
+          'Solemnity of the Nativity of St. John the Baptist',
+        );
         expect(jun23StJohnBaptist2022.lectionaryKey, 'feast_st_john_baptist');
+
+        // When Easter is April 22 (e.g. 1984), Corpus Christi falls on June 24
+        // and Sacred Heart falls on June 29:
+        // - Nativity of St. John the Baptist transfers to June 25, 1984
+        // - Sts. Peter and Paul transfers to June 30, 1984
+        final jun24CorpusChristi1984 = LiturgicalCalendar.computeDay(
+          DateTime(1984, 6, 24),
+        );
+        expect(
+          jun24CorpusChristi1984.name,
+          'The Most Holy Body and Blood of Christ (Corpus Christi)',
+        );
+        expect(jun24CorpusChristi1984.weekName, 'Solemnity of Corpus Christi');
+        expect(jun24CorpusChristi1984.lectionaryKey, 'feast_corpus_christi');
+
+        final jun25StJohnBaptist1984 = LiturgicalCalendar.computeDay(
+          DateTime(1984, 6, 25),
+        );
+        expect(jun25StJohnBaptist1984.name, 'Nativity of St. John the Baptist');
+        expect(
+          jun25StJohnBaptist1984.weekName,
+          'Solemnity of the Nativity of St. John the Baptist',
+        );
+        expect(jun25StJohnBaptist1984.lectionaryKey, 'feast_st_john_baptist');
+
+        final jun29SacredHeart1984 = LiturgicalCalendar.computeDay(
+          DateTime(1984, 6, 29),
+        );
+        expect(jun29SacredHeart1984.name, 'The Most Sacred Heart of Jesus');
+        expect(
+          jun29SacredHeart1984.weekName,
+          'Solemnity of the Most Sacred Heart of Jesus',
+        );
+        expect(jun29SacredHeart1984.lectionaryKey, 'feast_sacred_heart');
+
+        final jun30StsPeterPaul1984 = LiturgicalCalendar.computeDay(
+          DateTime(1984, 6, 30),
+        );
+        expect(jun30StsPeterPaul1984.name, 'Sts. Peter and Paul, Apostles');
+        expect(
+          jun30StsPeterPaul1984.weekName,
+          'Solemnity of Sts. Peter and Paul',
+        );
+        expect(jun30StsPeterPaul1984.lectionaryKey, 'feast_st_peter_paul');
+
+        // Verify weekName on all fixed solemnities
+        expect(mar20Mon.weekName, 'Solemnity of St. Joseph');
+        expect(apr8Transferred.weekName, 'Solemnity of the Annunciation');
+        expect(dec9Mon.weekName, 'Solemnity of the Immaculate Conception');
+        final aug15Assumption = LiturgicalCalendar.computeDay(
+          DateTime(2026, 8, 15),
+        );
+        expect(
+          aug15Assumption.name,
+          'The Assumption of the Blessed Virgin Mary',
+        );
+        expect(aug15Assumption.weekName, 'Solemnity of the Assumption');
       },
     );
 

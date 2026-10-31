@@ -511,16 +511,15 @@ class ReverseCitationService {
       final c = rc.citation;
       final b = c.bookNumber;
 
-      if (c.verseSystem == 'modern') {
+      if (c.verseSystem == 'modern' || (b == 34 && c.chapter == 4)) {
         if (c.isEntireChapter) {
-          final resolved = BibleVerseResolver.masoreticToVulgateVerse(
+          final resolvedChapter = BibleVerseResolver.masoreticToVulgateChapter(
             bookNumber: b,
             chapter: c.chapter,
-            verse: 1,
           );
           _chapterIndex
               .putIfAbsent(b, () => {})
-              .putIfAbsent(resolved.chapter, () => [])
+              .putIfAbsent(resolvedChapter, () => [])
               .add(rc);
         } else if (c.verse != null) {
           final start = c.verse!;

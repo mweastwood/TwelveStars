@@ -634,5 +634,57 @@ void main() {
         expect(data.first.text, 'The book of the genealogy of Jesus Christ.');
       },
     );
+
+    test(
+      'respects endVerseLimit on multi-chapter readings without fetching remainder of chapter',
+      () async {
+        // Seed Genesis 1:30-31 and Genesis 2:1-4
+        final seedVerses = [
+          (ch: 1, v: 30, text: 'Verse 1:30.'),
+          (ch: 1, v: 31, text: 'Verse 1:31.'),
+          (ch: 2, v: 1, text: 'Verse 2:1.'),
+          (ch: 2, v: 2, text: 'Verse 2:2.'),
+          (ch: 2, v: 3, text: 'Verse 2:3.'),
+          (ch: 2, v: 4, text: 'Verse 2:4 should be excluded.'),
+        ];
+        for (final item in seedVerses) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  translationCode: 'drc',
+                  bookNumber: 1,
+                  bookName: 'Genesis',
+                  chapter: item.ch,
+                  verseNumber: item.v,
+                  verseText: item.text,
+                ),
+              );
+        }
+
+        final reading = LectionaryReading(
+          id: 4,
+          readingKey: 'cross_chapter_reading',
+          readingType: 'first',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '30-31',
+          citation: 'Genesis 1:30—2:2',
+        );
+
+        final data = await HomilyService.fetchReadingsData([
+          reading,
+        ], translation: 'drc');
+
+        expect(data.length, 1);
+        expect(
+          data.first.text,
+          'Verse 1:30. Verse 1:31. Verse 2:1. Verse 2:2.',
+        );
+        expect(data.first.text, isNot(contains('2:3')));
+        expect(data.first.text, isNot(contains('2:4')));
+      },
+    );
   });
 }

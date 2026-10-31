@@ -472,6 +472,52 @@ void main() {
         expect(wholeChap.first.citation!.isEntireChapter, true);
         expect(wholeChap.first.citation!.displayLabel, 'Psalms 94');
         expect(wholeChap.first.citation!.rawMatch, 'Ps 94[95]');
+
+        // Period after Ps and optional space before bracketed alternate chapter
+        final psPeriod = BibleCitationParser.parse(
+          'Ps. 14[15]:1 and Psalm 14 [15]:1-2',
+          verseSystem: 'dual',
+        );
+        final psPeriodCitations = psPeriod
+            .where((s) => s.isCitation)
+            .map((s) => s.citation!)
+            .toList();
+        expect(psPeriodCitations.length, 2);
+        expect(psPeriodCitations[0].chapter, 14);
+        expect(psPeriodCitations[0].verse, 1);
+        expect(psPeriodCitations[0].endVerse, isNull);
+        expect(psPeriodCitations[0].displayLabel, 'Psalms 14:1');
+        expect(psPeriodCitations[1].chapter, 14);
+        expect(psPeriodCitations[1].verse, 1);
+        expect(psPeriodCitations[1].endVerse, 2);
+        expect(psPeriodCitations[1].displayLabel, 'Psalms 14:1-2');
+      });
+
+      test('parses Modern Joel 4 citations while rejecting Joel 5', () {
+        final joel4Verse = BibleCitationParser.parse(
+          'Joel 4:1-21',
+          verseSystem: 'modern',
+        );
+        expect(joel4Verse.length, 1);
+        expect(joel4Verse.first.isCitation, isTrue);
+        expect(joel4Verse.first.citation!.bookNumber, 34);
+        expect(joel4Verse.first.citation!.bookName, 'Joel');
+        expect(joel4Verse.first.citation!.chapter, 4);
+        expect(joel4Verse.first.citation!.verse, 1);
+        expect(joel4Verse.first.citation!.endVerse, 21);
+
+        final joel4Chapter = BibleCitationParser.parse(
+          'Joel 4',
+          verseSystem: 'modern',
+        );
+        expect(joel4Chapter.length, 1);
+        expect(joel4Chapter.first.isCitation, isTrue);
+        expect(joel4Chapter.first.citation!.chapter, 4);
+        expect(joel4Chapter.first.citation!.isEntireChapter, isTrue);
+
+        final joel5Out = BibleCitationParser.parse('Joel 5:1');
+        expect(joel5Out.length, 1);
+        expect(joel5Out.first.isCitation, isFalse);
       });
     });
 

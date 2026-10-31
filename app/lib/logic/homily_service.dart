@@ -86,30 +86,39 @@ class HomilyService {
           );
 
           if (range.verses != null) {
+            Expression<bool> versePredicate = db.bibleVerses.verseNumber.isIn(
+              range.verses!,
+            );
+            if (range.startVerseLimit != null) {
+              versePredicate =
+                  versePredicate |
+                  db.bibleVerses.verseNumber.isBiggerOrEqualValue(
+                    range.startVerseLimit!,
+                  );
+            }
+            if (range.endVerseLimit != null) {
+              versePredicate =
+                  versePredicate |
+                  db.bibleVerses.verseNumber.isSmallerOrEqualValue(
+                    range.endVerseLimit!,
+                  );
+            }
+            rangePredicate = rangePredicate & versePredicate;
+          } else {
             if (range.startVerseLimit != null) {
               rangePredicate =
                   rangePredicate &
-                  (db.bibleVerses.verseNumber.isIn(range.verses!) |
-                      db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                        range.startVerseLimit!,
-                      ));
-            } else {
+                  db.bibleVerses.verseNumber.isBiggerOrEqualValue(
+                    range.startVerseLimit!,
+                  );
+            }
+            if (range.endVerseLimit != null) {
               rangePredicate =
                   rangePredicate &
-                  db.bibleVerses.verseNumber.isIn(range.verses!);
+                  db.bibleVerses.verseNumber.isSmallerOrEqualValue(
+                    range.endVerseLimit!,
+                  );
             }
-          } else if (range.startVerseLimit != null) {
-            rangePredicate =
-                rangePredicate &
-                db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                  range.startVerseLimit!,
-                );
-          } else if (range.endVerseLimit != null) {
-            rangePredicate =
-                rangePredicate &
-                db.bibleVerses.verseNumber.isSmallerOrEqualValue(
-                  range.endVerseLimit!,
-                );
           }
 
           predicate = predicate | rangePredicate;

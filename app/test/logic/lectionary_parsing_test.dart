@@ -385,16 +385,14 @@ void main() {
       ),
       _TestCase(
         description:
-            'Psalm 116:8-12 (Spans across Vulgate split 114 & 115, return first match or 115 depending on content)',
+            'Psalm 116:8-12 (Spans across Vulgate split 114 & 115, returns both ranges)',
         bookNumber: 21,
         defaultChapter: 116,
         defaultVerseRange: '8-12',
         citation: 'Psalm 116:8-12',
         expected: [
-          const ChapterVerseRange(
-            chapter: 115,
-            verses: [1, 2, 3],
-          ), // 10-12 maps to 115:1-3 (since verses115 is not empty)
+          const ChapterVerseRange(chapter: 114, verses: [8, 9]),
+          const ChapterVerseRange(chapter: 115, verses: [1, 2, 3]),
         ],
       ),
       _TestCase(
