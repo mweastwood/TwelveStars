@@ -131,6 +131,12 @@ class _PrayerCardState extends State<PrayerCard> {
         oldWidget.prayer.prayerId != widget.prayer.prayerId) {
       _currentVersionIndex = widget.initialVersionIndex;
     }
+    if (oldWidget.prayer != widget.prayer ||
+        oldWidget.prayer.prayerId != widget.prayer.prayerId ||
+        oldWidget.selectedLanguage != widget.selectedLanguage ||
+        oldWidget.compareLanguage != widget.compareLanguage) {
+      _selectedPhraseId = null;
+    }
     _checkAiAvailability();
   }
 
@@ -188,6 +194,7 @@ class _PrayerCardState extends State<PrayerCard> {
     int index,
     ThemeData theme, {
     bool isTarget = false,
+    bool attachLayerLink = false,
     bool isResponse = false,
   }) {
     final fontWeight = isResponse ? FontWeight.bold : null;
@@ -240,7 +247,7 @@ class _PrayerCardState extends State<PrayerCard> {
         ),
       );
 
-      if (isTarget) {
+      if (attachLayerLink) {
         return TextSpan(
           children: [
             textSpan,
@@ -354,6 +361,15 @@ class _PrayerCardState extends State<PrayerCard> {
       final fullText = trans.tokens!.map((t) => t.text).join('');
       final hasResponses = _responsePrefixRegex.hasMatch(fullText);
 
+      int? targetTokenIndex;
+      if (_isDualMode && isTargetColumn && _selectedPhraseId != null) {
+        for (var i = 0; i < trans.tokens!.length; i++) {
+          if (trans.tokens![i].id == _selectedPhraseId) {
+            targetTokenIndex = i;
+          }
+        }
+      }
+
       final spans = <InlineSpan>[];
 
       if (!hasResponses) {
@@ -364,6 +380,7 @@ class _PrayerCardState extends State<PrayerCard> {
               i,
               theme,
               isTarget: isTargetColumn,
+              attachLayerLink: i == targetTokenIndex,
               isResponse: false,
             ),
           );
@@ -413,6 +430,7 @@ class _PrayerCardState extends State<PrayerCard> {
                 i,
                 theme,
                 isTarget: isTargetColumn,
+                attachLayerLink: i == targetTokenIndex,
                 isResponse: isResponse,
               ),
             );
@@ -580,7 +598,9 @@ class _PrayerCardState extends State<PrayerCard> {
           : null,
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 8),
+        clipBehavior: Clip.none,
         child: Stack(
+          clipBehavior: Clip.none,
           children: [
             Padding(
               padding: const EdgeInsets.all(20.0),

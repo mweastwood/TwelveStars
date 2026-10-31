@@ -2104,6 +2104,177 @@ void main() {
           expect(find.text('我們的'), findsWidgets);
         },
       );
+
+      testWidgets(
+        'attaches CompositedTransformTarget only to the last matching token when multiple tokens share the same phraseId in dual mode',
+        (tester) async {
+          final mockAi = MockAiService();
+          LocalAgentHelper.instance = mockAi;
+          mockAi.setMockStatus(AiCoreStatus.available);
+
+          final multiTokenPhrasePrayer = Prayer.mock(
+            id: 'multi_token_phrase',
+            defaultTitle: 'Discontinuous Phrase Prayer',
+            translations: {
+              PrayerLanguage.english: [
+                PrayerTranslation.mock(
+                  title: 'Discontinuous Phrase Prayer',
+                  text: 'Do not lead us into temptation',
+                  tokens: [
+                    PrayerToken('Do not', 'neg_lead'),
+                    PrayerToken(' ', null),
+                    PrayerToken('lead', 'neg_lead'),
+                    PrayerToken(' us into temptation', 'temptation'),
+                  ],
+                ),
+              ],
+              PrayerLanguage.latin: [
+                PrayerTranslation.mock(
+                  title: 'Oratio',
+                  text: 'Et ne nos inducas in tentationem',
+                  tokens: [
+                    PrayerToken('Et ne', 'neg_lead'),
+                    PrayerToken(' nos ', 'temptation'),
+                    PrayerToken('inducas', 'neg_lead'),
+                    PrayerToken(' in tentationem', 'temptation'),
+                  ],
+                ),
+              ],
+            },
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: SingleChildScrollView(
+                  child: PrayerCard(
+                    prayer: multiTokenPhrasePrayer,
+                    selectedLanguage: PrayerLanguage.english,
+                    compareLanguage: PrayerLanguage.latin,
+                    initialVersionIndex: 0,
+                    onVersionChanged: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          );
+
+          final richTextFinder = find.byWidgetPredicate(
+            (widget) =>
+                widget is RichText &&
+                widget.text.toPlainText().contains('Do not lead'),
+          );
+          final richTextWidget =
+              tester.element(richTextFinder).widget as RichText;
+
+          TapGestureRecognizer? recognizer;
+          richTextWidget.text.visitChildren((span) {
+            if (span is TextSpan && span.text == 'Do not') {
+              recognizer = span.recognizer as TapGestureRecognizer?;
+              return false;
+            }
+            return true;
+          });
+
+          expect(recognizer, isNotNull);
+          recognizer!.onTap!();
+          await tester.pumpAndSettle();
+
+          // Must not throw LeaderLayer assertion and must attach exactly one CompositedTransformTarget
+          expect(tester.takeException(), isNull);
+          expect(find.byType(CompositedTransformTarget), findsOneWidget);
+          expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
+
+          // Both matching tokens in the target column should be highlighted
+          final targetRichTextFinder = find.byWidgetPredicate(
+            (widget) =>
+                widget is RichText &&
+                widget.text.toPlainText().contains('Et ne nos inducas'),
+          );
+          final targetRichText =
+              tester.element(targetRichTextFinder).widget as RichText;
+
+          TextSpan? firstTargetSpan;
+          TextSpan? secondTargetSpan;
+          targetRichText.text.visitChildren((span) {
+            if (span is TextSpan) {
+              if (span.text == 'Et ne') firstTargetSpan = span;
+              if (span.text == 'inducas') secondTargetSpan = span;
+            }
+            return true;
+          });
+
+          expect(firstTargetSpan?.style?.backgroundColor, isNotNull);
+          expect(secondTargetSpan?.style?.backgroundColor, isNotNull);
+        },
+      );
+
+      testWidgets(
+        'clears selected phrase when prayer, selectedLanguage, or compareLanguage changes',
+        (tester) async {
+          final mockAi = MockAiService();
+          LocalAgentHelper.instance = mockAi;
+          mockAi.setMockStatus(AiCoreStatus.available);
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: SingleChildScrollView(
+                  child: PrayerCard(
+                    prayer: testPrayerWithTokens,
+                    selectedLanguage: PrayerLanguage.english,
+                    compareLanguage: PrayerLanguage.spanish,
+                    initialVersionIndex: 0,
+                    onVersionChanged: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          );
+
+          final richTextFinder = find.byWidgetPredicate(
+            (widget) =>
+                widget is RichText &&
+                widget.text.toPlainText().contains('who art in heaven'),
+          );
+          final richTextWidget =
+              tester.element(richTextFinder).widget as RichText;
+
+          TapGestureRecognizer? recognizer;
+          richTextWidget.text.visitChildren((span) {
+            if (span is TextSpan && span.text == 'who art in heaven') {
+              recognizer = span.recognizer as TapGestureRecognizer?;
+              return false;
+            }
+            return true;
+          });
+
+          recognizer!.onTap!();
+          await tester.pumpAndSettle();
+          expect(find.byIcon(Icons.auto_awesome), findsOneWidget);
+
+          // Rebuild with swapped languages -> selection should clear
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: SingleChildScrollView(
+                  child: PrayerCard(
+                    prayer: testPrayerWithTokens,
+                    selectedLanguage: PrayerLanguage.spanish,
+                    compareLanguage: PrayerLanguage.english,
+                    initialVersionIndex: 0,
+                    onVersionChanged: (_) {},
+                  ),
+                ),
+              ),
+            ),
+          );
+          await tester.pumpAndSettle();
+
+          expect(find.byIcon(Icons.auto_awesome), findsNothing);
+          expect(find.byType(CompositedTransformTarget), findsNothing);
+        },
+      );
     });
   });
 }

@@ -35,6 +35,7 @@ class _RosaryScreenState extends State<RosaryScreen> {
   late List<RosaryStep> _steps;
   final Map<String, int> _preferredVersions = {};
   bool _hapticsEnabled = true;
+  bool _isFinishDialogOpen = false;
 
   @override
   void initState() {
@@ -80,6 +81,11 @@ class _RosaryScreenState extends State<RosaryScreen> {
   }
 
   bool _handleKeyEvent(KeyEvent event) {
+    if (!mounted ||
+        _isFinishDialogOpen ||
+        ModalRoute.of(context)?.isCurrent != true) {
+      return false;
+    }
     if (event is KeyDownEvent) {
       if (event.logicalKey == LogicalKeyboardKey.audioVolumeUp) {
         _nextStep();
@@ -148,35 +154,41 @@ class _RosaryScreenState extends State<RosaryScreen> {
     });
   }
 
-  void _showFinishDialog() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        final theme = Theme.of(context);
-        return AlertDialog(
-          icon: Icon(
-            Icons.check_circle_outline,
-            size: 48,
-            color: theme.colorScheme.primary,
-          ),
-          title: const Text('Rosary Completed'),
-          content: const Text(
-            'May the peace of the Lord be with you. You have completed the Rosary.',
-            textAlign: TextAlign.center,
-          ),
-          actionsAlignment: MainAxisAlignment.center,
-          actions: [
-            FilledButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                _resetRosary();
-              },
-              child: const Text('Amen'),
+  Future<void> _showFinishDialog() async {
+    if (_isFinishDialogOpen) return;
+    _isFinishDialogOpen = true;
+    try {
+      await showDialog<void>(
+        context: context,
+        builder: (context) {
+          final theme = Theme.of(context);
+          return AlertDialog(
+            icon: Icon(
+              Icons.check_circle_outline,
+              size: 48,
+              color: theme.colorScheme.primary,
             ),
-          ],
-        );
-      },
-    );
+            title: const Text('Rosary Completed'),
+            content: const Text(
+              'May the peace of the Lord be with you. You have completed the Rosary.',
+              textAlign: TextAlign.center,
+            ),
+            actionsAlignment: MainAxisAlignment.center,
+            actions: [
+              FilledButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  _resetRosary();
+                },
+                child: const Text('Amen'),
+              ),
+            ],
+          );
+        },
+      );
+    } finally {
+      _isFinishDialogOpen = false;
+    }
   }
 
   Prayer? _findPrayer(String prayerId) {
