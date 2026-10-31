@@ -511,12 +511,12 @@ class ReverseCitationService {
       final c = rc.citation;
       final b = c.bookNumber;
 
-      if (c.verseSystem == 'modern') {
+      if (c.verseSystem == 'modern' || (b == 34 && c.chapter == 4)) {
         if (c.isEntireChapter) {
           final resolved = BibleVerseResolver.masoreticToVulgateVerse(
             bookNumber: b,
             chapter: c.chapter,
-            verse: 1,
+            verse: 2,
           );
           _chapterIndex
               .putIfAbsent(b, () => {})

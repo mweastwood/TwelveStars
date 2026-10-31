@@ -699,16 +699,25 @@ class LiturgicalCalendar {
 
       // Nativity of St. John the Baptist (June 24): anticipated on June 23
       // (or transferred to June 25 if June 23 is Corpus Christi) when colliding
-      // with the Solemnity of the Most Sacred Heart of Jesus.
+      // with the Solemnity of the Most Sacred Heart of Jesus, or transferred to
+      // June 25 when colliding with Corpus Christi (Easter = April 22).
       final DateTime stJohnBaptistDate;
       if (sacredHeart.month == 6 && sacredHeart.day == 24) {
         stJohnBaptistDate =
             (corpusChristi.month == 6 && corpusChristi.day == 23)
             ? DateTime(year, 6, 25)
             : DateTime(year, 6, 23);
+      } else if (corpusChristi.month == 6 && corpusChristi.day == 24) {
+        stJohnBaptistDate = DateTime(year, 6, 25);
       } else {
         stJohnBaptistDate = DateTime(year, 6, 24);
       }
+
+      // Sts. Peter and Paul (June 29): transferred to June 30 when colliding
+      // with the Solemnity of the Most Sacred Heart of Jesus (Easter = April 22).
+      final stsPeterPaulDate = (sacredHeart.month == 6 && sacredHeart.day == 29)
+          ? DateTime(year, 6, 30)
+          : DateTime(year, 6, 29);
 
       // Immaculate Conception (December 8): transferred to Dec 9 if falling on a Sunday of Advent
       final dec8 = DateTime(year, 12, 8);
@@ -719,24 +728,31 @@ class LiturgicalCalendar {
       if (localDate.isAtSameMomentAs(stJosephDate)) {
         name = 'St. Joseph, Spouse of the Blessed Virgin Mary';
         color = LiturgicalColor.white;
+        weekName = 'Solemnity of St. Joseph';
       } else if (localDate.isAtSameMomentAs(annunciationDate)) {
         name = 'The Annunciation of the Lord';
         color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Annunciation';
       } else if (localDate.isAtSameMomentAs(stJohnBaptistDate)) {
         name = 'Nativity of St. John the Baptist';
         color = LiturgicalColor.white;
-      } else if (localDate.month == 6 && localDate.day == 29) {
+        weekName = 'Solemnity of the Nativity of St. John the Baptist';
+      } else if (localDate.isAtSameMomentAs(stsPeterPaulDate)) {
         name = 'Sts. Peter and Paul, Apostles';
         color = LiturgicalColor.red;
+        weekName = 'Solemnity of Sts. Peter and Paul';
       } else if (localDate.month == 8 && localDate.day == 15) {
         name = 'The Assumption of the Blessed Virgin Mary';
         color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Assumption';
       } else if (localDate.month == 11 && localDate.day == 1) {
         name = 'All Saints';
         color = LiturgicalColor.white;
+        weekName = 'Solemnity of All Saints';
       } else if (localDate.isAtSameMomentAs(immaculateConceptionDate)) {
         name = 'The Immaculate Conception of the Blessed Virgin Mary';
         color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Immaculate Conception';
       }
     }
 

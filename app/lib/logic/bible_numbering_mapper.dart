@@ -1517,6 +1517,12 @@ class BibleVerseResolver {
           secondaryVerses.add(mapped.verse);
         }
       }
+      if (primaryVerses.isNotEmpty && secondaryVerses.isNotEmpty) {
+        return [
+          (chapter: baseChapter, verses: primaryVerses),
+          (chapter: baseChapter + 1, verses: secondaryVerses),
+        ];
+      }
       if (secondaryVerses.isNotEmpty) {
         return [(chapter: baseChapter + 1, verses: secondaryVerses)];
       }
@@ -1577,7 +1583,7 @@ class BibleVerseResolver {
       final mappedChapter = masoreticToVulgateVerse(
         bookNumber: bookNumber,
         chapter: chapter,
-        verse: 1,
+        verse: 2,
       ).chapter;
       return [(chapter: mappedChapter, verses: verses)];
     }
