@@ -5,6 +5,7 @@ import 'package:twelve_stars/logic/reader/reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'reader_parallel_view.dart';
+import 'reader_section_navigation_bar.dart';
 import 'reader_selection_action_bar.dart';
 import 'reader_text_options_sheet.dart';
 import 'reader_toc_bottom_sheet.dart';
@@ -15,6 +16,7 @@ class CoreReaderShell extends StatefulWidget {
   final String? primaryVariant;
   final String? compareVariant;
   final List<Widget>? extraActions;
+  final bool showSectionNavigationBar;
 
   const CoreReaderShell({
     super.key,
@@ -23,6 +25,7 @@ class CoreReaderShell extends StatefulWidget {
     this.primaryVariant,
     this.compareVariant,
     this.extraActions,
+    this.showSectionNavigationBar = true,
   });
 
   @override
@@ -276,120 +279,165 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
           ),
         ],
       ),
-      body: Stack(
+      body: Column(
         children: [
-          PageView.builder(
-            controller: _pageController,
-            itemCount: doc.sectionsCount,
-            onPageChanged: (pageIndex) {
-              setState(() {
-                _currentSectionIndex = pageIndex;
-                _selectionController.clear();
-              });
-            },
-            itemBuilder: (context, pageIndex) {
-              return FutureBuilder<ReaderSection>(
-                initialData: _loadedSections[pageIndex],
-                future: _getSection(pageIndex),
-                builder: (context, snapshot) {
-                  if (snapshot.hasError &&
-                      snapshot.connectionState != ConnectionState.waiting) {
-                    return Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Text('Failed to load section.'),
-                          const SizedBox(height: 8),
-                          TextButton(
-                            onPressed: () {
-                              setState(() {
-                                _sectionFutures.remove(pageIndex);
-                              });
-                            },
-                            child: const Text('Retry'),
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                  if (!snapshot.hasData ||
-                      !_loadedSections.containsKey(pageIndex)) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                  final section = _loadedSections[pageIndex]!;
-                  final isCurrentPage = pageIndex == _currentSectionIndex;
-                  final selectedIds = isCurrentPage
-                      ? _selectedNodeIdsForSection(section)
-                      : const <String>{};
+          Expanded(
+            child: Stack(
+              children: [
+                PageView.builder(
+                  controller: _pageController,
+                  itemCount: doc.sectionsCount,
+                  onPageChanged: (pageIndex) {
+                    setState(() {
+                      _currentSectionIndex = pageIndex;
+                      _selectionController.clear();
+                    });
+                  },
+                  itemBuilder: (context, pageIndex) {
+                    return FutureBuilder<ReaderSection>(
+                      initialData: _loadedSections[pageIndex],
+                      future: _getSection(pageIndex),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasError &&
+                            snapshot.connectionState !=
+                                ConnectionState.waiting) {
+                          return Center(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Text('Failed to load section.'),
+                                const SizedBox(height: 8),
+                                TextButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      _sectionFutures.remove(pageIndex);
+                                    });
+                                  },
+                                  child: const Text('Retry'),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                        if (!snapshot.hasData ||
+                            !_loadedSections.containsKey(pageIndex)) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        final section = _loadedSections[pageIndex]!;
+                        final isCurrentPage = pageIndex == _currentSectionIndex;
+                        final selectedIds = isCurrentPage
+                            ? _selectedNodeIdsForSection(section)
+                            : const <String>{};
 
-                  return ReaderParallelView(
-                    nodes: section.nodes,
-                    fontSize: _fontSize,
-                    selectedNodeIds: selectedIds,
-                    header: Padding(
-                      padding: const EdgeInsets.only(top: 8.0, bottom: 4.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            section.title,
-                            style: theme.textTheme.headlineSmall?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
+                        return ReaderParallelView(
+                          nodes: section.nodes,
+                          fontSize: _fontSize,
+                          selectedNodeIds: selectedIds,
+                          header: Padding(
+                            padding: const EdgeInsets.only(
+                              top: 8.0,
+                              bottom: 4.0,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  section.title,
+                                  style: theme.textTheme.headlineSmall
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color: theme.colorScheme.primary,
+                                      ),
+                                ),
+                                if (section.subtitle != null &&
+                                    section.subtitle!.isNotEmpty) ...[
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    section.subtitle!,
+                                    style: theme.textTheme.titleMedium
+                                        ?.copyWith(
+                                          color: theme.colorScheme.secondary,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ],
+                              ],
                             ),
                           ),
-                          if (section.subtitle != null &&
-                              section.subtitle!.isNotEmpty) ...[
-                            const SizedBox(height: 4),
-                            Text(
-                              section.subtitle!,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                color: theme.colorScheme.secondary,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                    onNodeLongPress: isCurrentPage
-                        ? (nodeId) {
-                            final idx = section.nodes.indexWhere(
-                              (n) => n.id == nodeId,
-                            );
-                            if (idx != -1) {
-                              setState(() {
-                                _selectionController.onLongPress(idx);
-                              });
-                            }
-                          }
-                        : null,
-                    onNodeTap: isCurrentPage
-                        ? (nodeId) {
-                            final idx = section.nodes.indexWhere(
-                              (n) => n.id == nodeId,
-                            );
-                            if (idx != -1 &&
-                                _selectionController.hasSelection) {
-                              setState(() {
-                                _selectionController.onTap(idx);
-                              });
-                            }
-                          }
-                        : null,
-                  );
-                },
-              );
-            },
+                          onNodeLongPress: isCurrentPage
+                              ? (nodeId) {
+                                  final idx = section.nodes.indexWhere(
+                                    (n) => n.id == nodeId,
+                                  );
+                                  if (idx != -1) {
+                                    setState(() {
+                                      _selectionController.onLongPress(idx);
+                                    });
+                                  }
+                                }
+                              : null,
+                          onNodeTap: isCurrentPage
+                              ? (nodeId) {
+                                  final idx = section.nodes.indexWhere(
+                                    (n) => n.id == nodeId,
+                                  );
+                                  if (idx != -1 &&
+                                      _selectionController.hasSelection) {
+                                    setState(() {
+                                      _selectionController.onTap(idx);
+                                    });
+                                  }
+                                }
+                              : null,
+                        );
+                      },
+                    );
+                  },
+                ),
+                if (_selectionController.hasSelection &&
+                    activeSection != null &&
+                    activeSection.nodes.isNotEmpty)
+                  Positioned(
+                    left: 16,
+                    right: 16,
+                    bottom: 16,
+                    child: _buildSelectionActionBar(doc, activeSection),
+                  ),
+              ],
+            ),
           ),
-          if (_selectionController.hasSelection &&
-              activeSection != null &&
-              activeSection.nodes.isNotEmpty)
-            Positioned(
-              left: 16,
-              right: 16,
-              bottom: 16,
-              child: _buildSelectionActionBar(doc, activeSection),
+          if (widget.showSectionNavigationBar && doc.sectionsCount > 1)
+            ReaderSectionNavigationBar(
+              currentIndex: _currentSectionIndex,
+              totalSections: doc.sectionsCount,
+              onPrevious: () {
+                _selectionController.clear();
+                if (_pageController.hasClients) {
+                  _pageController.previousPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  setState(() {
+                    _currentSectionIndex--;
+                  });
+                }
+              },
+              onNext: () {
+                _selectionController.clear();
+                if (_pageController.hasClients) {
+                  _pageController.nextPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                } else {
+                  setState(() {
+                    _currentSectionIndex++;
+                  });
+                }
+              },
             ),
         ],
       ),

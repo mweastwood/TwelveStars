@@ -93,6 +93,52 @@ class LibraryReaderAdapter implements ReaderAdapter {
     return resolvedIndex;
   }
 
+  /// Builds [ReaderTocEntry] items from [bookData].
+  static List<ReaderTocEntry> buildTocEntries(ParsedBookData bookData) {
+    if (bookData.sections.isNotEmpty) {
+      return [
+        for (int idx = 0; idx < bookData.sections.length; idx++)
+          ReaderTocEntry(
+            index: idx,
+            title: bookData.sections[idx].title.isNotEmpty
+                ? bookData.sections[idx].title
+                : (idx < bookData.toc.length ? bookData.toc[idx].title : ''),
+            subtitle: bookData.sections[idx].subtitle.isNotEmpty
+                ? bookData.sections[idx].subtitle
+                : null,
+          ),
+      ];
+    }
+    return [
+      for (int idx = 0; idx < bookData.toc.length; idx++)
+        ReaderTocEntry(index: idx, title: bookData.toc[idx].title),
+    ];
+  }
+
+  /// Groups [comments] belonging to [sectionIndex] by their `nodeId`,
+  /// filtering out comments from other volumes when [isSeries] is true.
+  static Map<String, List<UserComment>> groupCommentsForSection(
+    List<UserComment> comments,
+    int sectionIndex, {
+    String? currentVolumeKey,
+    bool isSeries = false,
+  }) {
+    final sectionCommentsMap = <String, List<UserComment>>{};
+    for (final c in comments) {
+      if (c.sectionIndex == sectionIndex) {
+        final (commentVolKey, _, _) = ReaderNodeId.parseLibrary(c.nodeId);
+        if (isSeries &&
+            currentVolumeKey != null &&
+            commentVolKey != null &&
+            commentVolKey != currentVolumeKey) {
+          continue;
+        }
+        sectionCommentsMap.putIfAbsent(c.nodeId, () => []).add(c);
+      }
+    }
+    return sectionCommentsMap;
+  }
+
   /// Loads the parsed book data for [assetPath].
   Future<ParsedBookData> loadBookData() =>
       LibraryHelper.loadBookData(assetPath);
@@ -214,28 +260,7 @@ class LibraryReaderAdapter implements ReaderAdapter {
   @override
   Future<ReaderDocument> loadDocument() async {
     final data = await loadBookData();
-
-    final List<ReaderTocEntry> toc;
-    if (data.toc.isNotEmpty) {
-      toc = data.toc.asMap().entries.map((e) {
-        final sec = e.key < data.sections.length ? data.sections[e.key] : null;
-        return ReaderTocEntry(
-          index: e.key,
-          title: e.value.title,
-          subtitle: (sec != null && sec.subtitle.isNotEmpty)
-              ? sec.subtitle
-              : null,
-        );
-      }).toList();
-    } else {
-      toc = data.sections.asMap().entries.map((e) {
-        return ReaderTocEntry(
-          index: e.key,
-          title: e.value.title,
-          subtitle: e.value.subtitle.isNotEmpty ? e.value.subtitle : null,
-        );
-      }).toList();
-    }
+    final toc = buildTocEntries(data);
 
     return ReaderDocument(
       documentId: bookItem.id,
