@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/reader/reader_adapter.dart';
@@ -34,9 +35,11 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
   final ReaderSelectionController _selectionController =
       ReaderSelectionController();
   final Map<int, ReaderSection> _loadedSections = {};
+  final Map<int, Future<ReaderSection>> _sectionFutures = {};
   ReaderDocument? _document;
   double _fontSize = 16.0;
   bool _loading = true;
+  int _loadGeneration = 0;
 
   @override
   void initState() {
@@ -52,9 +55,12 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
     if (oldWidget.adapter != widget.adapter ||
         oldWidget.primaryVariant != widget.primaryVariant ||
         oldWidget.compareVariant != widget.compareVariant) {
+      _loadGeneration++;
       _loadedSections.clear();
+      _sectionFutures.clear();
       _selectionController.clear();
       if (oldWidget.adapter != widget.adapter) {
+        _loading = true;
         _loadDocument();
       }
     }
@@ -68,24 +74,48 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
   }
 
   Future<void> _loadDocument() async {
+    final generation = ++_loadGeneration;
     final doc = await widget.adapter.loadDocument();
-    if (mounted) {
-      setState(() {
-        _document = doc;
-        _loading = false;
-      });
+    if (!mounted || generation != _loadGeneration) return;
+    final maxSectionIndex = doc.sectionsCount > 0 ? doc.sectionsCount - 1 : 0;
+    _currentSectionIndex = _currentSectionIndex.clamp(0, maxSectionIndex);
+    if (_pageController.hasClients) {
+      _pageController.jumpToPage(_currentSectionIndex);
+    } else if (_pageController.initialPage != _currentSectionIndex) {
+      _pageController.dispose();
+      _pageController = PageController(initialPage: _currentSectionIndex);
     }
+    setState(() {
+      _document = doc;
+      _loading = false;
+    });
   }
 
-  Future<ReaderSection> _getSection(int sectionIdx) async {
-    final cached = _loadedSections[sectionIdx];
-    if (cached != null) return cached;
+  Future<ReaderSection> _getSection(int sectionIdx) {
+    if (_loadedSections.containsKey(sectionIdx)) {
+      return _sectionFutures.putIfAbsent(
+        sectionIdx,
+        () => SynchronousFuture<ReaderSection>(_loadedSections[sectionIdx]!),
+      );
+    }
+    final existing = _sectionFutures[sectionIdx];
+    if (existing != null) return existing;
+
+    final generation = _loadGeneration;
+    final future = _loadSection(sectionIdx, generation);
+    _sectionFutures[sectionIdx] = future;
+    return future;
+  }
+
+  Future<ReaderSection> _loadSection(int sectionIdx, int generation) async {
     final loaded = await widget.adapter.loadSection(
       sectionIdx,
       primaryVariant: widget.primaryVariant,
       compareVariant: widget.compareVariant,
     );
-    _loadedSections[sectionIdx] = loaded;
+    if (mounted && generation == _loadGeneration) {
+      _loadedSections[sectionIdx] = loaded;
+    }
     return loaded;
   }
 
@@ -252,6 +282,7 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
             },
             itemBuilder: (context, pageIndex) {
               return FutureBuilder<ReaderSection>(
+                initialData: _loadedSections[pageIndex],
                 future: _getSection(pageIndex),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
