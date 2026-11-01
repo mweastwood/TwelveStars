@@ -145,21 +145,73 @@ class BibleReaderAdapter implements ReaderAdapter {
     }
   }
 
+  /// Fetches favorite passages across [chapters] (1-based) for [bookNumber],
+  /// indexed by [ReaderNodeId.bibleVerse] key.
+  static Future<Map<String, List<FavoritePassage>>>
+  fetchFavoritesByNodeIdForChapters(
+    int bookNumber,
+    Iterable<int> chapters, {
+    BibleDatabase? dbHelper,
+  }) async {
+    final db = dbHelper ?? BibleDatabaseHelper.db;
+    final byVerseKey = <String, List<FavoritePassage>>{};
+    for (final ch in chapters.toSet()) {
+      final favorites = await db.getFavoritesForChapter(bookNumber, ch);
+      for (final fav in favorites) {
+        for (int v = fav.startVerse; v <= fav.endVerse; v++) {
+          final key = ReaderNodeId.bibleVerse(fav.bookNumber, fav.chapter, v);
+          byVerseKey.putIfAbsent(key, () => []).add(fav);
+        }
+      }
+    }
+    return byVerseKey;
+  }
+
+  /// Fetches user comments across [chapters] (1-based) for [bookAbbrev],
+  /// indexed by `nodeId`.
+  static Future<Map<String, List<UserComment>>>
+  fetchCommentsByNodeIdForChapters(
+    String bookAbbrev,
+    Iterable<int> chapters, {
+    BibleDatabase? dbHelper,
+  }) async {
+    final db = dbHelper ?? BibleDatabaseHelper.db;
+    final targetChapters = chapters.toSet();
+    if (targetChapters.isEmpty) {
+      return {};
+    }
+
+    final List<UserComment> comments;
+    if (targetChapters.length == 1) {
+      comments = await db.getComments(
+        documentId: bookAbbrev,
+        sectionIndex: targetChapters.first,
+      );
+    } else {
+      final commentsList = await Future.wait(
+        targetChapters.map(
+          (ch) => db.getComments(documentId: bookAbbrev, sectionIndex: ch),
+        ),
+      );
+      comments = commentsList.expand((list) => list).toList();
+    }
+
+    final byNodeId = <String, List<UserComment>>{};
+    for (final c in comments) {
+      byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
+    }
+    return byNodeId;
+  }
+
   /// Fetches user comments for [chapterNumber] (1-based) indexed by `nodeId`.
   Future<Map<String, List<UserComment>>> fetchCommentsByNodeId(
     int chapterNumber, {
     Map<String, List<UserComment>> fallback = const {},
   }) async {
     try {
-      final comments = await dbHelper.getComments(
-        documentId: bibleBook.abbrev,
-        sectionIndex: chapterNumber,
-      );
-      final byNodeId = <String, List<UserComment>>{};
-      for (final c in comments) {
-        byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
-      }
-      return byNodeId;
+      return await fetchCommentsByNodeIdForChapters(bibleBook.abbrev, [
+        chapterNumber,
+      ], dbHelper: dbHelper);
     } catch (_) {
       return fallback;
     }
@@ -194,6 +246,7 @@ class BibleReaderAdapter implements ReaderAdapter {
     required int endChapter,
     required int endVerse,
     BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+    String crossChapterSeparator = '-',
   }) {
     final String vulgatePart;
     if (startChapter == endChapter && startVerse == endVerse) {
@@ -201,7 +254,8 @@ class BibleReaderAdapter implements ReaderAdapter {
     } else if (startChapter == endChapter) {
       vulgatePart = '$startChapter:$startVerse-$endVerse';
     } else {
-      vulgatePart = '$startChapter:$startVerse-$endChapter:$endVerse';
+      vulgatePart =
+          '$startChapter:$startVerse$crossChapterSeparator$endChapter:$endVerse';
     }
 
     if (numberingSystem == BibleNumberingSystem.vulgate) {
@@ -226,7 +280,7 @@ class BibleReaderAdapter implements ReaderAdapter {
       modernPart = '${mStart.chapter}:${mStart.verse}-${mEnd.verse}';
     } else {
       modernPart =
-          '${mStart.chapter}:${mStart.verse}-${mEnd.chapter}:${mEnd.verse}';
+          '${mStart.chapter}:${mStart.verse}$crossChapterSeparator${mEnd.chapter}:${mEnd.verse}';
     }
 
     if (numberingSystem == BibleNumberingSystem.modern) {
