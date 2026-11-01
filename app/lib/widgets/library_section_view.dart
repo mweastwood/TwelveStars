@@ -146,15 +146,24 @@ class LibrarySectionView extends StatelessWidget {
     final citation = _getItemCitation(item, index);
     final textPreview = _getItemTextPreview(item);
 
-    Key? itemKey;
-    if (itemKeys != null && itemKeys!.containsKey(index)) {
-      itemKey = itemKeys![index];
-    } else if (item.type == 'qa' &&
+    final Key? primaryKey = (itemKeys != null && itemKeys!.containsKey(index))
+        ? itemKeys![index]
+        : null;
+    final bool isFirstForQuestionNumber =
+        item.type == 'qa' &&
         item.questionNumber != null &&
-        questionKeys != null &&
-        questionKeys!.containsKey(item.questionNumber!)) {
-      itemKey = questionKeys![item.questionNumber!];
-    }
+        section.content.indexWhere(
+              (it) =>
+                  it.type == 'qa' && it.questionNumber == item.questionNumber,
+            ) ==
+            index;
+    final Key? questionKey =
+        (isFirstForQuestionNumber &&
+            questionKeys != null &&
+            questionKeys!.containsKey(item.questionNumber!))
+        ? questionKeys![item.questionNumber!]
+        : null;
+    final Key? itemKey = primaryKey ?? questionKey;
 
     Widget contentWidget;
     if (item.type == 'heading') {
@@ -349,28 +358,34 @@ class LibrarySectionView extends StatelessWidget {
       );
     }
 
-    return KeyedSubtree(
-      key: itemKey,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onLongPress: onItemLongPress != null
-            ? () => onItemLongPress!(index)
-            : null,
-        onTap: onItemTap != null ? () => onItemTap!(index) : null,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            color: isSelected
-                ? theme.colorScheme.primaryContainer.withValues(alpha: 0.4)
-                : Colors.transparent,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-          margin: const EdgeInsets.symmetric(vertical: 4.0),
-          child: contentWidget,
+    Widget itemWidget = GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onLongPress: onItemLongPress != null
+          ? () => onItemLongPress!(index)
+          : null,
+      onTap: onItemTap != null ? () => onItemTap!(index) : null,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? theme.colorScheme.primaryContainer.withValues(alpha: 0.4)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
         ),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+        margin: const EdgeInsets.symmetric(vertical: 4.0),
+        child: contentWidget,
       ),
     );
+
+    if (primaryKey != null &&
+        questionKey != null &&
+        !identical(primaryKey, questionKey) &&
+        !itemKeys!.values.any((k) => identical(k, questionKey))) {
+      itemWidget = KeyedSubtree(key: questionKey, child: itemWidget);
+    }
+
+    return KeyedSubtree(key: itemKey, child: itemWidget);
   }
 
   Widget _buildExplanationContent(

@@ -151,10 +151,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     final itemKeys = <int, GlobalKey>{};
     final questionKeys = <int, GlobalKey>{};
     for (int i = 0; i < sec.content.length; i++) {
-      itemKeys[i] = GlobalKey();
+      final key = GlobalKey();
+      itemKeys[i] = key;
       final item = sec.content[i];
       if (item.type == 'qa' && item.questionNumber != null) {
-        questionKeys[item.questionNumber!] = GlobalKey();
+        questionKeys.putIfAbsent(item.questionNumber!, () => key);
       }
     }
     _sectionItemKeys[sectionIndex] = itemKeys;
@@ -356,6 +357,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
           _pageController.jumpToPage(initialSectionIndex);
         }
         _saveReadingPosition(initialSectionIndex);
+      } else {
+        setState(() {
+          _selectionController.clear(clearTemporaryHighlight: true);
+        });
       }
       if (targetItemIndex != null || targetQuestionNumber != null) {
         _populateKeys(_bookData, initialSectionIndex);
@@ -408,15 +413,23 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
   Widget _buildSelectionActionBar(ThemeData theme) {
     if (_bookData == null ||
+        _currentSectionIndex < 0 ||
         _currentSectionIndex >= _bookData!.sections.length ||
         !_selectionController.hasSelection) {
       return const SizedBox.shrink();
     }
 
     final section = _bookData!.sections[_currentSectionIndex];
-    final start = _selectionController.start!;
-    final end = _selectionController.end!;
-    final count = _selectionController.selectedCount;
+    if (section.content.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    final maxIndex = section.content.length - 1;
+    final rawStart = _selectionController.start!.clamp(0, maxIndex);
+    final rawEnd = _selectionController.end!.clamp(0, maxIndex);
+    final start = rawStart <= rawEnd ? rawStart : rawEnd;
+    final end = rawStart <= rawEnd ? rawEnd : rawStart;
+    final count = end - start + 1;
 
     final citation = _adapter.buildItemCitation(section, start, end);
     final textPreview = _adapter.buildItemTextPreview(section, start, end);
@@ -607,6 +620,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                 tooltip: 'Search in Book',
                 onPressed: () {
                   setState(() {
+                    _selectionController.clear(clearTemporaryHighlight: true);
                     _isSearching = true;
                   });
                 },
@@ -701,6 +715,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                               ) ??
                               -1;
                           if (secIdx >= 0) {
+                            _selectionController.clear(
+                              clearTemporaryHighlight: true,
+                            );
                             _pageController.dispose();
                             _pageController = PageController(
                               initialPage: secIdx,
