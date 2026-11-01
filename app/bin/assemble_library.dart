@@ -82,9 +82,18 @@ String formatTitleCase(String text) {
   for (final w in words) {
     if (w.isEmpty) continue;
     if (w == w.toUpperCase() || w == w.toLowerCase()) {
-      result.add(
-        '${w[0].toUpperCase()}${w.length > 1 ? w.substring(1).toLowerCase() : ''}',
-      );
+      final firstAlpha = RegExp(r'[A-Za-z]').firstMatch(w);
+      if (firstAlpha != null) {
+        final idx = firstAlpha.start;
+        final prefix = w.substring(0, idx);
+        final firstChar = w[idx].toUpperCase();
+        final rest = w.length > idx + 1
+            ? w.substring(idx + 1).toLowerCase()
+            : '';
+        result.add('$prefix$firstChar$rest');
+      } else {
+        result.add(w.toLowerCase());
+      }
     } else {
       result.add(w);
     }
@@ -131,7 +140,7 @@ void parseBaltimoreFile(
   );
   final aPattern = RegExp(r'^\s*A\.\s*(.*)', caseSensitive: false);
   final lessonPattern = RegExp(
-    r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|(?:MORNING\s+|NIGHT\s+)?PRAYERS)\.?\s*$',
+    r'^\s*(LESSON\s+[A-Z0-9\-\s]+|PRONUNCIATION OF NAMES|PRAYERS)\.?\s*$',
     caseSensitive: false,
   );
   final dotsPattern = RegExp(r'(\.\s*){4,}');
@@ -339,6 +348,7 @@ void parseBaltimoreFile(
     final isUppercaseHeading =
         stripped == stripped.toUpperCase() &&
         stripped.length > 3 &&
+        !stripped.startsWith('(') &&
         !stripped.startsWith('A.') &&
         !stripped.startsWith('Q.') &&
         RegExp(r'[A-Z]').hasMatch(stripped);

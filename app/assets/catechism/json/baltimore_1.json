@@ -143,10 +143,6 @@
     {
       "id": "sec_35",
       "title": "Lesson 33: On The Last Judgment And The Resurrection, Hell, Purgatory, And Heaven"
-    },
-    {
-      "id": "sec_36",
-      "title": "Morning Prayers"
     }
   ],
   "sections": [
@@ -1745,14 +1741,11 @@
           "questionNumber": 420,
           "question": "What is Heaven?",
           "answer": "Heaven is the state of everlasting life in which we see God face to face, are made like unto Him in glory, and enjoy eternal happiness."
-        }
-      ]
-    },
-    {
-      "id": "sec_36",
-      "title": "Morning Prayers",
-      "subtitle": "",
-      "content": [
+        },
+        {
+          "type": "heading",
+          "text": "Morning Prayers"
+        },
         {
           "type": "text",
           "text": "As soon as you awake, think of God. Make the Sign of the Cross and say:"
@@ -2047,7 +2040,7 @@
         },
         {
           "type": "heading",
-          "text": "*the Sanctus"
+          "text": "*The Sanctus"
         },
         {
           "type": "text",
@@ -2459,11 +2452,7 @@
         },
         {
           "type": "text",
-          "text": "Jesus, My Lord, My God"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Jesus, My Lord, My God (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -2479,11 +2468,7 @@
         },
         {
           "type": "text",
-          "text": "To Jesus' Heart All Burning"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. A. J. Christie, S.j.)"
+          "text": "To Jesus' Heart All Burning (REV. A. J. CHRISTIE, S.J.)"
         },
         {
           "type": "text",
@@ -2503,11 +2488,7 @@
         },
         {
           "type": "text",
-          "text": "Jesus, Gentlest Saviour"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Jesus, Gentlest Saviour (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -2535,11 +2516,7 @@
         },
         {
           "type": "text",
-          "text": "Jesus, the Very Thought of Thee"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. E. Caswall)"
+          "text": "Jesus, the Very Thought of Thee (REV. E. CASWALL)"
         },
         {
           "type": "text",
@@ -2555,11 +2532,7 @@
         },
         {
           "type": "text",
-          "text": "What Happiness Can Equal Mine?"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "What Happiness Can Equal Mine? (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -2587,11 +2560,7 @@
         },
         {
           "type": "text",
-          "text": "Holy God, We Praise Thy Name"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. C. Walworth)"
+          "text": "Holy God, We Praise Thy Name (REV. C. WALWORTH)"
         },
         {
           "type": "text",
@@ -2647,11 +2616,7 @@
         },
         {
           "type": "text",
-          "text": "I'll Sing a Hymn to Mary"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. Fr. Wyse)"
+          "text": "I'll Sing a Hymn to Mary (REV. FR. WYSE)"
         },
         {
           "type": "text",
@@ -2691,11 +2656,7 @@
         },
         {
           "type": "text",
-          "text": "Dear Guardian of Mary"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Dear Guardian of Mary (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -2707,11 +2668,7 @@
         },
         {
           "type": "text",
-          "text": "Dear Angel, Ever at My Side"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Dear Angel, Ever at My Side (REV. F. W. FABER)"
         },
         {
           "type": "text",

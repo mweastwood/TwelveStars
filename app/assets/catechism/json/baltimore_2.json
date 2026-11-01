@@ -159,10 +159,6 @@
     {
       "id": "sec_39",
       "title": "Lesson 37: On The Last Judgment And The Resurrection, Hell, Purgatory, And Heaven"
-    },
-    {
-      "id": "sec_40",
-      "title": "Morning Prayers"
     }
   ],
   "sections": [
@@ -3072,14 +3068,11 @@
           "questionNumber": 421,
           "question": "What words should we bear always in mind?",
           "answer": "We should bear always in mind these words of our Lord and Saviour Jesus Christ: \"What doth it profit a man if he gain the whole world and suffer the loss of his own soul, or what exchange shall a man give for his soul? For the Son of man shall come in the glory of His Father with His angels; and then will He render to every man according to his works.\""
-        }
-      ]
-    },
-    {
-      "id": "sec_40",
-      "title": "Morning Prayers",
-      "subtitle": "",
-      "content": [
+        },
+        {
+          "type": "heading",
+          "text": "Morning Prayers"
+        },
         {
           "type": "text",
           "text": "As soon as you awake, think of God. Make the Sign of the Cross and say:"
@@ -3374,7 +3367,7 @@
         },
         {
           "type": "heading",
-          "text": "*the Sanctus"
+          "text": "*The Sanctus"
         },
         {
           "type": "text",
@@ -3786,11 +3779,7 @@
         },
         {
           "type": "text",
-          "text": "Jesus, My Lord, My God"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Jesus, My Lord, My God (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -3806,11 +3795,7 @@
         },
         {
           "type": "text",
-          "text": "To Jesus' Heart All Burning"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. A. J. Christie, S.j.)"
+          "text": "To Jesus' Heart All Burning (REV. A. J. CHRISTIE, S.J.)"
         },
         {
           "type": "text",
@@ -3830,11 +3815,7 @@
         },
         {
           "type": "text",
-          "text": "Jesus, Gentlest Saviour"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Jesus, Gentlest Saviour (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -3862,11 +3843,7 @@
         },
         {
           "type": "text",
-          "text": "Jesus, the Very Thought of Thee"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. E. Caswall)"
+          "text": "Jesus, the Very Thought of Thee (REV. E. CASWALL)"
         },
         {
           "type": "text",
@@ -3882,11 +3859,7 @@
         },
         {
           "type": "text",
-          "text": "What Happiness Can Equal Mine?"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "What Happiness Can Equal Mine? (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -3914,11 +3887,7 @@
         },
         {
           "type": "text",
-          "text": "Holy God, We Praise Thy Name"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. C. Walworth)"
+          "text": "Holy God, We Praise Thy Name (REV. C. WALWORTH)"
         },
         {
           "type": "text",
@@ -3974,11 +3943,7 @@
         },
         {
           "type": "text",
-          "text": "I'll Sing a Hymn to Mary"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. Fr. Wyse)"
+          "text": "I'll Sing a Hymn to Mary (REV. FR. WYSE)"
         },
         {
           "type": "text",
@@ -4018,11 +3983,7 @@
         },
         {
           "type": "text",
-          "text": "Dear Guardian of Mary"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Dear Guardian of Mary (REV. F. W. FABER)"
         },
         {
           "type": "text",
@@ -4034,11 +3995,7 @@
         },
         {
           "type": "text",
-          "text": "Dear Angel, Ever at My Side"
-        },
-        {
-          "type": "heading",
-          "text": "(rev. F. W. Faber)"
+          "text": "Dear Angel, Ever at My Side (REV. F. W. FABER)"
         },
         {
           "type": "text",

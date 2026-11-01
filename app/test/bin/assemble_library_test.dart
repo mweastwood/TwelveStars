@@ -49,17 +49,18 @@ void main() {
     );
 
     test(
-      'baltimore_1.json (Q. 420) and baltimore_2.json (Q. 421) have null explanation and separate prayers section',
+      'baltimore_1.json (Q. 420) and baltimore_2.json (Q. 421) have null explanation and back-matter prayers as headings/text',
       () {
         for (final entry in [
-          ('assets/catechism/json/baltimore_1.json', 420),
-          ('assets/catechism/json/baltimore_2.json', 421),
+          ('assets/catechism/json/baltimore_1.json', 420, 35),
+          ('assets/catechism/json/baltimore_2.json', 421, 39),
         ]) {
           final file = File(entry.$1);
           expect(file.existsSync(), isTrue);
           final data =
               jsonDecode(file.readAsStringSync()) as Map<String, dynamic>;
           final sections = data['sections'] as List<dynamic>;
+          expect(sections, hasLength(entry.$3));
 
           Map<String, dynamic>? finalQa;
           for (final sec in sections) {
@@ -81,9 +82,19 @@ void main() {
           expect(finalQa!['explanation'], isNull);
 
           final lastSection = sections.last as Map<String, dynamic>;
-          expect(lastSection['title'], 'Morning Prayers');
-          final prayerContent = lastSection['content'] as List<dynamic>;
-          expect(prayerContent, isNotEmpty);
+          final lastContent = (lastSection['content'] as List<dynamic>)
+              .cast<Map<String, dynamic>>();
+          final headings = lastContent
+              .where((item) => item['type'] == 'heading')
+              .map((item) => item['text'] as String)
+              .toList();
+          expect(headings, contains('Morning Prayers'));
+          expect(headings, contains('*The Sanctus'));
+          expect(
+            headings.where((h) => h.startsWith('(')),
+            isEmpty,
+            reason: 'Parenthetical author credits should not be headings',
+          );
         }
       },
     );
