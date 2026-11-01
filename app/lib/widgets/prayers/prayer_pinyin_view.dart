@@ -43,8 +43,8 @@ class PrayerPinyinView extends StatelessWidget {
     return Column(
       children: chineseLines.map((line) {
         final lineText = (line.chars ?? []).map((c) => c.char).join('');
-        final isResponse = PrayerTextParser.isResponseLine(lineText.trim());
-        final fontWeight = isResponse ? FontWeight.bold : FontWeight.normal;
+        final isCelebrant = PrayerTextParser.isCelebrantLine(lineText);
+        final fontWeight = isCelebrant ? FontWeight.normal : FontWeight.bold;
 
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 4.0),

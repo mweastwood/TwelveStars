@@ -17,7 +17,7 @@ class PrayerTextParser {
 
   /// Matches liturgical celebrant/leader line prefixes across supported languages.
   static final RegExp celebrantPrefixRegex = RegExp(
-    r'^\s*(?:(?:Priest|Celebrant|Reader|Lector|Lecteur|Lettore|Sacerdos|Diaconus|Sacerdote|Diácono|Linh\s+mục|Phó\s+tế|Người\s+xướng|Người\s+đọc|Namumuno|領經者|主祭|司鐸|執事|讀經者|主禮|啟)\s*[:：]|℣\.?|V\.|V:)',
+    r'^\s*(?:(?:Priest|Celebrant|Reader|Lector|Lecteur|Lettore|Sacerdos|Diaconus|Sacerdote|Diácono|Linh\s+mục|Phó\s+tế|Người\s+xướng|Người\s+đọc|Namumuno|領經者|領|主祭|司鐸|執事|讀經者|主禮|啟)\s*[:：]|℣\.?|V\.|V:)',
     caseSensitive: false,
     multiLine: true,
   );

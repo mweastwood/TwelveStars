@@ -138,6 +138,7 @@ void main() {
           isTrue,
         );
         expect(PrayerTextParser.isCelebrantLine('領經者: 為此'), isTrue);
+        expect(PrayerTextParser.isCelebrantLine('領: 為此'), isTrue);
         expect(PrayerTextParser.isCelebrantLine('主祭：願主與你們同在。'), isTrue);
         expect(
           PrayerTextParser.isCelebrantLine('℣. Domine, labia mea aperies.'),
@@ -331,7 +332,7 @@ void main() {
     });
 
     testWidgets(
-      'PrayerPinyinView attaches targetKey to CompositedTransformTarget and only bolds response lines',
+      'PrayerPinyinView attaches targetKey to CompositedTransformTarget and renders celebrant lines in normal weight and non-celebrant lines in bold',
       (tester) async {
         final targetKey = GlobalKey();
         final layerLink = LayerLink();
@@ -388,14 +389,13 @@ void main() {
           findsOneWidget,
         );
 
-        // 2. Non-dialogical line ('我') and celebrant line ('領') are FontWeight.normal;
-        //    response line ('全') is FontWeight.bold.
+        // 2. Celebrant line ('領') is FontWeight.normal; non-celebrant lines ('我' and '全') are FontWeight.bold.
         final textWidgets = tester.widgetList<Text>(find.byType(Text)).toList();
         final normalPrayerChar = textWidgets.firstWhere((w) => w.data == '我');
         final leaderChar = textWidgets.firstWhere((w) => w.data == '領');
         final responseChar = textWidgets.firstWhere((w) => w.data == '全');
 
-        expect(normalPrayerChar.style?.fontWeight, equals(FontWeight.normal));
+        expect(normalPrayerChar.style?.fontWeight, equals(FontWeight.bold));
         expect(leaderChar.style?.fontWeight, equals(FontWeight.normal));
         expect(responseChar.style?.fontWeight, equals(FontWeight.bold));
       },
