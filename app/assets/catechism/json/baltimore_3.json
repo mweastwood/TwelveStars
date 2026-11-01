@@ -437,8 +437,11 @@
           "type": "qa",
           "questionNumber": 26,
           "question": "What does Christian mean?",
-          "answer": "A Christian is a baptized person who professes to believe all that Christ has taught, and to do all that He has commanded as necessary for our salvation.",
-          "explanation": "THE ANGELICAL SALUTATION."
+          "answer": "A Christian is a baptized person who professes to believe all that Christ has taught, and to do all that He has commanded as necessary for our salvation."
+        },
+        {
+          "type": "heading",
+          "text": "The Angelical Salutation."
         },
         {
           "type": "qa",
@@ -571,8 +574,11 @@
           "type": "qa",
           "questionNumber": 48,
           "question": "Are there any other Litanies in use besides the Litany of the Blessed Virgin?",
-          "answer": "Besides the Litany of the Blessed Virgin there are other Litanies in use, especially the Litany of the Saints, the Litany of the Holy Name of Jesus, the Litany of the Sacred Heart, &c.",
-          "explanation": "THE APOSTLES' CREED."
+          "answer": "Besides the Litany of the Blessed Virgin there are other Litanies in use, especially the Litany of the Saints, the Litany of the Holy Name of Jesus, the Litany of the Sacred Heart, &c."
+        },
+        {
+          "type": "heading",
+          "text": "The Apostles' Creed."
         },
         {
           "type": "qa",
@@ -825,8 +831,11 @@
           "type": "qa",
           "questionNumber": 89,
           "question": "Is the Apostles' Creed an act of faith?",
-          "answer": "The Apostles' Creed is an act of faith, because by it we profess our belief in the truths it contains.",
-          "explanation": "THE CONFITEOR."
+          "answer": "The Apostles' Creed is an act of faith, because by it we profess our belief in the truths it contains."
+        },
+        {
+          "type": "heading",
+          "text": "The Confiteor."
         },
         {
           "type": "qa",
@@ -851,8 +860,11 @@
           "type": "qa",
           "questionNumber": 93,
           "question": "What should we bear in mind in saying any prayer, and especially the Confiteor?",
-          "answer": "While saying any prayer, and especially the Confiteor, we should bear in mind that we are in the presence of God, and of His Saints and Angels, who see us and hear us, though we can not see or hear them.",
-          "explanation": "AN ACT OF FAITH."
+          "answer": "While saying any prayer, and especially the Confiteor, we should bear in mind that we are in the presence of God, and of His Saints and Angels, who see us and hear us, though we can not see or hear them."
+        },
+        {
+          "type": "heading",
+          "text": "An Act Of Faith."
         },
         {
           "type": "qa",
@@ -870,8 +882,11 @@
           "type": "qa",
           "questionNumber": 96,
           "question": "Why do we find Acts of Faith of different lengths?",
-          "answer": "We find Acts of Faith of different lengths, because some state more fully than others what God has revealed and the Church teaches.",
-          "explanation": "AN ACT OF HOPE."
+          "answer": "We find Acts of Faith of different lengths, because some state more fully than others what God has revealed and the Church teaches."
+        },
+        {
+          "type": "heading",
+          "text": "An Act Of Hope."
         },
         {
           "type": "qa",
@@ -883,8 +898,11 @@
           "type": "qa",
           "questionNumber": 98,
           "question": "Give the substance of an Act of Hope.",
-          "answer": "The substance of an Act of Hope is: I hope for heaven and the means to obtain it.",
-          "explanation": "AN ACT OF LOVE."
+          "answer": "The substance of an Act of Hope is: I hope for heaven and the means to obtain it."
+        },
+        {
+          "type": "heading",
+          "text": "An Act Of Love."
         },
         {
           "type": "qa",
@@ -926,8 +944,11 @@
           "type": "qa",
           "questionNumber": 105,
           "question": "Are we bound to make Acts of Faith, Hope and Love?",
-          "answer": "We are bound from time to time during our lives to make Acts of Faith, Hope and Love; otherwise we risk our salvation.",
-          "explanation": "AN ACT OF CONTRITION."
+          "answer": "We are bound from time to time during our lives to make Acts of Faith, Hope and Love; otherwise we risk our salvation."
+        },
+        {
+          "type": "heading",
+          "text": "An Act Of Contrition."
         },
         {
           "type": "qa",
@@ -951,15 +972,21 @@
           "type": "qa",
           "questionNumber": 109,
           "question": "Why do we find Acts of Hope, Love, and Contrition of different lengths?",
-          "answer": "We find Acts of Hope, Love, and Contrition of different lengths, because some explain more fully than others what we hope for, why we love God and why we are sorry for our sins.",
-          "explanation": "THE BLESSING BEFORE MEALS."
+          "answer": "We find Acts of Hope, Love, and Contrition of different lengths, because some explain more fully than others what we hope for, why we love God and why we are sorry for our sins."
+        },
+        {
+          "type": "heading",
+          "text": "The Blessing Before Meals."
         },
         {
           "type": "qa",
           "questionNumber": 110,
           "question": "Say the Blessing before Meals.",
-          "answer": "Bless us, O Lord! and these Thy gifts, which we are about to receive from Thy bounty, through Christ Our Lord. Amen.",
-          "explanation": "GRACE AFTER MEALS."
+          "answer": "Bless us, O Lord! and these Thy gifts, which we are about to receive from Thy bounty, through Christ Our Lord. Amen."
+        },
+        {
+          "type": "heading",
+          "text": "Grace After Meals."
         },
         {
           "type": "qa",
@@ -989,8 +1016,11 @@
           "type": "qa",
           "questionNumber": 115,
           "question": "Is it a sin to neglect \"Grace\" at meals?",
-          "answer": "It is not a sin to neglect \"Grace\" at meals, but only a mark of our ingratitude; for if we are to thank God for all His gifts we should do so especially at the time they are given.",
-          "explanation": "THE MANNER IN WHICH A LAY PERSON IS TO BAPTIZE IN CASE OF NECESSITY."
+          "answer": "It is not a sin to neglect \"Grace\" at meals, but only a mark of our ingratitude; for if we are to thank God for all His gifts we should do so especially at the time they are given."
+        },
+        {
+          "type": "heading",
+          "text": "The Manner In Which A Lay Person Is To Baptize In Case Of Necessity."
         },
         {
           "type": "qa",
@@ -1034,8 +1064,11 @@
           "type": "qa",
           "questionNumber": 122,
           "question": "When may we say one \"has reached the use of reason\"?",
-          "answer": "We may say one \"has reached the use of reason\" when he knows the difference between good and bad or right and wrong. Persons acquire this knowledge at about the age of seven years.",
-          "explanation": "CATECHISM."
+          "answer": "We may say one \"has reached the use of reason\" when he knows the difference between good and bad or right and wrong. Persons acquire this knowledge at about the age of seven years."
+        },
+        {
+          "type": "heading",
+          "text": "Catechism."
         },
         {
           "type": "qa",
