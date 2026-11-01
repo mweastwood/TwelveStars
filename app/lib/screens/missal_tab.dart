@@ -83,21 +83,6 @@ class _MissalTabState extends State<MissalTab> {
     'gospel': 3,
   };
 
-  static const List<String> _monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
   late DateTime _selectedDate;
   bool _calendarExpanded = false;
   bool _loading = true;
@@ -244,47 +229,6 @@ class _MissalTabState extends State<MissalTab> {
       );
       _activeSelection = null;
     });
-  }
-
-  String _formatFullDate(DateTime date) {
-    final weekday = LiturgicalCalendar.getDayOfWeekName(date.weekday);
-    final month = _monthNames[date.month - 1];
-    return '$weekday, $month ${date.day}, ${date.year}';
-  }
-
-  String _formatMonthYear(DateTime date) {
-    return '${_monthNames[date.month - 1]} ${date.year}';
-  }
-
-  List<DateTime> _generateWeekDays(DateTime date) {
-    final startOffset = date.weekday % 7; // Sunday is 0
-    final startOfWeek = DateTime(date.year, date.month, date.day - startOffset);
-    return List.generate(
-      7,
-      (index) => DateTime(
-        startOfWeek.year,
-        startOfWeek.month,
-        startOfWeek.day + index,
-      ),
-    );
-  }
-
-  List<DateTime> _generateMonthDays(DateTime date) {
-    final firstDayOfMonth = DateTime(date.year, date.month, 1);
-    final startOffset = firstDayOfMonth.weekday % 7; // Sunday is 0
-    final firstGridDay = DateTime(
-      firstDayOfMonth.year,
-      firstDayOfMonth.month,
-      firstDayOfMonth.day - startOffset,
-    );
-    return List.generate(
-      42,
-      (index) => DateTime(
-        firstGridDay.year,
-        firstGridDay.month,
-        firstGridDay.day + index,
-      ),
-    );
   }
 
   Prayer? _findPrayer(String id) => _prayersById?[id];
@@ -563,10 +507,6 @@ class _MissalTabState extends State<MissalTab> {
                                 _calendarExpanded = !_calendarExpanded;
                               });
                             },
-                            formatMonthYear: _formatMonthYear,
-                            formatFullDate: _formatFullDate,
-                            generateWeekDays: _generateWeekDays,
-                            generateMonthGrid: _generateMonthDays,
                           ),
                         ),
                       ),
@@ -716,6 +656,9 @@ class _MissalTabState extends State<MissalTab> {
                                       bottom: 12.0,
                                     ),
                                     child: MassReadingCard(
+                                      key: ValueKey(
+                                        '${_selectedDate.toIso8601String()}_${r.readingType}_${r.citation}',
+                                      ),
                                       reading: r,
                                       fontSize: widget.fontSize,
                                       primaryLanguage: _primaryLanguage,

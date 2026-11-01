@@ -6,12 +6,13 @@ import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
+import 'package:twelve_stars/widgets/reader/bible_notes_filter_header.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 
 export 'package:twelve_stars/widgets/bible_annotation_card.dart'
     show BibleAnnotationItem, BibleAnnotationType;
-
-enum BibleNotesScope { chapter, book, all }
+export 'package:twelve_stars/widgets/reader/bible_notes_filter_header.dart'
+    show BibleNotesScope, BibleNotesFilterHeader;
 
 class BibleNotesScreen extends StatefulWidget {
   static ValueNotifier<int> get annotationsRevision =>
@@ -84,7 +85,11 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         widget.initialComments != null) {
       setState(() {
         _favorites = List<FavoritePassage>.from(widget.initialFavorites!);
-        _comments = List<UserComment>.from(widget.initialComments!);
+        _comments = widget.initialComments!
+            .where(
+              (c) => catholicBookAbbrevs.contains(c.documentId.toUpperCase()),
+            )
+            .toList();
         _recomputeUnifiedItems();
         _isLoading = false;
       });
@@ -393,182 +398,74 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       }
     }
 
-    final isChapterDropdownDisabled =
-        _scope == BibleNotesScope.all || _activeBook == null;
-
     return Scaffold(
       appBar: AppBar(title: const Text('Bible Notes')),
       body: Column(
         children: [
           // 1. Search Bar & Filter Header
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // 1. Search Bar
-                TextField(
-                  key: const Key('bible_notes_search_field'),
-                  controller: _searchController,
-                  onChanged: (val) {
-                    setState(() => _searchQuery = val);
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Search notes, favorites, or verses...',
-                    prefixIcon: const Icon(Icons.search),
-                    suffixIcon: _searchQuery.isNotEmpty
-                        ? IconButton(
-                            icon: const Icon(Icons.clear),
-                            onPressed: () {
-                              _searchController.clear();
-                              setState(() => _searchQuery = '');
-                            },
-                          )
-                        : null,
-                    filled: true,
-                    fillColor: theme.colorScheme.surfaceContainerHighest
-                        .withValues(alpha: 0.5),
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16.0,
-                      vertical: 10.0,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide.none,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10.0),
-
-                // 2. Book & Chapter Dropdowns
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        height: 38,
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.surfaceContainerHighest
-                              .withValues(alpha: 0.5),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<BibleBook?>(
-                            key: const Key('bible_notes_book_dropdown'),
-                            value: _scope == BibleNotesScope.all
-                                ? null
-                                : _activeBook,
-                            isDense: true,
-                            isExpanded: true,
-                            icon: const Icon(Icons.arrow_drop_down, size: 20),
-                            hint: const Text('All Books'),
-                            items: [
-                              const DropdownMenuItem<BibleBook?>(
-                                value: null,
-                                child: Text('All Books'),
-                              ),
-                              ...catholicBooks.map(
-                                (book) => DropdownMenuItem<BibleBook?>(
-                                  value: book,
-                                  child: Text(
-                                    book.bookName,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ),
-                            ],
-                            onChanged: (newBook) {
-                              setState(() {
-                                _activeBook = newBook;
-                                if (newBook != null) {
-                                  _activeChapter = null;
-                                  _scope = BibleNotesScope.book;
-                                } else {
-                                  _activeChapter = null;
-                                  _scope = BibleNotesScope.all;
-                                }
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 8.0),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        height: 38,
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.surfaceContainerHighest
-                              .withValues(
-                                alpha: isChapterDropdownDisabled ? 0.2 : 0.5,
-                              ),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<int?>(
-                            key: const Key('bible_notes_chapter_dropdown'),
-                            value: _scope == BibleNotesScope.chapter
-                                ? _activeChapter
-                                : null,
-                            isDense: true,
-                            isExpanded: true,
-                            icon: const Icon(Icons.arrow_drop_down, size: 20),
-                            hint: const Text('Chapter'),
-                            disabledHint: Text(
-                              'Chapter',
-                              style: TextStyle(
-                                color: theme.colorScheme.outline,
-                              ),
-                            ),
-                            items: isChapterDropdownDisabled
-                                ? null
-                                : [
-                                    const DropdownMenuItem<int?>(
-                                      value: null,
-                                      child: Text('All Chapters'),
-                                    ),
-                                    ...List.generate(
-                                      _activeBook!.chaptersCount,
-                                      (index) => DropdownMenuItem<int?>(
-                                        value: index + 1,
-                                        child: Text('Ch. ${index + 1}'),
-                                      ),
-                                    ),
-                                  ],
-                            onChanged: isChapterDropdownDisabled
-                                ? null
-                                : (newChapter) {
-                                    setState(() {
-                                      _activeChapter = newChapter;
-                                      if (newChapter != null) {
-                                        _scope = BibleNotesScope.chapter;
-                                      } else {
-                                        _scope = BibleNotesScope.book;
-                                      }
-                                    });
-                                  },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10.0),
-
-                // 3 & 4. Breadcrumb Scope Path & Type Selector
-                _buildBreadcrumbPath(
-                  theme,
-                  favCount: favCount,
-                  noteCount: noteCount,
-                  allCount: allCount,
-                  bookCount: bookCount,
-                  chapterCount: chapterCount,
-                ),
-              ],
-            ),
+          BibleNotesFilterHeader(
+            searchController: _searchController,
+            searchQuery: _searchQuery,
+            onSearchChanged: (val) {
+              setState(() => _searchQuery = val);
+            },
+            onSearchCleared: () {
+              _searchController.clear();
+              setState(() => _searchQuery = '');
+            },
+            scope: _scope,
+            activeBook: _activeBook,
+            activeChapter: _activeChapter,
+            selectedTypeFilter: _selectedTypeFilter,
+            favCount: favCount,
+            noteCount: noteCount,
+            allCount: allCount,
+            bookCount: bookCount,
+            chapterCount: chapterCount,
+            onBookChanged: (newBook) {
+              setState(() {
+                _activeBook = newBook;
+                if (newBook != null) {
+                  _activeChapter = null;
+                  _scope = BibleNotesScope.book;
+                } else {
+                  _activeChapter = null;
+                  _scope = BibleNotesScope.all;
+                }
+              });
+            },
+            onChapterChanged: (newChapter) {
+              setState(() {
+                _activeChapter = newChapter;
+                if (newChapter != null) {
+                  _scope = BibleNotesScope.chapter;
+                } else {
+                  _scope = BibleNotesScope.book;
+                }
+              });
+            },
+            onSelectBibleScope: () {
+              setState(() {
+                _activeBook = null;
+                _activeChapter = null;
+                _scope = BibleNotesScope.all;
+              });
+            },
+            onSelectBookScope: () {
+              setState(() {
+                _activeChapter = null;
+                _scope = BibleNotesScope.book;
+              });
+            },
+            onToggleTypeFilter: (type) {
+              setState(() {
+                if (_selectedTypeFilter == type) {
+                  _selectedTypeFilter = null;
+                } else {
+                  _selectedTypeFilter = type;
+                }
+              });
+            },
           ),
           const Divider(height: 1),
 
@@ -587,233 +484,40 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     );
   }
 
-  Widget _buildBreadcrumbPath(
-    ThemeData theme, {
-    required int favCount,
-    required int noteCount,
-    required int allCount,
-    required int bookCount,
-    required int chapterCount,
-  }) {
-    final canWalkToBible = _scope != BibleNotesScope.all;
-    final canWalkToBook = _scope == BibleNotesScope.chapter;
-
-    return SingleChildScrollView(
-      key: const Key('bible_notes_scope_segmented_button'),
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // 1. Bible Crumb
-          Tooltip(
-            message: 'All Bible ($allCount)',
-            child: InkWell(
-              key: const Key('breadcrumb_bible'),
-              borderRadius: BorderRadius.circular(8),
-              onTap: canWalkToBible
-                  ? () {
-                      setState(() {
-                        _activeBook = null;
-                        _activeChapter = null;
-                        _scope = BibleNotesScope.all;
-                      });
-                    }
-                  : null,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 6.0,
-                  vertical: 4.0,
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.menu_book_rounded,
-                      size: 16,
-                      color: _scope == BibleNotesScope.all
-                          ? theme.colorScheme.onSurface
-                          : theme.colorScheme.primary,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'Bible',
-                      style: TextStyle(
-                        fontWeight: _scope == BibleNotesScope.all
-                            ? FontWeight.bold
-                            : FontWeight.w600,
-                        color: _scope == BibleNotesScope.all
-                            ? theme.colorScheme.onSurface
-                            : theme.colorScheme.primary,
-                        fontSize: 13.5,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-
-          // 2. Book Crumb
-          if (_activeBook != null && _scope != BibleNotesScope.all) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2.0),
-              child: Icon(
-                Icons.chevron_right_rounded,
-                size: 18,
-                color: theme.colorScheme.outline,
-              ),
-            ),
-            Tooltip(
-              message: '${_activeBook!.bookName} ($bookCount)',
-              child: InkWell(
-                key: const Key('breadcrumb_book'),
-                borderRadius: BorderRadius.circular(8),
-                onTap: canWalkToBook
-                    ? () {
-                        setState(() {
-                          _activeChapter = null;
-                          _scope = BibleNotesScope.book;
-                        });
-                      }
-                    : null,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 6.0,
-                    vertical: 4.0,
-                  ),
-                  child: Text(
-                    _activeBook!.bookName,
-                    style: TextStyle(
-                      fontWeight: _scope == BibleNotesScope.book
-                          ? FontWeight.bold
-                          : FontWeight.w600,
-                      color: _scope == BibleNotesScope.book
-                          ? theme.colorScheme.onSurface
-                          : theme.colorScheme.primary,
-                      fontSize: 13.5,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-
-          // 3. Chapter Crumb
-          if (_activeChapter != null && _scope == BibleNotesScope.chapter) ...[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 2.0),
-              child: Icon(
-                Icons.chevron_right_rounded,
-                size: 18,
-                color: theme.colorScheme.outline,
-              ),
-            ),
-            Tooltip(
-              message: 'Chapter $_activeChapter ($chapterCount)',
-              child: InkWell(
-                key: const Key('breadcrumb_chapter'),
-                borderRadius: BorderRadius.circular(8),
-                onTap: null,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 6.0,
-                    vertical: 4.0,
-                  ),
-                  child: Text(
-                    'Chapter $_activeChapter',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                      fontSize: 13.5,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-
-          // Separator
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: Icon(
-              Icons.chevron_right_rounded,
-              size: 18,
-              color: theme.colorScheme.outline,
-            ),
-          ),
-
-          // 4. Favorites & Notes Chips
-          FilterChip(
-            key: const Key('filter_favorites_chip'),
-            showCheckmark: false,
-            avatar: Icon(
-              _selectedTypeFilter == BibleAnnotationType.favorite
-                  ? Icons.star_rounded
-                  : Icons.star_border_rounded,
-              size: 16,
-              color: _selectedTypeFilter == BibleAnnotationType.favorite
-                  ? theme.colorScheme.onPrimaryContainer
-                  : theme.colorScheme.outline,
-            ),
-            label: Text('Favorites ($favCount)'),
-            selected: _selectedTypeFilter == BibleAnnotationType.favorite,
-            onSelected: (_) {
-              setState(() {
-                if (_selectedTypeFilter == BibleAnnotationType.favorite) {
-                  _selectedTypeFilter = null;
-                } else {
-                  _selectedTypeFilter = BibleAnnotationType.favorite;
-                }
-              });
-            },
-          ),
-          const SizedBox(width: 8.0),
-          FilterChip(
-            key: const Key('filter_notes_chip'),
-            showCheckmark: false,
-            avatar: Icon(
-              _selectedTypeFilter == BibleAnnotationType.comment
-                  ? Icons.comment_rounded
-                  : Icons.comment_outlined,
-              size: 16,
-              color: _selectedTypeFilter == BibleAnnotationType.comment
-                  ? theme.colorScheme.onSecondaryContainer
-                  : theme.colorScheme.outline,
-            ),
-            label: Text('Notes ($noteCount)'),
-            selected: _selectedTypeFilter == BibleAnnotationType.comment,
-            onSelected: (_) {
-              setState(() {
-                if (_selectedTypeFilter == BibleAnnotationType.comment) {
-                  _selectedTypeFilter = null;
-                } else {
-                  _selectedTypeFilter = BibleAnnotationType.comment;
-                }
-              });
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildEmptyState(ThemeData theme) {
     String message;
     String subMessage;
 
+    final typeLabel = switch (_selectedTypeFilter) {
+      BibleAnnotationType.favorite => 'favorites',
+      BibleAnnotationType.comment => 'notes',
+      null => 'notes or favorites',
+    };
+
     if (_searchQuery.isNotEmpty) {
-      message = 'No annotations found matching "$_searchQuery"';
+      final searchTarget = switch (_selectedTypeFilter) {
+        BibleAnnotationType.favorite => 'favorites',
+        BibleAnnotationType.comment => 'notes',
+        null => 'annotations',
+      };
+      message = 'No $searchTarget found matching "$_searchQuery"';
       subMessage = 'Try checking for typos or clear your search query.';
     } else if (_scope == BibleNotesScope.chapter &&
         _activeBook != null &&
         _activeChapter != null) {
-      message =
-          'No notes or favorites in ${_activeBook!.bookName} $_activeChapter.';
+      message = 'No $typeLabel in ${_activeBook!.bookName} $_activeChapter.';
       subMessage =
           'Try switching to "${_activeBook!.bookName}" or "All Bible" above.';
     } else if (_scope == BibleNotesScope.book && _activeBook != null) {
-      message = 'No notes or favorites in ${_activeBook!.bookName}.';
+      message = 'No $typeLabel in ${_activeBook!.bookName}.';
       subMessage = 'Try switching to "All Bible" or selecting another book.';
+    } else if (_selectedTypeFilter == BibleAnnotationType.favorite) {
+      message = 'No saved favorites yet.';
+      subMessage =
+          'Long-press any verse in the Bible reader to save passages to your favorites.';
+    } else if (_selectedTypeFilter == BibleAnnotationType.comment) {
+      message = 'No saved notes yet.';
+      subMessage = 'Long-press any verse in the Bible reader to add notes.';
     } else {
       message = 'No saved favorites or notes yet.';
       subMessage =

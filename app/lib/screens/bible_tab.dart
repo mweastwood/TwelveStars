@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/paged_scroll_controller_pool.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
@@ -86,96 +87,18 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   static const double _kTranslationSelectorTopSpacerHeight = 72.0;
   static const int _maxCachedControllers = 10;
-  final Map<int, ScrollController> _chapterScrollControllers = {};
-  final Map<int, ScrollController> _evictedControllersByIndex = {};
-  final Set<ScrollController> _evictedControllers = {};
-  final Map<ScrollController, int> _controllerMountCounts = {};
-  final ValueNotifier<int> _keepAliveRevision = ValueNotifier<int>(0);
-  bool _keepAliveUpdateScheduled = false;
+  late final PagedScrollControllerPool _scrollControllerPool =
+      PagedScrollControllerPool(
+        maxCachedControllers: _maxCachedControllers,
+        activePageIndex: () => _currentPageIndex,
+      );
 
   @visibleForTesting
   Map<int, ScrollController> get chapterScrollControllers =>
-      _chapterScrollControllers;
-
-  void _onControllerMounted(ScrollController controller) {
-    _controllerMountCounts[controller] =
-        (_controllerMountCounts[controller] ?? 0) + 1;
-  }
-
-  void _onControllerUnmounted(ScrollController controller) {
-    final count = (_controllerMountCounts[controller] ?? 0) - 1;
-    if (count <= 0) {
-      _controllerMountCounts.remove(controller);
-      if (_evictedControllers.remove(controller)) {
-        _evictedControllersByIndex.removeWhere((_, v) => v == controller);
-        if (!controller.hasClients) {
-          controller.dispose();
-        }
-      }
-    } else {
-      _controllerMountCounts[controller] = count;
-    }
-  }
-
-  void _evictOldestControllersIfNeeded() {
-    if (_chapterScrollControllers.length < _maxCachedControllers) return;
-    final evictKeys = _chapterScrollControllers.keys
-        .where((key) => key != _currentPageIndex)
-        .take(_chapterScrollControllers.length - _maxCachedControllers + 1)
-        .toList();
-    for (final key in evictKeys) {
-      final controller = _chapterScrollControllers.remove(key);
-      if (controller == null) continue;
-      if ((_controllerMountCounts[controller] ?? 0) > 0 ||
-          controller.hasClients) {
-        _evictedControllersByIndex[key] = controller;
-        _evictedControllers.add(controller);
-        _scheduleKeepAliveUpdate();
-      } else {
-        controller.dispose();
-      }
-    }
-  }
-
-  void _scheduleKeepAliveUpdate() {
-    if (_keepAliveUpdateScheduled) return;
-    _keepAliveUpdateScheduled = true;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _keepAliveUpdateScheduled = false;
-      if (!mounted) return;
-      _keepAliveRevision.value++;
-      final unmountedControllers = _evictedControllers
-          .where((c) => (_controllerMountCounts[c] ?? 0) <= 0 && !c.hasClients)
-          .toList();
-      for (final controller in unmountedControllers) {
-        _evictedControllers.remove(controller);
-        _evictedControllersByIndex.removeWhere((_, v) => v == controller);
-        controller.dispose();
-      }
-    });
-  }
-
-  ScrollController _getScrollController(int index) {
-    if (_chapterScrollControllers.containsKey(index)) {
-      final controller = _chapterScrollControllers.remove(index)!;
-      _chapterScrollControllers[index] = controller;
-      return controller;
-    }
-    final revived = _evictedControllersByIndex.remove(index);
-    if (revived != null) {
-      _evictedControllers.remove(revived);
-      _evictOldestControllersIfNeeded();
-      _chapterScrollControllers[index] = revived;
-      return revived;
-    }
-    _evictOldestControllersIfNeeded();
-    final newController = ScrollController();
-    _chapterScrollControllers[index] = newController;
-    return newController;
-  }
+      _scrollControllerPool.cachedControllers;
 
   ScrollController? get _currentChapterScrollController {
-    return _chapterScrollControllers[_currentPageIndex];
+    return _scrollControllerPool[_currentPageIndex];
   }
 
   // Navigation target for favorite scrolling/highlighting
@@ -191,15 +114,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   void dispose() {
     UserSettingsController.instance.removeListener(_onSettingsChanged);
     _translationSelectorController.dispose();
-    for (final controller in _chapterScrollControllers.values) {
-      controller.dispose();
-    }
-    for (final controller in _evictedControllers) {
-      controller.dispose();
-    }
-    _evictedControllers.clear();
-    _evictedControllersByIndex.clear();
-    _keepAliveRevision.dispose();
+    _scrollControllerPool.dispose();
     _currentPageIndexNotifier.dispose();
     _selectedBookForPickerNotifier.dispose();
     _panelHeightCurvedAnimation.dispose();
@@ -715,7 +630,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               final isTarget =
                   _targetBookNumber == ref.book.bookNumber &&
                   _targetChapter == ref.chapter;
-              final scrollController = _getScrollController(index);
+              final scrollController = _scrollControllerPool.getController(
+                index,
+              );
               return BibleChapterView(
                 book: ref.book,
                 chapter: ref.chapter,
@@ -733,12 +650,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 bookmarks: _bibleRibbons,
                 pageIndex: index,
                 activePageListenable: _currentPageIndexNotifier,
-                keepAliveListenable: _keepAliveRevision,
-                isKeptAlive: () => _chapterScrollControllers.containsKey(index),
+                keepAliveListenable: _scrollControllerPool.keepAliveRevision,
+                isKeptAlive: () => _scrollControllerPool.isKeptAlive(index),
                 onScrollControllerMounted: () =>
-                    _onControllerMounted(scrollController),
-                onScrollControllerUnmounted: () =>
-                    _onControllerUnmounted(scrollController),
+                    _scrollControllerPool.onControllerMounted(scrollController),
+                onScrollControllerUnmounted: () => _scrollControllerPool
+                    .onControllerUnmounted(scrollController),
                 onSelectionChanged: (isSelecting) {
                   if (index == _currentPageIndex &&
                       _isSelectingVerses != isSelecting) {
