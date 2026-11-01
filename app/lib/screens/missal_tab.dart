@@ -75,7 +75,8 @@ class MissalTab extends StatefulWidget {
   State<MissalTab> createState() => _MissalTabState();
 }
 
-class _MissalTabState extends State<MissalTab> {
+class _MissalTabState extends State<MissalTab>
+    with UserSettingsStateMixin<MissalTab> {
   static const Map<String, int> _readingTypeOrder = {
     'first': 0,
     'psalm': 1,
@@ -128,19 +129,11 @@ class _MissalTabState extends State<MissalTab> {
     _selectedDate = DateTime(baseDate.year, baseDate.month, baseDate.day);
     _primaryLanguage = widget.primaryLanguage;
     _compareLanguage = widget.compareLanguage;
-    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadData();
   }
 
   @override
-  void dispose() {
-    UserSettingsController.instance.removeListener(_onSettingsChanged);
-    super.dispose();
-  }
-
-  void _onSettingsChanged() {
-    if (!mounted) return;
-    final settings = UserSettingsController.instance.value;
+  void onUserSettingsChanged(UserSettings settings) {
     final nextHidden = (settings.missalHiddenPrayers ?? const []).toSet();
     final changed =
         _primaryLanguage != settings.primaryLanguage ||
@@ -173,7 +166,7 @@ class _MissalTabState extends State<MissalTab> {
   Future<void> _loadData() async {
     try {
       final prayers = await PrayerDatabase.loadPrayers();
-      final settings = await UserSettingsController.instance.load();
+      final settings = await ensureUserSettingsLoaded();
       final saints = await SaintDatabase.loadSaints();
       if (mounted) {
         setState(() {

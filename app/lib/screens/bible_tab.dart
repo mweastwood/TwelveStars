@@ -53,7 +53,8 @@ class BibleTab extends StatefulWidget {
   BibleTabState createState() => BibleTabState();
 }
 
-class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
+class BibleTabState extends State<BibleTab>
+    with TickerProviderStateMixin, UserSettingsStateMixin<BibleTab> {
   List<BibleChapterRef> get _allChapters => canonicalBibleChapters;
   late PageController _pageController;
   int _currentPageIndex = 0;
@@ -113,7 +114,6 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    UserSettingsController.instance.removeListener(_onSettingsChanged);
     _translationSelectorController.dispose();
     _scrollControllerPool.dispose();
     _currentPageIndexNotifier.dispose();
@@ -125,9 +125,8 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  void _onSettingsChanged() {
-    if (!mounted) return;
-    final settings = UserSettingsController.instance.value;
+  @override
+  void onUserSettingsChanged(UserSettings settings) {
     final showSelectorsChanged =
         _showTranslationSelectors != settings.showBibleTranslationSelectors;
     final translationChanged =
@@ -190,13 +189,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     ).animate(_panelHeightCurvedAnimation);
 
     _sheetTabController = TabController(length: 2, vsync: this);
-    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadSettings();
   }
 
   Future<void> _loadSettings() async {
     try {
-      final settings = await UserSettingsController.instance.load();
+      final settings = await ensureUserSettingsLoaded();
       if (mounted) {
         final targetIndex = getCanonicalChapterIndex(
           settings.lastBibleBookNumber,
