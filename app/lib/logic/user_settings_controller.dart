@@ -136,6 +136,12 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     return current;
   }
 
+  Future<void> savePrayerVersionIndex(
+    String prayerId,
+    PrayerLanguage language,
+    int index,
+  ) => mutate((s) => s.setPrayerVersionIndex(prayerId, language, index));
+
   @visibleForTesting
   void resetForTesting() {
     _resetVersion++;

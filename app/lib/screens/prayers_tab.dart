@@ -39,8 +39,8 @@ class PrayersTab extends StatelessWidget {
   });
 
   Widget _buildPrayerCard(Prayer prayer) {
-    final prefKey = '${prayer.prayerId}_${primaryLanguage.code}';
-    final initialVersion = settings?.getPreferredVersionIndex(prefKey) ?? 0;
+    final initialVersion =
+        settings?.getPrayerVersionIndex(prayer.prayerId, primaryLanguage) ?? 0;
 
     return RepaintBoundary(
       child: PrayerCard(
@@ -51,9 +51,11 @@ class PrayersTab extends StatelessWidget {
         initialVersionIndex: initialVersion,
         fontSize: fontSize,
         onVersionChanged: (newIndex) async {
-          await UserSettingsController.instance.mutate((s) {
-            s.setPreferredVersionIndex(prefKey, newIndex);
-          });
+          await UserSettingsController.instance.savePrayerVersionIndex(
+            prayer.prayerId,
+            primaryLanguage,
+            newIndex,
+          );
         },
       ),
     );
