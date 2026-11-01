@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/theme/app_theme_tokens.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 
 /// Card-based presentation for a [Saint] aligning with the prayer card aesthetic.
 class SaintCard extends StatelessWidget {

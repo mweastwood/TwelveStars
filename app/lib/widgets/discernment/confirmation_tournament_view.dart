@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/confirmation_discernment.dart';
 import 'package:twelve_stars/widgets/confirmation_bracket_view.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 
 class ConfirmationTournamentView extends StatelessWidget {
   final TournamentState tournament;

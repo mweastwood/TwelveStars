@@ -4,6 +4,7 @@ import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
+import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 import 'package:twelve_stars/widgets/scripture_footer_quote.dart';
 import 'package:twelve_stars/widgets/two_column_sliver_list.dart';
 
