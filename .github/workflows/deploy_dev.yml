@@ -48,6 +48,11 @@ jobs:
       - name: Build Web App
         run: flutter build web --release --target lib/main_dev.dart --dart-define=APP_VERSION=v0.0.0-dev --dart-define=GIT_HASH=${{ github.sha }}
 
+      - name: Prune Old Firebase Hosting Versions
+        run: dart run bin/prune_hosting_versions.dart --site twelve-stars-dev --keep 2
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWELVE_STARS_DEV }}
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           entryPoint: ./app
@@ -82,7 +87,7 @@ jobs:
           fi
 
       - name: Set up Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
