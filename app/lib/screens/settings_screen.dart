@@ -12,33 +12,27 @@ class SettingsScreen extends StatefulWidget {
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _SettingsScreenState extends State<SettingsScreen>
+    with UserSettingsStateMixin<SettingsScreen> {
   UserSettings? _settings;
   bool _loading = true;
 
   @override
   void initState() {
     super.initState();
-    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadSettings();
   }
 
   @override
-  void dispose() {
-    UserSettingsController.instance.removeListener(_onSettingsChanged);
-    super.dispose();
-  }
-
-  void _onSettingsChanged() {
-    if (!mounted) return;
+  void onUserSettingsChanged(UserSettings settings) {
     setState(() {
-      _settings = UserSettingsController.instance.value;
+      _settings = settings;
       _loading = false;
     });
   }
 
   Future<void> _loadSettings() async {
-    final settings = await UserSettingsController.instance.load();
+    final settings = await ensureUserSettingsLoaded();
     if (mounted) {
       setState(() {
         _settings = settings;
@@ -50,6 +44,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool get _isSystemThemeSupported {
     if (kIsWeb) return false;
     return defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS ||
         defaultTargetPlatform == TargetPlatform.macOS ||
         defaultTargetPlatform == TargetPlatform.windows ||
         defaultTargetPlatform == TargetPlatform.linux;
@@ -202,13 +197,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
   }
 
-  String _formatTime(int hour, int minute) {
-    final period = hour >= 12 ? 'PM' : 'AM';
-    final h = hour == 0 ? 12 : (hour > 12 ? hour - 12 : hour);
-    final m = minute.toString().padLeft(2, '0');
-    return '$h:$m $period';
-  }
-
   @override
   Widget build(BuildContext context) {
     final availableModes = _availableThemeModes;
@@ -342,139 +330,129 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
                 const Divider(),
-                ListTile(
-                  key: const Key('settings_rosary_tile'),
-                  leading: const Icon(Icons.auto_stories),
-                  title: const Text('Daily Rosary'),
-                  subtitle: Text(
-                    _settings!.rosaryReminderEnabled
-                        ? 'Daily reminder at ${_formatTime(_settings!.rosaryReminderHour, _settings!.rosaryReminderMinute)} for the day\'s mystery'
-                        : 'Daily reminder for the mystery of the day',
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (_settings!.rosaryReminderEnabled)
-                        ActionChip(
-                          key: const Key('settings_rosary_time_button'),
-                          label: Text(
-                            _formatTime(
-                              _settings!.rosaryReminderHour,
-                              _settings!.rosaryReminderMinute,
-                            ),
-                          ),
-                          onPressed: () async {
-                            final picked = await showTimePicker(
-                              context: context,
-                              initialTime: TimeOfDay(
-                                hour: _settings!.rosaryReminderHour,
-                                minute: _settings!.rosaryReminderMinute,
-                              ),
-                            );
-                            if (!mounted) return;
-                            if (picked != null) {
-                              _updateRosaryTime(picked);
-                            }
-                          },
-                        ),
-                      Switch(
-                        key: const Key('settings_rosary_switch'),
-                        value: _settings!.rosaryReminderEnabled,
-                        onChanged: _updateRosaryEnabled,
-                      ),
-                    ],
-                  ),
+                _TimedReminderTile(
+                  tileKey: const Key('settings_rosary_tile'),
+                  timeButtonKey: const Key('settings_rosary_time_button'),
+                  switchKey: const Key('settings_rosary_switch'),
+                  icon: Icons.auto_stories,
+                  title: 'Daily Rosary',
+                  enabled: _settings!.rosaryReminderEnabled,
+                  hour: _settings!.rosaryReminderHour,
+                  minute: _settings!.rosaryReminderMinute,
+                  enabledSubtitleBuilder: (time) =>
+                      'Daily reminder at $time for the day\'s mystery',
+                  disabledSubtitle: 'Daily reminder for the mystery of the day',
+                  onEnabledChanged: _updateRosaryEnabled,
+                  onTimeChanged: _updateRosaryTime,
                 ),
                 const Divider(),
-                ListTile(
-                  key: const Key('settings_morning_prayer_tile'),
-                  leading: const Icon(Icons.wb_sunny_outlined),
-                  title: const Text('Morning Prayer'),
-                  subtitle: Text(
-                    _settings!.morningPrayerReminderEnabled
-                        ? 'Daily morning offering at ${_formatTime(_settings!.morningPrayerReminderHour, _settings!.morningPrayerReminderMinute)}'
-                        : 'Daily morning offering reminder',
+                _TimedReminderTile(
+                  tileKey: const Key('settings_morning_prayer_tile'),
+                  timeButtonKey: const Key(
+                    'settings_morning_prayer_time_button',
                   ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (_settings!.morningPrayerReminderEnabled)
-                        ActionChip(
-                          key: const Key('settings_morning_prayer_time_button'),
-                          label: Text(
-                            _formatTime(
-                              _settings!.morningPrayerReminderHour,
-                              _settings!.morningPrayerReminderMinute,
-                            ),
-                          ),
-                          onPressed: () async {
-                            final picked = await showTimePicker(
-                              context: context,
-                              initialTime: TimeOfDay(
-                                hour: _settings!.morningPrayerReminderHour,
-                                minute: _settings!.morningPrayerReminderMinute,
-                              ),
-                            );
-                            if (!mounted) return;
-                            if (picked != null) {
-                              _updateMorningPrayerTime(picked);
-                            }
-                          },
-                        ),
-                      Switch(
-                        key: const Key('settings_morning_prayer_switch'),
-                        value: _settings!.morningPrayerReminderEnabled,
-                        onChanged: _updateMorningPrayerEnabled,
-                      ),
-                    ],
-                  ),
+                  switchKey: const Key('settings_morning_prayer_switch'),
+                  icon: Icons.wb_sunny_outlined,
+                  title: 'Morning Prayer',
+                  enabled: _settings!.morningPrayerReminderEnabled,
+                  hour: _settings!.morningPrayerReminderHour,
+                  minute: _settings!.morningPrayerReminderMinute,
+                  enabledSubtitleBuilder: (time) =>
+                      'Daily morning offering at $time',
+                  disabledSubtitle: 'Daily morning offering reminder',
+                  onEnabledChanged: _updateMorningPrayerEnabled,
+                  onTimeChanged: _updateMorningPrayerTime,
                 ),
                 const Divider(),
-                ListTile(
-                  key: const Key('settings_night_prayer_tile'),
-                  leading: const Icon(Icons.bedtime_outlined),
-                  title: const Text('Night Prayer (Compline)'),
-                  subtitle: Text(
-                    _settings!.nightPrayerReminderEnabled
-                        ? 'Night prayer & examination of conscience at ${_formatTime(_settings!.nightPrayerReminderHour, _settings!.nightPrayerReminderMinute)}'
-                        : 'Night prayer & examination of conscience reminder',
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (_settings!.nightPrayerReminderEnabled)
-                        ActionChip(
-                          key: const Key('settings_night_prayer_time_button'),
-                          label: Text(
-                            _formatTime(
-                              _settings!.nightPrayerReminderHour,
-                              _settings!.nightPrayerReminderMinute,
-                            ),
-                          ),
-                          onPressed: () async {
-                            final picked = await showTimePicker(
-                              context: context,
-                              initialTime: TimeOfDay(
-                                hour: _settings!.nightPrayerReminderHour,
-                                minute: _settings!.nightPrayerReminderMinute,
-                              ),
-                            );
-                            if (!mounted) return;
-                            if (picked != null) {
-                              _updateNightPrayerTime(picked);
-                            }
-                          },
-                        ),
-                      Switch(
-                        key: const Key('settings_night_prayer_switch'),
-                        value: _settings!.nightPrayerReminderEnabled,
-                        onChanged: _updateNightPrayerEnabled,
-                      ),
-                    ],
-                  ),
+                _TimedReminderTile(
+                  tileKey: const Key('settings_night_prayer_tile'),
+                  timeButtonKey: const Key('settings_night_prayer_time_button'),
+                  switchKey: const Key('settings_night_prayer_switch'),
+                  icon: Icons.bedtime_outlined,
+                  title: 'Night Prayer (Compline)',
+                  enabled: _settings!.nightPrayerReminderEnabled,
+                  hour: _settings!.nightPrayerReminderHour,
+                  minute: _settings!.nightPrayerReminderMinute,
+                  enabledSubtitleBuilder: (time) =>
+                      'Night prayer & examination of conscience at $time',
+                  disabledSubtitle:
+                      'Night prayer & examination of conscience reminder',
+                  onEnabledChanged: _updateNightPrayerEnabled,
+                  onTimeChanged: _updateNightPrayerTime,
                 ),
               ],
             ),
+    );
+  }
+}
+
+class _TimedReminderTile extends StatelessWidget {
+  final Key tileKey;
+  final Key timeButtonKey;
+  final Key switchKey;
+  final IconData icon;
+  final String title;
+  final String Function(String formattedTime) enabledSubtitleBuilder;
+  final String disabledSubtitle;
+  final bool enabled;
+  final int hour;
+  final int minute;
+  final ValueChanged<bool> onEnabledChanged;
+  final ValueChanged<TimeOfDay> onTimeChanged;
+
+  const _TimedReminderTile({
+    required this.tileKey,
+    required this.timeButtonKey,
+    required this.switchKey,
+    required this.icon,
+    required this.title,
+    required this.enabledSubtitleBuilder,
+    required this.disabledSubtitle,
+    required this.enabled,
+    required this.hour,
+    required this.minute,
+    required this.onEnabledChanged,
+    required this.onTimeChanged,
+  });
+
+  static String _formatTime(int hour, int minute) {
+    final period = hour >= 12 ? 'PM' : 'AM';
+    final h = hour == 0 ? 12 : (hour > 12 ? hour - 12 : hour);
+    final m = minute.toString().padLeft(2, '0');
+    return '$h:$m $period';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final formattedTime = _formatTime(hour, minute);
+    return ListTile(
+      key: tileKey,
+      leading: Icon(icon),
+      title: Text(title),
+      subtitle: Text(
+        enabled ? enabledSubtitleBuilder(formattedTime) : disabledSubtitle,
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (enabled)
+            ActionChip(
+              key: timeButtonKey,
+              label: Text(formattedTime),
+              onPressed: () async {
+                final picked = await showTimePicker(
+                  context: context,
+                  initialTime: TimeOfDay(hour: hour, minute: minute),
+                );
+                if (!context.mounted) return;
+                if (picked != null) {
+                  onTimeChanged(picked);
+                }
+              },
+            ),
+          Switch(key: switchKey, value: enabled, onChanged: onEnabledChanged),
+        ],
+      ),
     );
   }
 }

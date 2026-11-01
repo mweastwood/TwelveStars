@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/rosary_helper.dart';
+import 'package:twelve_stars/logic/time_helper.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/rosary_bead_chain.dart';
@@ -29,7 +30,8 @@ class RosaryScreen extends StatefulWidget {
   State<RosaryScreen> createState() => _RosaryScreenState();
 }
 
-class _RosaryScreenState extends State<RosaryScreen> {
+class _RosaryScreenState extends State<RosaryScreen>
+    with UserSettingsStateMixin<RosaryScreen> {
   late RosaryMysteryType _mysteryType;
   int _currentStep = 0;
   late List<RosaryStep> _steps;
@@ -40,32 +42,27 @@ class _RosaryScreenState extends State<RosaryScreen> {
   @override
   void initState() {
     super.initState();
-    _hapticsEnabled =
-        widget.hapticsEnabled ??
-        UserSettingsController.instance.value.hapticsEnabled;
-    UserSettingsController.instance.addListener(_onSettingsChanged);
+    _hapticsEnabled = widget.hapticsEnabled ?? currentSettings.hapticsEnabled;
     if (widget.hapticsEnabled == null) {
       _loadHapticsSetting();
     }
     _mysteryType = RosaryHelper.getMysteryForDay(
-      widget.initialDate ?? DateTime.now(),
+      widget.initialDate ?? TimeHelper.now(),
     );
     _generateSteps();
     HardwareKeyboard.instance.addHandler(_handleKeyEvent);
   }
 
-  void _onSettingsChanged() {
-    if (!mounted) return;
-    final haptics =
-        widget.hapticsEnabled ??
-        UserSettingsController.instance.value.hapticsEnabled;
+  @override
+  void onUserSettingsChanged(UserSettings settings) {
+    final haptics = widget.hapticsEnabled ?? settings.hapticsEnabled;
     setState(() {
       _hapticsEnabled = haptics;
     });
   }
 
   Future<void> _loadHapticsSetting() async {
-    final settings = await UserSettingsController.instance.load();
+    final settings = await ensureUserSettingsLoaded();
     if (mounted) {
       setState(() {
         _hapticsEnabled = settings.hapticsEnabled;
@@ -75,7 +72,6 @@ class _RosaryScreenState extends State<RosaryScreen> {
 
   @override
   void dispose() {
-    UserSettingsController.instance.removeListener(_onSettingsChanged);
     HardwareKeyboard.instance.removeHandler(_handleKeyEvent);
     super.dispose();
   }

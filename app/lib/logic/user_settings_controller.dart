@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 
@@ -146,5 +146,39 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     _syncedPrayerCatalogVersion = null;
     _isInitialized = false;
     value = UserSettings();
+  }
+}
+
+/// Reusable [State] mixin that subscribes to [UserSettingsController.instance]
+/// in [initState], unsubscribes in [dispose], and forwards updates while
+/// [mounted] to [onUserSettingsChanged].
+mixin UserSettingsStateMixin<T extends StatefulWidget> on State<T> {
+  UserSettings get currentSettings => UserSettingsController.instance.value;
+
+  @override
+  void initState() {
+    super.initState();
+    UserSettingsController.instance.addListener(_handleUserSettingsChanged);
+  }
+
+  @override
+  void dispose() {
+    UserSettingsController.instance.removeListener(_handleUserSettingsChanged);
+    super.dispose();
+  }
+
+  void _handleUserSettingsChanged() {
+    if (!mounted) return;
+    onUserSettingsChanged(currentSettings);
+  }
+
+  /// Invoked whenever [UserSettingsController.instance] notifies while [mounted].
+  @protected
+  void onUserSettingsChanged(UserSettings settings) {}
+
+  /// Ensures [UserSettingsController.instance] has loaded persisted settings.
+  @protected
+  Future<UserSettings> ensureUserSettingsLoaded() {
+    return UserSettingsController.instance.load();
   }
 }
