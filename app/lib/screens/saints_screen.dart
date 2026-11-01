@@ -5,6 +5,8 @@ import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
 import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
+import 'package:twelve_stars/widgets/saints/saints_filter_header.dart';
+import 'package:twelve_stars/widgets/saints/saints_sort_sheet.dart';
 import 'package:twelve_stars/widgets/scripture_footer_quote.dart';
 import 'package:twelve_stars/widgets/two_column_sliver_list.dart';
 
@@ -71,76 +73,14 @@ class _SaintsScreenState extends State<SaintsScreen> {
     });
   }
 
-  void _openSortDialog(BuildContext context, ThemeData theme) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) {
-        return SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                  child: Row(
-                    children: [
-                      Icon(Icons.sort, color: theme.colorScheme.primary),
-                      const SizedBox(width: 8),
-                      Text(
-                        'Sort Saints',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 12),
-                const Divider(height: 1),
-                ...SaintSortOption.values.map((option) {
-                  final isSelected = _sortOption == option;
-                  return ListTile(
-                    key: Key('sort_option_${option.name}'),
-                    leading: Icon(
-                      option.icon,
-                      color: isSelected
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
-                    ),
-                    title: Text(
-                      option.label,
-                      style: TextStyle(
-                        fontWeight: isSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        color: isSelected ? theme.colorScheme.primary : null,
-                      ),
-                    ),
-                    trailing: isSelected
-                        ? Icon(
-                            Icons.check_circle,
-                            color: theme.colorScheme.primary,
-                          )
-                        : null,
-                    onTap: () {
-                      setState(() {
-                        _sortOption = option;
-                      });
-                      Navigator.pop(context);
-                    },
-                  );
-                }),
-              ],
-            ),
-          ),
-        );
+  void _openSortDialog(BuildContext context) {
+    SaintsSortSheet.show(
+      context,
+      selectedOption: _sortOption,
+      onOptionSelected: (option) {
+        setState(() {
+          _sortOption = option;
+        });
       },
     );
   }
@@ -231,7 +171,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
             key: const Key('saints_sort_button'),
             icon: Icon(_sortOption.icon),
             tooltip: 'Sort: ${_sortOption.label}',
-            onPressed: () => _openSortDialog(context, theme),
+            onPressed: () => _openSortDialog(context),
           ),
           if (hasActiveFilters)
             IconButton(
@@ -243,210 +183,50 @@ class _SaintsScreenState extends State<SaintsScreen> {
       ),
       body: Column(
         children: [
-          // 1. Search Box
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 6),
-            child: TextField(
-              key: const Key('saints_search_field'),
-              controller: _searchController,
-              decoration: InputDecoration(
-                hintText: 'Search saints by name, patronage, nationality...',
-                prefixIcon: const Icon(Icons.search),
-                suffixIcon: _searchQuery.isNotEmpty
-                    ? IconButton(
-                        key: const Key('clear_saints_search_button'),
-                        icon: const Icon(Icons.clear),
-                        onPressed: () {
-                          setState(() {
-                            _searchController.clear();
-                            _searchQuery = '';
-                          });
-                        },
-                      )
-                    : null,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                filled: true,
-                fillColor: theme.colorScheme.surfaceContainerHighest.withValues(
-                  alpha: 0.4,
-                ),
-              ),
-              onChanged: (val) {
-                setState(() {
-                  _searchQuery = val;
-                });
-              },
-            ),
-          ),
-
-          // 2. Horizontal Filter Ribbon
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 2.0,
-            ),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  FilterChip(
-                    key: const Key('doctor_filter_chip'),
-                    label: const Text('Doctors of the Church only'),
-                    showCheckmark: false,
-                    avatar: Icon(
-                      Icons.star,
-                      color: _doctorsOnly
-                          ? Colors.amber
-                          : theme.colorScheme.onSurfaceVariant,
-                      size: 16,
-                    ),
-                    selected: _doctorsOnly,
-                    onSelected: (selected) {
-                      setState(() {
-                        _doctorsOnly = selected;
-                      });
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  FilterChip(
-                    key: const Key('men_filter_chip'),
-                    label: const Text('Men'),
-                    showCheckmark: false,
-                    avatar: Icon(
-                      Icons.male,
-                      color: _selectedGender == 'male'
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
-                      size: 16,
-                    ),
-                    selected: _selectedGender == 'male',
-                    onSelected: (selected) {
-                      setState(() {
-                        _selectedGender = selected ? 'male' : null;
-                      });
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  FilterChip(
-                    key: const Key('women_filter_chip'),
-                    label: const Text('Women'),
-                    showCheckmark: false,
-                    avatar: Icon(
-                      Icons.female,
-                      color: _selectedGender == 'female'
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.onSurfaceVariant,
-                      size: 16,
-                    ),
-                    selected: _selectedGender == 'female',
-                    onSelected: (selected) {
-                      setState(() {
-                        _selectedGender = selected ? 'female' : null;
-                      });
-                    },
-                  ),
-                  const SizedBox(width: 8),
-                  // Standard Category Order
-                  ...SaintCategory.values
-                      .where(
-                        (c) =>
-                            c != SaintCategory.other &&
-                            c != SaintCategory.doctor,
-                      )
-                      .map((cat) {
-                        final isSelected = _selectedCategory == cat;
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: FilterChip(
-                            key: Key(cat.filterChipKey),
-                            label: Text(cat.filterLabel),
-                            showCheckmark: false,
-                            avatar: Icon(
-                              cat.icon,
-                              color: isSelected
-                                  ? cat.color(theme)
-                                  : theme.colorScheme.onSurfaceVariant,
-                              size: 16,
-                            ),
-                            selected: isSelected,
-                            onSelected: (selected) {
-                              setState(() {
-                                _selectedCategory = selected ? cat : null;
-                              });
-                            },
-                          ),
-                        );
-                      }),
-                  PopupMenuButton<SaintEra>(
-                    tooltip: 'Filter by Era',
-                    initialValue: _selectedEra,
-                    onSelected: (era) {
-                      setState(() {
-                        _selectedEra = era;
-                      });
-                    },
-                    itemBuilder: (context) => SaintEra.values.map((era) {
-                      return PopupMenuItem(value: era, child: Text(era.label));
-                    }).toList(),
-                    child: Chip(
-                      avatar: Icon(
-                        Icons.history_toggle_off,
-                        size: 16,
-                        color: _selectedEra != SaintEra.all
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.onSurfaceVariant,
-                      ),
-                      label: Text(
-                        _selectedEra == SaintEra.all
-                            ? 'All Eras'
-                            : _selectedEra.label,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  PopupMenuButton<int?>(
-                    tooltip: 'Filter by Feast Month',
-                    initialValue: _selectedFeastMonth,
-                    onSelected: (month) {
-                      setState(() {
-                        _selectedFeastMonth = month;
-                      });
-                    },
-                    itemBuilder: (context) => [
-                      const PopupMenuItem(
-                        value: null,
-                        child: Text('All Months'),
-                      ),
-                      ...List.generate(kMonthNames.length, (index) {
-                        return PopupMenuItem(
-                          value: index + 1,
-                          child: Text(kMonthNames[index]),
-                        );
-                      }),
-                    ],
-                    child: Chip(
-                      avatar: Icon(
-                        Icons.calendar_month,
-                        size: 16,
-                        color: _selectedFeastMonth != null
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.onSurfaceVariant,
-                      ),
-                      label: Text(
-                        _selectedFeastMonth == null
-                            ? 'All Months'
-                            : kMonthNames[_selectedFeastMonth! - 1],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          SaintsFilterHeader(
+            searchController: _searchController,
+            searchQuery: _searchQuery,
+            onSearchChanged: (val) {
+              setState(() {
+                _searchQuery = val;
+              });
+            },
+            onClearSearch: () {
+              setState(() {
+                _searchController.clear();
+                _searchQuery = '';
+              });
+            },
+            doctorsOnly: _doctorsOnly,
+            onDoctorsOnlyChanged: (selected) {
+              setState(() {
+                _doctorsOnly = selected;
+              });
+            },
+            selectedGender: _selectedGender,
+            onGenderChanged: (gender) {
+              setState(() {
+                _selectedGender = gender;
+              });
+            },
+            selectedCategory: _selectedCategory,
+            onCategoryChanged: (cat) {
+              setState(() {
+                _selectedCategory = cat;
+              });
+            },
+            selectedEra: _selectedEra,
+            onEraChanged: (era) {
+              setState(() {
+                _selectedEra = era;
+              });
+            },
+            selectedFeastMonth: _selectedFeastMonth,
+            onFeastMonthChanged: (month) {
+              setState(() {
+                _selectedFeastMonth = month;
+              });
+            },
           ),
 
           // 3. Count & Active Info Row

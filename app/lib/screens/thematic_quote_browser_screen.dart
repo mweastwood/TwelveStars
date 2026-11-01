@@ -8,6 +8,7 @@ import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/website_viewer_screen.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 import 'package:twelve_stars/widgets/thematic_quote_card.dart';
+import 'package:twelve_stars/widgets/thematic_theme_picker_sheet.dart';
 
 class ThematicQuoteBrowserScreen extends StatefulWidget {
   final String? initialThemeId;
@@ -187,151 +188,19 @@ class _ThematicQuoteBrowserScreenState
     } catch (_) {}
   }
 
-  void _showThemePickerSheet(ThemeData theme) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      builder: (ctx) {
-        return DraggableScrollableSheet(
-          initialChildSize: 0.75,
-          minChildSize: 0.4,
-          maxChildSize: 0.95,
-          expand: false,
-          builder: (ctx, scrollController) {
-            return Column(
-              children: [
-                Center(
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 12, bottom: 8),
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.outlineVariant,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.category_rounded,
-                        color: theme.colorScheme.primary,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        'Select Theme',
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        '${ThematicHelper.allThemes.length} Themes',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Divider(height: 1),
-                Expanded(
-                  child: ListView.builder(
-                    controller: scrollController,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 8,
-                    ),
-                    itemCount: ThematicHelper.categoryGroups.length,
-                    itemBuilder: (ctx, idx) {
-                      final group = ThematicHelper.categoryGroups[idx];
-                      return ExpansionTile(
-                        initiallyExpanded: group.themes.containsKey(
-                          _selectedThemeId,
-                        ),
-                        leading: Text(
-                          group.icon,
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                        title: Text(
-                          group.name,
-                          style: theme.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        children: group.themes.entries.map((entry) {
-                          final isSelected = entry.key == _selectedThemeId;
-                          final count = _themeCounts[entry.key] ?? 0;
-
-                          return ListTile(
-                            selected: isSelected,
-                            selectedTileColor: theme
-                                .colorScheme
-                                .primaryContainer
-                                .withValues(alpha: 0.35),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            title: Text(
-                              entry.value,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                fontWeight: isSelected
-                                    ? FontWeight.bold
-                                    : FontWeight.normal,
-                                color: isSelected
-                                    ? theme.colorScheme.primary
-                                    : null,
-                              ),
-                            ),
-                            trailing: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                color: isSelected
-                                    ? theme.colorScheme.primary
-                                    : theme.colorScheme.surfaceContainerHighest,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text(
-                                count.toString(),
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                  color: isSelected
-                                      ? theme.colorScheme.onPrimary
-                                      : theme.colorScheme.onSurfaceVariant,
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.pop(ctx);
-                              _selectTheme(entry.key);
-                            },
-                          );
-                        }).toList(),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            );
-          },
-        );
-      },
+  void _showThemePickerSheet() {
+    ThematicThemePickerSheet.show(
+      context,
+      selectedThemeId: _selectedThemeId,
+      themeCounts: _themeCounts,
+      onThemeSelected: _selectTheme,
     );
   }
 
   Widget _buildThemeSelectorButton(ThemeData theme, String themeTitle) {
     return InkWell(
       borderRadius: BorderRadius.circular(20),
-      onTap: () => _showThemePickerSheet(theme),
+      onTap: _showThemePickerSheet,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
         decoration: BoxDecoration(
@@ -509,7 +378,7 @@ class _ThematicQuoteBrowserScreenState
             ),
             const SizedBox(height: 20),
             FilledButton.icon(
-              onPressed: () => _showThemePickerSheet(theme),
+              onPressed: _showThemePickerSheet,
               icon: const Icon(Icons.category_rounded),
               label: const Text('Change Theme'),
             ),
