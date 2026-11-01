@@ -23,12 +23,106 @@ class BibleChapterData {
   });
 }
 
+class _ChapterCacheKey {
+  final int dbIdentity;
+  final int bookNumber;
+  final int chapterNumber;
+  final String primaryTranslation;
+  final String compareTranslation;
+  final int annotationsRevision;
+
+  const _ChapterCacheKey({
+    required this.dbIdentity,
+    required this.bookNumber,
+    required this.chapterNumber,
+    required this.primaryTranslation,
+    required this.compareTranslation,
+    required this.annotationsRevision,
+  });
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is _ChapterCacheKey &&
+          dbIdentity == other.dbIdentity &&
+          bookNumber == other.bookNumber &&
+          chapterNumber == other.chapterNumber &&
+          primaryTranslation == other.primaryTranslation &&
+          compareTranslation == other.compareTranslation &&
+          annotationsRevision == other.annotationsRevision;
+
+  @override
+  int get hashCode => Object.hash(
+    dbIdentity,
+    bookNumber,
+    chapterNumber,
+    primaryTranslation,
+    compareTranslation,
+    annotationsRevision,
+  );
+}
+
 class BibleReaderAdapter implements ReaderAdapter {
+  static const int maxCachedChapters = 24;
+  static final Map<_ChapterCacheKey, BibleChapterData> _chapterDataCache = {};
+
+  /// Clears all cached [BibleChapterData] entries.
+  static void clearChapterDataCache() => _chapterDataCache.clear();
+
   final BibleBook bibleBook;
   final BibleDatabase dbHelper;
 
   BibleReaderAdapter({required this.bibleBook, BibleDatabase? dbHelper})
     : dbHelper = dbHelper ?? BibleDatabaseHelper.db;
+
+  _ChapterCacheKey _buildCacheKey(
+    int chapterNumber, {
+    required String primaryTranslation,
+    required String compareTranslation,
+    required int annotationsRevision,
+  }) {
+    return _ChapterCacheKey(
+      dbIdentity: identityHashCode(dbHelper),
+      bookNumber: bibleBook.bookNumber,
+      chapterNumber: chapterNumber,
+      primaryTranslation: primaryTranslation,
+      compareTranslation: compareTranslation,
+      annotationsRevision: annotationsRevision,
+    );
+  }
+
+  /// Synchronously returns a cached [BibleChapterData] snapshot if available,
+  /// promoting it in the LRU cache.
+  BibleChapterData? getCachedChapterData(
+    int chapterNumber, {
+    required String primaryTranslation,
+    String compareTranslation = 'none',
+    int annotationsRevision = 0,
+  }) {
+    final key = _buildCacheKey(
+      chapterNumber,
+      primaryTranslation: primaryTranslation,
+      compareTranslation: compareTranslation,
+      annotationsRevision: annotationsRevision,
+    );
+    final cached = _chapterDataCache.remove(key);
+    if (cached != null) {
+      _chapterDataCache[key] = cached;
+    }
+    return cached;
+  }
+
+  void _storeChapterDataInCache(
+    _ChapterCacheKey key,
+    BibleChapterData chapterData,
+  ) {
+    if (chapterData.verses.isEmpty) return;
+    _chapterDataCache.remove(key);
+    if (_chapterDataCache.length >= maxCachedChapters) {
+      _chapterDataCache.remove(_chapterDataCache.keys.first);
+    }
+    _chapterDataCache[key] = chapterData;
+  }
 
   @override
   Future<ReaderDocument> loadDocument() async {
@@ -51,6 +145,23 @@ class BibleReaderAdapter implements ReaderAdapter {
     );
   }
 
+  Future<List<BibleVerse>> _loadSingleTranslationVerses(
+    int chapterNumber,
+    String translation,
+  ) async {
+    await dbHelper.ensureBookPopulated(
+      bibleBook.bookNumber,
+      bibleBook.bookName,
+      bibleBook.abbrev,
+      translation: translation,
+    );
+    return dbHelper.getChapterVerses(
+      translation,
+      bibleBook.bookNumber,
+      chapterNumber,
+    );
+  }
+
   /// Loads the primary and optional comparison verses for [chapterNumber] (1-based).
   Future<
     ({List<BibleVerse> primary, Map<int, BibleVerse> compareVersesByNumber})
@@ -60,40 +171,33 @@ class BibleReaderAdapter implements ReaderAdapter {
     String primaryTranslation = 'CPDV',
     String compareTranslation = 'none',
   }) async {
-    await dbHelper.ensureBookPopulated(
-      bibleBook.bookNumber,
-      bibleBook.bookName,
-      bibleBook.abbrev,
-      translation: primaryTranslation,
-    );
-
-    final primaryVerses = await dbHelper.getChapterVerses(
-      primaryTranslation,
-      bibleBook.bookNumber,
+    final primaryFuture = _loadSingleTranslationVerses(
       chapterNumber,
+      primaryTranslation,
     );
 
-    Map<int, BibleVerse> compareVersesByNumber = {};
+    Future<Map<int, BibleVerse>>? compareFuture;
     if (compareTranslation != 'none') {
-      try {
-        await dbHelper.ensureBookPopulated(
-          bibleBook.bookNumber,
-          bibleBook.bookName,
-          bibleBook.abbrev,
-          translation: compareTranslation,
-        );
-        final compareVerses = await dbHelper.getChapterVerses(
-          compareTranslation,
-          bibleBook.bookNumber,
-          chapterNumber,
-        );
-        compareVersesByNumber = {
-          for (final cv in compareVerses) cv.verseNumber: cv,
-        };
-      } catch (_) {
-        // Comparative translation failure or missing book should not crash primary translation view
-      }
+      compareFuture = () async {
+        try {
+          final compareVerses = await _loadSingleTranslationVerses(
+            chapterNumber,
+            compareTranslation,
+          );
+          return <int, BibleVerse>{
+            for (final cv in compareVerses) cv.verseNumber: cv,
+          };
+        } catch (_) {
+          // Comparative translation failure or missing book should not crash primary translation view
+          return <int, BibleVerse>{};
+        }
+      }();
     }
+
+    final primaryVerses = await primaryFuture;
+    final compareVersesByNumber = compareFuture != null
+        ? await compareFuture
+        : <int, BibleVerse>{};
 
     return (
       primary: primaryVerses,
@@ -106,21 +210,98 @@ class BibleReaderAdapter implements ReaderAdapter {
     int chapterNumber, {
     required String primaryTranslation,
     String compareTranslation = 'none',
+    int annotationsRevision = 0,
   }) async {
-    final favoritesByVerse = await fetchFavoritesByVerse(chapterNumber);
-    final commentsByNodeId = await fetchCommentsByNodeId(chapterNumber);
-    final loaded = await loadChapterVerses(
+    final favoritesFuture = fetchFavoritesByVerse(chapterNumber);
+    final commentsFuture = fetchCommentsByNodeId(chapterNumber);
+    final versesFuture = loadChapterVerses(
       chapterNumber,
       primaryTranslation: primaryTranslation,
       compareTranslation: compareTranslation,
     );
 
-    return BibleChapterData(
+    final favoritesByVerse = await favoritesFuture;
+    final commentsByNodeId = await commentsFuture;
+    final loaded = await versesFuture;
+
+    final chapterData = BibleChapterData(
       verses: loaded.primary,
       compareVersesByNumber: loaded.compareVersesByNumber,
       favoritesByVerse: favoritesByVerse,
       commentsByNodeId: commentsByNodeId,
     );
+
+    final key = _buildCacheKey(
+      chapterNumber,
+      primaryTranslation: primaryTranslation,
+      compareTranslation: compareTranslation,
+      annotationsRevision: annotationsRevision,
+    );
+    _storeChapterDataInCache(key, chapterData);
+
+    return chapterData;
+  }
+
+  /// Pre-populates the in-memory [BibleChapterData] cache for [chapterNumber]
+  /// if it is not already cached and the book's verses are already present in
+  /// [dbHelper] (avoiding unexpected background asset parsing in tests).
+  Future<void> prefetchChapterData(
+    int chapterNumber, {
+    required String primaryTranslation,
+    String compareTranslation = 'none',
+    int annotationsRevision = 0,
+  }) async {
+    final existing = getCachedChapterData(
+      chapterNumber,
+      primaryTranslation: primaryTranslation,
+      compareTranslation: compareTranslation,
+      annotationsRevision: annotationsRevision,
+    );
+    if (existing != null) return;
+
+    try {
+      final primaryVerses = await dbHelper.getChapterVerses(
+        primaryTranslation,
+        bibleBook.bookNumber,
+        chapterNumber,
+      );
+      if (primaryVerses.isEmpty) return;
+
+      final favoritesFuture = fetchFavoritesByVerse(chapterNumber);
+      final commentsFuture = fetchCommentsByNodeId(chapterNumber);
+
+      Map<int, BibleVerse> compareVersesByNumber = {};
+      if (compareTranslation != 'none') {
+        try {
+          final compareVerses = await dbHelper.getChapterVerses(
+            compareTranslation,
+            bibleBook.bookNumber,
+            chapterNumber,
+          );
+          compareVersesByNumber = {
+            for (final cv in compareVerses) cv.verseNumber: cv,
+          };
+        } catch (_) {}
+      }
+
+      final favoritesByVerse = await favoritesFuture;
+      final commentsByNodeId = await commentsFuture;
+
+      final chapterData = BibleChapterData(
+        verses: primaryVerses,
+        compareVersesByNumber: compareVersesByNumber,
+        favoritesByVerse: favoritesByVerse,
+        commentsByNodeId: commentsByNodeId,
+      );
+
+      final key = _buildCacheKey(
+        chapterNumber,
+        primaryTranslation: primaryTranslation,
+        compareTranslation: compareTranslation,
+        annotationsRevision: annotationsRevision,
+      );
+      _storeChapterDataInCache(key, chapterData);
+    } catch (_) {}
   }
 
   /// Fetches favorite passages for [chapterNumber] (1-based) indexed by verse number.

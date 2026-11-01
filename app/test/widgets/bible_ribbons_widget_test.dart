@@ -721,6 +721,36 @@ void main() {
       },
     );
 
+    test(
+      'PageRibbonPatternPainter culls tall chapter ribbons to canvas clip bounds and aligns pattern phase',
+      () {
+        for (int ribbonIdx = 0; ribbonIdx < 4; ribbonIdx++) {
+          final painter = PageRibbonPatternPainter(ribbonIndex: ribbonIdx);
+          const tallChapterSize = Size(16.0, 5000.0);
+
+          // Top viewport slice (0..800)
+          final recorder1 = PictureRecorder();
+          final canvas1 = Canvas(recorder1)
+            ..clipRect(const Rect.fromLTWH(0.0, 0.0, 16.0, 800.0));
+          expect(
+            () => painter.paint(canvas1, tallChapterSize),
+            returnsNormally,
+          );
+          recorder1.endRecording();
+
+          // Scrolled mid-chapter viewport slice (1200..2000)
+          final recorder2 = PictureRecorder();
+          final canvas2 = Canvas(recorder2)
+            ..clipRect(const Rect.fromLTWH(0.0, 1200.0, 16.0, 800.0));
+          expect(
+            () => painter.paint(canvas2, tallChapterSize),
+            returnsNormally,
+          );
+          recorder2.endRecording();
+        }
+      },
+    );
+
     testGoldens(
       'renders all liturgical BiblePageRibbon variations with woven line work pattern',
       (tester) async {

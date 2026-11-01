@@ -7,6 +7,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
@@ -1192,6 +1193,42 @@ void main() {
         );
         expect(find.byIcon(Icons.info_outline), findsOneWidget);
         expect(find.textContaining('Error loading Bible:'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'Prefetched or cached chapter renders synchronously on first frame without CircularProgressIndicator',
+      (WidgetTester tester) async {
+        final adapter = BibleReaderAdapter(
+          bibleBook: genesisBook,
+          dbHelper: testDb,
+        );
+        await adapter.prefetchChapterData(
+          1,
+          primaryTranslation: 'CPDV',
+          compareTranslation: 'none',
+          annotationsRevision: BibleChapterView.annotationsRevision.value,
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 1,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+              ),
+            ),
+          ),
+        );
+
+        // Immediately on frame 0 (without pumping async futures), the chapter is rendered
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+        expect(
+          find.text('In the beginning God created heaven, and earth.'),
+          findsOneWidget,
+        );
       },
     );
   });
