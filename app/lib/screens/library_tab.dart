@@ -1,10 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
-import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/thematic_bookmark_helper.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
@@ -88,9 +86,11 @@ class _LibraryTabState extends State<LibraryTab> {
         setState(() {
           if (passages.isNotEmpty && _featuredPassage == null) {
             final now = LibraryTab.mockNow ?? DateTime.now();
-            final seed = now.year * 10000 + now.month * 100 + now.day;
-            final random = ThematicHelper.mockRandom ?? Random(seed);
-            _featuredPassage = passages[random.nextInt(passages.length)];
+            _featuredPassage =
+                ThematicBookmarkHelper.selectDailyFeaturedPassage(
+                  passages,
+                  now,
+                );
           }
         });
       }
@@ -98,106 +98,38 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   bool _isPassageBookmarked(ThematicPassage passage) {
-    final target = LibraryCatalog.resolveTarget(
-      bookId: passage.bookId,
+    return ThematicBookmarkHelper.isPassageBookmarked(
+      passage,
+      _favorites,
       catalog: _catalog,
-    );
-    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
-    final canonicalNodeId = ReaderNodeId.libraryItem(
-      sectionId: passage.sectionId,
-      itemIndex: passage.itemIndex,
-      volumeKey: target?.volumeKey,
-    );
-    final candidateBookIds = {
-      passage.bookId,
-      if (target != null) target.book.id,
-    };
-    final candidateNodeIds = {legacyNodeId, canonicalNodeId};
-    return _favorites.any(
-      (f) =>
-          candidateBookIds.contains(f.documentId) &&
-          candidateNodeIds.contains(f.nodeId),
     );
   }
 
   Future<void> _toggleFeaturedBookmark(ThematicPassage passage) async {
-    final target = LibraryCatalog.resolveTarget(
-      bookId: passage.bookId,
-      catalog: _catalog,
-    );
-    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
-    final canonicalNodeId = ReaderNodeId.libraryItem(
-      sectionId: passage.sectionId,
-      itemIndex: passage.itemIndex,
-      volumeKey: target?.volumeKey,
-    );
-    final candidateBookIds = {
-      passage.bookId,
-      if (target != null) target.book.id,
-    };
-    final candidateNodeIds = {legacyNodeId, canonicalNodeId};
-    final existing = _favorites
-        .where(
-          (f) =>
-              candidateBookIds.contains(f.documentId) &&
-              candidateNodeIds.contains(f.nodeId),
-        )
-        .firstOrNull;
-
     try {
-      if (existing != null) {
-        await BibleDatabaseHelper.db.deleteLibraryBookmark(existing.id);
-        await _loadFavorites();
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Removed from saved bookmarks'),
-              duration: Duration(seconds: 1),
-            ),
-          );
-        }
-      } else {
-        int resolvedSectionIndex = 0;
-        if (target?.assetPath != null) {
-          try {
-            final cachedBook =
-                LibraryHelper.getCachedBookData(target!.assetPath!) ??
-                await LibraryHelper.loadBookData(
-                  target.assetPath!,
-                ).timeout(const Duration(milliseconds: 100));
-            final idx = cachedBook.sections.indexWhere(
-              (s) => s.id == passage.sectionId,
-            );
-            if (idx >= 0) resolvedSectionIndex = idx;
-          } catch (_) {}
-        }
-        final effectiveDocumentId = target?.book.id ?? passage.bookId;
-        final citation = passage.sectionTitle.isNotEmpty
-            ? '${passage.bookTitle} — ${passage.sectionTitle}'
-            : passage.bookTitle;
-        final excerpt = passage.keyExcerpt.isNotEmpty
-            ? passage.keyExcerpt
-            : passage.oneSentenceSummary;
-        await BibleDatabaseHelper.db.saveLibraryBookmark(
-          LibraryBookmarksCompanion.insert(
-            documentId: effectiveDocumentId,
-            sectionIndex: resolvedSectionIndex,
-            nodeId: canonicalNodeId,
-            textPreview: '$citation\n$excerpt',
-            createdAt: DateTime.now(),
-          ),
-        );
+      final result = await ThematicBookmarkHelper.togglePassageBookmark(
+        passage: passage,
+        currentBookmarks: _favorites,
+        catalog: _catalog,
+      );
+      if (result.isNowBookmarked) {
         HapticFeedback.lightImpact();
-        await _loadFavorites();
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Saved to bookmarks ❤️'),
-              duration: Duration(seconds: 1),
-            ),
-          );
-        }
       }
+      if (!mounted) return;
+      setState(() {
+        _favorites = result.updatedBookmarks;
+        _loadingFavorites = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            result.isNowBookmarked
+                ? 'Saved to bookmarks ❤️'
+                : 'Removed from saved bookmarks',
+          ),
+          duration: const Duration(seconds: 1),
+        ),
+      );
     } catch (_) {}
   }
 
@@ -261,20 +193,21 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   void _openReaderForPassage(ThematicPassage passage) {
-    final target = LibraryCatalog.resolveTarget(
-      bookId: passage.bookId,
+    final target = ThematicBookmarkHelper.resolveReaderLaunchTarget(
+      passage,
       catalog: _catalog,
     );
 
     if (target != null) {
       _openReader(
         context,
-        target.book,
-        volumeKey: target.volumeKey,
-        assetPath: target.assetPath,
-        sectionId: passage.sectionId,
+        target.bookItem,
+        volumeKey: target.initialVolume?.volumeKey,
+        assetPath:
+            target.initialVolume?.assetPath ?? target.bookItem.defaultAssetPath,
+        sectionId: target.initialSectionId,
         itemIndex: passage.itemIndex,
-        questionNumber: passage.questionNumber,
+        questionNumber: target.initialQuestionNumber,
       );
     }
   }

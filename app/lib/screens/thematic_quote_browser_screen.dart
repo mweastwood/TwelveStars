@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
-import 'package:twelve_stars/logic/library_database.dart';
-import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
+import 'package:twelve_stars/logic/thematic_bookmark_helper.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/website_viewer_screen.dart';
@@ -33,7 +32,8 @@ class _ThematicQuoteBrowserScreenState
   Map<String, int> _themeCounts = {};
   bool _isLoading = true;
   int _currentIndex = 0;
-  final Map<String, int> _bookmarkedIds = {};
+  List<LibraryBookmark> _bookmarks = [];
+  int _loadGeneration = 0;
 
   @override
   void initState() {
@@ -54,41 +54,37 @@ class _ThematicQuoteBrowserScreenState
       final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks();
       if (!mounted) return;
       setState(() {
-        _bookmarkedIds.clear();
-        for (final b in bookmarks) {
-          _bookmarkedIds['${b.documentId}_${b.nodeId}'] = b.id;
-        }
+        _bookmarks = bookmarks;
       });
     } catch (_) {}
   }
 
   Future<void> _loadThemeData({bool reshuffle = true}) async {
+    final generation = ++_loadGeneration;
     setState(() => _isLoading = true);
+    final selectedTheme = _selectedThemeId;
     final counts = await ThematicHelper.getThemeCounts();
     final items = await ThematicHelper.getPassagesForTheme(
-      _selectedThemeId,
+      selectedTheme,
       shuffle: reshuffle,
     );
 
-    // Check existing bookmarks
+    List<LibraryBookmark> bookmarks = _bookmarks;
     try {
-      final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks();
-      _bookmarkedIds.clear();
-      for (final b in bookmarks) {
-        _bookmarkedIds['${b.documentId}_${b.nodeId}'] = b.id;
-      }
+      bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks();
     } catch (_) {}
 
-    if (mounted) {
-      setState(() {
-        _themeCounts = counts;
-        _passages = items;
-        _currentIndex = 0;
-        _isLoading = false;
-      });
-      if (_pageController.hasClients) {
-        _pageController.jumpToPage(0);
-      }
+    if (!mounted || generation != _loadGeneration) return;
+
+    setState(() {
+      _themeCounts = counts;
+      _passages = items;
+      _bookmarks = bookmarks;
+      _currentIndex = 0;
+      _isLoading = false;
+    });
+    if (_pageController.hasClients) {
+      _pageController.jumpToPage(0);
     }
   }
 
@@ -100,117 +96,29 @@ class _ThematicQuoteBrowserScreenState
     _loadThemeData(reshuffle: true);
   }
 
-  List<String> _bookmarkKeysForPassage(ThematicPassage passage) {
-    final target = LibraryCatalog.resolveTarget(bookId: passage.bookId);
-    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
-    final canonicalNodeId = ReaderNodeId.libraryItem(
-      sectionId: passage.sectionId,
-      itemIndex: passage.itemIndex,
-      volumeKey: target?.volumeKey,
-    );
-    final keys = <String>{
-      '${passage.bookId}_$legacyNodeId',
-      '${passage.bookId}_$canonicalNodeId',
-      if (target != null) ...[
-        '${target.book.id}_$legacyNodeId',
-        '${target.book.id}_$canonicalNodeId',
-      ],
-    };
-    return keys.toList();
-  }
-
   Future<void> _toggleBookmark(ThematicPassage passage) async {
-    final target = LibraryCatalog.resolveTarget(bookId: passage.bookId);
-    final legacyNodeId = '${passage.sectionId}_${passage.itemIndex}';
-    final canonicalNodeId = ReaderNodeId.libraryItem(
-      sectionId: passage.sectionId,
-      itemIndex: passage.itemIndex,
-      volumeKey: target?.volumeKey,
-    );
-    final candidateKeys = _bookmarkKeysForPassage(passage);
-    final matchingKey = candidateKeys
-        .where(_bookmarkedIds.containsKey)
-        .firstOrNull;
-    final isBookmarked = matchingKey != null;
-
     try {
-      if (isBookmarked) {
-        final existingId = _bookmarkedIds[matchingKey];
-        if (existingId != null) {
-          await BibleDatabaseHelper.db.deleteLibraryBookmark(existingId);
-        } else {
-          final candidateDocIds = {
-            passage.bookId,
-            if (target != null) target.book.id,
-          };
-          for (final docId in candidateDocIds) {
-            final bookmarks = await BibleDatabaseHelper.db.getLibraryBookmarks(
-              documentId: docId,
-            );
-            final matches = bookmarks.where(
-              (b) => b.nodeId == canonicalNodeId || b.nodeId == legacyNodeId,
-            );
-            for (final match in matches) {
-              await BibleDatabaseHelper.db.deleteLibraryBookmark(match.id);
-            }
-          }
-        }
-        if (!mounted) return;
-        setState(() {
-          for (final k in candidateKeys) {
-            _bookmarkedIds.remove(k);
-          }
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Removed from favorites'),
-            duration: Duration(seconds: 1),
-          ),
-        );
-      } else {
-        int resolvedSectionIndex = 0;
-        if (target?.assetPath != null) {
-          try {
-            final cachedBook =
-                LibraryHelper.getCachedBookData(target!.assetPath!) ??
-                await LibraryHelper.loadBookData(
-                  target.assetPath!,
-                ).timeout(const Duration(milliseconds: 100));
-            final idx = cachedBook.sections.indexWhere(
-              (s) => s.id == passage.sectionId,
-            );
-            if (idx >= 0) resolvedSectionIndex = idx;
-          } catch (_) {}
-        }
-        final effectiveDocumentId = target?.book.id ?? passage.bookId;
-        final citation = passage.sectionTitle.isNotEmpty
-            ? '${passage.bookTitle} — ${passage.sectionTitle}'
-            : passage.bookTitle;
-        final excerpt = passage.keyExcerpt.isNotEmpty
-            ? passage.keyExcerpt
-            : passage.oneSentenceSummary;
-        final newId = await BibleDatabaseHelper.db.saveLibraryBookmark(
-          LibraryBookmarksCompanion.insert(
-            documentId: effectiveDocumentId,
-            sectionIndex: resolvedSectionIndex,
-            nodeId: canonicalNodeId,
-            textPreview: '$citation\n$excerpt',
-            createdAt: DateTime.now(),
-          ),
-        );
-        if (!mounted) return;
-        setState(
-          () =>
-              _bookmarkedIds['${effectiveDocumentId}_$canonicalNodeId'] = newId,
-        );
+      final result = await ThematicBookmarkHelper.togglePassageBookmark(
+        passage: passage,
+        currentBookmarks: _bookmarks,
+      );
+      if (!mounted) return;
+      setState(() {
+        _bookmarks = result.updatedBookmarks;
+      });
+      if (result.isNowBookmarked) {
         HapticFeedback.lightImpact();
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Saved to favorites! ❤️'),
-            duration: Duration(seconds: 1),
-          ),
-        );
       }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            result.isNowBookmarked
+                ? 'Saved to favorites! ❤️'
+                : 'Removed from favorites',
+          ),
+          duration: const Duration(seconds: 1),
+        ),
+      );
     } catch (e) {
       debugPrint('Error toggling bookmark: $e');
       if (mounted) {
@@ -225,15 +133,12 @@ class _ThematicQuoteBrowserScreenState
   }
 
   void _openReaderContext(ThematicPassage passage) {
-    final target =
-        LibraryCatalog.resolveTarget(bookId: passage.bookId) ??
-        LibraryCatalog.buildFallbackTarget(
-          bookId: passage.bookId,
-          bookTitle: passage.bookTitle,
-          author: passage.author,
-          authorSaintId: passage.authorSaintId,
-        );
-    final matchedBook = target.book;
+    final target = ThematicBookmarkHelper.resolveReaderLaunchTarget(
+      passage,
+      fallbackIfMissing: true,
+    );
+    if (target == null) return;
+    final matchedBook = target.bookItem;
 
     if (matchedBook.isWeb && matchedBook.webUrl != null) {
       final bookTitle = matchedBook.title;
@@ -254,11 +159,12 @@ class _ThematicQuoteBrowserScreenState
       MaterialPageRoute(
         builder: (context) => LibraryReaderScreen(
           bookItem: matchedBook,
-          initialVolumeKey: target.volumeKey,
-          initialAssetPath: target.assetPath,
-          initialSectionId: passage.sectionId,
+          initialVolumeKey: target.initialVolume?.volumeKey,
+          initialAssetPath:
+              target.initialVolume?.assetPath ?? matchedBook.defaultAssetPath,
+          initialSectionId: target.initialSectionId,
           initialItemIndex: passage.itemIndex,
-          initialQuestionNumber: passage.questionNumber,
+          initialQuestionNumber: target.initialQuestionNumber,
           navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),
         ),
       ),
@@ -480,9 +386,11 @@ class _ThematicQuoteBrowserScreenState
                 },
                 itemBuilder: (context, index) {
                   final passage = _passages[index];
-                  final isBookmarked = _bookmarkKeysForPassage(
-                    passage,
-                  ).any(_bookmarkedIds.containsKey);
+                  final isBookmarked =
+                      ThematicBookmarkHelper.isPassageBookmarked(
+                        passage,
+                        _bookmarks,
+                      );
                   return ThematicQuoteCard(
                     passage: passage,
                     isBookmarked: isBookmarked,
