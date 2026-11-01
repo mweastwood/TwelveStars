@@ -87,10 +87,73 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   static const double _kTranslationSelectorTopSpacerHeight = 72.0;
   static const int _maxCachedControllers = 10;
   final Map<int, ScrollController> _chapterScrollControllers = {};
+  final Map<int, ScrollController> _evictedControllersByIndex = {};
+  final Set<ScrollController> _evictedControllers = {};
+  final Map<ScrollController, int> _controllerMountCounts = {};
+  final ValueNotifier<int> _keepAliveRevision = ValueNotifier<int>(0);
+  bool _keepAliveUpdateScheduled = false;
 
   @visibleForTesting
   Map<int, ScrollController> get chapterScrollControllers =>
       _chapterScrollControllers;
+
+  void _onControllerMounted(ScrollController controller) {
+    _controllerMountCounts[controller] =
+        (_controllerMountCounts[controller] ?? 0) + 1;
+  }
+
+  void _onControllerUnmounted(ScrollController controller) {
+    final count = (_controllerMountCounts[controller] ?? 0) - 1;
+    if (count <= 0) {
+      _controllerMountCounts.remove(controller);
+      if (_evictedControllers.remove(controller)) {
+        _evictedControllersByIndex.removeWhere((_, v) => v == controller);
+        if (!controller.hasClients) {
+          controller.dispose();
+        }
+      }
+    } else {
+      _controllerMountCounts[controller] = count;
+    }
+  }
+
+  void _evictOldestControllersIfNeeded() {
+    if (_chapterScrollControllers.length < _maxCachedControllers) return;
+    final evictKeys = _chapterScrollControllers.keys
+        .where((key) => key != _currentPageIndex)
+        .take(_chapterScrollControllers.length - _maxCachedControllers + 1)
+        .toList();
+    for (final key in evictKeys) {
+      final controller = _chapterScrollControllers.remove(key);
+      if (controller == null) continue;
+      if ((_controllerMountCounts[controller] ?? 0) > 0 ||
+          controller.hasClients) {
+        _evictedControllersByIndex[key] = controller;
+        _evictedControllers.add(controller);
+        _scheduleKeepAliveUpdate();
+      } else {
+        controller.dispose();
+      }
+    }
+  }
+
+  void _scheduleKeepAliveUpdate() {
+    if (_keepAliveUpdateScheduled) return;
+    _keepAliveUpdateScheduled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _keepAliveUpdateScheduled = false;
+      if (!mounted) return;
+      _keepAliveRevision.value++;
+      final unmountedControllers = _evictedControllers
+          .where((c) => (_controllerMountCounts[c] ?? 0) <= 0 && !c.hasClients)
+          .toList();
+      for (final controller in unmountedControllers) {
+        _evictedControllers.remove(controller);
+        _evictedControllersByIndex.removeWhere((_, v) => v == controller);
+        controller.dispose();
+      }
+    });
+  }
 
   ScrollController _getScrollController(int index) {
     if (_chapterScrollControllers.containsKey(index)) {
@@ -98,16 +161,14 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       _chapterScrollControllers[index] = controller;
       return controller;
     }
-    if (_chapterScrollControllers.length >= _maxCachedControllers) {
-      final evictKeys = _chapterScrollControllers.entries
-          .where((e) => e.key != _currentPageIndex && !e.value.hasClients)
-          .map((e) => e.key)
-          .take(_chapterScrollControllers.length - _maxCachedControllers + 1)
-          .toList();
-      for (final key in evictKeys) {
-        _chapterScrollControllers.remove(key)?.dispose();
-      }
+    final revived = _evictedControllersByIndex.remove(index);
+    if (revived != null) {
+      _evictedControllers.remove(revived);
+      _evictOldestControllersIfNeeded();
+      _chapterScrollControllers[index] = revived;
+      return revived;
     }
+    _evictOldestControllersIfNeeded();
     final newController = ScrollController();
     _chapterScrollControllers[index] = newController;
     return newController;
@@ -133,6 +194,12 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     for (final controller in _chapterScrollControllers.values) {
       controller.dispose();
     }
+    for (final controller in _evictedControllers) {
+      controller.dispose();
+    }
+    _evictedControllers.clear();
+    _evictedControllersByIndex.clear();
+    _keepAliveRevision.dispose();
     _currentPageIndexNotifier.dispose();
     _selectedBookForPickerNotifier.dispose();
     _panelHeightCurvedAnimation.dispose();
@@ -264,7 +331,16 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     }
   }
 
+  void _syncSelectedBookToCurrentChapter() {
+    if (_allChapters.isNotEmpty && _currentPageIndex < _allChapters.length) {
+      final currentBook = _allChapters[_currentPageIndex].book;
+      _selectedBookForPicker = currentBook;
+      _selectedBookForPickerNotifier.value = currentBook;
+    }
+  }
+
   void _togglePanel() {
+    _syncSelectedBookToCurrentChapter();
     setState(() {
       _isPanelExpanded = !_isPanelExpanded;
       if (_isPanelExpanded) {
@@ -277,6 +353,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
 
   void _collapsePanel() {
     if (_isPanelExpanded || _panelController.value > 0.0) {
+      _syncSelectedBookToCurrentChapter();
       setState(() {
         _isPanelExpanded = false;
         _panelController.reverse();
@@ -285,6 +362,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
   }
 
   void _onVerticalDragUpdate(DragUpdateDetails details) {
+    if (!_isPanelExpanded && _panelController.value == 0.0) {
+      _syncSelectedBookToCurrentChapter();
+    }
     _panelController.value -= details.primaryDelta! / (500.0 - 72.0);
   }
 
@@ -294,6 +374,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
       _panelController.animateTo(1.0, curve: Curves.easeOutCubic);
       setState(() => _isPanelExpanded = true);
     } else if (velocity > 100.0) {
+      _syncSelectedBookToCurrentChapter();
       _panelController.animateTo(0.0, curve: Curves.easeOutCubic);
       setState(() => _isPanelExpanded = false);
     } else {
@@ -301,6 +382,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
         _panelController.animateTo(1.0, curve: Curves.easeOutCubic);
         setState(() => _isPanelExpanded = true);
       } else {
+        _syncSelectedBookToCurrentChapter();
         _panelController.animateTo(0.0, curve: Curves.easeOutCubic);
         setState(() => _isPanelExpanded = false);
       }
@@ -415,6 +497,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
     if (_currentPageIndex == previousPageIndex) {
       _currentPageIndex = pageIndex;
       _currentPageIndexNotifier.value = pageIndex;
+      if (_isSelectingVerses && pageIndex != previousPageIndex) {
+        setState(() => _isSelectingVerses = false);
+      }
       _saveReadingPosition(pageIndex);
     }
   }
@@ -620,6 +705,9 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               _selectedBookForPicker = book;
               _selectedBookForPickerNotifier.value = book;
               _currentPageIndexNotifier.value = index;
+              if (_isSelectingVerses) {
+                setState(() => _isSelectingVerses = false);
+              }
               _saveReadingPosition(index);
             },
             itemBuilder: (context, index) {
@@ -627,6 +715,7 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
               final isTarget =
                   _targetBookNumber == ref.book.bookNumber &&
                   _targetChapter == ref.chapter;
+              final scrollController = _getScrollController(index);
               return BibleChapterView(
                 book: ref.book,
                 chapter: ref.chapter,
@@ -636,14 +725,23 @@ class BibleTabState extends State<BibleTab> with TickerProviderStateMixin {
                 fontSize: widget.fontSize,
                 translationSelectorAnimation:
                     _translationSelectorController.animation,
-                scrollController: _getScrollController(index),
+                scrollController: scrollController,
                 scrollToVerse: isTarget ? _scrollToVerse : null,
                 highlightStartVerse: isTarget ? _highlightStartVerse : null,
                 highlightEndVerse: isTarget ? _highlightEndVerse : null,
                 navigationSessionId: isTarget ? _navigationSessionId : null,
                 bookmarks: _bibleRibbons,
+                pageIndex: index,
+                activePageListenable: _currentPageIndexNotifier,
+                keepAliveListenable: _keepAliveRevision,
+                isKeptAlive: () => _chapterScrollControllers.containsKey(index),
+                onScrollControllerMounted: () =>
+                    _onControllerMounted(scrollController),
+                onScrollControllerUnmounted: () =>
+                    _onControllerUnmounted(scrollController),
                 onSelectionChanged: (isSelecting) {
-                  if (_isSelectingVerses != isSelecting) {
+                  if (index == _currentPageIndex &&
+                      _isSelectingVerses != isSelecting) {
                     setState(() => _isSelectingVerses = isSelecting);
                   }
                 },
