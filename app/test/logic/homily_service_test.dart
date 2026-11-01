@@ -686,5 +686,50 @@ void main() {
         expect(data.first.text, isNot(contains('2:4')));
       },
     );
+
+    test(
+      'fetches only specified discontinuous verses for comma-separated citations',
+      () async {
+        final seedVerses = [
+          (ch: 1, v: 2, text: 'Verse 1:2.'),
+          (ch: 1, v: 3, text: 'Verse 1:3.'),
+          (ch: 1, v: 4, text: 'Verse 1:4 should be skipped.'),
+          (ch: 1, v: 5, text: 'Verse 1:5.'),
+        ];
+        for (final item in seedVerses) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  translationCode: 'drc',
+                  bookNumber: 1,
+                  bookName: 'Genesis',
+                  chapter: item.ch,
+                  verseNumber: item.v,
+                  verseText: item.text,
+                ),
+              );
+        }
+
+        final reading = LectionaryReading(
+          id: 5,
+          readingKey: 'discontinuous_reading',
+          readingType: 'psalm',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '2-3, 5',
+          citation: 'Genesis 1:2-3, 5',
+        );
+
+        final data = await HomilyService.fetchReadingsData([
+          reading,
+        ], translation: 'drc');
+
+        expect(data.length, 1);
+        expect(data.first.text, 'Verse 1:2. Verse 1:3. Verse 1:5.');
+        expect(data.first.text, isNot(contains('1:4')));
+      },
+    );
   });
 }
