@@ -10,8 +10,10 @@ import 'package:twelve_stars/widgets/library_section_view.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/reader/library_cross_ref_sheet.dart';
+import 'package:twelve_stars/widgets/reader/library_edition_selector_bar.dart';
 import 'package:twelve_stars/widgets/reader/library_scripture_modal.dart';
 import 'package:twelve_stars/widgets/reader/library_search_results_view.dart';
+import 'package:twelve_stars/widgets/reader/reader_section_navigation_bar.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
 
@@ -649,44 +651,10 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
             children: [
               // Series Volume Selector Header (for Baltimore Catechism)
               if (widget.bookItem.isSeries && !_isSearching)
-                Container(
-                  color: theme.colorScheme.surfaceContainerLow,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 8.0,
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Edition: ',
-                        style: theme.textTheme.labelMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: widget.bookItem.volumes!.map((vol) {
-                              final isSel = vol.volumeKey == _currentVolumeKey;
-                              return Padding(
-                                padding: const EdgeInsets.only(right: 6.0),
-                                child: ChoiceChip(
-                                  label: Text(vol.shortName),
-                                  selected: isSel,
-                                  onSelected: (selected) {
-                                    if (selected) _switchVolume(vol);
-                                  },
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                LibraryEditionSelectorBar(
+                  volumes: widget.bookItem.volumes!,
+                  selectedVolumeKey: _currentVolumeKey,
+                  onVolumeSelected: _switchVolume,
                 ),
 
               // Main Reader / Search Results View
@@ -748,85 +716,39 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
 
               // Bottom Section Navigation Footer
               if (!_isSearching && book != null && book.sections.isNotEmpty)
-                Container(
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.surfaceContainerLow,
-                    border: Border(
-                      top: BorderSide(
-                        color: theme.colorScheme.outlineVariant.withValues(
-                          alpha: 0.5,
-                        ),
-                      ),
-                    ),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 8.0,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.chevron_left),
-                        tooltip: 'Previous Section',
-                        onPressed: _currentSectionIndex > 0
-                            ? () {
-                                _clearSelection();
-                                if (_pageController.hasClients) {
-                                  _pageController.previousPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                } else {
-                                  setState(() {
-                                    _currentSectionIndex--;
-                                    _populateKeys(
-                                      _bookData,
-                                      _currentSectionIndex,
-                                    );
-                                  });
-                                  _saveReadingPosition(_currentSectionIndex);
-                                }
-                              }
-                            : null,
-                      ),
-                      Expanded(
-                        child: Text(
-                          'Section ${_currentSectionIndex + 1} of ${book.sections.length}',
-                          style: theme.textTheme.labelMedium?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.chevron_right),
-                        tooltip: 'Next Section',
-                        onPressed:
-                            _currentSectionIndex < book.sections.length - 1
-                            ? () {
-                                _clearSelection();
-                                if (_pageController.hasClients) {
-                                  _pageController.nextPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                } else {
-                                  setState(() {
-                                    _currentSectionIndex++;
-                                    _populateKeys(
-                                      _bookData,
-                                      _currentSectionIndex,
-                                    );
-                                  });
-                                  _saveReadingPosition(_currentSectionIndex);
-                                }
-                              }
-                            : null,
-                      ),
-                    ],
-                  ),
+                ReaderSectionNavigationBar(
+                  currentIndex: _currentSectionIndex,
+                  totalSections: book.sections.length,
+                  onPrevious: () {
+                    _clearSelection();
+                    if (_pageController.hasClients) {
+                      _pageController.previousPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    } else {
+                      setState(() {
+                        _currentSectionIndex--;
+                        _populateKeys(_bookData, _currentSectionIndex);
+                      });
+                      _saveReadingPosition(_currentSectionIndex);
+                    }
+                  },
+                  onNext: () {
+                    _clearSelection();
+                    if (_pageController.hasClients) {
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    } else {
+                      setState(() {
+                        _currentSectionIndex++;
+                        _populateKeys(_bookData, _currentSectionIndex);
+                      });
+                      _saveReadingPosition(_currentSectionIndex);
+                    }
+                  },
                 ),
             ],
           ),
@@ -841,19 +763,12 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     }
 
     // Build map of nodeId -> list of comments for the current section
-    final sectionCommentsMap = <String, List<UserComment>>{};
-    for (final c in _comments) {
-      if (c.sectionIndex == _currentSectionIndex) {
-        final (commentVolKey, _, _) = ReaderNodeId.parseLibrary(c.nodeId);
-        if (widget.bookItem.isSeries &&
-            _currentVolumeKey != null &&
-            commentVolKey != null &&
-            commentVolKey != _currentVolumeKey) {
-          continue;
-        }
-        sectionCommentsMap.putIfAbsent(c.nodeId, () => []).add(c);
-      }
-    }
+    final sectionCommentsMap = LibraryReaderAdapter.groupCommentsForSection(
+      _comments,
+      _currentSectionIndex,
+      currentVolumeKey: _currentVolumeKey,
+      isSeries: widget.bookItem.isSeries,
+    );
 
     final selStart = _selectionController.effectiveHighlightStart;
     final selEnd = _selectionController.effectiveHighlightEnd;

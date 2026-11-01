@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/widgets/reader/reader_toc_bottom_sheet.dart';
 
@@ -15,18 +16,8 @@ class LibraryTocDrawer extends StatelessWidget {
     required this.onSectionSelected,
   });
 
-  static List<ReaderTocEntry> entriesFromBook(ParsedBookData book) {
-    return [
-      for (int idx = 0; idx < book.sections.length; idx++)
-        ReaderTocEntry(
-          index: idx,
-          title: book.sections[idx].title,
-          subtitle: book.sections[idx].subtitle.isNotEmpty
-              ? book.sections[idx].subtitle
-              : null,
-        ),
-    ];
-  }
+  static List<ReaderTocEntry> entriesFromBook(ParsedBookData book) =>
+      LibraryReaderAdapter.buildTocEntries(book);
 
   static Future<void> show(
     BuildContext context, {
