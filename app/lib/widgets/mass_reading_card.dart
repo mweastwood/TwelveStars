@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
@@ -200,31 +201,24 @@ class _MassReadingCardState extends State<MassReadingCard> {
     }
   }
 
+  Set<int> _resolveTargetChapters() {
+    final ranges = resolveReadingRanges(
+      bookNumber: widget.reading.bookNumber,
+      defaultChapter: widget.reading.chapter,
+      defaultVerseRange: widget.reading.verseRange,
+      citation: widget.reading.citation,
+    );
+    final chapters = ranges.map((r) => r.chapter).toSet();
+    return chapters.isNotEmpty ? chapters : {widget.reading.chapter};
+  }
+
   Future<void> _loadFavorites() async {
     try {
-      final ranges = resolveReadingRanges(
-        bookNumber: widget.reading.bookNumber,
-        defaultChapter: widget.reading.chapter,
-        defaultVerseRange: widget.reading.verseRange,
-        citation: widget.reading.citation,
-      );
-      final chapters = ranges.map((r) => r.chapter).toSet();
-      if (chapters.isEmpty) {
-        chapters.add(widget.reading.chapter);
-      }
-      final byVerseKey = <String, List<FavoritePassage>>{};
-      for (final ch in chapters) {
-        final favorites = await BibleDatabaseHelper.db.getFavoritesForChapter(
-          widget.reading.bookNumber,
-          ch,
-        );
-        for (final fav in favorites) {
-          for (int v = fav.startVerse; v <= fav.endVerse; v++) {
-            final key = ReaderNodeId.bibleVerse(fav.bookNumber, fav.chapter, v);
-            byVerseKey.putIfAbsent(key, () => []).add(fav);
-          }
-        }
-      }
+      final byVerseKey =
+          await BibleReaderAdapter.fetchFavoritesByNodeIdForChapters(
+            widget.reading.bookNumber,
+            _resolveTargetChapters(),
+          );
       if (mounted) {
         setState(() {
           _favoritesByVerseKey = byVerseKey;
@@ -238,39 +232,11 @@ class _MassReadingCardState extends State<MassReadingCard> {
       final bookMeta =
           catholicBooksByNumber[widget.reading.bookNumber] ??
           (throw Exception('Book ${widget.reading.bookName} not found'));
-      final ranges = resolveReadingRanges(
-        bookNumber: widget.reading.bookNumber,
-        defaultChapter: widget.reading.chapter,
-        defaultVerseRange: widget.reading.verseRange,
-        citation: widget.reading.citation,
-      );
-      final chapters = ranges.map((r) => r.chapter).toSet();
-      final targetChapters = chapters.isNotEmpty
-          ? chapters
-          : {widget.reading.chapter};
-
-      final List<UserComment> comments;
-      if (targetChapters.length == 1) {
-        comments = await BibleDatabaseHelper.db.getComments(
-          documentId: bookMeta.abbrev,
-          sectionIndex: targetChapters.first,
-        );
-      } else {
-        final commentsList = await Future.wait(
-          targetChapters.map(
-            (ch) => BibleDatabaseHelper.db.getComments(
-              documentId: bookMeta.abbrev,
-              sectionIndex: ch,
-            ),
-          ),
-        );
-        comments = commentsList.expand((list) => list).toList();
-      }
-
-      final byNodeId = <String, List<UserComment>>{};
-      for (final c in comments) {
-        byNodeId.putIfAbsent(c.nodeId, () => []).add(c);
-      }
+      final byNodeId =
+          await BibleReaderAdapter.fetchCommentsByNodeIdForChapters(
+            bookMeta.abbrev,
+            _resolveTargetChapters(),
+          );
       if (mounted) {
         setState(() {
           _commentsByNodeId = byNodeId;
@@ -420,52 +386,16 @@ class _MassReadingCardState extends State<MassReadingCard> {
     BibleVerse lastV, {
     required bool isSingleVerse,
   }) {
-    final String vulgatePart;
-    if (isSingleVerse ||
-        (firstV.chapter == lastV.chapter &&
-            firstV.verseNumber == lastV.verseNumber)) {
-      vulgatePart = '${firstV.chapter}:${firstV.verseNumber}';
-    } else if (firstV.chapter == lastV.chapter) {
-      vulgatePart =
-          '${firstV.chapter}:${firstV.verseNumber}-${lastV.verseNumber}';
-    } else {
-      vulgatePart =
-          '${firstV.chapter}:${firstV.verseNumber} - ${lastV.chapter}:${lastV.verseNumber}';
-    }
-
-    if (_numberingSystem == BibleNumberingSystem.vulgate) {
-      return '${firstV.bookName} $vulgatePart';
-    }
-
-    final mStart = BibleVerseResolver.vulgateToMasoreticVerse(
+    return BibleReaderAdapter.formatPassageCitation(
       bookNumber: firstV.bookNumber,
-      chapter: firstV.chapter,
-      verse: firstV.verseNumber,
+      bookName: firstV.bookName,
+      startChapter: firstV.chapter,
+      startVerse: firstV.verseNumber,
+      endChapter: isSingleVerse ? firstV.chapter : lastV.chapter,
+      endVerse: isSingleVerse ? firstV.verseNumber : lastV.verseNumber,
+      numberingSystem: _numberingSystem,
+      crossChapterSeparator: ' - ',
     );
-    final mEnd = BibleVerseResolver.vulgateToMasoreticVerse(
-      bookNumber: lastV.bookNumber,
-      chapter: lastV.chapter,
-      verse: lastV.verseNumber,
-    );
-
-    final String modernPart;
-    if (mStart.chapter == mEnd.chapter && mStart.verse == mEnd.verse) {
-      modernPart = '${mStart.chapter}:${mStart.verse}';
-    } else if (mStart.chapter == mEnd.chapter) {
-      modernPart = '${mStart.chapter}:${mStart.verse}-${mEnd.verse}';
-    } else {
-      modernPart =
-          '${mStart.chapter}:${mStart.verse} - ${mEnd.chapter}:${mEnd.verse}';
-    }
-
-    if (_numberingSystem == BibleNumberingSystem.modern) {
-      return '${firstV.bookName} $modernPart';
-    }
-
-    if (vulgatePart == modernPart) {
-      return '${firstV.bookName} $vulgatePart';
-    }
-    return '${firstV.bookName} $vulgatePart (Modern $modernPart)';
   }
 
   String _formatVerseCitation(BibleVerse verse) =>
@@ -558,25 +488,12 @@ class _MassReadingCardState extends State<MassReadingCard> {
         );
       },
       onCopy: () async {
-        final versesText = selectedVerses
-            .map((v) {
-              if (count == 1) return v.verseText;
-              final display = BibleVerseResolver.formatVerseDisplay(
-                bookNumber: v.bookNumber,
-                chapter: v.chapter,
-                verseNumber: v.verseNumber,
-                numberingSystem: _numberingSystem,
-              );
-              final numLabel =
-                  display.alternateVerseNumber != null &&
-                      display.alternateVerseNumber!.isNotEmpty
-                  ? '${display.displayVerseNumber} (${display.alternateVerseNumber})'
-                  : '${display.displayVerseNumber}';
-              return '$numLabel ${v.verseText}';
-            })
-            .join(count == 1 ? '' : '\n');
-
-        final clipboardContent = '$citation\n$versesText';
+        final clipboardContent = BibleReaderAdapter.formatVersesForClipboard(
+          citation: citation,
+          verses: selectedVerses,
+          numberingSystem: _numberingSystem,
+          fallbackBookNumber: widget.reading.bookNumber,
+        );
         await Clipboard.setData(ClipboardData(text: clipboardContent));
 
         if (mounted) {
