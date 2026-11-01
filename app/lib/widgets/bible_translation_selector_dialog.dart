@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:twelve_stars/logic/bible_translation_info.dart';
+import '../logic/bible_translation_info.dart';
+export '../logic/bible_translation_info.dart' show TranslationApprovalStatus;
 
 enum BibleTranslationTarget { primary, compare }
 
@@ -77,12 +78,30 @@ class _BibleTranslationSelectorDialogState
     'Ancient',
   ];
 
+  static String? _normalizeCompareCode(String? code) {
+    if (code == null || code == 'none' || code.isEmpty) {
+      return null;
+    }
+    return code;
+  }
+
   @override
   void initState() {
     super.initState();
     _selectedPrimary = widget.currentPrimaryCode;
-    _selectedCompare = widget.currentCompareCode;
+    _selectedCompare = _normalizeCompareCode(widget.currentCompareCode);
     _activeTarget = widget.initialTarget;
+  }
+
+  @override
+  void didUpdateWidget(covariant BibleTranslationSelectorDialog oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.currentPrimaryCode != widget.currentPrimaryCode) {
+      _selectedPrimary = widget.currentPrimaryCode;
+    }
+    if (oldWidget.currentCompareCode != widget.currentCompareCode) {
+      _selectedCompare = _normalizeCompareCode(widget.currentCompareCode);
+    }
   }
 
   void _swapTranslations() {
@@ -109,16 +128,25 @@ class _BibleTranslationSelectorDialogState
   }
 
   void _selectSecondary(String code) {
+    var primaryChanged = false;
     setState(() {
       if (_selectedPrimary == code) {
-        final alt = BibleTranslationInfo.allTranslations
-            .map((t) => t.code)
-            .firstWhere((c) => c != code);
-        _selectedPrimary = alt;
-        widget.onPrimarySelected(_selectedPrimary);
+        final previousCompare = _selectedCompare;
+        if (previousCompare != null && previousCompare != code) {
+          _selectedPrimary = previousCompare;
+        } else {
+          final alt = BibleTranslationInfo.allTranslations
+              .map((t) => t.code)
+              .firstWhere((c) => c != code);
+          _selectedPrimary = alt;
+        }
+        primaryChanged = true;
       }
       _selectedCompare = code;
     });
+    if (primaryChanged) {
+      widget.onPrimarySelected(_selectedPrimary);
+    }
     widget.onCompareSelected(_selectedCompare);
   }
 

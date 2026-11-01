@@ -1,5 +1,7 @@
 enum BibleApprovalStatus { imprimatur, noImprimatur, canonicalSourceText }
 
+typedef TranslationApprovalStatus = BibleApprovalStatus;
+
 class BibleTranslationInfo {
   final String code;
   final String name;
@@ -32,6 +34,33 @@ class BibleTranslationInfo {
       return false;
     }
     return true;
+  }
+
+  String? usfmAssetPathForBook(int bookNumber, String abbrev) {
+    if (bookNumber < 1 || !supportsBook(bookNumber)) {
+      return null;
+    }
+    final numStr = bookNumber.toString().padLeft(2, '0');
+    switch (code.toUpperCase()) {
+      case 'DRC':
+        return 'assets/bible/drc/usfm/$numStr-$abbrev-ENG[B]DRC1899[pd].usfm';
+      case 'JUN':
+        return 'assets/bible/jun/usfm/$numStr-$abbrev-SPA[B]JUN1928[pd].usfm';
+      case 'TAM':
+        return 'assets/bible/tam/usfm/$numStr-$abbrev-SPA[B]TAM1836[pd].usfm';
+      case 'VUL':
+        return 'assets/bible/vul/usfm/$numStr-$abbrev-LAT[B]VUL1592[pd].usfm';
+      case 'LXX':
+        return 'assets/bible/lxx/usfm/$numStr-$abbrev-GRC[B]LXX[pd].usfm';
+      case 'ORIG':
+        return 'assets/bible/orig/usfm/$numStr-$abbrev-ORIG[pd].usfm';
+      case 'CPDV':
+      case 'CPDV2025':
+      case 'CPDV2009':
+        return 'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2025[pd].usfm';
+      default:
+        return null;
+    }
   }
 
   String get approvalStatusLabel {
@@ -147,13 +176,38 @@ class BibleTranslationInfo {
     ),
   ];
 
-  static BibleTranslationInfo getByCode(String code) {
-    final upper = code.toUpperCase();
+  static BibleTranslationInfo? tryGetByCode(String code) {
+    final upper = code.trim().toUpperCase();
     if (upper == 'CPDV2025' || upper == 'CPDV2009') {
       return allTranslations.firstWhere((t) => t.code == 'CPDV');
     }
+    for (final t in allTranslations) {
+      if (t.code.toUpperCase() == upper) {
+        return t;
+      }
+    }
+    return null;
+  }
+
+  static BibleTranslationInfo getByCode(String code) {
+    return tryGetByCode(code) ?? allTranslations.first;
+  }
+
+  static BibleTranslationInfo resolveForBook(
+    String preferredCode,
+    int bookNumber, {
+    String fallbackCode = 'CPDV',
+  }) {
+    final preferred = tryGetByCode(preferredCode);
+    if (preferred != null && preferred.supportsBook(bookNumber)) {
+      return preferred;
+    }
+    final fallback = tryGetByCode(fallbackCode) ?? getByCode(fallbackCode);
+    if (fallback.supportsBook(bookNumber)) {
+      return fallback;
+    }
     return allTranslations.firstWhere(
-      (t) => t.code.toUpperCase() == upper,
+      (t) => t.supportsBook(bookNumber),
       orElse: () => allTranslations.first,
     );
   }
