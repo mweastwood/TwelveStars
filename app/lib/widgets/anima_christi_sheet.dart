@@ -55,35 +55,29 @@ class AnimaChristiSheet extends StatefulWidget {
   State<AnimaChristiSheet> createState() => _AnimaChristiSheetState();
 }
 
-class _AnimaChristiSheetState extends State<AnimaChristiSheet> {
+class _AnimaChristiSheetState extends State<AnimaChristiSheet>
+    with UserSettingsStateMixin<AnimaChristiSheet> {
   UserSettings? _settings;
 
   @override
   void initState() {
     super.initState();
     _settings = widget.settings;
-    UserSettingsController.instance.addListener(_onSettingsChanged);
     if (_settings == null) {
       _loadSettings();
     }
   }
 
   @override
-  void dispose() {
-    UserSettingsController.instance.removeListener(_onSettingsChanged);
-    super.dispose();
-  }
-
-  void _onSettingsChanged() {
-    if (!mounted) return;
+  void onUserSettingsChanged(UserSettings settings) {
     setState(() {
-      _settings = UserSettingsController.instance.value;
+      _settings = settings;
     });
   }
 
   Future<void> _loadSettings() async {
     try {
-      final s = await UserSettingsController.instance.load();
+      final s = await ensureUserSettingsLoaded();
       if (mounted) {
         setState(() {
           _settings = s;
