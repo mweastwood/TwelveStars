@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:drift/drift.dart' hide Column;
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
@@ -79,64 +78,11 @@ class HomilyService {
           citation: reading.citation,
         );
 
-        Expression<bool> predicate = const Constant(false);
-        for (final range in ranges) {
-          Expression<bool> rangePredicate = db.bibleVerses.chapter.equals(
-            range.chapter,
-          );
-
-          if (range.verses != null) {
-            Expression<bool> versePredicate = db.bibleVerses.verseNumber.isIn(
-              range.verses!,
-            );
-            if (range.startVerseLimit != null) {
-              versePredicate =
-                  versePredicate |
-                  db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                    range.startVerseLimit!,
-                  );
-            }
-            if (range.endVerseLimit != null) {
-              versePredicate =
-                  versePredicate |
-                  db.bibleVerses.verseNumber.isSmallerOrEqualValue(
-                    range.endVerseLimit!,
-                  );
-            }
-            rangePredicate = rangePredicate & versePredicate;
-          } else {
-            if (range.startVerseLimit != null) {
-              rangePredicate =
-                  rangePredicate &
-                  db.bibleVerses.verseNumber.isBiggerOrEqualValue(
-                    range.startVerseLimit!,
-                  );
-            }
-            if (range.endVerseLimit != null) {
-              rangePredicate =
-                  rangePredicate &
-                  db.bibleVerses.verseNumber.isSmallerOrEqualValue(
-                    range.endVerseLimit!,
-                  );
-            }
-          }
-
-          predicate = predicate | rangePredicate;
-        }
-
-        final verses =
-            await (db.select(db.bibleVerses)
-                  ..where(
-                    (t) =>
-                        t.translationCode.equals(activeTranslation) &
-                        t.bookNumber.equals(reading.bookNumber) &
-                        predicate,
-                  )
-                  ..orderBy([
-                    (t) => OrderingTerm(expression: t.chapter),
-                    (t) => OrderingTerm(expression: t.verseNumber),
-                  ]))
-                .get();
+        final verses = await db.getVersesForRanges(
+          translationCode: activeTranslation,
+          bookNumber: reading.bookNumber,
+          ranges: ranges,
+        );
 
         final verseTexts = verses
             .map((v) => v.verseText.trim())
