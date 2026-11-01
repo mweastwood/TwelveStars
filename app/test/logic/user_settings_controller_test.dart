@@ -527,5 +527,73 @@ void main() {
         }
       },
     );
+
+    test(
+      're-entrant and concurrent update() calls serialize saves and never overwrite newer settings in DB',
+      () async {
+        final asyncSaveDb = _AsyncSaveBibleDatabase(
+          persistedSettings: UserSettings(primaryBibleTranslation: 'CPDV'),
+        );
+        BibleDatabaseHelper.db = asyncSaveDb;
+        final controller = UserSettingsController.instance;
+        await controller.load();
+
+        // 1. Re-entrant update(s2) inside listener triggered by update(s1)
+        bool triggeredReentrant = false;
+        Future<void>? reentrantUpdateFuture;
+        void reentrantUpdateListener() {
+          if (!triggeredReentrant &&
+              controller.value.primaryBibleTranslation == 'DRA') {
+            triggeredReentrant = true;
+            reentrantUpdateFuture = controller.update(
+              UserSettings(primaryBibleTranslation: 'VULGATE'),
+            );
+          }
+        }
+
+        controller.addListener(reentrantUpdateListener);
+        try {
+          await controller.update(UserSettings(primaryBibleTranslation: 'DRA'));
+          if (reentrantUpdateFuture != null) {
+            await reentrantUpdateFuture;
+          }
+          expect(controller.value.primaryBibleTranslation, equals('VULGATE'));
+          expect(
+            asyncSaveDb.persistedSettings?.primaryBibleTranslation,
+            equals('VULGATE'),
+          );
+          final loadedAfterReentrant = await controller.load();
+          expect(
+            loadedAfterReentrant.primaryBibleTranslation,
+            equals('VULGATE'),
+          );
+        } finally {
+          controller.removeListener(reentrantUpdateListener);
+        }
+
+        // 2. Concurrent update(s1) and update(s2) while s1 save is slow
+        final s1Completer = Completer<void>();
+        asyncSaveDb.saveCompleter = s1Completer;
+
+        final update1Future = controller.update(
+          UserSettings(primaryBibleTranslation: 'KJV'),
+        );
+        final update2Future = controller.update(
+          UserSettings(primaryBibleTranslation: 'NAV'),
+        );
+
+        // Release s1 save completer so both chained saves can complete
+        s1Completer.complete();
+        await Future.wait([update1Future, update2Future]);
+
+        expect(controller.value.primaryBibleTranslation, equals('NAV'));
+        expect(
+          asyncSaveDb.persistedSettings?.primaryBibleTranslation,
+          equals('NAV'),
+        );
+        final loadedAfterConcurrent = await controller.load();
+        expect(loadedAfterConcurrent.primaryBibleTranslation, equals('NAV'));
+      },
+    );
   });
 }

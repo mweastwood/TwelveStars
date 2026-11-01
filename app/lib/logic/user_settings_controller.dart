@@ -12,6 +12,8 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
   bool get isInitialized => _isInitialized;
 
   Future<UserSettings>? _inFlightLoad;
+  Future<void>? _inFlightSave;
+  int _resetVersion = 0;
   int _mutationVersion = 0;
   int _pendingSaveCount = 0;
   int? _syncedPrayerCatalogVersion;
@@ -54,13 +56,16 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
   }
 
   Future<UserSettings> _performLoad() async {
+    final resetVersion = _resetVersion;
     final loadVersion = _mutationVersion;
     final loaded = await PrayerDatabase.loadSettings();
     if (_syncedPrayerCatalogVersion != null &&
         loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
       loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
     }
-    if (_mutationVersion == loadVersion && _pendingSaveCount == 0) {
+    if (_resetVersion == resetVersion &&
+        _mutationVersion == loadVersion &&
+        _pendingSaveCount == 0) {
       _isInitialized = true;
       _setValueAndNotify(loaded);
     }
@@ -68,7 +73,8 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
   }
 
   Future<void> update(UserSettings settings) async {
-    _mutationVersion++;
+    final resetVersion = _resetVersion;
+    final saveVersion = ++_mutationVersion;
     _inFlightLoad = null;
     _isInitialized = true;
     if (_syncedPrayerCatalogVersion != null &&
@@ -78,9 +84,29 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
     _pendingSaveCount++;
     try {
       _setValueAndNotify(settings);
-      await PrayerDatabase.saveSettings(settings);
+      if (_resetVersion != resetVersion) return;
+
+      final previousSave = _inFlightSave;
+      final currentSave = () async {
+        if (previousSave != null) {
+          try {
+            await previousSave;
+          } catch (_) {}
+        }
+        if (_resetVersion == resetVersion && _mutationVersion == saveVersion) {
+          await PrayerDatabase.saveSettings(settings);
+        }
+      }();
+      _inFlightSave = currentSave;
+      try {
+        await currentSave;
+      } finally {
+        if (identical(_inFlightSave, currentSave)) {
+          _inFlightSave = null;
+        }
+      }
     } finally {
-      if (_pendingSaveCount > 0) {
+      if (_resetVersion == resetVersion && _pendingSaveCount > 0) {
         _pendingSaveCount--;
       }
     }
@@ -112,9 +138,11 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
 
   @visibleForTesting
   void resetForTesting() {
+    _resetVersion++;
     _mutationVersion++;
     _pendingSaveCount = 0;
     _inFlightLoad = null;
+    _inFlightSave = null;
     _syncedPrayerCatalogVersion = null;
     _isInitialized = false;
     value = UserSettings();

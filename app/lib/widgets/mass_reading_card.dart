@@ -89,6 +89,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
   String? _errorMessage;
 
   String? _loadedTranslation;
+  String? _loadingTranslation;
+  int _loadGeneration = 0;
   BibleNumberingSystem _numberingSystem = BibleNumberingSystem.vulgate;
   final ReaderSelectionController _selectionController =
       ReaderSelectionController();
@@ -115,7 +117,8 @@ class _MassReadingCardState extends State<MassReadingCard> {
     final translation = transInfo.supportsBook(widget.reading.bookNumber)
         ? requestedTranslation
         : 'CPDV';
-    if (_loadedTranslation != null && _loadedTranslation != translation) {
+    final activeTranslation = _loadingTranslation ?? _loadedTranslation;
+    if (activeTranslation != null && activeTranslation != translation) {
       final hadSelection = _selectionController.hasSelection;
       _selectionController.clear();
       if (hadSelection) {
@@ -277,16 +280,26 @@ class _MassReadingCardState extends State<MassReadingCard> {
   }
 
   Future<void> _loadVerses({bool force = false}) async {
+    final loadGen = ++_loadGeneration;
     final settings = UserSettingsController.instance.isInitialized
         ? UserSettingsController.instance.value
         : await UserSettingsController.instance.load();
+    if (!mounted || loadGen != _loadGeneration) return;
+
     final requestedTranslation = settings.primaryBibleTranslation;
     final transInfo = BibleTranslationInfo.getByCode(requestedTranslation);
     final translation = transInfo.supportsBook(widget.reading.bookNumber)
         ? requestedTranslation
         : 'CPDV';
 
-    if (_verses != null && _loadedTranslation == translation && !force) return;
+    if (_verses != null &&
+        _loadedTranslation == translation &&
+        _loadingTranslation == null &&
+        !force) {
+      return;
+    }
+
+    _loadingTranslation = translation;
 
     if (mounted) {
       setState(() {
@@ -310,9 +323,13 @@ class _MassReadingCardState extends State<MassReadingCard> {
         bookMeta.abbrev,
         translation: translation,
       );
+      if (!mounted || loadGen != _loadGeneration) return;
 
       await _loadFavorites();
+      if (!mounted || loadGen != _loadGeneration) return;
+
       await _loadComments();
+      if (!mounted || loadGen != _loadGeneration) return;
 
       final ranges = resolveReadingRanges(
         bookNumber: widget.reading.bookNumber,
@@ -327,17 +344,22 @@ class _MassReadingCardState extends State<MassReadingCard> {
         ranges: ranges,
       );
 
-      if (mounted) {
+      if (mounted && loadGen == _loadGeneration) {
+        final currentNumbering = UserSettingsController.instance.isInitialized
+            ? UserSettingsController.instance.value.bibleNumberingSystem
+            : settings.bibleNumberingSystem;
         setState(() {
           _verses = verses;
           _loadedTranslation = translation;
-          _numberingSystem = settings.bibleNumberingSystem;
+          _loadingTranslation = null;
+          _numberingSystem = currentNumbering;
           _isLoading = false;
         });
       }
     } catch (e) {
-      if (mounted) {
+      if (mounted && loadGen == _loadGeneration) {
         setState(() {
+          _loadingTranslation = null;
           _errorMessage = e.toString();
           _isLoading = false;
         });

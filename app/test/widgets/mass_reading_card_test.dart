@@ -2391,6 +2391,68 @@ void main() {
     );
 
     testWidgets(
+      'changing primaryBibleTranslation while initial _loadVerses is still in flight loads new translation and discards stale initial load',
+      (WidgetTester tester) async {
+        const reading = LectionaryReading(
+          id: 90,
+          readingKey: 'inflight_translation_switch_test',
+          readingType: 'first',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '1',
+          citation: 'Genesis 1:1',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 401,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'CPDV in-flight test verse.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 402,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'DRA in-flight test verse.',
+                translationCode: 'DRA',
+              ),
+            );
+
+        // Pre-initialize UserSettingsController with CPDV
+        await UserSettingsController.instance.load();
+
+        // Pump widget (starts initial _loadVerses for CPDV asynchronously)
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(body: MassReadingCard(reading: reading)),
+          ),
+        );
+
+        // Immediately switch translation to DRA while initial CPDV load is still in flight
+        await UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = 'DRA';
+        });
+        await tester.pumpAndSettle();
+
+        expect(find.text('DRA in-flight test verse.'), findsOneWidget);
+        expect(find.text('CPDV in-flight test verse.'), findsNothing);
+      },
+    );
+
+    testWidgets(
       'selection citations, copied text, and modal titles respect BibleNumberingSystem.modern and dual',
       (WidgetTester tester) async {
         final List<Map<String, dynamic>> clipboardLog = [];
