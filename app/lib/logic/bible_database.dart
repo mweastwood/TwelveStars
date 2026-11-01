@@ -475,30 +475,7 @@ class BibleDatabase extends _$BibleDatabase {
         }
       }
 
-      final numStr = bookNumber.toString().padLeft(2, '0');
-      final String assetPath;
-      if (translation == 'DRC') {
-        assetPath =
-            'assets/bible/drc/usfm/$numStr-$abbrev-ENG[B]DRC1899[pd].usfm';
-      } else if (translation == 'JUN') {
-        assetPath =
-            'assets/bible/jun/usfm/$numStr-$abbrev-SPA[B]JUN1928[pd].usfm';
-      } else if (translation == 'TAM') {
-        assetPath =
-            'assets/bible/tam/usfm/$numStr-$abbrev-SPA[B]TAM1836[pd].usfm';
-      } else if (translation == 'VUL') {
-        assetPath =
-            'assets/bible/vul/usfm/$numStr-$abbrev-LAT[B]VUL1592[pd].usfm';
-      } else if (translation == 'LXX') {
-        assetPath = 'assets/bible/lxx/usfm/$numStr-$abbrev-GRC[B]LXX[pd].usfm';
-      } else if (translation == 'ORIG') {
-        assetPath = 'assets/bible/orig/usfm/$numStr-$abbrev-ORIG[pd].usfm';
-      } else {
-        // Default: CPDV (2025 Edition)
-        assetPath =
-            'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2025[pd].usfm';
-      }
-
+      final assetPath = _resolveUsfmAssetPath(translation, bookNumber, abbrev);
       final usfmContent = await rootBundle.loadString(assetPath);
       final parsedVerses = await compute(
         UsfmParser.parseInBackground,
@@ -535,6 +512,31 @@ class BibleDatabase extends _$BibleDatabase {
       rethrow;
     } finally {
       _inFlightBookPopulations.remove(key);
+    }
+  }
+
+  String _resolveUsfmAssetPath(
+    String translation,
+    int bookNumber,
+    String abbrev,
+  ) {
+    final numStr = bookNumber.toString().padLeft(2, '0');
+    switch (translation) {
+      case 'DRC':
+        return 'assets/bible/drc/usfm/$numStr-$abbrev-ENG[B]DRC1899[pd].usfm';
+      case 'JUN':
+        return 'assets/bible/jun/usfm/$numStr-$abbrev-SPA[B]JUN1928[pd].usfm';
+      case 'TAM':
+        return 'assets/bible/tam/usfm/$numStr-$abbrev-SPA[B]TAM1836[pd].usfm';
+      case 'VUL':
+        return 'assets/bible/vul/usfm/$numStr-$abbrev-LAT[B]VUL1592[pd].usfm';
+      case 'LXX':
+        return 'assets/bible/lxx/usfm/$numStr-$abbrev-GRC[B]LXX[pd].usfm';
+      case 'ORIG':
+        return 'assets/bible/orig/usfm/$numStr-$abbrev-ORIG[pd].usfm';
+      default:
+        // Default: CPDV (2025 Edition)
+        return 'assets/bible/cpdv/usfm/$numStr-$abbrev-ENG[B]CPDV2025[pd].usfm';
     }
   }
 
