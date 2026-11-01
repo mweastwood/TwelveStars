@@ -195,6 +195,36 @@ class _RosaryScreenState extends State<RosaryScreen>
     return null;
   }
 
+  Widget _buildStepPrayerCard(Prayer prayer, String prayerId) {
+    final settings = UserSettingsController.instance.value;
+    final prefKey = UserSettings.prayerVersionKey(
+      prayerId,
+      widget.primaryLanguage,
+    );
+    final initialVersion =
+        _preferredVersions[prefKey] ??
+        settings.getPrayerVersionIndex(prayerId, widget.primaryLanguage);
+
+    return PrayerCard(
+      key: ValueKey('${prayerId}_$_currentStep'),
+      prayer: prayer,
+      selectedLanguage: widget.primaryLanguage,
+      compareLanguage: widget.compareLanguage,
+      initialVersionIndex: initialVersion,
+      fontSize: widget.fontSize,
+      onVersionChanged: (newIndex) async {
+        setState(() {
+          _preferredVersions[prefKey] = newIndex;
+        });
+        await UserSettingsController.instance.savePrayerVersionIndex(
+          prayerId,
+          widget.primaryLanguage,
+          newIndex,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -207,29 +237,6 @@ class _RosaryScreenState extends State<RosaryScreen>
     final prayer3 = activeStep.tertiaryPrayerId != null
         ? _findPrayer(activeStep.tertiaryPrayerId!)
         : null;
-
-    final settings = UserSettingsController.instance.value;
-    final langSuffix = widget.primaryLanguage.code;
-    final prefKey1 = '${activeStep.prayerId}_$langSuffix';
-    final initialVersion1 =
-        _preferredVersions[prefKey1] ??
-        settings.getPreferredVersionIndex(prefKey1);
-
-    final prefKey2 = activeStep.secondaryPrayerId != null
-        ? '${activeStep.secondaryPrayerId}_$langSuffix'
-        : '';
-    final initialVersion2 = activeStep.secondaryPrayerId != null
-        ? (_preferredVersions[prefKey2] ??
-              settings.getPreferredVersionIndex(prefKey2))
-        : 0;
-
-    final prefKey3 = activeStep.tertiaryPrayerId != null
-        ? '${activeStep.tertiaryPrayerId}_$langSuffix'
-        : '';
-    final initialVersion3 = activeStep.tertiaryPrayerId != null
-        ? (_preferredVersions[prefKey3] ??
-              settings.getPreferredVersionIndex(prefKey3))
-        : 0;
 
     return Scaffold(
       appBar: AppBar(title: const Text('Rosary')),
@@ -318,29 +325,9 @@ class _RosaryScreenState extends State<RosaryScreen>
                                     ],
                                     // Prayer Card 1
                                     if (prayer1 != null) ...[
-                                      PrayerCard(
-                                        key: ValueKey(
-                                          '${activeStep.prayerId}_$_currentStep',
-                                        ),
-                                        prayer: prayer1,
-                                        selectedLanguage:
-                                            widget.primaryLanguage,
-                                        compareLanguage: widget.compareLanguage,
-                                        initialVersionIndex: initialVersion1,
-                                        fontSize: widget.fontSize,
-                                        onVersionChanged: (newIndex) async {
-                                          setState(() {
-                                            _preferredVersions[prefKey1] =
-                                                newIndex;
-                                          });
-                                          await UserSettingsController.instance
-                                              .mutate((s) {
-                                                s.setPreferredVersionIndex(
-                                                  prefKey1,
-                                                  newIndex,
-                                                );
-                                              });
-                                        },
+                                      _buildStepPrayerCard(
+                                        prayer1,
+                                        activeStep.prayerId,
                                       ),
                                     ] else ...[
                                       Card(
@@ -362,57 +349,17 @@ class _RosaryScreenState extends State<RosaryScreen>
                                     // Prayer Card 2 (if Fatima / Final Prayer is also present in step)
                                     if (prayer2 != null) ...[
                                       const SizedBox(height: 8),
-                                      PrayerCard(
-                                        key: ValueKey(
-                                          '${activeStep.secondaryPrayerId!}_$_currentStep',
-                                        ),
-                                        prayer: prayer2,
-                                        selectedLanguage:
-                                            widget.primaryLanguage,
-                                        compareLanguage: widget.compareLanguage,
-                                        initialVersionIndex: initialVersion2,
-                                        fontSize: widget.fontSize,
-                                        onVersionChanged: (newIndex) async {
-                                          setState(() {
-                                            _preferredVersions[prefKey2] =
-                                                newIndex;
-                                          });
-                                          await UserSettingsController.instance
-                                              .mutate((s) {
-                                                s.setPreferredVersionIndex(
-                                                  prefKey2,
-                                                  newIndex,
-                                                );
-                                              });
-                                        },
+                                      _buildStepPrayerCard(
+                                        prayer2,
+                                        activeStep.secondaryPrayerId!,
                                       ),
                                     ],
                                     // Prayer Card 3 (if Sign of the Cross closing prayer is also present in step)
                                     if (prayer3 != null) ...[
                                       const SizedBox(height: 8),
-                                      PrayerCard(
-                                        key: ValueKey(
-                                          '${activeStep.tertiaryPrayerId!}_$_currentStep',
-                                        ),
-                                        prayer: prayer3,
-                                        selectedLanguage:
-                                            widget.primaryLanguage,
-                                        compareLanguage: widget.compareLanguage,
-                                        initialVersionIndex: initialVersion3,
-                                        fontSize: widget.fontSize,
-                                        onVersionChanged: (newIndex) async {
-                                          setState(() {
-                                            _preferredVersions[prefKey3] =
-                                                newIndex;
-                                          });
-                                          await UserSettingsController.instance
-                                              .mutate((s) {
-                                                s.setPreferredVersionIndex(
-                                                  prefKey3,
-                                                  newIndex,
-                                                );
-                                              });
-                                        },
+                                      _buildStepPrayerCard(
+                                        prayer3,
+                                        activeStep.tertiaryPrayerId!,
                                       ),
                                     ],
                                   ],

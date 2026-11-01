@@ -173,6 +173,18 @@ class UserSettings {
     return match.isNotEmpty ? match.first : null;
   }
 
+  static String prayerVersionKey(String prayerId, PrayerLanguage language) =>
+      '${prayerId}_${language.code}';
+
+  int getPrayerVersionIndex(String prayerId, PrayerLanguage language) =>
+      getPreferredVersionIndex(prayerVersionKey(prayerId, language));
+
+  void setPrayerVersionIndex(
+    String prayerId,
+    PrayerLanguage language,
+    int index,
+  ) => setPreferredVersionIndex(prayerVersionKey(prayerId, language), index);
+
   int getPreferredVersionIndex(String key) {
     return preferredVersions
             ?.firstWhere(
