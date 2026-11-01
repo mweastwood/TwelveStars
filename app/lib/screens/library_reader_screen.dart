@@ -155,7 +155,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       itemKeys[i] = key;
       final item = sec.content[i];
       if (item.type == 'qa' && item.questionNumber != null) {
-        questionKeys[item.questionNumber!] = key;
+        questionKeys.putIfAbsent(item.questionNumber!, () => key);
       }
     }
     _sectionItemKeys[sectionIndex] = itemKeys;

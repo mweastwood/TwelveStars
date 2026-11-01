@@ -1133,5 +1133,127 @@ void main() {
         expect(questionKey!.currentContext, isNotNull);
       },
     );
+
+    testWidgets(
+      'section with duplicate questionNumber (e.g. Q. 173 and Q. 173a) renders without duplicate GlobalKey error and mounts questionKeys[173] on first item',
+      (tester) async {
+        late ParsedBookData baltimore1;
+        await tester.runAsync(() async {
+          baltimore1 = await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        // Verify direct LibrarySectionView with two QA items sharing questionNumber 173
+        final duplicateQSection = BookSection(
+          id: 'dup_q_sec',
+          title: 'Lesson with Duplicate Question Number',
+          subtitle: '',
+          content: [
+            ContentItem(
+              type: 'qa',
+              questionNumber: 173,
+              question: 'First Q. 173?',
+              answer: 'First answer.',
+            ),
+            ContentItem(
+              type: 'qa',
+              questionNumber: 173,
+              question: 'Second Q. 173a?',
+              answer: 'Second answer.',
+            ),
+          ],
+        );
+
+        final itemKeys = <int, GlobalKey>{0: GlobalKey(), 1: GlobalKey()};
+        final questionKeys = <int, GlobalKey>{173: GlobalKey()};
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: LibrarySectionView(
+                section: duplicateQSection,
+                fontSize: 16.0,
+                verseSystem: 'vulgate',
+                itemKeys: itemKeys,
+                questionKeys: questionKeys,
+                onShowCrossRefModal: (_) {},
+                onShowScriptureModal: (_) {},
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+        expect(itemKeys[0]!.currentContext, isNotNull);
+        expect(itemKeys[1]!.currentContext, isNotNull);
+        expect(questionKeys[173]!.currentContext, isNotNull);
+
+        // Also test when questionKeys[173] points to itemKeys[1] (simulating a caller that overwrote questionKeys[173])
+        final sharedSecondKey = GlobalKey();
+        final itemKeys2 = <int, GlobalKey>{0: GlobalKey(), 1: sharedSecondKey};
+        final questionKeys2 = <int, GlobalKey>{173: sharedSecondKey};
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: LibrarySectionView(
+                section: duplicateQSection,
+                fontSize: 16.0,
+                verseSystem: 'vulgate',
+                itemKeys: itemKeys2,
+                questionKeys: questionKeys2,
+                onShowCrossRefModal: (_) {},
+                onShowScriptureModal: (_) {},
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Also test LibraryReaderScreen rendering duplicateQSection (Q. 173 and Q. 173a)
+        baltimore1.sections.add(duplicateQSection);
+        addTearDown(() {
+          baltimore1.sections.remove(duplicateQSection);
+        });
+        final secWithDupIdx = baltimore1.sections.length - 1;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+              initialSectionIndex: secWithDupIdx,
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        expect(tester.takeException(), isNull);
+        final readerSectionView = tester.widget<LibrarySectionView>(
+          find.byType(LibrarySectionView),
+        );
+        expect(
+          identical(
+            readerSectionView.questionKeys![173],
+            readerSectionView.itemKeys![0],
+          ),
+          isTrue,
+        );
+        expect(
+          identical(
+            readerSectionView.questionKeys![173],
+            readerSectionView.itemKeys![1],
+          ),
+          isFalse,
+        );
+        expect(readerSectionView.questionKeys![173]!.currentContext, isNotNull);
+        expect(readerSectionView.itemKeys![0]!.currentContext, isNotNull);
+        expect(readerSectionView.itemKeys![1]!.currentContext, isNotNull);
+      },
+    );
   });
 }

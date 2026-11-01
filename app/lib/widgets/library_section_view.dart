@@ -149,9 +149,16 @@ class LibrarySectionView extends StatelessWidget {
     final Key? primaryKey = (itemKeys != null && itemKeys!.containsKey(index))
         ? itemKeys![index]
         : null;
+    final bool isFirstForQuestionNumber =
+        item.type == 'qa' &&
+        item.questionNumber != null &&
+        section.content.indexWhere(
+              (it) =>
+                  it.type == 'qa' && it.questionNumber == item.questionNumber,
+            ) ==
+            index;
     final Key? questionKey =
-        (item.type == 'qa' &&
-            item.questionNumber != null &&
+        (isFirstForQuestionNumber &&
             questionKeys != null &&
             questionKeys!.containsKey(item.questionNumber!))
         ? questionKeys![item.questionNumber!]
@@ -373,7 +380,8 @@ class LibrarySectionView extends StatelessWidget {
 
     if (primaryKey != null &&
         questionKey != null &&
-        !identical(primaryKey, questionKey)) {
+        !identical(primaryKey, questionKey) &&
+        !itemKeys!.values.any((k) => identical(k, questionKey))) {
       itemWidget = KeyedSubtree(key: questionKey, child: itemWidget);
     }
 
