@@ -194,16 +194,92 @@ class LibraryReaderAdapter implements ReaderAdapter {
     }
   }
 
-  /// Builds a human-readable citation for the selected item range in [section].
-  String buildItemCitation(BookSection section, int startIndex, int endIndex) {
-    String baseTitle = bookItem.title;
-    if (bookItem.isSeries && bookItem.volumes != null) {
+  /// Computes the formatted [citation] and [textPreview] for the selected
+  /// item range `[startIndex, endIndex]` within [section].
+  static ({String citation, String textPreview}) formatSectionSelection({
+    required BookSection section,
+    required int startIndex,
+    required int endIndex,
+    String? volumeTitle,
+  }) {
+    final trimmedVol = volumeTitle?.trim();
+    final baseCitation = (trimmedVol != null && trimmedVol.isNotEmpty)
+        ? '$trimmedVol, ${section.title}'
+        : section.title;
+
+    if (section.content.isEmpty) {
+      return (citation: baseCitation, textPreview: '');
+    }
+
+    final maxIndex = section.content.length - 1;
+    final clampedStart = min(startIndex, endIndex).clamp(0, maxIndex);
+    final clampedEnd = max(startIndex, endIndex).clamp(0, maxIndex);
+    final firstItem = section.content[clampedStart];
+    final lastItem = section.content[clampedEnd];
+
+    String citation = baseCitation;
+    if (firstItem.questionNumber != null && lastItem.questionNumber != null) {
+      if (firstItem.questionNumber == lastItem.questionNumber) {
+        citation = '$baseCitation, Q. ${firstItem.questionNumber}';
+      } else {
+        final qMin = min(firstItem.questionNumber!, lastItem.questionNumber!);
+        final qMax = max(firstItem.questionNumber!, lastItem.questionNumber!);
+        citation = '$baseCitation, QQ. $qMin-$qMax';
+      }
+    } else if (clampedStart == clampedEnd && firstItem.questionNumber != null) {
+      citation = '$baseCitation, Q. ${firstItem.questionNumber}';
+    }
+
+    final parts = <String>[];
+    for (int i = clampedStart; i <= clampedEnd; i++) {
+      final item = section.content[i];
+      if (item.type == 'qa') {
+        final q = item.question ?? '';
+        final a = item.answer ?? '';
+        parts.add('Q. $q\nA. $a');
+      } else {
+        parts.add(item.text ?? '');
+      }
+    }
+
+    return (citation: citation, textPreview: parts.join('\n\n').trim());
+  }
+
+  /// Resolves the target content item index in [section] from an explicit
+  /// [itemIndex] or by matching [questionNumber].
+  static int? resolveTargetItemIndex(
+    BookSection section, {
+    int? itemIndex,
+    int? questionNumber,
+  }) {
+    if (itemIndex != null) return itemIndex;
+    if (questionNumber != null) {
+      final idx = section.content.indexWhere(
+        (it) => it.type == 'qa' && it.questionNumber == questionNumber,
+      );
+      if (idx >= 0) return idx;
+    }
+    return null;
+  }
+
+  /// Returns the display title for this book/volume (including series edition
+  /// short name when applicable).
+  String get resolvedVolumeTitle {
+    if (bookItem.isSeries &&
+        bookItem.volumes != null &&
+        bookItem.volumes!.isNotEmpty) {
       final vol = bookItem.volumes!.firstWhere(
         (v) => v.volumeKey == volumeKey,
         orElse: () => bookItem.volumes!.first,
       );
-      baseTitle = '${bookItem.title} (${vol.shortName})';
+      return '${bookItem.title} (${vol.shortName})';
     }
+    return bookItem.title;
+  }
+
+  /// Builds a human-readable citation for the selected item range in [section].
+  String buildItemCitation(BookSection section, int startIndex, int endIndex) {
+    final baseTitle = resolvedVolumeTitle;
 
     if (section.content.isEmpty) {
       return '$baseTitle, ${section.title}';
@@ -236,26 +312,11 @@ class LibraryReaderAdapter implements ReaderAdapter {
     BookSection section,
     int startIndex,
     int endIndex,
-  ) {
-    if (section.content.isEmpty) return '';
-    final maxIndex = section.content.length - 1;
-    final clampedStart = min(startIndex, endIndex).clamp(0, maxIndex);
-    final clampedEnd = max(startIndex, endIndex).clamp(0, maxIndex);
-    final buffer = StringBuffer();
-    for (int i = clampedStart; i <= clampedEnd; i++) {
-      final item = section.content[i];
-      if (item.type == 'qa') {
-        final q = item.question ?? '';
-        final a = item.answer ?? '';
-        buffer.writeln('Q. $q');
-        buffer.writeln('A. $a');
-      } else {
-        buffer.writeln(item.text ?? '');
-      }
-      if (i < clampedEnd) buffer.writeln();
-    }
-    return buffer.toString().trim();
-  }
+  ) => formatSectionSelection(
+    section: section,
+    startIndex: startIndex,
+    endIndex: endIndex,
+  ).textPreview;
 
   @override
   Future<ReaderDocument> loadDocument() async {

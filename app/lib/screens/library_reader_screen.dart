@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
-import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
-import 'package:twelve_stars/widgets/library_section_view.dart';
-import 'package:twelve_stars/widgets/library_toc_drawer.dart';
-import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
-import 'package:twelve_stars/widgets/reader/library_cross_ref_sheet.dart';
+import 'package:twelve_stars/widgets/library/library_reader_modals.dart';
 import 'package:twelve_stars/widgets/reader/library_edition_selector_bar.dart';
-import 'package:twelve_stars/widgets/reader/library_scripture_modal.dart';
 import 'package:twelve_stars/widgets/reader/library_search_results_view.dart';
 import 'package:twelve_stars/widgets/reader/reader_section_navigation_bar.dart';
-import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
-import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
 
 class LibraryReaderScreen extends StatefulWidget {
   final LibraryBookItem bookItem;
@@ -134,19 +126,15 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         !identical(adapter, _adapter)) {
       return;
     }
-    setState(() {
-      _comments = comments;
-    });
+    setState(() => _comments = comments);
   }
 
   void _populateKeys(ParsedBookData? data, int sectionIndex) {
     if (data == null ||
         sectionIndex < 0 ||
-        sectionIndex >= data.sections.length) {
-      return;
-    }
-    if (_sectionItemKeys.containsKey(sectionIndex) &&
-        _sectionQuestionKeys.containsKey(sectionIndex)) {
+        sectionIndex >= data.sections.length ||
+        (_sectionItemKeys.containsKey(sectionIndex) &&
+            _sectionQuestionKeys.containsKey(sectionIndex))) {
       return;
     }
     final sec = data.sections[sectionIndex];
@@ -169,24 +157,19 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     int? questionNumber,
     String? navigationSessionId,
   }) {
-    int? effectiveItemIndex = itemIndex;
-    if (effectiveItemIndex == null &&
-        questionNumber != null &&
+    final hasValidSection =
         _bookData != null &&
         _currentSectionIndex >= 0 &&
-        _currentSectionIndex < _bookData!.sections.length) {
-      final sec = _bookData!.sections[_currentSectionIndex];
-      final idx = sec.content.indexWhere(
-        (it) => it.type == 'qa' && it.questionNumber == questionNumber,
-      );
-      if (idx >= 0) {
-        effectiveItemIndex = idx;
-      }
-    }
+        _currentSectionIndex < _bookData!.sections.length;
+    final effectiveItemIndex = hasValidSection
+        ? LibraryReaderAdapter.resolveTargetItemIndex(
+            _bookData!.sections[_currentSectionIndex],
+            itemIndex: itemIndex,
+            questionNumber: questionNumber,
+          )
+        : itemIndex;
 
-    if (effectiveItemIndex == null && questionNumber == null) {
-      return;
-    }
+    if (effectiveItemIndex == null && questionNumber == null) return;
 
     setState(() {
       _selectionController.activateTemporaryHighlight(
@@ -239,10 +222,9 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
         sectionIndex >= _bookData!.sections.length) {
       return;
     }
-    final section = _bookData!.sections[sectionIndex];
     await _adapter.saveReadingPosition(
       sectionIndex: sectionIndex,
-      sectionId: section.id,
+      sectionId: _bookData!.sections[sectionIndex].id,
     );
   }
 
@@ -350,19 +332,11 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     if (_currentVolumeKey == vol.volumeKey) {
       ++_loadGeneration;
       if (_currentSectionIndex != initialSectionIndex) {
-        setState(() {
-          _currentSectionIndex = initialSectionIndex;
-          _populateKeys(_bookData, initialSectionIndex);
-          _selectionController.clear(clearTemporaryHighlight: true);
-        });
-        if (_pageController.hasClients) {
-          _pageController.jumpToPage(initialSectionIndex);
-        }
-        _saveReadingPosition(initialSectionIndex);
+        _jumpToSection(initialSectionIndex);
       } else {
-        setState(() {
-          _selectionController.clear(clearTemporaryHighlight: true);
-        });
+        setState(
+          () => _selectionController.clear(clearTemporaryHighlight: true),
+        );
       }
       if (targetItemIndex != null || targetQuestionNumber != null) {
         _populateKeys(_bookData, initialSectionIndex);
@@ -393,154 +367,121 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     );
   }
 
-  void _onItemLongPress(int index) {
+  void _jumpToSection(int idx) {
     setState(() {
-      _selectionController.onLongPress(index);
+      _currentSectionIndex = idx;
+      _populateKeys(_bookData, idx);
+      _selectionController.clear(clearTemporaryHighlight: true);
     });
+    if (_pageController.hasClients) {
+      _pageController.jumpToPage(idx);
+    }
+    _saveReadingPosition(idx);
   }
 
-  void _onItemTap(int index) {
-    if (_selectionController.hasSelection) {
+  void _stepSection(int delta) {
+    _clearSelection();
+    if (_pageController.hasClients) {
+      final future = delta < 0
+          ? _pageController.previousPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            )
+          : _pageController.nextPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+      future.ignore();
+    } else {
       setState(() {
-        _selectionController.onTap(index);
+        _currentSectionIndex += delta;
+        _populateKeys(_bookData, _currentSectionIndex);
       });
+      _saveReadingPosition(_currentSectionIndex);
     }
   }
 
-  void _clearSelection() {
-    setState(() {
-      _selectionController.clear(clearTemporaryHighlight: true);
-    });
+  void _onItemLongPress(int index) =>
+      setState(() => _selectionController.onLongPress(index));
+
+  void _onItemTap(int index) {
+    if (_selectionController.hasSelection) {
+      setState(() => _selectionController.onTap(index));
+    }
   }
 
-  Widget _buildSelectionActionBar(ThemeData theme) {
+  void _clearSelection() =>
+      setState(() => _selectionController.clear(clearTemporaryHighlight: true));
+
+  Widget? _buildSelectionActionBar() {
     if (_bookData == null ||
         _currentSectionIndex < 0 ||
         _currentSectionIndex >= _bookData!.sections.length ||
         !_selectionController.hasSelection) {
-      return const SizedBox.shrink();
+      return null;
     }
 
     final section = _bookData!.sections[_currentSectionIndex];
-    if (section.content.isEmpty) {
-      return const SizedBox.shrink();
-    }
+    if (section.content.isEmpty) return null;
 
     final maxIndex = section.content.length - 1;
     final rawStart = _selectionController.start!.clamp(0, maxIndex);
     final rawEnd = _selectionController.end!.clamp(0, maxIndex);
     final start = rawStart <= rawEnd ? rawStart : rawEnd;
     final end = rawStart <= rawEnd ? rawEnd : rawStart;
-    final count = end - start + 1;
 
-    final citation = _adapter.buildItemCitation(section, start, end);
-    final textPreview = _adapter.buildItemTextPreview(section, start, end);
+    final (
+      :citation,
+      :textPreview,
+    ) = LibraryReaderAdapter.formatSectionSelection(
+      section: section,
+      startIndex: start,
+      endIndex: end,
+      volumeTitle: _adapter.resolvedVolumeTitle,
+    );
     final nodeId = ReaderNodeId.libraryItem(
       sectionId: section.id,
       itemIndex: start,
       volumeKey: _currentVolumeKey,
     );
 
-    return ReaderSelectionActionBar(
-      title: citation,
-      selectedCount: count,
-      itemLabel: 'passage',
-      onSaveFavorite: () async {
-        await _adapter.saveBookmark(
-          ReaderBookmark(
-            id: '',
-            documentId: widget.bookItem.id,
-            sectionIndex: _currentSectionIndex,
-            nodeId: nodeId,
-            textPreview: '$citation\n$textPreview',
-            timestamp: DateTime.now(),
-          ),
-        );
-
-        if (widget.onFavoriteSaved != null) {
-          widget.onFavoriteSaved!();
-        }
-
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Saved $citation to Favorites'),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-          _clearSelection();
-        }
-      },
-      onAddComment: () => showAddCommentDialog(
-        context: context,
-        citation: citation,
-        textPreview: textPreview,
-        documentId: widget.bookItem.id,
-        sectionIndex: _currentSectionIndex,
-        nodeId: nodeId,
-        onCommentSaved: () async {
-          _clearSelection();
-          await _loadComments();
-        },
-      ),
-      onCopy: () async {
-        final clipboardContent = '$citation\n\n$textPreview';
-        await Clipboard.setData(ClipboardData(text: clipboardContent));
-
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('Copied $citation to clipboard'),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-          _clearSelection();
-        }
-      },
+    return buildLibraryReaderSelectionActionBar(
+      context: context,
+      adapter: _adapter,
+      documentId: widget.bookItem.id,
+      sectionIndex: _currentSectionIndex,
+      nodeId: nodeId,
+      citation: citation,
+      textPreview: textPreview,
+      selectedCount: end - start + 1,
       onClearSelection: _clearSelection,
+      onCommentSaved: _loadComments,
+      onFavoriteSaved: widget.onFavoriteSaved,
     );
   }
 
-  void _openTocSheet(BuildContext context, ThemeData theme) {
+  void _openTocSheet(BuildContext context) {
     final book = _bookData;
     if (book == null) return;
-
-    LibraryTocDrawer.show(
-      context,
+    showLibraryReaderTocSheet(
+      context: context,
       book: book,
       currentSectionIndex: _currentSectionIndex,
-      onSectionSelected: (idx) {
-        setState(() {
-          _currentSectionIndex = idx;
-          _populateKeys(_bookData, idx);
-          _selectionController.clear(clearTemporaryHighlight: true);
-        });
-        if (_pageController.hasClients) {
-          _pageController.jumpToPage(idx);
-        }
-        _saveReadingPosition(idx);
-      },
+      onSectionSelected: _jumpToSection,
     );
   }
 
-  void _openFontDialog(BuildContext context, ThemeData theme) {
-    ReaderTextOptionsSheet.show(
-      context,
+  void _openFontDialog(BuildContext context) {
+    showLibraryReaderTextOptionsSheet(
+      context: context,
       fontSize: _fontSize,
-      onFontSizeChanged: (val) {
-        setState(() {
-          _fontSize = val;
-        });
-      },
+      onFontSizeChanged: (val) => setState(() => _fontSize = val),
     );
   }
 
   void _performSearch(String query) {
     if (_bookData == null) return;
-    final results = _adapter.searchInBook(_bookData!, query);
-    setState(() {
-      _searchResults = results;
-    });
+    setState(() => _searchResults = _adapter.searchInBook(_bookData!, query));
   }
 
   void _closeSearch() {
@@ -554,6 +495,32 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     });
   }
 
+  void _onSearchResultSelected(BookSearchResult res) {
+    final secIdx =
+        _bookData?.sections.indexWhere((s) => s.id == res.sectionId) ?? -1;
+    if (secIdx < 0) return;
+
+    _selectionController.clear(clearTemporaryHighlight: true);
+    _pageController.dispose();
+    _pageController = PageController(initialPage: secIdx);
+    setState(() {
+      _currentSectionIndex = secIdx;
+      _populateKeys(_bookData, secIdx);
+      _isSearching = false;
+      _searchQuery = '';
+      _searchController.clear();
+      _searchResults = [];
+    });
+    _saveReadingPosition(secIdx);
+    if (res.itemIndex != null || res.questionNumber != null) {
+      _highlightAndScrollTo(
+        itemIndex: res.itemIndex,
+        questionNumber: res.questionNumber,
+        navigationSessionId: 'search_${DateTime.now().microsecondsSinceEpoch}',
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -562,102 +529,41 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     return PopScope(
       canPop: !_isSearching,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop && _isSearching) {
-          _closeSearch();
-        }
+        if (!didPop && _isSearching) _closeSearch();
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: _isSearching
-              ? TextField(
-                  controller: _searchController,
-                  autofocus: true,
-                  style: TextStyle(color: theme.colorScheme.onSurface),
-                  decoration: const InputDecoration(
-                    hintText: 'Search in book...',
-                    border: InputBorder.none,
-                  ),
-                  onChanged: (val) {
-                    setState(() {
-                      _searchQuery = val;
-                    });
-                    _performSearch(val);
-                  },
-                )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.bookItem.title,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    if (book != null)
-                      Text(
-                        book.subtitle.isNotEmpty ? book.subtitle : book.title,
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                  ],
-                ),
-          actions: [
-            if (_isSearching)
-              IconButton(
-                icon: const Icon(Icons.clear),
-                onPressed: () {
-                  setState(() {
-                    _searchController.clear();
-                    _searchQuery = '';
-                    _searchResults = [];
-                  });
-                },
-              )
-            else ...[
-              IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Search in Book',
-                onPressed: () {
-                  setState(() {
-                    _selectionController.clear(clearTemporaryHighlight: true);
-                    _isSearching = true;
-                  });
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.list),
-                tooltip: 'Table of Contents',
-                onPressed: () => _openTocSheet(context, theme),
-              ),
-              IconButton(
-                icon: const Icon(Icons.text_fields),
-                tooltip: 'Text Options',
-                onPressed: () => _openFontDialog(context, theme),
-              ),
-            ],
-          ],
-          leading: _isSearching
-              ? IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  onPressed: _closeSearch,
-                )
-              : null,
+        appBar: buildLibraryReaderAppBar(
+          theme: theme,
+          bookTitle: widget.bookItem.title,
+          book: book,
+          isSearching: _isSearching,
+          searchController: _searchController,
+          onSearchChanged: (val) {
+            setState(() => _searchQuery = val);
+            _performSearch(val);
+          },
+          onClearSearch: () => setState(() {
+            _searchController.clear();
+            _searchQuery = '';
+            _searchResults = [];
+          }),
+          onStartSearch: () => setState(() {
+            _selectionController.clear(clearTemporaryHighlight: true);
+            _isSearching = true;
+          }),
+          onCloseSearch: _closeSearch,
+          onOpenToc: () => _openTocSheet(context),
+          onOpenFontOptions: () => _openFontDialog(context),
         ),
         body: SafeArea(
           child: Column(
             children: [
-              // Series Volume Selector Header (for Baltimore Catechism)
               if (widget.bookItem.isSeries && !_isSearching)
                 LibraryEditionSelectorBar(
                   volumes: widget.bookItem.volumes!,
                   selectedVolumeKey: _currentVolumeKey,
                   onVolumeSelected: _switchVolume,
                 ),
-
-              // Main Reader / Search Results View
               Expanded(
                 child: _isLoading
                     ? const Center(child: CircularProgressIndicator())
@@ -676,79 +582,16 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
                     ? LibrarySearchResultsView(
                         searchQuery: _searchQuery,
                         searchResults: _searchResults,
-                        onResultTap: (res) {
-                          final secIdx =
-                              _bookData?.sections.indexWhere(
-                                (s) => s.id == res.sectionId,
-                              ) ??
-                              -1;
-                          if (secIdx >= 0) {
-                            _selectionController.clear(
-                              clearTemporaryHighlight: true,
-                            );
-                            _pageController.dispose();
-                            _pageController = PageController(
-                              initialPage: secIdx,
-                            );
-                            setState(() {
-                              _currentSectionIndex = secIdx;
-                              _populateKeys(_bookData, secIdx);
-                              _isSearching = false;
-                              _searchQuery = '';
-                              _searchController.clear();
-                              _searchResults = [];
-                            });
-                            _saveReadingPosition(secIdx);
-                            if (res.itemIndex != null ||
-                                res.questionNumber != null) {
-                              _highlightAndScrollTo(
-                                itemIndex: res.itemIndex,
-                                questionNumber: res.questionNumber,
-                                navigationSessionId:
-                                    'search_${DateTime.now().microsecondsSinceEpoch}',
-                              );
-                            }
-                          }
-                        },
+                        onResultTap: _onSearchResultSelected,
                       )
-                    : _buildSectionContentView(theme, book!),
+                    : _buildSectionContentView(book!),
               ),
-
-              // Bottom Section Navigation Footer
               if (!_isSearching && book != null && book.sections.isNotEmpty)
                 ReaderSectionNavigationBar(
                   currentIndex: _currentSectionIndex,
                   totalSections: book.sections.length,
-                  onPrevious: () {
-                    _clearSelection();
-                    if (_pageController.hasClients) {
-                      _pageController.previousPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    } else {
-                      setState(() {
-                        _currentSectionIndex--;
-                        _populateKeys(_bookData, _currentSectionIndex);
-                      });
-                      _saveReadingPosition(_currentSectionIndex);
-                    }
-                  },
-                  onNext: () {
-                    _clearSelection();
-                    if (_pageController.hasClients) {
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    } else {
-                      setState(() {
-                        _currentSectionIndex++;
-                        _populateKeys(_bookData, _currentSectionIndex);
-                      });
-                      _saveReadingPosition(_currentSectionIndex);
-                    }
-                  },
+                  onPrevious: () => _stepSection(-1),
+                  onNext: () => _stepSection(1),
                 ),
             ],
           ),
@@ -757,12 +600,7 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
     );
   }
 
-  Widget _buildSectionContentView(ThemeData theme, ParsedBookData book) {
-    if (book.sections.isEmpty) {
-      return const Center(child: Text('No content found in this volume.'));
-    }
-
-    // Build map of nodeId -> list of comments for the current section
+  Widget _buildSectionContentView(ParsedBookData book) {
     final sectionCommentsMap = LibraryReaderAdapter.groupCommentsForSection(
       _comments,
       _currentSectionIndex,
@@ -770,90 +608,36 @@ class _LibraryReaderScreenState extends State<LibraryReaderScreen> {
       isSeries: widget.bookItem.isSeries,
     );
 
-    final selStart = _selectionController.effectiveHighlightStart;
-    final selEnd = _selectionController.effectiveHighlightEnd;
-
-    return Stack(
-      children: [
-        PageView.builder(
-          controller: _pageController,
-          itemCount: book.sections.length,
-          onPageChanged: (index) {
-            setState(() {
-              _currentSectionIndex = index;
-              _populateKeys(_bookData, index);
-              _selectionController.clear(clearTemporaryHighlight: true);
-            });
-            _saveReadingPosition(index);
-          },
-          itemBuilder: (context, index) {
-            final sec = book.sections[index];
-            return LibrarySectionView(
-              section: sec,
-              fontSize: _fontSize,
-              verseSystem: widget.bookItem.verseSystem,
-              volumeKey: _currentVolumeKey,
-              questionKeys: index == _currentSectionIndex
-                  ? (_sectionQuestionKeys[index] ?? const {})
-                  : const {},
-              itemKeys: index == _currentSectionIndex
-                  ? (_sectionItemKeys[index] ?? const {})
-                  : const {},
-              selectedStartIndex: index == _currentSectionIndex
-                  ? selStart
-                  : null,
-              selectedEndIndex: index == _currentSectionIndex ? selEnd : null,
-              onItemLongPress: index == _currentSectionIndex
-                  ? _onItemLongPress
-                  : null,
-              onItemTap: index == _currentSectionIndex ? _onItemTap : null,
-              commentsMap: index == _currentSectionIndex
-                  ? sectionCommentsMap
-                  : null,
-              onTapComments: (nodeId, citation, textPreview, itemComments) {
-                showVerseCommentsModal(
-                  context: context,
-                  title: citation,
-                  nodeId: nodeId,
-                  textPreview: textPreview,
-                  comments: itemComments,
-                  onCommentsChanged: _loadComments,
-                  onAddComment: () => showAddCommentDialog(
-                    context: context,
-                    citation: citation,
-                    textPreview: textPreview,
-                    documentId: widget.bookItem.id,
-                    sectionIndex: _currentSectionIndex,
-                    nodeId: nodeId,
-                    onCommentSaved: _loadComments,
-                  ),
-                );
-              },
-              onShowCrossRefModal: (qNum) => showBaltimoreCrossRefSheet(
-                context: context,
-                questionNumber: qNum,
-                bookItem: widget.bookItem,
-                onSwitchVolume: (vol, idx, [targetQNum]) => _switchVolume(
-                  vol,
-                  initialSectionIndex: idx,
-                  targetQuestionNumber: targetQNum ?? qNum,
-                ),
-              ),
-              onShowScriptureModal: (citation) => showLibraryScriptureModal(
-                context: context,
-                citation: citation,
-              ),
-            );
-          },
-        ),
-        if (_selectionController.hasSelection)
-          Positioned(
-            left: 16,
-            right: 16,
-            bottom: 16,
-            child: _buildSelectionActionBar(theme),
-          ),
-      ],
+    return buildLibraryReaderSectionContentView(
+      context: context,
+      book: book,
+      bookItem: widget.bookItem,
+      pageController: _pageController,
+      currentSectionIndex: _currentSectionIndex,
+      fontSize: _fontSize,
+      currentVolumeKey: _currentVolumeKey,
+      sectionQuestionKeys: _sectionQuestionKeys,
+      sectionItemKeys: _sectionItemKeys,
+      sectionCommentsMap: sectionCommentsMap,
+      selectedStartIndex: _selectionController.effectiveHighlightStart,
+      selectedEndIndex: _selectionController.effectiveHighlightEnd,
+      onPageChanged: (index) {
+        setState(() {
+          _currentSectionIndex = index;
+          _populateKeys(_bookData, index);
+          _selectionController.clear(clearTemporaryHighlight: true);
+        });
+        _saveReadingPosition(index);
+      },
+      onItemLongPress: _onItemLongPress,
+      onItemTap: _onItemTap,
+      onCommentsChanged: _loadComments,
+      onSwitchVolume: (vol, idx, [targetQNum]) => _switchVolume(
+        vol,
+        initialSectionIndex: idx,
+        targetQuestionNumber: targetQNum,
+      ),
+      selectionActionBar: _buildSelectionActionBar(),
     );
   }
 }
