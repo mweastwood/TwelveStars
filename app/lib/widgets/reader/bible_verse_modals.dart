@@ -1,11 +1,82 @@
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:drift/drift.dart' show Value;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/annotations_repository.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
+
+EdgeInsets _modalSheetPadding(BuildContext context) {
+  final mediaQuery = MediaQuery.of(context);
+  final extraBottomPadding = math.max(
+    0.0,
+    mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
+  );
+  return EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0 + extraBottomPadding);
+}
+
+class _ModalSheetHeader extends StatelessWidget {
+  const _ModalSheetHeader({
+    required this.icon,
+    required this.title,
+    this.subtitle,
+  });
+
+  final IconData icon;
+  final String title;
+  final String? subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Center(
+          child: Container(
+            width: 40,
+            height: 4,
+            decoration: BoxDecoration(
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.4),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            Icon(icon, color: theme.colorScheme.primary),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                title,
+                style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+            ),
+          ],
+        ),
+        if (subtitle != null) ...[
+          const SizedBox(height: 6),
+          Text(
+            subtitle!,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.bodySmall?.copyWith(
+              fontStyle: FontStyle.italic,
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+        const Divider(height: 24),
+      ],
+    );
+  }
+}
 
 Future<void> showReverseCitationsModal({
   required BuildContext context,
@@ -39,54 +110,17 @@ Future<void> showReverseCitationsModal({
               maxChildSize: 0.9,
               minChildSize: 0.4,
               builder: (sheetCtx, scrollController) {
-                final mediaQuery = MediaQuery.of(sheetCtx);
-                final extraBottomPadding = math.max(
-                  0.0,
-                  mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
-                );
                 return SafeArea(
                   top: false,
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(
-                      20.0,
-                      20.0,
-                      20.0,
-                      20.0 + extraBottomPadding,
-                    ),
+                    padding: _modalSheetPadding(sheetCtx),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                          child: Container(
-                            width: 40,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onSurfaceVariant
-                                  .withValues(alpha: 0.4),
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                          ),
+                        _ModalSheetHeader(
+                          icon: Icons.auto_stories_rounded,
+                          title: 'Library References to $title',
                         ),
-                        const SizedBox(height: 16),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.auto_stories_rounded,
-                              color: theme.colorScheme.primary,
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                'Library References to $title',
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.primary,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Divider(height: 24),
                         Expanded(
                           child: ListView.builder(
                             controller: scrollController,
@@ -258,10 +292,6 @@ Future<void> showVerseCommentsModal({
       return StatefulBuilder(
         builder: (sheetCtx, setSheetState) {
           final mediaQuery = MediaQuery.of(sheetCtx);
-          final extraBottomPadding = math.max(
-            0.0,
-            mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
-          );
           return ConstrainedBox(
             constraints: BoxConstraints(
               maxHeight: mediaQuery.size.height * 0.85,
@@ -269,58 +299,16 @@ Future<void> showVerseCommentsModal({
             child: SafeArea(
               top: false,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  20.0,
-                  20.0,
-                  20.0,
-                  20.0 + extraBottomPadding,
-                ),
+                padding: _modalSheetPadding(sheetCtx),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(
-                      child: Container(
-                        width: 40,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurfaceVariant.withValues(
-                            alpha: 0.4,
-                          ),
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
+                    _ModalSheetHeader(
+                      icon: Icons.comment_rounded,
+                      title: 'Comments for $title',
+                      subtitle: textPreview,
                     ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.comment_rounded,
-                          color: theme.colorScheme.primary,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            'Comments for $title',
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      textPreview,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        fontStyle: FontStyle.italic,
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
-                    ),
-                    const Divider(height: 24),
                     if (comments.isEmpty)
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 24.0),
@@ -437,8 +425,9 @@ Future<void> showVerseCommentsModal({
                                                   confirmLabel: 'Delete',
                                                 );
                                             if (!confirmed) return;
-                                            await BibleDatabaseHelper.db
-                                                .deleteComment(comment.id);
+                                            await AnnotationsRepository.deleteComment(
+                                              comment.id,
+                                            );
                                             if (sheetCtx.mounted) {
                                               setSheetState(() {
                                                 comments.removeWhere(
@@ -493,16 +482,15 @@ Future<void> showEditCommentDialog({
 
   final result = await showDialog<String>(
     context: context,
-    builder: (ctx) => _EditCommentDialog(
-      citation: citation,
+    builder: (ctx) => _CommentEditorDialog(
+      title: 'Edit Comment for $citation',
       textPreview: textPreview,
       initialText: initialText,
     ),
   );
 
   if (result != null && result.isNotEmpty) {
-    final db = BibleDatabaseHelper.db;
-    await db.updateComment(commentId, result);
+    await AnnotationsRepository.updateComment(commentId, result);
 
     messenger.showSnackBar(
       SnackBar(
@@ -516,22 +504,62 @@ Future<void> showEditCommentDialog({
   }
 }
 
-class _EditCommentDialog extends StatefulWidget {
-  const _EditCommentDialog({
-    required this.citation,
-    required this.textPreview,
-    required this.initialText,
-  });
+Future<void> showAddCommentDialog({
+  required BuildContext context,
+  required String citation,
+  required String textPreview,
+  required String documentId,
+  required int sectionIndex,
+  required String nodeId,
+  FutureOr<void> Function()? onCommentSaved,
+}) async {
+  final messenger = ScaffoldMessenger.of(context);
 
-  final String citation;
-  final String textPreview;
-  final String initialText;
+  final result = await showDialog<String>(
+    context: context,
+    builder: (ctx) => _CommentEditorDialog(
+      title: 'Add Comment for $citation',
+      textPreview: textPreview,
+    ),
+  );
 
-  @override
-  State<_EditCommentDialog> createState() => _EditCommentDialogState();
+  if (result != null && result.isNotEmpty) {
+    await AnnotationsRepository.addComment(
+      documentId: documentId,
+      sectionIndex: sectionIndex,
+      nodeId: nodeId,
+      commentText: result,
+      textPreview: textPreview,
+    );
+
+    messenger.showSnackBar(
+      SnackBar(
+        content: Text('Saved comment for $citation'),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+    if (onCommentSaved != null) {
+      await onCommentSaved();
+    }
+  }
 }
 
-class _EditCommentDialogState extends State<_EditCommentDialog> {
+class _CommentEditorDialog extends StatefulWidget {
+  const _CommentEditorDialog({
+    required this.title,
+    required this.textPreview,
+    this.initialText,
+  });
+
+  final String title;
+  final String textPreview;
+  final String? initialText;
+
+  @override
+  State<_CommentEditorDialog> createState() => _CommentEditorDialogState();
+}
+
+class _CommentEditorDialogState extends State<_CommentEditorDialog> {
   late final TextEditingController _controller;
 
   @override
@@ -549,7 +577,7 @@ class _EditCommentDialogState extends State<_EditCommentDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Edit Comment for ${widget.citation}'),
+      title: Text(widget.title),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -566,115 +594,6 @@ class _EditCommentDialogState extends State<_EditCommentDialog> {
             ),
             const SizedBox(height: 12),
           ],
-          TextField(
-            controller: _controller,
-            maxLines: 3,
-            decoration: const InputDecoration(
-              hintText: 'Enter your comment...',
-              border: OutlineInputBorder(),
-            ),
-          ),
-        ],
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
-        ),
-        FilledButton(
-          onPressed: () => Navigator.pop(context, _controller.text.trim()),
-          child: const Text('Save'),
-        ),
-      ],
-    );
-  }
-}
-
-Future<void> showAddCommentDialog({
-  required BuildContext context,
-  required String citation,
-  required String textPreview,
-  required String documentId,
-  required int sectionIndex,
-  required String nodeId,
-  FutureOr<void> Function()? onCommentSaved,
-}) async {
-  final messenger = ScaffoldMessenger.of(context);
-
-  final result = await showDialog<String>(
-    context: context,
-    builder: (ctx) =>
-        _AddCommentDialog(citation: citation, textPreview: textPreview),
-  );
-
-  if (result != null && result.isNotEmpty) {
-    final db = BibleDatabaseHelper.db;
-    await db.saveComment(
-      UserCommentsCompanion.insert(
-        documentId: documentId,
-        sectionIndex: sectionIndex,
-        nodeId: nodeId,
-        commentText: result,
-        textPreview: Value(textPreview),
-        createdAt: DateTime.now(),
-      ),
-    );
-
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text('Saved comment for $citation'),
-        behavior: SnackBarBehavior.floating,
-      ),
-    );
-    if (onCommentSaved != null) {
-      await onCommentSaved();
-    }
-  }
-}
-
-class _AddCommentDialog extends StatefulWidget {
-  const _AddCommentDialog({required this.citation, required this.textPreview});
-
-  final String citation;
-  final String textPreview;
-
-  @override
-  State<_AddCommentDialog> createState() => _AddCommentDialogState();
-}
-
-class _AddCommentDialogState extends State<_AddCommentDialog> {
-  late final TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text('Add Comment for ${widget.citation}'),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '"${widget.textPreview}"',
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              color: Theme.of(context).colorScheme.outline,
-            ),
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
-          ),
-          const SizedBox(height: 12),
           TextField(
             controller: _controller,
             maxLines: 3,
@@ -718,10 +637,6 @@ Future<void> showVerseFavoritesModal({
       return StatefulBuilder(
         builder: (sheetCtx, setSheetState) {
           final mediaQuery = MediaQuery.of(sheetCtx);
-          final extraBottomPadding = math.max(
-            0.0,
-            mediaQuery.viewPadding.bottom - mediaQuery.padding.bottom,
-          );
           return ConstrainedBox(
             constraints: BoxConstraints(
               maxHeight: mediaQuery.size.height * 0.85,
@@ -729,50 +644,17 @@ Future<void> showVerseFavoritesModal({
             child: SafeArea(
               top: false,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                  20.0,
-                  20.0,
-                  20.0,
-                  20.0 + extraBottomPadding,
-                ),
+                padding: _modalSheetPadding(sheetCtx),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(
-                      child: Container(
-                        width: 40,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurfaceVariant.withValues(
-                            alpha: 0.4,
-                          ),
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
+                    _ModalSheetHeader(
+                      icon: Icons.star_rounded,
+                      title: favorites.length > 1
+                          ? 'Favorite Passages for $title'
+                          : 'Favorite Passage for $title',
                     ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.star_rounded,
-                          color: theme.colorScheme.primary,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
-                            favorites.length > 1
-                                ? 'Favorite Passages for $title'
-                                : 'Favorite Passage for $title',
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Divider(height: 24),
                     if (favorites.isEmpty)
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 24.0),
@@ -830,7 +712,7 @@ Future<void> showVerseFavoritesModal({
                                           confirmLabel: 'Remove',
                                         );
                                     if (!confirmed) return;
-                                    await BibleDatabaseHelper.db.deleteFavorite(
+                                    await AnnotationsRepository.deleteFavoritePassage(
                                       fav.id,
                                     );
                                     if (sheetCtx.mounted) {
