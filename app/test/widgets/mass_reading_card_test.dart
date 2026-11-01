@@ -9,6 +9,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
@@ -24,6 +25,7 @@ void main() {
     // Reset mocks to ensure we load from db
     PrayerDatabase.mockPrayers = null;
     PrayerDatabase.mockSettings = null;
+    UserSettingsController.instance.resetForTesting();
 
     // Save default settings
     await testDb.saveUserSettings(
@@ -35,6 +37,7 @@ void main() {
   });
 
   tearDown(() async {
+    UserSettingsController.instance.resetForTesting();
     ReverseCitationService.clear();
     await testDb.close();
   });
@@ -2286,6 +2289,330 @@ void main() {
         expect(ch2Fav.startVerse, equals(1));
         expect(ch2Fav.endVerse, equals(2));
         expect(ch2Fav.startVerse, lessThanOrEqualTo(ch2Fav.endVerse));
+      },
+    );
+
+    testWidgets(
+      'changing primaryBibleTranslation while verses are selected reloads reading in new translation and clears selection cleanly without RangeError',
+      (WidgetTester tester) async {
+        const reading = LectionaryReading(
+          id: 88,
+          readingKey: 'translation_switch_test',
+          readingType: 'first',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '1-3',
+          citation: 'Genesis 1:1-3',
+        );
+
+        // Insert 3 verses in CPDV
+        for (int i = 1; i <= 3; i++) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVerse(
+                  id: 100 + i,
+                  bookNumber: 1,
+                  bookName: 'Genesis',
+                  chapter: 1,
+                  verseNumber: i,
+                  verseText: 'CPDV Genesis 1:$i text.',
+                  translationCode: 'CPDV',
+                ),
+              );
+        }
+
+        // Insert only 1 verse in DRA (fewer verses than CPDV)
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 201,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'DRA Genesis 1:1 text.',
+                translationCode: 'DRA',
+              ),
+            );
+
+        MassReadingSelection? activeSelection;
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: StatefulBuilder(
+              builder: (context, setState) {
+                return Scaffold(
+                  body: MassReadingCard(
+                    reading: reading,
+                    isSelected: activeSelection != null,
+                    onSelectionChanged: (sel) {
+                      setState(() {
+                        activeSelection = sel;
+                      });
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('CPDV Genesis 1:1 text.'), findsOneWidget);
+        expect(find.text('CPDV Genesis 1:3 text.'), findsOneWidget);
+
+        // Select verses 1 through 3 in CPDV
+        await tester.longPress(find.text('CPDV Genesis 1:1 text.'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('CPDV Genesis 1:3 text.'));
+        await tester.pumpAndSettle();
+
+        expect(activeSelection, isNotNull);
+        expect(activeSelection!.selectedCount, equals(3));
+
+        // Switch primaryBibleTranslation to DRA via UserSettingsController.mutate()
+        await UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = 'DRA';
+        });
+        await tester.pumpAndSettle();
+
+        expect(tester.takeException(), isNull);
+        expect(
+          UserSettingsController.instance.value.primaryBibleTranslation,
+          equals('DRA'),
+        );
+        expect(activeSelection, isNull);
+        expect(find.text('DRA Genesis 1:1 text.'), findsOneWidget);
+        expect(find.text('CPDV Genesis 1:1 text.'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'changing primaryBibleTranslation while initial _loadVerses is still in flight loads new translation and discards stale initial load',
+      (WidgetTester tester) async {
+        const reading = LectionaryReading(
+          id: 90,
+          readingKey: 'inflight_translation_switch_test',
+          readingType: 'first',
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 1,
+          verseRange: '1',
+          citation: 'Genesis 1:1',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 401,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'CPDV in-flight test verse.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 402,
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'DRA in-flight test verse.',
+                translationCode: 'DRA',
+              ),
+            );
+
+        // Pre-initialize UserSettingsController with CPDV
+        await UserSettingsController.instance.load();
+
+        // Pump widget (starts initial _loadVerses for CPDV asynchronously)
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(body: MassReadingCard(reading: reading)),
+          ),
+        );
+
+        // Immediately switch translation to DRA while initial CPDV load is still in flight
+        await UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = 'DRA';
+        });
+        await tester.pumpAndSettle();
+
+        expect(find.text('DRA in-flight test verse.'), findsOneWidget);
+        expect(find.text('CPDV in-flight test verse.'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'selection citations, copied text, and modal titles respect BibleNumberingSystem.modern and dual',
+      (WidgetTester tester) async {
+        final List<Map<String, dynamic>> clipboardLog = [];
+        tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+          SystemChannels.platform,
+          (MethodCall methodCall) async {
+            if (methodCall.method == 'Clipboard.setData') {
+              clipboardLog.add(methodCall.arguments as Map<String, dynamic>);
+              return null;
+            }
+            if (methodCall.method == 'Clipboard.getData') {
+              return {
+                'text': clipboardLog.isNotEmpty
+                    ? clipboardLog.last['text']
+                    : '',
+              };
+            }
+            return null;
+          },
+        );
+
+        await testDb.saveUserSettings(
+          UserSettings(
+            primaryBibleTranslation: 'CPDV',
+            compareBibleTranslation: 'none',
+            bibleNumberingSystemCode: 'modern',
+          ),
+        );
+
+        // Modern Psalm 116:10-11 maps to Vulgate Psalm 115:1-2
+        const reading = LectionaryReading(
+          id: 89,
+          readingKey: 'psalm_116_numbering_test',
+          readingType: 'psalm',
+          bookNumber: 21, // Psalms
+          bookName: 'Psalms',
+          chapter: 116,
+          verseRange: '10-11',
+          citation: 'Psalm 116:10-11',
+        );
+
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 301,
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 115,
+                verseNumber: 1,
+                verseText: 'I have believed, therefore have I spoken.',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              const BibleVerse(
+                id: 302,
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 115,
+                verseNumber: 2,
+                verseText: 'I said in my excess: Every man is a liar.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await testDb.saveComment(
+          UserCommentsCompanion.insert(
+            documentId: 'PSA',
+            sectionIndex: 115,
+            nodeId: '21_115_1',
+            commentText: 'Note on Psalm 116:10',
+            createdAt: DateTime.now(),
+          ),
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: const Scaffold(body: MassReadingCard(reading: reading)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // 1. In modern numbering, selecting verses 1 and 2 displays "Psalms 116:10-11"
+        await tester.longPress(
+          find.text('I have believed, therefore have I spoken.'),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(
+          find.text('I said in my excess: Every man is a liar.'),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.descendant(
+            of: find.byType(ReaderSelectionActionBar),
+            matching: find.text('Psalms 116:10-11'),
+          ),
+          findsOneWidget,
+        );
+
+        // Copy in modern numbering uses modern verse numbers (10, 11)
+        await tester.tap(find.byTooltip('Copy selection'));
+        await tester.pumpAndSettle();
+
+        var clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
+        expect(
+          clipboardData?.text,
+          'Psalms 116:10-11\n10 I have believed, therefore have I spoken.\n11 I said in my excess: Every man is a liar.',
+        );
+
+        // Tap comment badge -> modal title uses Modern numbering ("Comments for Psalms 116:10")
+        await tester.tap(find.byIcon(Icons.comment_rounded));
+        await tester.pumpAndSettle();
+        expect(find.text('Comments for Psalms 116:10'), findsOneWidget);
+        Navigator.of(tester.element(find.byType(MassReadingCard))).pop();
+        await tester.pumpAndSettle();
+
+        // 2. Switch to dual numbering
+        await UserSettingsController.instance.mutate((s) {
+          s.bibleNumberingSystem = BibleNumberingSystem.dual;
+        });
+        await tester.pumpAndSettle();
+
+        await tester.longPress(
+          find.text('I have believed, therefore have I spoken.'),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(
+          find.text('I said in my excess: Every man is a liar.'),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.descendant(
+            of: find.byType(ReaderSelectionActionBar),
+            matching: find.text('Psalms 115:1-2 (Modern 116:10-11)'),
+          ),
+          findsOneWidget,
+        );
+
+        // Copy in dual numbering includes both Vulgate and alternate modern verse numbers
+        await tester.tap(find.byTooltip('Copy selection'));
+        await tester.pumpAndSettle();
+
+        clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
+        expect(
+          clipboardData?.text,
+          'Psalms 115:1-2 (Modern 116:10-11)\n1 (10) I have believed, therefore have I spoken.\n2 (11) I said in my excess: Every man is a liar.',
+        );
+
+        // Tap comment badge in dual numbering -> "Comments for Psalms 115:1 (Modern 116:10)"
+        await tester.tap(find.byIcon(Icons.comment_rounded));
+        await tester.pumpAndSettle();
+        expect(
+          find.text('Comments for Psalms 115:1 (Modern 116:10)'),
+          findsOneWidget,
+        );
       },
     );
   });
