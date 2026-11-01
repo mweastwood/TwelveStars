@@ -65,6 +65,7 @@ class _ChapterCacheKey {
 class BibleReaderAdapter implements ReaderAdapter {
   static const int maxCachedChapters = 24;
   static final Map<_ChapterCacheKey, BibleChapterData> _chapterDataCache = {};
+  static final Map<String, Future<void>> _inFlightPopulations = {};
 
   /// Clears all cached [BibleChapterData] entries.
   static void clearChapterDataCache() => _chapterDataCache.clear();
@@ -124,6 +125,24 @@ class BibleReaderAdapter implements ReaderAdapter {
     _chapterDataCache[key] = chapterData;
   }
 
+  /// Stores or updates a [BibleChapterData] snapshot in the LRU cache for
+  /// [chapterNumber] under [annotationsRevision].
+  void cacheChapterData(
+    int chapterNumber, {
+    required String primaryTranslation,
+    String compareTranslation = 'none',
+    required int annotationsRevision,
+    required BibleChapterData chapterData,
+  }) {
+    final key = _buildCacheKey(
+      chapterNumber,
+      primaryTranslation: primaryTranslation,
+      compareTranslation: compareTranslation,
+      annotationsRevision: annotationsRevision,
+    );
+    _storeChapterDataInCache(key, chapterData);
+  }
+
   @override
   Future<ReaderDocument> loadDocument() async {
     final toc = List<ReaderTocEntry>.generate(
@@ -145,16 +164,28 @@ class BibleReaderAdapter implements ReaderAdapter {
     );
   }
 
+  String _populationKey(String translation) =>
+      '${identityHashCode(dbHelper)}:$translation:${bibleBook.bookNumber}';
+
   Future<List<BibleVerse>> _loadSingleTranslationVerses(
     int chapterNumber,
     String translation,
   ) async {
-    await dbHelper.ensureBookPopulated(
+    final popKey = _populationKey(translation);
+    final future = dbHelper.ensureBookPopulated(
       bibleBook.bookNumber,
       bibleBook.bookName,
       bibleBook.abbrev,
       translation: translation,
     );
+    _inFlightPopulations[popKey] = future;
+    try {
+      await future;
+    } finally {
+      if (identical(_inFlightPopulations[popKey], future)) {
+        _inFlightPopulations.remove(popKey);
+      }
+    }
     return dbHelper.getChapterVerses(
       translation,
       bibleBook.bookNumber,
@@ -260,6 +291,12 @@ class BibleReaderAdapter implements ReaderAdapter {
     if (existing != null) return;
 
     try {
+      final inFlightPrimary =
+          _inFlightPopulations[_populationKey(primaryTranslation)];
+      if (inFlightPrimary != null) {
+        await inFlightPrimary;
+      }
+
       final primaryVerses = await dbHelper.getChapterVerses(
         primaryTranslation,
         bibleBook.bookNumber,
@@ -267,23 +304,32 @@ class BibleReaderAdapter implements ReaderAdapter {
       );
       if (primaryVerses.isEmpty) return;
 
-      final favoritesFuture = fetchFavoritesByVerse(chapterNumber);
-      final commentsFuture = fetchCommentsByNodeId(chapterNumber);
-
       Map<int, BibleVerse> compareVersesByNumber = {};
       if (compareTranslation != 'none') {
-        try {
-          final compareVerses = await dbHelper.getChapterVerses(
-            compareTranslation,
-            bibleBook.bookNumber,
-            chapterNumber,
-          );
-          compareVersesByNumber = {
-            for (final cv in compareVerses) cv.verseNumber: cv,
-          };
-        } catch (_) {}
+        final inFlightCompare =
+            _inFlightPopulations[_populationKey(compareTranslation)];
+        if (inFlightCompare != null) {
+          await inFlightCompare;
+        }
+        final compareVerses = await dbHelper.getChapterVerses(
+          compareTranslation,
+          bibleBook.bookNumber,
+          chapterNumber,
+        );
+        final isExpectedEmptyLxxNt =
+            compareTranslation == 'LXX' && bibleBook.bookNumber > 46;
+        if (compareVerses.isEmpty && !isExpectedEmptyLxxNt) {
+          // Comparison translation is not yet populated in SQLite; do not cache
+          // an incomplete snapshot with empty compareVersesByNumber.
+          return;
+        }
+        compareVersesByNumber = {
+          for (final cv in compareVerses) cv.verseNumber: cv,
+        };
       }
 
+      final favoritesFuture = fetchFavoritesByVerse(chapterNumber);
+      final commentsFuture = fetchCommentsByNodeId(chapterNumber);
       final favoritesByVerse = await favoritesFuture;
       final commentsByNodeId = await commentsFuture;
 

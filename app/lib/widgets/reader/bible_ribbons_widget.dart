@@ -121,23 +121,25 @@ class BiblePageRibbon extends StatelessWidget {
         ? BibleRibbonsWidget.ribbonColors[ribbonIndex]
         : BibleRibbonsWidget.ribbonColors[0];
 
-    return PhysicalShape(
-      key: Key('bible_page_ribbon_$ribbonIndex'),
-      clipper: const PageRibbonClipper(),
-      clipBehavior: Clip.antiAlias,
-      elevation: 2.0,
-      shadowColor: Colors.black38,
-      color: color,
-      child: SizedBox(
-        width: 16.0,
-        height: double.infinity,
-        child: CustomPaint(
-          isComplex: true,
-          willChange: false,
-          painter: PageRibbonPatternPainter(
-            ribbonIndex: ribbonIndex,
-            stripeColor: Colors.white.withValues(alpha: 0.14),
-            edgeColor: Colors.black.withValues(alpha: 0.10),
+    return RepaintBoundary(
+      child: PhysicalShape(
+        key: Key('bible_page_ribbon_$ribbonIndex'),
+        clipper: const PageRibbonClipper(),
+        clipBehavior: Clip.antiAlias,
+        elevation: 2.0,
+        shadowColor: Colors.black38,
+        color: color,
+        child: SizedBox(
+          width: 16.0,
+          height: double.infinity,
+          child: CustomPaint(
+            isComplex: true,
+            willChange: false,
+            painter: PageRibbonPatternPainter(
+              ribbonIndex: ribbonIndex,
+              stripeColor: Colors.white.withValues(alpha: 0.14),
+              edgeColor: Colors.black.withValues(alpha: 0.10),
+            ),
           ),
         ),
       ),

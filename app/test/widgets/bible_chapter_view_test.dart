@@ -1231,5 +1231,67 @@ void main() {
         );
       },
     );
+
+    testWidgets(
+      'prefetchChapterData does not poison cache when compareTranslation verses are not yet in database',
+      (WidgetTester tester) async {
+        final adapter = BibleReaderAdapter(
+          bibleBook: genesisBook,
+          dbHelper: testDb,
+        );
+        final rev = BibleChapterView.annotationsRevision.value;
+
+        // Chapter 2 has CPDV verses seeded in setUp, but NO DRC verses yet.
+        await adapter.prefetchChapterData(
+          2,
+          primaryTranslation: 'CPDV',
+          compareTranslation: 'DRC',
+          annotationsRevision: rev,
+        );
+
+        // Cache must not be poisoned with an incomplete DRC comparison snapshot
+        expect(
+          adapter.getCachedChapterData(
+            2,
+            primaryTranslation: 'CPDV',
+            compareTranslation: 'DRC',
+            annotationsRevision: rev,
+          ),
+          isNull,
+        );
+
+        // Now seed DRC verses for Chapter 2 and mount BibleChapterView
+        await seedVerses(
+          testDb,
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 2,
+          translationCode: 'DRC',
+          verseTexts: [
+            'So the heavens and the earth were finished (DRC).',
+            'And on the seventh day God ended his work (DRC).',
+          ],
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 2,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'DRC',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('So the heavens and the earth were finished (DRC).'),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }

@@ -173,10 +173,27 @@ class _BibleChapterViewState extends State<BibleChapterView>
     updateKeepAlive();
   }
 
+  void _syncAdapterCache() {
+    if (_loading || _verses.isEmpty) return;
+    _adapter.cacheChapterData(
+      widget.chapter,
+      primaryTranslation: widget.primaryTranslation,
+      compareTranslation: widget.compareTranslation,
+      annotationsRevision: BibleChapterView.annotationsRevision.value,
+      chapterData: BibleChapterData(
+        verses: _verses,
+        compareVersesByNumber: _compareVersesByNumber,
+        favoritesByVerse: _favoritesByVerse,
+        commentsByNodeId: _commentsByNodeId,
+      ),
+    );
+  }
+
   void _notifyAnnotationsChanged() {
     _ignoreAnnotationsRevision = true;
     try {
       BibleChapterView.annotationsRevision.value++;
+      _syncAdapterCache();
     } finally {
       _ignoreAnnotationsRevision = false;
     }
@@ -260,6 +277,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
     if (!mounted) return;
     if (!reloadVerses) {
       await Future.wait([_loadFavorites(), _loadComments()]);
+      if (mounted) {
+        _syncAdapterCache();
+      }
       return;
     }
     final loadGen = ++_loadGeneration;

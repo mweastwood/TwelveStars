@@ -132,21 +132,24 @@ class PageRibbonPatternPainter extends CustomPainter {
     double patternHeight = size.height;
     final visibleSpan = visibleBottom - visibleTop;
 
-    if (size.height > _viewportCullThreshold && visibleSpan < size.height) {
-      final period = _periodForIndex(normalizedIndex);
-      final startCycle = (visibleTop / period).floor();
-      if (startCycle > 0) {
-        yOffset = startCycle * period;
+    if (size.height > _viewportCullThreshold) {
+      if (visibleSpan < size.height) {
+        final period = _periodForIndex(normalizedIndex);
+        final startCycle = (visibleTop / period).floor();
+        if (startCycle > 0) {
+          yOffset = startCycle * period;
+        }
+        final neededHeight = (visibleBottom - yOffset).clamp(
+          1.0,
+          size.height - yOffset,
+        );
+        patternHeight =
+            ((neededHeight / _heightBucketSize).ceil() * _heightBucketSize)
+                .clamp(_heightBucketSize, size.height);
+      } else {
+        patternHeight =
+            (size.height / _heightBucketSize).ceil() * _heightBucketSize;
       }
-      final neededHeight = (visibleBottom - yOffset).clamp(
-        1.0,
-        size.height - yOffset,
-      );
-      patternHeight =
-          ((neededHeight / _heightBucketSize).ceil() * _heightBucketSize).clamp(
-            _heightBucketSize,
-            size.height,
-          );
     }
 
     final key = _RibbonPatternCacheKey(
@@ -166,7 +169,7 @@ class PageRibbonPatternPainter extends CustomPainter {
       _patternCache[key] = cached;
     }
 
-    if (yOffset != 0.0 || patternHeight < size.height) {
+    if (yOffset != 0.0 || patternHeight != size.height) {
       canvas.save();
       canvas.clipRect(Rect.fromLTWH(0.0, visibleTop, size.width, visibleSpan));
       if (yOffset != 0.0) {
