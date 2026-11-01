@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
+import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
@@ -43,7 +46,8 @@ class BibleNotesScreen extends StatefulWidget {
   State<BibleNotesScreen> createState() => _BibleNotesScreenState();
 }
 
-class _BibleNotesScreenState extends State<BibleNotesScreen> {
+class _BibleNotesScreenState extends State<BibleNotesScreen>
+    with UserSettingsStateMixin<BibleNotesScreen> {
   List<FavoritePassage> _favorites = [];
   List<UserComment> _comments = [];
   List<BibleAnnotationItem> _cachedUnifiedItems = const [];
@@ -57,6 +61,14 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
   String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
   BibleAnnotationType? _selectedTypeFilter;
+
+  BibleNumberingSystem get _numberingSystem =>
+      currentSettings.bibleNumberingSystem;
+
+  @override
+  void onUserSettingsChanged(UserSettings settings) {
+    setState(() {});
+  }
 
   @override
   void initState() {
@@ -238,7 +250,19 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
       if (query.isEmpty) return true;
 
       final matchBook = item.bookName.toLowerCase().contains(query);
-      final matchCitation = item.citation.toLowerCase().contains(query);
+      final matchCitation =
+          item
+              .formatCitation(BibleNumberingSystem.vulgate)
+              .toLowerCase()
+              .contains(query) ||
+          item
+              .formatCitation(BibleNumberingSystem.modern)
+              .toLowerCase()
+              .contains(query) ||
+          item
+              .formatCitation(BibleNumberingSystem.dual)
+              .toLowerCase()
+              .contains(query);
       final matchPreview = item.textPreview.toLowerCase().contains(query);
       final matchComment =
           item.comment != null &&
@@ -291,7 +315,13 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
         catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
         catholicBooks.first;
     final verseNum = ReaderNodeId.parseBibleVerseNumber(comment.nodeId);
-    final citation = '${book.bookName} ${comment.sectionIndex}:$verseNum';
+    final citation = BibleVerseResolver.formatVerseCitation(
+      bookNumber: book.bookNumber,
+      bookName: book.bookName,
+      startChapter: comment.sectionIndex,
+      startVerse: verseNum,
+      numberingSystem: _numberingSystem,
+    );
 
     await showEditCommentDialog(
       context: context,
@@ -416,6 +446,7 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
             scope: _scope,
             activeBook: _activeBook,
             activeChapter: _activeChapter,
+            numberingSystem: _numberingSystem,
             selectedTypeFilter: _selectedTypeFilter,
             favCount: favCount,
             noteCount: noteCount,
@@ -505,7 +536,13 @@ class _BibleNotesScreenState extends State<BibleNotesScreen> {
     } else if (_scope == BibleNotesScope.chapter &&
         _activeBook != null &&
         _activeChapter != null) {
-      message = 'No $typeLabel in ${_activeBook!.bookName} $_activeChapter.';
+      final chapterRef = BibleVerseResolver.formatChapterReference(
+        bookNumber: _activeBook!.bookNumber,
+        bookName: _activeBook!.bookName,
+        chapter: _activeChapter!,
+        numberingSystem: _numberingSystem,
+      );
+      message = 'No $typeLabel in $chapterRef.';
       subMessage =
           'Try switching to "${_activeBook!.bookName}" or "All Bible" above.';
     } else if (_scope == BibleNotesScope.book && _activeBook != null) {

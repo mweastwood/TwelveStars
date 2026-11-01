@@ -10,27 +10,79 @@ Future<void> showLibraryScriptureModal({
   required BibleCitation citation,
 }) async {
   final theme = Theme.of(context);
+  final settings = UserSettingsController.instance.value;
 
   final isModern = citation.verseSystem == 'modern';
-  final resolvedStart = isModern
-      ? BibleVerseResolver.masoreticToVulgateVerse(
-          bookNumber: citation.bookNumber,
-          chapter: citation.chapter,
-          verse: citation.verse ?? 1,
-        )
-      : (chapter: citation.chapter, verse: citation.verse ?? 1);
+  final BibleNumberingSystem effectiveNumberingSystem;
+  if (settings.bibleNumberingSystem != BibleNumberingSystem.vulgate) {
+    effectiveNumberingSystem = settings.bibleNumberingSystem;
+  } else if (isModern) {
+    effectiveNumberingSystem = BibleNumberingSystem.dual;
+  } else {
+    effectiveNumberingSystem = BibleNumberingSystem.vulgate;
+  }
 
-  final resolvedEnd =
-      (isModern && (citation.endVerse ?? citation.verse) != null)
-      ? BibleVerseResolver.masoreticToVulgateVerses(
-          bookNumber: citation.bookNumber,
-          chapter: citation.chapter,
-          verse: (citation.endVerse ?? citation.verse)!,
-        ).last
-      : null;
+  late final ({int chapter, int verse}) resolvedStart;
+  late final ({int chapter, int verse}) resolvedEnd;
+  late final bool hasTargetVerse;
 
-  final preferredCode =
-      UserSettingsController.instance.value.primaryBibleTranslation;
+  if (isModern && citation.verse == null && citation.bookNumber == 21) {
+    switch (citation.chapter) {
+      case 9:
+        resolvedStart = (chapter: 9, verse: 1);
+        resolvedEnd = (chapter: 9, verse: 21);
+        hasTargetVerse = true;
+      case 10:
+        resolvedStart = (chapter: 9, verse: 22);
+        resolvedEnd = (chapter: 9, verse: 39);
+        hasTargetVerse = true;
+      case 114:
+        resolvedStart = (chapter: 113, verse: 1);
+        resolvedEnd = (chapter: 113, verse: 8);
+        hasTargetVerse = true;
+      case 115:
+        resolvedStart = (chapter: 113, verse: 9);
+        resolvedEnd = (chapter: 113, verse: 26);
+        hasTargetVerse = true;
+      case 116:
+        resolvedStart = (chapter: 114, verse: 1);
+        resolvedEnd = (chapter: 115, verse: 999);
+        hasTargetVerse = false;
+      case 147:
+        resolvedStart = (chapter: 146, verse: 1);
+        resolvedEnd = (chapter: 147, verse: 999);
+        hasTargetVerse = false;
+      default:
+        final vCh = BibleVerseResolver.masoreticToVulgatePsalm(
+          citation.chapter,
+        );
+        resolvedStart = (chapter: vCh, verse: 1);
+        resolvedEnd = (chapter: vCh, verse: 999);
+        hasTargetVerse = false;
+    }
+  } else {
+    resolvedStart = isModern
+        ? BibleVerseResolver.masoreticToVulgateVerse(
+            bookNumber: citation.bookNumber,
+            chapter: citation.chapter,
+            verse: citation.verse ?? 1,
+          )
+        : (chapter: citation.chapter, verse: citation.verse ?? 1);
+
+    resolvedEnd = (isModern && (citation.endVerse ?? citation.verse) != null)
+        ? BibleVerseResolver.masoreticToVulgateVerses(
+            bookNumber: citation.bookNumber,
+            chapter: citation.chapter,
+            verse: (citation.endVerse ?? citation.verse)!,
+          ).last
+        : (
+            chapter: resolvedStart.chapter,
+            verse: citation.endVerse ?? resolvedStart.verse,
+          );
+    hasTargetVerse = citation.verse != null;
+  }
+
+  final preferredCode = settings.primaryBibleTranslation;
   final preferredInfo = BibleTranslationInfo.allTranslations
       .where((t) => t.code.toUpperCase() == preferredCode.toUpperCase())
       .firstOrNull;
@@ -43,7 +95,11 @@ Future<void> showLibraryScriptureModal({
       ? 'Catholic Public Domain Version (CPDV)'
       : '${effectiveInfo.name} (${effectiveInfo.code})';
 
-  final vulgateChapter = resolvedStart.chapter;
+  final startVulgateChapter = resolvedStart.chapter;
+  final endVulgateChapter = resolvedEnd.chapter >= resolvedStart.chapter
+      ? resolvedEnd.chapter
+      : resolvedStart.chapter;
+
   final versesFuture = () async {
     await BibleDatabaseHelper.db.ensureBookPopulated(
       citation.bookNumber,
@@ -51,11 +107,16 @@ Future<void> showLibraryScriptureModal({
       citation.abbrev,
       translation: translationCode,
     );
-    return await BibleDatabaseHelper.db.getChapterVerses(
-      translationCode,
-      citation.bookNumber,
-      vulgateChapter,
-    );
+    final loaded = <BibleVerse>[];
+    for (int ch = startVulgateChapter; ch <= endVulgateChapter; ch++) {
+      final chVerses = await BibleDatabaseHelper.db.getChapterVerses(
+        translationCode,
+        citation.bookNumber,
+        ch,
+      );
+      loaded.addAll(chVerses);
+    }
+    return loaded;
   }();
   bool hasScrolledToInitialTarget = false;
   final GlobalKey targetVerseKey = GlobalKey();
@@ -88,38 +149,31 @@ Future<void> showLibraryScriptureModal({
               }
 
               final verses = snapshot.data ?? [];
-              final bool hasTargetVerse = citation.verse != null;
-              final targetVerseNum = isModern
-                  ? resolvedStart.verse
-                  : (citation.verse ?? 1);
-              final int endVerseNum;
-              if (isModern) {
-                if (resolvedEnd == null) {
-                  endVerseNum = targetVerseNum;
-                } else if (resolvedEnd.chapter > resolvedStart.chapter) {
-                  endVerseNum = verses.isNotEmpty
-                      ? verses.last.verseNumber
-                      : 999999;
-                } else if (resolvedEnd.chapter < resolvedStart.chapter) {
-                  endVerseNum = targetVerseNum - 1;
-                } else {
-                  endVerseNum = resolvedEnd.verse;
+
+              bool isVerseInTargetRange(BibleVerse v) {
+                if (!hasTargetVerse) return false;
+                if (resolvedEnd.chapter < resolvedStart.chapter ||
+                    (resolvedEnd.chapter == resolvedStart.chapter &&
+                        resolvedEnd.verse < resolvedStart.verse)) {
+                  return false;
                 }
-              } else {
-                endVerseNum = citation.endVerse ?? targetVerseNum;
+                final afterOrAtStart =
+                    v.chapter > resolvedStart.chapter ||
+                    (v.chapter == resolvedStart.chapter &&
+                        v.verseNumber >= resolvedStart.verse);
+                final beforeOrAtEnd =
+                    v.chapter < resolvedEnd.chapter ||
+                    (v.chapter == resolvedEnd.chapter &&
+                        v.verseNumber <= resolvedEnd.verse);
+                return afterOrAtStart && beforeOrAtEnd;
               }
 
               final firstTargetIndex = hasTargetVerse
-                  ? verses.indexWhere(
-                      (v) =>
-                          v.verseNumber >= targetVerseNum &&
-                          v.verseNumber <= endVerseNum,
-                    )
+                  ? verses.indexWhere(isVerseInTargetRange)
                   : -1;
 
               if (!hasScrolledToInitialTarget &&
                   hasTargetVerse &&
-                  targetVerseNum > 1 &&
                   firstTargetIndex > 0) {
                 hasScrolledToInitialTarget = true;
                 void scrollToTarget([int attempt = 0]) {
@@ -150,10 +204,45 @@ Future<void> showLibraryScriptureModal({
                 );
               }
 
-              final headerTitle =
-                  (isModern && vulgateChapter != citation.chapter)
-                  ? '${citation.bookName} $vulgateChapter (Modern ${citation.chapter})'
-                  : '${citation.bookName} $vulgateChapter';
+              final loadedChapters = verses.map((v) => v.chapter).toSet();
+              final spansMultipleChapters = loadedChapters.length > 1;
+
+              final String headerTitle;
+              if (spansMultipleChapters) {
+                if (effectiveNumberingSystem == BibleNumberingSystem.modern &&
+                    isModern) {
+                  headerTitle = '${citation.bookName} ${citation.chapter}';
+                } else if (isModern) {
+                  headerTitle =
+                      '${citation.bookName} $startVulgateChapter–$endVulgateChapter (Modern ${citation.chapter})';
+                } else {
+                  headerTitle =
+                      '${citation.bookName} $startVulgateChapter–$endVulgateChapter';
+                }
+              } else if (effectiveNumberingSystem ==
+                  BibleNumberingSystem.modern) {
+                headerTitle = isModern
+                    ? '${citation.bookName} ${citation.chapter}'
+                    : BibleVerseResolver.formatChapterTitle(
+                        bookNumber: citation.bookNumber,
+                        bookName: citation.bookName,
+                        chapter: startVulgateChapter,
+                        numberingSystem: BibleNumberingSystem.modern,
+                      );
+              } else if (effectiveNumberingSystem ==
+                  BibleNumberingSystem.dual) {
+                headerTitle =
+                    (isModern && startVulgateChapter != citation.chapter)
+                    ? '${citation.bookName} $startVulgateChapter (Modern ${citation.chapter})'
+                    : BibleVerseResolver.formatChapterTitle(
+                        bookNumber: citation.bookNumber,
+                        bookName: citation.bookName,
+                        chapter: startVulgateChapter,
+                        numberingSystem: BibleNumberingSystem.dual,
+                      );
+              } else {
+                headerTitle = '${citation.bookName} $startVulgateChapter';
+              }
 
               return Container(
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
@@ -201,19 +290,14 @@ Future<void> showLibraryScriptureModal({
                         itemCount: verses.length,
                         itemBuilder: (lCtx, index) {
                           final verse = verses[index];
-                          final isTarget =
-                              hasTargetVerse &&
-                              verse.verseNumber >= targetVerseNum &&
-                              verse.verseNumber <= endVerseNum;
+                          final isTarget = isVerseInTargetRange(verse);
 
                           final verseDisplay =
                               BibleVerseResolver.formatVerseDisplay(
                                 bookNumber: citation.bookNumber,
-                                chapter: vulgateChapter,
+                                chapter: verse.chapter,
                                 verseNumber: verse.verseNumber,
-                                numberingSystem: isModern
-                                    ? BibleNumberingSystem.dual
-                                    : BibleNumberingSystem.vulgate,
+                                numberingSystem: effectiveNumberingSystem,
                               );
 
                           return Container(

@@ -5,6 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import '../test_helper.dart';
@@ -16,10 +19,16 @@ void main() {
   setUp(() async {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    PrayerDatabase.mockSettings = UserSettings();
+    UserSettingsController.instance.resetForTesting();
     await testDb.ensurePopulated();
   });
 
-  tearDown(() async => await testDb.close());
+  tearDown(() async {
+    UserSettingsController.instance.resetForTesting();
+    PrayerDatabase.mockSettings = null;
+    await testDb.close();
+  });
 
   final List<FavoritePassage> mockFavorites = [
     const FavoritePassage(
@@ -949,6 +958,66 @@ void main() {
           BibleNotesScreen.annotationsRevision.value,
           greaterThan(revAfterDelete),
         );
+      },
+    );
+
+    testWidgets(
+      'formats citations, breadcrumbs, empty states, and search queries across BibleNumberingSystem modes',
+      (tester) async {
+        final psalmsBook = catholicBooksByNumber[21]!;
+        const psalm22Fav = FavoritePassage(
+          id: 10,
+          bookNumber: 21,
+          bookName: 'Psalms',
+          chapter: 22,
+          startVerse: 1,
+          endVerse: 2,
+          textPreview: 'The Lord ruleth me: and I shall want nothing.',
+        );
+
+        await UserSettingsController.instance.mutate((s) {
+          s.bibleNumberingSystem = BibleNumberingSystem.modern;
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: BibleNotesScreen(
+              initialFavorites: [psalm22Fav],
+              initialComments: const [],
+              currentBook: psalmsBook,
+              currentChapter: 22,
+              initialScope: BibleNotesScope.chapter,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Modern mode: Vulgate Psalm 22:1-2 renders as Psalms 23:1-2 and breadcrumb shows Chapter 23
+        expect(find.text('Psalms 23:1-2'), findsOneWidget);
+        expect(find.text('Chapter 23'), findsOneWidget);
+
+        // Search by either Vulgate ("Psalms 22:1") or Modern ("Psalms 23:1") matches the item
+        await tester.enterText(
+          find.byKey(const Key('bible_notes_search_field')),
+          'Psalms 22:1',
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('Psalms 23:1-2'), findsOneWidget);
+
+        await tester.enterText(
+          find.byKey(const Key('bible_notes_search_field')),
+          '',
+        );
+        await tester.pumpAndSettle();
+
+        // Switch to Dual mode dynamically -> updates card citation and breadcrumb immediately
+        await UserSettingsController.instance.mutate((s) {
+          s.bibleNumberingSystem = BibleNumberingSystem.dual;
+        });
+        await tester.pumpAndSettle();
+
+        expect(find.text('Psalms 22:1-2 (Modern 23:1-2)'), findsOneWidget);
+        expect(find.text('Chapter 22 (23)'), findsOneWidget);
       },
     );
   });
