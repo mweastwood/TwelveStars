@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../logic/bible_translation_info.dart';
+import 'common/dual_target_selector_row.dart';
 export '../logic/bible_translation_info.dart' show TranslationApprovalStatus;
 
 enum BibleTranslationTarget { primary, compare }
@@ -287,6 +288,79 @@ class _BibleTranslationSelectorDialogState
     }
   }
 
+  Widget _buildTargetSlot({
+    required ThemeData theme,
+    required BibleTranslationTarget target,
+    required String label,
+    required String valueText,
+    required Color accentColor,
+    Color? valueColor,
+    Widget? trailing,
+  }) {
+    final isActive = _activeTarget == target;
+    final content = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Icon(Icons.edit_note, size: 14, color: accentColor),
+            const SizedBox(width: 4),
+            Flexible(
+              child: Text(
+                label,
+                style: theme.textTheme.labelSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: accentColor,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 2),
+        Text(
+          valueText,
+          style: theme.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: valueColor,
+          ),
+          overflow: TextOverflow.ellipsis,
+        ),
+      ],
+    );
+
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _activeTarget = target;
+        });
+      },
+      borderRadius: BorderRadius.circular(12),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: isActive
+                ? accentColor
+                : theme.colorScheme.outlineVariant.withValues(alpha: 0.3),
+            width: isActive ? 2.0 : 1.0,
+          ),
+        ),
+        child: trailing == null
+            ? content
+            : Row(
+                children: [
+                  Expanded(child: content),
+                  trailing,
+                ],
+              ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -347,190 +421,35 @@ class _BibleTranslationSelectorDialogState
               ),
               child: Padding(
                 padding: const EdgeInsets.all(6.0),
-                child: Row(
-                  children: [
-                    // Primary Target Button
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            _activeTarget = BibleTranslationTarget.primary;
-                          });
-                        },
-                        borderRadius: BorderRadius.circular(12),
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.surface,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color:
-                                  _activeTarget ==
-                                      BibleTranslationTarget.primary
-                                  ? theme.colorScheme.primary
-                                  : theme.colorScheme.outlineVariant.withValues(
-                                      alpha: 0.3,
-                                    ),
-                              width:
-                                  _activeTarget ==
-                                      BibleTranslationTarget.primary
-                                  ? 2.0
-                                  : 1.0,
-                            ),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.edit_note,
-                                    size: 14,
-                                    color: theme.colorScheme.primary,
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Flexible(
-                                    child: Text(
-                                      'Selecting Primary',
-                                      style: theme.textTheme.labelSmall
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                            color: theme.colorScheme.primary,
-                                          ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 2),
-                              Text(
-                                primaryItem.shortName,
-                                style: theme.textTheme.titleMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-
-                    // Swap Button
-                    IconButton(
-                      icon: Icon(
-                        Icons.swap_horiz,
-                        color: _selectedCompare != null
-                            ? theme.colorScheme.primary
-                            : theme.colorScheme.onSurfaceVariant.withValues(
-                                alpha: 0.3,
-                              ),
-                      ),
-                      tooltip: 'Swap Primary & Secondary',
-                      onPressed: _selectedCompare == null
-                          ? null
-                          : _swapTranslations,
-                    ),
-                    const SizedBox(width: 4),
-
-                    // Secondary Target Button & Clear Button
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            _activeTarget = BibleTranslationTarget.compare;
-                          });
-                        },
-                        borderRadius: BorderRadius.circular(12),
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.surface,
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color:
-                                  _activeTarget ==
-                                      BibleTranslationTarget.compare
-                                  ? theme.colorScheme.secondary
-                                  : theme.colorScheme.outlineVariant.withValues(
-                                      alpha: 0.3,
-                                    ),
-                              width:
-                                  _activeTarget ==
-                                      BibleTranslationTarget.compare
-                                  ? 2.0
-                                  : 1.0,
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          Icons.edit_note,
-                                          size: 14,
-                                          color: theme.colorScheme.secondary,
-                                        ),
-                                        const SizedBox(width: 4),
-                                        Flexible(
-                                          child: Text(
-                                            'Selecting Secondary',
-                                            style: theme.textTheme.labelSmall
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: theme
-                                                      .colorScheme
-                                                      .secondary,
-                                                ),
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      compareItem?.shortName ?? 'None',
-                                      style: theme.textTheme.titleMedium
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                            color: compareItem == null
-                                                ? theme
-                                                      .colorScheme
-                                                      .onSurfaceVariant
-                                                : null,
-                                          ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              if (_selectedCompare != null) ...[
-                                IconButton(
-                                  icon: const Icon(Icons.close, size: 18),
-                                  tooltip: 'Clear Secondary',
-                                  onPressed: _clearSecondary,
-                                  visualDensity: VisualDensity.compact,
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                child: DualTargetSelectorRow(
+                  canSwap: _selectedCompare != null,
+                  onSwap: _swapTranslations,
+                  swapIconSize: null,
+                  primaryChild: _buildTargetSlot(
+                    theme: theme,
+                    target: BibleTranslationTarget.primary,
+                    label: 'Selecting Primary',
+                    valueText: primaryItem.shortName,
+                    accentColor: theme.colorScheme.primary,
+                  ),
+                  secondaryChild: _buildTargetSlot(
+                    theme: theme,
+                    target: BibleTranslationTarget.compare,
+                    label: 'Selecting Secondary',
+                    valueText: compareItem?.shortName ?? 'None',
+                    accentColor: theme.colorScheme.secondary,
+                    valueColor: compareItem == null
+                        ? theme.colorScheme.onSurfaceVariant
+                        : null,
+                    trailing: _selectedCompare != null
+                        ? IconButton(
+                            icon: const Icon(Icons.close, size: 18),
+                            tooltip: 'Clear Secondary',
+                            onPressed: _clearSecondary,
+                            visualDensity: VisualDensity.compact,
+                          )
+                        : null,
+                  ),
                 ),
               ),
             ),

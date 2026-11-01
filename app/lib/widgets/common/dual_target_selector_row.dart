@@ -6,7 +6,8 @@ class DualTargetSelectorRow extends StatelessWidget {
   final bool canSwap;
   final VoidCallback onSwap;
   final String swapTooltip;
-  final double swapIconSize;
+  final double? swapIconSize;
+  final double spacing;
 
   const DualTargetSelectorRow({
     super.key,
@@ -16,6 +17,7 @@ class DualTargetSelectorRow extends StatelessWidget {
     required this.onSwap,
     this.swapTooltip = 'Swap Primary & Secondary',
     this.swapIconSize = 22.0,
+    this.spacing = 4.0,
   });
 
   @override
@@ -25,7 +27,7 @@ class DualTargetSelectorRow extends StatelessWidget {
     return Row(
       children: [
         Expanded(child: primaryChild),
-        const SizedBox(width: 4),
+        SizedBox(width: spacing),
         IconButton(
           icon: Icon(
             Icons.swap_horiz,
@@ -37,7 +39,7 @@ class DualTargetSelectorRow extends StatelessWidget {
           tooltip: swapTooltip,
           onPressed: canSwap ? onSwap : null,
         ),
-        const SizedBox(width: 4),
+        SizedBox(width: spacing),
         Expanded(child: secondaryChild),
       ],
     );
