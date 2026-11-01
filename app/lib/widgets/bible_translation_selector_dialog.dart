@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../logic/bible_translation_info.dart';
 import 'common/dual_target_selector_row.dart';
-export '../logic/bible_translation_info.dart' show TranslationApprovalStatus;
+export '../logic/bible_translation_info.dart'
+    show TranslationApprovalStatus, BibleTranslationSelectorResult;
 
 enum BibleTranslationTarget { primary, compare }
 
@@ -71,20 +72,11 @@ class _BibleTranslationSelectorDialogState
   String _searchQuery = '';
   final Set<String> _selectedFilters = <String>{};
 
-  static const List<String> _availableFilters = [
-    'Imprimatur',
-    'English',
-    'Latin',
-    'Spanish',
-    'Ancient',
-  ];
+  static const List<String> _availableFilters =
+      BibleTranslationInfo.dialogFilterTags;
 
-  static String? _normalizeCompareCode(String? code) {
-    if (code == null || code == 'none' || code.isEmpty) {
-      return null;
-    }
-    return code;
-  }
+  static String? _normalizeCompareCode(String? code) =>
+      BibleTranslationInfo.normalizeSecondaryCode(code);
 
   @override
   void initState() {
@@ -107,112 +99,65 @@ class _BibleTranslationSelectorDialogState
 
   void _swapTranslations() {
     if (_selectedCompare == null) return;
-    final oldPrimary = _selectedPrimary;
-    final oldCompare = _selectedCompare;
+    final resolved = BibleTranslationInfo.swapSelections(
+      currentPrimary: _selectedPrimary,
+      currentSecondary: _selectedCompare,
+    );
     setState(() {
-      _selectedPrimary = oldCompare!;
-      _selectedCompare = oldPrimary;
+      _selectedPrimary = resolved.primary;
+      _selectedCompare = resolved.secondary;
     });
     widget.onPrimarySelected(_selectedPrimary);
     widget.onCompareSelected(_selectedCompare);
   }
 
   void _selectPrimary(String code) {
+    final resolved = BibleTranslationInfo.resolvePrimarySelection(
+      currentPrimary: _selectedPrimary,
+      currentSecondary: _selectedCompare,
+      newPrimary: code,
+    );
     setState(() {
-      _selectedPrimary = code;
-      if (_selectedCompare == code) {
-        _selectedCompare = null;
-      }
+      _selectedPrimary = resolved.primary;
+      _selectedCompare = resolved.secondary;
     });
     widget.onPrimarySelected(_selectedPrimary);
     widget.onCompareSelected(_selectedCompare);
   }
 
   void _selectSecondary(String code) {
-    var primaryChanged = false;
+    final resolved = BibleTranslationInfo.resolveSecondarySelection(
+      currentPrimary: _selectedPrimary,
+      currentSecondary: _selectedCompare,
+      newSecondary: code,
+    );
     setState(() {
-      if (_selectedPrimary == code) {
-        final previousCompare = _selectedCompare;
-        if (previousCompare != null && previousCompare != code) {
-          _selectedPrimary = previousCompare;
-        } else {
-          final alt = BibleTranslationInfo.allTranslations
-              .map((t) => t.code)
-              .firstWhere((c) => c != code);
-          _selectedPrimary = alt;
-        }
-        primaryChanged = true;
-      }
-      _selectedCompare = code;
+      _selectedPrimary = resolved.primary;
+      _selectedCompare = resolved.secondary;
     });
-    if (primaryChanged) {
+    if (resolved.primaryChanged) {
       widget.onPrimarySelected(_selectedPrimary);
     }
     widget.onCompareSelected(_selectedCompare);
   }
 
   void _clearSecondary() {
+    final resolved = BibleTranslationInfo.resolveSecondarySelection(
+      currentPrimary: _selectedPrimary,
+      currentSecondary: _selectedCompare,
+      newSecondary: null,
+    );
     setState(() {
-      _selectedCompare = null;
+      _selectedCompare = resolved.secondary;
     });
-    widget.onCompareSelected(null);
+    widget.onCompareSelected(resolved.secondary);
   }
 
-  List<BibleTranslationInfo> get _filteredTranslations {
-    return BibleTranslationInfo.allTranslations.where((t) {
-      if (_searchQuery.isNotEmpty) {
-        final query = _searchQuery.toLowerCase();
-        final matchName = t.name.toLowerCase().contains(query);
-        final matchShort = t.shortName.toLowerCase().contains(query);
-        final matchLang = t.languages.any(
-          (l) => l.toLowerCase().contains(query),
-        );
-        final matchOrigin = t.originDescription.toLowerCase().contains(query);
-        final matchUsage = t.churchUsage.toLowerCase().contains(query);
-        if (!matchName &&
-            !matchShort &&
-            !matchLang &&
-            !matchOrigin &&
-            !matchUsage) {
-          return false;
-        }
-      }
-
-      for (final filter in _selectedFilters) {
-        switch (filter) {
-          case 'Imprimatur':
-            if (t.approvalStatus != BibleApprovalStatus.imprimatur) {
-              return false;
-            }
-            break;
-          case 'English':
-            if (t.primaryLanguageCode != 'en') {
-              return false;
-            }
-            break;
-          case 'Latin':
-            if (t.primaryLanguageCode != 'la') {
-              return false;
-            }
-            break;
-          case 'Spanish':
-            if (t.primaryLanguageCode != 'es') {
-              return false;
-            }
-            break;
-          case 'Ancient':
-            if (t.approvalStatus != BibleApprovalStatus.canonicalSourceText &&
-                t.primaryLanguageCode != 'el' &&
-                t.primaryLanguageCode != 'he') {
-              return false;
-            }
-            break;
-        }
-      }
-
-      return true;
-    }).toList();
-  }
+  List<BibleTranslationInfo> get _filteredTranslations =>
+      BibleTranslationInfo.filterTranslations(
+        query: _searchQuery,
+        selectedFilters: _selectedFilters,
+      );
 
   Widget _buildApprovalBadge(BibleApprovalStatus status, ThemeData theme) {
     switch (status) {

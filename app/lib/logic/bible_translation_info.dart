@@ -2,6 +2,38 @@ enum BibleApprovalStatus { imprimatur, noImprimatur, canonicalSourceText }
 
 typedef TranslationApprovalStatus = BibleApprovalStatus;
 
+class BibleTranslationSelectorResult {
+  final String primary;
+  final String? secondary;
+  final bool primaryChanged;
+
+  const BibleTranslationSelectorResult({
+    required this.primary,
+    required this.secondary,
+    this.primaryChanged = false,
+  });
+
+  String get primaryCode => primary;
+  String? get secondaryCode => secondary;
+  String? get compareCode => secondary;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BibleTranslationSelectorResult &&
+          runtimeType == other.runtimeType &&
+          primary == other.primary &&
+          secondary == other.secondary &&
+          primaryChanged == other.primaryChanged;
+
+  @override
+  int get hashCode => Object.hash(primary, secondary, primaryChanged);
+
+  @override
+  String toString() =>
+      'BibleTranslationSelectorResult(primary: $primary, secondary: $secondary, primaryChanged: $primaryChanged)';
+}
+
 class BibleTranslationInfo {
   final String code;
   final String name;
@@ -72,6 +104,186 @@ class BibleTranslationInfo {
       case BibleApprovalStatus.canonicalSourceText:
         return 'Canonical Source Text';
     }
+  }
+
+  static const List<String> filterTags = [
+    'All',
+    'English',
+    'Catholic Approved',
+    'Sacred Languages',
+    'Spanish',
+    'Chinese',
+    'Arabic',
+  ];
+
+  static const List<String> dialogFilterTags = [
+    'Imprimatur',
+    'English',
+    'Latin',
+    'Spanish',
+    'Ancient',
+  ];
+
+  bool matchesFilterTag(String tag) {
+    final normalized = tag.trim();
+    if (normalized.isEmpty || normalized == 'All') {
+      return true;
+    }
+    switch (normalized) {
+      case 'Imprimatur':
+      case 'Catholic Approved':
+        return approvalStatus == BibleApprovalStatus.imprimatur;
+      case 'English':
+        return primaryLanguageCode == 'en' ||
+            languages.any((l) => l.toLowerCase() == 'english');
+      case 'Latin':
+        return primaryLanguageCode == 'la' ||
+            languages.any((l) => l.toLowerCase() == 'latin');
+      case 'Spanish':
+        return primaryLanguageCode == 'es' ||
+            languages.any((l) => l.toLowerCase() == 'spanish');
+      case 'Chinese':
+        return primaryLanguageCode == 'zh' ||
+            languages.any((l) => l.toLowerCase().contains('chinese'));
+      case 'Arabic':
+        return primaryLanguageCode == 'ar' ||
+            languages.any((l) => l.toLowerCase().contains('arabic'));
+      case 'Ancient':
+        return approvalStatus == BibleApprovalStatus.canonicalSourceText ||
+            primaryLanguageCode == 'el' ||
+            primaryLanguageCode == 'he';
+      case 'Sacred Languages':
+        return approvalStatus == BibleApprovalStatus.canonicalSourceText ||
+            primaryLanguageCode == 'la' ||
+            primaryLanguageCode == 'el' ||
+            primaryLanguageCode == 'he';
+      default:
+        final lower = normalized.toLowerCase();
+        return primaryLanguageCode.toLowerCase() == lower ||
+            languages.any((l) => l.toLowerCase().contains(lower));
+    }
+  }
+
+  bool matchesSearchQuery(String query) {
+    final trimmed = query.trim();
+    if (trimmed.isEmpty) {
+      return true;
+    }
+    final lower = trimmed.toLowerCase();
+    return code.toLowerCase().contains(lower) ||
+        name.toLowerCase().contains(lower) ||
+        shortName.toLowerCase().contains(lower) ||
+        languages.any((l) => l.toLowerCase().contains(lower)) ||
+        originDescription.toLowerCase().contains(lower) ||
+        churchUsage.toLowerCase().contains(lower);
+  }
+
+  static List<BibleTranslationInfo> filterTranslations({
+    String query = '',
+    String selectedTag = 'All',
+    Iterable<String> selectedFilters = const [],
+    List<BibleTranslationInfo>? source,
+  }) {
+    final items = source ?? allTranslations;
+    return items.where((t) {
+      if (!t.matchesSearchQuery(query)) {
+        return false;
+      }
+      if (selectedTag.isNotEmpty &&
+          selectedTag != 'All' &&
+          !t.matchesFilterTag(selectedTag)) {
+        return false;
+      }
+      for (final filter in selectedFilters) {
+        if (!t.matchesFilterTag(filter)) {
+          return false;
+        }
+      }
+      return true;
+    }).toList();
+  }
+
+  static String? normalizeSecondaryCode(String? code) {
+    if (code == null || code == 'none' || code.isEmpty) {
+      return null;
+    }
+    return code;
+  }
+
+  static BibleTranslationSelectorResult resolvePrimarySelection({
+    required String currentPrimary,
+    required String? currentSecondary,
+    required String newPrimary,
+  }) {
+    final normalizedSecondary = normalizeSecondaryCode(currentSecondary);
+    final nextSecondary = normalizedSecondary == newPrimary
+        ? null
+        : normalizedSecondary;
+    return BibleTranslationSelectorResult(
+      primary: newPrimary,
+      secondary: nextSecondary,
+      primaryChanged: newPrimary != currentPrimary,
+    );
+  }
+
+  static BibleTranslationSelectorResult resolveSecondarySelection({
+    required String currentPrimary,
+    required String? currentSecondary,
+    required String? newSecondary,
+  }) {
+    final normalizedCurrentSecondary = normalizeSecondaryCode(currentSecondary);
+    final normalizedNewSecondary = normalizeSecondaryCode(newSecondary);
+
+    if (normalizedNewSecondary == null) {
+      return BibleTranslationSelectorResult(
+        primary: currentPrimary,
+        secondary: null,
+        primaryChanged: false,
+      );
+    }
+
+    var nextPrimary = currentPrimary;
+    var primaryChanged = false;
+
+    if (currentPrimary == normalizedNewSecondary) {
+      if (normalizedCurrentSecondary != null &&
+          normalizedCurrentSecondary != normalizedNewSecondary) {
+        nextPrimary = normalizedCurrentSecondary;
+      } else {
+        nextPrimary = allTranslations
+            .map((t) => t.code)
+            .firstWhere(
+              (c) => c != normalizedNewSecondary,
+              orElse: () => currentPrimary,
+            );
+      }
+      primaryChanged = true;
+    }
+
+    return BibleTranslationSelectorResult(
+      primary: nextPrimary,
+      secondary: normalizedNewSecondary,
+      primaryChanged: primaryChanged,
+    );
+  }
+
+  static BibleTranslationSelectorResult swapSelections({
+    required String currentPrimary,
+    required String? currentSecondary,
+  }) {
+    final normalizedSecondary = normalizeSecondaryCode(currentSecondary);
+    if (normalizedSecondary == null) {
+      return BibleTranslationSelectorResult(
+        primary: currentPrimary,
+        secondary: null,
+        primaryChanged: false,
+      );
+    }
+    return BibleTranslationSelectorResult(
+      primary: normalizedSecondary,
+      secondary: currentPrimary,
+      primaryChanged: normalizedSecondary != currentPrimary,
+    );
   }
 
   static const List<BibleTranslationInfo> allTranslations = [
