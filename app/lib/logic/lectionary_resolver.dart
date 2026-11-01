@@ -47,6 +47,9 @@ List<int> parseVerseRange(String rangeStr) {
 }
 
 final RegExp _alphaRegex = RegExp(r'[a-zA-Z]');
+final RegExp _andRegex = RegExp(r'\s+and\s+|\band\b', caseSensitive: false);
+final RegExp _digitAlphaDigitRegex = RegExp(r'(\d)[a-zA-Z]+(\d)');
+final RegExp _nonVerseCharsRegex = RegExp(r'[^0-9,\-\s–—]');
 final RegExp _trailingDigitsRegex = RegExp(r'\d+$');
 final RegExp _nonDigitsRegex = RegExp(r'[^\d]');
 final RegExp _chapterCrossingRegex = RegExp(r'[\—\–\-]\s*(\d+)\s*\:');
@@ -55,10 +58,11 @@ String cleanVerseStr(String str) {
   final orIndex = str.toLowerCase().indexOf(' or ');
   final primary = orIndex != -1 ? str.substring(0, orIndex).trim() : str.trim();
   final clean = primary
-      .replaceAll(' and ', ',')
+      .replaceAll(_andRegex, ',')
       .replaceAll('&', ',')
-      .replaceAll(';', ',');
-  return clean.replaceAll(_alphaRegex, '');
+      .replaceAll(';', ',')
+      .replaceAllMapped(_digitAlphaDigitRegex, (m) => '${m[1]}-${m[2]}');
+  return clean.replaceAll(_alphaRegex, '').replaceAll(_nonVerseCharsRegex, '');
 }
 
 BibleReference mapModernToVulgate(
@@ -172,7 +176,10 @@ List<ChapterVerseRange> resolveReadingRanges({
           );
         } else {
           result.add(
-            ChapterVerseRange(chapter: mapped.chapter, verses: mapped.verses),
+            ChapterVerseRange(
+              chapter: mapped.chapter,
+              verses: mapped.verses.isNotEmpty ? mapped.verses : null,
+            ),
           );
         }
         lastWasCrossChapterSplit = mapped.chapter != sourceChapter;
@@ -259,7 +266,18 @@ List<ChapterVerseRange> resolveReadingRanges({
         ).first;
 
         final endVersesPart = rightPart.substring(colonIndex + 1);
-        final endVerseStr = cleanVerseStr(endVersesPart);
+        String endVerseStr = cleanVerseStr(endVersesPart);
+        if (endVerseStr.contains(',')) {
+          final commaIndex = endVerseStr.indexOf(',');
+          final firstSegment = endVerseStr
+              .substring(0, commaIndex)
+              .trim()
+              .replaceAll('–', '-')
+              .replaceAll('—', '-');
+          if (firstSegment.isNotEmpty && !firstSegment.contains('-')) {
+            endVerseStr = '1-$firstSegment${endVerseStr.substring(commaIndex)}';
+          }
+        }
         final rawEndVerses = parseVerseRange(endVerseStr);
         final mappedEndVerseRef =
             BibleVerseResolver.mapLectionaryToVulgateRanges(

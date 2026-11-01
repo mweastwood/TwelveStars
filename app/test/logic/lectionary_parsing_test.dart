@@ -1126,7 +1126,7 @@ void main() {
             verses: null,
             startVerseLimit: 14,
           ),
-          const ChapterVerseRange(chapter: 2, verses: [2, 8, 9, 10]),
+          const ChapterVerseRange(chapter: 2, verses: [1, 2, 8, 9, 10]),
         ],
       ),
       _TestCase(
