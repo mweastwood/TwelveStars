@@ -23,6 +23,28 @@ class _DelayedBibleDatabase extends Fake implements BibleDatabase {
   }
 }
 
+class _AsyncSaveBibleDatabase extends Fake implements BibleDatabase {
+  UserSettings? persistedSettings;
+  Completer<void>? saveCompleter;
+  int getUserSettingsCallCount = 0;
+
+  _AsyncSaveBibleDatabase({this.persistedSettings});
+
+  @override
+  Future<UserSettings?> getUserSettings() async {
+    getUserSettingsCallCount++;
+    return persistedSettings?.copyWith();
+  }
+
+  @override
+  Future<void> saveUserSettings(UserSettings settings) async {
+    if (saveCompleter != null && !saveCompleter!.isCompleted) {
+      await saveCompleter!.future;
+    }
+    persistedSettings = settings.copyWith();
+  }
+}
+
 void main() {
   setUp(() {
     PrayerDatabase.mockSettings = null;
@@ -444,6 +466,65 @@ void main() {
         expect(mutated.hapticsEnabled, isFalse);
         expect(controller.value.primaryLanguageCode, equals('italian'));
         expect(controller.value.hapticsEnabled, isFalse);
+      },
+    );
+
+    test(
+      'calling load() synchronously inside a listener during update() or mutate() returns updated settings and does not revert value to stale DB row',
+      () async {
+        final asyncSaveDb = _AsyncSaveBibleDatabase(
+          persistedSettings: UserSettings(
+            primaryBibleTranslation: 'CPDV',
+            primaryLanguageCode: 'english',
+          ),
+        );
+        BibleDatabaseHelper.db = asyncSaveDb;
+        final controller = UserSettingsController.instance;
+
+        await controller.load();
+        expect(controller.value.primaryBibleTranslation, equals('CPDV'));
+        expect(asyncSaveDb.getUserSettingsCallCount, equals(1));
+
+        Future<UserSettings>? listenerLoadFuture;
+        void reentrantListener() {
+          listenerLoadFuture = controller.load();
+        }
+
+        controller.addListener(reentrantListener);
+        try {
+          asyncSaveDb.saveCompleter = Completer<void>();
+
+          final mutateFuture = controller.mutate((s) {
+            s.primaryBibleTranslation = 'DRA';
+            s.primaryLanguageCode = 'latin';
+          });
+
+          // Listener ran synchronously before saveUserSettings completed in DB
+          expect(listenerLoadFuture, isNotNull);
+          final listenerLoaded = await listenerLoadFuture!;
+          expect(listenerLoaded.primaryBibleTranslation, equals('DRA'));
+          expect(listenerLoaded.primaryLanguageCode, equals('latin'));
+          expect(controller.value.primaryBibleTranslation, equals('DRA'));
+          expect(controller.value.primaryLanguageCode, equals('latin'));
+          expect(asyncSaveDb.getUserSettingsCallCount, equals(1));
+
+          // Also verify concurrent load() while saveCompleter is still pending
+          final whileSavingLoad = await controller.load();
+          expect(whileSavingLoad.primaryBibleTranslation, equals('DRA'));
+          expect(asyncSaveDb.getUserSettingsCallCount, equals(1));
+
+          asyncSaveDb.saveCompleter!.complete();
+          await mutateFuture;
+
+          expect(controller.value.primaryBibleTranslation, equals('DRA'));
+          expect(controller.value.primaryLanguageCode, equals('latin'));
+          expect(
+            asyncSaveDb.persistedSettings?.primaryBibleTranslation,
+            equals('DRA'),
+          );
+        } finally {
+          controller.removeListener(reentrantListener);
+        }
       },
     );
   });

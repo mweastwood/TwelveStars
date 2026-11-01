@@ -110,13 +110,33 @@ class _MassReadingCardState extends State<MassReadingCard> {
   void _onSettingsChanged() {
     if (!mounted) return;
     final settings = UserSettingsController.instance.value;
-    final translation = settings.primaryBibleTranslation;
+    final requestedTranslation = settings.primaryBibleTranslation;
+    final transInfo = BibleTranslationInfo.getByCode(requestedTranslation);
+    final translation = transInfo.supportsBook(widget.reading.bookNumber)
+        ? requestedTranslation
+        : 'CPDV';
     if (_loadedTranslation != null && _loadedTranslation != translation) {
+      final hadSelection = _selectionController.hasSelection;
+      _selectionController.clear();
+      if (hadSelection) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && !_selectionController.hasSelection) {
+            _notifySelectionChanged();
+          }
+        });
+      }
       _loadVerses();
     } else if (_numberingSystem != settings.bibleNumberingSystem) {
       setState(() {
         _numberingSystem = settings.bibleNumberingSystem;
       });
+      if (_selectionController.hasSelection) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && _selectionController.hasSelection) {
+            _notifySelectionChanged();
+          }
+        });
+      }
     }
   }
 
@@ -257,7 +277,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
   }
 
   Future<void> _loadVerses({bool force = false}) async {
-    final settings = await UserSettingsController.instance.load();
+    final settings = UserSettingsController.instance.isInitialized
+        ? UserSettingsController.instance.value
+        : await UserSettingsController.instance.load();
     final requestedTranslation = settings.primaryBibleTranslation;
     final transInfo = BibleTranslationInfo.getByCode(requestedTranslation);
     final translation = transInfo.supportsBook(widget.reading.bookNumber)
@@ -371,6 +393,62 @@ class _MassReadingCardState extends State<MassReadingCard> {
     widget.onSelectionChanged?.call(_createSelectionData());
   }
 
+  String _formatSelectionCitation(
+    BibleVerse firstV,
+    BibleVerse lastV, {
+    required bool isSingleVerse,
+  }) {
+    final String vulgatePart;
+    if (isSingleVerse ||
+        (firstV.chapter == lastV.chapter &&
+            firstV.verseNumber == lastV.verseNumber)) {
+      vulgatePart = '${firstV.chapter}:${firstV.verseNumber}';
+    } else if (firstV.chapter == lastV.chapter) {
+      vulgatePart =
+          '${firstV.chapter}:${firstV.verseNumber}-${lastV.verseNumber}';
+    } else {
+      vulgatePart =
+          '${firstV.chapter}:${firstV.verseNumber} - ${lastV.chapter}:${lastV.verseNumber}';
+    }
+
+    if (_numberingSystem == BibleNumberingSystem.vulgate) {
+      return '${firstV.bookName} $vulgatePart';
+    }
+
+    final mStart = BibleVerseResolver.vulgateToMasoreticVerse(
+      bookNumber: firstV.bookNumber,
+      chapter: firstV.chapter,
+      verse: firstV.verseNumber,
+    );
+    final mEnd = BibleVerseResolver.vulgateToMasoreticVerse(
+      bookNumber: lastV.bookNumber,
+      chapter: lastV.chapter,
+      verse: lastV.verseNumber,
+    );
+
+    final String modernPart;
+    if (mStart.chapter == mEnd.chapter && mStart.verse == mEnd.verse) {
+      modernPart = '${mStart.chapter}:${mStart.verse}';
+    } else if (mStart.chapter == mEnd.chapter) {
+      modernPart = '${mStart.chapter}:${mStart.verse}-${mEnd.verse}';
+    } else {
+      modernPart =
+          '${mStart.chapter}:${mStart.verse} - ${mEnd.chapter}:${mEnd.verse}';
+    }
+
+    if (_numberingSystem == BibleNumberingSystem.modern) {
+      return '${firstV.bookName} $modernPart';
+    }
+
+    if (vulgatePart == modernPart) {
+      return '${firstV.bookName} $vulgatePart';
+    }
+    return '${firstV.bookName} $vulgatePart (Modern $modernPart)';
+  }
+
+  String _formatVerseCitation(BibleVerse verse) =>
+      _formatSelectionCitation(verse, verse, isSingleVerse: true);
+
   MassReadingSelection? _createSelectionData() {
     if (!_selectionController.hasSelection ||
         _verses == null ||
@@ -380,21 +458,19 @@ class _MassReadingCardState extends State<MassReadingCard> {
 
     final start = _selectionController.start!;
     final end = _selectionController.end!;
+    if (start >= _verses!.length || end >= _verses!.length) {
+      return null;
+    }
     final count = _selectionController.selectedCount;
     final selectedVerses = _verses!.sublist(start, end + 1);
     final firstV = selectedVerses.first;
     final lastV = selectedVerses.last;
 
-    final String citation;
-    if (count == 1) {
-      citation = '${firstV.bookName} ${firstV.chapter}:${firstV.verseNumber}';
-    } else if (firstV.chapter == lastV.chapter) {
-      citation =
-          '${firstV.bookName} ${firstV.chapter}:${firstV.verseNumber}-${lastV.verseNumber}';
-    } else {
-      citation =
-          '${firstV.bookName} ${firstV.chapter}:${firstV.verseNumber} - ${lastV.chapter}:${lastV.verseNumber}';
-    }
+    final citation = _formatSelectionCitation(
+      firstV,
+      lastV,
+      isSingleVerse: count == 1,
+    );
 
     final textPreview = selectedVerses.map((v) => v.verseText).join(' ');
 
@@ -462,9 +538,19 @@ class _MassReadingCardState extends State<MassReadingCard> {
       onCopy: () async {
         final versesText = selectedVerses
             .map((v) {
-              return count == 1
-                  ? v.verseText
-                  : '${v.verseNumber} ${v.verseText}';
+              if (count == 1) return v.verseText;
+              final display = BibleVerseResolver.formatVerseDisplay(
+                bookNumber: v.bookNumber,
+                chapter: v.chapter,
+                verseNumber: v.verseNumber,
+                numberingSystem: _numberingSystem,
+              );
+              final numLabel =
+                  display.alternateVerseNumber != null &&
+                      display.alternateVerseNumber!.isNotEmpty
+                  ? '${display.displayVerseNumber} (${display.alternateVerseNumber})'
+                  : '${display.displayVerseNumber}';
+              return '$numLabel ${v.verseText}';
             })
             .join(count == 1 ? '' : '\n');
 
@@ -623,6 +709,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     verseNumber: verse.verseNumber,
                     numberingSystem: _numberingSystem,
                   );
+                  final verseRef = _formatVerseCitation(verse);
 
                   return BibleVerseRow(
                     verseNumber: verseDisplay.displayVerseNumber,
@@ -643,8 +730,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     onLongPress: () => _onVerseLongPress(index),
                     onTapCitations: () => showReverseCitationsModal(
                       context: context,
-                      title:
-                          '${verse.bookName} ${verse.chapter}:${verse.verseNumber}',
+                      title: verseRef,
                       citations: verseCitations,
                     ),
                     onTapComments: () {
@@ -655,16 +741,14 @@ class _MassReadingCardState extends State<MassReadingCard> {
                           ));
                       showVerseCommentsModal(
                         context: context,
-                        title:
-                            '${verse.bookName} ${verse.chapter}:${verse.verseNumber}',
+                        title: verseRef,
                         nodeId: nodeId,
                         textPreview: verse.verseText,
                         comments: verseComments,
                         onCommentsChanged: _loadComments,
                         onAddComment: () => showAddCommentDialog(
                           context: context,
-                          citation:
-                              '${verse.bookName} ${verse.chapter}:${verse.verseNumber}',
+                          citation: verseRef,
                           textPreview: verse.verseText,
                           documentId: bookMeta.abbrev,
                           sectionIndex: verse.chapter,
@@ -675,8 +759,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     },
                     onTapFavorite: () => showVerseFavoritesModal(
                       context: context,
-                      title:
-                          '${verse.bookName} ${verse.chapter}:${verse.verseNumber}',
+                      title: verseRef,
                       favorites: matchingFavorites,
                       onFavoritesChanged: _loadFavorites,
                     ),

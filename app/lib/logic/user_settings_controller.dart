@@ -13,6 +13,7 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
 
   Future<UserSettings>? _inFlightLoad;
   int _mutationVersion = 0;
+  int _pendingSaveCount = 0;
   int? _syncedPrayerCatalogVersion;
 
   /// Keeps the in-memory [UserSettings.prayerCatalogVersion] synchronized when
@@ -36,6 +37,9 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
   }
 
   Future<UserSettings> load() {
+    if (_pendingSaveCount > 0) {
+      return Future.value(value);
+    }
     if (_inFlightLoad != null) {
       return _inFlightLoad!;
     }
@@ -56,7 +60,7 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
         loaded.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
       loaded.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
     }
-    if (_mutationVersion == loadVersion) {
+    if (_mutationVersion == loadVersion && _pendingSaveCount == 0) {
       _isInitialized = true;
       _setValueAndNotify(loaded);
     }
@@ -71,8 +75,15 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
         settings.prayerCatalogVersion < _syncedPrayerCatalogVersion!) {
       settings.prayerCatalogVersion = _syncedPrayerCatalogVersion!;
     }
-    _setValueAndNotify(settings);
-    await PrayerDatabase.saveSettings(settings);
+    _pendingSaveCount++;
+    try {
+      _setValueAndNotify(settings);
+      await PrayerDatabase.saveSettings(settings);
+    } finally {
+      if (_pendingSaveCount > 0) {
+        _pendingSaveCount--;
+      }
+    }
   }
 
   /// Mutates the active [UserSettings] in place, notifies all listeners,
@@ -102,6 +113,7 @@ class UserSettingsController extends ValueNotifier<UserSettings> {
   @visibleForTesting
   void resetForTesting() {
     _mutationVersion++;
+    _pendingSaveCount = 0;
     _inFlightLoad = null;
     _syncedPrayerCatalogVersion = null;
     _isInitialized = false;
