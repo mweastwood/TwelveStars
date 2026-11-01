@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twelve_stars/logic/prayer_text_parser.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
 /// Renders Chinese character lines with Pinyin annotations and selection highlights.
@@ -9,6 +10,7 @@ class PrayerPinyinView extends StatelessWidget {
   final bool isTargetColumn;
   final double fontSize;
   final LayerLink layerLink;
+  final Key? targetKey;
   final ValueChanged<String?> onPhraseSelected;
 
   const PrayerPinyinView({
@@ -19,14 +21,9 @@ class PrayerPinyinView extends StatelessWidget {
     required this.isTargetColumn,
     required this.fontSize,
     required this.layerLink,
+    this.targetKey,
     required this.onPhraseSelected,
   });
-
-  static final RegExp _celebrantPrefixRegex = RegExp(
-    r'^\s*(?:(?:Priest|Celebrant|Reader|Lector|Lecteur|Lettore|Sacerdos|Diaconus|Sacerdote|Diácono|Linh\s+mục|Phó\s+tế|Người\s+xướng|Người\s+đọc|Namumuno|領經者|主祭|司鐸|執事|讀經者|主禮|啟)\s*[:：]|℣\.?|V\.|V:)',
-    caseSensitive: false,
-    multiLine: true,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +43,7 @@ class PrayerPinyinView extends StatelessWidget {
     return Column(
       children: chineseLines.map((line) {
         final lineText = (line.chars ?? []).map((c) => c.char).join('');
-        final isCelebrant = _celebrantPrefixRegex.hasMatch(lineText);
+        final isCelebrant = PrayerTextParser.isCelebrantLine(lineText);
         final fontWeight = isCelebrant ? FontWeight.normal : FontWeight.bold;
 
         return Padding(
@@ -110,6 +107,7 @@ class PrayerPinyinView extends StatelessWidget {
               final isTarget = identical(charItem, targetChar);
               final wrappedChar = isTarget
                   ? CompositedTransformTarget(
+                      key: targetKey,
                       link: layerLink,
                       child: charWidget,
                     )
