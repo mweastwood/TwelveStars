@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 
 import '../test_helper.dart';
 
