@@ -9,6 +9,7 @@ import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/prayers/prayer_card_components.dart';
 import 'package:twelve_stars/widgets/prayers/prayer_history_sheet.dart';
 import 'package:twelve_stars/widgets/prayers/prayer_pinyin_view.dart';
+import 'package:twelve_stars/widgets/prayers/prayer_rich_text_span_builder.dart';
 import 'package:twelve_stars/widgets/translation_explainer_sheet.dart';
 
 class PrayerCard extends StatefulWidget {
@@ -181,140 +182,15 @@ class _PrayerCardState extends State<PrayerCard> {
     _scheduleUpdateFollowerOffset();
   }
 
-  List<InlineSpan> _parseItalicsSpans(
-    String text,
-    TextStyle? style, {
-    GestureRecognizer? recognizer,
-  }) {
-    final spans = <InlineSpan>[];
-    int lastMatchEnd = 0;
-
-    for (final match in PrayerTextParser.italicsRegex.allMatches(text)) {
-      if (match.start > lastMatchEnd) {
-        spans.add(
-          TextSpan(
-            text: text.substring(lastMatchEnd, match.start),
-            style: style,
-            recognizer: recognizer,
-          ),
-        );
+  void _onPhraseSelected(String? phraseId) {
+    setState(() {
+      _selectedPhraseId = phraseId;
+      _followerDx = 12.0;
+      if (phraseId != null) {
+        _checkAiAvailability();
+        _scheduleUpdateFollowerOffset();
       }
-      spans.add(
-        TextSpan(
-          text: match.group(1),
-          style: style?.copyWith(fontStyle: FontStyle.italic),
-          recognizer: recognizer,
-        ),
-      );
-      lastMatchEnd = match.end;
-    }
-
-    if (lastMatchEnd < text.length) {
-      spans.add(
-        TextSpan(
-          text: text.substring(lastMatchEnd),
-          style: style,
-          recognizer: recognizer,
-        ),
-      );
-    }
-
-    return spans;
-  }
-
-  InlineSpan _buildTokenSpan(
-    PrayerToken token,
-    int index,
-    ThemeData theme, {
-    bool isTarget = false,
-    bool attachLayerLink = false,
-    bool isResponse = false,
-  }) {
-    final fontWeight = isResponse ? FontWeight.bold : null;
-    final baseStyle = theme.textTheme.bodyLarge?.copyWith(
-      height: 1.6,
-      fontSize: widget.fontSize,
-      letterSpacing: 0.2,
-      fontWeight: fontWeight,
-    );
-
-    if (token.id == null || !_isDualMode) {
-      final style = baseStyle?.copyWith(
-        color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-      );
-      return TextSpan(children: _parseItalicsSpans(token.text, style));
-    }
-
-    final recognizerKey =
-        '${isTarget ? 'target' : 'primary'}_${index}_${token.id}';
-    _activeRecognizerKeys.add(recognizerKey);
-
-    final recognizer =
-        _recognizers.putIfAbsent(recognizerKey, () => TapGestureRecognizer())
-          ..onTap = () {
-            setState(() {
-              if (_selectedPhraseId == token.id) {
-                _selectedPhraseId = null;
-                _followerDx = 12.0;
-              } else {
-                _selectedPhraseId = token.id;
-                _followerDx = 12.0;
-                _checkAiAvailability();
-                _scheduleUpdateFollowerOffset();
-              }
-            });
-          };
-
-    final isSelected = token.id == _selectedPhraseId;
-
-    if (isSelected) {
-      final selectedStyle = baseStyle?.copyWith(
-        color: theme.colorScheme.onPrimaryContainer,
-        backgroundColor: theme.colorScheme.primaryContainer.withValues(
-          alpha: 0.8,
-        ),
-      );
-
-      final textSpan = TextSpan(
-        children: _parseItalicsSpans(
-          token.text,
-          selectedStyle,
-          recognizer: recognizer,
-        ),
-      );
-
-      if (attachLayerLink) {
-        return TextSpan(
-          children: [
-            textSpan,
-            WidgetSpan(
-              child: CompositedTransformTarget(
-                key: _targetKey,
-                link: _layerLink,
-                child: const SizedBox(width: 0, height: 0),
-              ),
-            ),
-          ],
-        );
-      }
-
-      return textSpan;
-    }
-
-    final unselectedStyle = baseStyle?.copyWith(
-      decoration: TextDecoration.underline,
-      decorationStyle: TextDecorationStyle.dashed,
-      decorationColor: theme.colorScheme.primary.withValues(alpha: 0.5),
-      color: theme.colorScheme.onSurface,
-    );
-
-    return TextSpan(
-      children: _parseItalicsSpans(
-        token.text,
-        unselectedStyle,
-        recognizer: recognizer,
-      ),
-    );
+    });
   }
 
   Widget _wrapWithFooter(
@@ -385,177 +261,37 @@ class _PrayerCardState extends State<PrayerCard> {
         fontSize: widget.fontSize,
         layerLink: _layerLink,
         targetKey: isTargetColumn ? _targetKey : null,
-        onPhraseSelected: (phraseId) {
-          setState(() {
-            _selectedPhraseId = phraseId;
-            _followerDx = 12.0;
-            if (phraseId != null) {
-              _checkAiAvailability();
-              _scheduleUpdateFollowerOffset();
-            }
-          });
-        },
-      );
-    } else if (trans.tokens != null && trans.tokens!.isNotEmpty) {
-      // Text rendering with phrase alignments
-      final fullText = trans.tokens!.map((t) => t.text).join('');
-      final hasResponses = PrayerTextParser.hasResponses(fullText);
-
-      int? targetTokenIndex;
-      if (_isDualMode && isTargetColumn && _selectedPhraseId != null) {
-        for (var i = 0; i < trans.tokens!.length; i++) {
-          if (trans.tokens![i].id == _selectedPhraseId) {
-            targetTokenIndex = i;
-          }
-        }
-      }
-
-      final spans = <InlineSpan>[];
-
-      if (!hasResponses) {
-        for (var i = 0; i < trans.tokens!.length; i++) {
-          spans.add(
-            _buildTokenSpan(
-              trans.tokens![i],
-              i,
-              theme,
-              isTarget: isTargetColumn,
-              attachLayerLink: i == targetTokenIndex,
-              isResponse: false,
-            ),
-          );
-        }
-      } else {
-        final lines = fullText.split('\n');
-        final isResponseLineList = lines
-            .map(PrayerTextParser.isResponseLine)
-            .toList();
-        final lineStartIndices = PrayerTextParser.computeLineStartOffsets(
-          lines,
-        );
-
-        int charOffset = 0;
-
-        for (var i = 0; i < trans.tokens!.length; i++) {
-          final token = trans.tokens![i];
-          final tokenStart = charOffset;
-          final tokenEnd = charOffset + token.text.length;
-          charOffset = tokenEnd;
-
-          if (token.id != null) {
-            final lineIdx = PrayerTextParser.getLineIndexAt(
-              lineStartIndices,
-              tokenStart,
-            );
-            final isResponse =
-                lineIdx < isResponseLineList.length &&
-                isResponseLineList[lineIdx];
-            spans.add(
-              _buildTokenSpan(
-                token,
-                i,
-                theme,
-                isTarget: isTargetColumn,
-                attachLayerLink: i == targetTokenIndex,
-                isResponse: isResponse,
-              ),
-            );
-          } else {
-            if (!token.text.contains('\n')) {
-              final lineIdx = PrayerTextParser.getLineIndexAt(
-                lineStartIndices,
-                tokenStart,
-              );
-              final isResponse =
-                  lineIdx < isResponseLineList.length &&
-                  isResponseLineList[lineIdx];
-              spans.add(
-                _buildTokenSpan(
-                  token,
-                  i,
-                  theme,
-                  isTarget: isTargetColumn,
-                  isResponse: isResponse,
-                ),
-              );
-            } else {
-              final parts = token.text.split('\n');
-              int subOffset = tokenStart;
-              for (var p = 0; p < parts.length; p++) {
-                if (p > 0) {
-                  spans.add(const TextSpan(text: '\n'));
-                  subOffset += 1;
-                }
-                final partText = parts[p];
-                if (partText.isNotEmpty) {
-                  final lineIdx = PrayerTextParser.getLineIndexAt(
-                    lineStartIndices,
-                    subOffset,
-                  );
-                  final isResponse =
-                      lineIdx < isResponseLineList.length &&
-                      isResponseLineList[lineIdx];
-                  final partToken = PrayerToken(partText, null);
-                  spans.add(
-                    _buildTokenSpan(
-                      partToken,
-                      i,
-                      theme,
-                      isTarget: isTargetColumn,
-                      isResponse: isResponse,
-                    ),
-                  );
-                  subOffset += partText.length;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      bodyWidget = Text.rich(
-        TextSpan(children: spans),
-        style: theme.textTheme.bodyLarge?.copyWith(
-          height: 1.6,
-          fontSize: widget.fontSize,
-          letterSpacing: 0.2,
-        ),
-        textAlign: TextAlign.center,
+        onPhraseSelected: _onPhraseSelected,
       );
     } else {
-      // Fallback: plain text
-      final hasResponses = PrayerTextParser.hasResponses(trans.text);
-      if (!hasResponses) {
-        final fallbackStyle = theme.textTheme.bodyLarge?.copyWith(
-          height: 1.6,
-          color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-          fontSize: widget.fontSize,
-          letterSpacing: 0.2,
+      final spanBuilder = PrayerRichTextSpanBuilder(
+        theme: theme,
+        fontSize: widget.fontSize,
+        isDualMode: _isDualMode,
+        selectedPhraseId: _selectedPhraseId,
+        layerLink: _layerLink,
+        targetKey: isTargetColumn ? _targetKey : null,
+        recognizers: _recognizers,
+        activeRecognizerKeys: _activeRecognizerKeys,
+        onPhraseSelected: _onPhraseSelected,
+      );
+
+      if (trans.tokens != null && trans.tokens!.isNotEmpty) {
+        final spans = spanBuilder.buildTokenizedSpans(
+          trans.tokens!,
+          isTargetColumn: isTargetColumn,
         );
         bodyWidget = Text.rich(
-          TextSpan(children: _parseItalicsSpans(trans.text, fallbackStyle)),
+          TextSpan(children: spans),
+          style: theme.textTheme.bodyLarge?.copyWith(
+            height: 1.6,
+            fontSize: widget.fontSize,
+            letterSpacing: 0.2,
+          ),
           textAlign: TextAlign.center,
         );
       } else {
-        final lines = trans.text.split('\n');
-        final spans = <InlineSpan>[];
-        for (var i = 0; i < lines.length; i++) {
-          if (i > 0) {
-            spans.add(const TextSpan(text: '\n'));
-          }
-          final line = lines[i];
-          if (line.isNotEmpty) {
-            final isResponse = PrayerTextParser.isResponseLine(line);
-            final lineStyle = theme.textTheme.bodyLarge?.copyWith(
-              height: 1.6,
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
-              fontSize: widget.fontSize,
-              letterSpacing: 0.2,
-              fontWeight: isResponse ? FontWeight.bold : null,
-            );
-            spans.addAll(_parseItalicsSpans(line, lineStyle));
-          }
-        }
+        final spans = spanBuilder.buildPlainTextSpans(trans.text);
         bodyWidget = Text.rich(
           TextSpan(children: spans),
           textAlign: TextAlign.center,
