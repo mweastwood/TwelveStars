@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/confirmation_discernment.dart';
-import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
 import 'package:twelve_stars/widgets/confirmation_bracket_view.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
 
@@ -47,14 +46,18 @@ class ConfirmationTournamentView extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'MATCH $matchNum OF $totalMatches • ${match.roundName.toUpperCase()}',
-                    style: theme.textTheme.labelMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.1,
-                      color: theme.colorScheme.primary,
+                  Expanded(
+                    child: Text(
+                      'MATCH $matchNum OF $totalMatches • ${match.roundName.toUpperCase()}',
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.1,
+                        color: theme.colorScheme.primary,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
+                  const SizedBox(width: 8),
                   OutlinedButton.icon(
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
@@ -91,6 +94,7 @@ class ConfirmationTournamentView extends StatelessWidget {
                               onSelect: () => onSelectWinner(match.entrant1!),
                               theme: theme,
                               keyPrefix: 'entrant_1',
+                              isWide: isWide,
                             ),
                           ),
                           Padding(
@@ -125,6 +129,7 @@ class ConfirmationTournamentView extends StatelessWidget {
                               onSelect: () => onSelectWinner(match.entrant2!),
                               theme: theme,
                               keyPrefix: 'entrant_2',
+                              isWide: isWide,
                             ),
                           ),
                         ],
@@ -134,6 +139,7 @@ class ConfirmationTournamentView extends StatelessWidget {
 
                   // Mobile layout (Stacked)
                   return SingleChildScrollView(
+                    key: ValueKey('match_${match.round}_${match.matchIndex}'),
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
                       children: [
@@ -143,6 +149,7 @@ class ConfirmationTournamentView extends StatelessWidget {
                           onSelect: () => onSelectWinner(match.entrant1!),
                           theme: theme,
                           keyPrefix: 'entrant_1',
+                          isWide: isWide,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10.0),
@@ -174,6 +181,7 @@ class ConfirmationTournamentView extends StatelessWidget {
                           onSelect: () => onSelectWinner(match.entrant2!),
                           theme: theme,
                           keyPrefix: 'entrant_2',
+                          isWide: isWide,
                         ),
                       ],
                     ),
@@ -193,6 +201,7 @@ class ConfirmationTournamentView extends StatelessWidget {
     required VoidCallback onSelect,
     required ThemeData theme,
     required String keyPrefix,
+    required bool isWide,
   }) {
     final saint = seed.saint;
 
@@ -328,9 +337,10 @@ class ConfirmationTournamentView extends StatelessWidget {
 
             // Summary excerpt
             if (saint.summary != null) ...[
-              if (isWideScreen(context))
+              if (isWide)
                 Expanded(
                   child: SingleChildScrollView(
+                    key: ValueKey('summary_${keyPrefix}_${seed.seed}'),
                     child: Text(
                       saint.summary!,
                       style: theme.textTheme.bodyMedium?.copyWith(

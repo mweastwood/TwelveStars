@@ -27,6 +27,10 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
     if (widget.questions != oldWidget.questions) {
       _currentQuestionIndex = 0;
       _selectedAnswers.clear();
+    } else if (widget.questions.isEmpty) {
+      _currentQuestionIndex = 0;
+    } else if (_currentQuestionIndex >= widget.questions.length) {
+      _currentQuestionIndex = widget.questions.length - 1;
     }
   }
 
@@ -41,9 +45,29 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final currentQ = widget.questions[_currentQuestionIndex];
+    if (widget.questions.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Confirmation Discernment'),
+          actions: [
+            TextButton.icon(
+              icon: const Icon(Icons.refresh, size: 18),
+              label: const Text('Restart'),
+              onPressed: _handleRestart,
+            ),
+          ],
+        ),
+        body: const SizedBox.shrink(),
+      );
+    }
+
+    final safeIndex = _currentQuestionIndex.clamp(
+      0,
+      widget.questions.length - 1,
+    );
+    final currentQ = widget.questions[safeIndex];
     final selectedOption = _selectedAnswers[currentQ.id];
-    final isLastQuestion = _currentQuestionIndex == widget.questions.length - 1;
+    final isLastQuestion = safeIndex == widget.questions.length - 1;
     final canProceed = selectedOption != null;
 
     return Scaffold(
@@ -62,7 +86,7 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
           children: [
             // Progress Header
             LinearProgressIndicator(
-              value: (_currentQuestionIndex + 1) / widget.questions.length,
+              value: (safeIndex + 1) / widget.questions.length,
               backgroundColor: theme.colorScheme.surfaceContainerHighest,
               color: theme.colorScheme.primary,
               minHeight: 6,
@@ -76,7 +100,7 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'QUESTION ${_currentQuestionIndex + 1} OF ${widget.questions.length}',
+                    'QUESTION ${safeIndex + 1} OF ${widget.questions.length}',
                     style: theme.textTheme.labelMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       letterSpacing: 1.1,
@@ -90,6 +114,7 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
             // Question Card & Options
             Expanded(
               child: SingleChildScrollView(
+                key: ValueKey('quiz_question_$safeIndex'),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20.0,
                   vertical: 8.0,
@@ -138,13 +163,13 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
               ),
               child: Row(
                 children: [
-                  if (_currentQuestionIndex > 0)
+                  if (safeIndex > 0)
                     OutlinedButton.icon(
                       icon: const Icon(Icons.arrow_back),
                       label: const Text('Back'),
                       onPressed: () {
                         setState(() {
-                          _currentQuestionIndex--;
+                          _currentQuestionIndex = safeIndex - 1;
                         });
                       },
                     ),
@@ -160,10 +185,12 @@ class _ConfirmationQuizViewState extends State<ConfirmationQuizView> {
                     onPressed: canProceed
                         ? () {
                             if (isLastQuestion) {
-                              widget.onComplete(_selectedAnswers);
+                              widget.onComplete(
+                                Map<String, int>.from(_selectedAnswers),
+                              );
                             } else {
                               setState(() {
-                                _currentQuestionIndex++;
+                                _currentQuestionIndex = safeIndex + 1;
                               });
                             }
                           }
