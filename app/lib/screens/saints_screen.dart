@@ -153,21 +153,6 @@ class _SaintsScreenState extends State<SaintsScreen> {
     );
   }
 
-  static const List<String> _months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -436,10 +421,10 @@ class _SaintsScreenState extends State<SaintsScreen> {
                         value: null,
                         child: Text('All Months'),
                       ),
-                      ...List.generate(12, (index) {
+                      ...List.generate(kMonthNames.length, (index) {
                         return PopupMenuItem(
                           value: index + 1,
-                          child: Text(_months[index]),
+                          child: Text(kMonthNames[index]),
                         );
                       }),
                     ],
@@ -454,7 +439,7 @@ class _SaintsScreenState extends State<SaintsScreen> {
                       label: Text(
                         _selectedFeastMonth == null
                             ? 'All Months'
-                            : _months[_selectedFeastMonth! - 1],
+                            : kMonthNames[_selectedFeastMonth! - 1],
                       ),
                     ),
                   ),
@@ -516,6 +501,8 @@ class _SaintsScreenState extends State<SaintsScreen> {
                                 ? 'No Doctors of the Church match your query.'
                                 : _selectedGender != null
                                 ? 'No ${_selectedGender == "male" ? "male" : "female"} saints match your query.'
+                                : hasActiveFilters && _searchQuery.isEmpty
+                                ? 'Try adjusting or clearing your active filters.'
                                 : 'Try searching for a different keyword or name.',
                             style: theme.textTheme.bodyMedium?.copyWith(
                               color: theme.colorScheme.onSurfaceVariant,

@@ -11,7 +11,6 @@ class SaintDatabase {
   static Map<String, List<Saint>>? _cachedFeastDayMap;
 
   static final RegExp _whitespaceSplitRegex = RegExp(r'\s+');
-  static final RegExp _feastDaySplitRegex = RegExp(r'[/,;&]');
 
   @visibleForTesting
   static void resetCache() {
@@ -118,7 +117,7 @@ class SaintDatabase {
       if (era != SaintEra.all && saint.era != era) {
         return false;
       }
-      if (feastMonth != null && saint.feastMonth != feastMonth) {
+      if (feastMonth != null && !saint.hasFeastInMonth(feastMonth)) {
         return false;
       }
       if (words.isEmpty) {
@@ -171,8 +170,15 @@ class SaintDatabase {
         (
           saint: s,
           lowerName: s.name.toLowerCase(),
-          feastMonth: s.feastMonth ?? 99,
-          feastDay: s.feastDayOfMonth ?? 99,
+          feastMonth: feastMonth ?? (s.feastMonth ?? 99),
+          feastDay: feastMonth != null
+              ? (s.feastDates
+                        .where((d) => d.month == feastMonth)
+                        .map((d) => d.day)
+                        .firstOrNull ??
+                    s.feastDayOfMonth ??
+                    99)
+              : (s.feastDayOfMonth ?? 99),
           approxYear: s.approximateYear,
           isSpecialCategory: const {
             SaintCategory.angel,
@@ -251,47 +257,16 @@ class SaintDatabase {
     for (final c in SaintCategory.values) c: c.label.toLowerCase(),
   };
 
-  static final RegExp _datePartRegex = RegExp(r'([A-Za-z]+)\s+(\d+)');
-  static const Map<String, int> _monthNames = {
-    'january': 1,
-    'february': 2,
-    'march': 3,
-    'april': 4,
-    'may': 5,
-    'june': 6,
-    'july': 7,
-    'august': 8,
-    'september': 9,
-    'october': 10,
-    'november': 11,
-    'december': 12,
-  };
-
   /// Precomputes a lookup index keyed by "${month}_${day}" (e.g. "1_28")
   /// for O(1) lookup during calendar grid rendering.
   static Map<String, List<Saint>> buildFeastDayMap(List<Saint> saints) {
     final Map<String, List<Saint>> map = {};
     for (final saint in saints) {
-      if (saint.feastDay == null || saint.feastDay!.isEmpty) continue;
-      final parts = saint.feastDay!.split(_feastDaySplitRegex);
-      for (final part in parts) {
-        final match = _datePartRegex.firstMatch(part.trim());
-        if (match != null) {
-          final monthStr = match.group(1)?.toLowerCase();
-          final dayStr = match.group(2);
-          if (monthStr != null &&
-              dayStr != null &&
-              _monthNames.containsKey(monthStr)) {
-            final month = _monthNames[monthStr]!;
-            final day = int.tryParse(dayStr);
-            if (day != null && day >= 1 && day <= 31) {
-              final key = '${month}_$day';
-              final list = map.putIfAbsent(key, () => []);
-              if (!list.any((s) => s.id == saint.id)) {
-                list.add(saint);
-              }
-            }
-          }
+      for (final date in saint.feastDates) {
+        final key = '${date.month}_${date.day}';
+        final list = map.putIfAbsent(key, () => []);
+        if (!list.any((s) => s.id == saint.id)) {
+          list.add(saint);
         }
       }
     }
@@ -311,28 +286,9 @@ class SaintDatabase {
       return const <Saint>[];
     }
 
-    final List<Saint> matching = [];
-    for (final saint in targetSaints) {
-      if (saint.feastDay == null || saint.feastDay!.isEmpty) continue;
-      final parts = saint.feastDay!.split(_feastDaySplitRegex);
-      for (final part in parts) {
-        final match = _datePartRegex.firstMatch(part.trim());
-        if (match != null) {
-          final monthStr = match.group(1)?.toLowerCase();
-          final dayStr = match.group(2);
-          if (monthStr != null &&
-              dayStr != null &&
-              _monthNames.containsKey(monthStr)) {
-            final month = _monthNames[monthStr]!;
-            final day = int.tryParse(dayStr);
-            if (month == date.month && day == date.day) {
-              matching.add(saint);
-              break;
-            }
-          }
-        }
-      }
-    }
-    return matching;
+    return [
+      for (final saint in targetSaints)
+        if (saint.hasFeastOnDate(date.month, date.day)) saint,
+    ];
   }
 }

@@ -449,6 +449,22 @@ class SaintEmbedding {
   }
 }
 
+/// Canonical list of English month names (1-indexed via `index + 1`).
+const List<String> kMonthNames = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
 /// Representation of a Catholic saint or blessed in the database.
 ///
 /// Canonized saints use the standard prefix "St." in [name] (or "The ...", e.g. "The Vietnamese Martyrs"),
@@ -465,6 +481,7 @@ class Saint {
     r'(\d+)(?:st|nd|rd|th)?\s+(?:c\.|cent\.|century\b|c\b|cent\b)',
   );
   static final RegExp _yearNumberRegex = RegExp(r'(\d{1,4})');
+  static final RegExp _feastDaySplitRegex = RegExp(r'[/,;&]');
   static final RegExp _feastDayRegex = RegExp(r'([A-Za-z]+)\s+(\d+)');
 
   final String id;
@@ -484,8 +501,7 @@ class Saint {
   final SaintEmbedding? embedding; // Multi-dimensional spiritual feature vector
   final bool _hasPrecomputedFields;
   final int? _cachedApproximateYear;
-  final int? _cachedFeastMonth;
-  final int? _cachedFeastDayOfMonth;
+  final List<({int month, int day})> _cachedFeastDates;
 
   const Saint({
     required this.id,
@@ -505,8 +521,7 @@ class Saint {
   }) : _explicitCategories = categories,
        _hasPrecomputedFields = false,
        _cachedApproximateYear = null,
-       _cachedFeastMonth = null,
-       _cachedFeastDayOfMonth = null;
+       _cachedFeastDates = const [];
 
   const Saint._precomputed({
     required this.id,
@@ -524,13 +539,11 @@ class Saint {
     this.gender,
     this.embedding,
     required int? approximateYear,
-    required int? feastMonth,
-    required int? feastDayOfMonth,
+    required List<({int month, int day})> feastDates,
   }) : _explicitCategories = categories,
        _hasPrecomputedFields = true,
        _cachedApproximateYear = approximateYear,
-       _cachedFeastMonth = feastMonth,
-       _cachedFeastDayOfMonth = feastDayOfMonth;
+       _cachedFeastDates = feastDates;
 
   bool get isMale => gender == 'male';
   bool get isFemale => gender == 'female';
@@ -686,50 +699,53 @@ class Saint {
     return SaintEra.modern;
   }
 
-  static const Map<String, int> _monthMap = {
-    'january': 1,
-    'february': 2,
-    'march': 3,
-    'april': 4,
-    'may': 5,
-    'june': 6,
-    'july': 7,
-    'august': 8,
-    'september': 9,
-    'october': 10,
-    'november': 11,
-    'december': 12,
+  static final Map<String, int> _monthMap = {
+    for (int i = 0; i < kMonthNames.length; i++)
+      kMonthNames[i].toLowerCase(): i + 1,
   };
 
-  static ({int? month, int? day}) _parseFeastDay(String? feastDay) {
+  static List<({int month, int day})> _parseFeastDates(String? feastDay) {
     if (feastDay == null || feastDay.isEmpty) {
-      return (month: null, day: null);
+      return const [];
     }
-    final match = _feastDayRegex.firstMatch(feastDay);
-    if (match == null) {
-      return (month: null, day: null);
+    final List<({int month, int day})> dates = [];
+    for (final part in feastDay.split(_feastDaySplitRegex)) {
+      final match = _feastDayRegex.firstMatch(part.trim());
+      if (match == null) continue;
+      final mStr = match.group(1)?.toLowerCase();
+      final month = mStr != null ? _monthMap[mStr] : null;
+      final day = int.tryParse(match.group(2)!);
+      if (month != null && day != null && day >= 1 && day <= 31) {
+        final entry = (month: month, day: day);
+        if (!dates.contains(entry)) {
+          dates.add(entry);
+        }
+      }
     }
-    final mStr = match.group(1)?.toLowerCase();
-    final month = mStr != null ? _monthMap[mStr] : null;
-    final day = int.tryParse(match.group(2)!);
-    return (month: month, day: day);
+    return List<({int month, int day})>.unmodifiable(dates);
   }
 
-  /// Month number (1-12) of feast day, if specified.
-  int? get feastMonth {
+  /// All parsed feast dates `(month, day)` for this saint.
+  List<({int month, int day})> get feastDates {
     if (_hasPrecomputedFields) {
-      return _cachedFeastMonth;
+      return _cachedFeastDates;
     }
-    return _parseFeastDay(feastDay).month;
+    return _parseFeastDates(feastDay);
   }
 
-  /// Day of month (1-31) of feast day, if specified.
-  int? get feastDayOfMonth {
-    if (_hasPrecomputedFields) {
-      return _cachedFeastDayOfMonth;
-    }
-    return _parseFeastDay(feastDay).day;
-  }
+  /// Month number (1-12) of primary feast day, if specified.
+  int? get feastMonth => feastDates.isNotEmpty ? feastDates.first.month : null;
+
+  /// Day of month (1-31) of primary feast day, if specified.
+  int? get feastDayOfMonth =>
+      feastDates.isNotEmpty ? feastDates.first.day : null;
+
+  /// Returns true if any feast date of this saint falls in [month] (1-12).
+  bool hasFeastInMonth(int month) => feastDates.any((d) => d.month == month);
+
+  /// Returns true if any feast date of this saint falls on [month] (1-12) and [day] (1-31).
+  bool hasFeastOnDate(int month, int day) =>
+      feastDates.any((d) => d.month == month && d.day == day);
 
   factory Saint.fromJson(Map<String, dynamic> json) {
     final id = json['id'] as String? ?? '';
@@ -768,7 +784,7 @@ class Saint {
     }
     categories.sort((a, b) => a.index.compareTo(b.index));
 
-    final parsedFeast = _parseFeastDay(feastDay);
+    final feastDates = _parseFeastDates(feastDay);
     final approximateYear = _computeApproximateYear(
       birthDate: birthDate,
       deathDate: deathDate,
@@ -794,8 +810,7 @@ class Saint {
           ? SaintEmbedding.fromJson(json['embedding'] as Map<String, dynamic>)
           : null,
       approximateYear: approximateYear,
-      feastMonth: parsedFeast.month,
-      feastDayOfMonth: parsedFeast.day,
+      feastDates: feastDates,
     );
   }
 
