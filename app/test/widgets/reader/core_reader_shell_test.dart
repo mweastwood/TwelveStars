@@ -454,5 +454,128 @@ void main() {
         expect(find.text('Stale Doc Title'), findsNothing);
       },
     );
+
+    testWidgets(
+      'switching primaryVariant after V1 has loaded hides stale V1 data and shows CircularProgressIndicator while V2 loads',
+      (tester) async {
+        final v2Completer = Completer<ReaderSection>();
+
+        final adapter = _FakeReaderAdapter(
+          document: () async => const ReaderDocument(
+            documentId: 'doc_1',
+            title: 'Post-Load Variant Switch Doc',
+            sectionsCount: 1,
+            tocEntries: [ReaderTocEntry(index: 0, title: 'Section 1')],
+          ),
+          sectionBuilder: (sectionIndex, {primaryVariant, compareVariant}) {
+            if (primaryVariant == 'V1') {
+              return Future.value(
+                const ReaderSection(
+                  sectionIndex: 0,
+                  title: 'Section 1 (V1)',
+                  nodes: [
+                    ReaderContentNode(
+                      id: 'n1',
+                      nodeType: ReaderNodeType.verse,
+                      primaryText: 'Loaded V1 text',
+                    ),
+                  ],
+                ),
+              );
+            }
+            return v2Completer.future;
+          },
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: CoreReaderShell(adapter: adapter, primaryVariant: 'V1'),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Loaded V1 text'), findsOneWidget);
+
+        // Switch primaryVariant to 'V2' (whose Completer is still pending)
+        await tester.pumpWidget(
+          MaterialApp(
+            home: CoreReaderShell(adapter: adapter, primaryVariant: 'V2'),
+          ),
+        );
+        await tester.pump();
+
+        // Stale V1 text must NOT remain visible while V2 is loading
+        expect(find.text('Loaded V1 text'), findsNothing);
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+
+        // Complete V2
+        v2Completer.complete(
+          const ReaderSection(
+            sectionIndex: 0,
+            title: 'Section 1 (V2)',
+            nodes: [
+              ReaderContentNode(
+                id: 'n1',
+                nodeType: ReaderNodeType.verse,
+                primaryText: 'Loaded V2 text',
+              ),
+            ],
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Loaded V2 text'), findsOneWidget);
+        expect(find.text('Loaded V1 text'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'failed section load is evicted from _sectionFutures and can be retried',
+      (tester) async {
+        var shouldFail = true;
+
+        final adapter = _FakeReaderAdapter(
+          document: () async => const ReaderDocument(
+            documentId: 'doc_err',
+            title: 'Error Retry Doc',
+            sectionsCount: 1,
+            tocEntries: [ReaderTocEntry(index: 0, title: 'Section 1')],
+          ),
+          sectionBuilder:
+              (sectionIndex, {primaryVariant, compareVariant}) async {
+                if (shouldFail) {
+                  throw StateError('Simulated section load failure');
+                }
+                return const ReaderSection(
+                  sectionIndex: 0,
+                  title: 'Recovered Section 1',
+                  nodes: [
+                    ReaderContentNode(
+                      id: 'n1',
+                      nodeType: ReaderNodeType.verse,
+                      primaryText: 'Recovered verse text',
+                    ),
+                  ],
+                );
+              },
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(home: CoreReaderShell(adapter: adapter)),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Failed to load section.'), findsOneWidget);
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+
+        // Allow next load to succeed and tap Retry
+        shouldFail = false;
+        await tester.tap(find.text('Retry'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Recovered verse text'), findsOneWidget);
+        expect(find.text('Failed to load section.'), findsNothing);
+      },
+    );
   });
 }

@@ -108,15 +108,22 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
   }
 
   Future<ReaderSection> _loadSection(int sectionIdx, int generation) async {
-    final loaded = await widget.adapter.loadSection(
-      sectionIdx,
-      primaryVariant: widget.primaryVariant,
-      compareVariant: widget.compareVariant,
-    );
-    if (mounted && generation == _loadGeneration) {
-      _loadedSections[sectionIdx] = loaded;
+    try {
+      final loaded = await widget.adapter.loadSection(
+        sectionIdx,
+        primaryVariant: widget.primaryVariant,
+        compareVariant: widget.compareVariant,
+      );
+      if (mounted && generation == _loadGeneration) {
+        _loadedSections[sectionIdx] = loaded;
+      }
+      return loaded;
+    } catch (_) {
+      if (mounted && generation == _loadGeneration) {
+        _sectionFutures.remove(sectionIdx);
+      }
+      rethrow;
     }
-    return loaded;
   }
 
   void _openTocSheet(BuildContext context) {
@@ -285,10 +292,31 @@ class _CoreReaderShellState extends State<CoreReaderShell> {
                 initialData: _loadedSections[pageIndex],
                 future: _getSection(pageIndex),
                 builder: (context, snapshot) {
-                  if (!snapshot.hasData) {
+                  if (snapshot.hasError &&
+                      snapshot.connectionState != ConnectionState.waiting) {
+                    return Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Text('Failed to load section.'),
+                          const SizedBox(height: 8),
+                          TextButton(
+                            onPressed: () {
+                              setState(() {
+                                _sectionFutures.remove(pageIndex);
+                              });
+                            },
+                            child: const Text('Retry'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                  if (!snapshot.hasData ||
+                      !_loadedSections.containsKey(pageIndex)) {
                     return const Center(child: CircularProgressIndicator());
                   }
-                  final section = snapshot.data!;
+                  final section = _loadedSections[pageIndex]!;
                   final isCurrentPage = pageIndex == _currentSectionIndex;
                   final selectedIds = isCurrentPage
                       ? _selectedNodeIdsForSection(section)
