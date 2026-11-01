@@ -307,48 +307,13 @@ class _BibleChapterViewState extends State<BibleChapterView>
     widget.onSelectionChanged?.call(false);
   }
 
-  String _formatSelectionCitation(int startVerse, int endVerse) {
-    if (widget.numberingSystem == BibleNumberingSystem.vulgate) {
-      return _adapter.formatSelectionCitation(
+  String _formatSelectionCitation(int startVerse, int endVerse) =>
+      _adapter.formatSelectionCitation(
         widget.chapter,
         startVerse,
         endVerse,
+        numberingSystem: widget.numberingSystem,
       );
-    }
-
-    final mStart = BibleVerseResolver.vulgateToMasoreticVerse(
-      bookNumber: widget.book.bookNumber,
-      chapter: widget.chapter,
-      verse: startVerse,
-    );
-    final mEnd = BibleVerseResolver.vulgateToMasoreticVerse(
-      bookNumber: widget.book.bookNumber,
-      chapter: widget.chapter,
-      verse: endVerse,
-    );
-
-    final String modernPart;
-    if (mStart.chapter == mEnd.chapter && mStart.verse == mEnd.verse) {
-      modernPart = '${mStart.chapter}:${mStart.verse}';
-    } else if (mStart.chapter == mEnd.chapter) {
-      modernPart = '${mStart.chapter}:${mStart.verse}-${mEnd.verse}';
-    } else {
-      modernPart =
-          '${mStart.chapter}:${mStart.verse}-${mEnd.chapter}:${mEnd.verse}';
-    }
-
-    if (widget.numberingSystem == BibleNumberingSystem.modern) {
-      return '${widget.book.bookName} $modernPart';
-    }
-
-    final vulgatePart = startVerse == endVerse
-        ? '${widget.chapter}:$startVerse'
-        : '${widget.chapter}:$startVerse-$endVerse';
-    if (vulgatePart == modernPart) {
-      return '${widget.book.bookName} $vulgatePart';
-    }
-    return '${widget.book.bookName} $vulgatePart (Modern $modernPart)';
-  }
 
   String _formatVerseCitation(int verseNumber) =>
       _formatSelectionCitation(verseNumber, verseNumber);
@@ -356,27 +321,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
   String _formatClipboardContent(
     String citation,
     List<BibleVerse> selectedVerses,
-  ) {
-    final count = selectedVerses.length;
-    final versesText = selectedVerses
-        .map((v) {
-          if (count == 1) return v.verseText;
-          final display = BibleVerseResolver.formatVerseDisplay(
-            bookNumber: widget.book.bookNumber,
-            chapter: widget.chapter,
-            verseNumber: v.verseNumber,
-            numberingSystem: widget.numberingSystem,
-          );
-          final numLabel =
-              display.alternateVerseNumber != null &&
-                  display.alternateVerseNumber!.isNotEmpty
-              ? '${display.displayVerseNumber} (${display.alternateVerseNumber})'
-              : '${display.displayVerseNumber}';
-          return '$numLabel ${v.verseText}';
-        })
-        .join(count == 1 ? '' : '\n');
-    return '$citation\n$versesText';
-  }
+  ) => _adapter.formatClipboardContent(
+    citation,
+    selectedVerses,
+    numberingSystem: widget.numberingSystem,
+  );
 
   Widget _buildSelectionActionBar(ThemeData theme) {
     final start = _selectionController.start!;

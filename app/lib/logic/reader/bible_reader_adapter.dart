@@ -1,4 +1,5 @@
 import 'package:drift/drift.dart' show Value;
+import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 
@@ -183,25 +184,122 @@ class BibleReaderAdapter implements ReaderAdapter {
     );
   }
 
+  /// Formats a human-readable citation label for a single-chapter or
+  /// cross-chapter passage according to [numberingSystem].
+  static String formatPassageCitation({
+    required int bookNumber,
+    required String bookName,
+    required int startChapter,
+    required int startVerse,
+    required int endChapter,
+    required int endVerse,
+    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+  }) {
+    final String vulgatePart;
+    if (startChapter == endChapter && startVerse == endVerse) {
+      vulgatePart = '$startChapter:$startVerse';
+    } else if (startChapter == endChapter) {
+      vulgatePart = '$startChapter:$startVerse-$endVerse';
+    } else {
+      vulgatePart = '$startChapter:$startVerse-$endChapter:$endVerse';
+    }
+
+    if (numberingSystem == BibleNumberingSystem.vulgate) {
+      return '$bookName $vulgatePart';
+    }
+
+    final mStart = BibleVerseResolver.vulgateToMasoreticVerse(
+      bookNumber: bookNumber,
+      chapter: startChapter,
+      verse: startVerse,
+    );
+    final mEnd = BibleVerseResolver.vulgateToMasoreticVerse(
+      bookNumber: bookNumber,
+      chapter: endChapter,
+      verse: endVerse,
+    );
+
+    final String modernPart;
+    if (mStart.chapter == mEnd.chapter && mStart.verse == mEnd.verse) {
+      modernPart = '${mStart.chapter}:${mStart.verse}';
+    } else if (mStart.chapter == mEnd.chapter) {
+      modernPart = '${mStart.chapter}:${mStart.verse}-${mEnd.verse}';
+    } else {
+      modernPart =
+          '${mStart.chapter}:${mStart.verse}-${mEnd.chapter}:${mEnd.verse}';
+    }
+
+    if (numberingSystem == BibleNumberingSystem.modern) {
+      return '$bookName $modernPart';
+    }
+
+    if (vulgatePart == modernPart) {
+      return '$bookName $vulgatePart';
+    }
+    return '$bookName $vulgatePart (Modern $modernPart)';
+  }
+
+  /// Formats selected [verses] and their [citation] header for clipboard copy.
+  static String formatVersesForClipboard({
+    required String citation,
+    required List<BibleVerse> verses,
+    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+    int? fallbackBookNumber,
+  }) {
+    final count = verses.length;
+    final versesText = verses
+        .map((v) {
+          if (count == 1) return v.verseText;
+          final effectiveBookNumber = v.bookNumber > 0
+              ? v.bookNumber
+              : (fallbackBookNumber ?? v.bookNumber);
+          final display = BibleVerseResolver.formatVerseDisplay(
+            bookNumber: effectiveBookNumber,
+            chapter: v.chapter,
+            verseNumber: v.verseNumber,
+            numberingSystem: numberingSystem,
+          );
+          final numLabel =
+              display.alternateVerseNumber != null &&
+                  display.alternateVerseNumber!.isNotEmpty
+              ? '${display.displayVerseNumber} (${display.alternateVerseNumber})'
+              : '${display.displayVerseNumber}';
+          return '$numLabel ${v.verseText}';
+        })
+        .join(count == 1 ? '' : '\n');
+    return '$citation\n$versesText';
+  }
+
   /// Formats a human-readable citation label for a selected verse range.
-  String formatSelectionCitation(int chapter, int startVerse, int endVerse) {
-    return startVerse == endVerse
-        ? '${bibleBook.bookName} $chapter:$startVerse'
-        : '${bibleBook.bookName} $chapter:$startVerse-$endVerse';
+  String formatSelectionCitation(
+    int chapter,
+    int startVerse,
+    int endVerse, {
+    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+  }) {
+    return formatPassageCitation(
+      bookNumber: bibleBook.bookNumber,
+      bookName: bibleBook.bookName,
+      startChapter: chapter,
+      startVerse: startVerse,
+      endChapter: chapter,
+      endVerse: endVerse,
+      numberingSystem: numberingSystem,
+    );
   }
 
   /// Formats selected verses for clipboard copy.
   String formatClipboardContent(
     String citation,
-    List<BibleVerse> selectedVerses,
-  ) {
-    final count = selectedVerses.length;
-    final versesText = selectedVerses
-        .map(
-          (v) => count == 1 ? v.verseText : '${v.verseNumber} ${v.verseText}',
-        )
-        .join(count == 1 ? '' : '\n');
-    return '$citation\n$versesText';
+    List<BibleVerse> selectedVerses, {
+    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
+  }) {
+    return formatVersesForClipboard(
+      citation: citation,
+      verses: selectedVerses,
+      numberingSystem: numberingSystem,
+      fallbackBookNumber: bibleBook.bookNumber,
+    );
   }
 
   @override

@@ -193,9 +193,9 @@ void main() {
         final v34Decoration = verseContainers[1].decoration as BoxDecoration;
         final v35Decoration = verseContainers[2].decoration as BoxDecoration;
 
-        expect(v33Decoration.border, isNull);
-        expect(v34Decoration.border, isNotNull);
-        expect(v35Decoration.border, isNotNull);
+        expect(v33Decoration.color, Colors.transparent);
+        expect(v34Decoration.color, isNot(Colors.transparent));
+        expect(v35Decoration.color, isNot(Colors.transparent));
       },
     );
 

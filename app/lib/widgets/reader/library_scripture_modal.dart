@@ -3,6 +3,7 @@ import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
+import 'package:twelve_stars/widgets/bible_verse_row.dart';
 
 Future<void> showLibraryScriptureModal({
   required BuildContext context,
@@ -214,70 +215,21 @@ Future<void> showLibraryScriptureModal({
                                     ? BibleNumberingSystem.dual
                                     : BibleNumberingSystem.vulgate,
                               );
-                          final hasAlt =
-                              verseDisplay.alternateVerseNumber != null;
-                          final verseNumText = hasAlt
-                              ? '${verseDisplay.displayVerseNumber} (${verseDisplay.alternateVerseNumber})'
-                              : '${verseDisplay.displayVerseNumber}';
 
-                          return AnimatedContainer(
+                          return Container(
                             key: index == firstTargetIndex
                                 ? targetVerseKey
                                 : null,
-                            duration: const Duration(milliseconds: 200),
-                            margin: const EdgeInsets.symmetric(vertical: 2.0),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
-                              vertical: 6.0,
-                            ),
-                            decoration: BoxDecoration(
-                              color: isTarget
-                                  ? theme.colorScheme.primaryContainer
-                                        .withValues(alpha: 0.4)
-                                  : Colors.transparent,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: isTarget
-                                  ? Border(
-                                      left: BorderSide(
-                                        color: theme.colorScheme.primary,
-                                        width: 3.5,
-                                      ),
-                                    )
-                                  : null,
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.baseline,
-                              textBaseline: TextBaseline.alphabetic,
-                              children: [
-                                SizedBox(
-                                  width: hasAlt
-                                      ? (verseNumText.length > 7 ? 68 : 52)
-                                      : (verseNumText.length > 2 ? 34 : 28),
-                                  child: Text(
-                                    verseNumText,
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: theme.colorScheme.primary,
-                                      height: 1.5,
-                                      fontSize: hasAlt ? 11.0 : null,
-                                    ),
-                                    textAlign: TextAlign.right,
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Text(
-                                    verse.verseText,
-                                    style: theme.textTheme.bodyLarge?.copyWith(
-                                      color: theme.colorScheme.onSurface,
-                                      height: 1.5,
-                                      fontWeight: isTarget
-                                          ? FontWeight.w600
-                                          : FontWeight.normal,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            child: BibleVerseRow(
+                              verseNumber: verseDisplay.displayVerseNumber,
+                              alternateVerseNumber:
+                                  verseDisplay.alternateVerseNumber,
+                              verseText: verse.verseText,
+                              isSelected: isTarget,
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 6,
+                                horizontal: 8,
+                              ),
                             ),
                           );
                         },
