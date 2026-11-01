@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
@@ -33,6 +34,12 @@ class BibleChapterView extends StatefulWidget {
   final VoidCallback? onFavoriteSaved;
   final List<BibleRibbonBookmark>? bookmarks;
   final ValueChanged<bool>? onSelectionChanged;
+  final int? pageIndex;
+  final ValueListenable<int>? activePageListenable;
+  final Listenable? keepAliveListenable;
+  final bool Function()? isKeptAlive;
+  final VoidCallback? onScrollControllerMounted;
+  final VoidCallback? onScrollControllerUnmounted;
 
   const BibleChapterView({
     super.key,
@@ -51,6 +58,12 @@ class BibleChapterView extends StatefulWidget {
     this.onFavoriteSaved,
     this.bookmarks,
     this.onSelectionChanged,
+    this.pageIndex,
+    this.activePageListenable,
+    this.keepAliveListenable,
+    this.isKeptAlive,
+    this.onScrollControllerMounted,
+    this.onScrollControllerUnmounted,
   });
 
   @override
@@ -73,14 +86,18 @@ class _BibleChapterViewState extends State<BibleChapterView>
   final Map<int, GlobalKey> _verseKeys = {};
   int _loadGeneration = 0;
   bool _isSubscribedToIndexing = false;
+  bool _ignoreAnnotationsRevision = false;
 
   @override
-  bool get wantKeepAlive => true; // Cache adjacent chapters in memory
+  bool get wantKeepAlive => widget.isKeptAlive?.call() ?? true;
 
   @override
   void initState() {
     super.initState();
     _adapter = BibleReaderAdapter(bibleBook: widget.book);
+    widget.onScrollControllerMounted?.call();
+    widget.activePageListenable?.addListener(_onActivePageChanged);
+    widget.keepAliveListenable?.addListener(_onKeepAliveChanged);
     BibleChapterView.annotationsRevision.addListener(
       _onAnnotationsRevisionChanged,
     );
@@ -89,21 +106,68 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
   @override
   void dispose() {
+    widget.keepAliveListenable?.removeListener(_onKeepAliveChanged);
+    widget.activePageListenable?.removeListener(_onActivePageChanged);
     BibleChapterView.annotationsRevision.removeListener(
       _onAnnotationsRevisionChanged,
     );
     _selectionController.dispose();
     super.dispose();
+    widget.onScrollControllerUnmounted?.call();
+  }
+
+  void _onActivePageChanged() {
+    if (!mounted) return;
+    final activePage = widget.activePageListenable?.value;
+    if (activePage != null &&
+        widget.pageIndex != null &&
+        activePage != widget.pageIndex &&
+        _selectionController.hasSelection) {
+      _clearSelection();
+    }
+  }
+
+  void _onKeepAliveChanged() {
+    if (!mounted) return;
+    updateKeepAlive();
+  }
+
+  void _notifyAnnotationsChanged() {
+    _ignoreAnnotationsRevision = true;
+    try {
+      BibleChapterView.annotationsRevision.value++;
+    } finally {
+      _ignoreAnnotationsRevision = false;
+    }
   }
 
   void _onAnnotationsRevisionChanged() {
-    if (!mounted) return;
+    if (!mounted || _ignoreAnnotationsRevision) return;
     _loadChapterData(reloadVerses: false);
   }
 
   @override
   void didUpdateWidget(BibleChapterView oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (oldWidget.scrollController != widget.scrollController) {
+      oldWidget.onScrollControllerUnmounted?.call();
+      widget.onScrollControllerMounted?.call();
+    }
+    if (oldWidget.activePageListenable != widget.activePageListenable) {
+      oldWidget.activePageListenable?.removeListener(_onActivePageChanged);
+      widget.activePageListenable?.addListener(_onActivePageChanged);
+    }
+    if (oldWidget.keepAliveListenable != widget.keepAliveListenable) {
+      oldWidget.keepAliveListenable?.removeListener(_onKeepAliveChanged);
+      widget.keepAliveListenable?.addListener(_onKeepAliveChanged);
+    }
+    if (oldWidget.pageIndex != widget.pageIndex ||
+        oldWidget.activePageListenable != widget.activePageListenable) {
+      _onActivePageChanged();
+    }
+    if (oldWidget.isKeptAlive != widget.isKeptAlive) {
+      updateKeepAlive();
+    }
     final bookChanged = oldWidget.book.bookNumber != widget.book.bookNumber;
     final chapterChanged = bookChanged || oldWidget.chapter != widget.chapter;
     if (bookChanged) {
@@ -339,6 +403,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
           textPreview: textPreview,
         );
         await _loadFavorites();
+        _notifyAnnotationsChanged();
 
         if (widget.onFavoriteSaved != null) {
           widget.onFavoriteSaved!();
@@ -368,6 +433,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         onCommentSaved: () async {
           _clearSelection();
           await _loadComments();
+          _notifyAnnotationsChanged();
         },
       ),
       onCopy: () async {
@@ -599,7 +665,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
                               nodeId: nodeId,
                               textPreview: verse.verseText,
                               comments: verseComments,
-                              onCommentsChanged: _loadComments,
+                              onCommentsChanged: () async {
+                                await _loadComments();
+                                _notifyAnnotationsChanged();
+                              },
                               onAddComment: () => showAddCommentDialog(
                                 context: context,
                                 citation: verseRef,
@@ -607,7 +676,10 @@ class _BibleChapterViewState extends State<BibleChapterView>
                                 documentId: widget.book.abbrev,
                                 sectionIndex: widget.chapter,
                                 nodeId: nodeId,
-                                onCommentSaved: _loadComments,
+                                onCommentSaved: () async {
+                                  await _loadComments();
+                                  _notifyAnnotationsChanged();
+                                },
                               ),
                             ),
                             onTapFavorite: () => showVerseFavoritesModal(
@@ -616,6 +688,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                               favorites: matchingFavorites,
                               onFavoritesChanged: () async {
                                 await _loadFavorites();
+                                _notifyAnnotationsChanged();
                                 if (widget.onFavoriteSaved != null) {
                                   widget.onFavoriteSaved!();
                                 }

@@ -11,6 +11,7 @@ import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_bottom_navigation_panel.dart';
 import 'package:twelve_stars/widgets/reader/bible_ribbons_widget.dart';
+import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
@@ -2536,6 +2537,238 @@ void main() {
         await tester.tap(find.byIcon(Icons.comment_rounded));
         await tester.pumpAndSettle();
         expect(find.text('Comments for Psalms 116:10'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'selecting a verse on Chapter 1 and swiping to Chapter 2 clears selection and keeps Notes FAB visible without overlap',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Genesis 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 2,
+                verseNumber: 1,
+                verseText: 'Genesis 2 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        // Initially Notes FAB is visible and no selection action bar is shown
+        expect(find.byKey(const Key('bible_notes_fab')), findsOneWidget);
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        // Long press verse 1 on Genesis 1 to select it
+        await tester.longPress(find.text('Genesis 1 Verse 1'));
+        await tester.pumpAndSettle();
+
+        expect(find.byKey(const Key('bible_notes_fab')), findsNothing);
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+
+        // Swipe left to Genesis 2
+        await tester.drag(
+          find.text('Genesis 1 Verse 1'),
+          const Offset(-400.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        // On Genesis 2, selection is cleared and Notes FAB is visible
+        expect(find.text('Genesis 2 Verse 1'), findsOneWidget);
+        expect(find.byKey(const Key('bible_notes_fab')), findsOneWidget);
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        // Select and deselect a verse on Genesis 2
+        await tester.longPress(find.text('Genesis 2 Verse 1'));
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('bible_notes_fab')), findsNothing);
+        await tester.tap(find.byTooltip('Clear Selection'));
+        await tester.pumpAndSettle();
+        expect(find.byKey(const Key('bible_notes_fab')), findsOneWidget);
+
+        // Swipe right back to Genesis 1: Notes FAB is visible and Chapter 1 selection bar does not overlap
+        await tester.drag(
+          find.text('Genesis 2 Verse 1'),
+          const Offset(400.0, 0.0),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Genesis 1 Verse 1'), findsOneWidget);
+        expect(find.byKey(const Key('bible_notes_fab')), findsOneWidget);
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'dismissing bottom navigation panel without selecting a chapter resets selectedBookForPicker to current book',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'Genesis 1 Verse 1',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+        expect(state.selectedBookForPicker.bookNumber, equals(1));
+
+        // Open the bottom panel by tapping the location header
+        await tester.tap(find.text('Genesis 1').last);
+        await tester.pumpAndSettle();
+
+        // Tap Exodus in the Books tab (which switches picker book to Exodus and tab to Chapters)
+        await tester.tap(find.text('Exodus'));
+        await tester.pumpAndSettle();
+        expect(state.selectedBookForPicker.bookNumber, equals(2));
+
+        // Dismiss the panel without selecting a chapter via the backdrop barrier
+        await tester.tapAt(const Offset(100, 100));
+        await tester.pumpAndSettle();
+
+        // Reopen the panel via the Genesis 1 pill
+        await tester.tap(find.text('Genesis 1').last);
+        await tester.pumpAndSettle();
+
+        // Picker book is reset to Genesis (bookNumber 1), matching the Genesis 1 header
+        expect(state.selectedBookForPicker.bookNumber, equals(1));
+        expect(
+          tester
+              .widget<BibleBottomNavigationPanel>(
+                find.byType(BibleBottomNavigationPanel),
+              )
+              .selectedBookForPicker
+              .bookNumber,
+          equals(1),
+        );
+      },
+    );
+
+    testWidgets(
+      'rapidly building >12 chapter pages while chapters are still loading does not throw disposed ScrollController error',
+      (WidgetTester tester) async {
+        final genesisBook = catholicBooks.firstWhere((b) => b.bookNumber == 1);
+        for (int ch = 1; ch <= 15; ch++) {
+          await testDb
+              .into(testDb.bibleVerses)
+              .insert(
+                BibleVersesCompanion.insert(
+                  bookNumber: 1,
+                  bookName: 'Genesis',
+                  chapter: ch,
+                  verseNumber: 1,
+                  verseText: 'Genesis chapter $ch verse 1 content.',
+                  translationCode: 'CPDV',
+                ),
+              );
+        }
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        // Only pump a single frame so Genesis 1 is still loading (_loading == true, hasClients == false)
+        await tester.pump();
+
+        final state = tester.state<BibleTabState>(find.byType(BibleTab));
+
+        // Rapidly jump across 15 chapters without settling between jumps
+        for (int ch = 2; ch <= 15; ch++) {
+          state.navigateToChapter(genesisBook, ch);
+          await tester.pump();
+          expect(state.chapterScrollControllers.length, lessThanOrEqualTo(10));
+        }
+
+        // Now let all pending chapter loads and post-frame callbacks settle
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(state.chapterScrollControllers.length, lessThanOrEqualTo(10));
+        expect(
+          find.text('Genesis chapter 15 verse 1 content.'),
+          findsOneWidget,
+        );
+
+        // Jump back to chapter 1 and verify it renders cleanly without disposed ScrollController errors
+        state.navigateToChapter(genesisBook, 1);
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(find.text('Genesis chapter 1 verse 1 content.'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'saving and deleting favorites or comments in BibleChapterView increments annotationsRevision',
+      (WidgetTester tester) async {
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 1,
+                bookName: 'Genesis',
+                chapter: 1,
+                verseNumber: 1,
+                verseText: 'In the beginning God created heaven and earth.',
+                translationCode: 'CPDV',
+              ),
+            );
+
+        await tester.pumpWidget(
+          buildTestableWidget(child: const Scaffold(body: BibleTab())),
+        );
+        await tester.pumpAndSettle();
+
+        final initialRev = BibleChapterView.annotationsRevision.value;
+
+        // Long press verse 1 and save favorite
+        await tester.longPress(
+          find.text('In the beginning God created heaven and earth.'),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.star));
+        await tester.pumpAndSettle();
+
+        final revAfterSaveFav = BibleChapterView.annotationsRevision.value;
+        expect(revAfterSaveFav, greaterThan(initialRev));
+
+        // Open favorite modal and delete favorite
+        await tester.tap(find.byIcon(Icons.star_rounded));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byIcon(Icons.delete_outline));
+        await tester.pumpAndSettle();
+        await tester.tap(find.widgetWithText(FilledButton, 'Remove'));
+        await tester.pumpAndSettle();
+
+        expect(
+          BibleChapterView.annotationsRevision.value,
+          greaterThan(revAfterSaveFav),
+        );
       },
     );
   });
