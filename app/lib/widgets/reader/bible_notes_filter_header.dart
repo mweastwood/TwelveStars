@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';
 
 enum BibleNotesScope { chapter, book, all }
@@ -14,6 +15,7 @@ class BibleNotesFilterHeader extends StatelessWidget {
   final BibleNotesScope scope;
   final BibleBook? activeBook;
   final int? activeChapter;
+  final BibleNumberingSystem numberingSystem;
   final BibleAnnotationType? selectedTypeFilter;
   final int favCount;
   final int noteCount;
@@ -35,6 +37,7 @@ class BibleNotesFilterHeader extends StatelessWidget {
     required this.scope,
     required this.activeBook,
     required this.activeChapter,
+    this.numberingSystem = BibleNumberingSystem.vulgate,
     required this.selectedTypeFilter,
     required this.favCount,
     required this.noteCount,
@@ -164,13 +167,21 @@ class BibleNotesFilterHeader extends StatelessWidget {
                                 value: null,
                                 child: Text('All Chapters'),
                               ),
-                              ...List.generate(
-                                activeBook!.chaptersCount,
-                                (index) => DropdownMenuItem<int?>(
-                                  value: index + 1,
-                                  child: Text('Ch. ${index + 1}'),
-                                ),
-                              ),
+                              ...List.generate(activeBook!.chaptersCount, (
+                                index,
+                              ) {
+                                final chapNum = index + 1;
+                                final chapLabel =
+                                    BibleVerseResolver.formatChapterPickerLabel(
+                                      bookNumber: activeBook!.bookNumber,
+                                      chapter: chapNum,
+                                      numberingSystem: numberingSystem,
+                                    );
+                                return DropdownMenuItem<int?>(
+                                  value: chapNum,
+                                  child: Text('Ch. $chapLabel'),
+                                );
+                              }),
                             ],
                       onChanged: isChapterDropdownDisabled
                           ? null
@@ -289,27 +300,38 @@ class BibleNotesFilterHeader extends StatelessWidget {
                 color: theme.colorScheme.outline,
               ),
             ),
-            Tooltip(
-              message: 'Chapter $activeChapter ($chapterCount)',
-              child: InkWell(
-                key: const Key('breadcrumb_chapter'),
-                borderRadius: BorderRadius.circular(8),
-                onTap: null,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 6.0,
-                    vertical: 4.0,
-                  ),
-                  child: Text(
-                    'Chapter $activeChapter',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                      fontSize: 13.5,
+            Builder(
+              builder: (context) {
+                final chapLabel = activeBook != null
+                    ? BibleVerseResolver.formatChapterPickerLabel(
+                        bookNumber: activeBook!.bookNumber,
+                        chapter: activeChapter!,
+                        numberingSystem: numberingSystem,
+                      )
+                    : '$activeChapter';
+                return Tooltip(
+                  message: 'Chapter $chapLabel ($chapterCount)',
+                  child: InkWell(
+                    key: const Key('breadcrumb_chapter'),
+                    borderRadius: BorderRadius.circular(8),
+                    onTap: null,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 6.0,
+                        vertical: 4.0,
+                      ),
+                      child: Text(
+                        'Chapter $chapLabel',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.onSurface,
+                          fontSize: 13.5,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ],
 

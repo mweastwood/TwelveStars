@@ -411,15 +411,21 @@ class _BibleChapterViewState extends State<BibleChapterView>
     ThemeData theme,
     List<ReverseCitation> citations,
   ) {
+    final chapterRef = BibleVerseResolver.formatChapterReference(
+      bookNumber: widget.book.bookNumber,
+      bookName: widget.book.bookName,
+      chapter: widget.chapter,
+      numberingSystem: widget.numberingSystem,
+    );
     return Tooltip(
       message:
-          '${citations.length} Library Reference${citations.length > 1 ? "s" : ""} to ${widget.book.bookName} ${widget.chapter}',
+          '${citations.length} Library Reference${citations.length > 1 ? "s" : ""} to $chapterRef',
       child: ReaderAnnotationChip.citations(
         key: const Key('chapter_citations_chip'),
         count: citations.length,
         onTap: () => showReverseCitationsModal(
           context: context,
-          title: '${widget.book.bookName} ${widget.chapter}',
+          title: chapterRef,
           citations: citations,
         ),
       ),

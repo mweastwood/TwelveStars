@@ -8,10 +8,14 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
+import 'package:twelve_stars/logic/prayer_database.dart';
+import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/library_section_view.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/reader/library_scripture_modal.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 void main() {
@@ -24,9 +28,13 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    PrayerDatabase.mockSettings = UserSettings();
+    UserSettingsController.instance.resetForTesting();
   });
 
   tearDown(() async {
+    UserSettingsController.instance.resetForTesting();
+    PrayerDatabase.mockSettings = null;
     await testDb.close();
   });
 
@@ -1253,6 +1261,100 @@ void main() {
         expect(readerSectionView.questionKeys![173]!.currentContext, isNotNull);
         expect(readerSectionView.itemKeys![0]!.currentContext, isNotNull);
         expect(readerSectionView.itemKeys![1]!.currentContext, isNotNull);
+      },
+    );
+
+    testWidgets(
+      'showLibraryScriptureModal respects user primaryBibleTranslation and bibleNumberingSystem and handles multi-chapter Modern Psalm 116',
+      (tester) async {
+        await UserSettingsController.instance.mutate((s) {
+          s.primaryBibleTranslation = 'DRC';
+          s.bibleNumberingSystem = BibleNumberingSystem.modern;
+        });
+
+        // Populate Vulgate Psalms 114 and 115 in DRC
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 114,
+                verseNumber: 8,
+                verseText: 'DRC Psalm 114 verse 8 (Modern 116:8)',
+                translationCode: 'DRC',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 114,
+                verseNumber: 9,
+                verseText: 'DRC Psalm 114 verse 9 (Modern 116:9)',
+                translationCode: 'DRC',
+              ),
+            );
+        await testDb
+            .into(testDb.bibleVerses)
+            .insert(
+              BibleVersesCompanion.insert(
+                bookNumber: 21,
+                bookName: 'Psalms',
+                chapter: 115,
+                verseNumber: 1,
+                verseText: 'DRC Psalm 115 verse 1 (Modern 116:10)',
+                translationCode: 'DRC',
+              ),
+            );
+
+        const citation = BibleCitation(
+          rawMatch: 'Ps 116:8-10',
+          displayLabel: 'Psalms 116:8-10',
+          bookNumber: 21,
+          bookName: 'Psalms',
+          abbrev: 'Ps',
+          chapter: 116,
+          verse: 8,
+          endVerse: 10,
+          verseSystem: 'modern',
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: Builder(
+                builder: (ctx) => ElevatedButton(
+                  onPressed: () => showLibraryScriptureModal(
+                    context: ctx,
+                    citation: citation,
+                  ),
+                  child: const Text('Open Scripture Modal'),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Scripture Modal'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Psalms 116'), findsOneWidget);
+        expect(
+          find.text('Douay-Rheims Bible (Challoner Revision) (DRC)'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('DRC Psalm 114 verse 8 (Modern 116:8)'),
+          findsOneWidget,
+        );
+        expect(
+          find.text('DRC Psalm 115 verse 1 (Modern 116:10)'),
+          findsOneWidget,
+        );
+        expect(find.text('10'), findsOneWidget);
       },
     );
   });

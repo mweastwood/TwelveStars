@@ -32,9 +32,10 @@ class BibleAnnotationItem {
     required this.createdAt,
   });
 
-  String formatCitation([
-    BibleNumberingSystem numberingSystem = BibleNumberingSystem.vulgate,
-  ]) {
+  String formatCitation([BibleNumberingSystem? numberingSystem]) {
+    final effectiveSystem =
+        numberingSystem ??
+        UserSettingsController.instance.value.bibleNumberingSystem;
     final effectiveEndVerse = type == BibleAnnotationType.favorite
         ? endVerse
         : startVerse;
@@ -45,15 +46,11 @@ class BibleAnnotationItem {
       startVerse: startVerse,
       endChapter: chapter,
       endVerse: effectiveEndVerse,
-      numberingSystem: numberingSystem,
+      numberingSystem: effectiveSystem,
     );
   }
 
-  String get citation => formatCitation(
-    UserSettingsController.instance.isInitialized
-        ? UserSettingsController.instance.value.bibleNumberingSystem
-        : BibleNumberingSystem.vulgate,
-  );
+  String get citation => formatCitation();
 }
 
 class BibleAnnotationCard extends StatelessWidget {
