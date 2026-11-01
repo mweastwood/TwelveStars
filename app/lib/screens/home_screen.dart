@@ -27,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, UserSettingsStateMixin<HomeScreen> {
   int _currentTab = 0;
   PrayerLanguage _primaryLanguage = PrayerLanguage.english;
   PrayerLanguage? _compareLanguage = PrayerLanguage.latin;
@@ -59,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   void dispose() {
-    UserSettingsController.instance.removeListener(_onSettingsChanged);
     _searchController.dispose();
     _searchFocusNode.dispose();
     _languageSelectorController.dispose();
@@ -96,13 +95,11 @@ class _HomeScreenState extends State<HomeScreen>
         if (mounted) setState(() {});
       },
     );
-    UserSettingsController.instance.addListener(_onSettingsChanged);
     _loadData();
   }
 
-  void _onSettingsChanged() {
-    if (!mounted) return;
-    final settings = UserSettingsController.instance.value;
+  @override
+  void onUserSettingsChanged(UserSettings settings) {
     final languageChanged =
         _primaryLanguage != settings.primaryLanguage ||
         _compareLanguage != settings.compareLanguage;
@@ -127,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen>
   Future<void> _loadData() async {
     try {
       final prayers = await PrayerDatabase.loadPrayers();
-      final settings = await UserSettingsController.instance.load();
+      final settings = await ensureUserSettingsLoaded();
       if (mounted) {
         setState(() {
           _prayers = prayers;
@@ -136,6 +133,7 @@ class _HomeScreenState extends State<HomeScreen>
           _compareLanguage = settings.compareLanguage;
           _showBibleTranslationSelectors =
               settings.showBibleTranslationSelectors;
+          _error = null;
           _loading = false;
         });
       }
@@ -439,6 +437,7 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       floatingActionButton: _currentTab == 1
           ? FloatingActionButton.extended(
+              heroTag: 'start_rosary_fab',
               onPressed: () {
                 Navigator.push(
                   context,
@@ -572,6 +571,7 @@ class _HomeScreenState extends State<HomeScreen>
                   builder: (context) => BibleNotesScreen(
                     onSelectFavorite: (fav) {
                       Navigator.pop(context);
+                      if (_isSearching) _closeSearch();
                       setState(() => _currentTab = 2); // Switch to Bible tab
                       WidgetsBinding.instance.addPostFrameCallback((_) {
                         _bibleTabKey.currentState?.navigateToFavorite(fav);
@@ -579,6 +579,7 @@ class _HomeScreenState extends State<HomeScreen>
                     },
                     onSelectComment: (comment) {
                       Navigator.pop(context);
+                      if (_isSearching) _closeSearch();
                       setState(() => _currentTab = 2); // Switch to Bible tab
                       WidgetsBinding.instance.addPostFrameCallback((_) {
                         _bibleTabKey.currentState?.navigateToComment(comment);
