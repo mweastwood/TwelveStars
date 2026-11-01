@@ -3,76 +3,78 @@ import 'package:drift/drift.dart';
 import 'package:flutter/foundation.dart';
 import 'prayers.dart';
 
-class LocalizedTranslationsConverter
-    extends TypeConverter<List<LocalizedTranslations>, String> {
-  const LocalizedTranslationsConverter();
+class JsonModelListConverter<T> extends TypeConverter<List<T>, String> {
+  final T Function(Map<String, dynamic> json)? fromJson;
+  final Map<String, dynamic> Function(T item)? toJson;
+  final String errorFallbackSql;
+
+  const JsonModelListConverter({
+    this.fromJson,
+    this.toJson,
+    this.errorFallbackSql = '[]',
+  });
+
+  @protected
+  T itemFromJson(Map<String, dynamic> json) => fromJson!(json);
+
+  @protected
+  Map<String, dynamic> itemToJson(T item) => toJson!(item);
 
   @override
-  List<LocalizedTranslations> fromSql(String fromDb) {
+  List<T> fromSql(String fromDb) {
     if (fromDb.isEmpty) return [];
     try {
       final dynamic decoded = jsonDecode(fromDb);
       if (decoded is! List) return [];
-      final List<LocalizedTranslations> results = [];
+      final List<T> results = [];
       for (final item in decoded) {
         if (item is! Map) continue;
         final map = item is Map<String, dynamic>
             ? item
             : Map<String, dynamic>.from(item);
-        results.add(LocalizedTranslations.fromJson(map));
+        results.add(itemFromJson(map));
       }
       return results;
     } catch (e, stack) {
-      debugPrint('LocalizedTranslationsConverter.fromSql error: $e\n$stack');
+      debugPrint('$runtimeType.fromSql error: $e\n$stack');
       return [];
     }
   }
 
   @override
-  String toSql(List<LocalizedTranslations> value) {
+  String toSql(List<T> value) {
     try {
-      return jsonEncode(value.map((item) => item.toJson()).toList());
+      return jsonEncode(value.map(itemToJson).toList());
     } catch (e, stack) {
-      debugPrint('LocalizedTranslationsConverter.toSql error: $e\n$stack');
-      return '';
+      debugPrint('$runtimeType.toSql error: $e\n$stack');
+      return errorFallbackSql;
     }
   }
 }
 
+class LocalizedTranslationsConverter
+    extends JsonModelListConverter<LocalizedTranslations> {
+  const LocalizedTranslationsConverter() : super(errorFallbackSql: '');
+
+  @override
+  LocalizedTranslations itemFromJson(Map<String, dynamic> json) =>
+      LocalizedTranslations.fromJson(json);
+
+  @override
+  Map<String, dynamic> itemToJson(LocalizedTranslations item) => item.toJson();
+}
+
 class PreferredVersionsConverter
-    extends TypeConverter<List<PrayerVersionPreference>, String> {
-  const PreferredVersionsConverter();
+    extends JsonModelListConverter<PrayerVersionPreference> {
+  const PreferredVersionsConverter() : super(errorFallbackSql: '');
 
   @override
-  List<PrayerVersionPreference> fromSql(String fromDb) {
-    if (fromDb.isEmpty) return [];
-    try {
-      final dynamic decoded = jsonDecode(fromDb);
-      if (decoded is! List) return [];
-      final List<PrayerVersionPreference> results = [];
-      for (final item in decoded) {
-        if (item is! Map) continue;
-        final map = item is Map<String, dynamic>
-            ? item
-            : Map<String, dynamic>.from(item);
-        results.add(PrayerVersionPreference.fromJson(map));
-      }
-      return results;
-    } catch (e, stack) {
-      debugPrint('PreferredVersionsConverter.fromSql error: $e\n$stack');
-      return [];
-    }
-  }
+  PrayerVersionPreference itemFromJson(Map<String, dynamic> json) =>
+      PrayerVersionPreference.fromJson(json);
 
   @override
-  String toSql(List<PrayerVersionPreference> value) {
-    try {
-      return jsonEncode(value.map((item) => item.toJson()).toList());
-    } catch (e, stack) {
-      debugPrint('PreferredVersionsConverter.toSql error: $e\n$stack');
-      return '';
-    }
-  }
+  Map<String, dynamic> itemToJson(PrayerVersionPreference item) =>
+      item.toJson();
 }
 
 class StringListConverter extends TypeConverter<List<String>, String> {
@@ -103,40 +105,13 @@ class StringListConverter extends TypeConverter<List<String>, String> {
 }
 
 class BibleRibbonsConverter
-    extends TypeConverter<List<BibleRibbonBookmark>, String> {
-  const BibleRibbonsConverter();
+    extends JsonModelListConverter<BibleRibbonBookmark> {
+  const BibleRibbonsConverter() : super(errorFallbackSql: '[]');
 
   @override
-  List<BibleRibbonBookmark> fromSql(String fromDb) {
-    if (fromDb.isEmpty) return [];
-    try {
-      final dynamic decoded = jsonDecode(fromDb);
-      if (decoded is! List) return [];
-      final List<BibleRibbonBookmark> results = [];
-      for (final item in decoded) {
-        if (item is! Map) continue;
-        final map = item is Map<String, dynamic>
-            ? item
-            : Map<String, dynamic>.from(item);
-        results.add(BibleRibbonBookmark.fromJson(map));
-      }
-      return results;
-    } catch (e, stack) {
-      debugPrint('BibleRibbonsConverter.fromSql error: $e\n$stack');
-      return [];
-    }
-  }
+  BibleRibbonBookmark itemFromJson(Map<String, dynamic> json) =>
+      BibleRibbonBookmark.fromJson(json);
 
   @override
-  String toSql(List<BibleRibbonBookmark> value) {
-    try {
-      final List<Map<String, dynamic>> list = value
-          .map((item) => item.toJson())
-          .toList();
-      return jsonEncode(list);
-    } catch (e, stack) {
-      debugPrint('BibleRibbonsConverter.toSql error: $e\n$stack');
-      return '[]';
-    }
-  }
+  Map<String, dynamic> itemToJson(BibleRibbonBookmark item) => item.toJson();
 }

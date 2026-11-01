@@ -3,186 +3,25 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:path/path.dart' as p;
+import 'package:twelve_stars/logic/reader/library_models.dart';
+import 'package:twelve_stars/logic/thematic_models.dart';
 
 /// Formal taxonomy for categorizing TwelveStars library passages.
 class ThematicTaxonomy {
-  static const Map<String, Map<String, String>> categories = {
-    '1. God & Sacred Dogma': {
-      'theology.trinity':
-          'The Most Holy Trinity, Divine Nature, and Attributes',
-      'theology.creation_providence':
-          'Creation, Divine Providence, Angels, and Nature of Time',
-      'theology.christ_incarnation':
-          'The Incarnation, Divinity, and Sacred Humanity of Jesus Christ',
-      'theology.redemption_cross':
-          'The Passion, Atonement, Redemption, and the Cross',
-      'theology.holy_spirit_grace':
-          'The Holy Spirit, Sanctifying Grace, and the Indwelling',
-      'theology.scripture_tradition':
-          'Sacred Scripture, Apostolic Tradition, and Dogmatic Development',
-    },
-    '2. The Church & Hierarchy': {
-      'ecclesiology.church_unity_papacy':
-          'Unity of the Church, Primacy of Peter, and the Papacy',
-      'ecclesiology.apostolic_succession':
-          'Apostolic Succession, Bishops, and Church Authority',
-      'ecclesiology.church_and_state':
-          'The Church in the World, Persecution, and Civic Duties',
-    },
-    '3. The Seven Sacraments': {
-      'sacraments.general_liturgy':
-          'Sacraments in General, Sacramental Grace, and the Divine Liturgy',
-      'sacraments.baptism':
-          'Holy Baptism, Spiritual Rebirth, and Cleansing from Sin',
-      'sacraments.confirmation':
-          'Confirmation, Holy Chrism, and Gifts of the Holy Spirit',
-      'sacraments.eucharist':
-          'The Most Holy Eucharist, Real Presence, and the Holy Sacrifice of the Mass',
-      'sacraments.penance':
-          'Penance & Reconciliation, Confession, Contrition, and Absolution',
-      'sacraments.anointing_of_sick':
-          'Anointing of the Sick, Extreme Unction, and Healing of Soul & Body',
-      'sacraments.holy_orders':
-          'Holy Orders, The Priesthood, and Ministerial Character',
-      'sacraments.matrimony':
-          'Holy Matrimony, Conjugal Love, Indissolubility, and Christian Family',
-    },
-    '4. Spiritual Combat & Ascetical Life': {
-      'combat.temptation_sin':
-          'Temptations, Capital Sins, Concupiscence, and Mortal/Venial Sin',
-      'combat.spiritual_warfare':
-          'Spiritual Warfare, Tactics of the Enemy, and Discernment',
-      'combat.suffering_cross':
-          'Meaning of Suffering, Bearing Trials, and Christian Fortitude',
-      'combat.mortification_detachment':
-          'Fasting, Self-Denial, Custody of Senses, and Detachment',
-    },
-    '5. Prayer & Mystical Life': {
-      'prayer.vocal_mental_meditation':
-          'Vocal Prayer, Daily Meditation, Mental Prayer, and the Lord\'s Prayer',
-      'prayer.contemplation_union':
-          'Contemplation, Prayer of Quiet, and Transforming Union with God',
-      'prayer.spiritual_dryness_dark_night':
-          'Spiritual Dryness, Desolation, and the Dark Night of the Soul',
-      'prayer.conformity_divine_will':
-          'Conformity to God\'s Will, Abandonment, and Holy Indifference',
-    },
-    '6. Christian Virtues & Moral Living': {
-      'virtues.faith_hope_charity':
-          'Theological Virtues: Faith, Hope, and Divine Charity',
-      'virtues.humility_meekness':
-          'Humility, Meekness, Simplicity, and Self-Effacement',
-      'virtues.mercy_neighbor_almsgiving':
-          'Love of Neighbor, Works of Mercy, Almsgiving, and Forgiveness',
-      'virtues.purity_modesty':
-          'Chastity, Purity of Heart, Modesty, and Decency',
-      'virtues.daily_duties_state_in_life':
-          'Faithfulness in Daily Life, Work, and State in Life',
-    },
-    '7. Our Lady, Angels & Eschatology': {
-      'devotion.our_lady':
-          'The Blessed Virgin Mary, Mother of God, Intercession, and Consecration',
-      'devotion.angels_communion_of_saints':
-          'Holy Angels, Guardian Angels, and the Communion of Saints',
-      'eschatology.death_judgment':
-          'Particular Judgment, Final Judgment, and Holy Preparation for Death',
-      'eschatology.purgatory_hell':
-          'Realities of Purgatory, Prayers for the Dead, and Eternal Punishment',
-      'eschatology.heaven_beatific_vision':
-          'The Beatific Vision, Glorification of the Body, and Eternal Bliss',
-    },
-  };
+  static Map<String, Map<String, String>> get categories =>
+      ThematicTaxonomyData.categories;
 
-  static Map<String, String> get allThemes {
-    final map = <String, String>{};
-    for (final group in categories.values) {
-      map.addAll(group);
-    }
-    return map;
-  }
+  static Map<String, String> get allThemes => ThematicTaxonomyData.allThemes;
 
-  static bool isValidTheme(String themeId) => allThemes.containsKey(themeId);
+  static bool isValidTheme(String themeId) =>
+      ThematicTaxonomyData.isValidTheme(themeId);
 
-  static String? normalizeTheme(String? themeId) {
-    if (themeId == null) return null;
-    final cleaned = themeId
-        .replaceAll('`', '')
-        .replaceAll("'", '')
-        .replaceAll('"', '')
-        .trim()
-        .toLowerCase();
-    for (final key in allThemes.keys) {
-      if (key.toLowerCase() == cleaned) return key;
-    }
-    return null;
-  }
+  static String? normalizeTheme(String? themeId) =>
+      ThematicTaxonomyData.normalizeTheme(themeId);
 }
 
 /// Categorized passage result from a subagent.
-class CategorizedPassage {
-  final String bookId;
-  final String bookTitle;
-  final String author;
-  final String sectionId;
-  final String sectionTitle;
-  final int itemIndex;
-  final int? questionNumber;
-  final String primaryTheme;
-  final List<String> secondaryThemes;
-  final String keyExcerpt;
-  final String oneSentenceSummary;
-  final String fullText;
-
-  CategorizedPassage({
-    required this.bookId,
-    required this.bookTitle,
-    required this.author,
-    required this.sectionId,
-    required this.sectionTitle,
-    required this.itemIndex,
-    this.questionNumber,
-    required this.primaryTheme,
-    this.secondaryThemes = const [],
-    required this.keyExcerpt,
-    required this.oneSentenceSummary,
-    required this.fullText,
-  });
-
-  Map<String, dynamic> toJson() => {
-    'bookId': bookId,
-    'bookTitle': bookTitle,
-    'author': author,
-    'sectionId': sectionId,
-    'sectionTitle': sectionTitle,
-    'itemIndex': itemIndex,
-    if (questionNumber != null) 'questionNumber': questionNumber,
-    'primaryTheme': primaryTheme,
-    'secondaryThemes': secondaryThemes,
-    'keyExcerpt': keyExcerpt,
-    'oneSentenceSummary': oneSentenceSummary,
-    'fullText': fullText,
-  };
-
-  factory CategorizedPassage.fromJson(Map<String, dynamic> json) =>
-      CategorizedPassage(
-        bookId: json['bookId'] as String? ?? '',
-        bookTitle: json['bookTitle'] as String? ?? '',
-        author: json['author'] as String? ?? '',
-        sectionId: json['sectionId'] as String? ?? '',
-        sectionTitle: json['sectionTitle'] as String? ?? '',
-        itemIndex: json['itemIndex'] as int? ?? 0,
-        questionNumber: json['questionNumber'] as int?,
-        primaryTheme: json['primaryTheme'] as String? ?? 'theology.trinity',
-        secondaryThemes:
-            (json['secondaryThemes'] as List<dynamic>?)
-                ?.map((e) => e.toString())
-                .toList() ??
-            const [],
-        keyExcerpt: json['keyExcerpt'] as String? ?? '',
-        oneSentenceSummary: json['oneSentenceSummary'] as String? ?? '',
-        fullText: json['fullText'] as String? ?? '',
-      );
-}
+typedef CategorizedPassage = ThematicPassage;
 
 /// Helper to extract clean JSON array substring from LLM response.
 String extractJsonArray(String raw) {
@@ -232,32 +71,31 @@ List<RawSectionBatch> extractSectionBatchesFromBook(
 }) {
   final content =
       jsonDecode(bookFile.readAsStringSync()) as Map<String, dynamic>;
-  final bookId =
-      content['bookId'] as String? ?? p.basenameWithoutExtension(bookFile.path);
-  final bookTitle = content['title'] as String? ?? bookId;
-  final author = content['author'] as String? ?? '';
-  final sections = content['sections'] as List<dynamic>? ?? [];
+  final parsedBook = ParsedBookData.fromJson(content);
+  final bookId = parsedBook.bookId.isNotEmpty
+      ? parsedBook.bookId
+      : p.basenameWithoutExtension(bookFile.path);
+  final bookTitle = parsedBook.title.isNotEmpty ? parsedBook.title : bookId;
+  final author = parsedBook.author;
 
   final List<RawSectionBatch> batches = [];
 
-  for (final sec in sections) {
-    final secMap = sec as Map<String, dynamic>;
-    final secId = secMap['id'] as String? ?? '';
-    final secTitle = secMap['title'] as String? ?? '';
-    final secSubtitle = secMap['subtitle'] as String?;
-    final rawItems = secMap['content'] as List<dynamic>? ?? [];
+  for (final sec in parsedBook.sections) {
+    final secId = sec.id;
+    final secTitle = sec.title;
+    final secSubtitle = sec.subtitle.isNotEmpty ? sec.subtitle : null;
+    final rawItems = sec.content;
 
     final List<Map<String, dynamic>> cleanItems = [];
     for (int i = 0; i < rawItems.length; i++) {
-      final itemMap = rawItems[i] as Map<String, dynamic>;
-      final type = itemMap['type'] as String? ?? 'text';
-      if (type == 'heading') continue;
+      final item = rawItems[i];
+      if (item.type == 'heading') continue;
 
-      if (type == 'qa') {
-        final qNum = itemMap['questionNumber'] as int?;
-        final q = itemMap['question'] as String? ?? '';
-        final a = itemMap['answer'] as String? ?? '';
-        final exp = itemMap['explanation'] as String?;
+      if (item.type == 'qa') {
+        final qNum = item.questionNumber;
+        final q = item.question ?? '';
+        final a = item.answer ?? '';
+        final exp = item.explanation;
         String text = 'Q. $qNum $q\nA. $a';
         if (exp != null && exp.trim().isNotEmpty) {
           text += '\nExplanation: ${exp.trim()}';
@@ -269,7 +107,7 @@ List<RawSectionBatch> extractSectionBatchesFromBook(
           'text': text,
         });
       } else {
-        final text = (itemMap['text'] as String? ?? '').trim();
+        final text = (item.text ?? '').trim();
         if (text.isEmpty) continue;
         cleanItems.add({'itemIndex': i, 'type': 'text', 'text': text});
       }
