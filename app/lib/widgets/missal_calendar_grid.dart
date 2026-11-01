@@ -23,12 +23,27 @@ class MissalCalendarGrid extends StatelessWidget {
     required this.onMonthChange,
     required this.onDayChange,
     required this.onToggleExpand,
-    required this.formatMonthYear,
-    required this.formatFullDate,
-    required this.generateWeekDays,
-    required this.generateMonthGrid,
+    this.formatMonthYear = defaultFormatMonthYear,
+    this.formatFullDate = defaultFormatFullDate,
+    this.generateWeekDays = defaultGenerateWeekDays,
+    this.generateMonthGrid = defaultGenerateMonthDays,
     this.hasSaintFeast,
   });
+
+  static const List<String> _monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   static const List<String> _weekdayLabels = [
     'Sun',
@@ -39,6 +54,47 @@ class MissalCalendarGrid extends StatelessWidget {
     'Fri',
     'Sat',
   ];
+
+  static String defaultFormatFullDate(DateTime date) {
+    final weekday = LiturgicalCalendar.getDayOfWeekName(date.weekday);
+    final month = _monthNames[date.month - 1];
+    return '$weekday, $month ${date.day}, ${date.year}';
+  }
+
+  static String defaultFormatMonthYear(DateTime date) {
+    return '${_monthNames[date.month - 1]} ${date.year}';
+  }
+
+  static List<DateTime> defaultGenerateWeekDays(DateTime date) {
+    final startOffset = date.weekday % 7; // Sunday is 0
+    final startOfWeek = DateTime(date.year, date.month, date.day - startOffset);
+    return List.generate(
+      7,
+      (index) => DateTime(
+        startOfWeek.year,
+        startOfWeek.month,
+        startOfWeek.day + index,
+      ),
+    );
+  }
+
+  static List<DateTime> defaultGenerateMonthDays(DateTime date) {
+    final firstDayOfMonth = DateTime(date.year, date.month, 1);
+    final startOffset = firstDayOfMonth.weekday % 7; // Sunday is 0
+    final firstGridDay = DateTime(
+      firstDayOfMonth.year,
+      firstDayOfMonth.month,
+      firstDayOfMonth.day - startOffset,
+    );
+    return List.generate(
+      42,
+      (index) => DateTime(
+        firstGridDay.year,
+        firstGridDay.month,
+        firstGridDay.day + index,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +124,16 @@ class MissalCalendarGrid extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        isExpanded
-                            ? formatMonthYear(selectedDate)
-                            : formatFullDate(selectedDate),
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.primary,
+                      Flexible(
+                        child: Text(
+                          isExpanded
+                              ? formatMonthYear(selectedDate)
+                              : formatFullDate(selectedDate),
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.primary,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const SizedBox(width: 6),
@@ -141,7 +200,13 @@ class MissalCalendarGrid extends StatelessWidget {
   Widget _buildWeekRow(ThemeData theme) {
     return Row(
       children: generateWeekDays(selectedDate).map((date) {
-        return Expanded(child: _buildDayCell(theme, date));
+        return Expanded(
+          child: _buildDayCell(
+            theme,
+            date,
+            isCurrentMonth: date.month == selectedDate.month,
+          ),
+        );
       }).toList(),
     );
   }
