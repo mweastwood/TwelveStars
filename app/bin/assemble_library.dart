@@ -82,9 +82,18 @@ String formatTitleCase(String text) {
   for (final w in words) {
     if (w.isEmpty) continue;
     if (w == w.toUpperCase() || w == w.toLowerCase()) {
-      result.add(
-        '${w[0].toUpperCase()}${w.length > 1 ? w.substring(1).toLowerCase() : ''}',
-      );
+      final firstAlpha = RegExp(r'[A-Za-z]').firstMatch(w);
+      if (firstAlpha != null) {
+        final idx = firstAlpha.start;
+        final prefix = w.substring(0, idx);
+        final firstChar = w[idx].toUpperCase();
+        final rest = w.length > idx + 1
+            ? w.substring(idx + 1).toLowerCase()
+            : '';
+        result.add('$prefix$firstChar$rest');
+      } else {
+        result.add(w.toLowerCase());
+      }
     } else {
       result.add(w);
     }
@@ -124,9 +133,9 @@ void parseBaltimoreFile(
   Map<String, dynamic>? currentSection;
 
   // Flexible regex for Baltimore Q&A:
-  // Matches "1 Q.", "1. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
+  // Matches "1 Q.", "1. Q.", "173a. Q.", "*4 Q.", "Q. 126.", "{1} Q. 130."
   final qPattern = RegExp(
-    r'^\s*[\*\s]*(?:\{\d+\}\s*)?(?:(\d+)\.?\s*Q\.|Q\.\s*(\d+)\.?)\s*(.*)',
+    r'^\s*[\*\s]*(?:(\{\d+\})\s*)?(?:(\d+[a-zA-Z]?)\.?\s*Q\.|Q\.\s*(\d+[a-zA-Z]?)\.?)\s*(.*)',
     caseSensitive: false,
   );
   final aPattern = RegExp(r'^\s*A\.\s*(.*)', caseSensitive: false);
@@ -296,9 +305,13 @@ void parseBaltimoreFile(
     if (matchQ != null) {
       finalizeQa();
       isParagraphBreak = false;
-      final qNumStr = matchQ.group(1) ?? matchQ.group(2);
-      currentQNum = qNumStr != null ? int.parse(qNumStr) : 0;
-      currentQText = matchQ.group(3) ?? '';
+      final leadingRef = matchQ.group(1);
+      final qNumStr = matchQ.group(2) ?? matchQ.group(3);
+      currentQNum = qNumStr != null
+          ? int.parse(qNumStr.replaceAll(RegExp(r'[^0-9]'), ''))
+          : 0;
+      final qBody = matchQ.group(4) ?? '';
+      currentQText = leadingRef != null ? '$leadingRef $qBody' : qBody;
       isAnswering = false;
       isExplaining = false;
       if (currentSection == null) {
@@ -332,6 +345,25 @@ void parseBaltimoreFile(
       }
     }
 
+    final isUppercaseHeading =
+        stripped == stripped.toUpperCase() &&
+        stripped.length > 3 &&
+        !stripped.startsWith('(') &&
+        !stripped.startsWith('A.') &&
+        !stripped.startsWith('Q.') &&
+        RegExp(r'[A-Z]').hasMatch(stripped);
+    if (isUppercaseHeading && (isExplaining || currentQNum == null)) {
+      finalizeQa();
+      isParagraphBreak = false;
+      if (sec != null) {
+        (sec['content'] as List<dynamic>).add({
+          'type': 'heading',
+          'text': formatTitleCase(stripped),
+        });
+      }
+      continue;
+    }
+
     if (isAnswering) {
       currentAText += ' $stripped';
       isParagraphBreak = false;
@@ -351,26 +383,15 @@ void parseBaltimoreFile(
       isParagraphBreak = false;
     } else {
       if (sec != null) {
-        if (stripped == stripped.toUpperCase() &&
-            stripped.length < 70 &&
-            !stripped.startsWith('Q.') &&
-            !stripped.startsWith('A.')) {
-          (sec['content'] as List<dynamic>).add({
-            'type': 'heading',
-            'text': formatTitleCase(stripped),
-          });
-          isParagraphBreak = false;
+        final contentList = sec['content'] as List<dynamic>;
+        if (contentList.isNotEmpty &&
+            contentList.last['type'] == 'text' &&
+            !isParagraphBreak) {
+          contentList.last['text'] = '${contentList.last['text']} $stripped';
         } else {
-          final contentList = sec['content'] as List<dynamic>;
-          if (contentList.isNotEmpty &&
-              contentList.last['type'] == 'text' &&
-              !isParagraphBreak) {
-            contentList.last['text'] = '${contentList.last['text']} $stripped';
-          } else {
-            contentList.add({'type': 'text', 'text': stripped});
-          }
-          isParagraphBreak = false;
+          contentList.add({'type': 'text', 'text': stripped});
         }
+        isParagraphBreak = false;
       }
     }
   }
