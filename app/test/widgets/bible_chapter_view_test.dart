@@ -7,6 +7,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
@@ -1192,6 +1193,104 @@ void main() {
         );
         expect(find.byIcon(Icons.info_outline), findsOneWidget);
         expect(find.textContaining('Error loading Bible:'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'Prefetched or cached chapter renders synchronously on first frame without CircularProgressIndicator',
+      (WidgetTester tester) async {
+        final adapter = BibleReaderAdapter(
+          bibleBook: genesisBook,
+          dbHelper: testDb,
+        );
+        await adapter.prefetchChapterData(
+          1,
+          primaryTranslation: 'CPDV',
+          compareTranslation: 'none',
+          annotationsRevision: BibleChapterView.annotationsRevision.value,
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 1,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+              ),
+            ),
+          ),
+        );
+
+        // Immediately on frame 0 (without pumping async futures), the chapter is rendered
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+        expect(
+          find.text('In the beginning God created heaven, and earth.'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'prefetchChapterData does not poison cache when compareTranslation verses are not yet in database',
+      (WidgetTester tester) async {
+        final adapter = BibleReaderAdapter(
+          bibleBook: genesisBook,
+          dbHelper: testDb,
+        );
+        final rev = BibleChapterView.annotationsRevision.value;
+
+        // Chapter 2 has CPDV verses seeded in setUp, but NO DRC verses yet.
+        await adapter.prefetchChapterData(
+          2,
+          primaryTranslation: 'CPDV',
+          compareTranslation: 'DRC',
+          annotationsRevision: rev,
+        );
+
+        // Cache must not be poisoned with an incomplete DRC comparison snapshot
+        expect(
+          adapter.getCachedChapterData(
+            2,
+            primaryTranslation: 'CPDV',
+            compareTranslation: 'DRC',
+            annotationsRevision: rev,
+          ),
+          isNull,
+        );
+
+        // Now seed DRC verses for Chapter 2 and mount BibleChapterView
+        await seedVerses(
+          testDb,
+          bookNumber: 1,
+          bookName: 'Genesis',
+          chapter: 2,
+          translationCode: 'DRC',
+          verseTexts: [
+            'So the heavens and the earth were finished (DRC).',
+            'And on the seventh day God ended his work (DRC).',
+          ],
+        );
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 2,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'DRC',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('So the heavens and the earth were finished (DRC).'),
+          findsOneWidget,
+        );
       },
     );
   });

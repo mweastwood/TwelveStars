@@ -7,6 +7,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/paged_scroll_controller_pool.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
@@ -153,6 +154,9 @@ class BibleTabState extends State<BibleTab>
           );
         }
       });
+      if (translationChanged || ribbonsChanged) {
+        _prefetchSurroundingChapters(_currentPageIndex);
+      }
     }
   }
 
@@ -229,8 +233,43 @@ class BibleTabState extends State<BibleTab>
             _showTranslationSelectors,
           );
         });
+        _prefetchSurroundingChapters(_currentPageIndex);
       }
     } catch (_) {}
+  }
+
+  void _prefetchSurroundingChapters(int centerIndex) {
+    if (widget.initialVerses != null || _allChapters.isEmpty) return;
+    final indicesToPrefetch = <int>{
+      if (centerIndex > 0) centerIndex - 1,
+      if (centerIndex + 1 < _allChapters.length) centerIndex + 1,
+    };
+    final ribbons = _bibleRibbons;
+    if (ribbons != null) {
+      for (final bookmark in ribbons) {
+        final idx = getCanonicalChapterIndex(
+          bookmark.bookNumber,
+          bookmark.chapter,
+        );
+        if (idx != -1 && idx != centerIndex) {
+          indicesToPrefetch.add(idx);
+        }
+      }
+    }
+    final rev = BibleChapterView.annotationsRevision.value;
+    final primary = _primaryTranslation;
+    final compare = _compareTranslation;
+    for (final idx in indicesToPrefetch) {
+      final ref = _allChapters[idx];
+      unawaited(
+        BibleReaderAdapter(bibleBook: ref.book).prefetchChapterData(
+          ref.chapter,
+          primaryTranslation: primary,
+          compareTranslation: compare,
+          annotationsRevision: rev,
+        ),
+      );
+    }
   }
 
   void _saveReadingPosition(int index) {
@@ -415,6 +454,7 @@ class BibleTabState extends State<BibleTab>
         setState(() => _isSelectingVerses = false);
       }
       _saveReadingPosition(pageIndex);
+      _prefetchSurroundingChapters(pageIndex);
     }
   }
 
@@ -675,6 +715,7 @@ class BibleTabState extends State<BibleTab>
                 setState(() => _isSelectingVerses = false);
               }
               _saveReadingPosition(index);
+              _prefetchSurroundingChapters(index);
             },
             itemBuilder: (context, index) {
               final ref = _allChapters[index];

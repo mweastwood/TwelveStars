@@ -101,6 +101,47 @@ class _BibleChapterViewState extends State<BibleChapterView>
     BibleChapterView.annotationsRevision.addListener(
       _onAnnotationsRevisionChanged,
     );
+    _initOrLoadChapterData(isInit: true);
+  }
+
+  void _ensureReverseCitationsSubscribed() {
+    if (!ReverseCitationService.isCatalogFullyIndexed &&
+        !_isSubscribedToIndexing) {
+      _isSubscribedToIndexing = true;
+      ReverseCitationService.ensureIndexed().then((_) {
+        _isSubscribedToIndexing = false;
+        if (mounted && !_loading) setState(() {});
+      });
+    }
+  }
+
+  void _initOrLoadChapterData({bool isInit = false}) {
+    final cached = _adapter.getCachedChapterData(
+      widget.chapter,
+      primaryTranslation: widget.primaryTranslation,
+      compareTranslation: widget.compareTranslation,
+      annotationsRevision: BibleChapterView.annotationsRevision.value,
+    );
+    if (cached != null) {
+      ++_loadGeneration;
+      void applyCached() {
+        _favoritesByVerse = cached.favoritesByVerse;
+        _commentsByNodeId = cached.commentsByNodeId;
+        _verses = cached.verses;
+        _compareVersesByNumber = cached.compareVersesByNumber;
+        _loading = false;
+        _error = null;
+      }
+
+      if (isInit) {
+        applyCached();
+      } else {
+        setState(applyCached);
+      }
+      _ensureReverseCitationsSubscribed();
+      _scrollToAndHighlightTarget();
+      return;
+    }
     _loadChapterData();
   }
 
@@ -132,10 +173,27 @@ class _BibleChapterViewState extends State<BibleChapterView>
     updateKeepAlive();
   }
 
+  void _syncAdapterCache() {
+    if (_loading || _verses.isEmpty) return;
+    _adapter.cacheChapterData(
+      widget.chapter,
+      primaryTranslation: widget.primaryTranslation,
+      compareTranslation: widget.compareTranslation,
+      annotationsRevision: BibleChapterView.annotationsRevision.value,
+      chapterData: BibleChapterData(
+        verses: _verses,
+        compareVersesByNumber: _compareVersesByNumber,
+        favoritesByVerse: _favoritesByVerse,
+        commentsByNodeId: _commentsByNodeId,
+      ),
+    );
+  }
+
   void _notifyAnnotationsChanged() {
     _ignoreAnnotationsRevision = true;
     try {
       BibleChapterView.annotationsRevision.value++;
+      _syncAdapterCache();
     } finally {
       _ignoreAnnotationsRevision = false;
     }
@@ -185,7 +243,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         _favoritesByVerse = {};
         _commentsByNodeId = {};
       }
-      _loadChapterData();
+      _initOrLoadChapterData();
     } else if (widget.navigationSessionId != oldWidget.navigationSessionId) {
       _scrollToAndHighlightTarget();
     }
@@ -219,6 +277,9 @@ class _BibleChapterViewState extends State<BibleChapterView>
     if (!mounted) return;
     if (!reloadVerses) {
       await Future.wait([_loadFavorites(), _loadComments()]);
+      if (mounted) {
+        _syncAdapterCache();
+      }
       return;
     }
     final loadGen = ++_loadGeneration;
@@ -228,19 +289,13 @@ class _BibleChapterViewState extends State<BibleChapterView>
     });
 
     try {
-      if (!ReverseCitationService.isCatalogFullyIndexed &&
-          !_isSubscribedToIndexing) {
-        _isSubscribedToIndexing = true;
-        ReverseCitationService.ensureIndexed().then((_) {
-          _isSubscribedToIndexing = false;
-          if (mounted && !_loading) setState(() {});
-        });
-      }
+      _ensureReverseCitationsSubscribed();
 
       final chapterData = await _adapter.loadChapterData(
         widget.chapter,
         primaryTranslation: widget.primaryTranslation,
         compareTranslation: widget.compareTranslation,
+        annotationsRevision: BibleChapterView.annotationsRevision.value,
       );
 
       if (!mounted || loadGen != _loadGeneration) return;
@@ -551,7 +606,14 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         final isSelected = _selectionController.isSelected(
                           verse.verseNumber,
                         );
-                        _verseKeys.putIfAbsent(verse.id, () => GlobalKey());
+                        final Key verseKey =
+                            (widget.scrollToVerse != null &&
+                                verse.verseNumber == widget.scrollToVerse)
+                            ? _verseKeys.putIfAbsent(
+                                verse.id,
+                                () => GlobalKey(),
+                              )
+                            : ValueKey<int>(verse.id);
 
                         final verseCitations =
                             ReverseCitationService.getVerseCitations(
@@ -587,7 +649,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                         );
 
                         return KeyedSubtree(
-                          key: _verseKeys[verse.id],
+                          key: verseKey,
                           child: BibleVerseRow(
                             verseNumber: verseDisplay.displayVerseNumber,
                             alternateVerseNumber:

@@ -86,6 +86,8 @@ class PageRibbonPatternPainter extends CustomPainter {
   final Color edgeColor;
 
   static const int _maxCacheEntries = 16;
+  static const double _viewportCullThreshold = 512.0;
+  static const double _heightBucketSize = 256.0;
   static final Map<_RibbonPatternCacheKey, _CachedRibbonPattern> _patternCache =
       {};
 
@@ -95,6 +97,20 @@ class PageRibbonPatternPainter extends CustomPainter {
     this.edgeColor = const Color(0x1A000000),
   });
 
+  static double _periodForIndex(int normalizedIndex) {
+    switch (normalizedIndex) {
+      case 1:
+        return 12.0;
+      case 2:
+        return 16.0;
+      case 3:
+        return 18.0;
+      case 0:
+      default:
+        return 7.0;
+    }
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     if (size.width <= 0 || size.height <= 0 || size.height.isInfinite) return;
@@ -102,23 +118,71 @@ class PageRibbonPatternPainter extends CustomPainter {
     final normalizedIndex = (ribbonIndex >= 1 && ribbonIndex <= 3)
         ? ribbonIndex
         : 0;
+
+    final clipBounds = canvas.getLocalClipBounds();
+    final double visibleTop = clipBounds.top.isFinite
+        ? clipBounds.top.clamp(0.0, size.height)
+        : 0.0;
+    final double visibleBottom = clipBounds.bottom.isFinite
+        ? clipBounds.bottom.clamp(0.0, size.height)
+        : size.height;
+    if (visibleBottom <= visibleTop) return;
+
+    double yOffset = 0.0;
+    double patternHeight = size.height;
+    final visibleSpan = visibleBottom - visibleTop;
+
+    if (size.height > _viewportCullThreshold) {
+      if (visibleSpan < size.height) {
+        final period = _periodForIndex(normalizedIndex);
+        final startCycle = (visibleTop / period).floor();
+        if (startCycle > 0) {
+          yOffset = startCycle * period;
+        }
+        final neededHeight = (visibleBottom - yOffset).clamp(
+          1.0,
+          size.height - yOffset,
+        );
+        patternHeight =
+            ((neededHeight / _heightBucketSize).ceil() * _heightBucketSize)
+                .clamp(_heightBucketSize, size.height);
+      } else {
+        patternHeight =
+            (size.height / _heightBucketSize).ceil() * _heightBucketSize;
+      }
+    }
+
     final key = _RibbonPatternCacheKey(
       normalizedIndex,
       size.width,
-      size.height,
+      patternHeight,
     );
 
     var cached = _patternCache.remove(key);
     if (cached != null) {
       _patternCache[key] = cached;
     } else {
-      cached = _buildPattern(normalizedIndex, size);
+      cached = _buildPattern(normalizedIndex, Size(size.width, patternHeight));
       if (_patternCache.length >= _maxCacheEntries) {
         _patternCache.remove(_patternCache.keys.first);
       }
       _patternCache[key] = cached;
     }
 
+    if (yOffset != 0.0 || patternHeight != size.height) {
+      canvas.save();
+      canvas.clipRect(Rect.fromLTWH(0.0, visibleTop, size.width, visibleSpan));
+      if (yOffset != 0.0) {
+        canvas.translate(0.0, yOffset);
+      }
+      _drawCachedPattern(canvas, cached);
+      canvas.restore();
+    } else {
+      _drawCachedPattern(canvas, cached);
+    }
+  }
+
+  void _drawCachedPattern(Canvas canvas, _CachedRibbonPattern cached) {
     final edgePaint = Paint()
       ..color = edgeColor
       ..strokeWidth = 1.0
