@@ -5,11 +5,14 @@ import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
+import 'package:twelve_stars/logic/reader/reader_models.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/widgets/library_toc_drawer.dart';
 import 'package:twelve_stars/widgets/library_section_view.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
 void main() {
   late BibleDatabase testDb;
@@ -832,6 +835,302 @@ void main() {
           find.widgetWithText(ChoiceChip, 'No. 2'),
         );
         expect(chipNo2.selected, isTrue);
+      },
+    );
+
+    testWidgets(
+      'selecting a high-index item, searching, and tapping a result in a shorter section clears selection without RangeError and highlights target',
+      (tester) async {
+        late ParsedBookData baltimore1;
+        await tester.runAsync(() async {
+          baltimore1 = await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        // Section 0 ('Prayers') has more items than Section 2 ('Lesson 2', where 'Where is God' is located)
+        final longSecIdx = 0;
+        final shortSecIdx = 2;
+        final shortSecLen = baltimore1.sections[shortSecIdx].content.length;
+        expect(
+          baltimore1.sections[longSecIdx].content.length,
+          greaterThan(shortSecLen),
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+              initialSectionIndex: longSecIdx,
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        // Select an item at an index >= shortSecLen (out of bounds for Section 2)
+        final sectionView = tester.widget<LibrarySectionView>(
+          find.byType(LibrarySectionView),
+        );
+        final highIndex = sectionView.section.content.length - 1;
+        expect(highIndex, greaterThanOrEqualTo(shortSecLen));
+        sectionView.onItemLongPress!(highIndex);
+        await tester.pump();
+
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+
+        // Enter search mode and search for a term in Section 2 ("Where is God")
+        await tester.tap(find.byTooltip('Search in Book'));
+        await tester.pumpAndSettle();
+
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        await tester.enterText(find.byType(TextField), 'Where is God');
+        await tester.pumpAndSettle();
+
+        // Tap the first result (in Section 2 'Lesson 2', which has fewer items than highIndex)
+        await tester.tap(find.byType(ListTile).first);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(tester.takeException(), isNull);
+        expect(find.text('Section 3 of 35'), findsOneWidget);
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        final animatedContainers = tester
+            .widgetList<AnimatedContainer>(
+              find.descendant(
+                of: find.byType(LibrarySectionView),
+                matching: find.byType(AnimatedContainer),
+              ),
+            )
+            .toList();
+        expect(
+          animatedContainers.any((c) {
+            final dec = c.decoration as BoxDecoration?;
+            return dec != null &&
+                dec.color != null &&
+                dec.color != Colors.transparent;
+          }),
+          isTrue,
+        );
+
+        // Expire temporary highlight timer
+        await tester.pump(const Duration(milliseconds: 2500));
+      },
+    );
+
+    testWidgets(
+      'same-section cross-reference navigation clears active selection and highlights target question',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_2.json',
+          );
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_4.json',
+          );
+        });
+
+        // Start in Baltimore No. 2, Section 1 (Lesson First: On the End of Man, Q. 1..5)
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialVolumeKey: 'baltimore_2',
+              initialAssetPath: 'assets/catechism/json/baltimore_2.json',
+              initialSectionIndex: 1,
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        final sectionView = tester.widget<LibrarySectionView>(
+          find.byType(LibrarySectionView),
+        );
+        // Select item 0 (Q. 1)
+        sectionView.onItemLongPress!(0);
+        await tester.pump();
+        expect(find.byType(ReaderSelectionActionBar), findsOneWidget);
+
+        // Trigger cross-ref modal for Q. 3 (also in Section 1 of Baltimore No. 2)
+        final q3Index = sectionView.section.content.indexWhere(
+          (it) => it.type == 'qa' && it.questionNumber == 3,
+        );
+        expect(q3Index, greaterThan(0));
+
+        sectionView.onShowCrossRefModal(3);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+        await tester.pumpAndSettle();
+
+        // Tap 'Open Vol 2' in the cross-reference bottom sheet (same volume, same section)
+        await tester.ensureVisible(find.text('Open Vol 2'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Open Vol 2'));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        // Selection bar should be cleared, and Q. 3 (at q3Index) should be highlighted instead of item 0
+        expect(find.byType(ReaderSelectionActionBar), findsNothing);
+
+        final containers = tester
+            .widgetList<AnimatedContainer>(
+              find.descendant(
+                of: find.byType(LibrarySectionView),
+                matching: find.byType(AnimatedContainer),
+              ),
+            )
+            .toList();
+        final item0Color =
+            (containers[0].decoration as BoxDecoration?)?.color ??
+            Colors.transparent;
+        final q3Color =
+            (containers[q3Index].decoration as BoxDecoration?)?.color ??
+            Colors.transparent;
+        expect(item0Color, equals(Colors.transparent));
+        expect(q3Color, isNot(equals(Colors.transparent)));
+
+        // Expire temporary highlight timer
+        await tester.pump(const Duration(milliseconds: 2500));
+      },
+    );
+
+    test(
+      'LibraryReaderAdapter.buildItemCitation and buildItemTextPreview safely handle empty and out-of-bounds indices',
+      () {
+        final adapter = LibraryReaderAdapter(
+          bookItem: testBookItem,
+          assetPath: 'assets/catechism/json/baltimore_1.json',
+          volumeKey: 'baltimore_1',
+          dbHelper: testDb,
+        );
+
+        final emptySection = BookSection(
+          id: 'empty_sec',
+          title: 'Empty Lesson',
+          subtitle: '',
+          content: [],
+        );
+        expect(
+          adapter.buildItemCitation(emptySection, 0, 5),
+          equals('Baltimore Catechism (No. 1), Empty Lesson'),
+        );
+        expect(adapter.buildItemTextPreview(emptySection, 0, 5), isEmpty);
+
+        final shortSection = BookSection(
+          id: 'short_sec',
+          title: 'Lesson 1',
+          subtitle: '',
+          content: [
+            ContentItem(
+              type: 'qa',
+              questionNumber: 1,
+              question: 'Who made the world?',
+              answer: 'God made the world.',
+            ),
+            ContentItem(
+              type: 'qa',
+              questionNumber: 2,
+              question: 'Who is God?',
+              answer: 'God is the Creator of heaven and earth.',
+            ),
+          ],
+        );
+
+        // Out-of-bounds high indices clamp safely without throwing RangeError
+        expect(
+          adapter.buildItemCitation(shortSection, 10, 15),
+          equals('Baltimore Catechism (No. 1), Lesson 1, Q. 2'),
+        );
+        // Out-of-bounds negative and high indices clamp to full range 1..2
+        expect(
+          adapter.buildItemCitation(shortSection, -3, 99),
+          equals('Baltimore Catechism (No. 1), Lesson 1, Q. 1–2'),
+        );
+        expect(
+          adapter.buildItemTextPreview(shortSection, 10, 15),
+          contains('Who is God?'),
+        );
+      },
+    );
+
+    test(
+      'calling saveFavorite / saveBookmark twice for the same passage does not create duplicate rows in library_bookmarks',
+      () async {
+        final adapter = LibraryReaderAdapter(
+          bookItem: testBookItem,
+          assetPath: 'assets/catechism/json/baltimore_1.json',
+          volumeKey: 'baltimore_1',
+          dbHelper: testDb,
+        );
+
+        final bookmark = ReaderBookmark(
+          id: '',
+          documentId: testBookItem.id,
+          sectionIndex: 1,
+          nodeId: 'baltimore_1:sec_2:0',
+          textPreview: 'Q. Who made the world?',
+          timestamp: DateTime(2026, 1, 1),
+        );
+
+        await adapter.saveFavorite(bookmark);
+        await adapter.saveFavorite(bookmark);
+
+        final saved = await testDb.getLibraryBookmarks(
+          documentId: testBookItem.id,
+        );
+        expect(saved, hasLength(1));
+        expect(saved.first.nodeId, equals('baltimore_1:sec_2:0'));
+      },
+    );
+
+    testWidgets(
+      'questionKeys and itemKeys share mounted contexts in LibraryReaderScreen',
+      (tester) async {
+        await tester.runAsync(() async {
+          await LibraryHelper.loadBookData(
+            'assets/catechism/json/baltimore_1.json',
+          );
+        });
+
+        await tester.pumpWidget(
+          MaterialApp(
+            theme: ThemeData.light(useMaterial3: true),
+            home: LibraryReaderScreen(
+              bookItem: testBookItem,
+              initialAssetPath: 'assets/catechism/json/baltimore_1.json',
+              initialSectionIndex: 1,
+            ),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 500));
+
+        final sectionView = tester.widget<LibrarySectionView>(
+          find.byType(LibrarySectionView),
+        );
+        expect(sectionView.itemKeys, isNotNull);
+        expect(sectionView.questionKeys, isNotNull);
+
+        // Section 1 has QA items starting with Question 1 at item index 0
+        final firstQaIndex = sectionView.section.content.indexWhere(
+          (it) => it.type == 'qa' && it.questionNumber != null,
+        );
+        expect(firstQaIndex, greaterThanOrEqualTo(0));
+        final qNum = sectionView.section.content[firstQaIndex].questionNumber!;
+
+        final itemKey = sectionView.itemKeys![firstQaIndex];
+        final questionKey = sectionView.questionKeys![qNum];
+        expect(itemKey, isNotNull);
+        expect(questionKey, isNotNull);
+        expect(identical(itemKey, questionKey), isTrue);
+        expect(itemKey!.currentContext, isNotNull);
+        expect(questionKey!.currentContext, isNotNull);
       },
     );
   });

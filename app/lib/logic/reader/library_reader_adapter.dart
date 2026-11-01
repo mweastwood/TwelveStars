@@ -159,8 +159,15 @@ class LibraryReaderAdapter implements ReaderAdapter {
       baseTitle = '${bookItem.title} (${vol.shortName})';
     }
 
-    final startItem = section.content[startIndex];
-    final endItem = section.content[endIndex];
+    if (section.content.isEmpty) {
+      return '$baseTitle, ${section.title}';
+    }
+
+    final maxIndex = section.content.length - 1;
+    final clampedStart = min(startIndex, endIndex).clamp(0, maxIndex);
+    final clampedEnd = max(startIndex, endIndex).clamp(0, maxIndex);
+    final startItem = section.content[clampedStart];
+    final endItem = section.content[clampedEnd];
 
     if (startItem.type == 'qa' &&
         endItem.type == 'qa' &&
@@ -184,8 +191,12 @@ class LibraryReaderAdapter implements ReaderAdapter {
     int startIndex,
     int endIndex,
   ) {
+    if (section.content.isEmpty) return '';
+    final maxIndex = section.content.length - 1;
+    final clampedStart = min(startIndex, endIndex).clamp(0, maxIndex);
+    final clampedEnd = max(startIndex, endIndex).clamp(0, maxIndex);
     final buffer = StringBuffer();
-    for (int i = startIndex; i <= endIndex; i++) {
+    for (int i = clampedStart; i <= clampedEnd; i++) {
       final item = section.content[i];
       if (item.type == 'qa') {
         final q = item.question ?? '';
@@ -195,7 +206,7 @@ class LibraryReaderAdapter implements ReaderAdapter {
       } else {
         buffer.writeln(item.text ?? '');
       }
-      if (i < endIndex) buffer.writeln();
+      if (i < clampedEnd) buffer.writeln();
     }
     return buffer.toString().trim();
   }
@@ -283,11 +294,20 @@ class LibraryReaderAdapter implements ReaderAdapter {
     );
   }
 
+  Future<void> saveFavorite(ReaderBookmark bookmark) => saveBookmark(bookmark);
+
   @override
   Future<void> saveBookmark(ReaderBookmark bookmark) async {
+    final docId = bookmark.documentId.isNotEmpty
+        ? bookmark.documentId
+        : bookItem.id;
+    final existing = await dbHelper.getLibraryBookmarks(documentId: docId);
+    if (existing.any((b) => b.nodeId == bookmark.nodeId)) {
+      return;
+    }
     await dbHelper.saveLibraryBookmark(
       LibraryBookmarksCompanion.insert(
-        documentId: bookItem.id,
+        documentId: docId,
         sectionIndex: bookmark.sectionIndex,
         nodeId: bookmark.nodeId,
         textPreview: bookmark.textPreview,
