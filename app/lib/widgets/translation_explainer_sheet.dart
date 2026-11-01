@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/widgets/ai_generation_sheet.dart';
 
@@ -21,31 +20,6 @@ class TranslationExplainerSheet extends StatelessWidget {
     required this.translatedLang,
   });
 
-  Future<String?> _generateExplanation() {
-    final prompt =
-        '''
-Original phrase:
-$originalPhrase
-
-Translated phrase:
-$translatedPhrase
-
-Original phrase in context:
-$originalContext
-
-Translated phrase in context:
-$translatedContext
-
-Define each translated word in the selected phrase and explain how the translated phrase carries the meaning of the original phrase. Focus your explanation only on the selected phrase in context, not the rest of the prayer.
-''';
-
-    return LocalAgentHelper.instance.generateContentWithContinuation(
-      prompt: prompt,
-      maxOutputTokens: 256,
-      autoContinueLimit: 3,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -59,7 +33,15 @@ Define each translated word in the selected phrase and explain how the translate
           'The on-device Gemini Nano model needs to be downloaded before it can explain translations.',
       emptyResultMessage: 'No explanation generated.',
       generationErrorPrefix: 'Error generating explanation',
-      onGenerate: _generateExplanation,
+      onGenerate: () =>
+          LocalAgentHelper.instance.generateTranslationExplanation(
+            originalPhrase: originalPhrase,
+            translatedPhrase: translatedPhrase,
+            originalContext: originalContext,
+            translatedContext: translatedContext,
+            originalLang: originalLang,
+            translatedLang: translatedLang,
+          ),
       contextCard: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(

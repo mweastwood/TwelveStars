@@ -4,7 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
+import 'package:twelve_stars/logic/prayer_text_parser.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/widgets/prayers/prayer_card_components.dart';
 import 'package:twelve_stars/widgets/prayers/prayer_history_sheet.dart';
 import 'package:twelve_stars/widgets/prayers/prayer_pinyin_view.dart';
 import 'package:twelve_stars/widgets/translation_explainer_sheet.dart';
@@ -187,7 +189,7 @@ class _PrayerCardState extends State<PrayerCard> {
     final spans = <InlineSpan>[];
     int lastMatchEnd = 0;
 
-    for (final match in _italicsRegex.allMatches(text)) {
+    for (final match in PrayerTextParser.italicsRegex.allMatches(text)) {
       if (match.start > lastMatchEnd) {
         spans.add(
           TextSpan(
@@ -219,14 +221,6 @@ class _PrayerCardState extends State<PrayerCard> {
 
     return spans;
   }
-
-  static final RegExp _italicsRegex = RegExp(r'\*([^*]+)\*');
-
-  static final RegExp _responsePrefixRegex = RegExp(
-    r'^\s*(?:(?:People|Response|All|Populus|Omnes|Asamblea|Pueblo|Todos|Cộng\s+đoàn|Người\s+đáp|Tất\s+cả|Peuple|Tous|Fidèles|Popolo|Tutti|Bayan|Lahat|信友|全體|答|應|眾|會眾|同答)\s*[:：]|℟\.?|R\.|R:)',
-    caseSensitive: false,
-    multiLine: true,
-  );
 
   InlineSpan _buildTokenSpan(
     PrayerToken token,
@@ -390,6 +384,7 @@ class _PrayerCardState extends State<PrayerCard> {
         isTargetColumn: isTargetColumn,
         fontSize: widget.fontSize,
         layerLink: _layerLink,
+        targetKey: isTargetColumn ? _targetKey : null,
         onPhraseSelected: (phraseId) {
           setState(() {
             _selectedPhraseId = phraseId;
@@ -404,7 +399,7 @@ class _PrayerCardState extends State<PrayerCard> {
     } else if (trans.tokens != null && trans.tokens!.isNotEmpty) {
       // Text rendering with phrase alignments
       final fullText = trans.tokens!.map((t) => t.text).join('');
-      final hasResponses = _responsePrefixRegex.hasMatch(fullText);
+      final hasResponses = PrayerTextParser.hasResponses(fullText);
 
       int? targetTokenIndex;
       if (_isDualMode && isTargetColumn && _selectedPhraseId != null) {
@@ -433,28 +428,11 @@ class _PrayerCardState extends State<PrayerCard> {
       } else {
         final lines = fullText.split('\n');
         final isResponseLineList = lines
-            .map((l) => _responsePrefixRegex.hasMatch(l))
+            .map(PrayerTextParser.isResponseLine)
             .toList();
-
-        final lineStartIndices = <int>[];
-        int currentStart = 0;
-        for (final line in lines) {
-          lineStartIndices.add(currentStart);
-          currentStart += line.length + 1; // +1 for '\n'
-        }
-
-        int getLineIndexAt(int charOffset) {
-          if (charOffset <= 0) return 0;
-          int idx = 0;
-          for (int i = 0; i < lineStartIndices.length; i++) {
-            if (lineStartIndices[i] <= charOffset) {
-              idx = i;
-            } else {
-              break;
-            }
-          }
-          return idx;
-        }
+        final lineStartIndices = PrayerTextParser.computeLineStartOffsets(
+          lines,
+        );
 
         int charOffset = 0;
 
@@ -465,7 +443,10 @@ class _PrayerCardState extends State<PrayerCard> {
           charOffset = tokenEnd;
 
           if (token.id != null) {
-            final lineIdx = getLineIndexAt(tokenStart);
+            final lineIdx = PrayerTextParser.getLineIndexAt(
+              lineStartIndices,
+              tokenStart,
+            );
             final isResponse =
                 lineIdx < isResponseLineList.length &&
                 isResponseLineList[lineIdx];
@@ -481,7 +462,10 @@ class _PrayerCardState extends State<PrayerCard> {
             );
           } else {
             if (!token.text.contains('\n')) {
-              final lineIdx = getLineIndexAt(tokenStart);
+              final lineIdx = PrayerTextParser.getLineIndexAt(
+                lineStartIndices,
+                tokenStart,
+              );
               final isResponse =
                   lineIdx < isResponseLineList.length &&
                   isResponseLineList[lineIdx];
@@ -504,7 +488,10 @@ class _PrayerCardState extends State<PrayerCard> {
                 }
                 final partText = parts[p];
                 if (partText.isNotEmpty) {
-                  final lineIdx = getLineIndexAt(subOffset);
+                  final lineIdx = PrayerTextParser.getLineIndexAt(
+                    lineStartIndices,
+                    subOffset,
+                  );
                   final isResponse =
                       lineIdx < isResponseLineList.length &&
                       isResponseLineList[lineIdx];
@@ -537,7 +524,7 @@ class _PrayerCardState extends State<PrayerCard> {
       );
     } else {
       // Fallback: plain text
-      final hasResponses = _responsePrefixRegex.hasMatch(trans.text);
+      final hasResponses = PrayerTextParser.hasResponses(trans.text);
       if (!hasResponses) {
         final fallbackStyle = theme.textTheme.bodyLarge?.copyWith(
           height: 1.6,
@@ -558,7 +545,7 @@ class _PrayerCardState extends State<PrayerCard> {
           }
           final line = lines[i];
           if (line.isNotEmpty) {
-            final isResponse = _responsePrefixRegex.hasMatch(line);
+            final isResponse = PrayerTextParser.isResponseLine(line);
             final lineStyle = theme.textTheme.bodyLarge?.copyWith(
               height: 1.6,
               color: theme.colorScheme.onSurface.withValues(alpha: 0.95),
@@ -654,108 +641,13 @@ class _PrayerCardState extends State<PrayerCard> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   // 1. Header Row: Titles/Subtitles spanning full width
-                  _isDualMode
-                      ? Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Left Column Title/Subtitle
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    translation.title,
-                                    style: theme.textTheme.titleLarge?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: theme.colorScheme.onSurface,
-                                    ),
-                                  ),
-                                  if (translation.subtitle.isNotEmpty) ...[
-                                    const SizedBox(height: 2),
-                                    Text(
-                                      translation.subtitle,
-                                      style: theme.textTheme.bodySmall
-                                          ?.copyWith(
-                                            color: theme
-                                                .colorScheme
-                                                .onSurfaceVariant,
-                                            fontStyle: FontStyle.italic,
-                                          ),
-                                    ),
-                                  ],
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 12),
-                            Container(
-                              width: 1,
-                              height: 32,
-                              color: theme.colorScheme.outlineVariant
-                                  .withValues(alpha: 0.3),
-                            ),
-                            const SizedBox(width: 12),
-                            // Right Column Title/Subtitle with padding to avoid
-                            // overlaying split button
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(right: 36),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      compareTranslation.title,
-                                      style: theme.textTheme.titleLarge
-                                          ?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                            color: theme.colorScheme.onSurface,
-                                          ),
-                                    ),
-                                    if (compareTranslation
-                                        .subtitle
-                                        .isNotEmpty) ...[
-                                      const SizedBox(height: 2),
-                                      Text(
-                                        compareTranslation.subtitle,
-                                        style: theme.textTheme.bodySmall
-                                            ?.copyWith(
-                                              color: theme
-                                                  .colorScheme
-                                                  .onSurfaceVariant,
-                                              fontStyle: FontStyle.italic,
-                                            ),
-                                      ),
-                                    ],
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.only(right: 36),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                translation.title,
-                                style: theme.textTheme.titleLarge?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                  color: theme.colorScheme.onSurface,
-                                ),
-                              ),
-                              if (translation.subtitle.isNotEmpty) ...[
-                                const SizedBox(height: 2),
-                                Text(
-                                  translation.subtitle,
-                                  style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurfaceVariant,
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                        ),
+                  PrayerVersionHeader(
+                    primaryTitle: translation.title,
+                    primarySubtitle: translation.subtitle,
+                    isDualMode: _isDualMode,
+                    compareTitle: compareTranslation.title,
+                    compareSubtitle: compareTranslation.subtitle,
+                  ),
                   const SizedBox(height: 12),
 
                   // Divider
@@ -831,48 +723,19 @@ class _PrayerCardState extends State<PrayerCard> {
                   // 4. Version indicator dots
                   if (translations.length > 1 && !_isDualMode) ...[
                     const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(translations.length, (index) {
-                        final isSelected = index == versionIndex;
-                        return AnimatedContainer(
-                          duration: const Duration(milliseconds: 200),
-                          margin: const EdgeInsets.symmetric(horizontal: 4),
-                          width: isSelected ? 12 : 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            color: isSelected
-                                ? theme.colorScheme.primary
-                                : theme.colorScheme.outlineVariant.withValues(
-                                    alpha: 0.8,
-                                  ),
-                          ),
-                        );
-                      }),
+                    PrayerVersionDots(
+                      versionCount: translations.length,
+                      currentIndex: versionIndex,
                     ),
                   ],
                 ],
               ),
             ),
             if (_isDualMode && _selectedPhraseId != null && _isAiAvailable)
-              CompositedTransformFollower(
-                link: _layerLink,
-                showWhenUnlinked: false,
-                targetAnchor: Alignment.centerRight,
-                followerAnchor: Alignment.centerLeft,
-                offset: Offset(_followerDx, 0),
-                child: SizedBox(
-                  width: 28,
-                  height: 28,
-                  child: FloatingActionButton.small(
-                    onPressed: _explainSelectedTranslation,
-                    elevation: 2,
-                    backgroundColor: theme.colorScheme.primaryContainer,
-                    foregroundColor: theme.colorScheme.onPrimaryContainer,
-                    child: const Icon(Icons.auto_awesome, size: 14),
-                  ),
-                ),
+              PrayerFloatingExplainButton(
+                layerLink: _layerLink,
+                followerDx: _followerDx,
+                onPressed: _explainSelectedTranslation,
               ),
           ],
         ),
@@ -881,28 +744,6 @@ class _PrayerCardState extends State<PrayerCard> {
 
     _pruneUnusedRecognizers();
     return card;
-  }
-
-  String _getPhraseText(PrayerTranslation trans, String phraseId) {
-    if (trans.tokens != null && trans.tokens!.isNotEmpty) {
-      return trans.tokens!
-          .where((t) => t.id == phraseId)
-          .map((t) => t.text.replaceAll('*', ''))
-          .join('')
-          .trim();
-    }
-    if (trans.chineseLines != null && trans.chineseLines!.isNotEmpty) {
-      final buffer = StringBuffer();
-      for (final line in trans.chineseLines!) {
-        for (final charItem in line.chars ?? const <ChineseChar>[]) {
-          if (charItem.phraseId == phraseId) {
-            buffer.write(charItem.char);
-          }
-        }
-      }
-      return buffer.toString().trim();
-    }
-    return '';
   }
 
   void _explainSelectedTranslation() {
@@ -928,8 +769,14 @@ class _PrayerCardState extends State<PrayerCard> {
         widget.prayer.translations[resolvedCompareLanguage]!;
     final compareTranslation = compareTranslations[0];
 
-    final originalPhrase = _getPhraseText(compareTranslation, phraseId);
-    final translatedPhrase = _getPhraseText(translation, phraseId);
+    final originalPhrase = PrayerTextParser.extractPhraseText(
+      compareTranslation,
+      phraseId,
+    );
+    final translatedPhrase = PrayerTextParser.extractPhraseText(
+      translation,
+      phraseId,
+    );
 
     final originalContext = compareTranslation.text;
     final translatedContext = translation.text;
