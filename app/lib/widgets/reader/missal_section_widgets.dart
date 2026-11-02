@@ -208,7 +208,6 @@ class MissalFeastAlertCard extends StatelessWidget {
     final theme = Theme.of(context);
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8.0),
-      color: currentDay.colorWidget.withValues(alpha: 0.1),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Row(
