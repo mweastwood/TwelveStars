@@ -69,6 +69,8 @@ void main() {
         if (day.name != null) {
           expect(find.text('SOLEMNITY / FEAST'), findsOneWidget);
           expect(find.text(day.name!), findsOneWidget);
+          final card = tester.widget<Card>(find.byType(Card));
+          expect(card.color, isNull);
         }
       },
     );
