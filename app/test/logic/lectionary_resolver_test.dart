@@ -251,5 +251,35 @@ void main() {
         }
       },
     );
+
+    test(
+      'Every reading_key in lectionary.json has a first reading and a gospel',
+      () {
+        final file = File('assets/bible/lectionary.json');
+        final List<dynamic> data =
+            jsonDecode(file.readAsStringSync()) as List<dynamic>;
+
+        final typesByKey = <String, Set<String>>{};
+        for (final raw in data) {
+          final entry = raw as Map<String, dynamic>;
+          final readingKey = entry['reading_key'] as String;
+          final readingType = entry['reading_type'] as String;
+          typesByKey.putIfAbsent(readingKey, () => <String>{}).add(readingType);
+        }
+
+        for (final entry in typesByKey.entries) {
+          expect(
+            entry.value,
+            contains('first'),
+            reason: '${entry.key} is missing a first reading',
+          );
+          expect(
+            entry.value,
+            contains('gospel'),
+            reason: '${entry.key} is missing a gospel reading',
+          );
+        }
+      },
+    );
   });
 }
