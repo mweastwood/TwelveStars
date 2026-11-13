@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
+
+import '../test_helper.dart';
 
 void main() {
   group('BibleTranslationSelectorDialog Unit & Widget Tests', () {

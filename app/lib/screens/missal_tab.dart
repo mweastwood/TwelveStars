@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart' show setEquals;
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Controller managing the animation and scroll-offset compensation for a
 /// collapsible top selector bar (such as the language or Bible translation bar).

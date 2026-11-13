@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/widgets/bible_annotation_card.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';

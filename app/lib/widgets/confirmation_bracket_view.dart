@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/confirmation_discernment.dart';
 
 /// Modal dialog / sheet widget to display the visual 16-entrant tournament bracket tree.

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Renders the prayer title and optional subtitle header in single-language
 /// or dual-language side-by-side comparison mode.

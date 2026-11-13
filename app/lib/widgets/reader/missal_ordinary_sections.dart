@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 

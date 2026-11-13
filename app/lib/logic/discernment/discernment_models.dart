@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 
 /// The 6 core spiritual dimensions used for confirmation discernment vectors.

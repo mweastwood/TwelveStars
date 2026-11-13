@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Encapsulates the historical context panel widget displaying author/origin details,
 /// origin iconography, and description layout.

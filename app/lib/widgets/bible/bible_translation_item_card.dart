@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import '../../logic/bible_translation_info.dart';
 import 'bible_approval_badge.dart';
 

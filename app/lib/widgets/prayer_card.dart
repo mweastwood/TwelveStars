@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/prayer_text_parser.dart';

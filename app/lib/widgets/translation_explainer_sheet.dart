@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/widgets/ai_generation_sheet.dart';
 

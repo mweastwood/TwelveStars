@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import '../logic/bible_translation_info.dart';
 import 'bible/bible_translation_item_card.dart';
 import 'common/dual_target_selector_row.dart';
