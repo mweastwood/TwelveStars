@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_agent_core/flutter_agent_core.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:twelve_stars/logic/ai_service_helper.dart';
@@ -280,9 +280,17 @@ class _AiGenerationSheetState extends State<AiGenerationSheet> {
               ),
               child: MarkdownBody(
                 data: _resultText!,
-                styleSheet: MarkdownStyleSheet.fromTheme(
-                  theme,
-                ).copyWith(p: theme.textTheme.bodyLarge?.copyWith(height: 1.5)),
+                styleSheet: MarkdownStyleSheet(
+                  p: theme.textTheme.bodyLarge?.copyWith(height: 1.5),
+                  h1: theme.textTheme.headlineSmall,
+                  h2: theme.textTheme.titleLarge,
+                  h3: theme.textTheme.titleMedium,
+                  h4: theme.textTheme.bodyLarge,
+                  h5: theme.textTheme.bodyLarge,
+                  h6: theme.textTheme.bodyLarge,
+                  blockquote: theme.textTheme.bodyMedium,
+                  listBullet: theme.textTheme.bodyMedium,
+                ),
               ),
             ),
             if (widget.resultFooterBuilder != null)

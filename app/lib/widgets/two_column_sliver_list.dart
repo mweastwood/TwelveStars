@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// A two-column sliver list using [SliverCrossAxisGroup] that distributes even
 /// indices (`0, 2, 4, ...`) to the left column and odd indices (`1, 3, 5, ...`)

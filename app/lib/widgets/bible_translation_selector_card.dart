@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_dialog.dart';
 import 'package:twelve_stars/widgets/common/dual_target_selector_row.dart';

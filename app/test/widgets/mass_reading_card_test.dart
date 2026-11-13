@@ -1,9 +1,9 @@
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
@@ -14,6 +14,17 @@ import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 import '../test_helper.dart' hide materialAppWrapper;
+
+WidgetWrapper materialAppWrapper({
+  TargetPlatform platform = TargetPlatform.android,
+  ThemeData? theme,
+}) {
+  return (Widget child) => MaterialApp(
+    theme: (theme ?? ThemeData()).copyWith(platform: platform),
+    debugShowCheckedModeBanner: false,
+    home: Material(child: child),
+  );
+}
 
 void main() {
   late BibleDatabase testDb;

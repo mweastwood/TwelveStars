@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Centered italicized scripture quote and attribution footer displayed at the
 /// bottom of scrollable lists (e.g., Prayers and Saints).

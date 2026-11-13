@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reader/library_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_models.dart';

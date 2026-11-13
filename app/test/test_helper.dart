@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' as gt;
 
 /// Wraps the widget under test in MaterialApp with the app's default theme.
@@ -28,13 +28,18 @@ gt.WidgetWrapper materialAppWrapper({
   ThemeData? theme,
 }) {
   final defaultTheme =
-      theme ??
-      ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF1E3A8A),
-          brightness: Brightness.light,
-        ),
-        useMaterial3: true,
-      );
-  return gt.materialAppWrapper(platform: platform, theme: defaultTheme);
+      (theme ??
+              ThemeData(
+                colorScheme: ColorScheme.fromSeed(
+                  seedColor: const Color(0xFF1E3A8A),
+                  brightness: Brightness.light,
+                ),
+                useMaterial3: true,
+              ))
+          .copyWith(platform: platform);
+  return (Widget child) => MaterialApp(
+    theme: defaultTheme,
+    debugShowCheckedModeBanner: false,
+    home: Material(child: child),
+  );
 }

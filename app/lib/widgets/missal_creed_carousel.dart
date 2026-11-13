@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Physics that snaps horizontally to either 0.0 (Page 0 - Nicene Creed)
 /// or maxScrollExtent (Page 1 - Apostles' Creed).

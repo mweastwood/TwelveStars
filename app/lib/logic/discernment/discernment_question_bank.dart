@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'discernment_models.dart';
 
 /// The curated bank of 32 discernment questions spanning all 6 axes and cross-cutting gifts.
