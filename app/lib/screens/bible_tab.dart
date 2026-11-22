@@ -458,7 +458,6 @@ class BibleTabState extends State<BibleTab>
     }
   }
 
-  @visibleForTesting
   void navigateToChapter(BibleBook book, int chapterNum) =>
       _navigateToChapter(book, chapterNum);
 

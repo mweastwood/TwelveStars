@@ -1,17 +1,19 @@
 import 'dart:async';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/notification_service.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
-
-import 'screens/home_screen.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
   mainCommon();
 }
 
@@ -37,6 +39,8 @@ class TwelveStarsApp extends StatefulWidget {
 
 class _TwelveStarsAppState extends State<TwelveStarsApp>
     with WidgetsBindingObserver, UserSettingsStateMixin<TwelveStarsApp> {
+  late final GoRouter _router = createAppRouter();
+
   @override
   void initState() {
     super.initState();
@@ -54,6 +58,7 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _router.dispose();
     super.dispose();
   }
 
@@ -122,11 +127,11 @@ class _TwelveStarsAppState extends State<TwelveStarsApp>
               );
             }
 
-            return MaterialApp(
+            return MaterialApp.router(
               title: 'Twelve Stars',
               theme: ThemeData(colorScheme: lightScheme, useMaterial3: true),
               darkTheme: ThemeData(colorScheme: darkScheme, useMaterial3: true),
-              home: const HomeScreen(),
+              routerConfig: _router,
               debugShowCheckedModeBanner: false,
             );
           },

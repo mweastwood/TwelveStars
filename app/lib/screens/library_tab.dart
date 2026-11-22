@@ -1,9 +1,11 @@
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/thematic_bookmark_helper.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
 import 'package:twelve_stars/screens/website_viewer_screen.dart';
@@ -178,13 +180,19 @@ class _LibraryTabState extends State<LibraryTab> {
   }
 
   void _openThemeBrowser({String? themeId}) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) =>
-            ThematicQuoteBrowserScreen(initialThemeId: themeId),
-      ),
-    ).then((_) {
+    final router = GoRouter.maybeOf(context);
+    final Future<Object?> navFuture = router != null
+        ? router.push(
+            AppRoutes.libraryThemePath(themeId ?? 'sacraments.eucharist'),
+          )
+        : Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ThematicQuoteBrowserScreen(initialThemeId: themeId),
+            ),
+          );
+    navFuture.then((_) {
       if (!mounted) return;
       _loadFavorites();
       _loadComments();
@@ -224,13 +232,22 @@ class _LibraryTabState extends State<LibraryTab> {
   }) async {
     if (bookItem.isWeb) {
       if (!context.mounted) return;
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              WebsiteViewerScreen(title: bookItem.title, url: bookItem.webUrl!),
-        ),
-      );
+      final router = GoRouter.maybeOf(context);
+      if (router != null) {
+        router.push(
+          AppRoutes.libraryWebPath(bookItem.webUrl!, title: bookItem.title),
+        );
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => WebsiteViewerScreen(
+              title: bookItem.title,
+              url: bookItem.webUrl!,
+            ),
+          ),
+        );
+      }
       return;
     }
 
@@ -265,22 +282,46 @@ class _LibraryTabState extends State<LibraryTab> {
 
     if (!context.mounted) return;
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LibraryReaderScreen(
-          bookItem: bookItem,
-          initialVolumeKey: targetVolumeKey,
-          initialAssetPath: targetAssetPath,
-          initialSectionId: targetSectionId,
-          initialSectionIndex: targetSectionIndex,
-          initialQuestionNumber: questionNumber,
-          initialItemIndex: itemIndex,
-          navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),
-          onFavoriteSaved: _loadFavorites,
-        ),
-      ),
-    ).then((_) {
+    final router = GoRouter.maybeOf(context);
+    final sessionId = DateTime.now().millisecondsSinceEpoch.toString();
+    final Future<Object?> navFuture = router != null
+        ? router.push(
+            AppRoutes.libraryBookPath(
+              bookItem.id,
+              volumeKey: targetVolumeKey,
+              sectionId: targetSectionId,
+              questionNumber: questionNumber,
+              itemIndex: itemIndex,
+            ),
+            extra: LibraryReaderRouteExtra(
+              bookItem: bookItem,
+              initialVolumeKey: targetVolumeKey,
+              initialAssetPath: targetAssetPath,
+              initialSectionId: targetSectionId,
+              initialSectionIndex: targetSectionIndex,
+              initialQuestionNumber: questionNumber,
+              initialItemIndex: itemIndex,
+              navigationSessionId: sessionId,
+              onFavoriteSaved: _loadFavorites,
+            ),
+          )
+        : Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LibraryReaderScreen(
+                bookItem: bookItem,
+                initialVolumeKey: targetVolumeKey,
+                initialAssetPath: targetAssetPath,
+                initialSectionId: targetSectionId,
+                initialSectionIndex: targetSectionIndex,
+                initialQuestionNumber: questionNumber,
+                initialItemIndex: itemIndex,
+                navigationSessionId: sessionId,
+                onFavoriteSaved: _loadFavorites,
+              ),
+            ),
+          );
+    navFuture.then((_) {
       if (!mounted) return;
       _loadFavorites();
       _loadComments();
