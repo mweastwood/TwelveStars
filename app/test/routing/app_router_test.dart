@@ -5,11 +5,17 @@ import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/routing/app_router.dart';
+import 'package:twelve_stars/screens/bible_notes_screen.dart';
+import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/screens/home_screen.dart';
+import 'package:twelve_stars/screens/library_reader_screen.dart';
+import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/screens/rosary_screen.dart';
 import 'package:twelve_stars/screens/saints_screen.dart';
 import 'package:twelve_stars/screens/settings_screen.dart';
+import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
+import 'package:twelve_stars/screens/website_viewer_screen.dart';
 
 void main() {
   setUp(() {
@@ -52,6 +58,10 @@ void main() {
       );
       expect(AppRoutes.parseDateQuery('2026-11-21'), DateTime(2026, 11, 21));
       expect(AppRoutes.parseDateQuery('invalid'), isNull);
+      expect(AppRoutes.parseDateQuery('2026-02-31'), isNull);
+      expect(AppRoutes.parseDateQuery('2026-99-99'), isNull);
+      expect(AppRoutes.parseDateQuery('2025-02-29'), isNull);
+      expect(AppRoutes.parseDateQuery('2024-02-29'), DateTime(2024, 2, 29));
     });
 
     test('biblePath and findBibleBook resolve books by slug, USFM, or num', () {
@@ -131,6 +141,176 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 200));
       expect(router.routeInformationProvider.value.uri.path, AppRoutes.library);
+    });
+
+    testWidgets(
+      '/missal?date=2026-11-21 passes initialDate and updates mounted MissalTab',
+      (tester) async {
+        final router = createAppRouter(
+          initialLocation: '/missal?date=2026-11-21',
+        );
+        addTearDown(router.dispose);
+
+        await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(find.byType(MissalTab), findsOneWidget);
+        expect(find.textContaining('November 21, 2026'), findsOneWidget);
+
+        router.go('/missal?date=2026-12-25');
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(find.textContaining('December 25, 2026'), findsOneWidget);
+      },
+    );
+
+    testWidgets('/bible/:book/:chapter?v=... opens BibleTab at target verse', (
+      tester,
+    ) async {
+      final router = createAppRouter(initialLocation: '/bible/john/3?v=16');
+      addTearDown(router.dispose);
+
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+
+      expect(find.byType(BibleTab), findsOneWidget);
+      final home = tester.widget<HomeScreen>(find.byType(HomeScreen));
+      expect(home.selectedTab, 2);
+      expect(home.initialBibleTarget?.book.abbrev, 'JHN');
+      expect(home.initialBibleTarget?.chapter, 3);
+      expect(home.initialBibleTarget?.verse, 16);
+    });
+
+    testWidgets('/bible/notes renders BibleNotesScreen', (tester) async {
+      final router = createAppRouter(initialLocation: AppRoutes.bibleNotes);
+      addTearDown(router.dispose);
+
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+
+      expect(find.byType(BibleNotesScreen), findsOneWidget);
+    });
+
+    testWidgets(
+      '/library/book/:bookId and /:volumeKey open LibraryReaderScreen, unknown redirects to /library, web book redirects to /library/web',
+      (tester) async {
+        final router = createAppRouter(
+          initialLocation: '/library/book/baltimore_catechism/no1',
+        );
+        addTearDown(router.dispose);
+
+        await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(find.byType(LibraryReaderScreen), findsOneWidget);
+        final reader = tester.widget<LibraryReaderScreen>(
+          find.byType(LibraryReaderScreen),
+        );
+        expect(reader.bookItem.id, 'baltimore_catechism');
+        expect(reader.initialVolumeKey, 'no1');
+
+        router.go('/library/book/nonexistent_book');
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(
+          router.routeInformationProvider.value.uri.path,
+          AppRoutes.library,
+        );
+        expect(find.byType(HomeScreen), findsOneWidget);
+
+        router.go('/library/book/ccc_usccb');
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(
+          router.routeInformationProvider.value.uri.path,
+          AppRoutes.libraryWeb,
+        );
+        expect(find.byType(WebsiteViewerScreen), findsOneWidget);
+      },
+    );
+
+    testWidgets('/library/themes/:themeId opens ThematicQuoteBrowserScreen', (
+      tester,
+    ) async {
+      final router = createAppRouter(
+        initialLocation: '/library/themes/sacraments.eucharist',
+      );
+      addTearDown(router.dispose);
+
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+
+      expect(find.byType(ThematicQuoteBrowserScreen), findsOneWidget);
+    });
+
+    testWidgets(
+      '/library/web renders WebsiteViewerScreen with valid url and redirects to /library when missing',
+      (tester) async {
+        final router = createAppRouter(
+          initialLocation: AppRoutes.libraryWebPath(
+            'https://example.com',
+            title: 'Example',
+          ),
+        );
+        addTearDown(router.dispose);
+
+        await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(find.byType(WebsiteViewerScreen), findsOneWidget);
+
+        router.go(AppRoutes.libraryWeb);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        expect(
+          router.routeInformationProvider.value.uri.path,
+          AppRoutes.library,
+        );
+        expect(find.byType(HomeScreen), findsOneWidget);
+      },
+    );
+
+    testWidgets('push and router.pop() transitions restore previous route', (
+      tester,
+    ) async {
+      final router = createAppRouter(initialLocation: AppRoutes.missal);
+      addTearDown(router.dispose);
+
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+
+      expect(find.byType(HomeScreen), findsOneWidget);
+
+      router.push(AppRoutes.settings);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(find.byType(SettingsScreen), findsOneWidget);
+      expect(router.canPop(), isTrue);
+      expect(
+        router.routerDelegate.currentConfiguration.last.matchedLocation,
+        AppRoutes.settings,
+      );
+
+      router.pop();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(find.byType(HomeScreen), findsOneWidget);
+      expect(router.canPop(), isFalse);
+      expect(
+        router.routerDelegate.currentConfiguration.last.matchedLocation,
+        AppRoutes.missal,
+      );
     });
 
     testWidgets('deep links open standalone feature routes', (tester) async {

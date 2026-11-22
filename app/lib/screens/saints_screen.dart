@@ -1,7 +1,9 @@
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/utils/layout_breakpoints.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
 import 'package:twelve_stars/widgets/saint_card.dart';
 import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
@@ -159,12 +161,17 @@ class _SaintsScreenState extends State<SaintsScreen> {
             icon: const Icon(Icons.psychology_alt_outlined),
             tooltip: 'Confirmation Saint Discernment',
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ConfirmationDiscernmentScreen(),
-                ),
-              );
+              final router = GoRouter.maybeOf(context);
+              if (router != null) {
+                router.push(AppRoutes.discernment);
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ConfirmationDiscernmentScreen(),
+                  ),
+                );
+              }
             },
           ),
           IconButton(

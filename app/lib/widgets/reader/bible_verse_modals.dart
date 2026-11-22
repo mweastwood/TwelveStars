@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
@@ -7,6 +8,7 @@ import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/reader/annotations_repository.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 
 EdgeInsets _modalSheetPadding(BuildContext context) {
@@ -218,6 +220,9 @@ Future<void> showReverseCitationsModal({
                                         ),
                                         label: const Text('Read in Library'),
                                         onPressed: () {
+                                          final router = GoRouter.maybeOf(
+                                            context,
+                                          );
                                           Navigator.pop(ctx);
                                           final target =
                                               LibraryCatalog.resolveTarget(
@@ -226,11 +231,21 @@ Future<void> showReverseCitationsModal({
                                                 fallbackToFirstBook: true,
                                                 fallbackToFirstVolume: true,
                                               )!;
+                                          final sessionId = DateTime.now()
+                                              .millisecondsSinceEpoch
+                                              .toString();
 
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (_) => LibraryReaderScreen(
+                                          if (router != null) {
+                                            router.push(
+                                              AppRoutes.libraryBookPath(
+                                                target.book.id,
+                                                volumeKey: target.volumeKey,
+                                                sectionId: item.sectionId,
+                                                questionNumber:
+                                                    item.questionNumber,
+                                                itemIndex: item.itemIndex,
+                                              ),
+                                              extra: LibraryReaderRouteExtra(
                                                 bookItem: target.book,
                                                 initialAssetPath:
                                                     target.assetPath ??
@@ -243,13 +258,33 @@ Future<void> showReverseCitationsModal({
                                                     item.questionNumber,
                                                 initialItemIndex:
                                                     item.itemIndex,
-                                                navigationSessionId:
-                                                    DateTime.now()
-                                                        .millisecondsSinceEpoch
-                                                        .toString(),
+                                                navigationSessionId: sessionId,
                                               ),
-                                            ),
-                                          );
+                                            );
+                                          } else {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (_) =>
+                                                    LibraryReaderScreen(
+                                                      bookItem: target.book,
+                                                      initialAssetPath:
+                                                          target.assetPath ??
+                                                          item.sourceAssetPath,
+                                                      initialVolumeKey:
+                                                          target.volumeKey,
+                                                      initialSectionId:
+                                                          item.sectionId,
+                                                      initialQuestionNumber:
+                                                          item.questionNumber,
+                                                      initialItemIndex:
+                                                          item.itemIndex,
+                                                      navigationSessionId:
+                                                          sessionId,
+                                                    ),
+                                              ),
+                                            );
+                                          }
                                         },
                                       ),
                                     ),

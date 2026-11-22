@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -196,7 +198,15 @@ class _WebsiteViewerScreenState extends State<WebsiteViewerScreen> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             tooltip: 'Back to library',
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              if (Navigator.of(context).canPop()) {
+                Navigator.of(context).pop();
+              } else if (GoRouter.maybeOf(context) != null) {
+                context.go(AppRoutes.library);
+              } else {
+                Navigator.of(context).pop();
+              }
+            },
           ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,6 +4,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/screens/confirmation_discernment_screen.dart';
@@ -122,6 +123,35 @@ class AppRoutes {
     return null;
   }
 
+  static String biblePathForFavorite(FavoritePassage fav) {
+    final book = catholicBooksByNumber[fav.bookNumber];
+    if (book == null || fav.chapter < 1 || fav.chapter > book.chaptersCount) {
+      return bible;
+    }
+    return biblePath(
+      bookSlug: bookSlug(book),
+      chapter: fav.chapter,
+      verse: fav.startVerse,
+    );
+  }
+
+  static String biblePathForComment(UserComment comment) {
+    final book =
+        catholicBooksByAbbrev[comment.documentId.toUpperCase()] ??
+        findBibleBook(comment.documentId);
+    if (book == null ||
+        comment.sectionIndex < 1 ||
+        comment.sectionIndex > book.chaptersCount) {
+      return bible;
+    }
+    final verse = ReaderNodeId.parseBibleVerseNumber(comment.nodeId);
+    return biblePath(
+      bookSlug: bookSlug(book),
+      chapter: comment.sectionIndex,
+      verse: verse,
+    );
+  }
+
   static DateTime? parseDateQuery(String? raw) {
     if (raw == null || raw.isEmpty) return null;
     final match = RegExp(r'^(\d{4})-(\d{2})-(\d{2})$').firstMatch(raw.trim());
@@ -130,7 +160,10 @@ class AppRoutes {
     final m = int.tryParse(match.group(2)!);
     final d = int.tryParse(match.group(3)!);
     if (y == null || m == null || d == null) return null;
-    return DateTime(y, m, d);
+    if (m < 1 || m > 12 || d < 1 || d > 31) return null;
+    final dt = DateTime(y, m, d);
+    if (dt.year != y || dt.month != m || dt.day != d) return null;
+    return dt;
   }
 }
 
@@ -181,8 +214,15 @@ class LibraryReaderRouteExtra {
 class BibleNotesRouteExtra {
   final ValueChanged<FavoritePassage>? onSelectFavorite;
   final ValueChanged<UserComment>? onSelectComment;
+  final BibleBook? currentBook;
+  final int? currentChapter;
 
-  const BibleNotesRouteExtra({this.onSelectFavorite, this.onSelectComment});
+  const BibleNotesRouteExtra({
+    this.onSelectFavorite,
+    this.onSelectComment,
+    this.currentBook,
+    this.currentChapter,
+  });
 }
 
 class BibleDeepLinkTarget {
@@ -314,36 +354,30 @@ GoRouter createAppRouter({
           final extra = state.extra;
           if (extra is BibleNotesRouteExtra) {
             return BibleNotesScreen(
+              currentBook: extra.currentBook,
+              currentChapter: extra.currentChapter,
               onSelectFavorite: extra.onSelectFavorite,
               onSelectComment: extra.onSelectComment,
             );
           }
           return BibleNotesScreen(
             onSelectFavorite: (fav) {
-              final book = catholicBooks.firstWhere(
-                (b) => b.bookNumber == fav.bookNumber,
-                orElse: () => catholicBooks.first,
-              );
-              context.go(
-                AppRoutes.biblePath(
-                  bookSlug: AppRoutes.bookSlug(book),
-                  chapter: fav.chapter,
-                  verse: fav.startVerse,
-                ),
-              );
+              context.go(AppRoutes.biblePathForFavorite(fav));
             },
             onSelectComment: (comment) {
-              context.go(AppRoutes.bible);
+              context.go(AppRoutes.biblePathForComment(comment));
             },
           );
         },
       ),
       GoRoute(
         path: '${AppRoutes.libraryBook}/:bookId',
+        redirect: _redirectLibraryBook,
         builder: (context, state) => _buildLibraryReaderFromState(state),
         routes: [
           GoRoute(
             path: ':volumeKey',
+            redirect: _redirectLibraryBook,
             builder: (context, state) => _buildLibraryReaderFromState(state),
           ),
         ],
@@ -357,8 +391,20 @@ GoRouter createAppRouter({
       ),
       GoRoute(
         path: AppRoutes.libraryWeb,
+        redirect: (context, state) {
+          final rawUrl = state.uri.queryParameters['url']?.trim() ?? '';
+          if (rawUrl.isEmpty) return AppRoutes.library;
+          final parsed = Uri.tryParse(rawUrl);
+          if (parsed == null ||
+              !parsed.hasScheme ||
+              (parsed.scheme != 'http' && parsed.scheme != 'https') ||
+              parsed.host.isEmpty) {
+            return AppRoutes.library;
+          }
+          return null;
+        },
         builder: (context, state) {
-          final url = state.uri.queryParameters['url'] ?? '';
+          final url = state.uri.queryParameters['url']!.trim();
           final title = state.uri.queryParameters['title'] ?? 'Resource';
           return WebsiteViewerScreen(title: title, url: url);
         },
@@ -380,9 +426,34 @@ GoRouter createAppRouter({
   );
 }
 
+String? _redirectLibraryBook(BuildContext context, GoRouterState state) {
+  if (state.extra is LibraryReaderRouteExtra) return null;
+
+  final bookId = state.pathParameters['bookId'] ?? '';
+  final volumeKey = state.pathParameters['volumeKey'];
+  final target = LibraryDatabase.resolveTarget(
+    bookId: bookId,
+    volumeKey: volumeKey,
+  );
+  final bookItem = target?.book ?? LibraryDatabase.findBookById(bookId);
+  if (bookItem == null) {
+    return AppRoutes.library;
+  }
+  if (bookItem.isWeb && bookItem.webUrl != null) {
+    return AppRoutes.libraryWebPath(bookItem.webUrl!, title: bookItem.title);
+  }
+  return null;
+}
+
 Widget _buildLibraryReaderFromState(GoRouterState state) {
   final extra = state.extra;
   if (extra is LibraryReaderRouteExtra) {
+    if (extra.bookItem.isWeb && extra.bookItem.webUrl != null) {
+      return WebsiteViewerScreen(
+        title: extra.bookItem.title,
+        url: extra.bookItem.webUrl!,
+      );
+    }
     return LibraryReaderScreen(
       bookItem: extra.bookItem,
       initialAssetPath: extra.initialAssetPath,
@@ -407,10 +478,13 @@ Widget _buildLibraryReaderFromState(GoRouterState state) {
     volumeKey: volumeKey,
   );
 
-  final bookItem =
-      target?.book ??
-      LibraryDatabase.findBookById(bookId) ??
-      LibraryDatabase.getCatalog().first;
+  final bookItem = target?.book ?? LibraryDatabase.findBookById(bookId);
+  if (bookItem == null) {
+    return const HomeScreen(selectedTab: 3);
+  }
+  if (bookItem.isWeb && bookItem.webUrl != null) {
+    return WebsiteViewerScreen(title: bookItem.title, url: bookItem.webUrl!);
+  }
 
   return LibraryReaderScreen(
     bookItem: bookItem,

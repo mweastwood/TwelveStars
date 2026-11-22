@@ -154,11 +154,23 @@ class _MissalTabState extends State<MissalTab>
   @override
   void didUpdateWidget(MissalTab oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.primaryLanguage != widget.primaryLanguage ||
-        oldWidget.compareLanguage != widget.compareLanguage) {
+    final languageChanged =
+        oldWidget.primaryLanguage != widget.primaryLanguage ||
+        oldWidget.compareLanguage != widget.compareLanguage;
+    final dateChanged =
+        widget.initialDate != oldWidget.initialDate &&
+        widget.initialDate != null;
+    if (languageChanged || dateChanged) {
       setState(() {
-        _primaryLanguage = widget.primaryLanguage;
-        _compareLanguage = widget.compareLanguage;
+        if (languageChanged) {
+          _primaryLanguage = widget.primaryLanguage;
+          _compareLanguage = widget.compareLanguage;
+        }
+        if (dateChanged) {
+          final nextDate = widget.initialDate!;
+          _selectedDate = DateTime(nextDate.year, nextDate.month, nextDate.day);
+          _activeSelection = null;
+        }
       });
     }
   }

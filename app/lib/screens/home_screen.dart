@@ -113,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen>
         _bibleTabKey.currentState?.navigateToChapter(
           target.book,
           target.chapter,
+          verse: target.verse,
         );
       });
     }
@@ -145,6 +146,7 @@ class _HomeScreenState extends State<HomeScreen>
         _bibleTabKey.currentState?.navigateToChapter(
           target.book,
           target.chapter,
+          verse: target.verse,
         );
       });
     }
@@ -648,8 +650,7 @@ class _HomeScreenState extends State<HomeScreen>
               Navigator.pop(context); // Close drawer
               void onSelectFav(FavoritePassage fav) {
                 if (router != null) {
-                  router.pop();
-                  router.go(AppRoutes.bible);
+                  router.go(AppRoutes.biblePathForFavorite(fav));
                 } else {
                   Navigator.pop(context);
                 }
@@ -662,8 +663,7 @@ class _HomeScreenState extends State<HomeScreen>
 
               void onSelectComm(UserComment comment) {
                 if (router != null) {
-                  router.pop();
-                  router.go(AppRoutes.bible);
+                  router.go(AppRoutes.biblePathForComment(comment));
                 } else {
                   Navigator.pop(context);
                 }
