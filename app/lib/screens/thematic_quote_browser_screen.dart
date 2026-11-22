@@ -1,9 +1,11 @@
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:twelve_stars/logic/thematic_bookmark_helper.dart';
 import 'package:twelve_stars/logic/thematic_database.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/screens/library_reader_screen.dart';
 import 'package:twelve_stars/screens/website_viewer_screen.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
@@ -145,31 +147,61 @@ class _ThematicQuoteBrowserScreenState
       final bookTitle = matchedBook.title;
       final bookUrl = matchedBook.webUrl!;
       if (!context.mounted) return;
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              WebsiteViewerScreen(title: bookTitle, url: bookUrl),
-        ),
-      );
+      final router = GoRouter.maybeOf(context);
+      if (router != null) {
+        router.push(AppRoutes.libraryWebPath(bookUrl, title: bookTitle));
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                WebsiteViewerScreen(title: bookTitle, url: bookUrl),
+          ),
+        );
+      }
       return;
     }
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LibraryReaderScreen(
-          bookItem: matchedBook,
-          initialVolumeKey: target.initialVolume?.volumeKey,
-          initialAssetPath:
-              target.initialVolume?.assetPath ?? matchedBook.defaultAssetPath,
-          initialSectionId: target.initialSectionId,
-          initialItemIndex: passage.itemIndex,
-          initialQuestionNumber: target.initialQuestionNumber,
-          navigationSessionId: DateTime.now().millisecondsSinceEpoch.toString(),
-        ),
-      ),
-    ).then((_) => _loadBookmarks());
+    final router = GoRouter.maybeOf(context);
+    final sessionId = DateTime.now().millisecondsSinceEpoch.toString();
+    final Future<Object?> navFuture = router != null
+        ? router.push(
+            AppRoutes.libraryBookPath(
+              matchedBook.id,
+              volumeKey: target.initialVolume?.volumeKey,
+              sectionId: target.initialSectionId,
+              questionNumber: target.initialQuestionNumber,
+              itemIndex: passage.itemIndex,
+            ),
+            extra: LibraryReaderRouteExtra(
+              bookItem: matchedBook,
+              initialVolumeKey: target.initialVolume?.volumeKey,
+              initialAssetPath:
+                  target.initialVolume?.assetPath ??
+                  matchedBook.defaultAssetPath,
+              initialSectionId: target.initialSectionId,
+              initialItemIndex: passage.itemIndex,
+              initialQuestionNumber: target.initialQuestionNumber,
+              navigationSessionId: sessionId,
+            ),
+          )
+        : Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LibraryReaderScreen(
+                bookItem: matchedBook,
+                initialVolumeKey: target.initialVolume?.volumeKey,
+                initialAssetPath:
+                    target.initialVolume?.assetPath ??
+                    matchedBook.defaultAssetPath,
+                initialSectionId: target.initialSectionId,
+                initialItemIndex: passage.itemIndex,
+                initialQuestionNumber: target.initialQuestionNumber,
+                navigationSessionId: sessionId,
+              ),
+            ),
+          );
+    navFuture.then((_) => _loadBookmarks());
   }
 
   void _showSaintSheet(String saintId) async {

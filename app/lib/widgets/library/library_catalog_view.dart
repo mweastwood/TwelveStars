@@ -1,6 +1,8 @@
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/screens/thematic_quote_browser_screen.dart';
 import 'package:twelve_stars/widgets/library/library_book_card.dart';
 import 'package:twelve_stars/widgets/library/library_continue_reading_hero.dart';
@@ -234,13 +236,20 @@ class _LibraryCatalogViewState extends State<LibraryCatalogView> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(16),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            const ThematicQuoteBrowserScreen(),
-                      ),
-                    );
+                    final router = GoRouter.maybeOf(context);
+                    if (router != null) {
+                      router.push(
+                        AppRoutes.libraryThemePath('sacraments.eucharist'),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const ThematicQuoteBrowserScreen(),
+                        ),
+                      );
+                    }
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),

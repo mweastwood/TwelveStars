@@ -1,8 +1,11 @@
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
+import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/widgets/home_language_selector_card.dart';
 import 'package:twelve_stars/widgets/collapsible_selector_bar.dart';
 import 'package:twelve_stars/widgets/reader/reader_text_options_sheet.dart';
@@ -20,7 +23,15 @@ import 'package:twelve_stars/logic/utils/app_version.dart';
 
 class HomeScreen extends StatefulWidget {
   final DateTime? initialDate;
-  const HomeScreen({super.key, this.initialDate});
+  final int? selectedTab;
+  final BibleDeepLinkTarget? initialBibleTarget;
+
+  const HomeScreen({
+    super.key,
+    this.initialDate,
+    this.selectedTab,
+    this.initialBibleTarget,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -28,7 +39,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin, UserSettingsStateMixin<HomeScreen> {
-  int _currentTab = 0;
+  late int _currentTab;
   PrayerLanguage _primaryLanguage = PrayerLanguage.english;
   PrayerLanguage? _compareLanguage = PrayerLanguage.latin;
   bool _showBibleTranslationSelectors = false;
@@ -85,6 +96,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+    _currentTab = widget.selectedTab ?? 0;
     _searchController = TextEditingController();
     _searchFocusNode = FocusNode();
     _languageSelectorController = CollapsibleSelectorController(
@@ -95,7 +107,49 @@ class _HomeScreenState extends State<HomeScreen>
         if (mounted) setState(() {});
       },
     );
+    if (widget.initialBibleTarget != null) {
+      final target = widget.initialBibleTarget!;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _bibleTabKey.currentState?.navigateToChapter(
+          target.book,
+          target.chapter,
+          verse: target.verse,
+        );
+      });
+    }
     _loadData();
+  }
+
+  @override
+  void didUpdateWidget(covariant HomeScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final nextTab = widget.selectedTab;
+    if (nextTab != null &&
+        nextTab != oldWidget.selectedTab &&
+        nextTab != _currentTab) {
+      if (_languageSelectorController.animationController.isAnimating) {
+        _languageSelectorController.syncExpanded(
+          _languageSelectorController.isExpanded,
+        );
+      }
+      _currentTab = nextTab;
+      if (nextTab != 1 && _isSearching) {
+        _isSearching = false;
+        _searchQuery = '';
+        _searchController.clear();
+      }
+    }
+    if (widget.initialBibleTarget != null &&
+        widget.initialBibleTarget != oldWidget.initialBibleTarget) {
+      final target = widget.initialBibleTarget!;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _bibleTabKey.currentState?.navigateToChapter(
+          target.book,
+          target.chapter,
+          verse: target.verse,
+        );
+      });
+    }
   }
 
   @override
@@ -227,6 +281,10 @@ class _HomeScreenState extends State<HomeScreen>
         _closeSearch();
       }
     });
+    final router = GoRouter.maybeOf(context);
+    if (router != null) {
+      router.go(AppRoutes.tabPath(index));
+    }
   }
 
   Widget _buildActiveTab(ThemeData theme, {required bool isWide}) {
@@ -439,18 +497,32 @@ class _HomeScreenState extends State<HomeScreen>
           ? FloatingActionButton.extended(
               heroTag: 'start_rosary_fab',
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => RosaryScreen(
+                final router = GoRouter.maybeOf(context);
+                if (router != null) {
+                  router.push(
+                    AppRoutes.rosary,
+                    extra: RosaryRouteExtra(
                       prayers: _prayers,
                       primaryLanguage: _primaryLanguage,
                       compareLanguage: _compareLanguage,
                       initialDate: widget.initialDate,
                       fontSize: _fontSize,
                     ),
-                  ),
-                );
+                  );
+                } else {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RosaryScreen(
+                        prayers: _prayers,
+                        primaryLanguage: _primaryLanguage,
+                        compareLanguage: _compareLanguage,
+                        initialDate: widget.initialDate,
+                        fontSize: _fontSize,
+                      ),
+                    ),
+                  );
+                }
               },
               icon: const Icon(Icons.grain),
               label: const Text('Start Rosary'),
@@ -538,11 +610,16 @@ class _HomeScreenState extends State<HomeScreen>
             leading: const Icon(Icons.workspace_premium_outlined),
             title: const Text('Saint Database'),
             onTap: () {
+              final router = GoRouter.maybeOf(context);
               Navigator.pop(context); // Close drawer
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SaintsScreen()),
-              );
+              if (router != null) {
+                router.push(AppRoutes.saints);
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SaintsScreen()),
+                );
+              }
             },
           ),
           ListTile(
@@ -550,13 +627,18 @@ class _HomeScreenState extends State<HomeScreen>
             leading: const Icon(Icons.psychology_alt_outlined),
             title: const Text('Confirmation Discernment'),
             onTap: () {
+              final router = GoRouter.maybeOf(context);
               Navigator.pop(context); // Close drawer
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ConfirmationDiscernmentScreen(),
-                ),
-              );
+              if (router != null) {
+                router.push(AppRoutes.discernment);
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ConfirmationDiscernmentScreen(),
+                  ),
+                );
+              }
             },
           ),
           ListTile(
@@ -564,30 +646,53 @@ class _HomeScreenState extends State<HomeScreen>
             leading: const Icon(Icons.edit_note_rounded),
             title: const Text('Bible Notes'),
             onTap: () {
+              final router = GoRouter.maybeOf(context);
               Navigator.pop(context); // Close drawer
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BibleNotesScreen(
-                    onSelectFavorite: (fav) {
-                      Navigator.pop(context);
-                      if (_isSearching) _closeSearch();
-                      setState(() => _currentTab = 2); // Switch to Bible tab
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        _bibleTabKey.currentState?.navigateToFavorite(fav);
-                      });
-                    },
-                    onSelectComment: (comment) {
-                      Navigator.pop(context);
-                      if (_isSearching) _closeSearch();
-                      setState(() => _currentTab = 2); // Switch to Bible tab
-                      WidgetsBinding.instance.addPostFrameCallback((_) {
-                        _bibleTabKey.currentState?.navigateToComment(comment);
-                      });
-                    },
+              void onSelectFav(FavoritePassage fav) {
+                if (router != null) {
+                  router.go(AppRoutes.biblePathForFavorite(fav));
+                } else {
+                  Navigator.pop(context);
+                }
+                if (_isSearching) _closeSearch();
+                setState(() => _currentTab = 2); // Switch to Bible tab
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  _bibleTabKey.currentState?.navigateToFavorite(fav);
+                });
+              }
+
+              void onSelectComm(UserComment comment) {
+                if (router != null) {
+                  router.go(AppRoutes.biblePathForComment(comment));
+                } else {
+                  Navigator.pop(context);
+                }
+                if (_isSearching) _closeSearch();
+                setState(() => _currentTab = 2); // Switch to Bible tab
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  _bibleTabKey.currentState?.navigateToComment(comment);
+                });
+              }
+
+              if (router != null) {
+                router.push(
+                  AppRoutes.bibleNotes,
+                  extra: BibleNotesRouteExtra(
+                    onSelectFavorite: onSelectFav,
+                    onSelectComment: onSelectComm,
                   ),
-                ),
-              );
+                );
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BibleNotesScreen(
+                      onSelectFavorite: onSelectFav,
+                      onSelectComment: onSelectComm,
+                    ),
+                  ),
+                );
+              }
             },
           ),
           ListTile(
@@ -595,13 +700,22 @@ class _HomeScreenState extends State<HomeScreen>
             leading: const Icon(Icons.settings),
             title: const Text('Settings'),
             onTap: () {
+              final router = GoRouter.maybeOf(context);
               Navigator.pop(context); // Close drawer
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              ).then((_) {
-                _loadData();
-              });
+              if (router != null) {
+                router.push(AppRoutes.settings).then((_) {
+                  _loadData();
+                });
+              } else {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                ).then((_) {
+                  _loadData();
+                });
+              }
             },
           ),
           const Divider(),

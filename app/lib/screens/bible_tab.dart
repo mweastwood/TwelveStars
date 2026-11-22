@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart' show listEquals;
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
@@ -11,6 +12,7 @@ import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/paged_scroll_controller_pool.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/screens/bible_notes_screen.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_translation_selector_card.dart';
@@ -458,13 +460,32 @@ class BibleTabState extends State<BibleTab>
     }
   }
 
-  @visibleForTesting
-  void navigateToChapter(BibleBook book, int chapterNum) =>
-      _navigateToChapter(book, chapterNum);
+  void navigateToChapter(BibleBook book, int chapterNum, {int? verse}) =>
+      _navigateToChapter(book, chapterNum, verse: verse);
 
-  void _navigateToChapter(BibleBook book, int chapterNum) {
+  void _navigateToChapter(BibleBook book, int chapterNum, {int? verse}) {
     final pageIndex = getCanonicalChapterIndex(book.bookNumber, chapterNum);
     if (pageIndex != -1) {
+      if (verse != null) {
+        setState(() {
+          _targetBookNumber = book.bookNumber;
+          _targetChapter = chapterNum;
+          _scrollToVerse = verse;
+          _highlightStartVerse = verse;
+          _highlightEndVerse = verse;
+          _navigationSessionId = DateTime.now().millisecondsSinceEpoch
+              .toString();
+        });
+      } else if (_targetBookNumber != null) {
+        setState(() {
+          _targetBookNumber = null;
+          _targetChapter = null;
+          _scrollToVerse = null;
+          _highlightStartVerse = null;
+          _highlightEndVerse = null;
+          _navigationSessionId = null;
+        });
+      }
       _jumpToPageAndSync(pageIndex);
       _collapsePanel();
     }
@@ -565,23 +586,42 @@ class BibleTabState extends State<BibleTab>
         _allChapters.isNotEmpty && _currentPageIndex < _allChapters.length
         ? _allChapters[_currentPageIndex]
         : null;
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => BibleNotesScreen(
+    final router = GoRouter.maybeOf(context);
+    if (router != null) {
+      router.push(
+        AppRoutes.bibleNotes,
+        extra: BibleNotesRouteExtra(
           currentBook: currentRef?.book,
           currentChapter: currentRef?.chapter,
           onSelectFavorite: (fav) {
-            Navigator.pop(context);
+            router.go(AppRoutes.biblePathForFavorite(fav));
             navigateToFavorite(fav);
           },
           onSelectComment: (comment) {
-            Navigator.pop(context);
+            router.go(AppRoutes.biblePathForComment(comment));
             navigateToComment(comment);
           },
         ),
-      ),
-    );
+      );
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BibleNotesScreen(
+            currentBook: currentRef?.book,
+            currentChapter: currentRef?.chapter,
+            onSelectFavorite: (fav) {
+              Navigator.pop(context);
+              navigateToFavorite(fav);
+            },
+            onSelectComment: (comment) {
+              Navigator.pop(context);
+              navigateToComment(comment);
+            },
+          ),
+        ),
+      );
+    }
   }
 
   void _onRibbonTap(int index, BibleRibbonBookmark? bookmark) {
