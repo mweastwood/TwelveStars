@@ -13,7 +13,7 @@ const List<String> _rosaryPrayerIds = [
   'glory_be',
   'fatima_prayer',
   'hail_holy_queen',
-  'rosary_closing_prayer',
+  'final_prayer_rosary',
 ];
 
 const List<String> _wearPrayerLanguages = ['english', 'latin'];
@@ -36,6 +36,23 @@ String _mysteryKey(RosaryMysteryType type) {
     case RosaryMysteryType.luminous:
       return 'luminous';
   }
+}
+
+File _resolveDefaultPrayersJsonFile() {
+  final cwdFile = File('assets/prayers.json');
+  if (cwdFile.existsSync()) {
+    return cwdFile;
+  }
+  if (Platform.script.scheme == 'file') {
+    final scriptDir = p.dirname(Platform.script.toFilePath());
+    final scriptRelative = File(
+      p.normalize(p.join(scriptDir, '..', 'assets', 'prayers.json')),
+    );
+    if (scriptRelative.existsSync()) {
+      return scriptRelative;
+    }
+  }
+  return cwdFile;
 }
 
 Map<String, dynamic> buildLiturgicalCalendarPayload({
@@ -89,47 +106,64 @@ Map<String, dynamic> buildRosaryPayload({File? prayersJsonFile}) {
     };
   }
 
-  final prayers = <String, Map<String, dynamic>>{};
-  final sourceFile = prayersJsonFile ?? File('assets/prayers.json');
-  if (sourceFile.existsSync()) {
-    final decoded = jsonDecode(sourceFile.readAsStringSync());
-    if (decoded is List) {
-      final byId = <String, Map<String, dynamic>>{};
-      for (final item in decoded) {
-        if (item is Map<String, dynamic>) {
-          final id = item['id'] as String?;
-          if (id != null && _rosaryPrayerIds.contains(id)) {
-            byId[id] = item;
-          }
-        }
-      }
-      for (final id in _rosaryPrayerIds) {
-        final item = byId[id];
-        if (item == null) continue;
-        final rawTranslations = item['translations'];
-        final localized = <String, Map<String, String>>{};
-        if (rawTranslations is Map) {
-          for (final lang in _wearPrayerLanguages) {
-            final versions = rawTranslations[lang];
-            if (versions is List && versions.isNotEmpty) {
-              final first = versions.first;
-              if (first is Map) {
-                localized[lang] = {
-                  'title': (first['title'] as String?) ?? '',
-                  'text': (first['text'] as String?) ?? '',
-                };
-              }
-            }
-          }
-        }
-        prayers[id] = {
-          'id': id,
-          'defaultTitle': (item['default_title'] as String?) ?? id,
-          'hasAmen': (item['has_amen'] as bool?) ?? false,
-          'translations': localized,
-        };
+  final sourceFile = prayersJsonFile ?? _resolveDefaultPrayersJsonFile();
+  if (!sourceFile.existsSync()) {
+    throw FileSystemException('Prayers JSON file not found', sourceFile.path);
+  }
+
+  final decoded = jsonDecode(sourceFile.readAsStringSync());
+  if (decoded is! List) {
+    throw FormatException(
+      'Expected a JSON list in ${sourceFile.path}, '
+      'got ${decoded.runtimeType}',
+    );
+  }
+
+  final byId = <String, Map<String, dynamic>>{};
+  for (final item in decoded) {
+    if (item is Map<String, dynamic>) {
+      final id = item['id'] as String?;
+      if (id != null && _rosaryPrayerIds.contains(id)) {
+        byId[id] = item;
       }
     }
+  }
+
+  final missingIds = _rosaryPrayerIds
+      .where((id) => !byId.containsKey(id))
+      .toList();
+  if (missingIds.isNotEmpty) {
+    throw StateError(
+      'Missing required Rosary prayer IDs from ${sourceFile.path}: '
+      '${missingIds.join(', ')}',
+    );
+  }
+
+  final prayers = <String, Map<String, dynamic>>{};
+  for (final id in _rosaryPrayerIds) {
+    final item = byId[id]!;
+    final rawTranslations = item['translations'];
+    final localized = <String, Map<String, String>>{};
+    if (rawTranslations is Map) {
+      for (final lang in _wearPrayerLanguages) {
+        final versions = rawTranslations[lang];
+        if (versions is List && versions.isNotEmpty) {
+          final first = versions.first;
+          if (first is Map) {
+            localized[lang] = {
+              'title': (first['title'] as String?) ?? '',
+              'text': (first['text'] as String?) ?? '',
+            };
+          }
+        }
+      }
+    }
+    prayers[id] = {
+      'id': id,
+      'defaultTitle': (item['default_title'] as String?) ?? id,
+      'hasAmen': (item['has_amen'] as bool?) ?? false,
+      'translations': localized,
+    };
   }
 
   return {'schemaVersion': 1, 'mysteries': mysteries, 'prayers': prayers};
@@ -143,11 +177,28 @@ void main(List<String> args) {
 
   for (final arg in args) {
     if (arg.startsWith('--start-year=')) {
-      startYear = int.parse(arg.substring('--start-year='.length));
+      final raw = arg.substring('--start-year='.length);
+      final parsed = int.tryParse(raw);
+      if (parsed == null) {
+        stderr.writeln('Invalid --start-year value: "$raw"');
+        exit(1);
+      }
+      startYear = parsed;
     } else if (arg.startsWith('--end-year=')) {
-      endYear = int.parse(arg.substring('--end-year='.length));
+      final raw = arg.substring('--end-year='.length);
+      final parsed = int.tryParse(raw);
+      if (parsed == null) {
+        stderr.writeln('Invalid --end-year value: "$raw"');
+        exit(1);
+      }
+      endYear = parsed;
     } else if (arg.startsWith('--out-dir=')) {
-      outDir = arg.substring('--out-dir='.length);
+      final raw = arg.substring('--out-dir='.length).trim();
+      if (raw.isEmpty) {
+        stderr.writeln('Invalid --out-dir value: must not be empty');
+        exit(1);
+      }
+      outDir = raw;
     } else if (arg == '--help' || arg == '-h') {
       print(
         'Usage: dart run bin/assemble_wear_data.dart '
@@ -160,24 +211,39 @@ void main(List<String> args) {
     }
   }
 
-  final outputDirectory = Directory(outDir);
-  if (!outputDirectory.existsSync()) {
-    outputDirectory.createSync(recursive: true);
+  try {
+    final outputDirectory = Directory(outDir);
+    if (!outputDirectory.existsSync()) {
+      outputDirectory.createSync(recursive: true);
+    }
+
+    final calendarPayload = buildLiturgicalCalendarPayload(
+      startYear: startYear,
+      endYear: endYear,
+    );
+    final calendarFile = File(p.join(outDir, 'liturgical_calendar.json'));
+    calendarFile.writeAsStringSync(jsonEncode(calendarPayload));
+
+    final rosaryPayload = buildRosaryPayload();
+    final rosaryFile = File(p.join(outDir, 'rosary_data.json'));
+    rosaryFile.writeAsStringSync(jsonEncode(rosaryPayload));
+
+    final dayCount = (calendarPayload['days'] as Map).length;
+    print(
+      'Generated Wear OS data ($dayCount days, $startYear-$endYear) in $outDir',
+    );
+  } on ArgumentError catch (e) {
+    stderr.writeln('Error: ${e.message ?? e}');
+    exit(1);
+  } on FormatException catch (e) {
+    stderr.writeln('Error: ${e.message}');
+    exit(1);
+  } on FileSystemException catch (e) {
+    final pathInfo = e.path != null ? ' (${e.path})' : '';
+    stderr.writeln('Error: ${e.message}$pathInfo');
+    exit(1);
+  } on StateError catch (e) {
+    stderr.writeln('Error: ${e.message}');
+    exit(1);
   }
-
-  final calendarPayload = buildLiturgicalCalendarPayload(
-    startYear: startYear,
-    endYear: endYear,
-  );
-  final calendarFile = File(p.join(outDir, 'liturgical_calendar.json'));
-  calendarFile.writeAsStringSync(jsonEncode(calendarPayload));
-
-  final rosaryPayload = buildRosaryPayload();
-  final rosaryFile = File(p.join(outDir, 'rosary_data.json'));
-  rosaryFile.writeAsStringSync(jsonEncode(rosaryPayload));
-
-  final dayCount = (calendarPayload['days'] as Map).length;
-  print(
-    'Generated Wear OS data ($dayCount days, $startYear-$endYear) in $outDir',
-  );
 }
