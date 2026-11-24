@@ -12,8 +12,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,20 +33,36 @@ import com.mweastwood.twelve_stars.wear.data.LiturgicalRepository
 import java.time.LocalDate
 
 class MainActivity : ComponentActivity() {
+    private var loadedDate: LocalDate? = null
+    private var todayInfo by mutableStateOf<LiturgicalDayInfo?>(null)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val todayInfo = runCatching {
-            resources.openRawResource(R.raw.liturgical_calendar).use { stream ->
-                LiturgicalRepository.loadFromStream(stream).dayForDate(LocalDate.now())
-            }
-        }.getOrNull()
+        refreshTodayInfo()
 
         setContent {
             MaterialTheme {
                 WearTodayScreen(dayInfo = todayInfo)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshTodayInfo()
+    }
+
+    private fun refreshTodayInfo() {
+        val today = LocalDate.now()
+        if (loadedDate == today && todayInfo != null) {
+            return
+        }
+        loadedDate = today
+        todayInfo = runCatching {
+            resources.openRawResource(R.raw.liturgical_calendar).use { stream ->
+                LiturgicalRepository.loadFromStream(stream).dayForDate(today)
+            }
+        }.getOrNull()
     }
 }
 
@@ -50,13 +71,16 @@ fun WearTodayScreen(dayInfo: LiturgicalDayInfo?) {
     val accentColor = Color((dayInfo?.color ?: LiturgicalColor.GREEN).hexArgb)
     val title = dayInfo?.displayTitle ?: "Twelve Stars"
     val season = dayInfo?.seasonName ?: "Daily Prayer"
-    val mysteryLabel = dayInfo?.rosaryMystery?.replaceFirstChar { it.uppercase() }
+    val mysteryLabel = dayInfo?.rosaryMystery
+        ?.takeIf { it.isNotBlank() }
+        ?.replaceFirstChar { it.uppercase() }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
-            .padding(horizontal = 20.dp, vertical = 16.dp),
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = 24.dp, vertical = 28.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -70,6 +94,7 @@ fun WearTodayScreen(dayInfo: LiturgicalDayInfo?) {
             text = season,
             style = MaterialTheme.typography.caption2,
             color = accentColor,
+            textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
@@ -88,6 +113,7 @@ fun WearTodayScreen(dayInfo: LiturgicalDayInfo?) {
                 text = "$mysteryLabel Mysteries",
                 style = MaterialTheme.typography.caption1,
                 color = Color(0xFFB0BEC5),
+                textAlign = TextAlign.Center,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )

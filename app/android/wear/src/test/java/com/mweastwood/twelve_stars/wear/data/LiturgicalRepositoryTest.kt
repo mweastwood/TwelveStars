@@ -67,4 +67,83 @@ class LiturgicalRepositoryTest {
         assertEquals(LiturgicalColor.ROSE, LiturgicalColor.fromJsonKey("rose"))
         assertEquals(LiturgicalColor.GREEN, LiturgicalColor.fromJsonKey(null))
     }
+
+    @Test
+    fun loadsFromStream() {
+        val repo = sampleJson.byteInputStream(Charsets.UTF_8).use { stream ->
+            LiturgicalRepository.loadFromStream(stream)
+        }
+        assertEquals(2, repo.size)
+        val christmas = repo.dayForDate(LocalDate.of(2026, 12, 25))!!
+        assertEquals("The Nativity of the Lord", christmas.displayTitle)
+    }
+
+    @Test
+    fun fallsBackToWeekNameWhenNameIsBlankOrNull() {
+        val json = """
+            {
+              "days": {
+                "2026-03-01": {
+                  "name": null,
+                  "weekName": "2nd Sunday of Lent"
+                },
+                "2026-03-02": {
+                  "name": "",
+                  "weekName": "Monday of the 2nd Week of Lent"
+                },
+                "2026-03-03": {
+                  "name": "   ",
+                  "weekName": "Tuesday of the 2nd Week of Lent"
+                }
+              }
+            }
+        """.trimIndent()
+
+        val repo = LiturgicalRepository.loadFromJson(json)
+        assertEquals(3, repo.size)
+
+        val nullName = repo.dayForDate(LocalDate.of(2026, 3, 1))!!
+        assertNull(nullName.feastName)
+        assertEquals("2nd Sunday of Lent", nullName.displayTitle)
+
+        val emptyName = repo.dayForDate(LocalDate.of(2026, 3, 2))!!
+        assertEquals("Monday of the 2nd Week of Lent", emptyName.displayTitle)
+
+        val whitespaceName = repo.dayForDate(LocalDate.of(2026, 3, 3))!!
+        assertEquals("Tuesday of the 2nd Week of Lent", whitespaceName.displayTitle)
+    }
+
+    @Test
+    fun returnsEmptyRepositoryWhenDaysKeyIsMissing() {
+        val repo = LiturgicalRepository.loadFromJson("""{"schemaVersion": 1}""")
+        assertEquals(0, repo.size)
+        assertNull(repo.dayForDate(LocalDate.of(2026, 12, 25)))
+    }
+
+    @Test
+    fun skipsMalformedDateKeysAndLoadsValidEntries() {
+        val json = """
+            {
+              "days": {
+                "not-a-date": {
+                  "weekName": "Invalid"
+                },
+                "2026-13-45": {
+                  "weekName": "Invalid Month/Day"
+                },
+                "2026-05-01": {
+                  "name": "St. Joseph the Worker",
+                  "weekName": "Friday of the 4th Week of Easter"
+                }
+              }
+            }
+        """.trimIndent()
+
+        val repo = LiturgicalRepository.loadFromJson(json)
+        assertEquals(1, repo.size)
+        assertEquals(
+            "St. Joseph the Worker",
+            repo.dayForDate(LocalDate.of(2026, 5, 1))?.displayTitle,
+        )
+    }
 }
