@@ -46,6 +46,8 @@ app.*.map.json
 
 # Build-time generated database payload
 assets/prayers.json
+android/wear/src/main/res/raw/liturgical_calendar.json
+android/wear/src/main/res/raw/rosary_data.json
 
 # PDF scans for translation reproduction
 assets/bible/tam/pdf/
