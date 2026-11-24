@@ -1,0 +1,753 @@
+enum LiturgicalSeason { advent, christmas, lent, triduum, easter, ordinaryTime }
+
+enum LiturgicalColor { green, purple, white, red, rose }
+
+class LiturgicalDay {
+  final DateTime date;
+  final LiturgicalSeason season;
+  final LiturgicalColor color;
+  final String? name; // Feast/Solemnity name
+  final String
+  weekName; // e.g. "2nd Sunday of Advent", "15th Week in Ordinary Time"
+  final String sundayCycle; // A, B, or C
+  final String weekdayCycle; // I or II
+  final int? weekNumber;
+
+  // Pre-compiled regex and constant days list to avoid per-invocation allocations.
+  static final RegExp _ordinalRegex = RegExp(r'(\d+)(?:st|nd|rd|th)');
+  static const List<String> _daysOfWeek = [
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+    'sunday',
+  ];
+
+  const LiturgicalDay({
+    required this.date,
+    required this.season,
+    required this.color,
+    this.name,
+    required this.weekName,
+    required this.sundayCycle,
+    required this.weekdayCycle,
+    this.weekNumber,
+  });
+
+  String get lectionaryKey {
+    if (name != null) {
+      final norm = name!.toLowerCase();
+      if (norm.contains('joseph')) {
+        return 'feast_st_joseph';
+      }
+      if (norm.contains('annunciation')) {
+        return 'feast_annunciation';
+      }
+      if (norm.contains('john the baptist')) {
+        return 'feast_st_john_baptist';
+      }
+      if (norm.contains('peter and paul')) {
+        return 'feast_st_peter_paul';
+      }
+      if (norm.contains('assumption')) {
+        return 'feast_assumption';
+      }
+      if (norm.contains('all saints')) {
+        return 'feast_all_saints';
+      }
+      if (norm.contains('immaculate conception')) {
+        return 'feast_immaculate_conception';
+      }
+      if (norm.contains('epiphany')) {
+        return 'feast_epiphany';
+      }
+      if (norm.contains('baptism of the lord')) {
+        return 'feast_baptism_of_the_lord';
+      }
+      if (norm.contains('holy family')) {
+        return 'feast_holy_family';
+      }
+      if (norm.contains('trinity')) {
+        return 'feast_holy_trinity';
+      }
+      if (norm.contains('corpus christi')) {
+        return 'feast_corpus_christi';
+      }
+      if (norm.contains('sacred heart')) {
+        return 'feast_sacred_heart';
+      }
+      if (norm.contains('king of the universe')) {
+        return 'season_ordinary_time_34_sunday_${sundayCycle.toLowerCase()}';
+      }
+      if (norm.contains('palm sunday')) {
+        return 'season_lent_6_sunday_${sundayCycle.toLowerCase()}';
+      }
+      if (norm.contains('pentecost')) {
+        return 'season_easter_8_sunday_${sundayCycle.toLowerCase()}';
+      }
+    }
+
+    final normWeek = weekName.toLowerCase();
+    if (normWeek.contains('ash wednesday') &&
+        !normWeek.contains('after ash wednesday')) {
+      return 'season_lent_ash_wednesday';
+    }
+    if (normWeek.contains('palm sunday')) {
+      return 'season_lent_6_sunday_${sundayCycle.toLowerCase()}';
+    }
+    if (normWeek.contains('pentecost')) {
+      return 'season_easter_8_sunday_${sundayCycle.toLowerCase()}';
+    }
+    if (normWeek.contains('holy thursday')) {
+      return 'triduum_holy_thursday';
+    }
+    if (normWeek.contains('good friday')) {
+      return 'triduum_good_friday';
+    }
+    if (normWeek.contains('holy saturday')) {
+      return 'triduum_holy_saturday';
+    }
+    if (normWeek.contains('easter sunday')) {
+      return 'season_easter_sunday';
+    }
+
+    final int week;
+    if (weekNumber != null) {
+      week = weekNumber!;
+    } else {
+      final weekMatch = _ordinalRegex.firstMatch(weekName);
+      week = weekMatch != null ? int.parse(weekMatch.group(1)!) : 1;
+    }
+    final isSunday = date.weekday == DateTime.sunday;
+    final dayName = _daysOfWeek[date.weekday - 1];
+
+    switch (season) {
+      case LiturgicalSeason.advent:
+        return isSunday
+            ? 'season_advent_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_advent_${week}_$dayName';
+      case LiturgicalSeason.christmas:
+        return 'season_christmas_${date.month}_${date.day}';
+      case LiturgicalSeason.lent:
+        if (normWeek.contains('after ash wednesday')) {
+          return 'season_lent_0_$dayName';
+        }
+        if (normWeek.contains('holy week')) {
+          return 'season_lent_6_$dayName';
+        }
+        return isSunday
+            ? 'season_lent_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_lent_${week}_$dayName';
+      case LiturgicalSeason.easter:
+        return isSunday
+            ? 'season_easter_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_easter_${week}_$dayName';
+      case LiturgicalSeason.ordinaryTime:
+        return isSunday
+            ? 'season_ordinary_time_${week}_sunday_${sundayCycle.toLowerCase()}'
+            : 'season_ordinary_time_${week}_${dayName}_${weekdayCycle.toLowerCase() == 'ii' ? '2' : '1'}';
+      case LiturgicalSeason.triduum:
+        return 'triduum_$dayName';
+    }
+  }
+
+  String get seasonName {
+    switch (season) {
+      case LiturgicalSeason.advent:
+        return 'Advent';
+      case LiturgicalSeason.christmas:
+        return 'Christmas';
+      case LiturgicalSeason.lent:
+        return 'Lent';
+      case LiturgicalSeason.triduum:
+        return 'Sacred Paschal Triduum';
+      case LiturgicalSeason.easter:
+        return 'Easter Season';
+      case LiturgicalSeason.ordinaryTime:
+        return 'Ordinary Time';
+    }
+  }
+
+  String get colorName {
+    switch (color) {
+      case LiturgicalColor.green:
+        return 'Green';
+      case LiturgicalColor.purple:
+        return 'Violet';
+      case LiturgicalColor.white:
+        return 'White/Gold';
+      case LiturgicalColor.red:
+        return 'Red';
+      case LiturgicalColor.rose:
+        return 'Rose';
+    }
+  }
+}
+
+class LiturgicalCalendar {
+  // In-memory memoization cache keyed by a compact YYYYMMDD integer.
+  // This avoids re-running the Easter Computus and all season arithmetic for
+  // dates that have already been computed (e.g. every cell rendered by
+  // MissalCalendarGrid when AnimatedCrossFade builds both week and month views).
+  static final Map<int, LiturgicalDay> _cachedDays = {};
+
+  /// Clears the memoization cache. Intended only for tests.
+  static void resetCache() {
+    _cachedDays.clear();
+  }
+
+  /// Returns the number of currently cached days. Intended only for tests.
+  static int get cacheSize => _cachedDays.length;
+
+  // Butcher's Gregorian Easter Computus Algorithm
+  static DateTime calculateEaster(int year) {
+    final int a = year % 19;
+    final int b = year ~/ 100;
+    final int c = year % 100;
+    final int d = b ~/ 4;
+    final int e = b % 4;
+    final int f = (b + 8) ~/ 25;
+    final int g = (b - f + 1) ~/ 3;
+    final int h = (19 * a + b - d - g + 15) % 30;
+    final int i = c ~/ 4;
+    final int k = c % 4;
+    final int l = (32 + 2 * e + 2 * i - h - k) % 7;
+    final int m = (a + 11 * h + 22 * l) ~/ 451;
+    final int month = (h + l - 7 * m + 114) ~/ 31;
+    final int day = ((h + l - 7 * m + 114) % 31) + 1;
+    return DateTime(year, month, day);
+  }
+
+  // Calculate day difference using UTC date-only arithmetic to avoid DST
+  // transition miscalculations
+  static int _daysBetween(DateTime a, DateTime b) {
+    final utcA = DateTime.utc(a.year, a.month, a.day);
+    final utcB = DateTime.utc(b.year, b.month, b.day);
+    return utcA.difference(utcB).inDays;
+  }
+
+  static DateTime getFirstSundayOfAdvent(int year) {
+    final nov30 = DateTime(year, 11, 30);
+    final weekday = nov30.weekday;
+    int offset = 0;
+    if (weekday <= 3) {
+      offset = -weekday; // go back to Sunday
+    } else if (weekday == 7) {
+      offset = 0;
+    } else {
+      offset = 7 - weekday; // go forward to Sunday
+    }
+    return DateTime(nov30.year, nov30.month, nov30.day + offset);
+  }
+
+  static DateTime getEpiphany(int year) {
+    // Sunday between Jan 2 and Jan 8
+    for (int d = 2; d <= 8; d++) {
+      final date = DateTime(year, 1, d);
+      if (date.weekday == DateTime.sunday) {
+        return date;
+      }
+    }
+    return DateTime(year, 1, 6);
+  }
+
+  static DateTime getBaptismOfTheLord(int year) {
+    final epiphany = getEpiphany(year);
+    // If Epiphany is on Jan 7 or Jan 8, Baptism is the next day (Monday)
+    if (epiphany.day == 7 || epiphany.day == 8) {
+      return DateTime(epiphany.year, epiphany.month, epiphany.day + 1);
+    }
+    // Otherwise, it is the Sunday after Epiphany
+    return DateTime(epiphany.year, epiphany.month, epiphany.day + 7);
+  }
+
+  static String getOrdinalSuffix(int num) {
+    if (num >= 11 && num <= 13) return 'th';
+    switch (num % 10) {
+      case 1:
+        return 'st';
+      case 2:
+        return 'nd';
+      case 3:
+        return 'rd';
+      default:
+        return 'th';
+    }
+  }
+
+  static String getDayOfWeekName(int weekday) {
+    switch (weekday) {
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      case 7:
+        return 'Sunday';
+      default:
+        return '';
+    }
+  }
+
+  static String calculateSundayCycle(
+    int year,
+    DateTime date,
+    DateTime adventStart,
+  ) {
+    // Sunday cycle changes on the 1st Sunday of Advent
+    int activeYear = year;
+    if (date.isBefore(adventStart)) {
+      activeYear = year - 1;
+    }
+    // Year 2020 was cycle A (starts Dec 2019)
+    final remainder = ((activeYear - 2019) % 3 + 3) % 3;
+    switch (remainder) {
+      case 0:
+        return 'A';
+      case 1:
+        return 'B';
+      case 2:
+        return 'C';
+      default:
+        return 'A';
+    }
+  }
+
+  static String calculateWeekdayCycle(
+    int year,
+    DateTime date,
+    DateTime adventStart,
+  ) {
+    // Weekday cycle changes on the 1st Sunday of Advent
+    int activeYear = year;
+    if (date.isBefore(adventStart)) {
+      activeYear = year - 1;
+    }
+    final liturgicalYear = activeYear + 1;
+    return liturgicalYear.isOdd ? 'I' : 'II';
+  }
+
+  static LiturgicalDay computeDay(DateTime date) {
+    // Normalize date to midnight to prevent timezone issues
+    final localDate = DateTime(date.year, date.month, date.day);
+    final year = localDate.year;
+
+    // Cache lookup: key is a compact YYYYMMDD integer for O(1) retrieval.
+    final cacheKey = year * 10000 + localDate.month * 100 + localDate.day;
+    final cached = _cachedDays[cacheKey];
+    if (cached != null) {
+      return cached;
+    }
+
+    // We calculate anchor dates for the current calendar year
+    final easter = calculateEaster(year);
+    final advent = getFirstSundayOfAdvent(year);
+    final baptism = getBaptismOfTheLord(year);
+
+    // Determine the active liturgical year anchors
+    final DateTime activeAdventStart;
+    final DateTime activeChristmas;
+    final DateTime activeEaster;
+    final DateTime activeBaptism;
+
+    if (localDate.isBefore(advent)) {
+      // Liturgical year started last calendar year
+      activeAdventStart = getFirstSundayOfAdvent(year - 1);
+      activeChristmas = DateTime(year - 1, 12, 25);
+      activeEaster = easter;
+      activeBaptism = baptism;
+    } else {
+      // Liturgical year starts this calendar year
+      activeAdventStart = advent;
+      activeChristmas = DateTime(year, 12, 25);
+      activeEaster = calculateEaster(year + 1);
+      activeBaptism = getBaptismOfTheLord(year + 1);
+    }
+
+    final sundayCycle = calculateSundayCycle(year, localDate, advent);
+    final weekdayCycle = calculateWeekdayCycle(year, localDate, advent);
+
+    // Movable Feasts relative to activeEaster
+    final ashWednesday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day - 46,
+    );
+    final holyThursday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day - 3,
+    );
+    final goodFriday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day - 2,
+    );
+    final pentecost = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 49,
+    );
+    final trinitySunday = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 56,
+    );
+    final corpusChristi = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 63,
+    ); // Sunday transfer
+    final sacredHeart = DateTime(
+      activeEaster.year,
+      activeEaster.month,
+      activeEaster.day + 68,
+    ); // Friday after 2nd Sunday after Pentecost
+    final nextAdvent = localDate.isBefore(advent)
+        ? advent
+        : getFirstSundayOfAdvent(year + 1);
+    final christTheKing = DateTime(
+      nextAdvent.year,
+      nextAdvent.month,
+      nextAdvent.day - 7,
+    );
+
+    // Seasons checks
+    LiturgicalSeason season;
+    LiturgicalColor color;
+    String? name;
+    String weekName = '';
+    int? weekNumber;
+
+    if (localDate.isBefore(ashWednesday)) {
+      if (localDate.isBefore(activeChristmas)) {
+        // --- ADVENT ---
+        season = LiturgicalSeason.advent;
+        color = LiturgicalColor.purple;
+        final days = _daysBetween(localDate, activeAdventStart);
+        final week = (days ~/ 7) + 1;
+        weekNumber = week;
+        if (localDate.weekday == DateTime.sunday) {
+          if (week == 3) {
+            color = LiturgicalColor.rose; // Gaudete Sunday
+            weekName = '3rd Sunday of Advent (Gaudete Sunday)';
+          } else {
+            weekName = '$week${getOrdinalSuffix(week)} Sunday of Advent';
+          }
+        } else {
+          weekName =
+              '${getDayOfWeekName(localDate.weekday)} of the $week${getOrdinalSuffix(week)} Week of Advent';
+        }
+      } else if (localDate.isBefore(activeBaptism) ||
+          localDate.isAtSameMomentAs(activeBaptism)) {
+        // --- CHRISTMAS ---
+        season = LiturgicalSeason.christmas;
+        color = LiturgicalColor.white;
+        if (localDate.month == 12 && localDate.day == 25) {
+          name = 'The Nativity of the Lord (Christmas)';
+          weekName = 'Solemnity of Christmas';
+        } else if (localDate.month == 1 && localDate.day == 1) {
+          name = 'Mary, the Holy Mother of God';
+          weekName = 'Solemnity of Mary, Mother of God';
+        } else if (localDate.isAtSameMomentAs(getEpiphany(localDate.year))) {
+          name = 'The Epiphany of the Lord';
+          weekName = 'Solemnity of the Epiphany';
+        } else if (localDate.isAtSameMomentAs(activeBaptism)) {
+          name = 'The Baptism of the Lord';
+          weekName = 'Feast of the Baptism of the Lord';
+        } else {
+          final dec25 = DateTime(
+            localDate.month == 12 ? localDate.year : localDate.year - 1,
+            12,
+            25,
+          );
+          final holyFamilyDate = dec25.weekday == DateTime.sunday
+              ? DateTime(dec25.year, 12, 30)
+              : DateTime(
+                  dec25.year,
+                  dec25.month,
+                  dec25.day + 7 - dec25.weekday % 7,
+                );
+          if (localDate.isAtSameMomentAs(holyFamilyDate)) {
+            name = 'The Holy Family of Jesus, Mary and Joseph';
+            weekName = 'Feast of the Holy Family';
+          } else {
+            weekName = 'Weekday in Christmas Season';
+          }
+        }
+      } else {
+        // --- ORDINARY TIME (PART 1) ---
+        season = LiturgicalSeason.ordinaryTime;
+        color = LiturgicalColor.green;
+        final firstWeekStart = activeBaptism.weekday == DateTime.monday
+            ? DateTime(
+                activeBaptism.year,
+                activeBaptism.month,
+                activeBaptism.day - 1,
+              )
+            : activeBaptism;
+        final days = _daysBetween(localDate, firstWeekStart);
+        final week = (days ~/ 7) + 1;
+        weekNumber = week;
+        if (localDate.weekday == DateTime.sunday) {
+          weekName = '$week${getOrdinalSuffix(week)} Sunday in Ordinary Time';
+        } else {
+          weekName =
+              '${getDayOfWeekName(localDate.weekday)} of the $week${getOrdinalSuffix(week)} Week in Ordinary Time';
+        }
+      }
+    } else if (localDate.isBefore(holyThursday)) {
+      // --- LENT ---
+      season = LiturgicalSeason.lent;
+      color = LiturgicalColor.purple;
+      final days = _daysBetween(localDate, ashWednesday);
+      if (days == 0) {
+        name = 'Ash Wednesday';
+        weekName = 'Ash Wednesday';
+        weekNumber = 0;
+      } else if (days < 4) {
+        weekName = '${getDayOfWeekName(localDate.weekday)} after Ash Wednesday';
+        weekNumber = 0;
+      } else {
+        final week = ((days - 4) ~/ 7) + 1;
+        weekNumber = week;
+        if (localDate.weekday == DateTime.sunday) {
+          if (week == 4) {
+            color = LiturgicalColor.rose; // Laetare Sunday
+            weekName = '4th Sunday of Lent (Laetare Sunday)';
+          } else if (week == 6) {
+            name = 'Palm Sunday of the Passion of the Lord';
+            color = LiturgicalColor.red;
+            weekName = 'Palm Sunday';
+          } else {
+            weekName = '$week${getOrdinalSuffix(week)} Sunday of Lent';
+          }
+        } else {
+          if (week == 6) {
+            weekName = '${getDayOfWeekName(localDate.weekday)} of Holy Week';
+          } else {
+            weekName =
+                '${getDayOfWeekName(localDate.weekday)} of the $week${getOrdinalSuffix(week)} Week of Lent';
+          }
+        }
+      }
+    } else if (localDate.isBefore(activeEaster)) {
+      // --- TRIDUUM ---
+      season = LiturgicalSeason.triduum;
+      if (localDate.isAtSameMomentAs(holyThursday)) {
+        name = 'Holy Thursday (Evening Mass of the Lord\'s Supper)';
+        color = LiturgicalColor.white;
+        weekName = 'Holy Thursday';
+      } else if (localDate.isAtSameMomentAs(goodFriday)) {
+        name = 'Good Friday (Celebration of the Passion of the Lord)';
+        color = LiturgicalColor.red;
+        weekName = 'Good Friday';
+      } else {
+        name = 'Holy Saturday (Easter Vigil)';
+        color = LiturgicalColor.white;
+        weekName = 'Holy Saturday';
+      }
+    } else if (localDate.isBefore(pentecost) ||
+        localDate.isAtSameMomentAs(pentecost)) {
+      // --- EASTER SEASON ---
+      season = LiturgicalSeason.easter;
+      color = LiturgicalColor.white;
+      final days = _daysBetween(localDate, activeEaster);
+      if (days == 0) {
+        name = 'Easter Sunday of the Resurrection of the Lord';
+        weekName = 'Easter Sunday';
+        weekNumber = 1;
+      } else if (days < 7) {
+        weekName =
+            '${getDayOfWeekName(localDate.weekday)} in the Octave of Easter';
+        weekNumber = 1;
+      } else {
+        final week = (days ~/ 7) + 1;
+        weekNumber = week;
+        if (localDate.weekday == DateTime.sunday) {
+          if (localDate.isAtSameMomentAs(pentecost)) {
+            name = 'Pentecost Sunday';
+            color = LiturgicalColor.red;
+            weekName = 'Pentecost Sunday';
+          } else if (week == 2) {
+            weekName = '2nd Sunday of Easter (Divine Mercy Sunday)';
+          } else {
+            weekName = '$week${getOrdinalSuffix(week)} Sunday of Easter';
+          }
+        } else {
+          weekName =
+              '${getDayOfWeekName(localDate.weekday)} of the $week${getOrdinalSuffix(week)} Week of Easter';
+        }
+      }
+    } else {
+      // --- ORDINARY TIME (PART 2) ---
+      season = LiturgicalSeason.ordinaryTime;
+      color = LiturgicalColor.green;
+
+      // Calculate week number working backwards from next Advent
+      final nextAdvent = localDate.isBefore(advent)
+          ? advent
+          : getFirstSundayOfAdvent(year + 1);
+      final sundayOfContainingWeek = DateTime(
+        localDate.year,
+        localDate.month,
+        localDate.day - localDate.weekday % 7,
+      );
+      final weeksFromAdvent =
+          _daysBetween(nextAdvent, sundayOfContainingWeek) ~/ 7;
+      final int week = 35 - weeksFromAdvent;
+      weekNumber = week;
+
+      if (localDate.weekday == DateTime.sunday) {
+        weekName = '$week${getOrdinalSuffix(week)} Sunday in Ordinary Time';
+      } else {
+        weekName =
+            '${getDayOfWeekName(localDate.weekday)} of the $week${getOrdinalSuffix(week)} Week in Ordinary Time';
+      }
+
+      // Check movable solemnities falling in this period
+      if (localDate.isAtSameMomentAs(trinitySunday)) {
+        name = 'The Most Holy Trinity';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Most Holy Trinity';
+      } else if (localDate.isAtSameMomentAs(corpusChristi)) {
+        name = 'The Most Holy Body and Blood of Christ (Corpus Christi)';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of Corpus Christi';
+      } else if (localDate.isAtSameMomentAs(sacredHeart)) {
+        name = 'The Most Sacred Heart of Jesus';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Most Sacred Heart of Jesus';
+      } else if (localDate.isAtSameMomentAs(christTheKing)) {
+        name = 'Our Lord Jesus Christ, King of the Universe';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of Christ the King';
+      }
+    }
+
+    // Check fixed solemnities (accounting for precedence and transfers)
+    if (name == null) {
+      final palmSunday = DateTime(
+        activeEaster.year,
+        activeEaster.month,
+        activeEaster.day - 7,
+      );
+      final divineMercySunday = DateTime(
+        activeEaster.year,
+        activeEaster.month,
+        activeEaster.day + 7,
+      );
+
+      // St. Joseph (March 19): transferred if on a Sunday of Lent or in Holy Week
+      final mar19 = DateTime(year, 3, 19);
+      final DateTime stJosephDate;
+      if (!mar19.isBefore(palmSunday)) {
+        stJosephDate = DateTime(
+          palmSunday.year,
+          palmSunday.month,
+          palmSunday.day - 1,
+        );
+      } else if (mar19.weekday == DateTime.sunday) {
+        stJosephDate = DateTime(year, 3, 20);
+      } else {
+        stJosephDate = mar19;
+      }
+
+      // Annunciation (March 25): transferred to Monday after 2nd Sunday of Easter
+      // if falling in Holy Week or Easter Octave; or to March 26 if on a Sunday of Lent
+      final mar25 = DateTime(year, 3, 25);
+      DateTime annunciationDate;
+      if (!mar25.isBefore(palmSunday) && !mar25.isAfter(divineMercySunday)) {
+        annunciationDate = DateTime(
+          activeEaster.year,
+          activeEaster.month,
+          activeEaster.day + 8,
+        );
+      } else if (mar25.weekday == DateTime.sunday) {
+        annunciationDate = DateTime(year, 3, 26);
+      } else {
+        annunciationDate = mar25;
+      }
+
+      // Nativity of St. John the Baptist (June 24): anticipated on June 23
+      // (or transferred to June 25 if June 23 is Corpus Christi) when colliding
+      // with the Solemnity of the Most Sacred Heart of Jesus, or transferred to
+      // June 25 when colliding with Corpus Christi (Easter = April 22).
+      final DateTime stJohnBaptistDate;
+      if (sacredHeart.month == 6 && sacredHeart.day == 24) {
+        stJohnBaptistDate =
+            (corpusChristi.month == 6 && corpusChristi.day == 23)
+            ? DateTime(year, 6, 25)
+            : DateTime(year, 6, 23);
+      } else if (corpusChristi.month == 6 && corpusChristi.day == 24) {
+        stJohnBaptistDate = DateTime(year, 6, 25);
+      } else {
+        stJohnBaptistDate = DateTime(year, 6, 24);
+      }
+
+      // Sts. Peter and Paul (June 29): transferred to June 30 when colliding
+      // with the Solemnity of the Most Sacred Heart of Jesus (Easter = April 22).
+      final stsPeterPaulDate = (sacredHeart.month == 6 && sacredHeart.day == 29)
+          ? DateTime(year, 6, 30)
+          : DateTime(year, 6, 29);
+
+      // Immaculate Conception (December 8): transferred to Dec 9 if falling on a Sunday of Advent
+      final dec8 = DateTime(year, 12, 8);
+      final immaculateConceptionDate = dec8.weekday == DateTime.sunday
+          ? DateTime(year, 12, 9)
+          : dec8;
+
+      if (localDate.isAtSameMomentAs(stJosephDate)) {
+        name = 'St. Joseph, Spouse of the Blessed Virgin Mary';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of St. Joseph';
+      } else if (localDate.isAtSameMomentAs(annunciationDate)) {
+        name = 'The Annunciation of the Lord';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Annunciation';
+      } else if (localDate.isAtSameMomentAs(stJohnBaptistDate)) {
+        name = 'Nativity of St. John the Baptist';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Nativity of St. John the Baptist';
+      } else if (localDate.isAtSameMomentAs(stsPeterPaulDate)) {
+        name = 'Sts. Peter and Paul, Apostles';
+        color = LiturgicalColor.red;
+        weekName = 'Solemnity of Sts. Peter and Paul';
+      } else if (localDate.month == 8 && localDate.day == 15) {
+        name = 'The Assumption of the Blessed Virgin Mary';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Assumption';
+      } else if (localDate.month == 11 && localDate.day == 1) {
+        name = 'All Saints';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of All Saints';
+      } else if (localDate.isAtSameMomentAs(immaculateConceptionDate)) {
+        name = 'The Immaculate Conception of the Blessed Virgin Mary';
+        color = LiturgicalColor.white;
+        weekName = 'Solemnity of the Immaculate Conception';
+      }
+    }
+
+    final result = LiturgicalDay(
+      date: localDate,
+      season: season,
+      color: color,
+      name: name,
+      weekName: weekName,
+      sundayCycle: sundayCycle,
+      weekdayCycle: weekdayCycle,
+      weekNumber: weekNumber,
+    );
+    _cachedDays[cacheKey] = result;
+    return result;
+  }
+}
