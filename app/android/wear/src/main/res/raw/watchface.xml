@@ -1,0 +1,197 @@
+<WatchFace
+    width="450"
+    height="450"
+    clipShape="CIRCLE">
+
+    <Metadata key="CLOCK_TYPE" value="DIGITAL" />
+    <Metadata key="STEP_COUNT" value="false" />
+
+    <UserConfigurations>
+        <ColorConfiguration
+            id="theme_color"
+            displayName="@string/watchface_color_label"
+            defaultValue="marian_blue">
+            <ColorOption
+                id="marian_blue"
+                displayName="@string/color_marian_blue"
+                colors="#FF1E3A8A #FFD4AF37 #FFE2E8F0" />
+            <ColorOption
+                id="liturgical_green"
+                displayName="@string/color_liturgical_green"
+                colors="#FF1B5E20 #FFD4AF37 #FFE8F5E9" />
+            <ColorOption
+                id="liturgical_purple"
+                displayName="@string/color_liturgical_purple"
+                colors="#FF4A148C #FFD4AF37 #FFF3E5F5" />
+            <ColorOption
+                id="liturgical_red"
+                displayName="@string/color_liturgical_red"
+                colors="#FF8E0000 #FFD4AF37 #FFFFEBEE" />
+            <ColorOption
+                id="liturgical_gold"
+                displayName="@string/color_liturgical_gold"
+                colors="#FF3E2723 #FFFFD54F #FFFFF8E1" />
+        </ColorConfiguration>
+    </UserConfigurations>
+
+    <Scene backgroundColor="#FF000000">
+        <!-- Subtle radial accent disc in active mode -->
+        <PartDraw x="15" y="15" width="420" height="420">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
+            <Ellipse x="0" y="0" width="420" height="420">
+                <Fill color="[CONFIGURATION.theme_color.0]" />
+            </Ellipse>
+        </PartDraw>
+
+        <!-- Twelve Stars Marian Crown around the circular bezel -->
+        <Group name="marian_crown" x="0" y="0" width="450" height="450">
+            <PartImage x="215" y="18" width="20" height="20" pivotX="0.5" pivotY="0.5">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="313" y="45" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="30">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="385" y="117" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="60">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="412" y="215" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="90">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="385" y="313" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="120">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="313" y="385" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="150">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="215" y="412" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="180">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="117" y="385" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="210">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="45" y="313" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="240">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="18" y="215" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="270">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="45" y="117" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="300">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+            <PartImage x="117" y="45" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="330">
+                <Image resource="ic_star_crown" />
+                <Tint color="[CONFIGURATION.theme_color.1]" />
+            </PartImage>
+        </Group>
+
+        <!-- Top Complication Slot (Liturgical Day) -->
+        <ComplicationSlot
+            slotId="1"
+            name="@string/complication_slot_top_name"
+            x="95"
+            y="84"
+            width="260"
+            height="56"
+            supportedTypes="SHORT_TEXT LONG_TEXT EMPTY"
+            isCustomizable="true">
+            <DefaultProviderPolicy
+                defaultSystemProvider="DAY_AND_DATE"
+                defaultSystemProviderType="SHORT_TEXT"
+                primaryProvider="com.mweastwood.twelve_stars/com.mweastwood.twelve_stars.wear.complications.LiturgicalComplicationService"
+                primaryProviderType="SHORT_TEXT" />
+            <BoundingBox x="0" y="0" width="260" height="56" />
+            <Complication type="SHORT_TEXT">
+                <PartText x="0" y="6" width="260" height="24">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="BOLD" color="[CONFIGURATION.theme_color.1]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="30" width="260" height="24">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+            <Complication type="LONG_TEXT">
+                <PartText x="0" y="12" width="260" height="34">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
+
+        <!-- Central Digital Clock & Date -->
+        <DigitalClock x="45" y="156" width="360" height="106">
+            <TimeText
+                x="0"
+                y="0"
+                width="360"
+                height="86"
+                align="CENTER"
+                format="hh:mm"
+                hourFormat="SYNC_TO_DEVICE">
+                <Font family="SYNC_TO_DEVICE" size="78" weight="BOLD" color="#FFFFFFFF" />
+            </TimeText>
+        </DigitalClock>
+
+        <PartText x="75" y="252" width="300" height="32">
+            <Text align="CENTER">
+                <Font family="SYNC_TO_DEVICE" size="22" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                    <Template>%s %s %s<Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[MONTH_S]" /><Parameter expression="[DAY]" /></Template>
+                </Font>
+            </Text>
+        </PartText>
+
+        <!-- Bottom Complication Slot (Rosary Mystery) -->
+        <ComplicationSlot
+            slotId="2"
+            name="@string/complication_slot_bottom_name"
+            x="95"
+            y="302"
+            width="260"
+            height="56"
+            supportedTypes="SHORT_TEXT EMPTY"
+            isCustomizable="true">
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="EMPTY"
+                primaryProvider="com.mweastwood.twelve_stars/com.mweastwood.twelve_stars.wear.complications.RosaryComplicationService"
+                primaryProviderType="SHORT_TEXT" />
+            <BoundingBox x="0" y="0" width="260" height="56" />
+            <Complication type="SHORT_TEXT">
+                <PartText x="0" y="6" width="260" height="24">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="16" weight="BOLD" color="[CONFIGURATION.theme_color.1]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="30" width="260" height="24">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
+    </Scene>
+</WatchFace>

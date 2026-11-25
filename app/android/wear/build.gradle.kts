@@ -152,6 +152,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.wear.compose:compose-material:1.4.1")
     implementation("androidx.wear.compose:compose-foundation:1.4.1")
+    implementation("androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.1")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20250107")
