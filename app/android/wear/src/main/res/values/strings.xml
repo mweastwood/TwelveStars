@@ -13,4 +13,6 @@
     <string name="complication_rosary_description">Displays today\'s traditional Rosary mystery</string>
     <string name="complication_slot_top_name">Top Liturgical Slot</string>
     <string name="complication_slot_bottom_name">Bottom Rosary Slot</string>
+    <string name="tile_liturgical_label">Twelve Stars Today</string>
+    <string name="tile_liturgical_description">Shows today\'s liturgical feast and daily Rosary mystery</string>
 </resources>
