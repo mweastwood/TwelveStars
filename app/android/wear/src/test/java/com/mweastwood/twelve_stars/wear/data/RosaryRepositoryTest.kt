@@ -74,13 +74,16 @@ class RosaryRepositoryTest {
         val repo = RosaryRepository.loadFromJson(sampleJson)
         val steps = repo.generateSteps("joyful")
 
-        assertEquals(68, steps.size)
-        assertEquals("Sign of the Cross", steps.first().title)
+        assertEquals(67, steps.size)
+        assertEquals("Opening Prayers", steps.first().title)
+        assertEquals("Sign of the Cross & Creed", steps.first().subtitle)
+        assertEquals("sign_of_the_cross", steps.first().prayerId)
+        assertEquals("apostles_creed", steps.first().secondaryPrayerId)
         assertEquals("Closing Prayers", steps.last().title)
-        assertEquals("The Annunciation", steps[7].mysteryTitle)
-        assertEquals(1, steps[7].decadeNumber)
-        assertEquals(1, steps[8].beadInDecade)
-        assertEquals(10, steps[17].beadInDecade)
+        assertEquals("The Annunciation", steps[6].mysteryTitle)
+        assertEquals(1, steps[6].decadeNumber)
+        assertEquals(1, steps[7].beadInDecade)
+        assertEquals(10, steps[16].beadInDecade)
     }
 
     @Test
@@ -100,10 +103,39 @@ class RosaryRepositoryTest {
     }
 
     @Test
+    fun fallsBackToEnglishWhenLatinTranslationIsMissingOrBlank() {
+        val repo = RosaryRepository.loadFromJson(sampleJson)
+        val missingLatinPrayer = repo.prayers.getValue("hail_mary")
+        assertEquals("Hail Mary, full of grace...", missingLatinPrayer.textFor(RosaryLanguage.LATIN))
+
+        val blankLatinPrayer = RosaryPrayer(
+            id = "glory_be",
+            defaultTitle = "Glory Be",
+            hasAmen = true,
+            translations = mapOf(
+                "english" to RosaryPrayerTranslation(title = "Glory Be", text = "Glory be to the Father..."),
+                "latin" to RosaryPrayerTranslation(title = "Gloria Patri", text = "   "),
+            ),
+        )
+        assertEquals("Glory be to the Father...", blankLatinPrayer.textFor(RosaryLanguage.LATIN))
+    }
+
+    @Test
+    fun mysteryForKeyFallsBackToJoyfulForUnknownOrNullKey() {
+        val repo = RosaryRepository.loadFromJson(sampleJson)
+        assertEquals("joyful", repo.mysteryForKey(null)?.key)
+        assertEquals("joyful", repo.mysteryForKey("unknown_mystery")?.key)
+        assertEquals("joyful", repo.mysteryForKey("JOYFUL")?.key)
+    }
+
+    @Test
     fun defaultMysteryKeyMatchesDayOfWeek() {
         assertEquals("joyful", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 23))) // Monday
         assertEquals("sorrowful", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 24))) // Tuesday
         assertEquals("glorious", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 25))) // Wednesday
         assertEquals("luminous", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 26))) // Thursday
+        assertEquals("sorrowful", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 27))) // Friday
+        assertEquals("joyful", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 28))) // Saturday
+        assertEquals("glorious", RosaryRepository.defaultMysteryKeyForDate(LocalDate.of(2026, 11, 29))) // Sunday
     }
 }

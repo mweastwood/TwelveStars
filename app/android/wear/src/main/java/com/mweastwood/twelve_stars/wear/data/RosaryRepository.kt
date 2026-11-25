@@ -35,8 +35,8 @@ data class RosaryPrayer(
     val translations: Map<String, RosaryPrayerTranslation>,
 ) {
     fun textFor(language: RosaryLanguage): String {
-        return translations[language.jsonKey]?.text
-            ?: translations[RosaryLanguage.ENGLISH.jsonKey]?.text
+        return translations[language.jsonKey]?.text?.takeIf { it.isNotBlank() }
+            ?: translations[RosaryLanguage.ENGLISH.jsonKey]?.text?.takeIf { it.isNotBlank() }
             ?: ""
     }
 
@@ -97,8 +97,12 @@ class RosaryRepository(
             )
         }
 
-        addStep(title = "Sign of the Cross", subtitle = "Opening", prayerId = "sign_of_the_cross")
-        addStep(title = "The Apostles' Creed", subtitle = "Opening", prayerId = "apostles_creed")
+        addStep(
+            title = "Opening Prayers",
+            subtitle = "Sign of the Cross & Creed",
+            prayerId = "sign_of_the_cross",
+            secondaryPrayerId = "apostles_creed",
+        )
         addStep(title = "Our Father", subtitle = "Opening", prayerId = "our_father")
         for (i in 1..3) {
             addStep(title = "Hail Mary ($i/3)", subtitle = "Faith, Hope & Charity", prayerId = "hail_mary")

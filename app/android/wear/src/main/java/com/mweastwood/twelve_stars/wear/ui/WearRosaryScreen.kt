@@ -2,6 +2,8 @@ package com.mweastwood.twelve_stars.wear.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
+import androidx.compose.foundation.gestures.scrollBy
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -23,13 +26,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.rotary.onRotaryScrollEvent
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -40,7 +50,7 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.mweastwood.twelve_stars.wear.data.RosaryLanguage
 import com.mweastwood.twelve_stars.wear.data.RosaryRepository
-import com.mweastwood.twelve_stars.wear.data.WearRosaryStep
+import kotlinx.coroutines.launch
 
 @Composable
 fun WearRosaryScreen(
@@ -53,12 +63,18 @@ fun WearRosaryScreen(
     val steps = remember(repository, mysteryKey) {
         repository.generateSteps(mysteryKey)
     }
-    var stepIndex by remember(steps) {
+    var stepIndex by rememberSaveable(mysteryKey, steps.size) {
         mutableIntStateOf(initialStepIndex.coerceIn(0, (steps.size - 1).coerceAtLeast(0)))
     }
-    var language by remember { mutableStateOf(RosaryLanguage.ENGLISH) }
+    var language by rememberSaveable { mutableStateOf(RosaryLanguage.ENGLISH) }
     val scrollState = rememberScrollState()
+    val focusRequester = remember { FocusRequester() }
+    val coroutineScope = rememberCoroutineScope()
     val haptics = LocalHapticFeedback.current
+
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+    }
 
     LaunchedEffect(stepIndex) {
         scrollState.scrollTo(0)
@@ -80,6 +96,9 @@ fun WearRosaryScreen(
                 if (isDecadeBoundary) HapticFeedbackType.LongPress else HapticFeedbackType.TextHandleMove,
             )
             stepIndex += 1
+        } else {
+            haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+            onBack()
         }
     }
 
@@ -113,14 +132,15 @@ fun WearRosaryScreen(
                 color = readableAccent,
                 fontWeight = FontWeight.Bold,
             )
-            Text(
-                text = language.label,
-                style = MaterialTheme.typography.caption2,
-                color = Color.White,
-                textAlign = TextAlign.Center,
+            Box(
+                contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
+                    .heightIn(min = 24.dp)
+                    .clip(RoundedCornerShape(12.dp))
                     .background(Color(0xFF1E293B))
+                    .semantics {
+                        contentDescription = "Switch prayer language, current ${language.label}"
+                    }
                     .clickable {
                         language = if (language == RosaryLanguage.ENGLISH) {
                             RosaryLanguage.LATIN
@@ -128,8 +148,15 @@ fun WearRosaryScreen(
                             RosaryLanguage.ENGLISH
                         }
                     }
-                    .padding(horizontal = 8.dp, vertical = 2.dp),
-            )
+                    .padding(horizontal = 10.dp, vertical = 4.dp),
+            ) {
+                Text(
+                    text = language.label,
+                    style = MaterialTheme.typography.caption2,
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
 
         if (step?.decadeNumber != null) {
@@ -146,6 +173,14 @@ fun WearRosaryScreen(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth()
+                .onRotaryScrollEvent { event ->
+                    coroutineScope.launch {
+                        scrollState.scrollBy(event.verticalScrollPixels)
+                    }
+                    true
+                }
+                .focusRequester(focusRequester)
+                .focusable()
                 .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -190,14 +225,15 @@ fun WearRosaryScreen(
             Button(
                 onClick = { previousStep() },
                 colors = ButtonDefaults.secondaryButtonColors(),
-                modifier = Modifier.size(32.dp),
+                modifier = Modifier
+                    .size(32.dp)
+                    .semantics { contentDescription = "Previous step" },
             ) {
                 Text(text = "<", style = MaterialTheme.typography.button)
             }
             Spacer(modifier = Modifier.width(8.dp))
             Button(
                 onClick = { advanceStep() },
-                enabled = stepIndex < steps.lastIndex,
                 colors = ButtonDefaults.buttonColors(backgroundColor = accentColor),
                 modifier = Modifier.size(width = 64.dp, height = 32.dp),
             ) {

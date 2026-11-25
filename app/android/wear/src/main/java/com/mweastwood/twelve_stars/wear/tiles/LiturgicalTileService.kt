@@ -2,6 +2,7 @@ package com.mweastwood.twelve_stars.wear.tiles
 
 import android.content.Context
 import androidx.concurrent.futures.CallbackToFutureAdapter
+import androidx.core.graphics.ColorUtils
 import androidx.wear.protolayout.ActionBuilders
 import androidx.wear.protolayout.ColorBuilders.argb
 import androidx.wear.protolayout.DimensionBuilders.dp
@@ -26,18 +27,40 @@ import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
 import com.mweastwood.twelve_stars.wear.data.LiturgicalDayInfo
 import com.mweastwood.twelve_stars.wear.data.LiturgicalRepository
 import java.time.LocalDate
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class LiturgicalTileService : TileService() {
+    private val executor: ExecutorService = Executors.newSingleThreadExecutor()
+
+    @Volatile
+    private var cachedRepository: LiturgicalRepository? = null
+
+    private fun getOrLoadRepository(): LiturgicalRepository? {
+        cachedRepository?.let { return it }
+        val loaded = runCatching {
+            resources.openRawResource(R.raw.liturgical_calendar).use { stream ->
+                LiturgicalRepository.loadFromStream(stream)
+            }
+        }.getOrNull()
+        if (loaded != null) {
+            cachedRepository = loaded
+        }
+        return loaded
+    }
+
     override fun onTileRequest(requestParams: RequestBuilders.TileRequest): ListenableFuture<TileBuilders.Tile> {
         return CallbackToFutureAdapter.getFuture { completer ->
-            val today = LocalDate.now()
-            val dayInfo = runCatching {
-                resources.openRawResource(R.raw.liturgical_calendar).use { stream ->
-                    LiturgicalRepository.loadFromStream(stream).dayForDate(today)
+            executor.execute {
+                try {
+                    val today = LocalDate.now()
+                    val dayInfo = getOrLoadRepository()?.dayForDate(today)
+                    completer.set(buildLiturgicalTile(this, requestParams, dayInfo, today))
+                } catch (e: Throwable) {
+                    completer.setException(e)
                 }
-            }.getOrNull()
-
-            completer.set(buildLiturgicalTile(this, requestParams, dayInfo, today))
+            }
+            "LiturgicalTileService.onTileRequest"
         }
     }
 
@@ -53,8 +76,14 @@ class LiturgicalTileService : TileService() {
         }
     }
 
+    override fun onDestroy() {
+        executor.shutdown()
+        super.onDestroy()
+    }
+
     companion object {
-        private const val RESOURCES_VERSION = "1"
+        internal const val RESOURCES_VERSION = "1"
+        internal const val FRESHNESS_INTERVAL_MILLIS = 6 * 60 * 60 * 1000L
         private const val ACTION_ID_PRAY_ROSARY = "pray_rosary"
 
         internal fun buildLiturgicalTile(
@@ -64,6 +93,7 @@ class LiturgicalTileService : TileService() {
             today: LocalDate,
         ): TileBuilders.Tile {
             val accentArgb = (dayInfo?.color ?: LiturgicalColor.GREEN).hexArgb.toInt()
+            val readableAccentArgb = ColorUtils.blendARGB(accentArgb, 0xFFFFFFFF.toInt(), 0.35f)
             val seasonTitle = LiturgicalComplicationFormatter.formatSeasonTitle(dayInfo)
             val dayText = LiturgicalComplicationFormatter.formatDayText(dayInfo)
             val mystery = LiturgicalComplicationFormatter.formatRosaryMystery(dayInfo, today)
@@ -118,7 +148,7 @@ class LiturgicalTileService : TileService() {
                 .setPrimaryLabelTextContent(
                     Text.Builder(context, seasonTitle)
                         .setTypography(Typography.TYPOGRAPHY_CAPTION1)
-                        .setColor(argb(accentArgb))
+                        .setColor(argb(readableAccentArgb))
                         .setMaxLines(1)
                         .build(),
                 )
@@ -140,7 +170,7 @@ class LiturgicalTileService : TileService() {
 
             return TileBuilders.Tile.Builder()
                 .setResourcesVersion(RESOURCES_VERSION)
-                .setFreshnessIntervalMillis(6 * 60 * 60 * 1000L)
+                .setFreshnessIntervalMillis(FRESHNESS_INTERVAL_MILLIS)
                 .setTileTimeline(timeline)
                 .build()
         }

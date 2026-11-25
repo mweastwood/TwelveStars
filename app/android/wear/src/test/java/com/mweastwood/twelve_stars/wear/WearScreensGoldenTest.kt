@@ -138,7 +138,7 @@ class WearScreensGoldenTest {
                     repository = sampleRosaryRepo,
                     mysteryKey = "joyful",
                     accentColor = Color(0xFF1E3A8A),
-                    initialStepIndex = 10,
+                    initialStepIndex = 9,
                     onBack = {},
                 )
             }
@@ -155,7 +155,7 @@ class WearScreensGoldenTest {
                     repository = sampleRosaryRepo,
                     mysteryKey = "joyful",
                     accentColor = Color(0xFF1E3A8A),
-                    initialStepIndex = 10,
+                    initialStepIndex = 9,
                     onBack = {},
                 )
             }
