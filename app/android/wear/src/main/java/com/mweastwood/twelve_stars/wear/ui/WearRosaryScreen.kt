@@ -92,29 +92,32 @@ fun WearRosaryScreen(
         }
     }
 
+    val readableAccent = remember(accentColor) {
+        androidx.compose.ui.graphics.lerp(accentColor, Color.White, 0.35f)
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
-            .verticalScroll(scrollState)
-            .padding(horizontal = 22.dp, vertical = 14.dp),
+            .padding(top = 14.dp, bottom = 14.dp, start = 20.dp, end = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = "${stepIndex + 1}/${steps.size}",
                 style = MaterialTheme.typography.caption2,
-                color = accentColor,
+                color = readableAccent,
                 fontWeight = FontWeight.Bold,
             )
             Text(
                 text = language.label,
                 style = MaterialTheme.typography.caption2,
                 color = Color.White,
+                textAlign = TextAlign.Center,
                 modifier = Modifier
                     .clip(RoundedCornerShape(10.dp))
                     .background(Color(0xFF1E293B))
@@ -129,47 +132,56 @@ fun WearRosaryScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(4.dp))
-
         if (step?.decadeNumber != null) {
+            Spacer(modifier = Modifier.height(5.dp))
             DecadeBeadStrip(
                 activeBead = step.beadInDecade,
-                accentColor = accentColor,
+                accentColor = readableAccent,
             )
-            Spacer(modifier = Modifier.height(4.dp))
         }
 
-        Text(
-            text = step?.mysteryTitle ?: mysterySet?.title ?: "Holy Rosary",
-            style = MaterialTheme.typography.caption2,
-            color = Color(0xFF94A3B8),
-            textAlign = TextAlign.Center,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
+        Spacer(modifier = Modifier.height(4.dp))
 
-        Spacer(modifier = Modifier.height(2.dp))
-
-        Text(
-            text = step?.title ?: "Complete",
-            style = MaterialTheme.typography.title3,
-            color = Color.White,
-            textAlign = TextAlign.Center,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-        )
-
-        if (prayerText.isNotBlank()) {
-            Spacer(modifier = Modifier.height(6.dp))
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
             Text(
-                text = prayerText,
-                style = MaterialTheme.typography.body2,
-                color = Color(0xFFE2E8F0),
+                text = step?.mysteryTitle ?: mysterySet?.title ?: "Holy Rosary",
+                style = MaterialTheme.typography.caption2,
+                color = Color(0xFF94A3B8),
                 textAlign = TextAlign.Center,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
+
+            Spacer(modifier = Modifier.height(2.dp))
+
+            Text(
+                text = step?.title ?: "Complete",
+                style = MaterialTheme.typography.title3,
+                color = Color.White,
+                textAlign = TextAlign.Center,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+            )
+
+            if (prayerText.isNotBlank()) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = prayerText,
+                    style = MaterialTheme.typography.caption1,
+                    color = Color(0xFFE2E8F0),
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(6.dp))
 
         Row(
             horizontalArrangement = Arrangement.Center,
@@ -178,16 +190,16 @@ fun WearRosaryScreen(
             Button(
                 onClick = { previousStep() },
                 colors = ButtonDefaults.secondaryButtonColors(),
-                modifier = Modifier.size(36.dp),
+                modifier = Modifier.size(32.dp),
             ) {
                 Text(text = "<", style = MaterialTheme.typography.button)
             }
-            Spacer(modifier = Modifier.width(12.dp))
+            Spacer(modifier = Modifier.width(8.dp))
             Button(
                 onClick = { advanceStep() },
                 enabled = stepIndex < steps.lastIndex,
                 colors = ButtonDefaults.buttonColors(backgroundColor = accentColor),
-                modifier = Modifier.size(width = 72.dp, height = 36.dp),
+                modifier = Modifier.size(width = 64.dp, height = 32.dp),
             ) {
                 Text(
                     text = if (stepIndex < steps.lastIndex) "Next" else "Amen",

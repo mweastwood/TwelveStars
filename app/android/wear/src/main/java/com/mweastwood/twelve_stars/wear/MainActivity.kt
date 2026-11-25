@@ -26,8 +26,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
+import androidx.wear.compose.material.CompactChip
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
@@ -132,7 +132,7 @@ fun WearTodayScreen(
             .fillMaxSize()
             .background(Color.Black)
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 24.dp, vertical = 16.dp),
+            .padding(horizontal = 24.dp, vertical = 14.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -162,15 +162,15 @@ fun WearTodayScreen(
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = "$mysteryLabel Mysteries",
-                style = MaterialTheme.typography.caption1,
+                style = MaterialTheme.typography.caption2,
                 color = Color(0xFFB0BEC5),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
         }
         if (onPrayRosary != null) {
-            Spacer(modifier = Modifier.height(8.dp))
-            Chip(
+            Spacer(modifier = Modifier.height(6.dp))
+            CompactChip(
                 onClick = onPrayRosary,
                 label = {
                     Text(

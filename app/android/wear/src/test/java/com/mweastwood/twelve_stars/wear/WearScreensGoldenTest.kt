@@ -1,8 +1,16 @@
 package com.mweastwood.twelve_stars.wear
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.MaterialTheme
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
@@ -83,11 +91,27 @@ class WearScreensGoldenTest {
         ),
     )
 
+    @Composable
+    private fun RoundWatchPreviewFrame(
+        diameter: Dp,
+        content: @Composable () -> Unit,
+    ) {
+        MaterialTheme {
+            Box(
+                modifier = Modifier
+                    .size(diameter)
+                    .clip(CircleShape),
+            ) {
+                content()
+            }
+        }
+    }
+
     @Test
     @Config(sdk = [34], qualifiers = "w192dp-h192dp-notlong-round-hdpi")
     fun wearTodayScreen_smallRound_christmas() {
         composeRule.setContent {
-            MaterialTheme {
+            RoundWatchPreviewFrame(diameter = 192.dp) {
                 WearTodayScreen(dayInfo = christmasDay, onPrayRosary = {})
             }
         }
@@ -98,7 +122,7 @@ class WearScreensGoldenTest {
     @Config(sdk = [34], qualifiers = "w227dp-h227dp-notlong-round-xhdpi")
     fun wearTodayScreen_largeRound_advent() {
         composeRule.setContent {
-            MaterialTheme {
+            RoundWatchPreviewFrame(diameter = 227.dp) {
                 WearTodayScreen(dayInfo = adventDay, onPrayRosary = {})
             }
         }
@@ -106,10 +130,27 @@ class WearScreensGoldenTest {
     }
 
     @Test
+    @Config(sdk = [34], qualifiers = "w192dp-h192dp-notlong-round-hdpi")
+    fun wearRosaryScreen_smallRound_firstDecadeBead() {
+        composeRule.setContent {
+            RoundWatchPreviewFrame(diameter = 192.dp) {
+                WearRosaryScreen(
+                    repository = sampleRosaryRepo,
+                    mysteryKey = "joyful",
+                    accentColor = Color(0xFF1E3A8A),
+                    initialStepIndex = 10,
+                    onBack = {},
+                )
+            }
+        }
+        composeRule.onRoot().captureRoboImage("src/test/snapshots/wear_rosary_small_round_decade.png")
+    }
+
+    @Test
     @Config(sdk = [34], qualifiers = "w227dp-h227dp-notlong-round-xhdpi")
     fun wearRosaryScreen_largeRound_firstDecadeBead() {
         composeRule.setContent {
-            MaterialTheme {
+            RoundWatchPreviewFrame(diameter = 227.dp) {
                 WearRosaryScreen(
                     repository = sampleRosaryRepo,
                     mysteryKey = "joyful",
