@@ -19,6 +19,28 @@ android {
         compose = true
     }
 
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            all {
+                val isRecord = System.getProperty("roborazzi.test.record", "false").toBoolean()
+                it.systemProperty("roborazzi.test.record", isRecord.toString())
+                it.systemProperty(
+                    "roborazzi.test.verify",
+                    System.getProperty("roborazzi.test.verify", (!isRecord).toString()),
+                )
+                it.systemProperty(
+                    "robolectric.dependency.repo.url",
+                    "https://maven-central.storage-download.googleapis.com/maven2/",
+                )
+                it.systemProperty(
+                    "robolectric.dependency.repo.id",
+                    "maven-central-mirror",
+                )
+            }
+        }
+    }
+
     defaultConfig {
         applicationId = "com.mweastwood.twelve_stars"
         minSdk = 30
@@ -153,7 +175,19 @@ dependencies {
     implementation("androidx.wear.compose:compose-material:1.4.1")
     implementation("androidx.wear.compose:compose-foundation:1.4.1")
     implementation("androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.1")
+    implementation("androidx.wear.tiles:tiles:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout:1.2.1")
+    implementation("androidx.wear.protolayout:protolayout-material:1.2.1")
+    implementation("androidx.concurrent:concurrent-futures:1.2.0")
+
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20250107")
+    testImplementation("org.robolectric:robolectric:4.14.1")
+    testImplementation(platform("androidx.compose:compose-bom:2025.02.00"))
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi:1.42.0")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi-compose:1.42.0")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi-junit-rule:1.42.0")
 }
