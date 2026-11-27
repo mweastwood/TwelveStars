@@ -8,7 +8,7 @@
 
     <UserConfigurations>
         <ColorConfiguration
-            id="theme_color"
+            id="themeColor"
             displayName="@string/watchface_color_label"
             defaultValue="marian_blue">
             <ColorOption
@@ -39,59 +39,47 @@
         <PartDraw x="15" y="15" width="420" height="420">
             <Variant mode="AMBIENT" target="alpha" value="0" />
             <Ellipse x="0" y="0" width="420" height="420">
-                <Fill color="[CONFIGURATION.theme_color.0]" />
+                <Fill color="[CONFIGURATION.themeColor.0]" />
             </Ellipse>
         </PartDraw>
 
         <!-- Twelve Stars Marian Crown around the circular bezel -->
         <Group name="marian_crown" x="0" y="0" width="450" height="450">
-            <PartImage x="215" y="18" width="20" height="20" pivotX="0.5" pivotY="0.5">
+            <PartImage x="215" y="18" width="20" height="20" pivotX="0.5" pivotY="0.5" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="313" y="45" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="30">
+            <PartImage x="313" y="45" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="30" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="385" y="117" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="60">
+            <PartImage x="385" y="117" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="60" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="412" y="215" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="90">
+            <PartImage x="412" y="215" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="90" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="385" y="313" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="120">
+            <PartImage x="385" y="313" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="120" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="313" y="385" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="150">
+            <PartImage x="313" y="385" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="150" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="215" y="412" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="180">
+            <PartImage x="215" y="412" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="180" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="117" y="385" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="210">
+            <PartImage x="117" y="385" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="210" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="45" y="313" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="240">
+            <PartImage x="45" y="313" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="240" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="18" y="215" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="270">
+            <PartImage x="18" y="215" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="270" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="45" y="117" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="300">
+            <PartImage x="45" y="117" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="300" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
-            <PartImage x="117" y="45" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="330">
+            <PartImage x="117" y="45" width="20" height="20" pivotX="0.5" pivotY="0.5" angle="330" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
-                <Tint color="[CONFIGURATION.theme_color.1]" />
             </PartImage>
         </Group>
 
@@ -104,7 +92,7 @@
             width="260"
             height="56"
             supportedTypes="SHORT_TEXT LONG_TEXT EMPTY"
-            isCustomizable="true">
+            isCustomizable="TRUE">
             <DefaultProviderPolicy
                 defaultSystemProvider="DAY_AND_DATE"
                 defaultSystemProviderType="SHORT_TEXT"
@@ -114,14 +102,14 @@
             <Complication type="SHORT_TEXT">
                 <PartText x="0" y="6" width="260" height="24">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="18" weight="BOLD" color="[CONFIGURATION.theme_color.1]">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
                             <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
                 <PartText x="0" y="30" width="260" height="24">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -130,7 +118,7 @@
             <Complication type="LONG_TEXT">
                 <PartText x="0" y="12" width="260" height="34">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -154,7 +142,7 @@
 
         <PartText x="75" y="252" width="300" height="32">
             <Text align="CENTER">
-                <Font family="SYNC_TO_DEVICE" size="22" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                <Font family="SYNC_TO_DEVICE" size="22" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                     <Template>%s %s %s<Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[MONTH_S]" /><Parameter expression="[DAY]" /></Template>
                 </Font>
             </Text>
@@ -169,7 +157,7 @@
             width="260"
             height="56"
             supportedTypes="SHORT_TEXT EMPTY"
-            isCustomizable="true">
+            isCustomizable="TRUE">
             <DefaultProviderPolicy
                 defaultSystemProvider="EMPTY"
                 defaultSystemProviderType="EMPTY"
@@ -179,14 +167,14 @@
             <Complication type="SHORT_TEXT">
                 <PartText x="0" y="6" width="260" height="24">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="16" weight="BOLD" color="[CONFIGURATION.theme_color.1]">
+                        <Font family="SYNC_TO_DEVICE" size="16" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
                             <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
                 <PartText x="0" y="30" width="260" height="24">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.theme_color.2]">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>

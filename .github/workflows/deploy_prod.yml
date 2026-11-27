@@ -282,22 +282,20 @@ jobs:
         run: |
           echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release.keystore
 
-      - name: Build Wear OS & Watch Face AppBundles
+      - name: Build Wear OS AppBundle (with embedded Watch Face Push APK)
         working-directory: ./app/android
-        run: ./gradlew :wear:bundleProdRelease :watchface:bundleProdRelease -PwearVersionCode=$WEAR_VERSION_CODE -PwearVersionName=$VERSION_NAME -PwatchfaceVersionCode=$WEAR_VERSION_CODE -PwatchfaceVersionName=$VERSION_NAME
+        run: ./gradlew :wear:bundleProdRelease -PwearVersionCode=$WEAR_VERSION_CODE -PwearVersionName=$VERSION_NAME -PwatchfaceVersionCode=$WEAR_VERSION_CODE -PwatchfaceVersionName=$VERSION_NAME
         env:
           ANDROID_KEYSTORE_PATH: "release.keystore"
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
           ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
-      - name: Upload Wear OS & Watch Face AppBundle artifacts
+      - name: Upload Wear OS AppBundle artifact
         uses: actions/upload-artifact@v4
         with:
-          name: wear-prod-release-aabs
-          path: |
-            app/build/wear/outputs/bundle/prodRelease/wear-prod-release.aab
-            app/build/watchface/outputs/bundle/prodRelease/watchface-prod-release.aab
+          name: wear-prod-release-aab
+          path: app/build/wear/outputs/bundle/prodRelease/wear-prod-release.aab
 
       - name: Upload Wear OS to Google Play (wear:internal track)
         uses: r0adkll/upload-google-play@v1

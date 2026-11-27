@@ -130,6 +130,23 @@ class WearScreensGoldenTest {
     }
 
     @Test
+    @Config(sdk = [34], qualifiers = "w227dp-h227dp-notlong-round-xhdpi")
+    fun wearTodayScreen_largeRound_advent_withWatchFaceChip() {
+        composeRule.setContent {
+            RoundWatchPreviewFrame(diameter = 227.dp) {
+                WearTodayScreen(
+                    dayInfo = adventDay,
+                    onPrayRosary = {},
+                    watchFaceButtonLabel = "Set Watch Face",
+                    onSetWatchFace = {},
+                )
+            }
+        }
+        composeRule.onRoot()
+            .captureRoboImage("src/test/snapshots/wear_today_large_round_advent_watchface.png")
+    }
+
+    @Test
     @Config(sdk = [34], qualifiers = "w192dp-h192dp-notlong-round-hdpi")
     fun wearRosaryScreen_smallRound_firstDecadeBead() {
         composeRule.setContent {

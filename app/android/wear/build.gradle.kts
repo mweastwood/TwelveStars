@@ -1,4 +1,19 @@
+import java.io.File
 import java.util.Properties
+import org.gradle.api.DefaultTask
+import org.gradle.api.GradleException
+import org.gradle.api.file.ConfigurableFileCollection
+import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.CacheableTask
+import org.gradle.api.tasks.Classpath
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.InputFile
+import org.gradle.api.tasks.OutputDirectory
+import org.gradle.api.tasks.PathSensitive
+import org.gradle.api.tasks.PathSensitivity
+import org.gradle.api.tasks.TaskAction
 
 plugins {
     id("com.android.application")
@@ -6,9 +21,91 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+@CacheableTask
+abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
+    @get:InputFile
+    @get:PathSensitive(PathSensitivity.NONE)
+    abstract val watchFaceApk: RegularFileProperty
+
+    @get:Classpath
+    abstract val validatorClasspath: ConfigurableFileCollection
+
+    @get:Input
+    abstract val callerPackageName: Property<String>
+
+    @get:OutputDirectory
+    abstract val assetsOutputDir: DirectoryProperty
+
+    @get:OutputDirectory
+    abstract val resOutputDir: DirectoryProperty
+
+    @TaskAction
+    fun prepare() {
+        val apkFile = watchFaceApk.get().asFile
+        if (!apkFile.exists()) {
+            throw GradleException("Watch face APK not found at ${apkFile.absolutePath}")
+        }
+
+        val validatorJar = validatorClasspath.files.firstOrNull {
+            it.name.startsWith("validator-push-cli") && it.extension == "jar"
+        } ?: throw GradleException("Could not resolve validator-push-cli jar from watchFaceValidator configuration")
+
+        val javaBin = File(System.getProperty("java.home"), "bin/java").absolutePath
+        val command = listOf(
+            javaBin,
+            "-jar",
+            validatorJar.absolutePath,
+            "--apk_path=${apkFile.absolutePath}",
+            "--package_name=${callerPackageName.get()}",
+        )
+
+        val process = ProcessBuilder(command)
+            .redirectErrorStream(true)
+            .start()
+        val output = process.inputStream.bufferedReader().use { it.readText() }
+        val exitCode = process.waitFor()
+
+        val tokenMatch = Regex("""generated token:\s*(\S+)""").find(output)
+        if (exitCode != 0 || !output.contains("Validation is successful") || tokenMatch == null) {
+            throw GradleException(
+                "Watch Face Push validation failed for ${apkFile.name} (package=${callerPackageName.get()}, exitCode=$exitCode):\n$output",
+            )
+        }
+
+        val rawToken = tokenMatch.groupValues[1]
+        val escapedToken = rawToken
+            .replace("\\", "\\\\")
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace("'", "\\'")
+            .replace("\"", "\\\"")
+            .let { if (it.startsWith("@") || it.startsWith("?")) "\\$it" else it }
+
+        val assetsDir = assetsOutputDir.get().asFile
+        assetsDir.mkdirs()
+        apkFile.copyTo(File(assetsDir, "default_watchface.apk"), overwrite = true)
+
+        val valuesDir = File(resOutputDir.get().asFile, "values")
+        valuesDir.mkdirs()
+        File(valuesDir, "watchface_push_token.xml").writeText(
+            """<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_wf_token" translatable="false">$escapedToken</string>
+</resources>
+""",
+        )
+    }
+}
+
+val watchFaceValidator by configurations.creating {
+    isCanBeConsumed = false
+    isCanBeResolved = true
+}
+
 android {
     namespace = "com.mweastwood.twelve_stars.wear"
-    compileSdk = 35
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -43,8 +140,8 @@ android {
 
     defaultConfig {
         applicationId = "com.mweastwood.twelve_stars"
-        minSdk = 30
-        targetSdk = 35
+        minSdk = 34
+        targetSdk = 36
         versionCode = (project.findProperty("wearVersionCode") as String?)?.toIntOrNull() ?: 100000001
         versionName = (project.findProperty("wearVersionName") as String?) ?: "1.0.0"
     }
@@ -63,24 +160,27 @@ android {
         }
     }
 
+    val hasReleaseSigning = System.getenv("ANDROID_KEYSTORE_PATH") != null ||
+        rootProject.file("key.properties").exists()
+
     signingConfigs {
-        create("release") {
-            val storeFileEnv = System.getenv("ANDROID_KEYSTORE_PATH")
-            if (storeFileEnv != null) {
-                val envFile = File(storeFileEnv)
-                storeFile = if (envFile.isAbsolute) {
-                    envFile
+        if (hasReleaseSigning) {
+            create("release") {
+                val storeFileEnv = System.getenv("ANDROID_KEYSTORE_PATH")
+                if (storeFileEnv != null) {
+                    val envFile = File(storeFileEnv)
+                    storeFile = if (envFile.isAbsolute) {
+                        envFile
+                    } else {
+                        val appRelative = rootProject.file("app/$storeFileEnv")
+                        if (appRelative.exists()) appRelative else rootProject.file(storeFileEnv)
+                    }
+                    storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                    keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+                    keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+                        ?: System.getenv("ANDROID_KEYSTORE_PASSWORD")
                 } else {
-                    val appRelative = rootProject.file("app/$storeFileEnv")
-                    if (appRelative.exists()) appRelative else rootProject.file(storeFileEnv)
-                }
-                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
-                keyAlias = System.getenv("ANDROID_KEY_ALIAS")
-                keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
-                    ?: System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            } else {
-                val keystorePropertiesFile = rootProject.file("key.properties")
-                if (keystorePropertiesFile.exists()) {
+                    val keystorePropertiesFile = rootProject.file("key.properties")
                     val properties = Properties().apply {
                         keystorePropertiesFile.inputStream().use { load(it) }
                     }
@@ -92,12 +192,6 @@ android {
                     storePassword = properties.getProperty("storePassword")
                     keyAlias = properties.getProperty("keyAlias")
                     keyPassword = properties.getProperty("keyPassword")
-                } else {
-                    val debugConfig = signingConfigs.getByName("debug")
-                    storeFile = debugConfig.storeFile
-                    storePassword = debugConfig.storePassword
-                    keyAlias = debugConfig.keyAlias
-                    keyPassword = debugConfig.keyPassword
                 }
             }
         }
@@ -105,10 +199,39 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName(if (hasReleaseSigning) "release" else "debug")
             isMinifyEnabled = true
             isShrinkResources = true
         }
+    }
+}
+
+androidComponents {
+    onVariants { variant ->
+        val envFlavor = variant.flavorName ?: "prod"
+        val envCap = envFlavor.replaceFirstChar { it.uppercase() }
+        val variantCap = variant.name.replaceFirstChar { it.uppercase() }
+        val watchFaceProject = project(":watchface")
+
+        val prepareTask = tasks.register<PrepareDefaultWatchFaceTask>("prepare${variantCap}DefaultWatchFace") {
+            dependsOn(":watchface:assemble${envCap}Release")
+            watchFaceApk.set(
+                watchFaceProject.layout.buildDirectory.file(
+                    "outputs/apk/$envFlavor/release/watchface-$envFlavor-release.apk",
+                ),
+            )
+            validatorClasspath.from(watchFaceValidator)
+            callerPackageName.set(variant.applicationId)
+        }
+
+        variant.sources.assets?.addGeneratedSourceDirectory(
+            prepareTask,
+            PrepareDefaultWatchFaceTask::assetsOutputDir,
+        )
+        variant.sources.res?.addGeneratedSourceDirectory(
+            prepareTask,
+            PrepareDefaultWatchFaceTask::resOutputDir,
+        )
     }
 }
 
@@ -167,14 +290,19 @@ tasks.matching { it.name == "preBuild" }.configureEach {
 }
 
 dependencies {
+    watchFaceValidator("com.google.android.wearable.watchface.validator:validator-push-cli:1.1.0-alpha01")
+
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.activity:activity-compose:1.10.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     implementation(platform("androidx.compose:compose-bom:2025.02.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.wear.compose:compose-material:1.4.1")
     implementation("androidx.wear.compose:compose-foundation:1.4.1")
     implementation("androidx.wear.watchface:watchface-complications-data-source-ktx:1.2.1")
+    implementation("androidx.wear.watchfacepush:watchfacepush:1.0.0")
     implementation("androidx.wear.tiles:tiles:1.4.1")
     implementation("androidx.wear.protolayout:protolayout:1.2.1")
     implementation("androidx.wear.protolayout:protolayout-material:1.2.1")
