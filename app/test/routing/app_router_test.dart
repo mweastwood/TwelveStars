@@ -338,6 +338,44 @@ void main() {
       expect(find.byType(RosaryScreen), findsOneWidget);
     });
 
+    testWidgets(
+      'imperative push updates browser URL for pushed routes and pop restores it',
+      (tester) async {
+        final router = createAppRouter(initialLocation: AppRoutes.missal);
+        addTearDown(router.dispose);
+
+        await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+
+        router.push(AppRoutes.saints);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+        expect(find.byType(SaintsScreen), findsOneWidget);
+        expect(
+          router.routeInformationProvider.value.uri.path,
+          AppRoutes.saints,
+        );
+
+        router.push(AppRoutes.discernment);
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+        expect(find.byType(ConfirmationDiscernmentScreen), findsOneWidget);
+        expect(
+          router.routeInformationProvider.value.uri.path,
+          AppRoutes.discernment,
+        );
+
+        router.pop();
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 200));
+        expect(
+          router.routeInformationProvider.value.uri.path,
+          AppRoutes.saints,
+        );
+      },
+    );
+
     testWidgets('unknown route falls back to HomeScreen', (tester) async {
       final router = createAppRouter(initialLocation: '/does-not-exist');
       addTearDown(router.dispose);
