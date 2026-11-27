@@ -13,11 +13,12 @@ import 'package:twelve_stars/routing/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  usePathUrlStrategy();
   mainCommon();
 }
 
 void mainCommon() {
+  usePathUrlStrategy();
+  GoRouter.optionURLReflectsImperativeAPIs = true;
   runApp(const TwelveStarsApp());
 }
 

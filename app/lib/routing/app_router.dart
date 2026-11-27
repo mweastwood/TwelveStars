@@ -252,6 +252,7 @@ GoRouter createAppRouter({
   String? initialLocation,
   GlobalKey<NavigatorState>? navigatorKey,
 }) {
+  GoRouter.optionURLReflectsImperativeAPIs = true;
   return GoRouter(
     navigatorKey: navigatorKey,
     initialLocation: initialLocation ?? AppRoutes.missal,
