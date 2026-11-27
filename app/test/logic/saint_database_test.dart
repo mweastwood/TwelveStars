@@ -705,6 +705,7 @@ void main() {
 
         // Invariant: IDs must all be unique and non-empty
         final idSet = <String>{};
+        final wikiUrlSet = <String>{};
         for (final saint in saints) {
           expect(saint.id.isNotEmpty, isTrue);
           expect(saint.name.isNotEmpty, isTrue);
@@ -714,6 +715,22 @@ void main() {
             idSet.add(saint.id),
             isTrue,
             reason: 'Duplicate saint ID found: ${saint.id}',
+          );
+          final wikiUrl = saint.wikipediaUrl;
+          expect(
+            wikiUrl,
+            isNotNull,
+            reason: 'Missing wikipediaUrl for saint: ${saint.id}',
+          );
+          expect(
+            wikiUrl!.startsWith('https://en.wikipedia.org/wiki/'),
+            isTrue,
+            reason: 'Invalid English Wikipedia URL for ${saint.id}: $wikiUrl',
+          );
+          expect(
+            wikiUrlSet.add(wikiUrl),
+            isTrue,
+            reason: 'Duplicate wikipediaUrl found for ${saint.id}: $wikiUrl',
           );
         }
       },

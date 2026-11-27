@@ -1,6 +1,7 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// Modal bottom sheet widget displaying detailed biographical, liturgical,
 /// and patronage information for a [Saint].
@@ -19,6 +20,12 @@ class SaintDetailsSheet extends StatelessWidget {
       ),
       builder: (context) => SaintDetailsSheet(saint: saint),
     );
+  }
+
+  Future<void> _openWikipedia(String url) async {
+    final uri = Uri.tryParse(url);
+    if (uri == null) return;
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
   @override
@@ -239,6 +246,16 @@ class SaintDetailsSheet extends StatelessWidget {
                 Text(
                   saint.summary!,
                   style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
+                ),
+              ],
+              if (saint.wikipediaUrl != null &&
+                  saint.wikipediaUrl!.isNotEmpty) ...[
+                const SizedBox(height: 16),
+                OutlinedButton.icon(
+                  key: const Key('saint_wikipedia_link_button'),
+                  onPressed: () => _openWikipedia(saint.wikipediaUrl!),
+                  icon: const Icon(Icons.open_in_new, size: 18),
+                  label: const Text('Read on Wikipedia'),
                 ),
               ],
               const SizedBox(height: 24),
