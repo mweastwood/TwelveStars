@@ -49,3 +49,18 @@ To run the application locally, make sure you have the Flutter SDK installed and
    ```bash
    ./bin/generate_icons.sh --check
    ```
+
+6. **Wear OS App & Watch Face (Kotlin)**:
+   Generate the Wear OS JSON payloads from Dart and run unit + Roborazzi golden tests:
+   ```bash
+   cd app
+   dart run bin/assemble_wear_data.dart --out-dir=android/wear/src/main/res/raw
+   cd android
+   ./gradlew :wear:testProdDebugUnitTest :wear:assembleProdDebug
+   ```
+   To re-record Wear OS Roborazzi golden screenshots:
+   ```bash
+   cd app/android
+   ./gradlew :wear:testProdDebugUnitTest -Droborazzi.test.record=true
+   ```
+   To enable automated Google Play `wear:internal` uploads in `deploy_prod.yml`, opt into the **Wear OS** form factor in Google Play Console and set the repository Actions variable `WEAR_OS_PLAY_UPLOAD_ENABLED=true`.

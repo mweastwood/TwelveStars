@@ -17,7 +17,7 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
 subprojects {
-    if (project.name != "wear") {
+    if (project.name != "wear" && project.name != "watchface") {
         project.evaluationDependsOn(":app")
     }
 }

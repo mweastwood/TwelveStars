@@ -9,9 +9,9 @@ import javax.xml.parsers.DocumentBuilderFactory
 class WatchFaceXmlValidationTest {
     private fun locateWatchFaceFile(): File {
         val candidates = listOf(
-            File("src/main/res/raw/watchface.xml"),
-            File("wear/src/main/res/raw/watchface.xml"),
-            File("app/android/wear/src/main/res/raw/watchface.xml"),
+            File("../watchface/src/main/res/raw/watchface.xml"),
+            File("watchface/src/main/res/raw/watchface.xml"),
+            File("app/android/watchface/src/main/res/raw/watchface.xml"),
         )
         return candidates.firstOrNull { it.exists() }
             ?: error("Could not locate watchface.xml from ${File(".").absolutePath}")
