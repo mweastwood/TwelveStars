@@ -13,6 +13,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.MaterialTheme
 import com.github.takahirom.roborazzi.captureRoboImage
+import com.mweastwood.twelve_stars.wear.data.GospelReading
+import com.mweastwood.twelve_stars.wear.data.GospelVerse
 import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
 import com.mweastwood.twelve_stars.wear.data.LiturgicalDayInfo
 import com.mweastwood.twelve_stars.wear.data.RosaryDecade
@@ -20,6 +22,7 @@ import com.mweastwood.twelve_stars.wear.data.RosaryMysterySet
 import com.mweastwood.twelve_stars.wear.data.RosaryPrayer
 import com.mweastwood.twelve_stars.wear.data.RosaryPrayerTranslation
 import com.mweastwood.twelve_stars.wear.data.RosaryRepository
+import com.mweastwood.twelve_stars.wear.ui.WearGospelScreen
 import com.mweastwood.twelve_stars.wear.ui.WearRosaryScreen
 import org.junit.Rule
 import org.junit.Test
@@ -178,5 +181,30 @@ class WearScreensGoldenTest {
             }
         }
         composeRule.onRoot().captureRoboImage("src/test/snapshots/wear_rosary_large_round_decade.png")
+    }
+
+    @Test
+    @Config(sdk = [34], qualifiers = "w227dp-h227dp-notlong-round-xhdpi")
+    fun wearGospelScreen_largeRound() {
+        val sampleReading = GospelReading(
+            citation = "Matthew 5:1-3",
+            shortCitation = "Mt 5:1-3",
+            bookName = "Matthew",
+            verses = listOf(
+                GospelVerse(5, 1, "Then, seeing the crowds, he ascended the mountain, and when he had sat down, his disciples drew near to him,"),
+                GospelVerse(5, 2, "and opening his mouth, he taught them, saying:"),
+                GospelVerse(5, 3, "Blessed are the poor in spirit, for theirs is the kingdom of heaven."),
+            ),
+        )
+        composeRule.setContent {
+            RoundWatchPreviewFrame(diameter = 227.dp) {
+                WearGospelScreen(
+                    reading = sampleReading,
+                    accentColor = Color(LiturgicalColor.PURPLE.hexArgb),
+                    onBack = {},
+                )
+            }
+        }
+        composeRule.onRoot().captureRoboImage("src/test/snapshots/wear_gospel_large_round.png")
     }
 }

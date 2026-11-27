@@ -11,6 +11,8 @@
     <string name="complication_liturgical_description">Displays today\'s liturgical season or feast day</string>
     <string name="complication_rosary_label">Rosary Mystery</string>
     <string name="complication_rosary_description">Displays today\'s traditional Rosary mystery</string>
+    <string name="complication_gospel_label">Today\'s Gospel</string>
+    <string name="complication_gospel_description">Displays today\'s daily Mass Gospel citation</string>
     <string name="complication_slot_top_name">Top Liturgical Slot</string>
     <string name="complication_slot_bottom_name">Bottom Rosary Slot</string>
     <string name="tile_liturgical_label">Twelve Stars Today</string>

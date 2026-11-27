@@ -3,11 +3,15 @@ package com.mweastwood.twelve_stars.wear.watchfacepush
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import com.mweastwood.twelve_stars.wear.R
+import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
+import com.mweastwood.twelve_stars.wear.data.LiturgicalRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
+import java.time.LocalDate
 
 /**
  * Keeps the pushed Twelve Stars watch face up to date whenever the Wear OS app is upgraded.
@@ -22,7 +26,12 @@ class WatchFaceUpdateReceiver : BroadcastReceiver() {
         CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             try {
                 withTimeout(UPDATE_TIMEOUT_MS) {
-                    controller.installOrUpdateWatchFace()
+                    val todayColor = runCatching {
+                        context.resources.openRawResource(R.raw.liturgical_calendar).use { stream ->
+                            LiturgicalRepository.loadFromStream(stream).dayForDate(LocalDate.now())?.color
+                        }
+                    }.getOrNull() ?: LiturgicalColor.GREEN
+                    controller.installOrUpdateWatchFace(todayColor)
                 }
             } catch (_: Exception) {
                 // Best-effort update; users can also update/activate from the main screen.

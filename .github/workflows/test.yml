@@ -116,7 +116,7 @@ jobs:
       - name: Run Wear OS unit tests, golden tests, and assemble APKs
         if: steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: ./app/android
-        run: ./gradlew :wear:testProdDebugUnitTest :wear:assembleProdDebug :watchface:assembleProdDebug
+        run: ./gradlew :wear:testProdDebugUnitTest :wear:assembleProdDebug :watchface:assembleProdGreenDebug
 
       - name: Upload Wear OS golden failure diffs
         if: failure() && (steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch')

@@ -1,11 +1,13 @@
 <resources>
     <string name="watchface_name">Twelve Stars</string>
     <string name="watchface_color_label">Liturgical Theme</string>
+    <string name="color_liturgical_auto">Liturgical (Auto)</string>
     <string name="color_marian_blue">Marian Blue</string>
     <string name="color_liturgical_green">Ordinary Time Green</string>
     <string name="color_liturgical_purple">Advent &amp; Lent Violet</string>
     <string name="color_liturgical_red">Martyr &amp; Pentecost Red</string>
     <string name="color_liturgical_gold">Feast White &amp; Gold</string>
-    <string name="complication_slot_top_name">Top Liturgical Slot</string>
-    <string name="complication_slot_bottom_name">Bottom Rosary Slot</string>
+    <string name="complication_slot_top_name">Date &amp; Liturgical Day</string>
+    <string name="complication_slot_bottom_name">Rosary Mystery</string>
+    <string name="complication_slot_gospel_name">Today\'s Gospel</string>
 </resources>

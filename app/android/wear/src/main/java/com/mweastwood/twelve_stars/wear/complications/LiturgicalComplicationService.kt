@@ -18,8 +18,16 @@ import com.mweastwood.twelve_stars.wear.R
 import com.mweastwood.twelve_stars.wear.data.LiturgicalDayInfo
 import com.mweastwood.twelve_stars.wear.data.LiturgicalRepository
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 internal object LiturgicalComplicationFormatter {
+    private val shortDateFormatter = DateTimeFormatter.ofPattern("EEE, MMM d", Locale.US)
+
+    fun formatDateTitle(date: LocalDate): String {
+        return date.format(shortDateFormatter)
+    }
+
     fun formatSeasonTitle(dayInfo: LiturgicalDayInfo?): String {
         return dayInfo?.seasonName?.takeIf { it.isNotBlank() } ?: "Twelve Stars"
     }
@@ -44,8 +52,8 @@ class LiturgicalComplicationService : SuspendingComplicationDataSourceService() 
     override fun getPreviewData(type: ComplicationType): ComplicationData? {
         return buildComplicationData(
             type = type,
-            title = "Advent",
-            text = "1st Sunday",
+            title = "Sun, Nov 29",
+            text = "1st Sunday of Advent",
             tapAction = null,
         )
     }
@@ -60,7 +68,7 @@ class LiturgicalComplicationService : SuspendingComplicationDataSourceService() 
 
         return buildComplicationData(
             type = request.complicationType,
-            title = LiturgicalComplicationFormatter.formatSeasonTitle(dayInfo),
+            title = LiturgicalComplicationFormatter.formatDateTitle(today),
             text = LiturgicalComplicationFormatter.formatDayText(dayInfo),
             tapAction = createLaunchPendingIntent(this),
         )

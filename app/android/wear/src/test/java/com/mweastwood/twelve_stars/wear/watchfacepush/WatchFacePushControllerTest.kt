@@ -2,6 +2,7 @@ package com.mweastwood.twelve_stars.wear.watchfacepush
 
 import android.os.ParcelFileDescriptor
 import androidx.wear.watchfacepush.WatchFacePushManager
+import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -97,23 +98,31 @@ class WatchFacePushControllerTest {
     }
 
     @Test
-    fun installAndActivate_addsNewWatchFaceAndActivates() = runBlocking {
+    fun installAndActivate_addsNewWatchFaceWithRequestedColorAndActivates() = runBlocking {
         val manager = FakeWatchFacePushManager()
         var cleanedUp = false
+        var openedColor: LiturgicalColor? = null
         val controller = WatchFacePushController(
             managerProvider = { manager },
             isSupportedCheck = { true },
-            validationTokenProvider = { "valid-token:123" },
-            openApkFd = { openTempFd { cleanedUp = true } },
+            validationTokenProvider = { color -> "token-${color.name.lowercase()}" },
+            openApkFd = { color ->
+                openedColor = color
+                openTempFd { cleanedUp = true }
+            },
         )
 
-        val outcome = controller.installAndActivate(canSetActive = true)
+        val outcome = controller.installAndActivate(
+            canSetActive = true,
+            color = LiturgicalColor.PURPLE,
+        )
 
         assertEquals(WatchFacePushOutcome.Activated, outcome)
+        assertEquals(LiturgicalColor.PURPLE, openedColor)
         assertEquals(1, manager.addCalls)
         assertEquals(0, manager.updateCalls)
         assertEquals(1, manager.setActiveCalls)
-        assertEquals("valid-token:123", manager.lastToken)
+        assertEquals("token-purple", manager.lastToken)
         assertTrue(cleanedUp)
         assertTrue(controller.isBundledWatchFaceActive())
     }
@@ -146,6 +155,39 @@ class WatchFacePushControllerTest {
         assertEquals(1, manager.updateCalls)
         assertEquals("slot-existing", manager.lastUpdatedSlotId)
         assertEquals(0, manager.setActiveCalls)
+    }
+
+    @Test
+    fun syncColorIfInstalled_updatesExistingSlotWithNewColor() = runBlocking {
+        val existing = WatchFacePushManager.WatchFaceDetails(
+            slotId = "slot-1",
+            versionCode = 1L,
+            packageName = "com.mweastwood.twelve_stars.watchfacepush.twelve_stars",
+            getMetaDataFunc = { emptyList() },
+        )
+        val manager = FakeWatchFacePushManager(
+            installed = mutableListOf(existing),
+            remainingSlots = 0,
+        )
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { color -> "token-${color.name.lowercase()}" },
+            openApkFd = { openTempFd {} },
+        )
+
+        assertTrue(controller.syncColorIfInstalled(LiturgicalColor.RED))
+        assertEquals(1, manager.updateCalls)
+        assertEquals("token-red", manager.lastToken)
+    }
+
+    @Test
+    fun themeKeyAndAssetName_mapAllLiturgicalColors() {
+        assertEquals("watchface_green.apk", WatchFacePushController.assetNameForColor(LiturgicalColor.GREEN))
+        assertEquals("watchface_purple.apk", WatchFacePushController.assetNameForColor(LiturgicalColor.PURPLE))
+        assertEquals("watchface_purple.apk", WatchFacePushController.assetNameForColor(LiturgicalColor.ROSE))
+        assertEquals("watchface_red.apk", WatchFacePushController.assetNameForColor(LiturgicalColor.RED))
+        assertEquals("watchface_white.apk", WatchFacePushController.assetNameForColor(LiturgicalColor.WHITE))
     }
 
     @Test

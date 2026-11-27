@@ -25,7 +25,19 @@ plugins {
 abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
     @get:InputFile
     @get:PathSensitive(PathSensitivity.NONE)
-    abstract val watchFaceApk: RegularFileProperty
+    abstract val greenWatchFaceApk: RegularFileProperty
+
+    @get:InputFile
+    @get:PathSensitive(PathSensitivity.NONE)
+    abstract val purpleWatchFaceApk: RegularFileProperty
+
+    @get:InputFile
+    @get:PathSensitive(PathSensitivity.NONE)
+    abstract val redWatchFaceApk: RegularFileProperty
+
+    @get:InputFile
+    @get:PathSensitive(PathSensitivity.NONE)
+    abstract val whiteWatchFaceApk: RegularFileProperty
 
     @get:Classpath
     abstract val validatorClasspath: ConfigurableFileCollection
@@ -41,39 +53,15 @@ abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
 
     @TaskAction
     fun prepare() {
-        val apkFile = watchFaceApk.get().asFile
-        if (!apkFile.exists()) {
-            throw GradleException("Watch face APK not found at ${apkFile.absolutePath}")
-        }
-
         val validatorJar = validatorClasspath.files.firstOrNull {
             it.name.startsWith("validator-push-cli") && it.extension == "jar"
         } ?: throw GradleException("Could not resolve validator-push-cli jar from watchFaceValidator configuration")
 
         val javaBin = File(System.getProperty("java.home"), "bin/java").absolutePath
-        val command = listOf(
-            javaBin,
-            "-jar",
-            validatorJar.absolutePath,
-            "--apk_path=${apkFile.absolutePath}",
-            "--package_name=${callerPackageName.get()}",
-        )
+        val assetsDir = assetsOutputDir.get().asFile
+        assetsDir.mkdirs()
 
-        val process = ProcessBuilder(command)
-            .redirectErrorStream(true)
-            .start()
-        val output = process.inputStream.bufferedReader().use { it.readText() }
-        val exitCode = process.waitFor()
-
-        val tokenMatch = Regex("""generated token:\s*(\S+)""").find(output)
-        if (exitCode != 0 || !output.contains("Validation is successful") || tokenMatch == null) {
-            throw GradleException(
-                "Watch Face Push validation failed for ${apkFile.name} (package=${callerPackageName.get()}, exitCode=$exitCode):\n$output",
-            )
-        }
-
-        val rawToken = tokenMatch.groupValues[1]
-        val escapedToken = rawToken
+        fun escapeXmlString(raw: String): String = raw
             .replace("\\", "\\\\")
             .replace("&", "&amp;")
             .replace("<", "&lt;")
@@ -82,16 +70,51 @@ abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
             .replace("\"", "\\\"")
             .let { if (it.startsWith("@") || it.startsWith("?")) "\\$it" else it }
 
-        val assetsDir = assetsOutputDir.get().asFile
-        assetsDir.mkdirs()
-        apkFile.copyTo(File(assetsDir, "default_watchface.apk"), overwrite = true)
+        fun validateAndCopy(apkFile: File, assetName: String): String {
+            if (!apkFile.exists()) {
+                throw GradleException("Watch face APK not found at ${apkFile.absolutePath}")
+            }
+            val command = listOf(
+                javaBin,
+                "-jar",
+                validatorJar.absolutePath,
+                "--apk_path=${apkFile.absolutePath}",
+                "--package_name=${callerPackageName.get()}",
+            )
+            val process = ProcessBuilder(command)
+                .redirectErrorStream(true)
+                .start()
+            val output = process.inputStream.bufferedReader().use { it.readText() }
+            val exitCode = process.waitFor()
+
+            val tokenMatch = Regex("""generated token:\s*(\S+)""").find(output)
+            if (exitCode != 0 || !output.contains("Validation is successful") || tokenMatch == null) {
+                throw GradleException(
+                    "Watch Face Push validation failed for ${apkFile.name} (package=${callerPackageName.get()}, exitCode=$exitCode):\n$output",
+                )
+            }
+            apkFile.copyTo(File(assetsDir, assetName), overwrite = true)
+            return escapeXmlString(tokenMatch.groupValues[1])
+        }
+
+        val greenToken = validateAndCopy(greenWatchFaceApk.get().asFile, "watchface_green.apk")
+        val purpleToken = validateAndCopy(purpleWatchFaceApk.get().asFile, "watchface_purple.apk")
+        val redToken = validateAndCopy(redWatchFaceApk.get().asFile, "watchface_red.apk")
+        val whiteToken = validateAndCopy(whiteWatchFaceApk.get().asFile, "watchface_white.apk")
+
+        // Also provide default_watchface.apk for Wear OS 6+ automatic default watch face install.
+        greenWatchFaceApk.get().asFile.copyTo(File(assetsDir, "default_watchface.apk"), overwrite = true)
 
         val valuesDir = File(resOutputDir.get().asFile, "values")
         valuesDir.mkdirs()
         File(valuesDir, "watchface_push_token.xml").writeText(
             """<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_wf_token" translatable="false">$escapedToken</string>
+    <string name="default_wf_token" translatable="false">$greenToken</string>
+    <string name="wf_token_green" translatable="false">$greenToken</string>
+    <string name="wf_token_purple" translatable="false">$purpleToken</string>
+    <string name="wf_token_red" translatable="false">$redToken</string>
+    <string name="wf_token_white" translatable="false">$whiteToken</string>
 </resources>
 """,
         )
@@ -213,13 +236,21 @@ androidComponents {
         val variantCap = variant.name.replaceFirstChar { it.uppercase() }
         val watchFaceProject = project(":watchface")
 
+        fun themedApk(theme: String) = watchFaceProject.layout.buildDirectory.file(
+            "outputs/apk/${envFlavor}${theme.replaceFirstChar { it.uppercase() }}/release/watchface-$envFlavor-$theme-release.apk",
+        )
+
         val prepareTask = tasks.register<PrepareDefaultWatchFaceTask>("prepare${variantCap}DefaultWatchFace") {
-            dependsOn(":watchface:assemble${envCap}Release")
-            watchFaceApk.set(
-                watchFaceProject.layout.buildDirectory.file(
-                    "outputs/apk/$envFlavor/release/watchface-$envFlavor-release.apk",
-                ),
+            dependsOn(
+                ":watchface:assemble${envCap}GreenRelease",
+                ":watchface:assemble${envCap}PurpleRelease",
+                ":watchface:assemble${envCap}RedRelease",
+                ":watchface:assemble${envCap}WhiteRelease",
             )
+            greenWatchFaceApk.set(themedApk("green"))
+            purpleWatchFaceApk.set(themedApk("purple"))
+            redWatchFaceApk.set(themedApk("red"))
+            whiteWatchFaceApk.set(themedApk("white"))
             validatorClasspath.from(watchFaceValidator)
             callerPackageName.set(variant.applicationId)
         }
@@ -244,15 +275,17 @@ kotlin {
 val wearRawDir = layout.projectDirectory.dir("src/main/res/raw").asFile
 val liturgicalJsonFile = File(wearRawDir, "liturgical_calendar.json")
 val rosaryJsonFile = File(wearRawDir, "rosary_data.json")
+val gospelJsonFile = File(wearRawDir, "gospel_data.json")
 val flutterAppDir = rootProject.projectDir.parentFile
 
 val generateWearData by tasks.registering {
     val calendarOut = liturgicalJsonFile
     val rosaryOut = rosaryJsonFile
+    val gospelOut = gospelJsonFile
     val appDir = flutterAppDir
 
     onlyIf {
-        !calendarOut.exists() || !rosaryOut.exists()
+        !calendarOut.exists() || !rosaryOut.exists() || !gospelOut.exists()
     }
 
     doLast {

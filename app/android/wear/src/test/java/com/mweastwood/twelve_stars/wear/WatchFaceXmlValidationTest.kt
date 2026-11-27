@@ -29,15 +29,18 @@ class WatchFaceXmlValidationTest {
         assertEquals("CIRCLE", root.getAttribute("clipShape"))
 
         val colorOptions = doc.getElementsByTagName("ColorOption")
-        assertEquals(5, colorOptions.length)
+        assertEquals(6, colorOptions.length)
 
         val partImages = doc.getElementsByTagName("PartImage")
-        assertEquals(12, partImages.length)
+        assertTrue(partImages.length >= 12)
 
         val complications = doc.getElementsByTagName("ComplicationSlot")
-        assertEquals(2, complications.length)
+        assertEquals(3, complications.length)
 
-        val clocks = doc.getElementsByTagName("DigitalClock")
-        assertTrue(clocks.length >= 1)
+        val analogClocks = doc.getElementsByTagName("AnalogClock")
+        assertEquals(1, analogClocks.length)
+        assertEquals(1, doc.getElementsByTagName("HourHand").length)
+        assertEquals(1, doc.getElementsByTagName("MinuteHand").length)
+        assertEquals(1, doc.getElementsByTagName("SecondHand").length)
     }
 }

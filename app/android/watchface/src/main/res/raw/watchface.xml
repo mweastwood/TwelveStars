@@ -3,14 +3,18 @@
     height="450"
     clipShape="CIRCLE">
 
-    <Metadata key="CLOCK_TYPE" value="DIGITAL" />
+    <Metadata key="CLOCK_TYPE" value="ANALOG" />
     <Metadata key="STEP_COUNT" value="false" />
 
     <UserConfigurations>
         <ColorConfiguration
             id="themeColor"
             displayName="@string/watchface_color_label"
-            defaultValue="marian_blue">
+            defaultValue="liturgical_auto">
+            <ColorOption
+                id="liturgical_auto"
+                displayName="@string/color_liturgical_auto"
+                colors="#FF1B5E20 #FFD4AF37 #FFE8F5E9" />
             <ColorOption
                 id="marian_blue"
                 displayName="@string/color_marian_blue"
@@ -35,7 +39,7 @@
     </UserConfigurations>
 
     <Scene backgroundColor="#FF000000">
-        <!-- Subtle radial accent disc in active mode -->
+        <!-- Liturgical accent disc in active mode (hidden in ambient for OPR compliance) -->
         <PartDraw x="15" y="15" width="420" height="420">
             <Variant mode="AMBIENT" target="alpha" value="0" />
             <Ellipse x="0" y="0" width="420" height="420">
@@ -43,7 +47,7 @@
             </Ellipse>
         </PartDraw>
 
-        <!-- Twelve Stars Marian Crown around the circular bezel -->
+        <!-- Twelve Stars Marian Crown doubling as the 12 analog hour indices -->
         <Group name="marian_crown" x="0" y="0" width="450" height="450">
             <PartImage x="215" y="18" width="20" height="20" pivotX="0.5" pivotY="0.5" tintColor="[CONFIGURATION.themeColor.1]">
                 <Image resource="ic_star_crown" />
@@ -83,14 +87,14 @@
             </PartImage>
         </Group>
 
-        <!-- Top Complication Slot (Liturgical Day) -->
+        <!-- Top Complication Slot: Today's Date & Liturgical Calendar Day together -->
         <ComplicationSlot
             slotId="1"
             name="@string/complication_slot_top_name"
             x="95"
-            y="84"
+            y="78"
             width="260"
-            height="56"
+            height="62"
             supportedTypes="SHORT_TEXT LONG_TEXT EMPTY"
             isCustomizable="TRUE">
             <DefaultProviderPolicy
@@ -98,16 +102,16 @@
                 defaultSystemProviderType="SHORT_TEXT"
                 primaryProvider="com.mweastwood.twelve_stars/com.mweastwood.twelve_stars.wear.complications.LiturgicalComplicationService"
                 primaryProviderType="SHORT_TEXT" />
-            <BoundingBox x="0" y="0" width="260" height="56" />
+            <BoundingBox x="0" y="0" width="260" height="62" />
             <Complication type="SHORT_TEXT">
-                <PartText x="0" y="6" width="260" height="24">
+                <PartText x="0" y="4" width="260" height="24">
                     <Text align="CENTER" ellipsis="TRUE">
                         <Font family="SYNC_TO_DEVICE" size="18" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
                             <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
-                <PartText x="0" y="30" width="260" height="24">
+                <PartText x="0" y="30" width="260" height="28">
                     <Text align="CENTER" ellipsis="TRUE">
                         <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
@@ -116,7 +120,14 @@
                 </PartText>
             </Complication>
             <Complication type="LONG_TEXT">
-                <PartText x="0" y="12" width="260" height="34">
+                <PartText x="0" y="4" width="260" height="24">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="18" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="30" width="260" height="28">
                     <Text align="CENTER" ellipsis="TRUE">
                         <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
@@ -126,36 +137,14 @@
             </Complication>
         </ComplicationSlot>
 
-        <!-- Central Digital Clock & Date -->
-        <DigitalClock x="45" y="156" width="360" height="106">
-            <TimeText
-                x="0"
-                y="0"
-                width="360"
-                height="86"
-                align="CENTER"
-                format="hh:mm"
-                hourFormat="SYNC_TO_DEVICE">
-                <Font family="SYNC_TO_DEVICE" size="78" weight="BOLD" color="#FFFFFFFF" />
-            </TimeText>
-        </DigitalClock>
-
-        <PartText x="75" y="252" width="300" height="32">
-            <Text align="CENTER">
-                <Font family="SYNC_TO_DEVICE" size="22" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
-                    <Template>%s %s %s<Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[MONTH_S]" /><Parameter expression="[DAY]" /></Template>
-                </Font>
-            </Text>
-        </PartText>
-
-        <!-- Bottom Complication Slot (Rosary Mystery) -->
+        <!-- Bottom-Left Complication Slot: Rosary Mystery (tap opens Rosary) -->
         <ComplicationSlot
             slotId="2"
             name="@string/complication_slot_bottom_name"
-            x="95"
-            y="302"
-            width="260"
-            height="56"
+            x="66"
+            y="270"
+            width="150"
+            height="58"
             supportedTypes="SHORT_TEXT EMPTY"
             isCustomizable="TRUE">
             <DefaultProviderPolicy
@@ -163,23 +152,92 @@
                 defaultSystemProviderType="EMPTY"
                 primaryProvider="com.mweastwood.twelve_stars/com.mweastwood.twelve_stars.wear.complications.RosaryComplicationService"
                 primaryProviderType="SHORT_TEXT" />
-            <BoundingBox x="0" y="0" width="260" height="56" />
+            <BoundingBox x="0" y="0" width="150" height="58" />
             <Complication type="SHORT_TEXT">
-                <PartText x="0" y="6" width="260" height="24">
+                <PartText x="0" y="6" width="150" height="22">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="16" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
+                        <Font family="SYNC_TO_DEVICE" size="15" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
                             <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
-                <PartText x="0" y="30" width="260" height="24">
+                <PartText x="0" y="28" width="150" height="24">
                     <Text align="CENTER" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="18" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
+                        <Font family="SYNC_TO_DEVICE" size="17" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
             </Complication>
         </ComplicationSlot>
+
+        <!-- Bottom-Right Complication Slot: Today's Gospel (tap opens Gospel reader) -->
+        <ComplicationSlot
+            slotId="3"
+            name="@string/complication_slot_gospel_name"
+            x="234"
+            y="270"
+            width="150"
+            height="58"
+            supportedTypes="SHORT_TEXT EMPTY"
+            isCustomizable="TRUE">
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="EMPTY"
+                primaryProvider="com.mweastwood.twelve_stars/com.mweastwood.twelve_stars.wear.complications.GospelComplicationService"
+                primaryProviderType="SHORT_TEXT" />
+            <BoundingBox x="0" y="0" width="150" height="58" />
+            <Complication type="SHORT_TEXT">
+                <PartText x="0" y="6" width="150" height="22">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="15" weight="BOLD" color="[CONFIGURATION.themeColor.1]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TITLE]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <PartText x="0" y="28" width="150" height="24">
+                    <Text align="CENTER" ellipsis="TRUE">
+                        <Font family="SYNC_TO_DEVICE" size="17" weight="NORMAL" color="[CONFIGURATION.themeColor.2]">
+                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
+
+        <!-- Analog Clock Hands sweeping above the dial -->
+        <AnalogClock x="0" y="0" width="450" height="450">
+            <HourHand
+                resource="hand_hour"
+                x="215"
+                y="107"
+                width="20"
+                height="140"
+                pivotX="0.5"
+                pivotY="0.8428" />
+            <MinuteHand
+                resource="hand_minute"
+                x="218"
+                y="63"
+                width="14"
+                height="186"
+                pivotX="0.5"
+                pivotY="0.871" />
+            <SecondHand
+                resource="hand_second"
+                x="221"
+                y="47"
+                width="8"
+                height="210"
+                pivotX="0.5"
+                pivotY="0.8476"
+                tintColor="[CONFIGURATION.themeColor.1]">
+                <Variant mode="AMBIENT" target="alpha" value="0" />
+            </SecondHand>
+        </AnalogClock>
+
+        <PartImage x="214" y="214" width="22" height="22" tintColor="[CONFIGURATION.themeColor.1]">
+            <Image resource="center_cap" />
+        </PartImage>
     </Scene>
 </WatchFace>

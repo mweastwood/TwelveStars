@@ -5,6 +5,7 @@ import android.os.ParcelFileDescriptor
 import androidx.wear.watchfacepush.WatchFacePushManager
 import androidx.wear.watchfacepush.WatchFacePushManagerFactory
 import com.mweastwood.twelve_stars.wear.R
+import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -19,13 +20,14 @@ sealed interface WatchFacePushOutcome {
 
 /**
  * Coordinates installing, updating, and activating the bundled Twelve Stars
- * Watch Face Format APK via Wear OS 6+ Watch Face Push.
+ * Watch Face Format APK via Wear OS 6+ Watch Face Push, defaulting the watch face
+ * theme to the current liturgical color.
  */
 class WatchFacePushController(
     private val managerProvider: () -> WatchFacePushManager,
     private val isSupportedCheck: () -> Boolean,
-    private val validationTokenProvider: () -> String,
-    private val openApkFd: () -> Pair<ParcelFileDescriptor, () -> Unit>,
+    private val validationTokenProvider: (LiturgicalColor) -> String,
+    private val openApkFd: (LiturgicalColor) -> Pair<ParcelFileDescriptor, () -> Unit>,
 ) {
     constructor(context: Context) : this(
         managerProvider = {
@@ -34,14 +36,15 @@ class WatchFacePushController(
         isSupportedCheck = {
             runCatching { WatchFacePushManagerFactory.isSupported() }.getOrDefault(false)
         },
-        validationTokenProvider = {
-            context.applicationContext.getString(R.string.default_wf_token)
+        validationTokenProvider = { color ->
+            context.applicationContext.getString(tokenResForColor(color))
         },
-        openApkFd = {
+        openApkFd = { color ->
             val appContext = context.applicationContext
+            val assetName = assetNameForColor(color)
             val tempFile = File.createTempFile("twelve_stars_wf_", ".apk", appContext.cacheDir)
             try {
-                appContext.assets.open(DEFAULT_WATCHFACE_ASSET).use { input ->
+                appContext.assets.open(assetName).use { input ->
                     tempFile.outputStream().use { output ->
                         input.copyTo(output)
                     }
@@ -74,15 +77,17 @@ class WatchFacePushController(
         }
     }
 
-    suspend fun installOrUpdateWatchFace(): WatchFacePushManager.WatchFaceDetails =
+    suspend fun installOrUpdateWatchFace(
+        color: LiturgicalColor = LiturgicalColor.GREEN,
+    ): WatchFacePushManager.WatchFaceDetails =
         withContext(Dispatchers.IO) {
             val manager = managerProvider()
-            val token = validationTokenProvider()
-            require(token.isNotBlank()) { "Default watch face validation token is blank" }
+            val token = validationTokenProvider(color)
+            require(token.isNotBlank()) { "Watch face validation token is blank" }
 
             val response = manager.listWatchFaces()
             val existing = response.installedWatchFaceDetails.firstOrNull()
-            val (pfd, cleanup) = openApkFd()
+            val (pfd, cleanup) = openApkFd(color)
             try {
                 when {
                     existing != null -> manager.updateWatchFace(existing.slotId, pfd, token)
@@ -94,14 +99,40 @@ class WatchFacePushController(
             }
         }
 
-    suspend fun installAndActivate(canSetActive: Boolean): WatchFacePushOutcome =
+    suspend fun syncColorIfInstalled(color: LiturgicalColor): Boolean =
+        withContext(Dispatchers.IO) {
+            if (!isSupported()) return@withContext false
+            try {
+                val manager = managerProvider()
+                val existing = manager.listWatchFaces().installedWatchFaceDetails.firstOrNull()
+                    ?: return@withContext false
+                val token = validationTokenProvider(color)
+                if (token.isBlank()) return@withContext false
+                val (pfd, cleanup) = openApkFd(color)
+                try {
+                    manager.updateWatchFace(existing.slotId, pfd, token)
+                    true
+                } finally {
+                    cleanup()
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                false
+            }
+        }
+
+    suspend fun installAndActivate(
+        canSetActive: Boolean,
+        color: LiturgicalColor = LiturgicalColor.GREEN,
+    ): WatchFacePushOutcome =
         withContext(Dispatchers.IO) {
             if (!isSupported()) {
                 return@withContext WatchFacePushOutcome.Failed("Requires Wear OS 6+")
             }
             try {
                 val manager = managerProvider()
-                val details = installOrUpdateWatchFace()
+                val details = installOrUpdateWatchFace(color)
                 if (manager.isWatchFaceActive(details.packageName)) {
                     return@withContext WatchFacePushOutcome.AlreadyActive
                 }
@@ -132,5 +163,22 @@ class WatchFacePushController(
         const val DEFAULT_WATCHFACE_ASSET = "default_watchface.apk"
         const val PERMISSION_SET_ACTIVE =
             "com.google.wear.permission.SET_PUSHED_WATCH_FACE_AS_ACTIVE"
+
+        fun themeKeyForColor(color: LiturgicalColor): String = when (color) {
+            LiturgicalColor.GREEN -> "green"
+            LiturgicalColor.PURPLE, LiturgicalColor.ROSE -> "purple"
+            LiturgicalColor.RED -> "red"
+            LiturgicalColor.WHITE -> "white"
+        }
+
+        fun assetNameForColor(color: LiturgicalColor): String =
+            "watchface_${themeKeyForColor(color)}.apk"
+
+        fun tokenResForColor(color: LiturgicalColor): Int = when (color) {
+            LiturgicalColor.GREEN -> R.string.wf_token_green
+            LiturgicalColor.PURPLE, LiturgicalColor.ROSE -> R.string.wf_token_purple
+            LiturgicalColor.RED -> R.string.wf_token_red
+            LiturgicalColor.WHITE -> R.string.wf_token_white
+        }
     }
 }
