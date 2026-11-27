@@ -20,6 +20,7 @@ class WatchFacePushControllerTest {
         var remainingSlots: Int = 1,
         var activePackageName: String? = null,
         var failAdd: Boolean = false,
+        var failSetActiveWithSecurityException: Boolean = false,
     ) : WatchFacePushManager {
         var addCalls = 0
         var updateCalls = 0
@@ -77,6 +78,9 @@ class WatchFacePushControllerTest {
 
         override suspend fun setWatchFaceAsActive(slotId: String) {
             setActiveCalls++
+            if (failSetActiveWithSecurityException) {
+                throw SecurityException("Missing SET_PUSHED_WATCH_FACE_AS_ACTIVE")
+            }
             activePackageName = installed.firstOrNull { it.slotId == slotId }?.packageName
         }
     }
@@ -159,6 +163,57 @@ class WatchFacePushControllerTest {
         assertEquals(WatchFacePushOutcome.InstalledPickInGallery, outcome)
         assertEquals(1, manager.addCalls)
         assertEquals(0, manager.setActiveCalls)
+    }
+
+    @Test
+    fun installAndActivate_fallsBackToGalleryOnSecurityException() = runBlocking {
+        val manager = FakeWatchFacePushManager(failSetActiveWithSecurityException = true)
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "token-1" },
+            openApkFd = { openTempFd {} },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = true)
+
+        assertEquals(WatchFacePushOutcome.InstalledPickInGallery, outcome)
+        assertEquals(1, manager.addCalls)
+        assertEquals(1, manager.setActiveCalls)
+    }
+
+    @Test
+    fun installAndActivate_failsWhenNoSlotsAvailable() = runBlocking {
+        val manager = FakeWatchFacePushManager(remainingSlots = 0)
+        var cleanedUp = false
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "token-1" },
+            openApkFd = { openTempFd { cleanedUp = true } },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = true)
+
+        assertTrue(outcome is WatchFacePushOutcome.Failed)
+        assertTrue(cleanedUp)
+        assertEquals(0, manager.addCalls)
+    }
+
+    @Test
+    fun installAndActivate_failsWhenValidationTokenIsBlank() = runBlocking {
+        val manager = FakeWatchFacePushManager()
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "   " },
+            openApkFd = { openTempFd {} },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = true)
+
+        assertTrue(outcome is WatchFacePushOutcome.Failed)
+        assertEquals(0, manager.addCalls)
     }
 
     @Test

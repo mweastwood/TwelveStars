@@ -5,6 +5,7 @@ import android.os.ParcelFileDescriptor
 import androidx.wear.watchfacepush.WatchFacePushManager
 import androidx.wear.watchfacepush.WatchFacePushManagerFactory
 import com.mweastwood.twelve_stars.wear.R
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -39,15 +40,20 @@ class WatchFacePushController(
         openApkFd = {
             val appContext = context.applicationContext
             val tempFile = File.createTempFile("twelve_stars_wf_", ".apk", appContext.cacheDir)
-            appContext.assets.open(DEFAULT_WATCHFACE_ASSET).use { input ->
-                tempFile.outputStream().use { output ->
-                    input.copyTo(output)
+            try {
+                appContext.assets.open(DEFAULT_WATCHFACE_ASSET).use { input ->
+                    tempFile.outputStream().use { output ->
+                        input.copyTo(output)
+                    }
                 }
-            }
-            val pfd = ParcelFileDescriptor.open(tempFile, ParcelFileDescriptor.MODE_READ_ONLY)
-            pfd to {
-                runCatching { pfd.close() }
+                val pfd = ParcelFileDescriptor.open(tempFile, ParcelFileDescriptor.MODE_READ_ONLY)
+                pfd to {
+                    runCatching { pfd.close() }
+                    tempFile.delete()
+                }
+            } catch (e: Exception) {
                 tempFile.delete()
+                throw e
             }
         },
     )
@@ -56,12 +62,16 @@ class WatchFacePushController(
 
     suspend fun isBundledWatchFaceActive(): Boolean = withContext(Dispatchers.IO) {
         if (!isSupported()) return@withContext false
-        runCatching {
+        try {
             val manager = managerProvider()
             val details = manager.listWatchFaces().installedWatchFaceDetails.firstOrNull()
-                ?: return@runCatching false
+                ?: return@withContext false
             manager.isWatchFaceActive(details.packageName)
-        }.getOrDefault(false)
+        } catch (e: CancellationException) {
+            throw e
+        } catch (_: Exception) {
+            false
+        }
     }
 
     suspend fun installOrUpdateWatchFace(): WatchFacePushManager.WatchFaceDetails =
@@ -104,7 +114,11 @@ class WatchFacePushController(
                 } catch (_: WatchFacePushManager.SetWatchFaceAsActiveException) {
                     // System limits automatic activation; the watch face is installed in the gallery.
                     WatchFacePushOutcome.InstalledPickInGallery
+                } catch (_: SecurityException) {
+                    WatchFacePushOutcome.InstalledPickInGallery
                 }
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
                 WatchFacePushOutcome.Failed(e.message ?: "Unable to install watch face")
             }

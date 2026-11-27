@@ -6,6 +6,7 @@ import org.gradle.api.file.ConfigurableFileCollection
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.Property
+import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
@@ -20,6 +21,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+@CacheableTask
 abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
     @get:InputFile
     @get:PathSensitive(PathSensitivity.NONE)
@@ -70,10 +72,15 @@ abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
             )
         }
 
-        val token = tokenMatch.groupValues[1]
+        val rawToken = tokenMatch.groupValues[1]
+        val escapedToken = rawToken
+            .replace("\\", "\\\\")
             .replace("&", "&amp;")
             .replace("<", "&lt;")
             .replace(">", "&gt;")
+            .replace("'", "\\'")
+            .replace("\"", "\\\"")
+            .let { if (it.startsWith("@") || it.startsWith("?")) "\\$it" else it }
 
         val assetsDir = assetsOutputDir.get().asFile
         assetsDir.mkdirs()
@@ -84,7 +91,7 @@ abstract class PrepareDefaultWatchFaceTask : DefaultTask() {
         File(valuesDir, "watchface_push_token.xml").writeText(
             """<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="default_wf_token" translatable="false">$token</string>
+    <string name="default_wf_token" translatable="false">$escapedToken</string>
 </resources>
 """,
         )
@@ -153,24 +160,27 @@ android {
         }
     }
 
+    val hasReleaseSigning = System.getenv("ANDROID_KEYSTORE_PATH") != null ||
+        rootProject.file("key.properties").exists()
+
     signingConfigs {
-        create("release") {
-            val storeFileEnv = System.getenv("ANDROID_KEYSTORE_PATH")
-            if (storeFileEnv != null) {
-                val envFile = File(storeFileEnv)
-                storeFile = if (envFile.isAbsolute) {
-                    envFile
+        if (hasReleaseSigning) {
+            create("release") {
+                val storeFileEnv = System.getenv("ANDROID_KEYSTORE_PATH")
+                if (storeFileEnv != null) {
+                    val envFile = File(storeFileEnv)
+                    storeFile = if (envFile.isAbsolute) {
+                        envFile
+                    } else {
+                        val appRelative = rootProject.file("app/$storeFileEnv")
+                        if (appRelative.exists()) appRelative else rootProject.file(storeFileEnv)
+                    }
+                    storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                    keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+                    keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+                        ?: System.getenv("ANDROID_KEYSTORE_PASSWORD")
                 } else {
-                    val appRelative = rootProject.file("app/$storeFileEnv")
-                    if (appRelative.exists()) appRelative else rootProject.file(storeFileEnv)
-                }
-                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
-                keyAlias = System.getenv("ANDROID_KEY_ALIAS")
-                keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
-                    ?: System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            } else {
-                val keystorePropertiesFile = rootProject.file("key.properties")
-                if (keystorePropertiesFile.exists()) {
+                    val keystorePropertiesFile = rootProject.file("key.properties")
                     val properties = Properties().apply {
                         keystorePropertiesFile.inputStream().use { load(it) }
                     }
@@ -182,12 +192,6 @@ android {
                     storePassword = properties.getProperty("storePassword")
                     keyAlias = properties.getProperty("keyAlias")
                     keyPassword = properties.getProperty("keyPassword")
-                } else {
-                    val debugConfig = signingConfigs.getByName("debug")
-                    storeFile = debugConfig.storeFile
-                    storePassword = debugConfig.storePassword
-                    keyAlias = debugConfig.keyAlias
-                    keyPassword = debugConfig.keyPassword
                 }
             }
         }
@@ -195,7 +199,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName(if (hasReleaseSigning) "release" else "debug")
             isMinifyEnabled = true
             isShrinkResources = true
         }

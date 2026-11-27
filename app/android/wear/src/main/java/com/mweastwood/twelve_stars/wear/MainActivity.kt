@@ -43,6 +43,7 @@ import com.mweastwood.twelve_stars.wear.data.RosaryRepository
 import com.mweastwood.twelve_stars.wear.ui.WearRosaryScreen
 import com.mweastwood.twelve_stars.wear.watchfacepush.WatchFacePushController
 import com.mweastwood.twelve_stars.wear.watchfacepush.WatchFacePushOutcome
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 
@@ -51,11 +52,13 @@ class MainActivity : ComponentActivity() {
     private var rosaryRepository: RosaryRepository? = null
     private lateinit var watchFacePushController: WatchFacePushController
     private var currentDate: LocalDate? = null
+    private var refreshStatusJob: Job? = null
     private var todayInfoState by mutableStateOf<LiturgicalDayInfo?>(null)
     private var showRosaryState by mutableStateOf(false)
     private var watchFaceSupportedState by mutableStateOf(false)
     private var watchFaceBusyState by mutableStateOf(false)
-    private var watchFaceButtonLabelState by mutableStateOf("Set Watch Face")
+    private var watchFaceActiveState by mutableStateOf(false)
+    private var watchFaceButtonLabelState by mutableStateOf(LABEL_SET_WATCH_FACE)
 
     private val setActivePermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -114,7 +117,9 @@ class MainActivity : ComponentActivity() {
                         } else {
                             null
                         },
-                        onSetWatchFace = if (watchFaceSupportedState && !watchFaceBusyState) {
+                        onSetWatchFace = if (
+                            watchFaceSupportedState && !watchFaceBusyState && !watchFaceActiveState
+                        ) {
                             { onSetWatchFaceClicked() }
                         } else {
                             null
@@ -154,14 +159,18 @@ class MainActivity : ComponentActivity() {
 
     private fun refreshWatchFaceStatus() {
         if (!watchFaceSupportedState || watchFaceBusyState) return
-        lifecycleScope.launch {
+        refreshStatusJob?.cancel()
+        refreshStatusJob = lifecycleScope.launch {
             val active = watchFacePushController.isBundledWatchFaceActive()
-            watchFaceButtonLabelState = if (active) "Watch Face Active" else "Set Watch Face"
+            if (!watchFaceBusyState) {
+                watchFaceActiveState = active
+                watchFaceButtonLabelState = if (active) LABEL_WATCH_FACE_ACTIVE else LABEL_SET_WATCH_FACE
+            }
         }
     }
 
     private fun onSetWatchFaceClicked() {
-        if (watchFaceBusyState) return
+        if (watchFaceBusyState || watchFaceActiveState) return
         val hasPermission = ContextCompat.checkSelfPermission(
             this,
             WatchFacePushController.PERMISSION_SET_ACTIVE,
@@ -174,25 +183,41 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun runWatchFaceInstall(canSetActive: Boolean) {
+        refreshStatusJob?.cancel()
         watchFaceBusyState = true
-        watchFaceButtonLabelState = "Setting..."
+        watchFaceButtonLabelState = LABEL_SETTING_WATCH_FACE
         lifecycleScope.launch {
-            watchFaceButtonLabelState = when (
-                watchFacePushController.installAndActivate(canSetActive = canSetActive)
-            ) {
-                WatchFacePushOutcome.Activated,
-                WatchFacePushOutcome.AlreadyActive,
-                -> "Watch Face Active"
-                WatchFacePushOutcome.InstalledPickInGallery -> "Added to Picker"
-                is WatchFacePushOutcome.Failed -> "Retry Watch Face"
+            try {
+                when (watchFacePushController.installAndActivate(canSetActive = canSetActive)) {
+                    WatchFacePushOutcome.Activated,
+                    WatchFacePushOutcome.AlreadyActive,
+                    -> {
+                        watchFaceActiveState = true
+                        watchFaceButtonLabelState = LABEL_WATCH_FACE_ACTIVE
+                    }
+                    WatchFacePushOutcome.InstalledPickInGallery -> {
+                        watchFaceActiveState = false
+                        watchFaceButtonLabelState = LABEL_ADDED_TO_PICKER
+                    }
+                    is WatchFacePushOutcome.Failed -> {
+                        watchFaceActiveState = false
+                        watchFaceButtonLabelState = LABEL_RETRY_WATCH_FACE
+                    }
+                }
+            } finally {
+                watchFaceBusyState = false
             }
-            watchFaceBusyState = false
         }
     }
 
     companion object {
         const val EXTRA_OPEN_ROSARY = "extra_open_rosary"
         private const val STATE_SHOW_ROSARY = "state_show_rosary"
+        private const val LABEL_SET_WATCH_FACE = "Set Watch Face"
+        private const val LABEL_SETTING_WATCH_FACE = "Setting..."
+        private const val LABEL_WATCH_FACE_ACTIVE = "Watch Face Active"
+        private const val LABEL_ADDED_TO_PICKER = "Added to Picker"
+        private const val LABEL_RETRY_WATCH_FACE = "Retry Watch Face"
     }
 }
 
@@ -210,13 +235,14 @@ fun WearTodayScreen(
     val mysteryLabel = dayInfo?.rosaryMystery
         ?.takeIf { it.isNotBlank() }
         ?.replaceFirstChar { it.uppercase() }
+    val bottomPadding = if (watchFaceButtonLabel != null) 24.dp else 14.dp
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 24.dp, vertical = 14.dp),
+            .padding(start = 24.dp, end = 24.dp, top = 14.dp, bottom = bottomPadding),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
