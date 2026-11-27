@@ -222,3 +222,89 @@ jobs:
           releaseFiles: app/build/app/outputs/bundle/prodRelease/app-prod-release.aab
           track: internal
           status: completed
+
+  deploy_prod_wear_google_play:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify Secrets
+        run: |
+          if [ -z "${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWELVE_STARS_PROD }}" ]; then
+            echo "ERROR: FIREBASE_SERVICE_ACCOUNT_TWELVE_STARS_PROD is empty or not configured in GitHub Secrets!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" ]; then
+            echo "ERROR: ANDROID_KEYSTORE_BASE64 is empty or not configured in GitHub Secrets!"
+            exit 1
+          fi
+
+      - name: Parse Version from Git Tag
+        run: |
+          TAG="${{ github.ref_name }}"
+          VERSION="${TAG#v}"
+          IFS='.' read -r -a parts <<< "$VERSION"
+          major="${parts[0]:-0}"
+          minor="${parts[1]:-0}"
+          patch="${parts[2]:-0}"
+          major=$(echo "$major" | grep -oE '^[0-9]+' || echo 0)
+          minor=$(echo "$minor" | grep -oE '^[0-9]+' || echo 0)
+          patch=$(echo "$patch" | grep -oE '^[0-9]+' || echo 0)
+          VERSION_CODE=$((major * 1000000 + minor * 10000 + patch))
+          WEAR_VERSION_CODE=$((100000000 + VERSION_CODE))
+          VERSION_NAME="${major}.${minor}.${patch}"
+          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
+          echo "WEAR_VERSION_CODE=$WEAR_VERSION_CODE" >> $GITHUB_ENV
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install dependencies and compile Wear OS data
+        run: |
+          flutter pub get
+          dart run bin/assemble_db.dart
+          dart run bin/assemble_wear_data.dart --out-dir=android/wear/src/main/res/raw
+          flutter build apk --config-only --flavor prod
+
+      - name: Decode Android Keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/release.keystore
+
+      - name: Build Wear OS & Watch Face AppBundles
+        working-directory: ./app/android
+        run: ./gradlew :wear:bundleProdRelease :watchface:bundleProdRelease -PwearVersionCode=$WEAR_VERSION_CODE -PwearVersionName=$VERSION_NAME -PwatchfaceVersionCode=$WEAR_VERSION_CODE -PwatchfaceVersionName=$VERSION_NAME
+        env:
+          ANDROID_KEYSTORE_PATH: "release.keystore"
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+
+      - name: Upload Wear OS & Watch Face AppBundle artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wear-prod-release-aabs
+          path: |
+            app/build/wear/outputs/bundle/prodRelease/wear-prod-release.aab
+            app/build/watchface/outputs/bundle/prodRelease/watchface-prod-release.aab
+
+      - name: Upload Wear OS to Google Play (wear:internal track)
+        if: ${{ vars.WEAR_OS_PLAY_UPLOAD_ENABLED == 'true' }}
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWELVE_STARS_PROD }}
+          packageName: "com.mweastwood.twelve_stars"
+          releaseFiles: app/build/wear/outputs/bundle/prodRelease/wear-prod-release.aab
+          track: wear:internal
+          status: completed

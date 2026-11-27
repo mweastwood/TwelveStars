@@ -69,3 +69,59 @@ jobs:
       - name: Run CPDV generator tests
         if: steps.filter.outputs.scripts == 'true'
         run: python3 -m unittest discover app/assets/bible/cpdv/scripts
+
+  test-wear:
+    name: Wear OS Tests & Goldens (Kotlin)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            wear:
+              - 'app/android/wear/**'
+              - 'app/android/watchface/**'
+              - 'app/android/build.gradle.kts'
+              - 'app/android/settings.gradle.kts'
+              - 'app/bin/assemble_wear_data.dart'
+              - 'app/bin/assemble_db.dart'
+              - 'app/lib/logic/liturgical_calendar_core.dart'
+              - 'app/lib/logic/rosary_helper.dart'
+              - '.github/workflows/test.yml'
+
+      - name: Set up Java
+        if: steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        if: steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch'
+        with:
+          channel: 'stable'
+
+      - name: Install Flutter dependencies and generate Wear OS data
+        if: steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch'
+        working-directory: ./app
+        run: |
+          flutter pub get
+          dart run bin/assemble_db.dart
+          dart run bin/assemble_wear_data.dart --out-dir=android/wear/src/main/res/raw
+          flutter build apk --config-only --flavor dev
+
+      - name: Run Wear OS unit tests, golden tests, and assemble APKs
+        if: steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch'
+        working-directory: ./app/android
+        run: ./gradlew :wear:testProdDebugUnitTest :wear:assembleProdDebug :watchface:assembleProdDebug
+
+      - name: Upload Wear OS golden failure diffs
+        if: failure() && (steps.filter.outputs.wear == 'true' || github.event_name == 'workflow_dispatch')
+        uses: actions/upload-artifact@v4
+        with:
+          name: wear-golden-failures
+          path: app/android/wear/build/outputs/roborazzi/
+          if-no-files-found: ignore

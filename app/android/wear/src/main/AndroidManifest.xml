@@ -15,14 +15,6 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <property
-            android:name="com.google.wear.watchface.format.version"
-            android:value="1" />
-
-        <property
-            android:name="com.google.wear.watchface.format.watch_face_info"
-            android:resource="@xml/watch_face_info" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
