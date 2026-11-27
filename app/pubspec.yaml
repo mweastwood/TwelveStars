@@ -88,6 +88,7 @@ flutter:
   assets:
     - assets/prayers.json
     - assets/saints.json
+    - assets/saints/
     - assets/bible/cpdv/usfm/
     - assets/bible/drc/usfm/
     - assets/bible/jun/usfm/
