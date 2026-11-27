@@ -300,7 +300,6 @@ jobs:
             app/build/watchface/outputs/bundle/prodRelease/watchface-prod-release.aab
 
       - name: Upload Wear OS to Google Play (wear:internal track)
-        if: ${{ vars.WEAR_OS_PLAY_UPLOAD_ENABLED == 'true' }}
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TWELVE_STARS_PROD }}
