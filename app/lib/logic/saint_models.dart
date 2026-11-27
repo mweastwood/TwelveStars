@@ -329,6 +329,7 @@ class Saint {
   final String? patronage; // e.g. "Students, Academics, Theologians"
   final String? summary; // Short historical biographical context
   final String? gender; // 'male', 'female', or 'group'
+  final String? wikipediaUrl; // Canonical English Wikipedia article URL
   final SaintEmbedding? embedding; // Multi-dimensional spiritual feature vector
   final bool _hasPrecomputedFields;
   final int? _cachedApproximateYear;
@@ -348,6 +349,7 @@ class Saint {
     this.patronage,
     this.summary,
     this.gender,
+    this.wikipediaUrl,
     this.embedding,
   }) : _explicitCategories = categories,
        _hasPrecomputedFields = false,
@@ -368,6 +370,7 @@ class Saint {
     this.patronage,
     this.summary,
     this.gender,
+    this.wikipediaUrl,
     this.embedding,
     required int? approximateYear,
     required List<({int month, int day})> feastDates,
@@ -630,6 +633,7 @@ class Saint {
       patronage: json['patronage'] as String?,
       summary: json['summary'] as String?,
       gender: json['gender'] as String?,
+      wikipediaUrl: json['wikipediaUrl'] as String?,
       embedding:
           json['embedding'] != null && json['embedding'] is Map<String, dynamic>
           ? SaintEmbedding.fromJson(json['embedding'] as Map<String, dynamic>)
@@ -655,6 +659,7 @@ class Saint {
       if (feastDay != null) 'feastDay': feastDay,
       if (patronage != null) 'patronage': patronage,
       if (summary != null) 'summary': summary,
+      if (wikipediaUrl != null) 'wikipediaUrl': wikipediaUrl,
       if (embedding != null) 'embedding': embedding!.toJson(),
     };
   }

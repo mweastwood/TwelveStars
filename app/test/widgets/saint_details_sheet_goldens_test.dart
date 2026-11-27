@@ -17,6 +17,7 @@ Saint _makeSaint({
   String? summary,
   bool isDoctor = true,
   String? gender = 'male',
+  String? wikipediaUrl = 'https://en.wikipedia.org/wiki/Thomas_Aquinas',
   List<SaintCategory> categories = const [
     SaintCategory.doctor,
     SaintCategory.priest,
@@ -36,6 +37,7 @@ Saint _makeSaint({
         'Thomas Aquinas was an Italian Dominican friar and priest, an influential philosopher, theologian, and jurist in the tradition of scholasticism, within which he is also known as the "Doctor Angelicus" (the Angelic Doctor) and "Doctor Communis" (the Common Doctor). He is considered the foremost Western thinker, combining the theological principles of faith with the philosophical principles of reason.',
     isDoctor: isDoctor,
     gender: gender,
+    wikipediaUrl: wikipediaUrl,
     categories: categories,
   );
 }
@@ -171,6 +173,38 @@ void main() {
         await screenMatchesGolden(
           tester,
           'saint_details_sheet_ot_prophet_golden',
+        );
+      },
+    );
+
+    testGoldens(
+      'renders SaintDetailsSheet scrolled to show Read on Wikipedia button',
+      (tester) async {
+        final saint = _makeSaint();
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: SaintDetailsSheet(saint: saint)),
+          wrapper: materialAppWrapper(
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color(0xFF1E3A8A),
+                brightness: Brightness.light,
+              ),
+              useMaterial3: true,
+            ),
+          ),
+          surfaceSize: const Size(450, 800),
+        );
+        await tester.pumpAndSettle();
+
+        final wikiButton = find.byKey(const Key('saint_wikipedia_link_button'));
+        expect(wikiButton, findsOneWidget);
+        await tester.ensureVisible(wikiButton);
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'saint_details_sheet_wikipedia_link_golden',
         );
       },
     );
