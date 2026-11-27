@@ -1,11 +1,12 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
+import 'package:twelve_stars/widgets/saints/saint_sprite.dart';
 import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Modal bottom sheet widget displaying detailed biographical, liturgical,
 /// and patronage information for a [Saint].
-class SaintDetailsSheet extends StatelessWidget {
+class SaintDetailsSheet extends StatefulWidget {
   final Saint saint;
 
   const SaintDetailsSheet({super.key, required this.saint});
@@ -22,6 +23,13 @@ class SaintDetailsSheet extends StatelessWidget {
     );
   }
 
+  @override
+  State<SaintDetailsSheet> createState() => _SaintDetailsSheetState();
+}
+
+class _SaintDetailsSheetState extends State<SaintDetailsSheet> {
+  int _selectedSpriteIndex = 0;
+
   Future<void> _openWikipedia(String url) async {
     final uri = Uri.tryParse(url);
     if (uri == null) return;
@@ -29,8 +37,20 @@ class SaintDetailsSheet extends StatelessWidget {
   }
 
   @override
+  void didUpdateWidget(covariant SaintDetailsSheet oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.saint.id != widget.saint.id) {
+      _selectedSpriteIndex = 0;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final saint = widget.saint;
+    final variants = saint.spriteVariants;
+    final activeVariant =
+        variants[_selectedSpriteIndex.clamp(0, variants.length - 1)];
 
     return DraggableScrollableSheet(
       initialChildSize: 0.6,
@@ -60,85 +80,99 @@ class SaintDetailsSheet extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: saint.categoryColor(theme).withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: saint
-                            .categoryColor(theme)
-                            .withValues(alpha: 0.3),
-                        width: 1,
-                      ),
-                    ),
-                    child: Icon(
-                      saint.categoryIcon,
-                      color: saint.categoryColor(theme),
-                      size: 22,
-                    ),
+                  SaintSpriteAvatar(
+                    saint: saint,
+                    assetPath: activeVariant.assetPath,
+                    size: 72,
+                    imageSize: 64,
+                    borderRadius: 16,
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 14),
                   Expanded(
-                    child: Text(
-                      saint.name,
-                      style: theme.textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                  if (saint.isDoctor)
-                    Tooltip(
-                      message: 'Doctor of the Church',
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.amber.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Colors.amber.shade700,
-                            width: 1,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 16,
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              'Doctor',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.amber.shade900,
+                            Expanded(
+                              child: Text(
+                                saint.name,
+                                style: theme.textTheme.headlineSmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                ),
                               ),
                             ),
+                            if (saint.isDoctor) ...[
+                              const SizedBox(width: 8),
+                              Tooltip(
+                                message: 'Doctor of the Church',
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.amber.withValues(alpha: 0.2),
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      color: Colors.amber.shade700,
+                                      width: 1,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                        size: 16,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        'Doctor',
+                                        style: theme.textTheme.labelSmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.amber.shade900,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ],
                         ),
-                      ),
+                        if (saint.hasMultipleSprites) ...[
+                          const SizedBox(height: 2),
+                          Text(
+                            activeVariant.label,
+                            key: const Key('saint_active_sprite_label'),
+                            style: theme.textTheme.labelLarge?.copyWith(
+                              color: saint.categoryColor(theme),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                        if (saint.dateRange.isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            saint.dateRange,
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ],
+                      ],
                     ),
+                  ),
                 ],
               ),
-              if (saint.dateRange.isNotEmpty) ...[
-                const SizedBox(height: 4),
-                Text(
-                  saint.dateRange,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ],
               if (saint.categories.isNotEmpty) ...[
-                const SizedBox(height: 8),
+                const SizedBox(height: 12),
                 Wrap(
                   spacing: 6,
                   runSpacing: 6,
@@ -175,6 +209,10 @@ class SaintDetailsSheet extends StatelessWidget {
                     );
                   }).toList(),
                 ),
+              ],
+              if (saint.hasMultipleSprites) ...[
+                const SizedBox(height: 16),
+                _buildSpriteGallery(context, saint, variants),
               ],
               const SizedBox(height: 16),
               const Divider(),
@@ -263,6 +301,112 @@ class SaintDetailsSheet extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildSpriteGallery(
+    BuildContext context,
+    Saint saint,
+    List<SaintSpriteVariant> variants,
+  ) {
+    final theme = Theme.of(context);
+    final catColor = saint.categoryColor(theme);
+
+    return Column(
+      key: Key('saint_sprite_gallery_${saint.id}'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Marian Titles',
+          style: theme.textTheme.titleSmall?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.primary,
+          ),
+        ),
+        const SizedBox(height: 8),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            const spacing = 8.0;
+            const columns = 3;
+            final tileWidth =
+                (constraints.maxWidth - spacing * (columns - 1)) / columns;
+
+            return Wrap(
+              spacing: spacing,
+              runSpacing: spacing,
+              children: List.generate(variants.length, (index) {
+                final variant = variants[index];
+                final isSelected = index == _selectedSpriteIndex;
+
+                return SizedBox(
+                  width: tileWidth,
+                  child: Material(
+                    color: isSelected
+                        ? catColor.withValues(alpha: 0.16)
+                        : theme.colorScheme.surfaceContainerHighest.withValues(
+                            alpha: 0.4,
+                          ),
+                    borderRadius: BorderRadius.circular(12),
+                    child: InkWell(
+                      key: Key('saint_sprite_variant_$index'),
+                      borderRadius: BorderRadius.circular(12),
+                      onTap: () {
+                        setState(() {
+                          _selectedSpriteIndex = index;
+                        });
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 6,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: isSelected
+                                ? catColor
+                                : theme.colorScheme.outlineVariant.withValues(
+                                    alpha: 0.5,
+                                  ),
+                            width: isSelected ? 1.5 : 1,
+                          ),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SaintSpriteImage(
+                              assetPath: variant.assetPath,
+                              size: 48,
+                              fallbackIcon: saint.categoryIcon,
+                              fallbackColor: catColor,
+                              fallbackIconSize: 24,
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              variant.displayLabel,
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                fontWeight: isSelected
+                                    ? FontWeight.bold
+                                    : FontWeight.w500,
+                                color: isSelected
+                                    ? catColor
+                                    : theme.colorScheme.onSurfaceVariant,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            );
+          },
+        ),
+      ],
     );
   }
 

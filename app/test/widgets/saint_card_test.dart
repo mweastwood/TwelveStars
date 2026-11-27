@@ -295,46 +295,108 @@ void main() {
     });
 
     group('Category Pills and Leading Avatar', () {
-      testWidgets('renders leading avatar with categoryIcon and theme tint', (
-        WidgetTester tester,
-      ) async {
-        await tester.pumpWidget(
-          buildTestableWidget(
-            child: const Scaffold(body: SaintCard(saint: baseSaint)),
-          ),
-        );
+      testWidgets(
+        'renders leading pixel-art sprite avatar with theme tint for bundled saint',
+        (WidgetTester tester) async {
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: const Scaffold(body: SaintCard(saint: baseSaint)),
+            ),
+          );
+          await tester.pumpAndSettle();
 
-        final theme = Theme.of(tester.element(find.byType(SaintCard)));
-        final expectedColor = baseSaint.categoryColor(theme);
+          final theme = Theme.of(tester.element(find.byType(SaintCard)));
+          final expectedColor = baseSaint.categoryColor(theme);
 
-        // Find avatar container (width 44, height 44)
-        final avatarContainers = tester.widgetList<Container>(
-          find.byWidgetPredicate(
-            (w) =>
-                w is Container &&
-                w.constraints?.minWidth == 44 &&
-                w.constraints?.minHeight == 44,
-          ),
-        );
-        expect(avatarContainers, isNotEmpty);
-        final avatar = avatarContainers.first;
-        final decoration = avatar.decoration as BoxDecoration;
-        expect(decoration.color, expectedColor.withValues(alpha: 0.15));
-        expect(
-          decoration.border?.top.color,
-          expectedColor.withValues(alpha: 0.3),
-        );
+          final avatarFinder = find.byKey(
+            const Key('saint_sprite_avatar_thomas-aquinas'),
+          );
+          expect(avatarFinder, findsOneWidget);
 
-        // The leading avatar icon should match saint.categoryIcon
-        final iconFinder = find.descendant(
-          of: find.byWidget(avatar),
-          matching: find.byIcon(baseSaint.categoryIcon),
-        );
-        expect(iconFinder, findsOneWidget);
-        final iconWidget = tester.widget<Icon>(iconFinder);
-        expect(iconWidget.color, expectedColor);
-        expect(iconWidget.size, 22);
-      });
+          final avatar = tester.widget<Container>(avatarFinder);
+          final decoration = avatar.decoration as BoxDecoration;
+          expect(decoration.color, expectedColor.withValues(alpha: 0.15));
+          expect(
+            decoration.border?.top.color,
+            expectedColor.withValues(alpha: 0.3),
+          );
+
+          final imageFinder = find.descendant(
+            of: avatarFinder,
+            matching: find.byType(Image),
+          );
+          expect(imageFinder, findsOneWidget);
+          final imageWidget = tester.widget<Image>(imageFinder);
+          expect(imageWidget.filterQuality, FilterQuality.none);
+          expect(imageWidget.isAntiAlias, isFalse);
+        },
+      );
+
+      testWidgets(
+        'falls back to categoryIcon when saint sprite asset does not exist',
+        (WidgetTester tester) async {
+          const syntheticSaint = Saint(
+            id: 'synthetic-missing-sprite',
+            name: 'St. Synthetic',
+            nationality: 'Testland',
+            profession: 'Tester',
+            categories: [SaintCategory.martyr],
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: const Scaffold(body: SaintCard(saint: syntheticSaint)),
+            ),
+          );
+          await tester.pumpAndSettle();
+
+          final avatarFinder = find.byKey(
+            const Key('saint_sprite_avatar_synthetic-missing-sprite'),
+          );
+          expect(avatarFinder, findsOneWidget);
+
+          final iconFinder = find.descendant(
+            of: avatarFinder,
+            matching: find.byIcon(syntheticSaint.categoryIcon),
+          );
+          expect(iconFinder, findsOneWidget);
+        },
+      );
+
+      testWidgets(
+        'renders all 6 Marian sprites in a thumbnail strip for Mary',
+        (WidgetTester tester) async {
+          const mary = Saint(
+            id: 'mary-mother-of-god',
+            name: 'Blessed Virgin Mary (Our Lady)',
+            nationality: 'Judean / Heavenly',
+            profession: 'Mother of God (Theotokos)',
+            categories: [
+              SaintCategory.holyFamily,
+              SaintCategory.virgin,
+              SaintCategory.mystic,
+            ],
+          );
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: const Scaffold(body: SaintCard(saint: mary)),
+            ),
+          );
+          await tester.pumpAndSettle();
+
+          final stripFinder = find.byKey(
+            const Key('saint_card_sprite_strip_mary-mother-of-god'),
+          );
+          expect(stripFinder, findsOneWidget);
+
+          final stripImages = find.descendant(
+            of: stripFinder,
+            matching: find.byType(Image),
+          );
+          expect(stripImages, findsNWidgets(6));
+        },
+      );
 
       testWidgets(
         'renders category pills for all categories in canonical order',

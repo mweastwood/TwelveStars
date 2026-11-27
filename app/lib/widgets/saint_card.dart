@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/theme/app_theme_tokens.dart';
 import 'package:twelve_stars/widgets/saint_details_sheet.dart';
+import 'package:twelve_stars/widgets/saints/saint_sprite.dart';
 import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 
 /// Card-based presentation for a [Saint] aligning with the prayer card aesthetic.
@@ -34,23 +35,11 @@ class SaintCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 1. Header: Icon Avatar + Saint Name & Badges + Chevron
+              // 1. Header: Pixel-Art Avatar + Saint Name & Badges + Chevron
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    width: 44,
-                    height: 44,
-                    decoration: BoxDecoration(
-                      color: catColor.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: catColor.withValues(alpha: 0.3),
-                        width: 1,
-                      ),
-                    ),
-                    child: Icon(saint.categoryIcon, color: catColor, size: 22),
-                  ),
+                  SaintSpriteAvatar(saint: saint, size: 44, imageSize: 32),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -154,6 +143,40 @@ class SaintCard extends StatelessWidget {
                   ),
                 ],
               ),
+
+              if (saint.hasMultipleSprites) ...[
+                const SizedBox(height: 10),
+                Wrap(
+                  key: Key('saint_card_sprite_strip_${saint.id}'),
+                  spacing: 6,
+                  runSpacing: 6,
+                  children: saint.spriteVariants.map((variant) {
+                    return Tooltip(
+                      message: variant.label,
+                      child: Container(
+                        width: 38,
+                        height: 38,
+                        decoration: BoxDecoration(
+                          color: catColor.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: catColor.withValues(alpha: 0.25),
+                            width: 1,
+                          ),
+                        ),
+                        alignment: Alignment.center,
+                        child: SaintSpriteImage(
+                          assetPath: variant.assetPath,
+                          size: 32,
+                          fallbackIcon: saint.categoryIcon,
+                          fallbackColor: catColor,
+                          fallbackIconSize: 18,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ],
 
               const SizedBox(height: 10),
 
