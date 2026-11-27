@@ -6,6 +6,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
+import 'package:twelve_stars/widgets/saints/saint_sprite.dart';
 import 'package:twelve_stars/widgets/saints/saint_ui_extensions.dart';
 
 void main() {
@@ -733,6 +734,33 @@ void main() {
             reason: 'Duplicate wikipediaUrl found for ${saint.id}: $wikiUrl',
           );
         }
+      },
+    );
+
+    test(
+      'every saint maps to bundled PNG sprite file(s) and Mary has 6 Marian variants',
+      () async {
+        final saints = await SaintDatabase.loadSaints();
+        for (final saint in saints) {
+          final variants = saint.spriteVariants;
+          expect(
+            variants,
+            isNotEmpty,
+            reason: 'Saint ${saint.id} must have at least one sprite variant',
+          );
+          for (final variant in variants) {
+            expect(
+              File(variant.assetPath).existsSync(),
+              isTrue,
+              reason:
+                  'Missing sprite file for ${saint.id}: ${variant.assetPath}',
+            );
+          }
+        }
+
+        final mary = saints.firstWhere((s) => s.id == 'mary-mother-of-god');
+        expect(mary.hasMultipleSprites, isTrue);
+        expect(mary.spriteVariants.length, equals(6));
       },
     );
 

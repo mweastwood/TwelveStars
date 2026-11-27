@@ -208,5 +208,59 @@ void main() {
         );
       },
     );
+
+    testGoldens(
+      'renders SaintDetailsSheet for Mary with all 6 Marian sprites and switches active portrait on tap',
+      (tester) async {
+        final mary = _makeSaint(
+          id: 'mary-mother-of-god',
+          name: 'Blessed Virgin Mary (Our Lady)',
+          birthDate: 'c. 20 BC',
+          deathDate: 'c. 48 AD',
+          nationality: 'Judean / Heavenly',
+          profession:
+              'Mother of God (Theotokos), Spouse of the Holy Spirit & Queen of All Saints',
+          feastDay: 'January 1 / August 15 / December 8',
+          patronage:
+              'All Humanity, The Catholic Church, Mothers, Pro-Life, The Americas (Our Lady of Guadalupe)',
+          summary:
+              'The Mother of Jesus Christ and Mother of God (Theotokos). Conceived without original sin and assumed body and soul into heavenly glory, she is the Queen of Heaven and Queen of All Saints.',
+          isDoctor: false,
+          gender: 'female',
+          wikipediaUrl: 'https://en.wikipedia.org/wiki/Mary%2C_mother_of_Jesus',
+          categories: const [
+            SaintCategory.holyFamily,
+            SaintCategory.virgin,
+            SaintCategory.mystic,
+          ],
+        );
+
+        await tester.pumpWidgetBuilder(
+          Scaffold(body: SaintDetailsSheet(saint: mary)),
+          wrapper: materialAppWrapper(
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color(0xFF1E3A8A),
+                brightness: Brightness.light,
+              ),
+              useMaterial3: true,
+            ),
+          ),
+          surfaceSize: const Size(450, 900),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Marian Titles'), findsOneWidget);
+        expect(find.text('Our Lady of Grace'), findsOneWidget);
+
+        // Tap Our Lady of Guadalupe (index 2) to verify header portrait updates
+        await tester.tap(find.byKey(const Key('saint_sprite_variant_2')));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Our Lady of Guadalupe'), findsOneWidget);
+
+        await screenMatchesGolden(tester, 'saint_details_sheet_mary_golden');
+      },
+    );
   });
 }
