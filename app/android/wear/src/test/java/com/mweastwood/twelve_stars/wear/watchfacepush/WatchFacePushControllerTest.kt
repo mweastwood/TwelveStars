@@ -1,0 +1,195 @@
+package com.mweastwood.twelve_stars.wear.watchfacepush
+
+import android.os.ParcelFileDescriptor
+import androidx.wear.watchfacepush.WatchFacePushManager
+import kotlinx.coroutines.runBlocking
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
+import java.io.File
+
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [34])
+class WatchFacePushControllerTest {
+    private class FakeWatchFacePushManager(
+        var installed: MutableList<WatchFacePushManager.WatchFaceDetails> = mutableListOf(),
+        var remainingSlots: Int = 1,
+        var activePackageName: String? = null,
+        var failAdd: Boolean = false,
+    ) : WatchFacePushManager {
+        var addCalls = 0
+        var updateCalls = 0
+        var setActiveCalls = 0
+        var lastToken: String? = null
+        var lastUpdatedSlotId: String? = null
+
+        override suspend fun listWatchFaces(): WatchFacePushManager.ListWatchFacesResponse =
+            WatchFacePushManager.ListWatchFacesResponse(installed.toList(), remainingSlots)
+
+        override suspend fun removeWatchFace(slotId: String) {
+            installed.removeAll { it.slotId == slotId }
+            remainingSlots++
+        }
+
+        override suspend fun addWatchFace(
+            apkFd: ParcelFileDescriptor,
+            validationToken: String,
+        ): WatchFacePushManager.WatchFaceDetails {
+            addCalls++
+            lastToken = validationToken
+            if (failAdd) throw IllegalStateException("Simulated add failure")
+            val details = WatchFacePushManager.WatchFaceDetails(
+                slotId = "slot-1",
+                versionCode = 1L,
+                packageName = "com.mweastwood.twelve_stars.watchfacepush.twelve_stars",
+                getMetaDataFunc = { emptyList() },
+            )
+            installed.add(details)
+            remainingSlots = (remainingSlots - 1).coerceAtLeast(0)
+            return details
+        }
+
+        override suspend fun updateWatchFace(
+            slotId: String,
+            apkFd: ParcelFileDescriptor,
+            validationToken: String,
+        ): WatchFacePushManager.WatchFaceDetails {
+            updateCalls++
+            lastToken = validationToken
+            lastUpdatedSlotId = slotId
+            val updated = WatchFacePushManager.WatchFaceDetails(
+                slotId = slotId,
+                versionCode = 2L,
+                packageName = "com.mweastwood.twelve_stars.watchfacepush.twelve_stars",
+                getMetaDataFunc = { emptyList() },
+            )
+            installed.removeAll { it.slotId == slotId }
+            installed.add(updated)
+            return updated
+        }
+
+        override suspend fun isWatchFaceActive(watchfacePackageName: String): Boolean =
+            activePackageName == watchfacePackageName
+
+        override suspend fun setWatchFaceAsActive(slotId: String) {
+            setActiveCalls++
+            activePackageName = installed.firstOrNull { it.slotId == slotId }?.packageName
+        }
+    }
+
+    private fun openTempFd(onCleanup: () -> Unit): Pair<ParcelFileDescriptor, () -> Unit> {
+        val temp = File.createTempFile("wf_test_", ".apk")
+        temp.writeBytes(byteArrayOf(1, 2, 3))
+        val pfd = ParcelFileDescriptor.open(temp, ParcelFileDescriptor.MODE_READ_ONLY)
+        return pfd to {
+            runCatching { pfd.close() }
+            temp.delete()
+            onCleanup()
+        }
+    }
+
+    @Test
+    fun installAndActivate_addsNewWatchFaceAndActivates() = runBlocking {
+        val manager = FakeWatchFacePushManager()
+        var cleanedUp = false
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "valid-token:123" },
+            openApkFd = { openTempFd { cleanedUp = true } },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = true)
+
+        assertEquals(WatchFacePushOutcome.Activated, outcome)
+        assertEquals(1, manager.addCalls)
+        assertEquals(0, manager.updateCalls)
+        assertEquals(1, manager.setActiveCalls)
+        assertEquals("valid-token:123", manager.lastToken)
+        assertTrue(cleanedUp)
+        assertTrue(controller.isBundledWatchFaceActive())
+    }
+
+    @Test
+    fun installAndActivate_updatesExistingSlotAndSkipsActivationWhenAlreadyActive() = runBlocking {
+        val pkg = "com.mweastwood.twelve_stars.watchfacepush.twelve_stars"
+        val existing = WatchFacePushManager.WatchFaceDetails(
+            slotId = "slot-existing",
+            versionCode = 1L,
+            packageName = pkg,
+            getMetaDataFunc = { emptyList() },
+        )
+        val manager = FakeWatchFacePushManager(
+            installed = mutableListOf(existing),
+            remainingSlots = 0,
+            activePackageName = pkg,
+        )
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "token-v2" },
+            openApkFd = { openTempFd {} },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = true)
+
+        assertEquals(WatchFacePushOutcome.AlreadyActive, outcome)
+        assertEquals(0, manager.addCalls)
+        assertEquals(1, manager.updateCalls)
+        assertEquals("slot-existing", manager.lastUpdatedSlotId)
+        assertEquals(0, manager.setActiveCalls)
+    }
+
+    @Test
+    fun installAndActivate_installsToGalleryWhenPermissionNotGranted() = runBlocking {
+        val manager = FakeWatchFacePushManager()
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "token-1" },
+            openApkFd = { openTempFd {} },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = false)
+
+        assertEquals(WatchFacePushOutcome.InstalledPickInGallery, outcome)
+        assertEquals(1, manager.addCalls)
+        assertEquals(0, manager.setActiveCalls)
+    }
+
+    @Test
+    fun installAndActivate_returnsFailedAndCleansUpWhenAddThrows() = runBlocking {
+        val manager = FakeWatchFacePushManager(failAdd = true)
+        var cleanedUp = false
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { true },
+            validationTokenProvider = { "token-1" },
+            openApkFd = { openTempFd { cleanedUp = true } },
+        )
+
+        val outcome = controller.installAndActivate(canSetActive = true)
+
+        assertTrue(outcome is WatchFacePushOutcome.Failed)
+        assertTrue(cleanedUp)
+    }
+
+    @Test
+    fun isSupportedFalse_returnsFailedAndNotActive() = runBlocking {
+        val manager = FakeWatchFacePushManager()
+        val controller = WatchFacePushController(
+            managerProvider = { manager },
+            isSupportedCheck = { false },
+            validationTokenProvider = { "token-1" },
+            openApkFd = { openTempFd {} },
+        )
+
+        assertFalse(controller.isBundledWatchFaceActive())
+        assertTrue(controller.installAndActivate(canSetActive = true) is WatchFacePushOutcome.Failed)
+        assertEquals(0, manager.addCalls)
+    }
+}

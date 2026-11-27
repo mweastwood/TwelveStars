@@ -1,10 +1,12 @@
 package com.mweastwood.twelve_stars.wear
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,6 +30,8 @@ import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.CompactChip
 import androidx.wear.compose.material.MaterialTheme
@@ -37,17 +41,32 @@ import com.mweastwood.twelve_stars.wear.data.LiturgicalDayInfo
 import com.mweastwood.twelve_stars.wear.data.LiturgicalRepository
 import com.mweastwood.twelve_stars.wear.data.RosaryRepository
 import com.mweastwood.twelve_stars.wear.ui.WearRosaryScreen
+import com.mweastwood.twelve_stars.wear.watchfacepush.WatchFacePushController
+import com.mweastwood.twelve_stars.wear.watchfacepush.WatchFacePushOutcome
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 class MainActivity : ComponentActivity() {
     private var liturgicalRepository: LiturgicalRepository? = null
     private var rosaryRepository: RosaryRepository? = null
+    private lateinit var watchFacePushController: WatchFacePushController
     private var currentDate: LocalDate? = null
     private var todayInfoState by mutableStateOf<LiturgicalDayInfo?>(null)
     private var showRosaryState by mutableStateOf(false)
+    private var watchFaceSupportedState by mutableStateOf(false)
+    private var watchFaceBusyState by mutableStateOf(false)
+    private var watchFaceButtonLabelState by mutableStateOf("Set Watch Face")
+
+    private val setActivePermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        runWatchFaceInstall(canSetActive = granted)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        watchFacePushController = WatchFacePushController(this)
+        watchFaceSupportedState = watchFacePushController.isSupported()
         liturgicalRepository = runCatching {
             resources.openRawResource(R.raw.liturgical_calendar).use { stream ->
                 LiturgicalRepository.loadFromStream(stream)
@@ -90,6 +109,16 @@ class MainActivity : ComponentActivity() {
                         } else {
                             null
                         },
+                        watchFaceButtonLabel = if (watchFaceSupportedState) {
+                            watchFaceButtonLabelState
+                        } else {
+                            null
+                        },
+                        onSetWatchFace = if (watchFaceSupportedState && !watchFaceBusyState) {
+                            { onSetWatchFaceClicked() }
+                        } else {
+                            null
+                        },
                     )
                 }
             }
@@ -112,6 +141,7 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         refreshTodayIfNeeded()
+        refreshWatchFaceStatus()
     }
 
     private fun refreshTodayIfNeeded() {
@@ -119,6 +149,44 @@ class MainActivity : ComponentActivity() {
         if (today != currentDate) {
             currentDate = today
             todayInfoState = liturgicalRepository?.dayForDate(today)
+        }
+    }
+
+    private fun refreshWatchFaceStatus() {
+        if (!watchFaceSupportedState || watchFaceBusyState) return
+        lifecycleScope.launch {
+            val active = watchFacePushController.isBundledWatchFaceActive()
+            watchFaceButtonLabelState = if (active) "Watch Face Active" else "Set Watch Face"
+        }
+    }
+
+    private fun onSetWatchFaceClicked() {
+        if (watchFaceBusyState) return
+        val hasPermission = ContextCompat.checkSelfPermission(
+            this,
+            WatchFacePushController.PERMISSION_SET_ACTIVE,
+        ) == PackageManager.PERMISSION_GRANTED
+        if (hasPermission) {
+            runWatchFaceInstall(canSetActive = true)
+        } else {
+            setActivePermissionLauncher.launch(WatchFacePushController.PERMISSION_SET_ACTIVE)
+        }
+    }
+
+    private fun runWatchFaceInstall(canSetActive: Boolean) {
+        watchFaceBusyState = true
+        watchFaceButtonLabelState = "Setting..."
+        lifecycleScope.launch {
+            watchFaceButtonLabelState = when (
+                watchFacePushController.installAndActivate(canSetActive = canSetActive)
+            ) {
+                WatchFacePushOutcome.Activated,
+                WatchFacePushOutcome.AlreadyActive,
+                -> "Watch Face Active"
+                WatchFacePushOutcome.InstalledPickInGallery -> "Added to Picker"
+                is WatchFacePushOutcome.Failed -> "Retry Watch Face"
+            }
+            watchFaceBusyState = false
         }
     }
 
@@ -132,6 +200,8 @@ class MainActivity : ComponentActivity() {
 fun WearTodayScreen(
     dayInfo: LiturgicalDayInfo?,
     onPrayRosary: (() -> Unit)? = null,
+    watchFaceButtonLabel: String? = null,
+    onSetWatchFace: (() -> Unit)? = null,
 ) {
     val accentColor = Color((dayInfo?.color ?: LiturgicalColor.GREEN).hexArgb)
     val readableAccent = lerp(accentColor, Color.White, 0.35f)
@@ -195,6 +265,24 @@ fun WearTodayScreen(
                 },
                 colors = ChipDefaults.primaryChipColors(
                     backgroundColor = accentColor,
+                    contentColor = Color.White,
+                ),
+            )
+        }
+        if (watchFaceButtonLabel != null) {
+            Spacer(modifier = Modifier.height(2.dp))
+            CompactChip(
+                onClick = { onSetWatchFace?.invoke() },
+                enabled = onSetWatchFace != null,
+                label = {
+                    Text(
+                        text = watchFaceButtonLabel,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                },
+                colors = ChipDefaults.secondaryChipColors(
+                    backgroundColor = Color(0xFF1F2937),
                     contentColor = Color.White,
                 ),
             )

@@ -10,11 +10,27 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.mweastwood.twelve_stars.watchface"
+        applicationId = "com.mweastwood.twelve_stars.watchfacepush.twelve_stars"
         minSdk = 33
         targetSdk = 35
         versionCode = (project.findProperty("watchfaceVersionCode") as String?)?.toIntOrNull() ?: 1
         versionName = (project.findProperty("watchfaceVersionName") as String?) ?: "1.0.0"
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+
+    packaging {
+        resources {
+            excludes += listOf(
+                "META-INF/*.version",
+                "META-INF/androidx.*",
+                "kotlin-tooling-metadata.json",
+                "DebugProbesKt.bin",
+            )
+        }
     }
 
     flavorDimensions += "env"
@@ -22,11 +38,12 @@ android {
     productFlavors {
         create("dev") {
             dimension = "env"
-            applicationIdSuffix = ".dev"
+            applicationId = "com.mweastwood.twelve_stars.dev.watchfacepush.twelve_stars"
             resValue("string", "watchface_app_name", "Twelve Stars Watch Face (Dev)")
         }
         create("prod") {
             dimension = "env"
+            applicationId = "com.mweastwood.twelve_stars.watchfacepush.twelve_stars"
             resValue("string", "watchface_app_name", "Twelve Stars Watch Face")
         }
     }
@@ -76,6 +93,9 @@ android {
             signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = false
+            vcsInfo {
+                include = false
+            }
         }
     }
 }
