@@ -63,4 +63,3 @@ To run the application locally, make sure you have the Flutter SDK installed and
    cd app/android
    ./gradlew :wear:testProdDebugUnitTest -Droborazzi.test.record=true
    ```
-   To enable automated Google Play `wear:internal` uploads in `deploy_prod.yml`, opt into the **Wear OS** form factor in Google Play Console and set the repository Actions variable `WEAR_OS_PLAY_UPLOAD_ENABLED=true`.
