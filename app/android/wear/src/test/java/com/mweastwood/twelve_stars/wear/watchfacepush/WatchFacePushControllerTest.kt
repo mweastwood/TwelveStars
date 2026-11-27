@@ -160,7 +160,7 @@ class WatchFacePushControllerTest {
 
         val outcome = controller.installAndActivate(canSetActive = false)
 
-        assertEquals(WatchFacePushOutcome.InstalledPickInGallery, outcome)
+        assertTrue(outcome is WatchFacePushOutcome.InstalledPickInGallery)
         assertEquals(1, manager.addCalls)
         assertEquals(0, manager.setActiveCalls)
     }
@@ -177,7 +177,7 @@ class WatchFacePushControllerTest {
 
         val outcome = controller.installAndActivate(canSetActive = true)
 
-        assertEquals(WatchFacePushOutcome.InstalledPickInGallery, outcome)
+        assertTrue(outcome is WatchFacePushOutcome.InstalledPickInGallery)
         assertEquals(1, manager.addCalls)
         assertEquals(1, manager.setActiveCalls)
     }

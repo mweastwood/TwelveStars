@@ -13,7 +13,7 @@ import java.io.File
 sealed interface WatchFacePushOutcome {
     data object Activated : WatchFacePushOutcome
     data object AlreadyActive : WatchFacePushOutcome
-    data object InstalledPickInGallery : WatchFacePushOutcome
+    data class InstalledPickInGallery(val detail: String? = null) : WatchFacePushOutcome
     data class Failed(val reason: String) : WatchFacePushOutcome
 }
 
@@ -106,19 +106,23 @@ class WatchFacePushController(
                     return@withContext WatchFacePushOutcome.AlreadyActive
                 }
                 if (!canSetActive) {
-                    return@withContext WatchFacePushOutcome.InstalledPickInGallery
+                    return@withContext WatchFacePushOutcome.InstalledPickInGallery("Permission denied")
                 }
                 try {
                     manager.setWatchFaceAsActive(details.slotId)
                     WatchFacePushOutcome.Activated
-                } catch (_: WatchFacePushManager.SetWatchFaceAsActiveException) {
+                } catch (e: WatchFacePushManager.SetWatchFaceAsActiveException) {
                     // System limits automatic activation; the watch face is installed in the gallery.
-                    WatchFacePushOutcome.InstalledPickInGallery
+                    WatchFacePushOutcome.InstalledPickInGallery("Set active code ${e.errorCode}")
                 } catch (_: SecurityException) {
-                    WatchFacePushOutcome.InstalledPickInGallery
+                    WatchFacePushOutcome.InstalledPickInGallery("Set active permission")
                 }
             } catch (e: CancellationException) {
                 throw e
+            } catch (e: WatchFacePushManager.AddWatchFaceException) {
+                WatchFacePushOutcome.Failed("Add error ${e.errorCode}")
+            } catch (e: WatchFacePushManager.UpdateWatchFaceException) {
+                WatchFacePushOutcome.Failed("Update error ${e.errorCode}")
             } catch (e: Exception) {
                 WatchFacePushOutcome.Failed(e.message ?: "Unable to install watch face")
             }

@@ -1,6 +1,5 @@
 <WatchFaceInfo>
-    <Preview value="@mipmap/ic_launcher" />
-    <Category value="CATEGORY_EMPTY" />
-    <AvailableInRetail value="false" />
+    <Preview value="@drawable/preview" />
     <MultipleInstancesAllowed value="true" />
+    <Editable value="true" />
 </WatchFaceInfo>

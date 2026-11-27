@@ -59,6 +59,7 @@ class MainActivity : ComponentActivity() {
     private var watchFaceBusyState by mutableStateOf(false)
     private var watchFaceActiveState by mutableStateOf(false)
     private var watchFaceButtonLabelState by mutableStateOf(LABEL_SET_WATCH_FACE)
+    private var watchFaceStatusDetailState by mutableStateOf<String?>(null)
 
     private val setActivePermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -117,6 +118,11 @@ class MainActivity : ComponentActivity() {
                         } else {
                             null
                         },
+                        watchFaceStatusDetail = if (watchFaceSupportedState) {
+                            watchFaceStatusDetailState
+                        } else {
+                            null
+                        },
                         onSetWatchFace = if (
                             watchFaceSupportedState && !watchFaceBusyState && !watchFaceActiveState
                         ) {
@@ -165,6 +171,9 @@ class MainActivity : ComponentActivity() {
             if (!watchFaceBusyState) {
                 watchFaceActiveState = active
                 watchFaceButtonLabelState = if (active) LABEL_WATCH_FACE_ACTIVE else LABEL_SET_WATCH_FACE
+                if (active) {
+                    watchFaceStatusDetailState = null
+                }
             }
         }
     }
@@ -186,22 +195,26 @@ class MainActivity : ComponentActivity() {
         refreshStatusJob?.cancel()
         watchFaceBusyState = true
         watchFaceButtonLabelState = LABEL_SETTING_WATCH_FACE
+        watchFaceStatusDetailState = null
         lifecycleScope.launch {
             try {
-                when (watchFacePushController.installAndActivate(canSetActive = canSetActive)) {
+                when (val outcome = watchFacePushController.installAndActivate(canSetActive = canSetActive)) {
                     WatchFacePushOutcome.Activated,
                     WatchFacePushOutcome.AlreadyActive,
                     -> {
                         watchFaceActiveState = true
                         watchFaceButtonLabelState = LABEL_WATCH_FACE_ACTIVE
+                        watchFaceStatusDetailState = null
                     }
-                    WatchFacePushOutcome.InstalledPickInGallery -> {
+                    is WatchFacePushOutcome.InstalledPickInGallery -> {
                         watchFaceActiveState = false
                         watchFaceButtonLabelState = LABEL_ADDED_TO_PICKER
+                        watchFaceStatusDetailState = outcome.detail
                     }
                     is WatchFacePushOutcome.Failed -> {
                         watchFaceActiveState = false
                         watchFaceButtonLabelState = LABEL_RETRY_WATCH_FACE
+                        watchFaceStatusDetailState = outcome.reason
                     }
                 }
             } finally {
@@ -226,6 +239,7 @@ fun WearTodayScreen(
     dayInfo: LiturgicalDayInfo?,
     onPrayRosary: (() -> Unit)? = null,
     watchFaceButtonLabel: String? = null,
+    watchFaceStatusDetail: String? = null,
     onSetWatchFace: (() -> Unit)? = null,
 ) {
     val accentColor = Color((dayInfo?.color ?: LiturgicalColor.GREEN).hexArgb)
@@ -312,6 +326,17 @@ fun WearTodayScreen(
                     contentColor = Color.White,
                 ),
             )
+            if (!watchFaceStatusDetail.isNullOrBlank()) {
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = watchFaceStatusDetail,
+                    style = MaterialTheme.typography.caption3,
+                    color = Color(0xFFB0BEC5),
+                    textAlign = TextAlign.Center,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
         }
     }
 }
