@@ -138,9 +138,9 @@ android {
 }
 
 val liturgicalAutoColors = mapOf(
-    "purple" to "#FF4A148C #FFD4AF37 #FFF3E5F5",
-    "red" to "#FF8E0000 #FFD4AF37 #FFFFEBEE",
-    "white" to "#FF3E2723 #FFFFD54F #FFFFF8E1",
+    "purple" to "#FFAB47BC #FFD4AF37 #FFF3E5F5",
+    "red" to "#FFE53935 #FFD4AF37 #FFFFEBEE",
+    "white" to "#FFFFD54F #FFFFE082 #FFFFF8E1",
 )
 
 androidComponents {
