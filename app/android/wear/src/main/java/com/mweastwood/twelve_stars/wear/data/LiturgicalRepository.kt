@@ -37,6 +37,7 @@ data class LiturgicalDayInfo(
     val sundayCycle: String,
     val weekdayCycle: String,
     val rosaryMystery: String,
+    val lectionaryKey: String = "",
 ) {
     val displayTitle: String
         get() = feastName?.takeIf { it.isNotBlank() } ?: weekName
@@ -86,6 +87,7 @@ class LiturgicalRepository(
                     sundayCycle = item.optString("sundayCycle", "A"),
                     weekdayCycle = item.optString("weekdayCycle", "I"),
                     rosaryMystery = item.optString("rosaryMystery", "joyful"),
+                    lectionaryKey = item.optString("lectionaryKey", ""),
                 )
             }
 

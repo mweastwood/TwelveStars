@@ -36,10 +36,13 @@ import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.CompactChip
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
+import com.mweastwood.twelve_stars.wear.data.GospelReading
+import com.mweastwood.twelve_stars.wear.data.GospelRepository
 import com.mweastwood.twelve_stars.wear.data.LiturgicalColor
 import com.mweastwood.twelve_stars.wear.data.LiturgicalDayInfo
 import com.mweastwood.twelve_stars.wear.data.LiturgicalRepository
 import com.mweastwood.twelve_stars.wear.data.RosaryRepository
+import com.mweastwood.twelve_stars.wear.ui.WearGospelScreen
 import com.mweastwood.twelve_stars.wear.ui.WearRosaryScreen
 import com.mweastwood.twelve_stars.wear.watchfacepush.WatchFacePushController
 import com.mweastwood.twelve_stars.wear.watchfacepush.WatchFacePushOutcome
@@ -50,11 +53,14 @@ import java.time.LocalDate
 class MainActivity : ComponentActivity() {
     private var liturgicalRepository: LiturgicalRepository? = null
     private var rosaryRepository: RosaryRepository? = null
+    private var gospelRepository: GospelRepository? = null
     private lateinit var watchFacePushController: WatchFacePushController
     private var currentDate: LocalDate? = null
     private var refreshStatusJob: Job? = null
     private var todayInfoState by mutableStateOf<LiturgicalDayInfo?>(null)
+    private var todayGospelState by mutableStateOf<GospelReading?>(null)
     private var showRosaryState by mutableStateOf(false)
+    private var showGospelState by mutableStateOf(false)
     private var watchFaceSupportedState by mutableStateOf(false)
     private var watchFaceBusyState by mutableStateOf(false)
     private var watchFaceActiveState by mutableStateOf(false)
@@ -81,56 +87,86 @@ class MainActivity : ComponentActivity() {
                 RosaryRepository.loadFromStream(stream)
             }
         }.getOrNull()
+        gospelRepository = runCatching {
+            resources.openRawResource(R.raw.gospel_data).use { stream ->
+                GospelRepository.loadFromStream(stream)
+            }
+        }.getOrNull()
         refreshTodayIfNeeded()
-        showRosaryState = if (savedInstanceState != null) {
-            savedInstanceState.getBoolean(STATE_SHOW_ROSARY, false)
+        if (savedInstanceState != null) {
+            showRosaryState = savedInstanceState.getBoolean(STATE_SHOW_ROSARY, false)
+            showGospelState = savedInstanceState.getBoolean(STATE_SHOW_GOSPEL, false)
         } else {
-            intent?.getBooleanExtra(EXTRA_OPEN_ROSARY, false) == true
+            applyLaunchIntent(intent)
         }
 
         setContent {
-            BackHandler(enabled = showRosaryState) {
+            BackHandler(enabled = showRosaryState || showGospelState) {
                 showRosaryState = false
+                showGospelState = false
             }
             MaterialTheme {
                 val dayInfo = todayInfoState
                 val accentColor = Color((dayInfo?.color ?: LiturgicalColor.GREEN).hexArgb)
                 val repo = rosaryRepository
-                if (showRosaryState && repo != null) {
-                    val mysteryKey = dayInfo?.rosaryMystery?.takeIf { it.isNotBlank() }
-                        ?: RosaryRepository.defaultMysteryKeyForDate(LocalDate.now())
-                    WearRosaryScreen(
-                        repository = repo,
-                        mysteryKey = mysteryKey,
-                        accentColor = accentColor,
-                        onBack = { showRosaryState = false },
-                    )
-                } else {
-                    WearTodayScreen(
-                        dayInfo = dayInfo,
-                        onPrayRosary = if (repo != null) {
-                            { showRosaryState = true }
-                        } else {
-                            null
-                        },
-                        watchFaceButtonLabel = if (watchFaceSupportedState) {
-                            watchFaceButtonLabelState
-                        } else {
-                            null
-                        },
-                        watchFaceStatusDetail = if (watchFaceSupportedState) {
-                            watchFaceStatusDetailState
-                        } else {
-                            null
-                        },
-                        onSetWatchFace = if (
-                            watchFaceSupportedState && !watchFaceBusyState && !watchFaceActiveState
-                        ) {
-                            { onSetWatchFaceClicked() }
-                        } else {
-                            null
-                        },
-                    )
+                val gospel = todayGospelState
+                when {
+                    showRosaryState && repo != null -> {
+                        val mysteryKey = dayInfo?.rosaryMystery?.takeIf { it.isNotBlank() }
+                            ?: RosaryRepository.defaultMysteryKeyForDate(LocalDate.now())
+                        WearRosaryScreen(
+                            repository = repo,
+                            mysteryKey = mysteryKey,
+                            accentColor = accentColor,
+                            onBack = { showRosaryState = false },
+                        )
+                    }
+                    showGospelState && gospel != null -> {
+                        WearGospelScreen(
+                            reading = gospel,
+                            accentColor = accentColor,
+                            onBack = { showGospelState = false },
+                        )
+                    }
+                    else -> {
+                        WearTodayScreen(
+                            dayInfo = dayInfo,
+                            onPrayRosary = if (repo != null) {
+                                {
+                                    showGospelState = false
+                                    showRosaryState = true
+                                }
+                            } else {
+                                null
+                            },
+                            gospelCitation = gospel?.shortCitation,
+                            onReadGospel = if (gospel != null) {
+                                {
+                                    showRosaryState = false
+                                    showGospelState = true
+                                }
+                            } else {
+                                null
+                            },
+                            watchFaceButtonLabel = if (watchFaceSupportedState) {
+                                watchFaceButtonLabelState
+                            } else {
+                                null
+                            },
+                            watchFaceStatusDetail = if (watchFaceSupportedState) {
+                                watchFaceStatusDetailState
+                            } else {
+                                null
+                            },
+                            onSetWatchFace = if (
+                                watchFaceSupportedState && !watchFaceBusyState && !watchFaceActiveState
+                            ) {
+                                { onSetWatchFaceClicked() }
+                            } else {
+                                null
+                            },
+                        )
+                    }
                 }
             }
         }
@@ -139,13 +175,25 @@ class MainActivity : ComponentActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putBoolean(STATE_SHOW_ROSARY, showRosaryState)
+        outState.putBoolean(STATE_SHOW_GOSPEL, showGospelState)
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        if (intent.getBooleanExtra(EXTRA_OPEN_ROSARY, false)) {
-            showRosaryState = true
+        applyLaunchIntent(intent)
+    }
+
+    private fun applyLaunchIntent(intent: Intent?) {
+        when {
+            intent?.getBooleanExtra(EXTRA_OPEN_GOSPEL, false) == true -> {
+                showRosaryState = false
+                showGospelState = true
+            }
+            intent?.getBooleanExtra(EXTRA_OPEN_ROSARY, false) == true -> {
+                showGospelState = false
+                showRosaryState = true
+            }
         }
     }
 
@@ -159,14 +207,27 @@ class MainActivity : ComponentActivity() {
         val today = LocalDate.now()
         if (today != currentDate) {
             currentDate = today
-            todayInfoState = liturgicalRepository?.dayForDate(today)
+            val dayInfo = liturgicalRepository?.dayForDate(today)
+            todayInfoState = dayInfo
+            todayGospelState = gospelRepository?.readingForKey(dayInfo?.lectionaryKey)
         }
     }
+
+    private fun currentLiturgicalColor(): LiturgicalColor =
+        todayInfoState?.color ?: LiturgicalColor.GREEN
 
     private fun refreshWatchFaceStatus() {
         if (!watchFaceSupportedState || watchFaceBusyState) return
         refreshStatusJob?.cancel()
         refreshStatusJob = lifecycleScope.launch {
+            val todayColor = currentLiturgicalColor()
+            val todayThemeKey = WatchFacePushController.themeKeyForColor(todayColor)
+            val prefs = getSharedPreferences(PREFS_WATCHFACE, MODE_PRIVATE)
+            if (prefs.getString(KEY_LAST_THEME, null) != todayThemeKey) {
+                if (watchFacePushController.syncColorIfInstalled(todayColor)) {
+                    prefs.edit().putString(KEY_LAST_THEME, todayThemeKey).apply()
+                }
+            }
             val active = watchFacePushController.isBundledWatchFaceActive()
             if (!watchFaceBusyState) {
                 watchFaceActiveState = active
@@ -196,17 +257,31 @@ class MainActivity : ComponentActivity() {
         watchFaceBusyState = true
         watchFaceButtonLabelState = LABEL_SETTING_WATCH_FACE
         watchFaceStatusDetailState = null
+        val todayColor = currentLiturgicalColor()
         lifecycleScope.launch {
             try {
-                when (val outcome = watchFacePushController.installAndActivate(canSetActive = canSetActive)) {
+                when (
+                    val outcome = watchFacePushController.installAndActivate(
+                        canSetActive = canSetActive,
+                        color = todayColor,
+                    )
+                ) {
                     WatchFacePushOutcome.Activated,
                     WatchFacePushOutcome.AlreadyActive,
                     -> {
+                        getSharedPreferences(PREFS_WATCHFACE, MODE_PRIVATE)
+                            .edit()
+                            .putString(KEY_LAST_THEME, WatchFacePushController.themeKeyForColor(todayColor))
+                            .apply()
                         watchFaceActiveState = true
                         watchFaceButtonLabelState = LABEL_WATCH_FACE_ACTIVE
                         watchFaceStatusDetailState = null
                     }
                     is WatchFacePushOutcome.InstalledPickInGallery -> {
+                        getSharedPreferences(PREFS_WATCHFACE, MODE_PRIVATE)
+                            .edit()
+                            .putString(KEY_LAST_THEME, WatchFacePushController.themeKeyForColor(todayColor))
+                            .apply()
                         watchFaceActiveState = false
                         watchFaceButtonLabelState = LABEL_ADDED_TO_PICKER
                         watchFaceStatusDetailState = outcome.detail
@@ -225,7 +300,11 @@ class MainActivity : ComponentActivity() {
 
     companion object {
         const val EXTRA_OPEN_ROSARY = "extra_open_rosary"
+        const val EXTRA_OPEN_GOSPEL = "extra_open_gospel"
         private const val STATE_SHOW_ROSARY = "state_show_rosary"
+        private const val STATE_SHOW_GOSPEL = "state_show_gospel"
+        private const val PREFS_WATCHFACE = "twelve_stars_watchface_push"
+        private const val KEY_LAST_THEME = "last_pushed_liturgical_theme"
         private const val LABEL_SET_WATCH_FACE = "Set Watch Face"
         private const val LABEL_SETTING_WATCH_FACE = "Setting..."
         private const val LABEL_WATCH_FACE_ACTIVE = "Watch Face Active"
@@ -238,6 +317,8 @@ class MainActivity : ComponentActivity() {
 fun WearTodayScreen(
     dayInfo: LiturgicalDayInfo?,
     onPrayRosary: (() -> Unit)? = null,
+    gospelCitation: String? = null,
+    onReadGospel: (() -> Unit)? = null,
     watchFaceButtonLabel: String? = null,
     watchFaceStatusDetail: String? = null,
     onSetWatchFace: (() -> Unit)? = null,
@@ -249,7 +330,8 @@ fun WearTodayScreen(
     val mysteryLabel = dayInfo?.rosaryMystery
         ?.takeIf { it.isNotBlank() }
         ?.replaceFirstChar { it.uppercase() }
-    val bottomPadding = if (watchFaceButtonLabel != null) 24.dp else 14.dp
+    val hasExtraChips = onReadGospel != null || watchFaceButtonLabel != null
+    val bottomPadding = if (hasExtraChips) 24.dp else 14.dp
 
     Column(
         modifier = Modifier
@@ -305,6 +387,23 @@ fun WearTodayScreen(
                 },
                 colors = ChipDefaults.primaryChipColors(
                     backgroundColor = accentColor,
+                    contentColor = Color.White,
+                ),
+            )
+        }
+        if (onReadGospel != null) {
+            Spacer(modifier = Modifier.height(2.dp))
+            CompactChip(
+                onClick = onReadGospel,
+                label = {
+                    Text(
+                        text = gospelCitation?.let { "Gospel: $it" } ?: "Read Gospel",
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                },
+                colors = ChipDefaults.secondaryChipColors(
+                    backgroundColor = Color(0xFF1F2937),
                     contentColor = Color.White,
                 ),
             )

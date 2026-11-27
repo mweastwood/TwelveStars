@@ -48,6 +48,7 @@ app.*.map.json
 assets/prayers.json
 android/wear/src/main/res/raw/liturgical_calendar.json
 android/wear/src/main/res/raw/rosary_data.json
+android/wear/src/main/res/raw/gospel_data.json
 
 # PDF scans for translation reproduction
 assets/bible/tam/pdf/
