@@ -235,9 +235,15 @@ void main() {
             ),
             child: MaterialApp(
               home: Scaffold(
-                body: MissalSaintFeastCard(
-                  saint: mary,
-                  onTap: () => tapped = true,
+                body: Align(
+                  alignment: Alignment.topLeft,
+                  child: SizedBox(
+                    width: 320,
+                    child: MissalSaintFeastCard(
+                      saint: mary,
+                      onTap: () => tapped = true,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -245,6 +251,10 @@ void main() {
         );
         await tester.pumpAndSettle();
 
+        expect(
+          tester.getSize(find.byType(MissalSaintFeastCard)).width,
+          lessThanOrEqualTo(320),
+        );
         final avatarFinder = find.byKey(
           const Key('saint_sprite_avatar_mary-mother-of-god'),
         );
