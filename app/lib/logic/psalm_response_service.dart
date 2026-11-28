@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -99,6 +100,8 @@ class PsalmResponseSpec {
 ///
 /// Loading from the bundled JSON avoids SQLite schema migration churn and ensures
 /// existing installations pick up response references immediately without re-seeding.
+/// Entries are keyed by `reading_key` (each liturgical day in `lectionary.json`
+/// currently defines at most one `reading_type == 'psalm'` entry).
 class PsalmResponseService {
   PsalmResponseService._();
 
@@ -106,6 +109,7 @@ class PsalmResponseService {
 
   static Map<String, PsalmResponseSpec>? _entriesByKey;
   static Future<void>? _inFlightLoad;
+  static Zone? _inFlightZone;
   static int _loadGeneration = 0;
 
   /// Whether the response table has been loaded (or explicitly seeded for testing).
@@ -116,12 +120,14 @@ class PsalmResponseService {
     if (_entriesByKey != null) {
       return Future.value();
     }
-    if (_inFlightLoad != null) {
+    if (_inFlightLoad != null && identical(_inFlightZone, Zone.current)) {
       return _inFlightLoad!;
     }
     final generation = _loadGeneration;
+    final zone = Zone.current;
     final future = _loadFromAsset(generation);
     _inFlightLoad = future;
+    _inFlightZone = zone;
     return future;
   }
 
@@ -134,12 +140,13 @@ class PsalmResponseService {
       final decoded = jsonDecode(jsonContent) as List<dynamic>;
       final map = parseEntriesFromJson(decoded);
       if (generation != _loadGeneration) return;
-      _entriesByKey = map;
+      _entriesByKey = Map<String, PsalmResponseSpec>.unmodifiable(map);
     } catch (e) {
       debugPrint('Error loading psalm response specs: $e');
     } finally {
       if (generation == _loadGeneration) {
         _inFlightLoad = null;
+        _inFlightZone = null;
       }
     }
   }
@@ -187,6 +194,7 @@ class PsalmResponseService {
   static void setEntriesForTesting(Map<String, PsalmResponseSpec> entries) {
     _loadGeneration++;
     _inFlightLoad = null;
+    _inFlightZone = null;
     _entriesByKey = Map<String, PsalmResponseSpec>.unmodifiable(entries);
   }
 
@@ -201,6 +209,7 @@ class PsalmResponseService {
   static void clear() {
     _loadGeneration++;
     _inFlightLoad = null;
+    _inFlightZone = null;
     _entriesByKey = null;
   }
 }

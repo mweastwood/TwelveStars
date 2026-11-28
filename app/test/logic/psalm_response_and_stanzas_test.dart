@@ -262,6 +262,106 @@ void main() {
       final easterSunday = parsedResponses['season_easter_sunday']!;
       expect(easterSunday.verseRef, '24');
       expect(easterSunday.allowAlleluia, isTrue);
+
+      // Corrected weekday refs: Sat 24th Week OT II (Ps 56:14) & Thu 13th Week OT II (Ps 19:10)
+      expect(
+        parsedResponses['season_ordinary_time_24_saturday_2']!.verseRef,
+        '14',
+      );
+      expect(
+        parsedResponses['season_ordinary_time_13_thursday_2']!.verseRef,
+        '10',
+      );
+    });
+  });
+
+  group('PsalmResponseService lifecycle and concurrency', () {
+    setUp(() {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      PsalmResponseService.clear();
+    });
+
+    tearDown(() {
+      PsalmResponseService.clear();
+    });
+
+    test(
+      'ensureLoaded loads bundled lectionary.json and caches immutably',
+      () async {
+        expect(PsalmResponseService.isLoaded, isFalse);
+        expect(
+          PsalmResponseService.getForReadingKey(
+            'season_ordinary_time_34_saturday_2',
+          ),
+          isNull,
+        );
+
+        await PsalmResponseService.ensureLoaded();
+        expect(PsalmResponseService.isLoaded, isTrue);
+        final spec = PsalmResponseService.getForReadingKey(
+          'season_ordinary_time_34_saturday_2',
+        );
+        expect(spec, isNotNull);
+        expect(spec!.verseRef, '8');
+
+        // Calling ensureLoaded again returns immediately with cached data
+        await PsalmResponseService.ensureLoaded();
+        expect(
+          PsalmResponseService.getForReadingKey(
+            'season_ordinary_time_34_saturday_2',
+          ),
+          equals(spec),
+        );
+      },
+    );
+
+    test(
+      'deduplicates concurrent ensureLoaded calls in the same Zone',
+      () async {
+        final f1 = PsalmResponseService.ensureLoaded();
+        final f2 = PsalmResponseService.ensureLoaded();
+        expect(identical(f1, f2), isTrue);
+        await Future.wait([f1, f2]);
+        expect(PsalmResponseService.isLoaded, isTrue);
+      },
+    );
+
+    test(
+      'load generation guard prevents stale ensureLoaded from overwriting setEmptyForTesting or clear',
+      () async {
+        final inFlight = PsalmResponseService.ensureLoaded();
+        PsalmResponseService.setEmptyForTesting();
+        await inFlight;
+        expect(PsalmResponseService.isLoaded, isTrue);
+        expect(
+          PsalmResponseService.getForReadingKey(
+            'season_ordinary_time_34_saturday_2',
+          ),
+          isNull,
+        );
+
+        PsalmResponseService.clear();
+        final inFlight2 = PsalmResponseService.ensureLoaded();
+        PsalmResponseService.clear();
+        await inFlight2;
+        expect(PsalmResponseService.isLoaded, isFalse);
+      },
+    );
+  });
+
+  group('resolvePsalmStanzas dash-crossing fallback', () {
+    test('delegates dash-crossing multi-chapter citations cleanly', () {
+      final stanzas = resolvePsalmStanzas(
+        bookNumber: 21,
+        defaultChapter: 42,
+        defaultVerseRange: '2-43:4',
+        citation: 'Psalm 42:2-43:4',
+      );
+      expect(stanzas, hasLength(1));
+      expect(stanzas.first.first.chapter, 41);
+      expect(stanzas.first.first.startVerseLimit, 2);
+      expect(stanzas.first.last.chapter, 42);
+      expect(stanzas.first.last.endVerseLimit, 4);
     });
   });
 

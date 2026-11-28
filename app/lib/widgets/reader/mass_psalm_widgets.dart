@@ -2,13 +2,16 @@ import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/lectionary_responses.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 
+final RegExp _whitespaceRegex = RegExp(r'\s+');
+final RegExp _trailingPunctuationRegex = RegExp(r'[,;:\-–—]+$');
+
 /// Produces a concise single-line preview of the Responsorial Psalm refrain
 /// for compact `R.` cues between stanzas.
 ///
 /// Short refrains (up to [maxChars] characters) are returned intact; longer
 /// refrains are truncated cleanly at a word boundary with an ellipsis.
 String formatCompactRefrainPreview(String text, {int maxChars = 60}) {
-  final normalized = text.trim().replaceAll(RegExp(r'\s+'), ' ');
+  final normalized = text.trim().replaceAll(_whitespaceRegex, ' ');
   if (normalized.length <= maxChars) {
     return normalized;
   }
@@ -17,7 +20,7 @@ String formatCompactRefrainPreview(String text, {int maxChars = 60}) {
   final cut = lastSpace >= (maxChars * 0.5).floor()
       ? slice.substring(0, lastSpace)
       : slice;
-  final cleaned = cut.replaceFirst(RegExp(r'[,;:\-–—]+$'), '').trimRight();
+  final cleaned = cut.replaceFirst(_trailingPunctuationRegex, '').trimRight();
   return '$cleaned…';
 }
 
@@ -124,6 +127,7 @@ class MassPsalmResponseBanner extends StatelessWidget {
                   style: theme.textTheme.labelSmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                     fontStyle: FontStyle.italic,
+                    fontSize: (fontSize * 0.78).clamp(11.0, 20.0),
                   ),
                 ),
               ],

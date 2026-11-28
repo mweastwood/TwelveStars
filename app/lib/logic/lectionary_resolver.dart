@@ -444,11 +444,9 @@ List<List<ChapterVerseRange>> resolvePsalmStanzas({
       final colonIndex = part.indexOf(':');
       if (colonIndex != -1) {
         final chapterStr = part.substring(0, colonIndex).trim();
-        final ch = i == 0
-            ? int.tryParse(
-                _trailingDigitsRegex.firstMatch(chapterStr)?.group(0) ?? '',
-              )
-            : int.tryParse(chapterStr.replaceAll(_nonDigitsRegex, ''));
+        final ch = int.tryParse(
+          _trailingDigitsRegex.firstMatch(chapterStr)?.group(0) ?? '',
+        );
         if (ch != null) {
           lastChapter = ch;
           addChapterStanzas(ch, part.substring(colonIndex + 1));
@@ -460,6 +458,18 @@ List<List<ChapterVerseRange>> resolvePsalmStanzas({
     if (stanzas.isNotEmpty) {
       return stanzas;
     }
+  }
+
+  // Dash-crossing multi-chapter citations (e.g., "Psalm 42:2-43:4") delegate to
+  // standard resolveReadingRanges rather than stripping colons.
+  if (_chapterCrossingRegex.hasMatch(primaryCitation)) {
+    final fallback = resolveReadingRanges(
+      bookNumber: bookNumber,
+      defaultChapter: defaultChapter,
+      defaultVerseRange: defaultVerseRange,
+      citation: citation,
+    );
+    return fallback.isNotEmpty ? [fallback] : const [];
   }
 
   // Standard single-chapter psalm using defaultVerseRange

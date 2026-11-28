@@ -330,12 +330,34 @@ class _MassReadingCardState extends State<MassReadingCard> {
         final hydratedStanzas = <List<BibleVerse>>[];
         for (final stanza in stanzaRanges) {
           final stanzaVerses = <BibleVerse>[];
+          final seenInStanza = <(int, int)>{};
+          void addVerse(BibleVerse v) {
+            if (seenInStanza.add((v.chapter, v.verseNumber))) {
+              stanzaVerses.add(v);
+            }
+          }
+
           for (final range in stanza) {
             if (range.verses != null) {
               for (final vNum in range.verses!) {
                 final match = byChapVerse[(range.chapter, vNum)];
                 if (match != null) {
-                  stanzaVerses.add(match);
+                  addVerse(match);
+                }
+              }
+              if (range.startVerseLimit != null ||
+                  range.endVerseLimit != null) {
+                for (final v in fetched) {
+                  if (v.chapter != range.chapter) continue;
+                  final matchesStart =
+                      range.startVerseLimit != null &&
+                      v.verseNumber >= range.startVerseLimit!;
+                  final matchesEnd =
+                      range.endVerseLimit != null &&
+                      v.verseNumber <= range.endVerseLimit!;
+                  if (matchesStart || matchesEnd) {
+                    addVerse(v);
+                  }
                 }
               }
             } else {
@@ -349,7 +371,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     v.verseNumber > range.endVerseLimit!) {
                   continue;
                 }
-                stanzaVerses.add(v);
+                addVerse(v);
               }
             }
           }
@@ -571,20 +593,101 @@ class _MassReadingCardState extends State<MassReadingCard> {
   String _formatVerseCitation(BibleVerse verse) =>
       _formatSelectionCitation(verse, verse, isSingleVerse: true);
 
+  List<List<BibleVerse>> _splitContiguousRuns(List<BibleVerse> sortedVerses) {
+    final runs = <List<BibleVerse>>[];
+    for (final v in sortedVerses) {
+      if (runs.isNotEmpty) {
+        final prev = runs.last.last;
+        if (prev.bookNumber == v.bookNumber &&
+            prev.chapter == v.chapter &&
+            v.verseNumber == prev.verseNumber + 1) {
+          runs.last.add(v);
+          continue;
+        }
+      }
+      runs.add([v]);
+    }
+    return runs;
+  }
+
+  String _formatContiguousRunsCitation(List<List<BibleVerse>> runs) {
+    if (runs.length == 1) {
+      final run = runs.first;
+      return _formatSelectionCitation(
+        run.first,
+        run.last,
+        isSingleVerse: run.length == 1,
+      );
+    }
+    final firstRun = runs.first;
+    final allSameBookAndChapter = runs.every(
+      (r) =>
+          r.first.bookNumber == firstRun.first.bookNumber &&
+          r.first.chapter == firstRun.first.chapter,
+    );
+    if (allSameBookAndChapter &&
+        _numberingSystem != BibleNumberingSystem.dual) {
+      final head = _formatSelectionCitation(
+        firstRun.first,
+        firstRun.last,
+        isSingleVerse: firstRun.length == 1,
+      );
+      final tailParts = <String>[];
+      for (int i = 1; i < runs.length; i++) {
+        final run = runs[i];
+        final startDisp = BibleVerseResolver.formatVerseDisplay(
+          bookNumber: run.first.bookNumber,
+          chapter: run.first.chapter,
+          verseNumber: run.first.verseNumber,
+          numberingSystem: _numberingSystem,
+        ).displayVerseNumber;
+        if (run.length == 1) {
+          tailParts.add('$startDisp');
+        } else {
+          final endDisp = BibleVerseResolver.formatVerseDisplay(
+            bookNumber: run.last.bookNumber,
+            chapter: run.last.chapter,
+            verseNumber: run.last.verseNumber,
+            numberingSystem: _numberingSystem,
+          ).displayVerseNumber;
+          tailParts.add('$startDisp-$endDisp');
+        }
+      }
+      return '$head, ${tailParts.join(', ')}';
+    }
+    return runs
+        .map(
+          (r) => _formatSelectionCitation(
+            r.first,
+            r.last,
+            isSingleVerse: r.length == 1,
+          ),
+        )
+        .join('; ');
+  }
+
   String? _formatResponseCitation(List<BibleVerse>? verses) {
     if (verses == null || verses.isEmpty) return null;
-    final first = verses.first;
-    final last = verses.last;
-    return BibleReaderAdapter.formatPassageCitation(
-      bookNumber: first.bookNumber,
-      bookName: first.bookName,
-      startChapter: first.chapter,
-      startVerse: first.verseNumber,
-      endChapter: last.chapter,
-      endVerse: last.verseNumber,
-      numberingSystem: _numberingSystem,
-      crossChapterSeparator: ' - ',
-    );
+    final sorted = List<BibleVerse>.from(verses)
+      ..sort((a, b) {
+        final chapCmp = a.chapter.compareTo(b.chapter);
+        return chapCmp != 0 ? chapCmp : a.verseNumber.compareTo(b.verseNumber);
+      });
+    final runs = _splitContiguousRuns(sorted);
+    if (runs.length == 1) {
+      final run = runs.first;
+      return BibleReaderAdapter.formatPassageCitation(
+        bookNumber: run.first.bookNumber,
+        bookName: run.first.bookName,
+        startChapter: run.first.chapter,
+        startVerse: run.first.verseNumber,
+        endChapter: run.last.chapter,
+        endVerse: run.last.verseNumber,
+        numberingSystem: _numberingSystem,
+        crossChapterSeparator: ' - ',
+      );
+    }
+    return _formatContiguousRunsCitation(runs);
   }
 
   MassReadingSelection? _createSelectionData() {
@@ -601,21 +704,41 @@ class _MassReadingCardState extends State<MassReadingCard> {
     }
     final rawSelectedVerses = _verses!.sublist(start, end + 1);
     final seenKeys = <(int, int, int)>{};
-    final selectedVerses = <BibleVerse>[];
+    final uniqueVerses = <BibleVerse>[];
     for (final v in rawSelectedVerses) {
       if (seenKeys.add((v.bookNumber, v.chapter, v.verseNumber))) {
-        selectedVerses.add(v);
+        uniqueVerses.add(v);
       }
     }
+
+    // Sort into canonical (chapter, verseNumber) order so non-monotonic psalm
+    // stanzas (e.g. Ps 136:1 and 23-24, 10-12) never yield inverted ranges.
+    final sortedVerses = List<BibleVerse>.from(uniqueVerses)
+      ..sort((a, b) {
+        final chapCmp = a.chapter.compareTo(b.chapter);
+        return chapCmp != 0 ? chapCmp : a.verseNumber.compareTo(b.verseNumber);
+      });
+    bool wasReordered = false;
+    for (int i = 0; i < uniqueVerses.length; i++) {
+      if (uniqueVerses[i].chapter != sortedVerses[i].chapter ||
+          uniqueVerses[i].verseNumber != sortedVerses[i].verseNumber) {
+        wasReordered = true;
+        break;
+      }
+    }
+
+    final runs = _splitContiguousRuns(sortedVerses);
+    final selectedVerses = wasReordered ? sortedVerses : uniqueVerses;
     final count = selectedVerses.length;
     final firstV = selectedVerses.first;
     final lastV = selectedVerses.last;
 
-    final citation = _formatSelectionCitation(
-      firstV,
-      lastV,
-      isSingleVerse: count == 1,
-    );
+    final hasSameChapterDisjointRuns =
+        runs.length > 1 &&
+        runs.every((r) => r.first.chapter == runs.first.first.chapter);
+    final citation = (wasReordered || (_isPsalm && hasSameChapterDisjointRuns))
+        ? _formatContiguousRunsCitation(runs)
+        : _formatSelectionCitation(firstV, lastV, isSingleVerse: count == 1);
 
     final textPreview = selectedVerses.map((v) => v.verseText).join(' ');
 
@@ -624,25 +747,19 @@ class _MassReadingCardState extends State<MassReadingCard> {
       citation: citation,
       selectedCount: count,
       onSaveFavorite: () async {
-        final versesByChapter = <int, List<BibleVerse>>{};
-        for (final v in selectedVerses) {
-          versesByChapter.putIfAbsent(v.chapter, () => []).add(v);
-        }
-
-        for (final entry in versesByChapter.entries) {
-          final chapterVerses = entry.value;
-          final chapterFirst = chapterVerses.first;
-          final chapterLast = chapterVerses.last;
-          final chapterPreview = versesByChapter.length == 1
+        for (final run in runs) {
+          final runFirst = run.first;
+          final runLast = run.last;
+          final runPreview = runs.length == 1
               ? textPreview
-              : chapterVerses.map((v) => v.verseText).join(' ');
+              : run.map((v) => v.verseText).join(' ');
           final favorite = FavoritePassagesCompanion.insert(
-            bookNumber: chapterFirst.bookNumber,
-            bookName: chapterFirst.bookName,
-            chapter: chapterFirst.chapter,
-            startVerse: chapterFirst.verseNumber,
-            endVerse: chapterLast.verseNumber,
-            textPreview: chapterPreview,
+            bookNumber: runFirst.bookNumber,
+            bookName: runFirst.bookName,
+            chapter: runFirst.chapter,
+            startVerse: runFirst.verseNumber,
+            endVerse: runLast.verseNumber,
+            textPreview: runPreview,
           );
           await BibleDatabaseHelper.db.saveFavorite(favorite);
         }
@@ -853,7 +970,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
         !hasAlleluia &&
         responseVerses != null &&
         responseVerses.isNotEmpty;
-    final hasResponse = hasAlleluia || hasVerseResponse;
+    final effectiveIsAlleluia =
+        hasAlleluia || (!hasVerseResponse && spec?.allowAlleluia == true);
+    final hasResponse = effectiveIsAlleluia || hasVerseResponse;
     final responseText = hasVerseResponse
         ? responseVerses.map((v) => v.verseText).join(' ')
         : '';
@@ -867,8 +986,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
         MassPsalmResponseBanner(
           responseText: responseText,
           responseCitation: responseCitation,
-          isAlleluia: hasAlleluia,
-          showEasterAlleluiaOption: spec?.allowAlleluia == true,
+          isAlleluia: effectiveIsAlleluia,
+          showEasterAlleluiaOption:
+              !effectiveIsAlleluia && spec?.allowAlleluia == true,
           primaryLanguage: widget.primaryLanguage,
           compareLanguage: widget.compareLanguage,
           fontSize: widget.fontSize,
@@ -888,7 +1008,7 @@ class _MassReadingCardState extends State<MassReadingCard> {
         widgets.add(
           MassPsalmRefrainCue(
             responseText: responseText,
-            isAlleluia: hasAlleluia,
+            isAlleluia: effectiveIsAlleluia,
             primaryLanguage: widget.primaryLanguage,
             fontSize: widget.fontSize,
             isLast: isLastStanza,

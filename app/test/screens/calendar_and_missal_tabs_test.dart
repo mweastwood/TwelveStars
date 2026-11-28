@@ -16,6 +16,7 @@ import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
+import 'package:twelve_stars/logic/psalm_response_service.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
 import '../test_helper.dart';
 
@@ -24,6 +25,7 @@ void main() {
 
   setUp(() async {
     PrayerDatabase.mockSettings = null;
+    PsalmResponseService.setEmptyForTesting();
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
     await testDb.ensurePopulated();
@@ -405,6 +407,7 @@ void main() {
 
   tearDown(() async {
     TimeHelper.setCustomTime(null);
+    PsalmResponseService.clear();
     await testDb.close();
     PrayerDatabase.mockPrayers = null;
     PrayerDatabase.mockSettings = null;
