@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 
 void main() {
@@ -168,6 +169,142 @@ void main() {
         await tester.pump();
 
         expect(openedModal, isTrue);
+      },
+    );
+
+    testWidgets(
+      'MissalSaintFeastCard renders crisp pixel-art SaintSpriteAvatar for bundled saint',
+      (WidgetTester tester) async {
+        const saint = Saint(
+          id: 'john-berchmans',
+          name: 'St. John Berchmans',
+          birthDate: '1599',
+          deathDate: '1621',
+          nationality: 'Flemish / Belgian',
+          profession: 'Jesuit Scholastic',
+          categories: [SaintCategory.brother],
+        );
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(body: MissalSaintFeastCard(saint: saint)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final avatarFinder = find.byKey(
+          const Key('saint_sprite_avatar_john-berchmans'),
+        );
+        expect(avatarFinder, findsOneWidget);
+
+        final imageFinder = find.descendant(
+          of: avatarFinder,
+          matching: find.byType(Image),
+        );
+        expect(imageFinder, findsOneWidget);
+
+        final image = tester.widget<Image>(imageFinder);
+        expect(image.filterQuality, FilterQuality.none);
+        expect(image.isAntiAlias, isFalse);
+        expect(
+          (image.image as AssetImage).assetName,
+          'assets/saints/john-berchmans.png',
+        );
+      },
+    );
+
+    testWidgets(
+      'MissalSaintFeastCard renders Mary primary Marian sprite, Blessed label, onTap, and handles narrow scaled text',
+      (WidgetTester tester) async {
+        const mary = Saint(
+          id: 'mary-mother-of-god',
+          name: 'Blessed Virgin Mary (Our Lady)',
+          nationality: 'Judean / Heavenly',
+          profession: 'Mother of God (Theotokos)',
+          categories: [SaintCategory.holyFamily],
+          isDoctor: true,
+          isBlessed: true,
+        );
+        bool tapped = false;
+
+        await tester.pumpWidget(
+          MediaQuery(
+            data: const MediaQueryData(
+              size: Size(320, 640),
+              textScaler: TextScaler.linear(1.5),
+            ),
+            child: MaterialApp(
+              home: Scaffold(
+                body: Align(
+                  alignment: Alignment.topLeft,
+                  child: SizedBox(
+                    width: 320,
+                    child: MissalSaintFeastCard(
+                      saint: mary,
+                      onTap: () => tapped = true,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          tester.getSize(find.byType(MissalSaintFeastCard)).width,
+          lessThanOrEqualTo(320),
+        );
+        final avatarFinder = find.byKey(
+          const Key('saint_sprite_avatar_mary-mother-of-god'),
+        );
+        expect(avatarFinder, findsOneWidget);
+        final image = tester.widget<Image>(
+          find.descendant(of: avatarFinder, matching: find.byType(Image)),
+        );
+        expect(
+          (image.image as AssetImage).assetName,
+          'assets/saints/our-lady-of-grace.png',
+        );
+        expect(find.text('MEMORIAL / BLESSED'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+
+        await tester.tap(
+          find.byKey(const Key('missal_saint_card_mary-mother-of-god')),
+        );
+        expect(tapped, isTrue);
+      },
+    );
+
+    testWidgets(
+      'MissalSaintFeastCard falls back to category icon when sprite asset is missing',
+      (WidgetTester tester) async {
+        const syntheticSaint = Saint(
+          id: 'synthetic-feast-saint',
+          name: 'St. Synthetic',
+          nationality: 'Roman',
+          profession: 'Martyr',
+          categories: [SaintCategory.martyr],
+        );
+
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: Scaffold(body: MissalSaintFeastCard(saint: syntheticSaint)),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final avatarFinder = find.byKey(
+          const Key('saint_sprite_avatar_synthetic-feast-saint'),
+        );
+        expect(avatarFinder, findsOneWidget);
+        expect(
+          find.descendant(
+            of: avatarFinder,
+            matching: find.byIcon(Icons.local_fire_department_rounded),
+          ),
+          findsOneWidget,
+        );
       },
     );
   });

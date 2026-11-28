@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
+import 'package:twelve_stars/widgets/saints/saint_sprite.dart';
 
 class MissalSectionHeader extends StatelessWidget {
   final String title;
@@ -274,20 +275,7 @@ class MissalSaintFeastCard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.primary.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Icon(
-                      saint.isDoctor ? Icons.star : Icons.person,
-                      color: saint.isDoctor
-                          ? Colors.amber.shade700
-                          : theme.colorScheme.primary,
-                      size: 24,
-                    ),
-                  ),
+                  SaintSpriteAvatar(saint: saint, size: 44, imageSize: 32),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
@@ -295,18 +283,22 @@ class MissalSaintFeastCard extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text(
-                              saint.isBlessed
-                                  ? 'MEMORIAL / BLESSED'
-                                  : 'SAINT MEMORIAL / FEAST',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                                letterSpacing: 1.1,
+                            Expanded(
+                              child: Text(
+                                saint.isBlessed
+                                    ? 'MEMORIAL / BLESSED'
+                                    : 'SAINT MEMORIAL / FEAST',
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                  letterSpacing: 1.1,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            const Spacer(),
-                            if (saint.isDoctor)
+                            if (saint.isDoctor) ...[
+                              const SizedBox(width: 8),
                               Container(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 6,
@@ -341,6 +333,7 @@ class MissalSaintFeastCard extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                            ],
                           ],
                         ),
                         const SizedBox(height: 4),
