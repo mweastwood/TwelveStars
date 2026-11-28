@@ -8,6 +8,7 @@ import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/psalm_response_service.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
@@ -37,6 +38,7 @@ void main() {
     PrayerDatabase.mockPrayers = null;
     PrayerDatabase.mockSettings = null;
     UserSettingsController.instance.resetForTesting();
+    PsalmResponseService.setEmptyForTesting();
 
     // Save default settings
     await testDb.saveUserSettings(
@@ -50,6 +52,7 @@ void main() {
   tearDown(() async {
     UserSettingsController.instance.resetForTesting();
     ReverseCitationService.clear();
+    PsalmResponseService.clear();
     await testDb.close();
   });
 

@@ -380,3 +380,118 @@ List<ChapterVerseRange> resolveReadingRanges({
       ),
   ];
 }
+
+List<int> _parseStanzaVerses(String segment) {
+  final cleaned = cleanVerseStr(segment);
+  final raw = parseVerseRange(cleaned);
+  final result = <int>[];
+  for (final v in raw) {
+    if (!result.contains(v)) {
+      result.add(v);
+    }
+  }
+  return result;
+}
+
+/// Resolves a Responsorial Psalm or Canticle into ordered stanzas, preserving
+/// the comma-separated stanza boundaries from the lectionary citation while
+/// mapping Modern/NABRE references to Vulgate chapter/verse ranges.
+///
+/// Conjunctions inside a stanza (`and`, `&`) stay within the same stanza, while
+/// boundary-split half-verses (e.g. `1-3a, 3b-4`) are intentionally preserved
+/// in both adjacent stanzas so each stanza reflects its full citation range.
+List<List<ChapterVerseRange>> resolvePsalmStanzas({
+  required int bookNumber,
+  required int defaultChapter,
+  required String defaultVerseRange,
+  required String citation,
+}) {
+  final orIndex = citation.toLowerCase().indexOf(' or ');
+  final primaryCitation = orIndex != -1
+      ? citation.substring(0, orIndex).trim()
+      : citation.trim();
+
+  final List<List<ChapterVerseRange>> stanzas = [];
+
+  void addChapterStanzas(int chapterNum, String verseListStr) {
+    for (final rawGroup in verseListStr.split(',')) {
+      final trimmed = rawGroup.trim();
+      if (trimmed.isEmpty) continue;
+      final verses = _parseStanzaVerses(trimmed);
+      if (verses.isEmpty) continue;
+      final mapped = BibleVerseResolver.mapLectionaryToVulgateRanges(
+        bookNumber: bookNumber,
+        chapter: chapterNum,
+        verses: verses,
+      );
+      final ranges = [
+        for (final m in mapped)
+          if (m.verses.isNotEmpty)
+            ChapterVerseRange(chapter: m.chapter, verses: m.verses),
+      ];
+      if (ranges.isNotEmpty) {
+        stanzas.add(ranges);
+      }
+    }
+  }
+
+  // Semicolon-separated cross-chapter citations (e.g., "Psalm 42:2-3; 43:3, 4")
+  if (primaryCitation.contains(';')) {
+    final parts = primaryCitation.split(';');
+    int? lastChapter;
+    for (int i = 0; i < parts.length; i++) {
+      final part = parts[i].trim();
+      final colonIndex = part.indexOf(':');
+      if (colonIndex != -1) {
+        final chapterStr = part.substring(0, colonIndex).trim();
+        final ch = int.tryParse(
+          _trailingDigitsRegex.firstMatch(chapterStr)?.group(0) ?? '',
+        );
+        if (ch != null) {
+          lastChapter = ch;
+          addChapterStanzas(ch, part.substring(colonIndex + 1));
+        }
+      } else if (lastChapter != null) {
+        addChapterStanzas(lastChapter, part);
+      }
+    }
+    if (stanzas.isNotEmpty) {
+      return stanzas;
+    }
+  }
+
+  // Dash-crossing multi-chapter citations (e.g., "Psalm 42:2-43:4") delegate to
+  // standard resolveReadingRanges rather than stripping colons.
+  if (_chapterCrossingRegex.hasMatch(primaryCitation)) {
+    final fallback = resolveReadingRanges(
+      bookNumber: bookNumber,
+      defaultChapter: defaultChapter,
+      defaultVerseRange: defaultVerseRange,
+      citation: citation,
+    );
+    return fallback.isNotEmpty ? [fallback] : const [];
+  }
+
+  // Standard single-chapter psalm using defaultVerseRange
+  final vrOrIndex = defaultVerseRange.toLowerCase().indexOf(' or ');
+  final primaryVerseRange = vrOrIndex != -1
+      ? defaultVerseRange.substring(0, vrOrIndex).trim()
+      : defaultVerseRange.trim();
+
+  if (primaryVerseRange.isNotEmpty &&
+      primaryVerseRange.toLowerCase() != 'all') {
+    addChapterStanzas(defaultChapter, primaryVerseRange);
+    if (stanzas.isNotEmpty) {
+      return stanzas;
+    }
+  }
+
+  // Fallback to a single stanza using standard resolveReadingRanges
+  final fallback = resolveReadingRanges(
+    bookNumber: bookNumber,
+    defaultChapter: defaultChapter,
+    defaultVerseRange: defaultVerseRange,
+    citation: citation,
+  );
+  return fallback.isNotEmpty ? [fallback] : const [];
+}

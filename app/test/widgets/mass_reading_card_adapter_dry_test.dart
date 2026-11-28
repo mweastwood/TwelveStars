@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/prayer_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/psalm_response_service.dart';
 import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
@@ -24,6 +25,7 @@ void main() {
     PrayerDatabase.mockPrayers = null;
     PrayerDatabase.mockSettings = null;
     UserSettingsController.instance.resetForTesting();
+    PsalmResponseService.setEmptyForTesting();
 
     await testDb.saveUserSettings(
       UserSettings(
@@ -36,6 +38,7 @@ void main() {
   tearDown(() async {
     UserSettingsController.instance.resetForTesting();
     ReverseCitationService.clear();
+    PsalmResponseService.clear();
     await testDb.close();
   });
 

@@ -280,4 +280,36 @@ class LectionaryResponses {
       peopleText: d[10],
     );
   }
+
+  static const Map<PrayerLanguage, String> _alleluiaByLanguage = {
+    PrayerLanguage.latin: 'Allelúia.',
+    PrayerLanguage.spanish: 'Aleluya.',
+    PrayerLanguage.vietnamese: 'Ha-lê-lui-a.',
+    PrayerLanguage.french: 'Alléluia.',
+    PrayerLanguage.italian: 'Alleluia.',
+    PrayerLanguage.tagalog: 'Aleluya.',
+    PrayerLanguage.traditionalChinese: '阿肋路亞。',
+    PrayerLanguage.english: 'Alleluia.',
+  };
+
+  static const Map<PrayerLanguage, String> _orLabelByLanguage = {
+    PrayerLanguage.latin: 'vel',
+    PrayerLanguage.spanish: 'o',
+    PrayerLanguage.vietnamese: 'hoặc',
+    PrayerLanguage.french: 'ou',
+    PrayerLanguage.italian: 'oppure',
+    PrayerLanguage.tagalog: 'o',
+    PrayerLanguage.traditionalChinese: '或',
+    PrayerLanguage.english: 'or',
+  };
+
+  /// Localized "Alleluia." acclamation for Eastertide and Alleluia psalms.
+  static String getAlleluia(PrayerLanguage language) =>
+      _alleluiaByLanguage[language] ??
+      _alleluiaByLanguage[PrayerLanguage.english]!;
+
+  /// Localized conjunction ("or") used for optional Eastertide Alleluia refrains.
+  static String getOrLabel(PrayerLanguage language) =>
+      _orLabelByLanguage[language] ??
+      _orLabelByLanguage[PrayerLanguage.english]!;
 }
