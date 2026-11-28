@@ -1,7 +1,9 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
+import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
 import '../test_helper.dart';
 
 void main() {
@@ -548,5 +550,222 @@ void main() {
         expect(customNumRect.right, equals(defaultNumRect.right));
       },
     );
+
+    group('Parallel Translation Alignment with Annotation Chips', () {
+      testWidgets(
+        'keeps primary and secondary translation columns aligned across verses with and without notes on narrow screens',
+        (tester) async {
+          tester.view.physicalSize = const Size(400, 800);
+          tester.view.devicePixelRatio = 1.0;
+          addTearDown(tester.view.resetPhysicalSize);
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: const Scaffold(
+                body: Column(
+                  children: [
+                    BibleVerseRow(
+                      verseNumber: 1,
+                      verseText:
+                          'Then the people, seeing that Moses made a delay in descending from the mountain.',
+                      compareVerseText:
+                          'And the people seeing that Moses delayed to come down from the mount.',
+                      commentsCount: 1,
+                    ),
+                    BibleVerseRow(
+                      verseNumber: 2,
+                      verseText:
+                          'And Aaron said to them, Take the golden earrings from the ears of your wives.',
+                      compareVerseText:
+                          'And Aaron said to them: Take the golden earrings from the ears of your wives.',
+                    ),
+                    BibleVerseRow(
+                      verseNumber: 3,
+                      verseText:
+                          'And the people did what he had commanded, bringing the earrings to Aaron.',
+                      compareVerseText:
+                          'And the people did what he had commanded, bringing the earrings to Aaron.',
+                      isFavorite: true,
+                      citationsCount: 2,
+                      commentsCount: 3,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+
+          final v1Primary = tester.getRect(
+            find.textContaining('Then the people, seeing'),
+          );
+          final v1Compare = tester.getRect(
+            find.textContaining('And the people seeing'),
+          );
+          final v2Primary = tester.getRect(
+            find.textContaining('And Aaron said to them, Take'),
+          );
+          final v2Compare = tester.getRect(
+            find.textContaining('And Aaron said to them: Take'),
+          );
+          final v3Primary = tester.getRect(
+            find
+                .textContaining('And the people did what he had commanded')
+                .first,
+          );
+          final v3Compare = tester.getRect(
+            find
+                .textContaining('And the people did what he had commanded')
+                .last,
+          );
+
+          // Primary column left edge and width must match identically across all rows
+          expect(v1Primary.left, closeTo(v2Primary.left, 0.01));
+          expect(v1Primary.width, closeTo(v2Primary.width, 0.01));
+          expect(v3Primary.left, closeTo(v2Primary.left, 0.01));
+          expect(v3Primary.width, closeTo(v2Primary.width, 0.01));
+
+          // Secondary column left edge and width must match identically across all rows
+          expect(v1Compare.left, closeTo(v2Compare.left, 0.01));
+          expect(v1Compare.width, closeTo(v2Compare.width, 0.01));
+          expect(v3Compare.left, closeTo(v2Compare.left, 0.01));
+          expect(v3Compare.width, closeTo(v2Compare.width, 0.01));
+
+          // Verse 1 comment chip should sit below the parallel text, aligned with primary text start
+          final v1Chip = tester.getRect(
+            find.byType(ReaderAnnotationChip).first,
+          );
+          expect(v1Chip.top, greaterThanOrEqualTo(v1Primary.bottom));
+          expect(v1Chip.top, greaterThanOrEqualTo(v1Compare.bottom));
+          expect(v1Chip.left, closeTo(v1Primary.left, 0.01));
+        },
+      );
+
+      testWidgets(
+        'keeps primary and secondary translation columns aligned on wide screens and preserves chip taps',
+        (tester) async {
+          tester.view.physicalSize = const Size(900, 800);
+          tester.view.devicePixelRatio = 1.0;
+          addTearDown(tester.view.resetPhysicalSize);
+
+          bool tappedFav = false;
+          bool tappedCit = false;
+          bool tappedCom = false;
+
+          await tester.pumpWidget(
+            buildTestableWidget(
+              child: Scaffold(
+                body: Column(
+                  children: [
+                    BibleVerseRow(
+                      verseNumber: 1,
+                      verseText:
+                          'In the beginning God created heaven, and earth.',
+                      compareVerseText:
+                          'In principio creavit Deus caelum et terram.',
+                      isFavorite: true,
+                      citationsCount: 4,
+                      commentsCount: 2,
+                      onTapFavorite: () => tappedFav = true,
+                      onTapCitations: () => tappedCit = true,
+                      onTapComments: () => tappedCom = true,
+                    ),
+                    const BibleVerseRow(
+                      verseNumber: 2,
+                      verseText: 'And the earth was void and empty.',
+                      compareVerseText: 'Terra autem erat inanis et vacua.',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+
+          final v1Primary = tester.getRect(
+            find.text('In the beginning God created heaven, and earth.'),
+          );
+          final v1Compare = tester.getRect(
+            find.text('In principio creavit Deus caelum et terram.'),
+          );
+          final v2Primary = tester.getRect(
+            find.text('And the earth was void and empty.'),
+          );
+          final v2Compare = tester.getRect(
+            find.text('Terra autem erat inanis et vacua.'),
+          );
+
+          expect(v1Primary.left, closeTo(v2Primary.left, 0.01));
+          expect(v1Primary.width, closeTo(v2Primary.width, 0.01));
+          expect(v1Compare.left, closeTo(v2Compare.left, 0.01));
+          expect(v1Compare.width, closeTo(v2Compare.width, 0.01));
+
+          await tester.tap(find.byIcon(Icons.star_rounded));
+          await tester.tap(find.byIcon(Icons.auto_stories_rounded));
+          await tester.tap(find.byIcon(Icons.comment_rounded));
+          await tester.pump();
+
+          expect(tappedFav, isTrue);
+          expect(tappedCit, isTrue);
+          expect(tappedCom, isTrue);
+        },
+      );
+
+      testGoldens('renders aligned parallel verses with and without notes/badges', (
+        tester,
+      ) async {
+        await tester.pumpWidgetBuilder(
+          const Scaffold(
+            body: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  BibleVerseRow(
+                    verseNumber: 1,
+                    verseText:
+                        'Then the people, seeing that Moses made a delay in descending from the mountain, gathered together against Aaron.',
+                    compareVerseText:
+                        'And the people seeing that Moses delayed to come down from the mount, gathering together against Aaron.',
+                    commentsCount: 1,
+                  ),
+                  BibleVerseRow(
+                    verseNumber: 2,
+                    verseText:
+                        'And Aaron said to them, “Take the golden earrings from the ears of your wives, and your sons and daughters, and bring them to me.”',
+                    compareVerseText:
+                        'And Aaron said to them: Take the golden earrings from the ears of your wives, and your sons and daughters, and bring them to me.',
+                  ),
+                  BibleVerseRow(
+                    verseNumber: 3,
+                    verseText:
+                        'And the people did what he had commanded, bringing the earrings to Aaron.',
+                    compareVerseText:
+                        'And the people did what he had commanded, bringing the earrings to Aaron.',
+                    isFavorite: true,
+                    citationsCount: 2,
+                    commentsCount: 1,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          wrapper: materialAppWrapper(
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(
+                seedColor: const Color(0xFF2E5A27),
+                brightness: Brightness.dark,
+              ),
+              useMaterial3: true,
+            ),
+          ),
+          surfaceSize: const Size(412, 640),
+        );
+        await tester.pumpAndSettle();
+
+        await screenMatchesGolden(
+          tester,
+          'bible_verse_row_parallel_alignment_golden',
+        );
+      });
+    });
   });
 }

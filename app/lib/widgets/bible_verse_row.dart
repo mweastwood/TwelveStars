@@ -111,6 +111,64 @@ class BibleVerseRow extends StatelessWidget {
       double.infinity,
     );
 
+    final isParallel = compareVerseText != null;
+    final verseContentRow = Row(
+      crossAxisAlignment: CrossAxisAlignment.baseline,
+      textBaseline: TextBaseline.alphabetic,
+      children: [
+        SizedBox(
+          width: effectiveNumWidth,
+          child: Text(
+            verseNumText,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: theme.colorScheme.primary,
+              height: 1.5,
+              fontSize: fontSize != null
+                  ? (fontSize! * 0.85).clamp(10.0, 20.0)
+                  : (hasAlternateVerse ? 11.0 : null),
+            ),
+            textAlign: TextAlign.right,
+          ),
+        ),
+        const SizedBox(width: 12),
+        if (!isParallel)
+          Expanded(
+            child: Text(
+              verseText,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: theme.colorScheme.onSurface,
+                fontSize: fontSize,
+                height: 1.5,
+              ),
+            ),
+          )
+        else ...[
+          Expanded(
+            child: Text(
+              verseText,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: theme.colorScheme.onSurface,
+                fontSize: fontSize,
+                height: 1.5,
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              compareVerseText!,
+              style: theme.textTheme.bodyLarge?.copyWith(
+                color: theme.colorScheme.onSurface,
+                fontSize: fontSize,
+                height: 1.5,
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+
     return GestureDetector(
       onLongPress: onLongPress,
       onTap: onTap,
@@ -125,93 +183,53 @@ class BibleVerseRow extends StatelessWidget {
         ),
         padding: effectivePadding,
         margin: resolvedMargin,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
+        child: isParallel
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  SizedBox(
-                    width: effectiveNumWidth,
-                    child: Text(
-                      verseNumText,
-                      style: theme.textTheme.bodyMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.primary,
-                        height: 1.5,
-                        fontSize: fontSize != null
-                            ? (fontSize! * 0.85).clamp(10.0, 20.0)
-                            : (hasAlternateVerse ? 11.0 : null),
+                  verseContentRow,
+                  if (chips.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Padding(
+                      padding: EdgeInsetsDirectional.only(
+                        start: effectiveNumWidth + 12,
                       ),
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  if (compareVerseText == null)
-                    Expanded(
-                      child: Text(
-                        verseText,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          color: theme.colorScheme.onSurface,
-                          fontSize: fontSize,
-                          height: 1.5,
-                        ),
-                      ),
-                    )
-                  else ...[
-                    Expanded(
-                      child: Text(
-                        verseText,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          color: theme.colorScheme.onSurface,
-                          fontSize: fontSize,
-                          height: 1.5,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Text(
-                        compareVerseText!,
-                        style: theme.textTheme.bodyLarge?.copyWith(
-                          color: theme.colorScheme.onSurface,
-                          fontSize: fontSize,
-                          height: 1.5,
-                        ),
-                      ),
+                      child: Wrap(spacing: 8, runSpacing: 4, children: chips),
                     ),
                   ],
                 ],
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: verseContentRow),
+                  if (chips.isNotEmpty) ...[
+                    const SizedBox(width: 8),
+                    if (isWide)
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          for (int i = 0; i < chips.length; i++) ...[
+                            if (i > 0) const SizedBox(width: 8),
+                            chips[i],
+                          ],
+                        ],
+                      )
+                    else
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          for (int i = 0; i < chips.length; i++) ...[
+                            if (i > 0) const SizedBox(height: 4),
+                            chips[i],
+                          ],
+                        ],
+                      ),
+                  ],
+                ],
               ),
-            ),
-            if (chips.isNotEmpty) ...[
-              const SizedBox(width: 8),
-              if (isWide)
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (int i = 0; i < chips.length; i++) ...[
-                      if (i > 0) const SizedBox(width: 8),
-                      chips[i],
-                    ],
-                  ],
-                )
-              else
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    for (int i = 0; i < chips.length; i++) ...[
-                      if (i > 0) const SizedBox(height: 4),
-                      chips[i],
-                    ],
-                  ],
-                ),
-            ],
-          ],
-        ),
       ),
     );
   }
