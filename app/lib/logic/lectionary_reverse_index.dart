@@ -254,7 +254,11 @@ class LectionaryReverseIndex {
   }
 
   static Future<void> _loadFromAsset(int generation) async {
-    final rawJson = await rootBundle.loadString(_assetPath);
+    // Use cache: false because LectionaryReverseIndex caches the parsed index
+    // in memory; avoiding CachingAssetBundle's string cache both saves RAM and
+    // prevents FakeAsync widget tests from poisoning shared asset futures used
+    // by BibleDatabase.ensurePopulated().
+    final rawJson = await rootBundle.loadString(_assetPath, cache: false);
     if (generation != _loadGeneration) return;
     _loadFromJsonStringInternal(rawJson);
   }
