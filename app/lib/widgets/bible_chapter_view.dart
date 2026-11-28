@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/bible_citation_parser.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/lectionary_reverse_index.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
@@ -86,6 +87,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
   final Map<int, GlobalKey> _verseKeys = {};
   int _loadGeneration = 0;
   bool _isSubscribedToIndexing = false;
+  bool _isSubscribedToLectionary = false;
   bool _ignoreAnnotationsRevision = false;
 
   @override
@@ -115,6 +117,20 @@ class _BibleChapterViewState extends State<BibleChapterView>
     }
   }
 
+  void _ensureLectionaryIndexSubscribed() {
+    if (!LectionaryReverseIndex.isLoaded && !_isSubscribedToLectionary) {
+      _isSubscribedToLectionary = true;
+      LectionaryReverseIndex.ensureLoaded()
+          .then((_) {
+            _isSubscribedToLectionary = false;
+            if (mounted && !_loading) setState(() {});
+          })
+          .catchError((_) {
+            _isSubscribedToLectionary = false;
+          });
+    }
+  }
+
   void _initOrLoadChapterData({bool isInit = false}) {
     final cached = _adapter.getCachedChapterData(
       widget.chapter,
@@ -139,6 +155,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
         setState(applyCached);
       }
       _ensureReverseCitationsSubscribed();
+      _ensureLectionaryIndexSubscribed();
       _scrollToAndHighlightTarget();
       return;
     }
@@ -290,6 +307,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
 
     try {
       _ensureReverseCitationsSubscribed();
+      _ensureLectionaryIndexSubscribed();
 
       final chapterData = await _adapter.loadChapterData(
         widget.chapter,
@@ -622,6 +640,13 @@ class _BibleChapterViewState extends State<BibleChapterView>
                               verse.verseNumber,
                             );
 
+                        final verseLectionaryOccurrences =
+                            LectionaryReverseIndex.getVerseOccurrences(
+                              widget.book.bookNumber,
+                              widget.chapter,
+                              verse.verseNumber,
+                            );
+
                         final nodeId = ReaderNodeId.bibleVerse(
                           verse.bookNumber,
                           verse.chapter,
@@ -667,6 +692,7 @@ class _BibleChapterViewState extends State<BibleChapterView>
                             ),
                             citationsCount: verseCitations.length,
                             commentsCount: verseComments.length,
+                            lectionaryCount: verseLectionaryOccurrences.length,
                             isFavorite: isFavorite,
                             onTap: () => _onVerseTap(verse.verseNumber),
                             onLongPress: () =>
@@ -675,6 +701,11 @@ class _BibleChapterViewState extends State<BibleChapterView>
                               context: context,
                               title: verseRef,
                               citations: verseCitations,
+                            ),
+                            onTapLectionary: () => showLectionaryReadingsModal(
+                              context: context,
+                              title: verseRef,
+                              occurrences: verseLectionaryOccurrences,
                             ),
                             onTapComments: () => showVerseCommentsModal(
                               context: context,

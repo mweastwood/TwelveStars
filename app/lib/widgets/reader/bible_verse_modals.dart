@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
+import 'package:twelve_stars/logic/lectionary_reverse_index.dart';
 import 'package:twelve_stars/logic/library_database.dart';
+import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/reader/annotations_repository.dart';
 import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
@@ -305,6 +307,322 @@ Future<void> showReverseCitationsModal({
       );
     },
   );
+}
+
+Future<void> showLectionaryReadingsModal({
+  required BuildContext context,
+  required String title,
+  required List<LectionaryOccurrence> occurrences,
+  DateTime? referenceDate,
+  ValueChanged<DateTime>? onOpenMissalDate,
+}) async {
+  final theme = Theme.of(context);
+  final now = referenceDate ?? DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final resolved = LectionaryReverseIndex.resolveOccurrencesWithDates(
+    occurrences,
+    referenceDate: today,
+  );
+
+  await showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    isDismissible: true,
+    enableDrag: true,
+    backgroundColor: Colors.transparent,
+    builder: (ctx) {
+      return GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.of(ctx).pop(),
+        child: GestureDetector(
+          onTap: () {},
+          child: Container(
+            decoration: BoxDecoration(
+              color: theme.colorScheme.surface,
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(24),
+              ),
+            ),
+            child: DraggableScrollableSheet(
+              expand: false,
+              initialChildSize: 0.65,
+              maxChildSize: 0.9,
+              minChildSize: 0.4,
+              builder: (sheetCtx, scrollController) {
+                return SafeArea(
+                  top: false,
+                  child: Padding(
+                    padding: _modalSheetPadding(sheetCtx),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _ModalSheetHeader(
+                          icon: Icons.church_rounded,
+                          title: 'Mass Readings from $title',
+                          subtitle:
+                              'Lectionary passages that begin at this verse',
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            controller: scrollController,
+                            itemCount: resolved.length,
+                            itemBuilder: (lCtx, index) {
+                              final item = resolved[index];
+                              final occ = item.occurrence;
+                              final litColor = occ.liturgicalColor.colorWidget;
+                              final nextDate = item.nextDate;
+                              final isToday =
+                                  nextDate != null &&
+                                  nextDate.year == today.year &&
+                                  nextDate.month == today.month &&
+                                  nextDate.day == today.day;
+
+                              return Container(
+                                key: Key('lectionary_card_${occ.readingKey}'),
+                                margin: const EdgeInsets.only(bottom: 12),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.surfaceContainerLow,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: theme.colorScheme.outlineVariant
+                                        .withValues(alpha: 0.5),
+                                  ),
+                                ),
+                                clipBehavior: Clip.antiAlias,
+                                child: IntrinsicHeight(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      Container(width: 4, color: litColor),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(12),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Wrap(
+                                                spacing: 6,
+                                                runSpacing: 4,
+                                                crossAxisAlignment:
+                                                    WrapCrossAlignment.center,
+                                                children: [
+                                                  _buildLectionaryPill(
+                                                    label: occ.role.label,
+                                                    backgroundColor: litColor
+                                                        .withValues(
+                                                          alpha: 0.14,
+                                                        ),
+                                                    borderColor: litColor
+                                                        .withValues(
+                                                          alpha: 0.45,
+                                                        ),
+                                                    foregroundColor:
+                                                        theme.brightness ==
+                                                            Brightness.dark
+                                                        ? Color.lerp(
+                                                            litColor,
+                                                            Colors.white,
+                                                            0.45,
+                                                          )!
+                                                        : litColor,
+                                                  ),
+                                                  _buildLectionaryPill(
+                                                    label: occ.rank.label,
+                                                    backgroundColor: theme
+                                                        .colorScheme
+                                                        .surfaceContainerHighest
+                                                        .withValues(alpha: 0.7),
+                                                    borderColor: theme
+                                                        .colorScheme
+                                                        .outlineVariant
+                                                        .withValues(alpha: 0.5),
+                                                    foregroundColor: theme
+                                                        .colorScheme
+                                                        .onSurfaceVariant,
+                                                  ),
+                                                  if (occ.citation.isNotEmpty)
+                                                    _buildLectionaryPill(
+                                                      label: occ.citation,
+                                                      backgroundColor: theme
+                                                          .colorScheme
+                                                          .secondaryContainer
+                                                          .withValues(
+                                                            alpha: 0.5,
+                                                          ),
+                                                      borderColor: theme
+                                                          .colorScheme
+                                                          .secondary
+                                                          .withValues(
+                                                            alpha: 0.3,
+                                                          ),
+                                                      foregroundColor: theme
+                                                          .colorScheme
+                                                          .onSecondaryContainer,
+                                                    ),
+                                                ],
+                                              ),
+                                              const SizedBox(height: 8),
+                                              Text(
+                                                occ.title,
+                                                style: theme
+                                                    .textTheme
+                                                    .titleSmall
+                                                    ?.copyWith(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                              ),
+                                              if (nextDate != null) ...[
+                                                const SizedBox(height: 6),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .calendar_today_rounded,
+                                                      size: 13,
+                                                      color: theme
+                                                          .colorScheme
+                                                          .onSurfaceVariant,
+                                                    ),
+                                                    const SizedBox(width: 6),
+                                                    Expanded(
+                                                      child: Text(
+                                                        isToday
+                                                            ? 'Read today (${_formatLectionaryDate(nextDate)})'
+                                                            : 'Next read: ${_formatLectionaryDate(nextDate)}',
+                                                        style: theme
+                                                            .textTheme
+                                                            .bodySmall
+                                                            ?.copyWith(
+                                                              color: isToday
+                                                                  ? theme
+                                                                        .colorScheme
+                                                                        .primary
+                                                                  : theme
+                                                                        .colorScheme
+                                                                        .onSurfaceVariant,
+                                                              fontWeight:
+                                                                  isToday
+                                                                  ? FontWeight
+                                                                        .w600
+                                                                  : null,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    TextButton.icon(
+                                                      key: Key(
+                                                        'open_missal_${occ.readingKey}',
+                                                      ),
+                                                      style: TextButton.styleFrom(
+                                                        visualDensity:
+                                                            VisualDensity
+                                                                .compact,
+                                                        padding:
+                                                            const EdgeInsets.symmetric(
+                                                              horizontal: 8,
+                                                              vertical: 4,
+                                                            ),
+                                                      ),
+                                                      icon: const Icon(
+                                                        Icons.church_rounded,
+                                                        size: 15,
+                                                      ),
+                                                      label: const Text(
+                                                        'Open in Missal',
+                                                      ),
+                                                      onPressed: () {
+                                                        final router =
+                                                            GoRouter.maybeOf(
+                                                              context,
+                                                            );
+                                                        Navigator.of(ctx).pop();
+                                                        if (onOpenMissalDate !=
+                                                            null) {
+                                                          onOpenMissalDate(
+                                                            nextDate,
+                                                          );
+                                                        } else if (router !=
+                                                            null) {
+                                                          router.go(
+                                                            AppRoutes.missalPath(
+                                                              date: nextDate,
+                                                            ),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      );
+    },
+  );
+}
+
+Widget _buildLectionaryPill({
+  required String label,
+  required Color backgroundColor,
+  required Color borderColor,
+  required Color foregroundColor,
+}) {
+  return Container(
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+    decoration: BoxDecoration(
+      color: backgroundColor,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: borderColor),
+    ),
+    child: Text(
+      label,
+      style: TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w600,
+        color: foregroundColor,
+      ),
+    ),
+  );
+}
+
+String _formatLectionaryDate(DateTime date) {
+  const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  final weekday = weekdays[date.weekday - 1];
+  final month = months[date.month - 1];
+  return '$weekday, $month ${date.day}, ${date.year}';
 }
 
 Future<void> showVerseCommentsModal({

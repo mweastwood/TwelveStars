@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/lectionary_reverse_index.dart';
 import 'package:twelve_stars/logic/library_database.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
@@ -72,6 +73,7 @@ void main() {
     BibleDatabaseHelper.db = testDb;
     clipboardLog.clear();
     ReverseCitationService.clear();
+    LectionaryReverseIndex.resetForTesting();
     LibraryHelper.clearCache();
 
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -123,6 +125,7 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
         .setMockMethodCallHandler(SystemChannels.platform, null);
     ReverseCitationService.clear();
+    LectionaryReverseIndex.resetForTesting();
     LibraryHelper.clearCache();
     await testDb.close();
   });
@@ -387,6 +390,62 @@ void main() {
         await screenMatchesGolden(
           tester,
           'bible_chapter_citations_chip_golden',
+        );
+      },
+    );
+
+    testWidgets(
+      'Lectionary chip renders only on pickup verse and opens Mass Readings modal on tap',
+      (WidgetTester tester) async {
+        LectionaryReverseIndex.loadFromJsonString('''
+[
+  {
+    "reading_key": "triduum_holy_saturday",
+    "reading_type": "first",
+    "book_number": 1,
+    "book_name": "Genesis",
+    "chapter": 1,
+    "verse_range": "1-2",
+    "citation": "Genesis 1:1—2:2"
+  },
+  {
+    "reading_key": "season_ordinary_time_5_monday_1",
+    "reading_type": "first",
+    "book_number": 1,
+    "book_name": "Genesis",
+    "chapter": 1,
+    "verse_range": "1-19",
+    "citation": "Genesis 1:1-19"
+  }
+]
+''');
+
+        await tester.pumpWidget(
+          buildTestableWidget(
+            child: Scaffold(
+              body: BibleChapterView(
+                book: genesisBook,
+                chapter: 1,
+                primaryTranslation: 'CPDV',
+                compareTranslation: 'none',
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Only verse 1 (pickup verse) should show the church chip with count 2
+        expect(find.byIcon(Icons.church_rounded), findsOneWidget);
+        expect(find.text('2'), findsWidgets);
+
+        await tester.tap(find.byIcon(Icons.church_rounded));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Mass Readings from Genesis 1:1'), findsOneWidget);
+        expect(find.text('The Easter Vigil in the Holy Night'), findsOneWidget);
+        expect(
+          find.text('Monday of the 5th Week in Ordinary Time (Year I)'),
+          findsOneWidget,
         );
       },
     );

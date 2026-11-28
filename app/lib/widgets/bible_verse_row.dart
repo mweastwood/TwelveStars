@@ -13,11 +13,13 @@ class BibleVerseRow extends StatelessWidget {
   final double? fontSize;
   final int citationsCount;
   final int commentsCount;
+  final int lectionaryCount;
   final bool isFavorite;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
   final VoidCallback? onTapCitations;
   final VoidCallback? onTapComments;
+  final VoidCallback? onTapLectionary;
   final VoidCallback? onTapFavorite;
 
   const BibleVerseRow({
@@ -32,16 +34,25 @@ class BibleVerseRow extends StatelessWidget {
     this.fontSize,
     this.citationsCount = 0,
     this.commentsCount = 0,
+    this.lectionaryCount = 0,
     this.isFavorite = false,
     this.onTap,
     this.onLongPress,
     this.onTapCitations,
     this.onTapComments,
+    this.onTapLectionary,
     this.onTapFavorite,
   });
 
   Widget _buildFavoriteChip() {
     return ReaderAnnotationChip.favorite(onTap: onTapFavorite);
+  }
+
+  Widget _buildLectionaryChip() {
+    return ReaderAnnotationChip.lectionary(
+      count: lectionaryCount,
+      onTap: onTapLectionary,
+    );
   }
 
   Widget _buildCitationsChip() {
@@ -70,6 +81,7 @@ class BibleVerseRow extends StatelessWidget {
 
     final chips = <Widget>[
       if (isFavorite) _buildFavoriteChip(),
+      if (lectionaryCount > 0) _buildLectionaryChip(),
       if (citationsCount > 0) _buildCitationsChip(),
       if (commentsCount > 0) _buildCommentsChip(),
     ];
