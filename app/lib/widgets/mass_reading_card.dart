@@ -6,6 +6,7 @@ import 'package:twelve_stars/logic/bible_numbering_mapper.dart';
 import 'package:twelve_stars/logic/bible_translation_info.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/prayers.dart';
+import 'package:twelve_stars/logic/psalm_response_service.dart';
 import 'package:twelve_stars/logic/reader/bible_reader_adapter.dart';
 import 'package:twelve_stars/logic/reader/reader_node_id.dart';
 import 'package:twelve_stars/logic/reader/reader_selection_controller.dart';
@@ -13,6 +14,7 @@ import 'package:twelve_stars/logic/reverse_citation_service.dart';
 import 'package:twelve_stars/logic/user_settings_controller.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
+import 'package:twelve_stars/widgets/reader/mass_psalm_widgets.dart';
 import 'package:twelve_stars/widgets/reader/mass_reading_dialogue_box.dart';
 import 'package:twelve_stars/widgets/reader/reader_selection_action_bar.dart';
 
@@ -85,9 +87,14 @@ class _MassReadingCardState extends State<MassReadingCard> {
   bool _isExpanded = true;
   bool _isLoading = false;
   List<BibleVerse>? _verses;
+  List<List<BibleVerse>>? _psalmStanzas;
+  PsalmResponseSpec? _psalmResponseSpec;
+  List<BibleVerse>? _psalmResponseVerses;
   Map<String, List<UserComment>> _commentsByNodeId = {};
   Map<String, List<FavoritePassage>> _favoritesByVerseKey = {};
   String? _errorMessage;
+
+  bool get _isPsalm => widget.reading.readingType.toLowerCase() == 'psalm';
 
   String? _loadedTranslation;
   String? _loadingTranslation;
@@ -297,18 +304,109 @@ class _MassReadingCardState extends State<MassReadingCard> {
       await _loadComments();
       if (!mounted || loadGen != _loadGeneration) return;
 
-      final ranges = resolveReadingRanges(
-        bookNumber: widget.reading.bookNumber,
-        defaultChapter: widget.reading.chapter,
-        defaultVerseRange: widget.reading.verseRange,
-        citation: widget.reading.citation,
-      );
+      List<BibleVerse> verses;
+      List<List<BibleVerse>>? psalmStanzas;
+      PsalmResponseSpec? psalmResponseSpec;
+      List<BibleVerse>? psalmResponseVerses;
 
-      final verses = await db.getVersesForRanges(
-        translationCode: translation,
-        bookNumber: widget.reading.bookNumber,
-        ranges: ranges,
-      );
+      if (_isPsalm) {
+        final stanzaRanges = resolvePsalmStanzas(
+          bookNumber: widget.reading.bookNumber,
+          defaultChapter: widget.reading.chapter,
+          defaultVerseRange: widget.reading.verseRange,
+          citation: widget.reading.citation,
+        );
+        final flatRanges = [for (final s in stanzaRanges) ...s];
+        final fetched = await db.getVersesForRanges(
+          translationCode: translation,
+          bookNumber: widget.reading.bookNumber,
+          ranges: flatRanges,
+        );
+        if (!mounted || loadGen != _loadGeneration) return;
+
+        final byChapVerse = <(int, int), BibleVerse>{
+          for (final v in fetched) (v.chapter, v.verseNumber): v,
+        };
+        final hydratedStanzas = <List<BibleVerse>>[];
+        for (final stanza in stanzaRanges) {
+          final stanzaVerses = <BibleVerse>[];
+          for (final range in stanza) {
+            if (range.verses != null) {
+              for (final vNum in range.verses!) {
+                final match = byChapVerse[(range.chapter, vNum)];
+                if (match != null) {
+                  stanzaVerses.add(match);
+                }
+              }
+            } else {
+              for (final v in fetched) {
+                if (v.chapter != range.chapter) continue;
+                if (range.startVerseLimit != null &&
+                    v.verseNumber < range.startVerseLimit!) {
+                  continue;
+                }
+                if (range.endVerseLimit != null &&
+                    v.verseNumber > range.endVerseLimit!) {
+                  continue;
+                }
+                stanzaVerses.add(v);
+              }
+            }
+          }
+          if (stanzaVerses.isNotEmpty) {
+            hydratedStanzas.add(stanzaVerses);
+          }
+        }
+        psalmStanzas = hydratedStanzas;
+        verses = [for (final s in hydratedStanzas) ...s];
+
+        if (PsalmResponseService.isLoaded) {
+          final resolved = await _fetchPsalmResponse(
+            db: db,
+            loadGen: loadGen,
+            requestedTranslation: requestedTranslation,
+            transInfo: transInfo,
+            psalmTranslation: translation,
+          );
+          if (!mounted || loadGen != _loadGeneration) return;
+          psalmResponseSpec = resolved.spec;
+          psalmResponseVerses = resolved.verses;
+        } else {
+          PsalmResponseService.ensureLoaded().then((_) async {
+            if (!mounted || loadGen != _loadGeneration) return;
+            if (!PsalmResponseService.isLoaded) return;
+            try {
+              final resolved = await _fetchPsalmResponse(
+                db: db,
+                loadGen: loadGen,
+                requestedTranslation: requestedTranslation,
+                transInfo: transInfo,
+                psalmTranslation: translation,
+              );
+              if (!mounted || loadGen != _loadGeneration) return;
+              if (resolved.spec != null) {
+                setState(() {
+                  _psalmResponseSpec = resolved.spec;
+                  _psalmResponseVerses = resolved.verses;
+                });
+              }
+            } catch (_) {}
+          });
+        }
+      } else {
+        final ranges = resolveReadingRanges(
+          bookNumber: widget.reading.bookNumber,
+          defaultChapter: widget.reading.chapter,
+          defaultVerseRange: widget.reading.verseRange,
+          citation: widget.reading.citation,
+        );
+
+        verses = await db.getVersesForRanges(
+          translationCode: translation,
+          bookNumber: widget.reading.bookNumber,
+          ranges: ranges,
+        );
+      }
 
       if (mounted && loadGen == _loadGeneration) {
         final currentNumbering = UserSettingsController.instance.isInitialized
@@ -316,6 +414,9 @@ class _MassReadingCardState extends State<MassReadingCard> {
             : settings.bibleNumberingSystem;
         setState(() {
           _verses = verses;
+          _psalmStanzas = psalmStanzas;
+          _psalmResponseSpec = psalmResponseSpec;
+          _psalmResponseVerses = psalmResponseVerses;
           _loadedTranslation = translation;
           _loadingTranslation = null;
           _numberingSystem = currentNumbering;
@@ -331,6 +432,75 @@ class _MassReadingCardState extends State<MassReadingCard> {
         });
       }
     }
+  }
+
+  Future<({PsalmResponseSpec? spec, List<BibleVerse>? verses})>
+  _fetchPsalmResponse({
+    required BibleDatabase db,
+    required int loadGen,
+    required String requestedTranslation,
+    required BibleTranslationInfo transInfo,
+    required String psalmTranslation,
+  }) async {
+    final spec = PsalmResponseService.getForReadingKey(
+      widget.reading.readingKey,
+    );
+    if (spec == null || spec.isAlleluia || !spec.hasRefrain) {
+      return (spec: spec, verses: null);
+    }
+
+    final responseBookNum = spec.targetBookNumber(widget.reading.bookNumber);
+    final responseRanges = spec.resolveVulgateRanges(
+      defaultBookNumber: widget.reading.bookNumber,
+      defaultChapter: widget.reading.chapter,
+    );
+    if (responseRanges.isEmpty) {
+      return (spec: spec, verses: null);
+    }
+
+    final responseTranslation = transInfo.supportsBook(responseBookNum)
+        ? requestedTranslation
+        : 'CPDV';
+    if (responseBookNum != widget.reading.bookNumber ||
+        responseTranslation != psalmTranslation) {
+      final responseBookMeta = catholicBooksByNumber[responseBookNum];
+      if (responseBookMeta != null) {
+        await db.ensureBookPopulated(
+          responseBookMeta.bookNumber,
+          responseBookMeta.bookName,
+          responseBookMeta.abbrev,
+          translation: responseTranslation,
+        );
+        if (!mounted || loadGen != _loadGeneration) {
+          return (spec: null, verses: null);
+        }
+      }
+    }
+
+    final fetchedResponse = await db.getVersesForRanges(
+      translationCode: responseTranslation,
+      bookNumber: responseBookNum,
+      ranges: responseRanges,
+    );
+    if (!mounted || loadGen != _loadGeneration) {
+      return (spec: null, verses: null);
+    }
+
+    final respMap = <(int, int), BibleVerse>{
+      for (final v in fetchedResponse) (v.chapter, v.verseNumber): v,
+    };
+    final orderedResponse = <BibleVerse>[];
+    for (final range in responseRanges) {
+      if (range.verses != null) {
+        for (final vNum in range.verses!) {
+          final match = respMap[(range.chapter, vNum)];
+          if (match != null) {
+            orderedResponse.add(match);
+          }
+        }
+      }
+    }
+    return (spec: spec, verses: orderedResponse);
   }
 
   void _toggleExpanded() {
@@ -401,6 +571,22 @@ class _MassReadingCardState extends State<MassReadingCard> {
   String _formatVerseCitation(BibleVerse verse) =>
       _formatSelectionCitation(verse, verse, isSingleVerse: true);
 
+  String? _formatResponseCitation(List<BibleVerse>? verses) {
+    if (verses == null || verses.isEmpty) return null;
+    final first = verses.first;
+    final last = verses.last;
+    return BibleReaderAdapter.formatPassageCitation(
+      bookNumber: first.bookNumber,
+      bookName: first.bookName,
+      startChapter: first.chapter,
+      startVerse: first.verseNumber,
+      endChapter: last.chapter,
+      endVerse: last.verseNumber,
+      numberingSystem: _numberingSystem,
+      crossChapterSeparator: ' - ',
+    );
+  }
+
   MassReadingSelection? _createSelectionData() {
     if (!_selectionController.hasSelection ||
         _verses == null ||
@@ -413,8 +599,15 @@ class _MassReadingCardState extends State<MassReadingCard> {
     if (start >= _verses!.length || end >= _verses!.length) {
       return null;
     }
-    final count = _selectionController.selectedCount;
-    final selectedVerses = _verses!.sublist(start, end + 1);
+    final rawSelectedVerses = _verses!.sublist(start, end + 1);
+    final seenKeys = <(int, int, int)>{};
+    final selectedVerses = <BibleVerse>[];
+    for (final v in rawSelectedVerses) {
+      if (seenKeys.add((v.bookNumber, v.chapter, v.verseNumber))) {
+        selectedVerses.add(v);
+      }
+    }
+    final count = selectedVerses.length;
     final firstV = selectedVerses.first;
     final lastV = selectedVerses.last;
 
@@ -624,92 +817,15 @@ class _MassReadingCardState extends State<MassReadingCard> {
                     compareLanguage: widget.compareLanguage,
                     fontSize: widget.fontSize,
                   ),
-                ..._verses!.asMap().entries.map((entry) {
-                  final index = entry.key;
-                  final verse = entry.value;
-                  final isSelected = _isVerseSelected(index);
-
-                  final verseCitations =
-                      ReverseCitationService.getVerseCitations(
-                        verse.bookNumber,
-                        verse.chapter,
-                        verse.verseNumber,
-                      );
-
-                  final nodeId = ReaderNodeId.bibleVerse(
-                    verse.bookNumber,
-                    verse.chapter,
-                    verse.verseNumber,
-                  );
-                  final verseComments = _commentsByNodeId[nodeId] ?? const [];
-
-                  final matchingFavorites =
-                      _favoritesByVerseKey[nodeId] ?? const [];
-                  final isFavorite = matchingFavorites.isNotEmpty;
-
-                  final verseDisplay = BibleVerseResolver.formatVerseDisplay(
-                    bookNumber: verse.bookNumber,
-                    chapter: verse.chapter,
-                    verseNumber: verse.verseNumber,
-                    numberingSystem: _numberingSystem,
-                  );
-                  final verseRef = _formatVerseCitation(verse);
-
-                  return BibleVerseRow(
-                    verseNumber: verseDisplay.displayVerseNumber,
-                    alternateVerseNumber: verseDisplay.alternateVerseNumber,
-                    verseText: verse.verseText,
-                    padding: const EdgeInsets.only(
-                      left: 0.0,
-                      right: 8.0,
-                      top: 6.0,
-                      bottom: 6.0,
-                    ),
-                    isSelected: isSelected,
-                    fontSize: widget.fontSize,
-                    citationsCount: verseCitations.length,
-                    commentsCount: verseComments.length,
-                    isFavorite: isFavorite,
-                    onTap: () => _onVerseTap(index),
-                    onLongPress: () => _onVerseLongPress(index),
-                    onTapCitations: () => showReverseCitationsModal(
-                      context: context,
-                      title: verseRef,
-                      citations: verseCitations,
-                    ),
-                    onTapComments: () {
-                      final bookMeta =
-                          catholicBooksByNumber[widget.reading.bookNumber] ??
-                          (throw Exception(
-                            'Book ${widget.reading.bookName} not found',
-                          ));
-                      showVerseCommentsModal(
-                        context: context,
-                        title: verseRef,
-                        nodeId: nodeId,
-                        textPreview: verse.verseText,
-                        comments: verseComments,
-                        onCommentsChanged: _loadComments,
-                        onAddComment: () => showAddCommentDialog(
-                          context: context,
-                          citation: verseRef,
-                          textPreview: verse.verseText,
-                          documentId: bookMeta.abbrev,
-                          sectionIndex: verse.chapter,
-                          nodeId: nodeId,
-                          onCommentSaved: _loadComments,
-                        ),
-                      );
-                    },
-                    onTapFavorite: () => showVerseFavoritesModal(
-                      context: context,
-                      title: verseRef,
-                      favorites: matchingFavorites,
-                      onFavoritesChanged: _loadFavorites,
-                    ),
-                  );
-                }),
-                if (widget.reading.readingType.toLowerCase() != 'psalm')
+                if (_isPsalm &&
+                    _psalmStanzas != null &&
+                    _psalmStanzas!.isNotEmpty)
+                  ..._buildPsalmContent()
+                else
+                  ..._verses!.asMap().entries.map(
+                    (entry) => _buildVerseRow(entry.value, entry.key),
+                  ),
+                if (!_isPsalm)
                   MassReadingConcludingDialogue(
                     reading: widget.reading,
                     primaryLanguage: widget.primaryLanguage,
@@ -723,6 +839,144 @@ class _MassReadingCardState extends State<MassReadingCard> {
             ],
           ],
         ),
+      ),
+    );
+  }
+
+  List<Widget> _buildPsalmContent() {
+    final stanzas = _psalmStanzas!;
+    final spec = _psalmResponseSpec;
+    final responseVerses = _psalmResponseVerses;
+    final hasAlleluia = spec?.isAlleluia == true;
+    final hasVerseResponse =
+        spec != null &&
+        !hasAlleluia &&
+        responseVerses != null &&
+        responseVerses.isNotEmpty;
+    final hasResponse = hasAlleluia || hasVerseResponse;
+    final responseText = hasVerseResponse
+        ? responseVerses.map((v) => v.verseText).join(' ')
+        : '';
+    final responseCitation = hasVerseResponse
+        ? _formatResponseCitation(responseVerses)
+        : null;
+
+    final widgets = <Widget>[];
+    if (hasResponse) {
+      widgets.add(
+        MassPsalmResponseBanner(
+          responseText: responseText,
+          responseCitation: responseCitation,
+          isAlleluia: hasAlleluia,
+          showEasterAlleluiaOption: spec?.allowAlleluia == true,
+          primaryLanguage: widget.primaryLanguage,
+          compareLanguage: widget.compareLanguage,
+          fontSize: widget.fontSize,
+        ),
+      );
+    }
+
+    int flatIndex = 0;
+    for (int stanzaIdx = 0; stanzaIdx < stanzas.length; stanzaIdx++) {
+      final stanza = stanzas[stanzaIdx];
+      final isLastStanza = stanzaIdx == stanzas.length - 1;
+      for (final verse in stanza) {
+        widgets.add(_buildVerseRow(verse, flatIndex));
+        flatIndex++;
+      }
+      if (hasResponse) {
+        widgets.add(
+          MassPsalmRefrainCue(
+            responseText: responseText,
+            isAlleluia: hasAlleluia,
+            primaryLanguage: widget.primaryLanguage,
+            fontSize: widget.fontSize,
+            isLast: isLastStanza,
+          ),
+        );
+      } else if (!isLastStanza) {
+        widgets.add(const SizedBox(height: 12));
+      }
+    }
+    return widgets;
+  }
+
+  Widget _buildVerseRow(BibleVerse verse, int index) {
+    final isSelected = _isVerseSelected(index);
+
+    final verseCitations = ReverseCitationService.getVerseCitations(
+      verse.bookNumber,
+      verse.chapter,
+      verse.verseNumber,
+    );
+
+    final nodeId = ReaderNodeId.bibleVerse(
+      verse.bookNumber,
+      verse.chapter,
+      verse.verseNumber,
+    );
+    final verseComments = _commentsByNodeId[nodeId] ?? const [];
+
+    final matchingFavorites = _favoritesByVerseKey[nodeId] ?? const [];
+    final isFavorite = matchingFavorites.isNotEmpty;
+
+    final verseDisplay = BibleVerseResolver.formatVerseDisplay(
+      bookNumber: verse.bookNumber,
+      chapter: verse.chapter,
+      verseNumber: verse.verseNumber,
+      numberingSystem: _numberingSystem,
+    );
+    final verseRef = _formatVerseCitation(verse);
+
+    return BibleVerseRow(
+      verseNumber: verseDisplay.displayVerseNumber,
+      alternateVerseNumber: verseDisplay.alternateVerseNumber,
+      verseText: verse.verseText,
+      padding: const EdgeInsets.only(
+        left: 0.0,
+        right: 8.0,
+        top: 6.0,
+        bottom: 6.0,
+      ),
+      isSelected: isSelected,
+      fontSize: widget.fontSize,
+      citationsCount: verseCitations.length,
+      commentsCount: verseComments.length,
+      isFavorite: isFavorite,
+      onTap: () => _onVerseTap(index),
+      onLongPress: () => _onVerseLongPress(index),
+      onTapCitations: () => showReverseCitationsModal(
+        context: context,
+        title: verseRef,
+        citations: verseCitations,
+      ),
+      onTapComments: () {
+        final bookMeta =
+            catholicBooksByNumber[widget.reading.bookNumber] ??
+            (throw Exception('Book ${widget.reading.bookName} not found'));
+        showVerseCommentsModal(
+          context: context,
+          title: verseRef,
+          nodeId: nodeId,
+          textPreview: verse.verseText,
+          comments: verseComments,
+          onCommentsChanged: _loadComments,
+          onAddComment: () => showAddCommentDialog(
+            context: context,
+            citation: verseRef,
+            textPreview: verse.verseText,
+            documentId: bookMeta.abbrev,
+            sectionIndex: verse.chapter,
+            nodeId: nodeId,
+            onCommentSaved: _loadComments,
+          ),
+        );
+      },
+      onTapFavorite: () => showVerseFavoritesModal(
+        context: context,
+        title: verseRef,
+        favorites: matchingFavorites,
+        onFavoritesChanged: _loadFavorites,
       ),
     );
   }
