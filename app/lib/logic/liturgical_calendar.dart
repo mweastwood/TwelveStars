@@ -3,9 +3,9 @@ import 'package:twelve_stars/logic/liturgical_calendar_core.dart';
 
 export 'package:twelve_stars/logic/liturgical_calendar_core.dart';
 
-extension LiturgicalDayUiExtension on LiturgicalDay {
+extension LiturgicalColorUiExtension on LiturgicalColor {
   Color get colorWidget {
-    switch (color) {
+    switch (this) {
       case LiturgicalColor.green:
         return const Color(0xFF2E7D32);
       case LiturgicalColor.purple:
@@ -18,4 +18,8 @@ extension LiturgicalDayUiExtension on LiturgicalDay {
         return const Color(0xFFD81B60);
     }
   }
+}
+
+extension LiturgicalDayUiExtension on LiturgicalDay {
+  Color get colorWidget => color.colorWidget;
 }

@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:twelve_stars/theme/app_theme_tokens.dart';
 
 /// Visual style variant for [ReaderAnnotationChip].
 enum ReaderAnnotationChipVariant {
@@ -10,10 +11,14 @@ enum ReaderAnnotationChipVariant {
 
   /// Tertiary container styling (used for Library / Reverse Citations).
   citations,
+
+  /// Subtle liturgical-gold styling (used for Mass Lectionary pickups).
+  lectionary,
 }
 
 /// Reusable pill chip displaying an annotation badge (favorite star, comment
-/// count/label, or reverse citation count) in Bible and Library reader views.
+/// count/label, reverse citation count, or Mass lectionary count) in Bible and
+/// Library reader views.
 class ReaderAnnotationChip extends StatelessWidget {
   final ReaderAnnotationChipVariant variant;
   final IconData icon;
@@ -65,9 +70,26 @@ class ReaderAnnotationChip extends StatelessWidget {
     );
   }
 
+  /// Creates a Mass lectionary badge displaying [count] or [label].
+  factory ReaderAnnotationChip.lectionary({
+    Key? key,
+    int? count,
+    String? label,
+    VoidCallback? onTap,
+  }) {
+    return ReaderAnnotationChip(
+      key: key,
+      variant: ReaderAnnotationChipVariant.lectionary,
+      icon: Icons.church_rounded,
+      label: label ?? (count != null ? '$count' : null),
+      onTap: onTap,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final Color backgroundColor;
     final Color borderColor;
     final Color foregroundColor;
@@ -91,6 +113,16 @@ class ReaderAnnotationChip extends StatelessWidget {
         );
         borderColor = theme.colorScheme.tertiary.withValues(alpha: 0.4);
         foregroundColor = theme.colorScheme.onTertiaryContainer;
+      case ReaderAnnotationChipVariant.lectionary:
+        backgroundColor = AppThemeTokens.liturgicalGold.withValues(
+          alpha: isDark ? 0.22 : 0.14,
+        );
+        borderColor = AppThemeTokens.liturgicalGold.withValues(
+          alpha: isDark ? 0.55 : 0.45,
+        );
+        foregroundColor = isDark
+            ? const Color(0xFFFFD54F)
+            : const Color(0xFF7A5300);
     }
 
     final pill = Container(
