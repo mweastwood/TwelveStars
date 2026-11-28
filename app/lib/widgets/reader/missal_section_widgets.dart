@@ -283,18 +283,22 @@ class MissalSaintFeastCard extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text(
-                              saint.isBlessed
-                                  ? 'MEMORIAL / BLESSED'
-                                  : 'SAINT MEMORIAL / FEAST',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: theme.colorScheme.primary,
-                                letterSpacing: 1.1,
+                            Expanded(
+                              child: Text(
+                                saint.isBlessed
+                                    ? 'MEMORIAL / BLESSED'
+                                    : 'SAINT MEMORIAL / FEAST',
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: theme.colorScheme.primary,
+                                  letterSpacing: 1.1,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            const Spacer(),
-                            if (saint.isDoctor)
+                            if (saint.isDoctor) ...[
+                              const SizedBox(width: 8),
                               Container(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 6,
@@ -329,6 +333,7 @@ class MissalSaintFeastCard extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                            ],
                           ],
                         ),
                         const SizedBox(height: 4),

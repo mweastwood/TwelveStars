@@ -206,6 +206,63 @@ void main() {
         final image = tester.widget<Image>(imageFinder);
         expect(image.filterQuality, FilterQuality.none);
         expect(image.isAntiAlias, isFalse);
+        expect(
+          (image.image as AssetImage).assetName,
+          'assets/saints/john-berchmans.png',
+        );
+      },
+    );
+
+    testWidgets(
+      'MissalSaintFeastCard renders Mary primary Marian sprite, Blessed label, onTap, and handles narrow scaled text',
+      (WidgetTester tester) async {
+        const mary = Saint(
+          id: 'mary-mother-of-god',
+          name: 'Blessed Virgin Mary (Our Lady)',
+          nationality: 'Judean / Heavenly',
+          profession: 'Mother of God (Theotokos)',
+          categories: [SaintCategory.holyFamily],
+          isDoctor: true,
+          isBlessed: true,
+        );
+        bool tapped = false;
+
+        await tester.pumpWidget(
+          MediaQuery(
+            data: const MediaQueryData(
+              size: Size(320, 640),
+              textScaler: TextScaler.linear(1.5),
+            ),
+            child: MaterialApp(
+              home: Scaffold(
+                body: MissalSaintFeastCard(
+                  saint: mary,
+                  onTap: () => tapped = true,
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final avatarFinder = find.byKey(
+          const Key('saint_sprite_avatar_mary-mother-of-god'),
+        );
+        expect(avatarFinder, findsOneWidget);
+        final image = tester.widget<Image>(
+          find.descendant(of: avatarFinder, matching: find.byType(Image)),
+        );
+        expect(
+          (image.image as AssetImage).assetName,
+          'assets/saints/our-lady-of-grace.png',
+        );
+        expect(find.text('MEMORIAL / BLESSED'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+
+        await tester.tap(
+          find.byKey(const Key('missal_saint_card_mary-mother-of-god')),
+        );
+        expect(tapped, isTrue);
       },
     );
 
