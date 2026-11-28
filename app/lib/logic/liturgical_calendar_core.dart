@@ -39,6 +39,9 @@ class LiturgicalDay {
   String get lectionaryKey {
     if (name != null) {
       final norm = name!.toLowerCase();
+      if (norm.contains('holy family')) {
+        return 'feast_holy_family';
+      }
       if (norm.contains('joseph')) {
         return 'feast_st_joseph';
       }
@@ -65,9 +68,6 @@ class LiturgicalDay {
       }
       if (norm.contains('baptism of the lord')) {
         return 'feast_baptism_of_the_lord';
-      }
-      if (norm.contains('holy family')) {
-        return 'feast_holy_family';
       }
       if (norm.contains('trinity')) {
         return 'feast_holy_trinity';

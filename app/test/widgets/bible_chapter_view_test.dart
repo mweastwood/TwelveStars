@@ -73,7 +73,7 @@ void main() {
     BibleDatabaseHelper.db = testDb;
     clipboardLog.clear();
     ReverseCitationService.clear();
-    LectionaryReverseIndex.resetForTesting();
+    LectionaryReverseIndex.setEmptyForTesting();
     LibraryHelper.clearCache();
 
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger

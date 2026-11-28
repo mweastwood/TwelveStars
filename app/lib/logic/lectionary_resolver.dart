@@ -26,11 +26,15 @@ List<int> parseVerseRange(String rangeStr) {
   for (final part in parts) {
     final cleanPart = part.trim().replaceAll('–', '-').replaceAll('—', '-');
     if (cleanPart.contains('-')) {
-      final subParts = cleanPart.split('-');
-      if (subParts.length == 2) {
-        final start = int.tryParse(subParts[0].trim());
-        final end = int.tryParse(subParts[1].trim());
-        if (start != null && end != null) {
+      final subParts = cleanPart
+          .split('-')
+          .map((s) => s.trim())
+          .where((s) => s.isNotEmpty)
+          .toList();
+      if (subParts.length >= 2) {
+        final start = int.tryParse(subParts.first);
+        final end = int.tryParse(subParts.last);
+        if (start != null && end != null && start <= end) {
           for (int i = start; i <= end; i++) {
             verses.add(i);
           }

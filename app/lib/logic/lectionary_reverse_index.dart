@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'package:flutter/services.dart';
 import 'package:twelve_stars/logic/lectionary_resolver.dart';
 import 'package:twelve_stars/logic/liturgical_calendar_core.dart';
@@ -116,11 +117,13 @@ class _ParsedKeyMetadata {
   final String title;
   final LectionaryRank rank;
   final LiturgicalColor color;
+  final bool isFallback;
 
   const _ParsedKeyMetadata({
     required this.title,
     required this.rank,
     required this.color,
+    this.isFallback = false,
   });
 }
 
@@ -151,16 +154,35 @@ class _RawOccurrence {
 class LectionaryReverseIndex {
   static const String _assetPath = 'assets/bible/lectionary.json';
 
-  /// Covers all 3 Sunday cycles (A/B/C) and both Weekday cycles (I/II) plus
-  /// leap-year and movable-feast date shifts.
-  static const int _calendarScanDays = 1465;
+  /// Fast upfront scan window (~4 years) covering standard Sunday cycles A/B/C
+  /// and Weekday cycles I/II.
+  static const int _initialCalendarScanDays = 1465;
+
+  /// Extended on-demand scan ceiling (~40 years) used lazily only when an
+  /// occurrence in an opened modal has rare Easter/weekday alignment beyond
+  /// [_initialCalendarScanDays] (e.g. Advent 4 Saturday or rare OT week 6–9
+  /// cycle intersections).
+  static const int _extendedCalendarScanDays = 14610;
+
+  /// Unreachable legacy duplicate keys in `lectionary.json` that are never
+  /// emitted by [LiturgicalCalendar.computeDay] and whose contents duplicate
+  /// Pentecost, 2nd Sunday of Easter, or 2nd Sunday in Ordinary Time.
+  static const Set<String> _ignoredOrphanKeys = {
+    'season_easter_1_sunday_a',
+    'season_easter_1_sunday_b',
+    'season_easter_1_sunday_c',
+    'season_ordinary_time_1_sunday_a',
+    'season_ordinary_time_1_sunday_b',
+  };
 
   static final Map<int, Map<int, Map<int, List<LectionaryOccurrence>>>>
   _verseIndex = {};
   static bool _isLoaded = false;
   static Future<void>? _inFlightLoad;
+  static int _loadGeneration = 0;
 
   static int? _cachedDateKey;
+  static int _cachedScannedDays = 0;
   static Map<String, DateTime>? _cachedNextDatesByKey;
 
   static final RegExp _ordinaryWeekdayRegex = RegExp(
@@ -182,19 +204,47 @@ class LectionaryReverseIndex {
 
   /// Clears all cached index and calendar date state. Intended for tests.
   static void resetForTesting() {
+    _loadGeneration++;
     _verseIndex.clear();
     _isLoaded = false;
     _inFlightLoad = null;
     _cachedDateKey = null;
+    _cachedScannedDays = 0;
     _cachedNextDatesByKey = null;
   }
+
+  /// Marks the index as loaded with zero entries so unrelated widget/golden
+  /// tests do not race with async `assets/bible/lectionary.json` loading.
+  @visibleForTesting
+  static void setEmptyForTesting() {
+    _loadGeneration++;
+    _verseIndex.clear();
+    _isLoaded = true;
+    _inFlightLoad = null;
+    _cachedDateKey = null;
+    _cachedScannedDays = 0;
+    _cachedNextDatesByKey = null;
+  }
+
+  /// Returns all indexed occurrences across the entire loaded index.
+  @visibleForTesting
+  static List<LectionaryOccurrence> get allIndexedOccurrencesForTesting => [
+    for (final bookMap in _verseIndex.values)
+      for (final chapterMap in bookMap.values)
+        for (final list in chapterMap.values) ...list,
+  ];
+
+  /// Returns whether [key] matches an explicit liturgical rule (not fallback).
+  @visibleForTesting
+  static bool isRecognizedKey(String key) => !_parseKeyMetadata(key).isFallback;
 
   /// Ensures `assets/bible/lectionary.json` is loaded and indexed once.
   static Future<void> ensureLoaded() {
     if (_isLoaded) return Future.value();
     if (_inFlightLoad != null) return _inFlightLoad!;
 
-    final future = _loadFromAsset();
+    final gen = _loadGeneration;
+    final future = _loadFromAsset(gen);
     _inFlightLoad = future;
     return future.whenComplete(() {
       if (identical(_inFlightLoad, future)) {
@@ -203,14 +253,21 @@ class LectionaryReverseIndex {
     });
   }
 
-  static Future<void> _loadFromAsset() async {
+  static Future<void> _loadFromAsset(int generation) async {
     final rawJson = await rootBundle.loadString(_assetPath);
-    loadFromJsonString(rawJson);
+    if (generation != _loadGeneration) return;
+    _loadFromJsonStringInternal(rawJson);
   }
 
   /// Builds the reverse index directly from a JSON string (used internally and
   /// in unit tests).
   static void loadFromJsonString(String rawJson) {
+    _loadGeneration++;
+    _inFlightLoad = null;
+    _loadFromJsonStringInternal(rawJson);
+  }
+
+  static void _loadFromJsonStringInternal(String rawJson) {
     _verseIndex.clear();
     final List<dynamic> decoded = jsonDecode(rawJson) as List<dynamic>;
     final rawEntries = <_RawOccurrence>[];
@@ -226,6 +283,7 @@ class LectionaryReverseIndex {
       final citation = item['citation'] as String? ?? '';
 
       if (readingKey == null ||
+          _ignoredOrphanKeys.contains(readingKey) ||
           readingType == null ||
           bookNumber == null ||
           bookName == null ||
@@ -326,10 +384,7 @@ class LectionaryReverseIndex {
   ) {
     // Prefer the entry with the fuller (longer) citation string (e.g.
     // "Matthew 5:27-32" over "Mt 5:27-32").
-    bucket.sort((a, b) {
-      final keyCmp = a.readingKey.compareTo(b.readingKey);
-      return keyCmp;
-    });
+    bucket.sort((a, b) => a.readingKey.compareTo(b.readingKey));
     final primary = bucket.reduce(
       (a, b) => b.citation.length > a.citation.length ? b : a,
     );
@@ -383,7 +438,19 @@ class LectionaryReverseIndex {
   }) {
     if (occurrences.isEmpty) return const [];
     final now = referenceDate ?? DateTime.now();
-    final nextDatesByKey = _getNextDatesByKey(now);
+    final dateOnly = DateTime(now.year, now.month, now.day);
+    final nextDatesByKey = _getNextDatesByKey(dateOnly);
+
+    // If any requested occurrence has no key resolved within the initial 4-year
+    // window (rare Easter/weekday intersections), extend the cached scan lazily
+    // only until all requested occurrences have at least one resolved key.
+    final unresolvedOccurrences = occurrences
+        .where((occ) => !occ.readingKeys.any(nextDatesByKey.containsKey))
+        .toList();
+    if (unresolvedOccurrences.isNotEmpty &&
+        _cachedScannedDays < _extendedCalendarScanDays) {
+      _extendNextDatesScan(dateOnly, nextDatesByKey, unresolvedOccurrences);
+    }
 
     final resolved = occurrences.map((occ) {
       DateTime? earliest;
@@ -424,42 +491,47 @@ class LectionaryReverseIndex {
     return resolved;
   }
 
-  static Map<String, DateTime> _getNextDatesByKey(DateTime referenceDate) {
-    final dateOnly = DateTime(
-      referenceDate.year,
-      referenceDate.month,
-      referenceDate.day,
-    );
+  static Map<String, DateTime> _getNextDatesByKey(DateTime dateOnly) {
     final dateKey = dateOnly.year * 10000 + dateOnly.month * 100 + dateOnly.day;
     if (_cachedDateKey == dateKey && _cachedNextDatesByKey != null) {
       return _cachedNextDatesByKey!;
     }
 
     final map = <String, DateTime>{};
-    for (int offset = 0; offset < _calendarScanDays; offset++) {
+    for (int offset = 0; offset < _initialCalendarScanDays; offset++) {
+      final d = DateTime(dateOnly.year, dateOnly.month, dateOnly.day + offset);
+      final litDay = LiturgicalCalendar.computeDay(d);
+      map.putIfAbsent(litDay.lectionaryKey, () => d);
+    }
+
+    _cachedDateKey = dateKey;
+    _cachedScannedDays = _initialCalendarScanDays;
+    _cachedNextDatesByKey = map;
+    return map;
+  }
+
+  static void _extendNextDatesScan(
+    DateTime dateOnly,
+    Map<String, DateTime> map,
+    List<LectionaryOccurrence> unresolvedOccurrences,
+  ) {
+    final remaining = List<LectionaryOccurrence>.of(unresolvedOccurrences);
+    for (
+      int offset = _cachedScannedDays;
+      offset < _extendedCalendarScanDays;
+      offset++
+    ) {
       final d = DateTime(dateOnly.year, dateOnly.month, dateOnly.day + offset);
       final litDay = LiturgicalCalendar.computeDay(d);
       final key = litDay.lectionaryKey;
       map.putIfAbsent(key, () => d);
+      _cachedScannedDays = offset + 1;
 
-      // Map Easter Sunday cycle aliases (`season_easter_1_sunday_{a,b,c}`) and
-      // Baptism of the Lord (`season_ordinary_time_1_sunday_{a,b,c}`) as well.
-      if (key == 'season_easter_sunday') {
-        map.putIfAbsent(
-          'season_easter_1_sunday_${litDay.sundayCycle.toLowerCase()}',
-          () => d,
-        );
-      } else if (key == 'feast_baptism_of_the_lord') {
-        map.putIfAbsent(
-          'season_ordinary_time_1_sunday_${litDay.sundayCycle.toLowerCase()}',
-          () => d,
-        );
+      remaining.removeWhere((occ) => occ.readingKeys.contains(key));
+      if (remaining.isEmpty) {
+        break;
       }
     }
-
-    _cachedDateKey = dateKey;
-    _cachedNextDatesByKey = map;
-    return map;
   }
 
   static _ParsedKeyMetadata _parseMergedOrdinaryWeekday(String key) {
@@ -578,17 +650,17 @@ class LectionaryReverseIndex {
       ),
       'season_christmas_12_26': _ParsedKeyMetadata(
         title: 'St. Stephen, First Martyr (Dec 26)',
-        rank: LectionaryRank.weekday,
+        rank: LectionaryRank.solemnityOrTriduum,
         color: LiturgicalColor.red,
       ),
       'season_christmas_12_27': _ParsedKeyMetadata(
         title: 'St. John, Apostle and Evangelist (Dec 27)',
-        rank: LectionaryRank.weekday,
+        rank: LectionaryRank.solemnityOrTriduum,
         color: LiturgicalColor.white,
       ),
       'season_christmas_12_28': _ParsedKeyMetadata(
         title: 'The Holy Innocents, Martyrs (Dec 28)',
-        rank: LectionaryRank.weekday,
+        rank: LectionaryRank.solemnityOrTriduum,
         color: LiturgicalColor.red,
       ),
     };
@@ -607,13 +679,6 @@ class LectionaryReverseIndex {
           title: 'Palm Sunday of the Passion of the Lord (Year $cycle)',
           rank: LectionaryRank.solemnityOrTriduum,
           color: LiturgicalColor.red,
-        );
-      }
-      if (season == 'easter' && week == 1) {
-        return _ParsedKeyMetadata(
-          title: 'Easter Sunday (Year $cycle)',
-          rank: LectionaryRank.solemnityOrTriduum,
-          color: LiturgicalColor.white,
         );
       }
       if (season == 'easter' && week == 8) {
@@ -751,6 +816,7 @@ class LectionaryReverseIndex {
       title: fallbackTitle,
       rank: LectionaryRank.weekday,
       color: LiturgicalColor.green,
+      isFallback: true,
     );
   }
 

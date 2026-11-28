@@ -85,6 +85,7 @@ void main() {
       expect(holyFamily2026.color, LiturgicalColor.white);
       expect(holyFamily2026.name, 'The Holy Family of Jesus, Mary and Joseph');
       expect(holyFamily2026.weekName, 'Feast of the Holy Family');
+      expect(holyFamily2026.lectionaryKey, 'feast_holy_family');
 
       // Dec 30, 2022: Holy Family Friday (Christmas 2022 was on Sunday Dec 25)
       final holyFamily2022 = LiturgicalCalendar.computeDay(

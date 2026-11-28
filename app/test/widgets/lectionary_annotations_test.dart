@@ -1,8 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/lectionary_reverse_index.dart';
 import 'package:twelve_stars/logic/liturgical_calendar_core.dart';
+import 'package:twelve_stars/routing/app_router.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/reader/bible_verse_modals.dart';
 import 'package:twelve_stars/widgets/reader/reader_annotation_chip.dart';
@@ -184,11 +186,152 @@ void main() {
         expect(sundayTop, lessThan(weekdayTop));
 
         // Tap Open in Missal on All Saints card
-        await tester.tap(find.byKey(const Key('open_missal_feast_all_saints')));
+        await tester.tap(
+          find.byKey(const Key('open_missal_feast_all_saints_gospel')),
+        );
         await tester.pumpAndSettle();
 
         expect(openedDate, DateTime(2026, 11, 1));
         expect(find.text('Mass Readings from Matthew 5:1'), findsNothing);
+      },
+    );
+
+    testWidgets(
+      'showLectionaryReadingsModal renders cleanly at 360px with 1.5x text scale, dark mode, Read today, and null nextDate',
+      (tester) async {
+        tester.view.physicalSize = const Size(360, 800);
+        tester.view.devicePixelRatio = 1.0;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+
+        const occurrences = [
+          LectionaryOccurrence(
+            readingKey: 'feast_all_saints',
+            readingKeys: ['feast_all_saints'],
+            title: 'All Saints',
+            role: LectionaryReadingRole.gospel,
+            rank: LectionaryRank.solemnityOrTriduum,
+            liturgicalColor: LiturgicalColor.white,
+            bookNumber: 49,
+            bookName: 'Matthew',
+            startChapter: 5,
+            startVerse: 1,
+            citation: 'Matthew 5:1-12a',
+            verseRange: '1-12a',
+          ),
+          LectionaryOccurrence(
+            readingKey: 'custom_unscheduled_key',
+            readingKeys: ['custom_unscheduled_key'],
+            title: 'Unscheduled Custom Feast',
+            role: LectionaryReadingRole.first,
+            rank: LectionaryRank.weekday,
+            liturgicalColor: LiturgicalColor.purple,
+            bookNumber: 49,
+            bookName: 'Matthew',
+            startChapter: 5,
+            startVerse: 1,
+            citation: 'Matthew 5:1-12',
+            verseRange: '1-12',
+          ),
+        ];
+
+        await tester.pumpWidget(
+          MediaQuery(
+            data: const MediaQueryData(
+              size: Size(360, 800),
+              textScaler: TextScaler.linear(1.5),
+            ),
+            child: MaterialApp(
+              theme: ThemeData.dark(useMaterial3: true),
+              home: Scaffold(
+                body: Builder(
+                  builder: (context) => ElevatedButton(
+                    onPressed: () => showLectionaryReadingsModal(
+                      context: context,
+                      title: 'Matthew 5:1',
+                      occurrences: occurrences,
+                      referenceDate: DateTime(2026, 11, 1),
+                    ),
+                    child: const Text('Open Dark Modal'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+        await tester.tap(find.text('Open Dark Modal'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('Read today (Sun, Nov 1, 2026)'), findsOneWidget);
+        expect(find.text('Unscheduled Custom Feast'), findsOneWidget);
+        // Only the scheduled occurrence has an Open in Missal button.
+        expect(find.text('Open in Missal'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    testWidgets(
+      'Open in Missal navigates through GoRouter to /missal?date=YYYY-MM-DD',
+      (tester) async {
+        String? navigatedUri;
+        const occurrences = [
+          LectionaryOccurrence(
+            readingKey: 'feast_all_saints',
+            readingKeys: ['feast_all_saints'],
+            title: 'All Saints',
+            role: LectionaryReadingRole.gospel,
+            rank: LectionaryRank.solemnityOrTriduum,
+            liturgicalColor: LiturgicalColor.white,
+            bookNumber: 49,
+            bookName: 'Matthew',
+            startChapter: 5,
+            startVerse: 1,
+            citation: 'Matthew 5:1-12a',
+            verseRange: '1-12a',
+          ),
+        ];
+
+        final router = GoRouter(
+          initialLocation: AppRoutes.bible,
+          routes: [
+            GoRoute(
+              path: AppRoutes.bible,
+              builder: (context, state) => Scaffold(
+                body: ElevatedButton(
+                  onPressed: () => showLectionaryReadingsModal(
+                    context: context,
+                    title: 'Matthew 5:1',
+                    occurrences: occurrences,
+                    referenceDate: DateTime(2026, 1, 1),
+                  ),
+                  child: const Text('Open Modal'),
+                ),
+              ),
+            ),
+            GoRoute(
+              path: AppRoutes.missal,
+              builder: (context, state) {
+                navigatedUri = state.uri.toString();
+                return Scaffold(body: Text('Missal: ${state.uri}'));
+              },
+            ),
+          ],
+        );
+
+        await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.text('Open Modal'));
+        await tester.pumpAndSettle();
+
+        await tester.tap(
+          find.byKey(const Key('open_missal_feast_all_saints_gospel')),
+        );
+        await tester.pumpAndSettle();
+
+        expect(navigatedUri, '/missal?date=2026-11-01');
+        expect(find.text('Missal: /missal?date=2026-11-01'), findsOneWidget);
       },
     );
 

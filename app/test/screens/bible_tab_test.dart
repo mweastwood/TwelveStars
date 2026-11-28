@@ -6,6 +6,7 @@ import 'package:drift/native.dart';
 import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/bible_metadata.dart';
+import 'package:twelve_stars/logic/lectionary_reverse_index.dart';
 import 'package:twelve_stars/screens/bible_tab.dart';
 import 'package:twelve_stars/widgets/bible_chapter_view.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
@@ -23,12 +24,14 @@ void main() {
   setUp(() {
     testDb = BibleDatabase(NativeDatabase.memory());
     BibleDatabaseHelper.db = testDb;
+    LectionaryReverseIndex.setEmptyForTesting();
     PrayerDatabase.mockPrayers = null;
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.resetCache();
   });
 
   tearDown(() async {
+    LectionaryReverseIndex.resetForTesting();
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.mockPrayers = null;
     PrayerDatabase.resetCache();

@@ -377,8 +377,15 @@ Future<void> showLectionaryReadingsModal({
                                   nextDate.month == today.month &&
                                   nextDate.day == today.day;
 
+                              final roleForegroundColor =
+                                  theme.brightness == Brightness.dark
+                                  ? Color.lerp(litColor, Colors.white, 0.45)!
+                                  : Color.lerp(litColor, Colors.black, 0.35)!;
+
                               return Container(
-                                key: Key('lectionary_card_${occ.readingKey}'),
+                                key: Key(
+                                  'lectionary_card_${occ.readingKey}_${occ.role.name}',
+                                ),
                                 margin: const EdgeInsets.only(bottom: 12),
                                 decoration: BoxDecoration(
                                   color: theme.colorScheme.surfaceContainerLow,
@@ -389,179 +396,180 @@ Future<void> showLectionaryReadingsModal({
                                   ),
                                 ),
                                 clipBehavior: Clip.antiAlias,
-                                child: IntrinsicHeight(
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      Container(width: 4, color: litColor),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(12),
-                                          child: Column(
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      left: 0,
+                                      top: 0,
+                                      bottom: 0,
+                                      width: 4,
+                                      child: ColoredBox(color: litColor),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        16,
+                                        12,
+                                        12,
+                                        12,
+                                      ),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Wrap(
+                                            spacing: 6,
+                                            runSpacing: 4,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                                WrapCrossAlignment.center,
                                             children: [
-                                              Wrap(
-                                                spacing: 6,
-                                                runSpacing: 4,
-                                                crossAxisAlignment:
-                                                    WrapCrossAlignment.center,
-                                                children: [
-                                                  _buildLectionaryPill(
-                                                    label: occ.role.label,
-                                                    backgroundColor: litColor
-                                                        .withValues(
-                                                          alpha: 0.14,
-                                                        ),
-                                                    borderColor: litColor
-                                                        .withValues(
-                                                          alpha: 0.45,
-                                                        ),
-                                                    foregroundColor:
-                                                        theme.brightness ==
-                                                            Brightness.dark
-                                                        ? Color.lerp(
-                                                            litColor,
-                                                            Colors.white,
-                                                            0.45,
-                                                          )!
-                                                        : litColor,
-                                                  ),
-                                                  _buildLectionaryPill(
-                                                    label: occ.rank.label,
-                                                    backgroundColor: theme
-                                                        .colorScheme
-                                                        .surfaceContainerHighest
-                                                        .withValues(alpha: 0.7),
-                                                    borderColor: theme
-                                                        .colorScheme
-                                                        .outlineVariant
-                                                        .withValues(alpha: 0.5),
-                                                    foregroundColor: theme
-                                                        .colorScheme
-                                                        .onSurfaceVariant,
-                                                  ),
-                                                  if (occ.citation.isNotEmpty)
-                                                    _buildLectionaryPill(
-                                                      label: occ.citation,
-                                                      backgroundColor: theme
-                                                          .colorScheme
-                                                          .secondaryContainer
-                                                          .withValues(
-                                                            alpha: 0.5,
-                                                          ),
-                                                      borderColor: theme
-                                                          .colorScheme
-                                                          .secondary
-                                                          .withValues(
-                                                            alpha: 0.3,
-                                                          ),
-                                                      foregroundColor: theme
-                                                          .colorScheme
-                                                          .onSecondaryContainer,
-                                                    ),
-                                                ],
+                                              _buildLectionaryPill(
+                                                label: occ.role.label,
+                                                backgroundColor: litColor
+                                                    .withValues(alpha: 0.14),
+                                                borderColor: litColor
+                                                    .withValues(alpha: 0.45),
+                                                foregroundColor:
+                                                    roleForegroundColor,
                                               ),
-                                              const SizedBox(height: 8),
-                                              Text(
-                                                occ.title,
-                                                style: theme
-                                                    .textTheme
-                                                    .titleSmall
-                                                    ?.copyWith(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
+                                              _buildLectionaryPill(
+                                                label: occ.rank.label,
+                                                backgroundColor: theme
+                                                    .colorScheme
+                                                    .surfaceContainerHighest
+                                                    .withValues(alpha: 0.7),
+                                                borderColor: theme
+                                                    .colorScheme
+                                                    .outlineVariant
+                                                    .withValues(alpha: 0.5),
+                                                foregroundColor: theme
+                                                    .colorScheme
+                                                    .onSurfaceVariant,
                                               ),
-                                              if (nextDate != null) ...[
-                                                const SizedBox(height: 6),
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons
-                                                          .calendar_today_rounded,
-                                                      size: 13,
-                                                      color: theme
-                                                          .colorScheme
-                                                          .onSurfaceVariant,
-                                                    ),
-                                                    const SizedBox(width: 6),
-                                                    Expanded(
-                                                      child: Text(
-                                                        isToday
-                                                            ? 'Read today (${_formatLectionaryDate(nextDate)})'
-                                                            : 'Next read: ${_formatLectionaryDate(nextDate)}',
-                                                        style: theme
-                                                            .textTheme
-                                                            .bodySmall
-                                                            ?.copyWith(
-                                                              color: isToday
-                                                                  ? theme
-                                                                        .colorScheme
-                                                                        .primary
-                                                                  : theme
-                                                                        .colorScheme
-                                                                        .onSurfaceVariant,
-                                                              fontWeight:
-                                                                  isToday
-                                                                  ? FontWeight
-                                                                        .w600
-                                                                  : null,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    TextButton.icon(
-                                                      key: Key(
-                                                        'open_missal_${occ.readingKey}',
-                                                      ),
-                                                      style: TextButton.styleFrom(
-                                                        visualDensity:
-                                                            VisualDensity
-                                                                .compact,
-                                                        padding:
-                                                            const EdgeInsets.symmetric(
-                                                              horizontal: 8,
-                                                              vertical: 4,
-                                                            ),
-                                                      ),
-                                                      icon: const Icon(
-                                                        Icons.church_rounded,
-                                                        size: 15,
-                                                      ),
-                                                      label: const Text(
-                                                        'Open in Missal',
-                                                      ),
-                                                      onPressed: () {
-                                                        final router =
-                                                            GoRouter.maybeOf(
-                                                              context,
-                                                            );
-                                                        Navigator.of(ctx).pop();
-                                                        if (onOpenMissalDate !=
-                                                            null) {
-                                                          onOpenMissalDate(
-                                                            nextDate,
-                                                          );
-                                                        } else if (router !=
-                                                            null) {
-                                                          router.go(
-                                                            AppRoutes.missalPath(
-                                                              date: nextDate,
-                                                            ),
-                                                          );
-                                                        }
-                                                      },
-                                                    ),
-                                                  ],
+                                              if (occ.citation.isNotEmpty)
+                                                _buildLectionaryPill(
+                                                  label: occ.citation,
+                                                  backgroundColor: theme
+                                                      .colorScheme
+                                                      .secondaryContainer
+                                                      .withValues(alpha: 0.5),
+                                                  borderColor: theme
+                                                      .colorScheme
+                                                      .secondary
+                                                      .withValues(alpha: 0.3),
+                                                  foregroundColor: theme
+                                                      .colorScheme
+                                                      .onSecondaryContainer,
                                                 ),
-                                              ],
                                             ],
                                           ),
-                                        ),
+                                          const SizedBox(height: 8),
+                                          Text(
+                                            occ.title,
+                                            style: theme.textTheme.titleSmall
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
+                                          if (nextDate != null) ...[
+                                            const SizedBox(height: 6),
+                                            SizedBox(
+                                              width: double.infinity,
+                                              child: Wrap(
+                                                alignment:
+                                                    WrapAlignment.spaceBetween,
+                                                crossAxisAlignment:
+                                                    WrapCrossAlignment.center,
+                                                spacing: 8,
+                                                runSpacing: 4,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Icon(
+                                                        Icons
+                                                            .calendar_today_rounded,
+                                                        size: 13,
+                                                        color: theme
+                                                            .colorScheme
+                                                            .onSurfaceVariant,
+                                                      ),
+                                                      const SizedBox(width: 6),
+                                                      Flexible(
+                                                        child: Text(
+                                                          isToday
+                                                              ? 'Read today (${_formatLectionaryDate(nextDate)})'
+                                                              : 'Next read: ${_formatLectionaryDate(nextDate)}',
+                                                          style: theme
+                                                              .textTheme
+                                                              .bodySmall
+                                                              ?.copyWith(
+                                                                color: isToday
+                                                                    ? theme
+                                                                          .colorScheme
+                                                                          .primary
+                                                                    : theme
+                                                                          .colorScheme
+                                                                          .onSurfaceVariant,
+                                                                fontWeight:
+                                                                    isToday
+                                                                    ? FontWeight
+                                                                          .w600
+                                                                    : null,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  TextButton.icon(
+                                                    key: Key(
+                                                      'open_missal_${occ.readingKey}_${occ.role.name}',
+                                                    ),
+                                                    style: TextButton.styleFrom(
+                                                      visualDensity:
+                                                          VisualDensity.compact,
+                                                      padding:
+                                                          const EdgeInsets.symmetric(
+                                                            horizontal: 8,
+                                                            vertical: 4,
+                                                          ),
+                                                    ),
+                                                    icon: const Icon(
+                                                      Icons.church_rounded,
+                                                      size: 15,
+                                                    ),
+                                                    label: const Text(
+                                                      'Open in Missal',
+                                                    ),
+                                                    onPressed: () {
+                                                      final router =
+                                                          GoRouter.maybeOf(
+                                                            context,
+                                                          );
+                                                      Navigator.of(ctx).pop();
+                                                      if (onOpenMissalDate !=
+                                                          null) {
+                                                        onOpenMissalDate(
+                                                          nextDate,
+                                                        );
+                                                      } else if (router !=
+                                                          null) {
+                                                        router.go(
+                                                          AppRoutes.missalPath(
+                                                            date: nextDate,
+                                                          ),
+                                                        );
+                                                      }
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               );
                             },

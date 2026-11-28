@@ -35,7 +35,7 @@ void main() {
     );
 
     test(
-      'maps Modern Psalm numbering in lectionary.json to Vulgate chapters and verses',
+      'maps Modern Psalm numbering (including chained-dash Psalm 85:9-10-11-12) to Vulgate chapters and verses',
       () async {
         await LectionaryReverseIndex.ensureLoaded();
 
@@ -49,6 +49,22 @@ void main() {
           vulgatePs23v1.any(
             (o) =>
                 o.readingKey == 'feast_all_saints' &&
+                o.role == LectionaryReadingRole.psalm,
+          ),
+          isTrue,
+        );
+
+        // 2nd Sunday of Advent (Year B) Psalm is Modern Psalm 85:9-10-11-12, 13-14
+        // -> Vulgate Psalm 84, verse 9 (not 13).
+        final vulgatePs84v9 = LectionaryReverseIndex.getVerseOccurrences(
+          21,
+          84,
+          9,
+        );
+        expect(
+          vulgatePs84v9.any(
+            (o) =>
+                o.readingKey == 'season_advent_2_sunday_b' &&
                 o.role == LectionaryReadingRole.psalm,
           ),
           isTrue,
@@ -77,12 +93,42 @@ void main() {
     );
 
     test(
+      'resolves Holy Family and St. Joseph to their distinct upcoming dates',
+      () async {
+        await LectionaryReverseIndex.ensureLoaded();
+
+        final all = LectionaryReverseIndex.allIndexedOccurrencesForTesting;
+        final holyFamily = all.firstWhere(
+          (o) => o.readingKey == 'feast_holy_family',
+        );
+        final stJoseph = all.firstWhere(
+          (o) => o.readingKey == 'feast_st_joseph',
+        );
+
+        // Mid-year reference date after March 19, 2026:
+        // Holy Family -> Dec 27, 2026; St. Joseph -> Mar 19, 2027.
+        final resolved = LectionaryReverseIndex.resolveOccurrencesWithDates([
+          holyFamily,
+          stJoseph,
+        ], referenceDate: DateTime(2026, 6, 1));
+
+        final resolvedHf = resolved.firstWhere(
+          (r) => r.occurrence.readingKey == 'feast_holy_family',
+        );
+        final resolvedSj = resolved.firstWhere(
+          (r) => r.occurrence.readingKey == 'feast_st_joseph',
+        );
+
+        expect(resolvedHf.nextDate, DateTime(2026, 12, 27));
+        expect(resolvedSj.nextDate, DateTime(2027, 3, 19));
+      },
+    );
+
+    test(
       'orders occurrences by liturgical rank first (Solemnity -> Sunday -> Weekday), then chronologically',
       () async {
         await LectionaryReverseIndex.ensureLoaded();
 
-        // Matthew 5:1 includes All Saints (Solemnity), 4th Sunday in Ordinary
-        // Time (Year A), and Ordinary Time weekdays.
         final matt5v1 = LectionaryReverseIndex.getVerseOccurrences(49, 5, 1);
         expect(matt5v1.length, greaterThanOrEqualTo(3));
 
@@ -94,7 +140,6 @@ void main() {
 
         expect(resolved.length, matt5v1.length);
 
-        // Verify rank order is non-decreasing and dates within each rank are non-decreasing
         for (int i = 1; i < resolved.length; i++) {
           final prev = resolved[i - 1];
           final curr = resolved[i];
@@ -105,52 +150,83 @@ void main() {
           if (prev.occurrence.rank == curr.occurrence.rank &&
               prev.nextDate != null &&
               curr.nextDate != null) {
-            expect(
-              prev.nextDate!.isAfter(curr.nextDate!),
-              isFalse,
-              reason:
-                  'Expected ${prev.occurrence.title} (${prev.nextDate}) <= ${curr.occurrence.title} (${curr.nextDate})',
-            );
+            expect(prev.nextDate!.isAfter(curr.nextDate!), isFalse);
           }
         }
 
-        // First item should be a Solemnity/Feast (All Saints)
         expect(
           resolved.first.occurrence.rank,
           LectionaryRank.solemnityOrTriduum,
         );
         expect(resolved.first.occurrence.readingKey, 'feast_all_saints');
         expect(resolved.first.nextDate, DateTime(2026, 11, 1));
+      },
+    );
 
-        // Verify every computed nextDate maps back to one of the occurrence's keys
-        for (final item in resolved) {
-          final date = item.nextDate;
-          if (date != null) {
-            final litDay = LiturgicalCalendar.computeDay(date);
-            final key = litDay.lectionaryKey;
-            final matchesDirect = item.occurrence.readingKeys.contains(key);
-            final matchesAlias =
-                (key == 'season_easter_sunday' &&
-                    item.occurrence.readingKeys.any(
-                      (k) => k.startsWith('season_easter_1_sunday_'),
-                    )) ||
-                (key == 'feast_baptism_of_the_lord' &&
-                    item.occurrence.readingKeys.any(
-                      (k) => k.startsWith('season_ordinary_time_1_sunday_'),
-                    ));
+    test(
+      'every indexed occurrence in bundled lectionary.json is recognized, excludes orphan keys, and resolves to a matching LiturgicalCalendar date',
+      () async {
+        await LectionaryReverseIndex.ensureLoaded();
+
+        final all = LectionaryReverseIndex.allIndexedOccurrencesForTesting;
+        expect(all, isNotEmpty);
+
+        const orphanKeys = {
+          'season_easter_1_sunday_a',
+          'season_easter_1_sunday_b',
+          'season_easter_1_sunday_c',
+          'season_ordinary_time_1_sunday_a',
+          'season_ordinary_time_1_sunday_b',
+        };
+
+        for (final occ in all) {
+          for (final key in occ.readingKeys) {
             expect(
-              matchesDirect || matchesAlias,
+              orphanKeys.contains(key),
+              isFalse,
+              reason: 'Orphan key $key must not be indexed',
+            );
+            expect(
+              LectionaryReverseIndex.isRecognizedKey(key),
               isTrue,
-              reason:
-                  'Date $date computed key $key which did not match ${item.occurrence.readingKeys}',
+              reason: 'Key $key fell through to fallback parser',
             );
           }
+        }
+
+        // Deduplicate by primary readingKey to verify every distinct liturgical
+        // occasion resolves a matching upcoming date (including rare dates via
+        // the lazy extended scan).
+        final byKey = <String, LectionaryOccurrence>{};
+        for (final occ in all) {
+          byKey.putIfAbsent(occ.readingKey, () => occ);
+        }
+
+        final resolvedAll = LectionaryReverseIndex.resolveOccurrencesWithDates(
+          byKey.values.toList(),
+          referenceDate: DateTime(2026, 1, 1),
+        );
+
+        for (final item in resolvedAll) {
+          expect(
+            item.nextDate,
+            isNotNull,
+            reason:
+                'Expected upcoming date for ${item.occurrence.readingKeys} (${item.occurrence.title})',
+          );
+          final litDay = LiturgicalCalendar.computeDay(item.nextDate!);
+          expect(
+            item.occurrence.readingKeys.contains(litDay.lectionaryKey),
+            isTrue,
+            reason:
+                'Date ${item.nextDate} resolved key ${litDay.lectionaryKey}, expected one of ${item.occurrence.readingKeys}',
+          );
         }
       },
     );
 
     test(
-      'parses special liturgical colors accurately (Rose for Gaudete/Laetare, Red for Palm Sunday/Pentecost)',
+      'parses special liturgical colors and Christmas Octave Feast ranks accurately',
       () {
         LectionaryReverseIndex.loadFromJsonString('''
 [
@@ -180,6 +256,15 @@ void main() {
     "chapter": 20,
     "verse_range": "19-23",
     "citation": "John 20:19-23"
+  },
+  {
+    "reading_key": "season_christmas_12_26",
+    "reading_type": "gospel",
+    "book_number": 49,
+    "book_name": "Matthew",
+    "chapter": 10,
+    "verse_range": "17-22",
+    "citation": "Matthew 10:17-22"
   }
 ]
 ''');
@@ -209,6 +294,26 @@ void main() {
         expect(pentecost.liturgicalColor, LiturgicalColor.red);
         expect(pentecost.rank, LectionaryRank.solemnityOrTriduum);
         expect(pentecost.title, 'Pentecost Sunday (Year A)');
+
+        final stStephen = LectionaryReverseIndex.getVerseOccurrences(
+          49,
+          10,
+          17,
+        ).single;
+        expect(stStephen.liturgicalColor, LiturgicalColor.red);
+        expect(stStephen.rank, LectionaryRank.solemnityOrTriduum);
+      },
+    );
+
+    test(
+      'load generation guard prevents stale ensureLoaded from overwriting setEmptyForTesting',
+      () async {
+        final loadFuture = LectionaryReverseIndex.ensureLoaded();
+        LectionaryReverseIndex.setEmptyForTesting();
+        await loadFuture;
+
+        expect(LectionaryReverseIndex.isLoaded, isTrue);
+        expect(LectionaryReverseIndex.allIndexedOccurrencesForTesting, isEmpty);
       },
     );
   });
