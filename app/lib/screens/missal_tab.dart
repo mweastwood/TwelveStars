@@ -552,108 +552,89 @@ class _MissalTabState extends State<MissalTab>
                                 }
                               });
                             }
-                            return Column(
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                                  child: Center(
-                                    child: CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                    ),
-                                  ),
+                            return const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 20.0),
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
                                 ),
-                                const SizedBox(height: 4),
-                                const MissalHomilySectionCard(),
-                              ],
+                              ),
                             );
                           }
                           if (snapshot.hasError) {
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  'Error loading readings: ${snapshot.error}',
-                                  style: TextStyle(
-                                    color: theme.colorScheme.error,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                const MissalHomilySectionCard(),
-                              ],
+                            return Text(
+                              'Error loading readings: ${snapshot.error}',
+                              style: TextStyle(color: theme.colorScheme.error),
                             );
                           }
                           final readings = snapshot.data ?? const [];
 
+                          if (readings.isEmpty) {
+                            return Card(
+                              elevation: 0,
+                              color: theme.colorScheme.surfaceContainerHigh,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.info_outline,
+                                      size: 32,
+                                      color: theme.colorScheme.secondary,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'No readings seeded for this date.',
+                                      style: theme.textTheme.bodyMedium
+                                          ?.copyWith(
+                                            color: theme
+                                                .colorScheme
+                                                .onSurfaceVariant,
+                                          ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }
+
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              if (readings.isEmpty) ...[
-                                Card(
-                                  elevation: 0,
-                                  color: theme.colorScheme.surfaceContainerHigh,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(16),
+                              ...readings.map((r) {
+                                final readingIdentifier =
+                                    '${r.readingKey}_${r.readingType}_${r.id}';
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 12.0),
+                                  child: MassReadingCard(
+                                    key: ValueKey(
+                                      '${_selectedDate.toIso8601String()}_${r.readingType}_${r.citation}',
+                                    ),
+                                    reading: r,
+                                    fontSize: widget.fontSize,
+                                    primaryLanguage: _primaryLanguage,
+                                    compareLanguage: _compareLanguage,
+                                    isSelected:
+                                        _activeSelection?.readingIdentifier ==
+                                        readingIdentifier,
+                                    onSelectionChanged: (selection) {
+                                      setState(() {
+                                        _activeSelection = selection;
+                                      });
+                                    },
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Column(
-                                      children: [
-                                        Icon(
-                                          Icons.info_outline,
-                                          size: 32,
-                                          color: theme.colorScheme.secondary,
-                                        ),
-                                        const SizedBox(height: 8),
-                                        Text(
-                                          'No readings seeded for this date.',
-                                          style: theme.textTheme.bodyMedium
-                                              ?.copyWith(
-                                                color: theme
-                                                    .colorScheme
-                                                    .onSurfaceVariant,
-                                              ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                const MissalHomilySectionCard(),
-                              ] else ...[
-                                ...readings.map((r) {
-                                  final readingIdentifier =
-                                      '${r.readingKey}_${r.readingType}_${r.id}';
-                                  return Padding(
-                                    padding: const EdgeInsets.only(
-                                      bottom: 12.0,
-                                    ),
-                                    child: MassReadingCard(
-                                      key: ValueKey(
-                                        '${_selectedDate.toIso8601String()}_${r.readingType}_${r.citation}',
-                                      ),
-                                      reading: r,
-                                      fontSize: widget.fontSize,
-                                      primaryLanguage: _primaryLanguage,
-                                      compareLanguage: _compareLanguage,
-                                      isSelected:
-                                          _activeSelection?.readingIdentifier ==
-                                          readingIdentifier,
-                                      onSelectionChanged: (selection) {
-                                        setState(() {
-                                          _activeSelection = selection;
-                                        });
-                                      },
-                                    ),
-                                  );
-                                }),
-                                const SizedBox(height: 4),
-                                const MissalHomilySectionCard(),
-                              ],
+                                );
+                              }),
                             ],
                           );
                         },
                       ),
+                      const SizedBox(height: 4),
+                      const MissalHomilySectionCard(),
                     ],
                   ),
                 ),

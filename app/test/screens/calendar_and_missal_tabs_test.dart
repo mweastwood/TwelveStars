@@ -14,8 +14,6 @@ import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
-import 'package:flutter_agent_core/flutter_agent_core.dart';
-import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
@@ -412,7 +410,6 @@ void main() {
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.resetCache();
     SaintDatabase.mockSaints = null;
-    LocalAgentHelper.instance = null;
   });
 
   group('Placeholder Tabs Golden Tests', () {
@@ -867,7 +864,7 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        await tester.ensureVisible(find.text('Homily'));
+        await tester.ensureVisible(find.byType(MissalHomilySectionCard));
         await tester.pumpAndSettle();
 
         await screenMatchesGolden(
@@ -881,7 +878,6 @@ void main() {
     testGoldens(
       'MissalTab renders Creed section with Apostles Creed active and Nicene Creed peeking',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         TimeHelper.setCustomTime(DateTime(2024, 11, 24));
         await tester.pumpWidgetBuilder(
           const Scaffold(
@@ -1283,7 +1279,6 @@ void main() {
     testGoldens(
       'MissalTab renders Communion Rite section with Anima Christi button and opens modal sheet',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         final fixedDate = DateTime(2026, 7, 4);
         TimeHelper.setCustomTime(fixedDate);
         await tester.pumpWidgetBuilder(
@@ -1883,33 +1878,4 @@ void main() {
       },
     );
   });
-}
-
-class MockMissalAiService implements AiService {
-  @override
-  Future<AiCoreStatus> checkStatus() async => AiCoreStatus.available;
-  @override
-  Future<void> triggerDownload() async {}
-  @override
-  Future<void> setModelConfig({
-    required String releaseStage,
-    required String preference,
-  }) async {}
-  @override
-  Future<int> countTokens({required String prompt, dynamic imageBytes}) async =>
-      100;
-  @override
-  Future<String?> generateContent({
-    required String prompt,
-    dynamic imageBytes,
-    double temperature = 1.0,
-    int? maxOutputTokens,
-  }) async => 'Mock homily reflection';
-  @override
-  Future<AiResponse?> generateContentRaw({
-    required String prompt,
-    dynamic imageBytes,
-    double temperature = 1.0,
-    int? maxOutputTokens,
-  }) async => AiResponse(text: 'Mock homily reflection', isTruncated: false);
 }
