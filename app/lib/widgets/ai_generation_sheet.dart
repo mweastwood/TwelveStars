@@ -28,9 +28,6 @@ class AiGenerationSheet extends StatefulWidget {
   final String emptyResultMessage;
   final String generationErrorPrefix;
   final Future<String?> Function() onGenerate;
-  final double resultBottomPadding;
-  final Widget Function(BuildContext context, String resultText)?
-  resultFooterBuilder;
 
   const AiGenerationSheet({
     super.key,
@@ -43,8 +40,6 @@ class AiGenerationSheet extends StatefulWidget {
     required this.emptyResultMessage,
     required this.generationErrorPrefix,
     required this.onGenerate,
-    this.resultBottomPadding = 20.0,
-    this.resultFooterBuilder,
   });
 
   @override
@@ -272,12 +267,9 @@ class _AiGenerationSheetState extends State<AiGenerationSheet> {
       content = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (_resultText != null) ...[
+          if (_resultText != null)
             Padding(
-              padding: EdgeInsets.only(
-                top: 8.0,
-                bottom: widget.resultBottomPadding,
-              ),
+              padding: const EdgeInsets.only(top: 8.0, bottom: 20.0),
               child: MarkdownBody(
                 data: _resultText!,
                 styleSheet: MarkdownStyleSheet(
@@ -292,10 +284,8 @@ class _AiGenerationSheetState extends State<AiGenerationSheet> {
                   listBullet: theme.textTheme.bodyMedium,
                 ),
               ),
-            ),
-            if (widget.resultFooterBuilder != null)
-              widget.resultFooterBuilder!(context, _resultText!),
-          ] else
+            )
+          else
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Text(widget.emptyResultMessage),

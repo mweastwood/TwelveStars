@@ -4,7 +4,6 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
-import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/anima_christi_sheet.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
@@ -15,8 +14,6 @@ import 'package:twelve_stars/logic/saint_models.dart';
 import 'package:twelve_stars/logic/saint_database.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
-import 'package:flutter_agent_core/flutter_agent_core.dart';
-import 'package:twelve_stars/logic/ai_service_helper.dart';
 import 'package:twelve_stars/logic/bible_database.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/time_helper.dart';
@@ -413,7 +410,6 @@ void main() {
     PrayerDatabase.mockSettings = null;
     PrayerDatabase.resetCache();
     SaintDatabase.mockSaints = null;
-    LocalAgentHelper.instance = null;
   });
 
   group('Placeholder Tabs Golden Tests', () {
@@ -828,9 +824,8 @@ void main() {
     );
 
     testWidgets(
-      'MissalTab renders Homily section with AI Reflection button and opens sheet when tapped',
+      'MissalTab renders Homily section without AI Reflection button',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         TimeHelper.setCustomTime(DateTime(2024, 11, 24));
         await tester.pumpWidget(
           buildTestableWidget(
@@ -845,22 +840,17 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text('Homily'), findsOneWidget);
-        expect(find.text('AI Reflection'), findsOneWidget);
-
-        await tester.ensureVisible(find.text('AI Reflection'));
-        await tester.tap(find.text('AI Reflection'));
-        await tester.pump();
-        await tester.pump();
-
-        expect(find.byType(HomilyReflectionSheet), findsOneWidget);
-        expect(find.text('Homily Reflection'), findsOneWidget);
+        expect(
+          find.text('Reflective instruction by the priest'),
+          findsOneWidget,
+        );
+        expect(find.text('AI Reflection'), findsNothing);
       },
     );
 
     testGoldens(
-      'MissalTab renders Homily section with AI Reflection button and opens modal sheet',
+      'MissalTab renders Homily section cleanly without AI Reflection button',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         TimeHelper.setCustomTime(DateTime(2024, 11, 24));
         await tester.pumpWidgetBuilder(
           const Scaffold(
@@ -874,23 +864,12 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        await tester.ensureVisible(find.text('AI Reflection'));
+        await tester.ensureVisible(find.byType(MissalHomilySectionCard));
         await tester.pumpAndSettle();
 
         await screenMatchesGolden(
           tester,
           'missal_tab_homily_section_golden',
-          customPump: (tester) async => await tester.pump(),
-        );
-
-        await tester.tap(find.text('AI Reflection'));
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 300));
-        await tester.pump(const Duration(milliseconds: 300));
-
-        await screenMatchesGolden(
-          tester,
-          'missal_tab_homily_reflection_modal_golden',
           customPump: (tester) async => await tester.pump(),
         );
       },
@@ -899,7 +878,6 @@ void main() {
     testGoldens(
       'MissalTab renders Creed section with Apostles Creed active and Nicene Creed peeking',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         TimeHelper.setCustomTime(DateTime(2024, 11, 24));
         await tester.pumpWidgetBuilder(
           const Scaffold(
@@ -1301,7 +1279,6 @@ void main() {
     testGoldens(
       'MissalTab renders Communion Rite section with Anima Christi button and opens modal sheet',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         final fixedDate = DateTime(2026, 7, 4);
         TimeHelper.setCustomTime(fixedDate);
         await tester.pumpWidgetBuilder(
@@ -1901,33 +1878,4 @@ void main() {
       },
     );
   });
-}
-
-class MockMissalAiService implements AiService {
-  @override
-  Future<AiCoreStatus> checkStatus() async => AiCoreStatus.available;
-  @override
-  Future<void> triggerDownload() async {}
-  @override
-  Future<void> setModelConfig({
-    required String releaseStage,
-    required String preference,
-  }) async {}
-  @override
-  Future<int> countTokens({required String prompt, dynamic imageBytes}) async =>
-      100;
-  @override
-  Future<String?> generateContent({
-    required String prompt,
-    dynamic imageBytes,
-    double temperature = 1.0,
-    int? maxOutputTokens,
-  }) async => 'Mock homily reflection';
-  @override
-  Future<AiResponse?> generateContentRaw({
-    required String prompt,
-    dynamic imageBytes,
-    double temperature = 1.0,
-    int? maxOutputTokens,
-  }) async => AiResponse(text: 'Mock homily reflection', isTruncated: false);
 }
