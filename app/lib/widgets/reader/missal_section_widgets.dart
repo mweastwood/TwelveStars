@@ -1,5 +1,4 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:twelve_stars/logic/bible_database.dart' show LectionaryReading;
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
@@ -419,68 +418,14 @@ class MissalSaintFeastCard extends StatelessWidget {
 }
 
 class MissalHomilySectionCard extends StatelessWidget {
-  final LiturgicalDay currentDay;
-  final List<LectionaryReading> readings;
-  final void Function(
-    BuildContext context,
-    LiturgicalDay day,
-    List<LectionaryReading> readings,
-  )
-  onOpenHomilyReflection;
-
-  const MissalHomilySectionCard({
-    super.key,
-    required this.currentDay,
-    required this.readings,
-    required this.onOpenHomilyReflection,
-  });
+  const MissalHomilySectionCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          children: [
-            Icon(Icons.hearing, color: theme.colorScheme.primary, size: 22),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Homily',
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.onSurface,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    'Reflective instruction by the priest',
-                    style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurfaceVariant,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            if (readings.isNotEmpty) ...[
-              const SizedBox(width: 8),
-              FilledButton.tonalIcon(
-                onPressed: () =>
-                    onOpenHomilyReflection(context, currentDay, readings),
-                icon: const Icon(Icons.auto_awesome, size: 16),
-                label: const Text('AI Reflection'),
-              ),
-            ],
-          ],
-        ),
-      ),
+    return const MissalMassPartPlaceholder(
+      title: 'Homily',
+      description: 'Reflective instruction by the priest',
+      icon: Icons.hearing,
     );
   }
 }

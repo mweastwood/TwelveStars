@@ -75,30 +75,22 @@ void main() {
       },
     );
 
-    testWidgets('MissalHomilySectionCard triggers callback on button tap', (
-      WidgetTester tester,
-    ) async {
-      final day = LiturgicalCalendar.computeDay(DateTime(2026, 8, 15));
-      bool openedHomily = false;
+    testWidgets(
+      'MissalHomilySectionCard renders Homily placeholder without AI Reflection button',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          const MaterialApp(home: Scaffold(body: MissalHomilySectionCard())),
+        );
 
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: MissalHomilySectionCard(
-              currentDay: day,
-              readings: const [],
-              onOpenHomilyReflection: (context, currentDay, readings) {
-                openedHomily = true;
-              },
-            ),
-          ),
-        ),
-      );
-
-      expect(find.text('Homily'), findsOneWidget);
-      expect(find.text('Reflective instruction by the priest'), findsOneWidget);
-      expect(openedHomily, isFalse);
-    });
+        expect(find.text('Homily'), findsOneWidget);
+        expect(
+          find.text('Reflective instruction by the priest'),
+          findsOneWidget,
+        );
+        expect(find.byIcon(Icons.hearing), findsOneWidget);
+        expect(find.text('AI Reflection'), findsNothing);
+      },
+    );
 
     testWidgets('MissalMassPartPlaceholder renders optional action widget', (
       WidgetTester tester,

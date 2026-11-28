@@ -12,7 +12,6 @@ import 'package:twelve_stars/logic/bible_database.dart'
 import 'package:twelve_stars/widgets/prayer_card.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
 import 'package:twelve_stars/widgets/missal_calendar_grid.dart';
-import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/reader/missal_ordinary_sections.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
@@ -341,25 +340,6 @@ class _MissalTabState extends State<MissalTab>
     );
   }
 
-  void _openHomilyReflection(
-    BuildContext context,
-    LiturgicalDay day,
-    List<LectionaryReading> readings,
-  ) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => HomilyReflectionSheet(
-        celebrationTitle: day.name ?? day.weekName,
-        readings: readings,
-      ),
-    );
-  }
-
   void _openAnimaChristiModal(BuildContext context, Prayer prayer) {
     AnimaChristiSheet.show(
       context,
@@ -583,11 +563,7 @@ class _MissalTabState extends State<MissalTab>
                                   ),
                                 ),
                                 const SizedBox(height: 4),
-                                MissalHomilySectionCard(
-                                  currentDay: currentDay,
-                                  readings: const [],
-                                  onOpenHomilyReflection: _openHomilyReflection,
-                                ),
+                                const MissalHomilySectionCard(),
                               ],
                             );
                           }
@@ -602,11 +578,7 @@ class _MissalTabState extends State<MissalTab>
                                   ),
                                 ),
                                 const SizedBox(height: 4),
-                                MissalHomilySectionCard(
-                                  currentDay: currentDay,
-                                  readings: const [],
-                                  onOpenHomilyReflection: _openHomilyReflection,
-                                ),
+                                const MissalHomilySectionCard(),
                               ],
                             );
                           }
@@ -647,11 +619,7 @@ class _MissalTabState extends State<MissalTab>
                                   ),
                                 ),
                                 const SizedBox(height: 4),
-                                MissalHomilySectionCard(
-                                  currentDay: currentDay,
-                                  readings: const [],
-                                  onOpenHomilyReflection: _openHomilyReflection,
-                                ),
+                                const MissalHomilySectionCard(),
                               ] else ...[
                                 ...readings.map((r) {
                                   final readingIdentifier =
@@ -680,11 +648,7 @@ class _MissalTabState extends State<MissalTab>
                                   );
                                 }),
                                 const SizedBox(height: 4),
-                                MissalHomilySectionCard(
-                                  currentDay: currentDay,
-                                  readings: readings,
-                                  onOpenHomilyReflection: _openHomilyReflection,
-                                ),
+                                const MissalHomilySectionCard(),
                               ],
                             ],
                           );

@@ -4,7 +4,6 @@ import 'package:golden_toolkit/golden_toolkit.dart' hide materialAppWrapper;
 import 'package:twelve_stars/screens/missal_tab.dart';
 import 'package:twelve_stars/widgets/bible_verse_row.dart';
 import 'package:twelve_stars/widgets/mass_reading_card.dart';
-import 'package:twelve_stars/widgets/homily_reflection_sheet.dart';
 import 'package:twelve_stars/widgets/anima_christi_sheet.dart';
 import 'package:twelve_stars/widgets/missal_creed_carousel.dart';
 import 'package:twelve_stars/widgets/reader/missal_section_widgets.dart';
@@ -828,9 +827,8 @@ void main() {
     );
 
     testWidgets(
-      'MissalTab renders Homily section with AI Reflection button and opens sheet when tapped',
+      'MissalTab renders Homily section without AI Reflection button',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         TimeHelper.setCustomTime(DateTime(2024, 11, 24));
         await tester.pumpWidget(
           buildTestableWidget(
@@ -845,22 +843,17 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(find.text('Homily'), findsOneWidget);
-        expect(find.text('AI Reflection'), findsOneWidget);
-
-        await tester.ensureVisible(find.text('AI Reflection'));
-        await tester.tap(find.text('AI Reflection'));
-        await tester.pump();
-        await tester.pump();
-
-        expect(find.byType(HomilyReflectionSheet), findsOneWidget);
-        expect(find.text('Homily Reflection'), findsOneWidget);
+        expect(
+          find.text('Reflective instruction by the priest'),
+          findsOneWidget,
+        );
+        expect(find.text('AI Reflection'), findsNothing);
       },
     );
 
     testGoldens(
-      'MissalTab renders Homily section with AI Reflection button and opens modal sheet',
+      'MissalTab renders Homily section cleanly without AI Reflection button',
       (tester) async {
-        LocalAgentHelper.instance = MockMissalAiService();
         TimeHelper.setCustomTime(DateTime(2024, 11, 24));
         await tester.pumpWidgetBuilder(
           const Scaffold(
@@ -874,23 +867,12 @@ void main() {
         );
         await tester.pumpAndSettle();
 
-        await tester.ensureVisible(find.text('AI Reflection'));
+        await tester.ensureVisible(find.text('Homily'));
         await tester.pumpAndSettle();
 
         await screenMatchesGolden(
           tester,
           'missal_tab_homily_section_golden',
-          customPump: (tester) async => await tester.pump(),
-        );
-
-        await tester.tap(find.text('AI Reflection'));
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 300));
-        await tester.pump(const Duration(milliseconds: 300));
-
-        await screenMatchesGolden(
-          tester,
-          'missal_tab_homily_reflection_modal_golden',
           customPump: (tester) async => await tester.pump(),
         );
       },
