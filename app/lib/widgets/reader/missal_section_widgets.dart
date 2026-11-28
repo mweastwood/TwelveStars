@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:twelve_stars/logic/liturgical_calendar.dart';
 import 'package:twelve_stars/logic/prayers.dart';
 import 'package:twelve_stars/logic/saint_models.dart';
+import 'package:twelve_stars/widgets/saints/saint_sprite.dart';
 
 class MissalSectionHeader extends StatelessWidget {
   final String title;
@@ -274,20 +275,7 @@ class MissalSaintFeastCard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.primary.withValues(alpha: 0.1),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Icon(
-                      saint.isDoctor ? Icons.star : Icons.person,
-                      color: saint.isDoctor
-                          ? Colors.amber.shade700
-                          : theme.colorScheme.primary,
-                      size: 24,
-                    ),
-                  ),
+                  SaintSpriteAvatar(saint: saint, size: 44, imageSize: 32),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
